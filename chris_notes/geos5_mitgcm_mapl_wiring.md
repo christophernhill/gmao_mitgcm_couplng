@@ -36,6 +36,38 @@ code_split_driver/
                                 It passes fields from intermediate MITgcm 
                                 "MITGCM_ISTATE" data structure back to GEOS5/MAPL
                                 to update export state.
+ driver_init_mod.FOR
+ driver_run_mod.FOR
+ dynvars_h_state_create_destroy_mod.F90
+ dynvars_h_state_mod.F90
+ dynvars_h_state_save_restore_mod.FOR
+ dynvars_h_state_types_mod.F90
+ eeboot.F
+ eeboot_minimal.F
+ export_state_create_destroy_mod.F90
+ export_state_fill_mod.FOR
+ export_state_mod.F90
+ mitgcm_setup/code_split_driver/export_state_types_mod.F90
+ mitgcm_setup/code_split_driver/ffields_h_state_mod.F90
+ mitgcm_setup/code_split_driver/import_state_create_destroy_mod.F90
+ mitgcm_setup/code_split_driver/import_state_fill_mod.FOR
+ mitgcm_setup/code_split_driver/import_state_mod.F90
+ mitgcm_setup/code_split_driver/import_state_types_mod.F90
+ mitgcm_setup/code_split_driver/main.F
+ mitgcm_setup/code_split_driver/mitgcm_driver_mod.F90
+ mitgcm_setup/code_split_driver/mitgcm_state_create_destroy_mod.F90
+ mitgcm_setup/code_split_driver/mitgcm_state_getdp_mod.F90
+ mitgcm_setup/code_split_driver/mitgcm_state_mod.F90
+ mitgcm_setup/code_split_driver/mitgcm_state_save_restore_mod.F90
+ mitgcm_setup/code_split_driver/mitgcm_state_types_mod.F90
+ mitgcm_setup/code_split_driver/stackvars_state_mod.F90
+ mitgcm_setup/code_split_driver/str4c.F90
+ mitgcm_setup/code_split_driver/test.F90
+ mitgcm_setup/code_split_driver/timevars_state_create_destroy_mod.F90
+ mitgcm_setup/code_split_driver/timevars_state_mod.F90
+ mitgcm_setup/code_split_driver/timevars_state_save_restore_mod.FOR
+ mitgcm_setup/code_split_driver/timevars_state_types_mod.F90
+
 
 code_split_driver/
  driver/                      - MITgcm init() and run() bits
