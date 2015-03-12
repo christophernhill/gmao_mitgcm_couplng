@@ -14,7 +14,11 @@ Example plug code for reading an export field is
     subroutine Run ( gc, import, export, clock, rc )
       :
       :
+      :
+    CALL DRIVER_RUN( PrivateState%ptr, 1 )
+      :
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr, 'MASK', MASK )
+      :
       :
       :
 ```
