@@ -36,7 +36,7 @@ code_split_driver/
                                 It passes fields from intermediate MITgcm 
                                 "MITGCM_ISTATE" data structure back to GEOS5/MAPL
                                 to update export state.
- driver_init_mod.FOR
+ driver_init_mod.FOR          
  driver_run_mod.FOR
  dynvars_h_state_create_destroy_mod.F90
  dynvars_h_state_mod.F90
