@@ -23,3 +23,5 @@ Example plug code for reading an export field is
       :
 ```
 
+In the component there is code that handles the ``DRIVER_GET_EXPORT_STATE`` request. This code determines which internal state field to pass back based on the string field character code.
+
