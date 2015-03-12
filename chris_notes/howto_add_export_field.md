@@ -6,4 +6,4 @@
      1. sets the imports for the component
      2. invokes the component
      3. gets the exports from the component
-
+1. To add an export field
