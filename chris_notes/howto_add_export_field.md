@@ -9,5 +9,8 @@
 1. The component is responsible for filling out the export field with valid information before
    control returns to the plug
 
-
+Example plug code for reading an export field is
+```
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr, 'MASK', MASK )
+```
 
