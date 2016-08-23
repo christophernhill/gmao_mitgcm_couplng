@@ -4,7 +4,7 @@
    259  16:00   setenv SSH_AUTH_SOCK /gpfsm/dnb32/tdirs/login/discover17.22204.cnhill1/ssh-d6sasX3B9ljk/agent.23149 ;
    260  16:00   setenv SSH_AGENT_PID 23150 ;
    261  16:00   echo Agent pid 23150 ;
-   262  16:00   ssh-add ~/.ssh/id_rsa
+   262  16:00   ssh-add ~/.ssh/id_rsa # ( or ssh-add ~/.ssh/id_rsa_toeofe )
    265  16:00   git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git
 
 ```
