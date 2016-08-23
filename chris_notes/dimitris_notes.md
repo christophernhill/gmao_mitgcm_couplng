@@ -1,4 +1,15 @@
 ```
+ Using git on discover with tcsh
+   258  16:00   ssh-agent -c
+   259  16:00   setenv SSH_AUTH_SOCK /gpfsm/dnb32/tdirs/login/discover17.22204.cnhill1/ssh-d6sasX3B9ljk/agent.23149 ;
+   260  16:00   setenv SSH_AGENT_PID 23150 ;
+   261  16:00   echo Agent pid 23150 ;
+   262  16:00   ssh-add ~/.ssh/id_rsa
+   265  16:00   git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git
+
+```
+
+```
 The values for mitgcmIState%import%tx below are assigned in 
   GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/code_split_driver/driver_set_import_state.FOR
   
