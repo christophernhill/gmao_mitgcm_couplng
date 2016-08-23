@@ -1,4 +1,9 @@
 ```
+  testing adding build/ in mitgcm_setup and build/Makefile
+  and adding inc/ and code/ in mitgcm_setup
+```
+
+```
  Using git on discover with tcsh
    258  16:00   ssh-agent -c
    259  16:00   setenv SSH_AUTH_SOCK /gpfsm/dnb32/tdirs/login/discover17.22204.cnhill1/ssh-d6sasX3B9ljk/agent.23149 ;
