@@ -63,6 +63,14 @@ C     == Local variables ==
       _RL     myCurrentTime
       INTEGER iLoop
 
+C     == Variables for reading TAUX from import state part of the internal
+C     == state pointer that is passed in as an argument.
+      _RL, pointer                         ::   TAUX(:,:  )
+      _RL, pointer                         ::   TAUY(:,:  )
+      CHARACTER*1024  txFnam
+      INTEGER dUnit
+      INTEGER i0, j0
+
 !     Variables used in getting MPI rank
       INTEGER myRank, mpiRC
 CEOP
@@ -74,6 +82,9 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
       myThid = 1
 
 C     Extract the import fields
+C     MITgcm FFIELDS taux0
+      TAUX => mitgcmIState%import%tx
+      TAUY => mitgcmIState%import%ty
 
 
 C     myThid = 1
@@ -87,6 +98,20 @@ C     CALL MONITOR( myCurrentIter, myCurrentTime, myThid )
       myCurrentTime = sv%myTime
       myCurrentIter = sv%myIter
       iLoop         = sv%iLoop
+      myRank = mpiMyId
+
+C     Write TAUX to a current iter numbered file
+      WRITE(txFnam,'(A12,I6.6,A,I10.10,A5)') 'taux_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=txFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) TAUX
+      CLOSE(dUnit)
+
+C     OPEN()
+C     CLOSE()
+      
 
       DO iStep = 1, nTimeS
        CALL FORWARD_STEP( iLoop, myCurrentTime, 
