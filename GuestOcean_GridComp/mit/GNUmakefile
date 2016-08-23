@@ -23,21 +23,21 @@ endif
 #                  ---------------------
 
 esma_help help:
-        @echo "Standard ESMA targets:"
-        @echo "% make esma_install    (builds and install under ESMADIR)"
-        @echo "% make esma_clean      (removes deliverables: *.[aox], etc)"
-        @echo "% make esma_distclean  (leaves in the same state as cvs co)"
-        @echo "% make esma_doc        (generates PDF, installs under ESMADIR)"
-        @echo "% make esma_help       (this message)"
-        @echo "Environment:"
-        @echo "      ESMADIR = $(ESMADIR)"
-        @echo "      BASEDIR = $(BASEDIR)"
-        @echo "         ARCH = $(ARCH)"
-        @echo "         SITE = $(SITE)"
+	@echo "Standard ESMA targets:"
+	@echo "% make esma_install    (builds and install under ESMADIR)"
+	@echo "% make esma_clean      (removes deliverables: *.[aox], etc)"
+	@echo "% make esma_distclean  (leaves in the same state as cvs co)"
+	@echo "% make esma_doc        (generates PDF, installs under ESMADIR)"
+	@echo "% make esma_help       (this message)"
+	@echo "Environment:"
+	@echo "      ESMADIR = $(ESMADIR)"
+	@echo "      BASEDIR = $(BASEDIR)"
+	@echo "         ARCH = $(ARCH)"
+	@echo "         SITE = $(SITE)"
 
 
 ALLDIRS = mitgcm_setup/build \
-          mitgcm_setup/code_split_driver
+	  mitgcm_setup/code_split_driver
 
 SUBDIRS = $(wildcard $(ALLDIRS))
 
@@ -47,45 +47,45 @@ TARGETS = esma_install esma_clean esma_distclean esma_doc \
 export ESMADIR BASEDIR ARCH SITE
 
 $(TARGETS): 
-        @ t=$@; argv="$(SUBDIRS)" ;\
-          for d in $$argv; do                    \
-            ( cd $$d                            ;\
-              echo ""; echo Making $$t in `pwd`          ;\
-              $(MAKE) -e $$t ) \
-          done
-        $(MAKE) local_$@
+	@ t=$@; argv="$(SUBDIRS)" ;\
+	  for d in $$argv; do			 \
+	    ( cd $$d				;\
+	      echo ""; echo Making $$t in `pwd`          ;\
+	      $(MAKE) -e $$t ) \
+	  done
+	$(MAKE) local_$@
 
 NAME = MIT_GEOS5PlugMod
 THIS = $(NAME)
 LIB  = lib$(THIS).a
 
 local_esma_install local_install: $(LIB)
-        $(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
-        $(CP) -p *.a            $(ESMALIB)
-        $(CP) -p *.mod          $(ESMAINC)/$(THIS)
-#       $(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
+	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
+	$(CP) -p *.a            $(ESMALIB)
+	$(CP) -p *.mod          $(ESMAINC)/$(THIS)
+#	$(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
 
 local_esma_clean local_clean local_esma_distclean local_distclean:
-        -$(RM) *~ *.[aox] *.mod *.x
+	-$(RM) *~ *.[aox] *.mod *.x
 
 local_esma_doc local_doc:
-        @$(PROTEX) $(PROTEX_FLAGS) *GridComp*.[fF]* > $(ESMADOC)/$(THIS).tex
+	@$(PROTEX) $(PROTEX_FLAGS) *GridComp*.[fF]* > $(ESMADOC)/$(THIS).tex
 
 
 
 
 
 #esma_install install: $(LIB)
-#       $(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
-#       $(CP) -p *.a            $(ESMALIB)
-#       $(CP) -p *.mod          $(ESMAINC)/$(THIS)
-##      $(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
+#	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
+#	$(CP) -p *.a            $(ESMALIB)
+#	$(CP) -p *.mod          $(ESMAINC)/$(THIS)
+##	$(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
 #
 #esma_clean clean:
-#       -$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
+#	-$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
 #
 #esma_distclean distclean:
-#       -$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
+#	-$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
 
 
 #                  --------------------
@@ -110,11 +110,11 @@ USER_FMODS += $(M)mitgcm_setup/code_split_driver/useful_code
 FREAL = $(FREAL4) # for now, require 32 bit reals (R4)
 
 $(LIB) lib : $(OBJS)
-        $(AR) $(AR_FLAGS) $(LIB) $(OBJS)
+	$(AR) $(AR_FLAGS) $(LIB) $(OBJS)
 
 
 esma_doc doc:
-        @$(PROTEX) $(PROTEX_FLAGS) *GridComp*.F90 > $(ESMADOC)/$(THIS).tex
+	@$(PROTEX) $(PROTEX_FLAGS) *GridComp*.F90 > $(ESMADOC)/$(THIS).tex
 
 #.
 
