@@ -1,4 +1,41 @@
 ```
+    testing find driver/ utils/ state/ -type f | awk '{print "cp "$1" ."}'
+    in
+    GEOSagcm/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/code_split_driver
+    cp driver/driver_init_mod.FOR .
+cp driver/driver_run_mod.FOR .
+cp driver/mitgcm_driver_mod.F90 .
+cp utils/README.md .
+cp utils/str4c.F90 .
+cp state/README.md .
+cp state/dynvars_h/dynvars_h_state_create_destroy_mod.F90 .
+cp state/dynvars_h/dynvars_h_state_mod.F90 .
+cp state/dynvars_h/dynvars_h_state_save_restore_mod.FOR .
+cp state/dynvars_h/dynvars_h_state_types_mod.F90 .
+cp state/export/export_state_create_destroy_mod.F90 .
+cp state/export/export_state_fill_mod.FOR .
+cp state/export/export_state_mod.F90 .
+cp state/export/export_state_types_mod.F90 .
+cp state/ffields_h/FFIELDS.h .
+cp state/ffields_h/README .
+cp state/ffields_h/ffields_h_state_mod.F90 .
+cp state/import/import_state_create_destroy_mod.F90 .
+cp state/import/import_state_fill_mod.FOR .
+cp state/import/import_state_mod.F90 .
+cp state/import/import_state_types_mod.F90 .
+cp state/mitgcm_state/mitgcm_state_create_destroy_mod.F90 .
+cp state/mitgcm_state/mitgcm_state_getdp_mod.F90 .
+cp state/mitgcm_state/mitgcm_state_mod.F90 .
+cp state/mitgcm_state/mitgcm_state_save_restore_mod.F90 .
+cp state/mitgcm_state/mitgcm_state_types_mod.F90 .
+cp state/stackvars/stackvars_state_mod.F90 .
+cp state/timevars/timevars_state_create_destroy_mod.F90 .
+cp state/timevars/timevars_state_mod.F90 .
+cp state/timevars/timevars_state_save_restore_mod.FOR .
+cp state/timevars/timevars_state_types_mod.F90 .
+
+```
+```
   testing adding build/ in mitgcm_setup and build/Makefile
   and adding inc/ and code/ in mitgcm_setup
 ```
