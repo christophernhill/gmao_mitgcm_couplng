@@ -1,4 +1,23 @@
 ```
+The values for mitgcmIState%import%tx below are assigned in 
+  GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/code_split_driver/driver_set_import_state.FOR
+  
+This is called from
+
+  GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/MIT_GEOS5PlugMod.F90
+  
+For an export the assignments need to go in
+   GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/code_split_driver/driver_get_export_state.FOR
+   
+This is also called from
+
+ GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/MIT_GEOS5PlugMod.F90
+ 
+ 
+The driver_set_import_state.FOR calls occur directly before calling the MITgcm run() step.
+The driver_get_export_state.FOR calls occur directly after calling the MITgcm run() step.  
+
+  
 Aug 23, 2016
 /discover/nobackup/cnhill1/test_006/forChrisHill/
 
