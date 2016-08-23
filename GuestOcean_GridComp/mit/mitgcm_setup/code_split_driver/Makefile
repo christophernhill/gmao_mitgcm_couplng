@@ -23,31 +23,31 @@ endif
 #                  ---------------------
 
 esma_help help:
-        @echo "Standard ESMA targets:"
-        @echo "% make esma_install    (builds and install under ESMADIR)"
-        @echo "% make esma_clean      (removes deliverables: *.[aox], etc)"
-        @echo "% make esma_distclean  (leaves in the same state as cvs co)"
-        @echo "% make esma_doc        (generates PDF, installs under ESMADIR)"
-        @echo "% make esma_help       (this message)"
-        @echo "Environment:"
-        @echo "      ESMADIR = $(ESMADIR)"
-        @echo "      BASEDIR = $(BASEDIR)"
-        @echo "         ARCH = $(ARCH)"
-        @echo "         SITE = $(SITE)"
+	@echo "Standard ESMA targets:"
+	@echo "% make esma_install    (builds and install under ESMADIR)"
+	@echo "% make esma_clean      (removes deliverables: *.[aox], etc)"
+	@echo "% make esma_distclean  (leaves in the same state as cvs co)"
+	@echo "% make esma_doc        (generates PDF, installs under ESMADIR)"
+	@echo "% make esma_help       (this message)"
+	@echo "Environment:"
+	@echo "      ESMADIR = $(ESMADIR)"
+	@echo "      BASEDIR = $(BASEDIR)"
+	@echo "         ARCH = $(ARCH)"
+	@echo "         SITE = $(SITE)"
 
 THIS = mitgcmuv_driver
 LIB  = lib$(THIS).a
 esma_install install: $(LIB)
-        $(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
-        $(CP) -p *.a            $(ESMALIB)
-        $(CP) -p *.mod          $(ESMAINC)/$(THIS)
-#       $(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
+	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
+	$(CP) -p *.a            $(ESMALIB)
+	$(CP) -p *.mod          $(ESMAINC)/$(THIS)
+#	$(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
 
 esma_clean clean:
-        -$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
+	-$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
 
 esma_distclean distclean:
-        -$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
+	-$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
 
 
 #                  --------------------
@@ -144,40 +144,40 @@ LIBS=-L../lib -lmitgcmuv $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) $(MAPL_F90
 .SUFFIXES: .o .c .FOR .F .f .c .F90
 
 a.out: $(OBJS) $(MAIN_OBJS)
-        @ echo Linking \"$?\"
-        mpif90 $(OBJS) $(LIBS)
-        cp a.out ../run_split
+	@ echo Linking \"$?\"
+	mpif90 $(OBJS) $(LIBS)
+	cp a.out ../run_split
 
 lib: libmitgcmuv_driver.a
 
 libmitgcmuv_driver.a: $(OBJS)
-        @ echo Creating \"$@\"
-        ar rcv $@ $(OBJS)
+	@ echo Creating \"$@\"
+	ar rcv $@ $(OBJS)
 
 
 %.o: %.F
-        @ echo Compiling \"$<\"
-        $(FC) $(FC_FLAGS) $(FC_OPT) $(CPP_FLAGS) -c $<
+	@ echo Compiling \"$<\"
+	$(FC) $(FC_FLAGS) $(FC_OPT) $(CPP_FLAGS) -c $<
 
 %.o: %.FOR
-        @ echo Compiling \"$<\"
-        $(F90C) $(FOR_FLAGS) $(F90_OPT) $(CPP_FLAGS) -c $<
+	@ echo Compiling \"$<\"
+	$(F90C) $(FOR_FLAGS) $(F90_OPT) $(CPP_FLAGS) -c $<
 
 %.o: %.F90
-        @ echo Compiling \"$<\"
-        $(F90C) $(F90_FLAGS) $(F90_OPT) $(CPP_FLAGS) -c $<
+	@ echo Compiling \"$<\"
+	$(F90C) $(F90_FLAGS) $(F90_OPT) $(CPP_FLAGS) -c $<
 
 %.o: %.c
-        @ echo Compiling \"$<\"
-        $(CC) $(CC_FLAGS) $(CC_OPT) $(CPP_FLAGS) -c $<
+	@ echo Compiling \"$<\"
+	$(CC) $(CC_FLAGS) $(CC_OPT) $(CPP_FLAGS) -c $<
 
 links:
-        ln -s $(F90_FIXED_SRCS) .
-        ln -s $(F90_FREE_SRCS) .
+	ln -s $(F90_FIXED_SRCS) .
+	ln -s $(F90_FREE_SRCS) .
 
 CLEAN:
-        @rm -f *.o *.mod STD* a.out
-        @find . -type l -exec \rm -f {} \;
+	@rm -f *.o *.mod STD* a.out
+	@find . -type l -exec \rm -f {} \;
 
 # Dependencies due to modules and headers (should be auto generated)
 main.o: mitgcm_driver_mod.o
