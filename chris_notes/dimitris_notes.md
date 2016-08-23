@@ -1,3 +1,64 @@
+```
+Aug 23, 2016
+/discover/nobackup/cnhill1/test_006/forChrisHill/
+
+reading taux from GEOS-5 in
+GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/code_split_driver/driver_run_mod.FOR
+
+      _RL, pointer                         ::   TAUX(:,:  )
+      _RL, pointer                         ::   TAUY(:,:  )
+      CHARACTER*1024  txFnam
+      INTEGER dUnit
+      INTEGER i0, j0
+
+      TAUX => mitgcmIState%import%tx
+      TAUY => mitgcmIState%import%ty
+
+      WRITE(txFnam,'(A12,I6.6,A,I10.10,A5)') 'taux_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=txFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) TAUX
+      CLOSE(dUnit)
+
+### in matlab
+
+chrishill$ cat mkplot.m 
+fpref='taux_import';
+inum=72004;
+
+figure(1)
+clf
+phics=zeros(32,32,6);
+
+for i = 0:5
+fn=sprintf('%s.%6.6d.%10.10d.data',fpref,i,inum);
+fid=fopen(fn,'r','ieee-be');
+i0=fread(fid,1,'int');
+phi=fread(fid,[32 32],'float64');
+i0=fread(fid,1,'int');
+fclose(fid);
+phics(:,:,i+1)=phi;
+end
+phimin=min(phics(:));
+phimax=max(phics(:));
+phistd=std(phics(:));
+phiave=mean(phics(:));
+
+plotphi=phics-cave;
+cmin=-2*phistd;
+cmax=2*phistd;
+subplot(3,4,9 );imagesc(plotphi(:,:,1) );caxis([cmin cmax]);axis equal; axis square; axis tight
+subplot(3,4,10);imagesc(plotphi(:,:,2) );caxis([cmin cmax]);axis equal; axis square; axis tight
+subplot(3,4,6 );imagesc(plotphi(:,:,3) );caxis([cmin cmax]);axis equal; axis square; axis tight
+subplot(3,4,7 );imagesc(plotphi(:,:,4)');caxis([cmin cmax]);axis equal; axis square; axis tight
+subplot(3,4,3 );imagesc(plotphi(:,:,5)');caxis([cmin cmax]);axis equal; axis square; axis tight
+subplot(3,4,4 );imagesc(plotphi(:,:,6)');caxis([cmin cmax]);axis equal; axis square; axis tight
+
+```
+
+
 tel - goddard user services, 301-286-9120 
 
 ```
