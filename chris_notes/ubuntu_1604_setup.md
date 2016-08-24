@@ -24,6 +24,24 @@ apt install make
 apt install bc
 ```
 
+mitgcm
+```
+export CVSROOT=':pserver:cvsanon@mitgcm.org:/u/gcmpack'
+cvs login
+cd projects/
+cd geos-5-coupling/
+cd mitgcm-base/
+mkdir 20073101_version
+cd 20073101_version/
+cvs co -D "01/31/07" MITgcm_code
+cvs co -D "01/31/07" MITgcm/verification/testreport
+cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
+cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
+cd MITgcm/
+cd verification/
+cp ../tools/build_options/linux_amd64_gfortran ..
+./testreport -of ../linux_amd64_gfortran -mpi -t global_ocean.cs32x15
+```
 
 Some possible commands for gfortran-6
 ```
