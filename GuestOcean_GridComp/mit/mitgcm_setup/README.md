@@ -4,7 +4,8 @@ Contains code to interface between standard MITgcm and GEOS-5/MAPL world.
    mix of MITgcm and GEOS-5 pieces. It also contains a custom inc/ directory
    that is a copy of many MITgcm header files, with some comment "C" markers
    changes to "!" instead - to allow for fixed form and free form compile use
-   (we think).
+   (we think). Untar this file in the `code_split_driver/` directory before
+   building executables etc...
 
 * `code/` This is a directory of standard MITgcm code/ customization for a specific
     experiment (global_ocean_c32 in this case).
