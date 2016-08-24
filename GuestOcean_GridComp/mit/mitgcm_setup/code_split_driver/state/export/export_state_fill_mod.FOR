@@ -36,6 +36,7 @@
 !     -- Put flow vectors on a-grid and rotate to geographical coordinate system.
       p => exportPtr
 
+#if 0
 !     o 1 Create dummy flow field from a stream function that varies with latitude only.
       DO bj=1,nSy
        DO bi=1,nSx
@@ -71,6 +72,7 @@
         ENDDO
        ENDDO
       ENDDO
+#endif
 
       k=1
       DO bj=1,nSy
@@ -89,9 +91,9 @@
      &               )
           p%US(iSLo+i,jSLo+j) = tmpU
           p%VS(iSLo+i,jSLo+j) = tmpV
-          iSLo=iSlo+1
+!@#          iSLo=iSlo+1
          ENDDO
-         jSLo=jSlo+1
+!@#         jSLo=jSlo+1
         ENDDO
        ENDDO
       ENDDO
