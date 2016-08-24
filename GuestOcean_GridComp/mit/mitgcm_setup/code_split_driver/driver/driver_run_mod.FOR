@@ -67,7 +67,10 @@ C     == Variables for reading TAUX from import state part of the internal
 C     == state pointer that is passed in as an argument.
       _RL, pointer                         ::   TAUX(:,:  )
       _RL, pointer                         ::   TAUY(:,:  )
-      CHARACTER*1024  txFnam
+      _RL, pointer                         ::   PS(  :,:  )
+      _RL, pointer                         ::   LAT( :,:  )
+      _RL, pointer                         ::   LON( :,:  )
+      CHARACTER*1024  tFnam
       INTEGER dUnit
       INTEGER i0, j0
 
@@ -85,6 +88,9 @@ C     Extract the import fields
 C     MITgcm FFIELDS taux0
       TAUX => mitgcmIState%import%tx
       TAUY => mitgcmIState%import%ty
+      PS   => mitgcmIState%import%ps
+      LAT  => mitgcmIState%import%lat
+      LON  => mitgcmIState%import%lon
 
 
 C     myThid = 1
@@ -101,12 +107,44 @@ C     CALL MONITOR( myCurrentIter, myCurrentTime, myThid )
       myRank = mpiMyId
 
 C     Write TAUX to a current iter numbered file
-      WRITE(txFnam,'(A12,I6.6,A,I10.10,A5)') 'taux_import.',myRank,'.',
+      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'taux_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=txFnam, status='UNKNOWN',
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
      &        form='UNFORMATTED')
       WRITE(dUnit) TAUX
+      CLOSE(dUnit)
+C     Write TAUY to a current iter numbered file
+      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'tauy_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) TAUY
+      CLOSE(dUnit)
+C     Write PS to a current iter numbered file
+      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'ps_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) PS
+      CLOSE(dUnit)
+C     Write LAT to a current iter numbered file
+      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'lat_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) LAT
+      CLOSE(dUnit)
+C     Write LON to a current iter numbered file
+      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'lon_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) LON
       CLOSE(dUnit)
 
 C     OPEN()

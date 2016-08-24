@@ -17,6 +17,8 @@
 !     QFLX   - freshwater flux (from skin layer)
 !     HFLX   - atmos boundary layer heat flux (sensible and latent I think).
 !     SFLX   - salt flux (from skin layer)
+!     LAT    - cell center latitudes for grid that imports have been interpolated to
+!     LON    - cell center longitudes for grid that imports have been interpolated to
       TYPE MITGCM_IMPORT  
        SEQUENCE
        _RL , POINTER :: TX(       :,:  ) => NULL()
@@ -26,6 +28,8 @@
        _RL , POINTER :: QFLX(     :,:  ) => NULL()
        _RL , POINTER :: HFLX(     :,:  ) => NULL()
        _RL , POINTER :: SFLX(     :,:  ) => NULL()
+       _RL , POINTER :: LAT(      :,:  ) => NULL()
+       _RL , POINTER :: LON(      :,:  ) => NULL()
       END TYPE
 
       END MODULE

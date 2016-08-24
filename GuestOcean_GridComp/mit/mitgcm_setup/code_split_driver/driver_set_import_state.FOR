@@ -39,7 +39,7 @@ C     == Routine arguments ==
       REAL_, pointer :: fld(:,:)
 C
       IF ( code .EQ. 'TAUX' ) THEN
-!      Copy fld to US
+!      Copy fld to TX
        DO bj=1,nSy
         DO bi=1,nSx
          jSLo = (bj-1)*sNy
@@ -47,9 +47,63 @@ C
          DO j=1,sNy
           DO i=1,sNx
            mitgcmIState%import%TX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-!@#           iSLo=iSlo+1
           ENDDO
-!@#          jSLo=jSlo+1
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'TAUY' ) THEN
+!      Copy fld to TY
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%TY(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'PS' ) THEN
+!      Copy fld to PS
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%PS(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'LATS' ) THEN
+!      Copy fld to LAT
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%LAT(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'LONS' ) THEN
+!      Copy fld to LON
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%LON(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
          ENDDO
         ENDDO
        ENDDO

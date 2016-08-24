@@ -128,9 +128,11 @@ contains
 !   Imports and exports specification
 !   ---------------------------------
 
-    nimports = 13
+    nimports = 15
     allocate(imports(nimports))
     imports    = (/                                                                                                 &
+    mstate('LATS',  'Agrid_cell_center_latitudes'  ,         'radians',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('LONS',  'Agrid_cell_center_longitudes' ,         'radians',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TAUX',  'Agrid_eastward_stress_on_skin',         'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TAUY',  'Agrid_northward_stress_on_skin',        'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PS',    'Surface Atmospheric Pressure',          'Pa',        MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -516,6 +518,8 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'QFLX',   QFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HFLX',   HFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SFLX',   SFLX )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
 
     call setdir(iarr)
     CALL DRIVER_RUN( PrivateState%ptr, 1 )

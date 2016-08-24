@@ -31,10 +31,13 @@
       p => importPtr
       ALLOCATE ( p%TX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%TY(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%PS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SWHEAT(1:snx*nSx,1:sny*nSy,1:nr)  )
       ALLOCATE ( p%QFLX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%HFLX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SFLX(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%LAT(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%LON(1:snx*nSx,1:sny*nSy)  )
      
       RETURN
       END SUBROUTINE
@@ -50,10 +53,13 @@
        p => importPtr
        _DEALLOC ( p%TX     )
        _DEALLOC ( p%TY     )
+       _DEALLOC ( p%PS     )
        _DEALLOC ( p%SWHEAT )
        _DEALLOC ( p%QFLX   )
        _DEALLOC ( p%HFLX   )
        _DEALLOC ( p%SFLX   )
+       _DEALLOC ( p%LAT    )
+       _DEALLOC ( p%LON    )
        _DEALLOC( importPtr )
       ENDIF
  
