@@ -19,6 +19,9 @@ apt-get install openmpi-'*'
 apt-get install libopenmpi-'*'
 apt install cvs
 apt install vncserver
+apt install xutils-dev
+apt install make
+apt install bc
 ```
 
 
