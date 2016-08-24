@@ -80,7 +80,7 @@ C
         ENDDO
        ENDDO
       ENDIF
-      IF ( code .EQ. 'LAT' ) THEN
+      IF ( code .EQ. 'LATS' ) THEN
 !      Copy fld to LAT
        DO bj=1,nSy
         DO bi=1,nSx
@@ -94,7 +94,7 @@ C
         ENDDO
        ENDDO
       ENDIF
-      IF ( code .EQ. 'LON' ) THEN
+      IF ( code .EQ. 'LONS' ) THEN
 !      Copy fld to LON
        DO bj=1,nSy
         DO bi=1,nSx
