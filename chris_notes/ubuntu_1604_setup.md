@@ -17,6 +17,8 @@ apt install g++
 apt-get install gfortran
 apt-get install openmpi-'*'
 apt-get install libopenmpi-'*'
+apt install cvs
+apt install vncserver
 ```
 
 
