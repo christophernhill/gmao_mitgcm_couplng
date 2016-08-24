@@ -52,6 +52,20 @@ C
         ENDDO
        ENDDO
       ENDIF
+      IF ( code .EQ. 'TAUY' ) THEN
+!      Copy fld to TY
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%TY(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
       IF ( code .EQ. 'PS' ) THEN
 !      Copy fld to PS
        DO bj=1,nSy
