@@ -16,6 +16,7 @@
       SUBROUTINE MITGCM_EXPORT_FILL  ( exportPtr )
 !     -- Fill the exports for an MITgcm instance.
 #include "SIZE.h"
+#include "PARAMS.h"
 #include "GRID.h"
 #include "DYNVARS.h"
 
@@ -74,6 +75,7 @@
       ENDDO
 #endif
 
+!     store surface fields to export
       k=1
       DO bj=1,nSy
        DO bi=1,nSx
@@ -95,6 +97,15 @@
          ENDDO
 !@#         jSLo=jSlo+1
         ENDDO
+
+        DO j=1,sNy
+         DO i=1,sNx
+          p%TS(iSLo+i,jSLo+j) = theta(i,j,k,bi,bj) + celsius2K
+          p%SS(iSLo+i,jSLo+j) =  salt(i,j,k,bi,bj)
+          p%DS(iSLo+i,jSLo+j) = hFacC(i,j,k,bi,bj)*drF(k)
+         ENDDO
+        ENDDO
+
        ENDDO
       ENDDO
 

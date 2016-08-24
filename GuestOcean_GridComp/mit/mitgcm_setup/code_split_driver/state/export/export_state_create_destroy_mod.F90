@@ -33,6 +33,9 @@
       ALLOCATE ( p%VS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%CA(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SA(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%TS(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%SS(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%DS(1:snx*nSx,1:sny*nSy)  )
      
       RETURN
       END SUBROUTINE
@@ -50,6 +53,9 @@
        _DEALLOC ( p%VS     )
        _DEALLOC ( p%CA     )
        _DEALLOC ( p%SA     )
+       _DEALLOC ( p%TS     )
+       _DEALLOC ( p%SS     )
+       _DEALLOC ( p%DS     )
        _DEALLOC( exportPtr )
       ENDIF
  
