@@ -16,3 +16,12 @@ apt install gfortran-5
 apt-get install openmpi-'*'
 apt-get install libopenmpi-'*'
 ```
+
+
+Some possible commands for gfortran-6
+```
+add-apt-repository ppa:ubuntu-toolchain-r/test
+apt-get update
+apt-get install gfortran-6
+```
+
