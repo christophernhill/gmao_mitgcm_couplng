@@ -13,6 +13,7 @@ setup
 ```
 apt install gcc
 apt install gfortran-5
+apt install g++
 apt-get install gfortran
 apt-get install openmpi-'*'
 apt-get install libopenmpi-'*'
