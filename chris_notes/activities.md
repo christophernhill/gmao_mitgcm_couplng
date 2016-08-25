@@ -5,17 +5,18 @@
      ability to get fields back to parent layer with correct layout/values)
   - DM/Matt. Creating foundation for set up that can build and run on basic Linux machine (Gfortran 5.4, Heracles etc...)
   - JMC/CH. Upgrade to recent MITgcm.
-  - JMC/CH/AT. Creating/fusing needed code and experiment repositories for easy checkout/checkin, push/pull, merge.
-  - JMC/CH/AT/DM. Get basic C32 - C48 coupled system running at reasonable technical level, but not
-     overly tuned.
+  - JMC/CH/AT. Creating/fusing needed code and experiment versioning/tracking repositories for easy checkout/checkin, push/pull, merge.
+  - JMC/CH/AT/DM. Get basic C32 - C48 `tutorial`/reference experiment coupled system running at reasonable 
+     technical level (repeatable, regression tests, arbitrary decomp etc...), but not overly tuned.
 
 
 * Over next 3 months
+   - DM/AM/UDI test and improve code and experiment versioning/tracking setup.
    - DM/AM create first generation llc270 <-> C96(?) coupled set up, with decent climate (ice, tropical ocean etc...)
 
 
 * Experiment suggestions
-  - run llc90 (ECCOv4) with MERRA-[12] atmospheric state bc's and optimize (hand, GF, adjoint)
+  - UDI/AM/PH run llc90 (ECCOv4) with MERRA-[12] atmospheric state bc's and optimize (hand, GF, adjoint)
      uncertain ocean boundary layer scheme parameters, initial conditions, parameterization coeffs
      etc.. to keep trajectory close to ECCOv4 solution. 
 
