@@ -20,3 +20,12 @@
   
 * `CPP_EEOPTIONS.h`
   - change comment `C` to `!`
+
+* `CPP_OPTIONS.h`
+  - change comment `C` to `!`
+
+* `DYNVARS.h`
+  - change comment `C` to `!`
+
+* `SIZE.h`
+  - change comment `C` to `!`
