@@ -539,7 +539,7 @@ contains
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'TS',   TS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'SS',   SS )
-    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'DS',   DS )
+!   CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'DS',   DS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr, 'MASK', MASK )
 
 !ALT: next lines are totally fake 
