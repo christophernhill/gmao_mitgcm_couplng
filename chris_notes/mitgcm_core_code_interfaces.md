@@ -14,3 +14,9 @@
 
 * code_split_driver/driver_run_mod.FOR -> forward_step.F
   - `forward_step.F` uses original 2007 sources
+  
+* `CPP_EEMACROS.h`
+  - change comment `C` to `!`
+  
+* `CPP_EEOPTIONS.h`
+  - change comment `C` to `!`
