@@ -11,12 +11,16 @@
 
 
 * Over next 3 months
+   - DM/AM create first generation llc270 <-> C96(?) coupled set up, with decent climate (ice, tropical ocean etc...)
 
 
-* Experiment ideas
+* Experiment suggestions
   - run llc90 (ECCOv4) with MERRA-[12] atmospheric state bc's and optimize (hand, GF, adjoint)
      uncertain ocean boundary layer scheme parameters, initial conditions, parameterization coeffs
      etc.. to keep trajectory close to ECCOv4 solution. 
 
 
 * Year 1
+  - llc270 <-> MERRA-2 state coupled and tuned via adjoint
+  - llc270 <-> C96(?) [including replay] coupled system, using GEOS-5 CICE components for ice thermodynamics and
+      dynamics. 
