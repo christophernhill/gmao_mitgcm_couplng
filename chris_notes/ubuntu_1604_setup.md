@@ -22,6 +22,8 @@ apt install vncserver
 apt install xutils-dev
 apt install make
 apt install bc
+apt install csh
+apt install tcsh
 ```
 
 mitgcm
