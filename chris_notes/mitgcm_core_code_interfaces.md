@@ -1,16 +1,16 @@
 * ../code_split_driver/eeboot.F
-   current `eeboot.F` has small by hand modifications wrt to 2007 sources
+   - current `eeboot.F` has small by hand modifications wrt to 2007 sources
 
 * ../code_split_driver/eeboot.F -> ../code_split_driver/eeboot_minimal.F
-   current `eeboot_minimal.F` has small by hand modifications wrt to 2007 sources
+   - current `eeboot_minimal.F` has small by hand modifications wrt to 2007 sources
 
 * code_split_driver/driver_init_mod.FOR -> ../code_split_driver/eeboot.F
 
 * code_split_driver/driver_init_mod.FOR -> initialise_fixed.F
-    `initialise_fixed.F` uses original 2007 sources
+  - `initialise_fixed.F` uses original 2007 sources
 
 * code_split_driver/driver_init_mod.FOR -> initialise_varia.F
-    `initialise_varia.F` uses original 2007 sources
+  - `initialise_varia.F` uses original 2007 sources
 
 * code_split_driver/driver_run_mod.FOR -> forward_step.F
-    `forward_step.F` uses original 2007 sources
+  - `forward_step.F` uses original 2007 sources
