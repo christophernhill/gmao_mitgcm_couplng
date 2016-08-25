@@ -11,7 +11,7 @@
 
 
 * Over next 3 months
-   - DM/AM/UDI test and improve code and experiment versioning/tracking setup.
+   - DM/AM/UDI test and help improve code and experiment versioning/tracking setup.
    - DM/AM create first generation llc270 <-> C96(?) coupled set up, with decent climate (ice, tropical ocean etc...)
 
 
