@@ -7,7 +7,7 @@
   - JMC/CH. Upgrade to recent MITgcm.
   - JMC/CH/AT. Creating/fusing needed code and experiment versioning/tracking repositories for easy checkout/checkin, push/pull, merge.
   - JMC/CH/AT/DM. Get basic C32 - C48 `tutorial`/reference experiment coupled system running at reasonable 
-     technical level (repeatable, regression tests, arbitrary decomp etc...), but not overly tuned.
+     technical level (repeatable, regression tests, various decomp etc...), but not overly tuned.
 
 
 * Over next 3 months
