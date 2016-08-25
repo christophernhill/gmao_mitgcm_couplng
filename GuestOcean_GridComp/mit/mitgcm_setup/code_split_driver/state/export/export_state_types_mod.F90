@@ -21,7 +21,7 @@
        _RL , POINTER :: SA(   :,:) => NULL()
        _RL , POINTER :: CA(   :,:) => NULL()
        _RL , POINTER :: TS(   :,:) => NULL()
-       _RL , POINTER :: CA(   :,:) => NULL()
+       _RL , POINTER :: SS(   :,:) => NULL()
        _RL , POINTER :: DS(   :,:) => NULL()
       END TYPE
 
