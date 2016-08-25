@@ -59,6 +59,10 @@ cvs co MITgcm/verification/global_ocean.cs32x15
 cd MITgcm/verification/
 cp ../tools/build_options/linux_amd64_gfortran ..
 ./testreport -of ../linux_amd64_gfortran -t global_ocean.cs32x15
+
+# with MPI
+export MPI_INC_DIR=/usr/lib/openmpi/include
+./testreport -of ../linux_amd64_gfortran -mpi -t global_ocean.cs32x15 
 ```
 
 Some possible commands for gfortran-6
