@@ -15,18 +15,56 @@ C     structures takes place here.
 
       CONTAINS
 CBOP
-C     !ROUTINE: DRIVER_SET_IMPORT_STATE
+C     !ROUTINE: DRIVER_GET_EXPORT_STATE
 C     !INTERFACE:
       SUBROUTINE DRIVER_GET_EXPORT_STATE_2D( mitgcmIState, code, fld)
 C     !USES:
       USE MITGCM_STATE_MOD , ONLY :
      &    MITGCM_ISTATE
+      IMPLICIT NONE
+#include "SIZE.h"
+
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       CHARACTER*(*) code
       REAL_, pointer :: fld(:,:)
+
+C     == Local variables ==
+      INTEGER i, j, bi, bj, iSLo, jSLo
+
+      IF ( code .EQ. 'TS' ) THEN
+!      Copy TS to fld
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+          fld(iSLo+i,jSLo+j) = mitgcmIState%export%TS(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+
+      ELSEIF ( code .EQ. 'DS' ) THEN
+!      Copy DS to fld
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+          fld(iSLo+i,jSLo+j) = mitgcmIState%export%DS(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+
+      ENDIF
+
       RETURN
       END SUBROUTINE
+
       SUBROUTINE DRIVER_GET_EXPORT_STATE_3D( mitgcmIState, code, fld)
       USE MITGCM_STATE_MOD , ONLY :
      &    MITGCM_ISTATE
@@ -34,6 +72,10 @@ C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       CHARACTER*(*) code
       REAL_, pointer :: fld(:,:,:)
+
+      print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
+     &      //'. This code is stubbed!'
+
       RETURN
       END SUBROUTINE
 
