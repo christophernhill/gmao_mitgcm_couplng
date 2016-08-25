@@ -22,6 +22,6 @@
 
 
 * Year 1
-  - llc270 <-> MERRA-2 state coupled and tuned via adjoint
+  - llc270 <-> MERRA-2 state coupled and somewhat tuned (via hand, GF, adjoint combinations as appropriate).
   - llc270 <-> C96(?) [including replay] coupled system, using GEOS-5 CICE components for ice thermodynamics and
       dynamics. 
