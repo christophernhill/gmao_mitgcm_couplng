@@ -16,6 +16,7 @@
       SUBROUTINE MITGCM_EXPORT_FILL  ( exportPtr )
 !     -- Fill the exports for an MITgcm instance.
 #include "SIZE.h"
+#include "EEPARAMS.h"
 #include "PARAMS.h"
 #include "GRID.h"
 #include "DYNVARS.h"
