@@ -162,7 +162,7 @@ contains
 
 !   -------------------------
 
-    nexports  = 12
+    nexports  = 14
     allocate(exports(nexports))
     exports    = (/ &
     mstate('US',    'top_layer_Agrid_eastward_velocity',     'm s-1',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -173,6 +173,8 @@ contains
     mstate('MIT_3D_MASK',  'ocean mask at t-points',         '1',         MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('DH',    'layer_thickness',                       'm',         MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('SLV',   'sea_level_with_ice_loading',            'm',         MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('USB',   'surface_Bgrid_X_velocity',            'm s-1 ',      MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('VSB',   'surface_Bgrid_Y_velocity',            'm s-1 ',      MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('SSH',   'sea_level_height',                    'm',           MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('T',   'potential_temperature',                 'm',           MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
     mstate('S',   'salinity',                              'psu',         MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
