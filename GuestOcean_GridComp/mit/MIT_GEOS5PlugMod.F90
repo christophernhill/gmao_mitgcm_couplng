@@ -544,7 +544,9 @@ contains
 
 !ALT: next lines are totally fake 
 !     There somewhat realistic to avoid GEOS-5 hick-ups until we have coupling!
-    TS = 285.
+
+!     the real TS looks good and we do not need "fake" one
+!    TS = 285.
     US = 0.01
     VS = 0.01
     SS = 30.
