@@ -56,7 +56,7 @@ esma_distclean distclean:
 
 # ESMF bits
 #ESMF_ROOT=/home/cnh/src/esmf_builds/ESMF_2_2_2r/esmf
-ESMF_F90COMPILEOPTS=-threads
+ESMF_F90COMPILEOPTS=#-threads
 ESMF_F90COMPILEPATHS=-I$(BASEDIR)/Linux/include/esmf
 ESMF_F90LINKLIBS=-lcprts -limf -lm -lcxa -lunwind -lrt -ldl
 ESMF_F90ESMFLINKLIBS=-lesmf   -lmpich -lpmpich++ -lcprts -limf -lm -lcxa -lunwind -lrt -ldl
@@ -124,8 +124,8 @@ MAIN_OBJS=$(F_MAIN:.F=.o)
 CPP_FLAGS=-DALLOW_USE_MPI -DALWAYS_USE_MPI
 FC=mpif90
 #FC_FLAGS=-I../inc -fixed -132 -r8 -i4 -w95 -W0 -WB -convert big_endian -assume byterecl -fpconstant $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILEPATHS) $(MAPL_F90COMPILEPATHS)
-FC_FLAGS=-I../inc -fixed -132 -r8 -i4 -W0 -WB -convert big_endian -assume byterecl -fpconstant $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILEPATHS) $(MAPL_F90COMPILEPATHS)
-FC_OPT=-O3 -align
+FC_FLAGS=-I../inc $(FIXED_SOURCE) $(EXTENDED_SOURCE) $(FREAL8) $(BIG_ENDIAN) $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILEPATHS) $(MAPL_F90COMPILEPATHS) #-W0 -WB -assume byterecl -fpconstant 
+FC_OPT=-O3 $(ALIGNCOM)
 CC=mpicc
 CC_FLAGS=-I../inc
 #$%CC_OPT=
@@ -133,9 +133,9 @@ CC_OPT=-g
 F90C=$(FC)
 FOR_FLAGS=$(FC_FLAGS)
 #F90_FLAGS=-I../inc -r8 -i4 -w95 -W0 -WB -convert big_endian -assume byterecl -fpconstant  $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILERATHS) $(MAPL_F90COMPILEPATHS)
-F90_FLAGS=-I../inc -r8 -i4  -W0 -WB -convert big_endian -assume byterecl -fpconstant  $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILERATHS) $(MAPL_F90COMPILEPATHS)
+F90_FLAGS=-I../inc $(FREAL8) $(BIG_ENDIAN) $(F90FLAGS) $(ESMF_F90COMPILEOPTS) $(ESMF_F90COMPILERATHS) $(MAPL_F90COMPILEPATHS) #-W0 -WB -assume byterecl -fpconstant 
 #$%F90_OPT=$(FC_OPT)
-F90_OPT=$(FC_OPT) -g -check -ftrapuv
+F90_OPT=$(FC_OPT) -g #-check -ftrapuv
 LIBS=-L../lib -lmitgcmuv $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) $(MAPL_F90LINKPATHS)
 
 
