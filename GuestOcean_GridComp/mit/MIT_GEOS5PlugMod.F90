@@ -162,7 +162,7 @@ contains
 
 !   -------------------------
 
-    nexports  = 14
+    nexports  = 15
     allocate(exports(nexports))
     exports    = (/ &
     mstate('US',    'top_layer_Agrid_eastward_velocity',     'm s-1',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -178,7 +178,8 @@ contains
     mstate('SSH',   'sea_level_height',                    'm',           MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('T',   'potential_temperature',                 'm',           MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
     mstate('S',   'salinity',                              'psu',         MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
-    mstate('DISCHARGE','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
+    mstate('DISCHARGE','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('PBO','pressure_at_sea_floor',  'dbar',  MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
      /)
 
     DO I=1,nexports
@@ -288,7 +289,7 @@ contains
     REAL_, pointer                         :: SS  (:,:)
     REAL_, pointer                         :: DS  (:,:)
     REAL_, pointer                         :: pMASK(:,:,:)
-    REAL_, pointer                         :: mMASK(:,:,:)
+    REAL_, pointer                         :: mMASK(:,:,:) => NULL()
     REAL_, pointer                         :: pMASK2d(:,:)
     REAL_, pointer                         :: mMASK2d(:,:)
     REAL_, pointer                         :: DH(:,:,:)
