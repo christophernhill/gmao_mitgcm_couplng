@@ -1,5 +1,5 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled with MITgcm
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/Heracles-5_4onDiscover.txt
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/dimitris_notes/Heracles-5_4onDiscover.txt
 
 # Set varialbe WorkingDir to a location where you have write permission
 tcsh
