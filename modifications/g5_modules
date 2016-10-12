@@ -241,10 +241,14 @@ else if ( $site == GMAO.desktop ) then
    set loadmodules = 0
    set usemodules = 1
 
-else
 
-    set basedir = ~/geos5/GMAO-Baselibs-4_0_7/x86_64-unknown-linux-gnu/gfortran
-    setenv ESMADIR ~/geos5/GEOSodas
+#=====================#
+#  lubuntu VirtualBox #
+#=====================#   
+else if ( $site == heracles ) then
+
+    set basedir = $WorkingDir/GMAO-Baselibs-4_0_7/x86_64-unknown-linux-gnu/gfortran
+    setenv ESMADIR $WorkingDir/GEOSodas
     setenv ESMA_FC gfortran
     setenv ESMA_NOCVS
     setenv OPENMPI /usr

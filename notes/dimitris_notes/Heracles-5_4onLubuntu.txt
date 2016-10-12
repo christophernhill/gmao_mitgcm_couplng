@@ -1,5 +1,5 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled with MITgcm
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/dimitris_notes/Heracles-5_4onLubuntu.txt
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onLubuntu.txt
 
 # Set up a Lubuntu 16.04 virtual machine under VirtualBox
 # Get VirtualBox from here: https://www.virtualbox.org/wiki/Downloads
@@ -63,15 +63,16 @@ sudo ln -s /usr/bin/make /usr/bin/gmake
 sudo apt install git
 sudo apt-get install emacs24
 
-# Get files needed for building/running GEOS-5 and coupled code
-# They are available on
+# Set varialbe WorkingDir
+tcsh
+setenv WorkingDir=~/geos5
+
+# Get or build GEOS-5 baselibs and copy or link to $WorkingDir
+# GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
-# Instructions below assume that tarballs_100816 has been copied to ~/geos5
-
-# Build GEOS-5 baselibs
-cd ~/geos5
-tar xf tarballs_100816/GMAO-Baselibs-4_0_7.withNewCDO.tgz
+cd $WorkingDir
+tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
 cd GMAO-Baselibs-4_0_7/src
 make -j 4 install ESMF_COMM=openmpi |& tee makeinstall.log
 
@@ -96,30 +97,27 @@ cd MITgcm/verification
 #   ConnectTimeout 30
 cd ~/geos5
 git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
+cd GEOSodas
 git checkout -b b_geos5mit remotes/origin/b_geos5mit
 
 # Get MITgcm ESMF/Maple plug
-cd GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
-ln -sf gmao_mitgcm_couplng mit
-ln -sf ~/geos5/MITgcm/eesupp .
-ln -sf ~/geos5/MITgcm/model .
-ln -sf ~/geos5/MITgcm/pkg .
-ln -sf ~/geos5/MITgcm/tools .
 
 # Changes that need to be commited to b_geos5mit
-cp modifications/GEOSodas_gitignore ~/geos5/GEOSodas/.gitignore
-cp modifications/g5_modules ~/geos5/GEOSodas/scr
-cp modifications/ESMA_arch.mk ~/geos5/GEOSodas/scr/Config
-
-
-
+cd gmao_mitgcm_couplng/modifications
+cp GEOSodas_gitignore ~/geos5/GEOSodas/.gitignore
+cp g5_modules ~/geos5/GEOSodas/src
+cp ESMA_arch.mk ~/geos5/GEOSodas/src/Config
 
 # Build coupled GEOS-5 + MITgcm
 tcsh
 cd ~/geos5/GEOSodas/src
 source g5_modules
-cd $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/mit/mitgcm_setup/build
+setenv ESMADIR ~/geos5/GEOSodas
+setenv MITGCM_ROOT ~/geos5/MITgcm
+cd $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+
 ln -sf /usr/lib/openmpi/include/mpif.h .
 cd $ESMADIR/src
 gmake install -j 4 |& tee makeinstall1.log    # ~16 minutes
