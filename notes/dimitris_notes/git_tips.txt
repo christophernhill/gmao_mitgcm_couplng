@@ -1,0 +1,6 @@
+# to check if you need to pull changes from somebody else:
+git remote update
+git status
+
+# to retype login-password only once per day:
+git config credential.helper 'cache --timeout 86400'
