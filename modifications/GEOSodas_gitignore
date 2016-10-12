@@ -1,0 +1,51 @@
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+
+### Fortran ###
+
+# Object Files
+*.o
+
+# Module Files
+*.mod
+
+# Shared Objects
+*.so
+
+# Libraries
+*.a
+
+# Generated Files
+*.d
+*___.h
+*___.rc
+*___.F90
+*___.f90
+*.pyc
+
+# Executables
+*.x
+*.xx
+/src/GMAO_Shared/GMAO_etc/argopt
+/src/GMAO_Shared/GMAO_etc/rst_date
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSagcm_GridComp/GEOSphysics_GridComp/GEOSsurface_GridComp/GEOSland_GridComp/GEOScatch_GridComp/mk_restarts/Scale_Catch
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSagcm_GridComp/GEOSphysics_GridComp/GEOSsurface_GridComp/GEOSland_GridComp/GEOScatch_GridComp/mk_restarts/mk_CatchRestarts
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSagcm_GridComp/GEOSphysics_GridComp/GEOSsurface_GridComp/GEOSland_GridComp/GEOScatch_GridComp/mk_restarts/mk_LakeLandiceSaltRestarts
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSagcm_GridComp/GEOSphysics_GridComp/GEOSsurface_GridComp/GEOSland_GridComp/GEOScatch_GridComp/mk_restarts/newcatch
+/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSagcm_GridComp/GEOSphysics_GridComp/GEOSsurface_GridComp/GEOSland_GridComp/GEOScatch_GridComp/mk_restarts/strip_vegdyn
+
+# Logfiles
+*.log
+parallel_build.o*
+
+# Generated Directories
+/Config
+/Linux/
+/Darwin/
+/src/GMAO_Shared/GMAO_gfio/r4/
+/src/GMAO_Shared/GMAO_gfio/r8/
+/src/BUILD_LOG_DIR/
+
+# Files created by other utilities
+*~
+.#*
+
