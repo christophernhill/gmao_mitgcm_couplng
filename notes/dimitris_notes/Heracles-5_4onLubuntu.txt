@@ -49,7 +49,8 @@ sudo apt-get install bison
 sudo apt-get install flex
 sudo apt-get install libexpat1-dev
 
-# Extra packages needed to compile and run GEOS-5
+# Extra packages needed to get and run GEOS-5
+sudo apt install git
 sudo apt install ksh
 sudo apt install tcsh
 sudo apt install colordiff
@@ -59,11 +60,10 @@ sudo apt-get install python-dev
 sudo apt-get install python-numpy
 sudo ln -s /usr/bin/make /usr/bin/gmake
 
-# Useful extra packages
-sudo apt install git
+# Useful extra package
 sudo apt-get install emacs24
 
-# Use tcsh and set varialbe WorkingDir
+# Start tcsh and set $WorkingDir
 tcsh
 setenv WorkingDir ~/geos5
 
@@ -110,10 +110,16 @@ cp GEOSodas_gitignore $WorkingDir/GEOSodas/.gitignore
 cp g5_modules $WorkingDir/GEOSodas/src
 cp ESMA_arch.mk $WorkingDir/GEOSodas/src/Config
 
+# GEOS-5 and MITgcm environment variables
+cd $WorkingDir/GEOSodas/src
+source g5_modules
+cd $GMAO_MITGCM_COUPLNG
+./set_mitgcm_env.sh 
+
 # Atanas' changes to MITgcm
+cd modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
 cp Makefile ../mitgcm_setup/build
-
 cd ../mitgcm_setup/build
 ln -sf /usr/lib/openmpi/include/mpif.h .
 cd ../code
@@ -131,20 +137,12 @@ ln -sf state/timevars/* .
 ln -sf utils/*.F90 .
 
 # Build coupled GEOS-5 + MITgcm
-cd $WorkingDir/GEOSodas/src
-source g5_modules
-cd GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
-./set_mitgcm_env.sh 
-
-
-
-
 cd $ESMADIR/src
 gmake install -j 4 |& tee makeinstall1.log    # ~16 minutes
 gmake install |& tee makeinstall2.log         # ~25 seconds
 
 # Set up coupled code
-cd ~/geos5/GEOSodas/src/Applications/GEOSgcm_App
+cd $ESMADIR/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -164,12 +162,15 @@ cd ~/geos5/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: heracles
 
 # Get input files for coupled code
-cd ~/geos5
-tar -xf tarballs_100816/geos5-tiny.tgz
+# geos5-tiny.tgz and mitocean_run.tgz are available in:
+#   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+#   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+cd $WorkingDir
+tar -xf geos5-tiny.tgz
 cd TEST
-../tarballs_100816/makeoneday.bash TINY
-cp ../tarballs_100816/HISTORY.rc .
-ln -sf ../tarballs_100816/mitocean_run.tgz .
+$GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
+ln -sf $WorkingDir/mitocean_run.tgz .
 
 # Run coupled code
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'

@@ -1,3 +1,6 @@
+*.a
+*.o
+*.mod
 mitgcm_setup/inc/#SIZE.h#
 mitgcm_setup/inc/AD_CONFIG.h
 mitgcm_setup/inc/BAR2.h
