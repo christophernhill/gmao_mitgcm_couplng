@@ -63,11 +63,11 @@ sudo ln -s /usr/bin/make /usr/bin/gmake
 sudo apt install git
 sudo apt-get install emacs24
 
-# Set varialbe WorkingDir
+# Use tcsh and set varialbe WorkingDir
 tcsh
-setenv WorkingDir=~/geos5
+setenv WorkingDir ~/geos5
 
-# Get or build GEOS-5 baselibs and copy or link to $WorkingDir
+# Link or build GEOS-5 baselibs in $WorkingDir
 # GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
@@ -77,7 +77,7 @@ cd GMAO-Baselibs-4_0_7/src
 make -j 4 install ESMF_COMM=openmpi |& tee makeinstall.log
 
 # Get MITgcm
-export CVSROOT=':pserver:cvsanon@mitgcm.org:/u/gcmpack'
+setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login # enter the CVS password: "cvsanon"
 cvs co -D "01/31/07" MITgcm_code
 cvs co -D "01/31/07" MITgcm/verification/testreport
@@ -95,7 +95,7 @@ cd MITgcm/verification
 #   ProxyCommand ssh -l YOUR-USER_ID login.nccs.nasa.gov direct %h.nccs.nasa.gov
 #   Protocol 2
 #   ConnectTimeout 30
-cd ~/geos5
+cd $WorkingDir
 git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
 cd GEOSodas
 git checkout -b b_geos5mit remotes/origin/b_geos5mit
@@ -106,19 +106,39 @@ git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
 # Changes that need to be commited to b_geos5mit
 cd gmao_mitgcm_couplng/modifications
-cp GEOSodas_gitignore ~/geos5/GEOSodas/.gitignore
-cp g5_modules ~/geos5/GEOSodas/src
-cp ESMA_arch.mk ~/geos5/GEOSodas/src/Config
+cp GEOSodas_gitignore $WorkingDir/GEOSodas/.gitignore
+cp g5_modules $WorkingDir/GEOSodas/src
+cp ESMA_arch.mk $WorkingDir/GEOSodas/src/Config
+
+# Atanas' changes to MITgcm
+cp timers.F $WorkingDir/MITgcm/eesupp/src
+cp Makefile ../mitgcm_setup/build
+
+cd ../mitgcm_setup/build
+ln -sf /usr/lib/openmpi/include/mpif.h .
+cd ../code
+rm *.F
+cd ../code_split_driver
+ln -sf driver/*.F* .
+ln -sf state/dynvars_h/* .
+ln -sf state/export/* .
+ln -sf state/ffields_h/*.F90 .
+ln -sf state/ffields_h/*.h .
+ln -sf state/import/* .
+ln -sf state/mitgcm_state/* .
+ln -sf state/stackvars/* .
+ln -sf state/timevars/* .
+ln -sf utils/*.F90 .
 
 # Build coupled GEOS-5 + MITgcm
-tcsh
-cd ~/geos5/GEOSodas/src
+cd $WorkingDir/GEOSodas/src
 source g5_modules
-setenv ESMADIR ~/geos5/GEOSodas
-setenv MITGCM_ROOT ~/geos5/MITgcm
-cd $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+cd GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+./set_mitgcm_env.sh 
 
-ln -sf /usr/lib/openmpi/include/mpif.h .
+
+
+
 cd $ESMADIR/src
 gmake install -j 4 |& tee makeinstall1.log    # ~16 minutes
 gmake install |& tee makeinstall2.log         # ~25 seconds

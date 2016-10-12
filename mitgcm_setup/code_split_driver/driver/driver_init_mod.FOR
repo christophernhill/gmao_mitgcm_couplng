@@ -70,8 +70,8 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
 C     Extract the import public and private fields, filling internal
 C     state as appropriate.
 
-!     CALL INITIALISE_FIXED(    myThid )
-!     CALL INITIALISE_VARIA(    myThid )
+      CALL INITIALISE_FIXED(    myThid )
+      CALL INITIALISE_VARIA(    myThid )
       myCurrentTime = startTime
       myCurrentIter = nIter0
       iLoop  = 1

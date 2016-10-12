@@ -249,6 +249,7 @@ else if ( $site == heracles ) then
 
     set basedir = $WorkingDir/GMAO-Baselibs-4_0_7/x86_64-unknown-linux-gnu/gfortran
     setenv ESMADIR $WorkingDir/GEOSodas
+    setenv MITGCM_ROOT $WorkingDir/MITgcm
     setenv ESMA_FC gfortran
     setenv ESMA_NOCVS
     setenv OPENMPI /usr

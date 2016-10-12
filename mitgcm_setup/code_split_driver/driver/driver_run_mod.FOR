@@ -152,8 +152,8 @@ C     CLOSE()
       
 
       DO iStep = 1, nTimeS
-!      CALL FORWARD_STEP( iLoop, myCurrentTime, 
-!    &                    myCurrentIter, myThid )
+       CALL FORWARD_STEP( iLoop, myCurrentTime, 
+     &                    myCurrentIter, myThid )
        iLoop = iLoop+1
       ENDDO
 
