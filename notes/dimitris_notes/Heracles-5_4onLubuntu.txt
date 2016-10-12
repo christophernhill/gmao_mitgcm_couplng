@@ -99,13 +99,16 @@ git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
 git checkout -b b_geos5mit remotes/origin/b_geos5mit
 
 # Get MITgcm ESMF/Maple plug
-cd GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+cd GEOSodas
+# add following line to .gitignore
+# /src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 ln -sf gmao_mitgcm_couplng mit
-ln -sf ~geos5/MITgcm/eesupp .
-ln -sf ~geos5/MITgcm/model .
-ln -sf ~geos5/MITgcm/pkg .
-ln -sf ~geos5/MITgcm/tools .
+ln -sf ~/geos5/MITgcm/eesupp .
+ln -sf ~/geos5/MITgcm/model .
+ln -sf ~/geos5/MITgcm/pkg .
+ln -sf ~/geos5/MITgcm/tools .
 
 # Build coupled GEOS-5 + MITgcm
 tcsh
