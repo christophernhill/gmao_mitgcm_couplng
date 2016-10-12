@@ -104,12 +104,6 @@ git checkout -b b_geos5mit remotes/origin/b_geos5mit
 cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
-# Changes that need to be commited to b_geos5mit
-cd gmao_mitgcm_couplng/modifications
-cp GEOSodas_gitignore $WorkingDir/GEOSodas/.gitignore
-cp g5_modules $WorkingDir/GEOSodas/src
-cp ESMA_arch.mk $WorkingDir/GEOSodas/src/Config
-
 # GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
