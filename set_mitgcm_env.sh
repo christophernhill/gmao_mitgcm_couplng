@@ -24,17 +24,3 @@ cd mitgcm_setup
 tar -xf mitgcm_special_bits.tar
 echo "Unpacked mitgcm_special_bits.tar"
 )
-
-# copy custom g5_modules into place
-# *** this is for VM work ***                       
-# *** if GMAO/Atanas change g5_modules elsewhere this will break! ***
-# ***
-# *** I think this should be commited in Atanas' b_geos5mit branch,
-# *** so I removed from script and added to (temporary) instructions in
-# *** gmao_mitgcm_couplng/notes/dimitris_notes/Heracles-5_4onLubuntu.txt
-# ***
-#(
-#if [ -d ../../../../../../../src/ ]; then
-# cp modifications/g5_modules ../../../../../../../src/
-#fi
-#)

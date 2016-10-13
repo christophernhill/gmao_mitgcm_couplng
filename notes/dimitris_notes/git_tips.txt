@@ -4,3 +4,6 @@ git status
 
 # to retype login-password only once per day:
 git config credential.helper 'cache --timeout 86400'
+
+# a convenient git revision tree visualizer:
+sudo apt-get install gitk
