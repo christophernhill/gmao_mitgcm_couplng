@@ -2,9 +2,9 @@
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onLubuntu.txt
 
 # Set up a Lubuntu 16.04 virtual machine under VirtualBox
-# Get VirtualBox from here: https://www.virtualbox.org/wiki/Downloads
-# Get lubuntu-16.04.1-desktop-amd64.iso from here: https://help.ubuntu.com/community/Lubuntu/GetLubuntu
-# Start VirtualBox and set-up virtual machine:
+# - get VirtualBox from https://www.virtualbox.org/wiki/Downloads
+# - get lubuntu-16.04.1-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+# - start VirtualBox and set-up virtual machine
 #   New
 #     Name: lubuntu-16.04
 #     Type: Linux
@@ -60,15 +60,12 @@ sudo apt-get install python-dev
 sudo apt-get install python-numpy
 sudo ln -s /usr/bin/make /usr/bin/gmake
 
-# Useful extra package
-sudo apt-get install emacs24
-
 # Start tcsh and set $WorkingDir
 tcsh
 setenv WorkingDir ~/geos5
 
 # Link or build GEOS-5 baselibs in $WorkingDir
-# GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
+#   GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
 cd $WorkingDir
@@ -77,6 +74,7 @@ cd GMAO-Baselibs-4_0_7/src
 make -j 4 install ESMF_COMM=openmpi |& tee makeinstall.log
 
 # Get MITgcm
+cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login # enter the CVS password: "cvsanon"
 cvs co -D "01/31/07" MITgcm_code
@@ -87,8 +85,7 @@ cd MITgcm/verification
 ./testreport -j 4 -t global_ocean.cs32x15
 
 # Get GEOS-5
-# Add this to $HOME/.ssh/config
-# replacing YOUR-USER-ID with your user id on discover
+# - add this to $HOME/.ssh/config (replace YOUR-USER-ID with discover user id)
 #   host discover dirac dali
 #   User YOUR-USER-ID
 #   LogLevel Quiet
@@ -100,25 +97,28 @@ git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
 cd GEOSodas
 git checkout -b b_geos5mit remotes/origin/b_geos5mit
 
-# Get MITgcm ESMF/Maple plug
-cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+# Get GEOS-5 to MITgcm coupling code
+cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
+cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
-# GEOS-5 and MITgcm environment variables
+# Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh 
 
 # Atanas' changes to MITgcm
-cd modifications
+cd $GMAO_MITGCM_COUPLNG/modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
 cp Makefile ../mitgcm_setup/build
 cd ../mitgcm_setup/build
 ln -sf /usr/lib/openmpi/include/mpif.h .
 cd ../code
 rm *.F
-cd ../code_split_driver
+
+# Link code from subdirectories to code_split_driver
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/code_split_driver
 ln -sf driver/*.F* .
 ln -sf state/dynvars_h/* .
 ln -sf state/export/* .
@@ -156,7 +156,7 @@ cd $ESMADIR/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: heracles
 
 # Get input files for coupled code
-# geos5-tiny.tgz and mitocean_run.tgz are available in:
+#   geos5-tiny.tgz and mitocean_run.tgz are available in:
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
 cd $WorkingDir
