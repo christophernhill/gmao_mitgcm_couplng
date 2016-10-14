@@ -15,10 +15,12 @@
    - DM/AM create first generation llc270 <-> C96(?) coupled set up, with decent climate (ice, tropical ocean etc...)
 
 
+
 * Experiment suggestions
   - UDI/AM/PH run llc90 (ECCOv4) with MERRA-[12] atmospheric state bc's and optimize (hand, GF, adjoint)
      uncertain ocean boundary layer scheme parameters, initial conditions, parameterization coeffs
      etc.. to keep trajectory close to ECCOv4 solution. 
+  - CNH getting forcing from GMAO for hourly fields.
 
 
 * Year 1
