@@ -11,9 +11,6 @@ for d in model eesupp tools pkg ; do
  ln -s ${MITGCM_ROOT}/${d} ${d}
  echo "Creating link \"${d}/\" to \"${MITGCM_ROOT}/${d}/\""
 done
-\rm -f mit
-ln -s gmao_mitgcm_couplng mit
-echo "Creating link \"mit/\" to \"gmao_mitgcm_couplng/\""
 )
 
 # unpack Makefile and inc/*h files 
