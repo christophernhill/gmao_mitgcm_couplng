@@ -2,28 +2,30 @@
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onLubuntu.txt
 
 # Set up a Lubuntu 16.04 virtual machine under VirtualBox
-# - get VirtualBox from https://www.virtualbox.org/wiki/Downloads
-# - get lubuntu-16.04.1-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
-# - start VirtualBox and set-up virtual machine
-#   New
-#     Name: lubuntu-16.04
-#     Type: Linux
-#     Version: Ubuntu (64-bit)
-#     Memory size: 2048 MB
-#     Create a virtual hard disk now
-#     Hard disk file type: VDI (VirtualBox Disk Image)
-#     Storage on physical hard disk: Fixed size
-#     File location and size: 16.00 GB
-#   Settings
-#     General
-#       Advanced
-#         Shared Clipboard: Bidirectional
-#     System/Processor
-#       Processors: 4 CPUs; Execution Cap: 100%
-#     Storage
-#       Controller: IDE (click on circle with green plus)
-#       Choose disk: Downloads/lubuntu-16.04.1-desktop-amd64.iso
-#   Start
+#   Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
+#   Get lubuntu-16.04.1-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+#   Start VirtualBox and set-up virtual machine
+#     New
+#       Name: lubuntu-16.04
+#       Type: Linux
+#       Version: Ubuntu (64-bit)
+#       Memory size: 2048 MB
+#       Create a virtual hard disk now
+#       Hard disk file type: VDI (VirtualBox Disk Image)
+#       Storage on physical hard disk: Fixed size
+#       File location and size: 16.00 GB
+#     Settings
+#       General
+#         Advanced
+#           Shared Clipboard: Bidirectional
+#           Drag'n'Drop: Bidirectional
+#       System/Processor
+#         Processors: 4 CPUs
+#         Execution Cap: 100%
+#       Storage
+#         Controller: IDE (click on circle with green plus)
+#         Choose disk: Downloads/lubuntu-16.04.1-desktop-amd64.iso
+#     Start
 
 # Install Lubuntu 16.04
 #   Download Updates; Install third-party software
@@ -85,13 +87,13 @@ cd MITgcm/verification
 ./testreport -j 4 -t global_ocean.cs32x15
 
 # Get GEOS-5
-# - add this to $HOME/.ssh/config (replace YOUR-USER-ID with discover user id)
-#   host discover dirac dali
-#   User YOUR-USER-ID
-#   LogLevel Quiet
-#   ProxyCommand ssh -l YOUR-USER_ID login.nccs.nasa.gov direct %h.nccs.nasa.gov
-#   Protocol 2
-#   ConnectTimeout 30
+#   Add following lines to $HOME/.ssh/config
+#     host discover dirac dali
+#     User YOUR-DISCOVER-USER-ID
+#     LogLevel Quiet
+#     ProxyCommand ssh -l YOUR-DISCOVER-USER-ID login.nccs.nasa.gov direct %h.nccs.nasa.gov
+#     Protocol 2
+#     ConnectTimeout 30
 cd $WorkingDir
 git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
 cd GEOSodas
