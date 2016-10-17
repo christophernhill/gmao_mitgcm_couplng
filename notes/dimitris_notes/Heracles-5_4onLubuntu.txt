@@ -87,17 +87,10 @@ cd MITgcm/verification
 ./testreport -j 4 -t global_ocean.cs32x15
 
 # Get GEOS-5
-#   Add following lines to $HOME/.ssh/config
-#     host discover dirac dali
-#     User YOUR-DISCOVER-USER-ID
-#     LogLevel Quiet
-#     ProxyCommand ssh -l YOUR-DISCOVER-USER-ID login.nccs.nasa.gov direct %h.nccs.nasa.gov
-#     Protocol 2
-#     ConnectTimeout 30
 cd $WorkingDir
-git clone discover:/discover/swdev/adasilva/bridge/GEOSodas
+git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
 cd GEOSodas
-git checkout -b b_geos5mit remotes/origin/b_geos5mit
+git checkout b_geos5mit
 
 # Get GEOS-5 to MITgcm coupling code
 cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp

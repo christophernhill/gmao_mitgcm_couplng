@@ -1,0 +1,23 @@
+# To get GEOS-5/MITgcm coupling routines:
+git clone https://github.com/christophernhill/gmao_mitgcm_couplng
+
+# To get GEOSodas for coupled code:
+git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+cd GEOSodas
+git checkout b_geos5mit
+
+# To update local repository:
+git pull
+
+# To check if you need to pull changes from somebody else:
+git remote update
+git status
+
+# To retype login-password only once per day:
+git config credential.helper 'cache --timeout 86400'
+
+# A convenient git revision tree visualizer:
+sudo apt-get install gitk
+
+# See history of current branch with tags:
+git log --decorate=full
