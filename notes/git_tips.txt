@@ -6,6 +6,10 @@ git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
 cd GEOSodas
 git checkout b_geos5mit
 
+# To add read/write permission for new user on engaging repository:
+cd /pool001/cnh/geos5mit_write
+setfacl -R -m u:strobach:rwX .; getfacl --access . | setfacl -d -M- -R .
+
 # To update local repository:
 git pull
 
