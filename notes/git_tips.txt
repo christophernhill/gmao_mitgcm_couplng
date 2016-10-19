@@ -29,9 +29,10 @@ git log --decorate=full
 # How to set up git email notifications:
 # http://root42.blogspot.com/2009/11/this-is-not-very-well-documented-in-git.html
 ssh eofe4.mit.edu
-cd /pool001/cnh/geos5mit_write/GEOSodas.git/hook
+cd /pool001/cnh/geos5mit_write/GEOSodas.git/hooks
 cp post-receive.sample post-receive
-# uncomment the last line: /pool001/cnh/geos5mit_write/GEOSodas.git
-git config hooks.mailinglist "cnh@mit.edu, jmc@mit.edu, etc."
+# uncomment the last line "/usr/share/git-core/contrib/hooks/post-receive-email"
+git config hooks.mailinglist "cnh@mit.edu, jmc@mit.edu, ..."
+git config hooks.emailprefix "New commit for "
 # An alternative script recommended by Matt Thompson:
 # http://www.icir.org/robin/git-notifier
