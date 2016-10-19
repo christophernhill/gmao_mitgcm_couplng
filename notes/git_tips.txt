@@ -25,3 +25,13 @@ sudo apt-get install gitk
 
 # See history of current branch with tags:
 git log --decorate=full
+
+# How to set up git email notifications:
+# http://root42.blogspot.com/2009/11/this-is-not-very-well-documented-in-git.html
+ssh eofe4.mit.edu
+cd /pool001/cnh/geos5mit_write/GEOSodas.git/hook
+cp post-receive.sample post-receive
+# uncomment the last line: /pool001/cnh/geos5mit_write/GEOSodas.git
+git config hooks.mailinglist "cnh@mit.edu, jmc@mit.edu, etc."
+# An alternative script recommended by Matt Thompson:
+# http://www.icir.org/robin/git-notifier
