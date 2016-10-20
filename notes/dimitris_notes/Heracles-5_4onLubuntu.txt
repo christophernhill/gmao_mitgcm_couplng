@@ -118,7 +118,6 @@ cd $GMAO_MITGCM_COUPLNG
 # Atanas' changes to MITgcm
 cd $GMAO_MITGCM_COUPLNG/modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
-cp Makefile ../mitgcm_setup/build
 cd ../mitgcm_setup/build
 ln -sf /usr/lib/openmpi/include/mpif.h .
 
