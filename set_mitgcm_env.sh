@@ -18,6 +18,6 @@ done
 # **** the files should be generated from a script somehow ****
 (
 cd mitgcm_setup
-tar -xf mitgcm_special_bits.tar
-echo "Unpacked mitgcm_special_bits.tar"
+tar -xf mitgcm_special_bits.tgz
+echo "Unpacked mitgcm_special_bits.tgz"
 )
