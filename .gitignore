@@ -1,7 +1,6 @@
 *.a
 *.o
 *.mod
-mitgcm_setup/inc/#SIZE.h#
 mitgcm_setup/inc/AD_CONFIG.h
 mitgcm_setup/inc/BAR2.h
 mitgcm_setup/inc/BARRIER.h
@@ -113,4 +112,3 @@ mitgcm_setup/inc/thsice_ad_check_lev1_dir.h
 mitgcm_setup/inc/thsice_ad_check_lev2_dir.h
 mitgcm_setup/inc/thsice_ad_check_lev3_dir.h
 mitgcm_setup/inc/thsice_ad_check_lev4_dir.h
-mitgcm_setup/build/Makefile
