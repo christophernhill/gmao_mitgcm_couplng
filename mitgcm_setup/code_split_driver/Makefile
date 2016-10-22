@@ -5,6 +5,7 @@
 #
 # 09Jun2003  da Silva  First crack.
 #
+.NOTPARALLEL: # Force disabling of -j flag
 
 # Make sure ESMADIR is defined
 # ----------------------------
@@ -37,7 +38,7 @@ esma_help help:
 
 THIS = mitgcmuv_driver
 LIB  = lib$(THIS).a
-esma_install install: $(LIB)
+esma_install install pinstall: $(LIB)
 	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
 	$(CP) -p *.a            $(ESMALIB)
 	$(CP) -p *.mod          $(ESMAINC)/$(THIS)

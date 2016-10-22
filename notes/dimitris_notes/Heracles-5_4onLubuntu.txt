@@ -116,11 +116,11 @@ cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh 
 
 # Build coupled GEOS-5 + MITgcm
-# If build is successful, it will create:
+# Approximately 9 minutes on MacBook Pro (2015)
+# If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $ESMADIR/src
-gmake install -j 4 |& tee makeinstall1.log    # ~16 minutes
-gmake install |& tee makeinstall2.log         # ~25 seconds
+gmake pinstall -j 4 |& tee makeinstall.log
 
 # Set up coupled code
 cd $ESMADIR/src/Applications/GEOSgcm_App

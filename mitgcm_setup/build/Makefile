@@ -5404,3 +5404,6 @@ write_state.f: RECIP_HFACS_MACROS.h RECIP_HFACW_MACROS.h XC_MACROS.h
 write_state.f: YC_MACROS.h RA_MACROS.h RAW_MACROS.h RAS_MACROS.h
 write_state.f: MASKW_MACROS.h MASKS_MACROS.h TANPHIATU_MACROS.h
 write_state.f: TANPHIATV_MACROS.h DYNVARS.h NH_VARS.h
+
+# Provides rule to make target 'pinstall'.
+  -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
