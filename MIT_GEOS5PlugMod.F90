@@ -529,7 +529,7 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
 
     call MAPL_GetResource( MAPL, passive_ocean, label='STEADY_STATE_OCEAN:', &
-         default=0, rc=status ) ; VERIFY_(STATUS)
+         default=1, rc=status ) ; VERIFY_(STATUS)
 
     call setdir(iarr)
     if (passive_ocean /= 0) CALL DRIVER_RUN( PrivateState%ptr, 1 )
