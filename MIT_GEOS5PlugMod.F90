@@ -128,11 +128,9 @@ contains
 !   Imports and exports specification
 !   ---------------------------------
 
-    nimports = 15
+    nimports = 13
     allocate(imports(nimports))
     imports    = (/                                                                                                 &
-    mstate('LATS',  'Agrid_cell_center_latitudes'  ,         'radians',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
-    mstate('LONS',  'Agrid_cell_center_longitudes' ,         'radians',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TAUX',  'Agrid_eastward_stress_on_skin',         'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TAUY',  'Agrid_northward_stress_on_skin',        'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PS',    'Surface Atmospheric Pressure',          'Pa',        MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -157,7 +155,18 @@ contains
       VLOCATION  = imports(i)%vlocation,    &
       RC         =status); VERIFY_(STATUS)
      call WRITE_PARALLEL("MAPL: adding import "//trim(imports(i)%short_name))
-    ENDDO
+
+     ! ALT: Mirrowing the Imports to Exports for diagnostic purposes
+     CALL MAPL_AddExportSpec(GC,            &
+      SHORT_NAME = imports(i)%short_name,   &
+      LONG_NAME  = imports(i)%long_name,    &
+      UNITS      = imports(i)%units,        &
+      DIMS       = imports(i)%dims,         &
+      VLOCATION  = imports(i)%vlocation,    &
+      RC         =status); VERIFY_(STATUS)
+     call WRITE_PARALLEL("MAPL: adding export "//trim(imports(i)%short_name))
+
+  ENDDO
     deallocate(imports)
 
 !   -------------------------
@@ -452,6 +461,15 @@ contains
     REAL_, pointer                         ::   LATS(:,:  )
     REAL_, pointer                         ::   LONS(:,:  )
 
+!   Pointers for mirroring import state values to exports
+    REAL_, pointer                         ::   TAUXe(:,:  )
+    REAL_, pointer                         ::   TAUYe(:,:  )
+    REAL_, pointer                         ::     PSe(:,:  )
+    REAL_, pointer                         :: SWHEATe(:,:,:)
+    REAL_, pointer                         ::   QFLXe(:,:  )
+    REAL_, pointer                         ::   HFLXe(:,:  )
+    REAL_, pointer                         ::   SFLXe(:,:  )
+
 !   Pointers for fetching export state values from component
     REAL_, pointer                         :: US  (:,:)
     REAL_, pointer                         :: VS  (:,:)
@@ -512,6 +530,24 @@ contains
     call MAPL_GetPointer(IMPORT,   SFLX,   'SFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_Get(MAPL, LATS=LATS, LONS=LONS, RC=status); VERIFY_(STATUS)
 
+! Get EXPORT pointers to mirror imports
+!--------------------------------------
+    call MAPL_GetPointer(EXPORT,   TAUXe,   'TAUX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   TAUYe,   'TAUY', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,     PSe,     'PS', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT, SWHEATe, 'SWHEAT', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   QFLXe,   'QFLX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   HFLXe,   'HFLX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   SFLXe,   'SFLX', RC=STATUS); VERIFY_(STATUS)
+
+    ! Actual copy (only if needed)
+    if (associated(TAUXe)) TAUXe = TAUX
+    if (associated(TAUYe)) TAUYe = TAUY
+    if (associated(PSe)) PSe = PS
+    if (associated(SWHEATe)) SWHEATe = SWHEAT
+    if (associated(QFLXe)) QFLXe = QFLX
+    if (associated(HFLXe)) HFLXe = HFLX
+    if (associated(SFLXe)) SFLXe = SFLX
 
     call MAPL_GetResource( MAPL, ocean_dir, label='OCEAN_DIR:', rc=status ) ; VERIFY_(STATUS)
     call str4c( iarr, TRIM(ocean_dir) )
