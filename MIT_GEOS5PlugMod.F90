@@ -156,7 +156,7 @@ contains
       RC         =status); VERIFY_(STATUS)
      call WRITE_PARALLEL("MAPL: adding import "//trim(imports(i)%short_name))
 
-     ! ALT: Mirrowing the Imports to Exports for diagnostic purposes
+     ! ALT: Mirroring the Imports to Exports for diagnostic purposes
      CALL MAPL_AddExportSpec(GC,            &
       SHORT_NAME = imports(i)%short_name,   &
       LONG_NAME  = imports(i)%long_name,    &
