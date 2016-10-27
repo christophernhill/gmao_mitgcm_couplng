@@ -187,7 +187,7 @@ contains
     mstate('SSH',   'sea_level_height',                    'm',           MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('T',   'potential_temperature',                 'm',           MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
     mstate('S',   'salinity',                              'psu',         MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
-    mstate('DISCHARGE','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('DISCHARGEe','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PBO','pressure_at_bottom_of_ocean',  'N m-2',  MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
      /)
 
