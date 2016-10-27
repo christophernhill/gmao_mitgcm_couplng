@@ -6,6 +6,7 @@ EXPSRC: Heracles-5_3
 
 COLLECTIONS: 'geosgcm_prog'
              'geosgcm_surf'
+             'mit_ocn'
 #             'geosgcm_moist'
 #             'geosgcm_turb'
 #             'geosgcm_gwd'
@@ -24,6 +25,32 @@ COLLECTIONS: 'geosgcm_prog'
 #             'geosgcm_isccp'
 #             'geosgcm_misr'
              ::
+
+  mit_ocn.template:  '%y4%m2%d2_%h2%n2z.nc4',
+  mit_ocn.archive:   '%c/Y%y4',
+  mit_ocn.format: 'CFIO',
+  mit_ocn.frequency:  010000, ##  the format is:  HHMMSS
+  mit_ocn.regrid_name: 'PE12x144-CF'  # this HAS to match the ATM gridname
+  mit_ocn.regrid_exch: 'tile.bin',
+  mit_ocn.resolution: 180 91,
+  mit_ocn.fields: 'US'  , 'MIT',
+  		  'VS'  , 'MIT',
+  		  'TS'  , 'MIT',
+  		  'SS'  , 'MIT',
+  		  'MASK', 'MIT',
+# we should put more exports once they are enabled in MIT plug
+# next are some "mirrored" imports
+  		  'TAUX', 'MIT',
+  		  'TAUY', 'MIT',
+  		  'PS'  , 'MIT',
+  		  'SWHEAT', 'MIT',
+  		  'QFLX', 'MIT',
+  		  'HFLX', 'MIT',
+  		  'SFLX', 'MIT',
+# we could put more exports once they are enabled in MIT plug
+		  ::
+
+                      ::
 
   geosgcm_prog.template:  '%y4%m2%d2_%h2%n2z.nc4',
   geosgcm_prog.archive:   '%c/Y%y4',
