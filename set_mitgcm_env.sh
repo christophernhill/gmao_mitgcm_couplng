@@ -22,12 +22,6 @@ tar -xf mitgcm_special_bits.tgz
 echo "Unpacked mitgcm_special_bits.tgz"
 )
 
-echo "Applied Atanas' changes to MITgcm"
-cd $GMAO_MITGCM_COUPLNG/modifications
-cp timers.F $WorkingDir/MITgcm/eesupp/src
-cd ../mitgcm_setup/build
-ln -sf /usr/lib/openmpi/include/mpif.h .
-
 echo "Linked code from subdirectories to code_split_driver"
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/code_split_driver
 ln -sf driver/*.F* .

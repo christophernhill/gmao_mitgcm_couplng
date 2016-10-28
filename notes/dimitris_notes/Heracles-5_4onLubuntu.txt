@@ -57,7 +57,6 @@ sudo apt-get install libexpat1-dev
 
 # Extra packages needed to get and run GEOS-5
 sudo apt install git
-sudo apt install ksh
 sudo apt install tcsh
 sudo apt install colordiff
 sudo apt-get install libblas-dev
@@ -114,6 +113,12 @@ cd $WorkingDir/GEOSodas/src
 source g5_modules
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh 
+
+# Apply Atanas' changes to MITgcm"
+cd $GMAO_MITGCM_COUPLNG/modifications
+cp timers.F $WorkingDir/MITgcm/eesupp/src
+cd ../mitgcm_setup/build
+ln -sf $OPENMPI/include/mpi/mpif.h .
 
 # Build coupled GEOS-5 + MITgcm
 # Approximately 9 minutes on MacBook Pro (2015)
