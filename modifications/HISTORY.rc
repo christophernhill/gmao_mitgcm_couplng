@@ -6,7 +6,7 @@ EXPSRC: Heracles-5_3
 
 COLLECTIONS: 'geosgcm_prog'
              'geosgcm_surf'
-             'mit_ocn'
+#             'mit_ocn'
 #             'geosgcm_moist'
 #             'geosgcm_turb'
 #             'geosgcm_gwd'
@@ -49,8 +49,6 @@ COLLECTIONS: 'geosgcm_prog'
   		  'SFLX', 'MIT',
 # we could put more exports once they are enabled in MIT plug
 		  ::
-
-                      ::
 
   geosgcm_prog.template:  '%y4%m2%d2_%h2%n2z.nc4',
   geosgcm_prog.archive:   '%c/Y%y4',
