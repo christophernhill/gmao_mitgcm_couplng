@@ -938,6 +938,7 @@ then
    sed -i -e "/^setenv BCSDIR/ s#\(setenv BCSDIR\)\(.*\)#\1   ${MIN_BCS_DIR}#" \
           -e "/^setenv SSTDIR/ s#\(setenv SSTDIR\)\(.*\)#\1   ${MIN_SST_DIR}#" \
           -e "/^setenv CHMDIR/ s#\(setenv CHMDIR\)\(.*\)#\1   ${MIN_CHM_DIR}#" \
+          -e "s/^#\!\/bin\/ksh$/#\!\/bin\/bash/"                               \
           -e "/pchem.species/  s#1870-2097#1999-2000#"                         \
           -e "/sst_1971/       s#1971-current#2000#"                           \
           -e "/fraci_1971/     s#1971-current#2000#"                               gcm_run.j

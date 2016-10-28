@@ -6,7 +6,7 @@ EXPSRC: Heracles-5_3
 
 COLLECTIONS: 'geosgcm_prog'
              'geosgcm_surf'
-             'mit_ocn'
+#             'mit_ocn'
 #             'geosgcm_moist'
 #             'geosgcm_turb'
 #             'geosgcm_gwd'

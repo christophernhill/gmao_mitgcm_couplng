@@ -47,7 +47,7 @@ esma_clean clean:
 	-$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
 
 esma_distclean distclean:
-	-$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
+	-$(RM) *~ *.[aoxdchfF] *.[Mm][Oo][Dd]
 
 
 #                  --------------------
