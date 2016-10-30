@@ -229,7 +229,7 @@ then
    SITE=NCCS
 
    COLORDIFF=/home/mathomp4/bin/colordiff
-   UTIL_DIR=/discover/nobackup/mathomp4
+   UTIL_DIR=$WorkingDir/TinyFromMatt
    PBZIP2=/home/mathomp4/bin/pbzip2
 
 elif [[ $NODENAME == pfe* || $NODENAME == r[0-9]*i[0-9]*n[0-9]* || $NODENAME == bridge* || $NODENAME == maia* ]]
@@ -237,7 +237,7 @@ then
    SITE=NAS
 
    COLORDIFF=/nobackup/gmao_SIteam/Utilities/bin/colordiff
-   UTIL_DIR=/nobackup/gmao_SIteam/ModelData
+   UTIL_DIR=$WorkingDir/TinyFromMatt
    PBZIP2=/usr/bin/pbzip2
 
 elif [[ $NODENAME == jibb* || $NODENAME == jcc* ]]

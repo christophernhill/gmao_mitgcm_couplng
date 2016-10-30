@@ -74,21 +74,14 @@ mkdir $WorkingDir
 #   GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+# Note that if Baselibs is moved to a different location, it needs
+# to be rebuilt (or linked to old location). This is because
+# netCDF libraries and LD paths are provided by
+# "nf_config --flibs" based on netCDF installation directory. 
 cd $WorkingDir
 tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
 cd GMAO-Baselibs-4_0_7/src
 make -j 4 install ESMF_COMM=openmpi |& tee makeinstall.log
-
-# Get MITgcm
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login # enter the CVS password: "cvsanon"
-cvs co -D "01/31/07" MITgcm_code
-cvs co -D "01/31/07" MITgcm/verification/testreport
-cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
-cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
-cd MITgcm/verification
-./testreport -j 4 -t global_ocean.cs32x15
 
 # Get GEOS-5
 # For instructions below to work, you need to:
@@ -108,6 +101,17 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
+# Get MITgcm
+cd $WorkingDir
+setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
+cvs login # enter the CVS password: "cvsanon"
+cvs co -D "01/31/07" MITgcm_code
+cvs co -D "01/31/07" MITgcm/verification/testreport
+cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
+cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
+cd MITgcm/verification
+./testreport -j 4 -t global_ocean.cs32x15
+
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
@@ -120,8 +124,8 @@ cp timers.F $WorkingDir/MITgcm/eesupp/src
 cd ../mitgcm_setup/build
 ln -sf $OPENMPI/include/mpi/mpif.h .
 
-# Build coupled GEOS-5 + MITgcm
-# Approximately 9 minutes on MacBook Pro (2015)
+# Build coupled GEOS-5 + MITgcm.
+# Approximately 9 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $ESMADIR/src
