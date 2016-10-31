@@ -53,6 +53,8 @@ setenv MITGCM_ROOT $WorkingDir/MITgcm
 setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh 
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ln -sf Makefile_ifort Makefile
 
 # Apply Atanas' changes to MITgcm"
 cd $GMAO_MITGCM_COUPLNG/modifications
@@ -83,7 +85,7 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Desired Location for HOME: /home/heracles/geos5/TEST
 # Enter Desired Location for EXPERIMENT: /home/heracles/geos5/TEST
 # Enter Location for Build directory: /home/heracles/geos5/GEOSodas
-# Enter your GROUP ID for Current EXP: heracles
+# Enter your GROUP ID for Current EXP: s1353
 
 # Get input files for coupled code
 cd $WorkingDir
@@ -95,8 +97,10 @@ ln -sf /discover/nobackup/dmenemen/geos5/tarballs_100816/mitocean_run.tgz .
 
 # Run coupled code
 cd $WorkingDir/TEST
-setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out
+
+
+
 
 
 

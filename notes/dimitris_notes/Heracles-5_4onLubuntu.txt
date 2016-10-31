@@ -116,7 +116,9 @@ cd MITgcm/verification
 cd $WorkingDir/GEOSodas/src
 source g5_modules
 cd $GMAO_MITGCM_COUPLNG
-./set_mitgcm_env.sh 
+./set_mitgcm_env.sh
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ln -sf Makefile_gfortran Makefile
 
 # Apply Atanas' changes to MITgcm"
 cd $GMAO_MITGCM_COUPLNG/modifications
@@ -157,7 +159,7 @@ cd $ESMADIR/src/Applications/GEOSgcm_App
 #   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
 cd $WorkingDir
 tar -xf geos5-tiny.tgz
-cd TEST
+cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 ln -sf $WorkingDir/mitocean_run.tgz .

@@ -134,7 +134,7 @@ KFLAGS2 =
 # Optim./debug for FC
 #FFLAGS = -132 -r8 -i4 -w95 -W0 -WB -convert big_endian -assume byterecl -ftrapuv -fpconstant
 #FOPTIM = -O3 -align
-FFLAGS = -g $(BIG_ENDIAN) #-check -fPIC  -W0 -WB -convert big_endian -assume byterecl -noalign
+FFLAGS = -g $(BIG_ENDIAN)
 FOPTIM = -O0
 # Optim./debug for FC
 F90FLAGS = -g #-check
