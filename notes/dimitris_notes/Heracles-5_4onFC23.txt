@@ -1,0 +1,172 @@
+# Instructions for running GEOS-5 (Heracles-5_4) coupled with MITgcm
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onFedoraCore.txt
+
+# These instructions are intended for a Fedora-Core 23 linux box (fc23.x86_64)
+#   and are similar to the Lubuntu VitualBox instructions notes:
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onLubuntu.txt
+
+# IMPORTANT: all the steps have not been tested on vistual machine (nor on
+#            a fresh FC installation); therefore the list of installed packages 
+#            could well be incomplete (or might include some unecessary packages)
+#
+#- list of pkg to install for MITgcm 
+#  (including sending email from testreport and manual pdf building)
+ > dnf install tcsh
+ > dnf install aspell-en (-> but did not get aspell-en this time)
+ > dnf install texlive-latex
+ > dnf install texlive-latex-bin
+ > dnf install texlive-xdvi   (to get "xdvi" command)
+ > dnf install texlive-mh (-> provides mathtools.sty)
+ > dnf install texlive-lineno (<- to get lineno.sty)
+ > dnf install a2ps
+ > dnf install patch
+ > dnf install sendmail (also get procmail)
+ > dnf install mailx   (to get "mail" command)
+ > systemctl enable sendmail (-> to run it at reboot)
+ >  (systemctl start sendmail <- to try immediatly)
+
+#- just to download, compile and run MITgcm:
+ > dnf install cvs
+ > dnf install gcc      <- version 5.3.1-2
+ > dnf install gcc-gfortran
+ > dnf install gcc-c++
+ > dnf install netcdf netcdf-devel
+ > dnf install netcdf-fortran netcdf-fortran-devel
+ > dnf install imake                 (to get makedepend)
+ > dnf install ed                    (used by xmakedepend)
+ > dnf install compat-gcc-34-g77
+ > dnf install compat-gcc-34-c++     (to build netcdf lib)
+ > dnf install docbook-utils docbook-utils-pdf (to build MITgcm/doc/devel_HOWTO )
+ > dnf install texlive-anysize       (to make the manual, installed on 2014-08-28))
+also check that package "texlive-ec" is installed (needed to build "devel_HOWTO")
+     check that cron is running:
+ > systemctl status crond
+
+#- install openmpi for gfortran:
+ > dnf install openmpi openmpi-devel
+this installs a module "openmpi-x86_64" in /etc/modulefiles/mpi/ where all paths 
+ can be found. But since I don't use "module", instead, create 2 short scripts:
+ ~/bin/openmpi.csh & ~/bin/openmpi.sh
+ to "source" before compiling or running with OpenMPI.
+
+#- specific for GEOS-5 coupled model:
+ > dnf install bison
+ > dnf install flex
+ > dnf install colordiff
+ > dnf install lapack lapack-devel  (-> got also blas & blas-devel )
+ > dnf install python-devel
+ > dnf install python-numpydoc
+ > dnf install numpy-f2py
+ > dnf install perl-Env
+ > dnf install redhat-rpm-config  (<- probably not needed anymore)
+
+#---------------------------------------------------------------------------------
+#  Obtaining the source files:
+#---------------------------------------------------------------------------------
+#-- Get so tar files from:
+#   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+#  take: GMAO-Baselibs-4_0_7.withNewCDO.tgz
+#        geos5-tiny.tgz
+#        mitocean_run.tgz
+#   and put them in:  $extd/geos5_coupl/fr_Dimitris
+
+0) my FC23 settings:
+ > source ~/bin/openmpi.csh
+ > setenv WorkingDir $extd/geos5_coupl/work_dir
+ > cd $WorkingDir ; mkdir include ; cd include
+ > ln -s $MPI_INC_DIR mpi
+
+1) using Dimitris instructions, build GMAO-Baselibs
+  from GMAO-Baselibs-4_0_7.withNewCDO.tgz tar file
+2) using Dimitris instructions, get MITgcm code + 2 exp.
+  all from CVS (date: Jan 31, 2007)
+3) get GEOS-5 code from engaging git repos:
+ > cd $WorkingDir
+ > git clone jm_c@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+ > cd GEOSodas
+ > git checkout b_geos5mit
+4) get Coupling bits from github:
+ > cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
+ > cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+ > git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git
+
+#---------------------------------------------------------------------------------
+#  Compiling
+#---------------------------------------------------------------------------------
+1) Set GEOS-5 and MITgcm environment variables
+ > cd $WorkingDir/GEOSodas/src
+ > source g5_modules
+ > cd $GMAO_MITGCM_COUPLNG
+ > ./set_mitgcm_env.sh
+ > cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ > ln -sf Makefile_gfortran Makefile
+
+2) Atanas' changes to MITgcm
+ > cd $GMAO_MITGCM_COUPLNG/modifications
+ only the 1rst time:
+ > mv $WorkingDir/MITgcm/eesupp/src/timers.F $WorkingDir/MITgcm/eesupp/src/timers.F.ori
+ --------
+ > cp -p timers.F $WorkingDir/MITgcm/eesupp/src
+ > cd ../mitgcm_setup/build
+ > ln -sf $OPENMPI/include/mpi/mpif.h .
+
+3) Build coupled GEOS-5 + MITgcm
+ > cd $ESMADIR/src
+ > gmake install |& tee makeinstall.log
+
+ Check that this works:
+jaures{src}% ls -lt Applications/GEOSgcm_App/*.x
+-rwxrwxr-x. 1 jmc 36602616 10-20 19:09 Applications/GEOSgcm_App/idfupd.x*
+-rwxrwxr-x. 1 jmc 71920920 10-20 19:09 Applications/GEOSgcm_App/GEOSgcm.x*
+
+4) for subsequent built:
+ > cd $ESMADIR/src
+ > make realclean
+ # Build coupled GEOS-5 + MITgcm
+ > cd $ESMADIR/src
+ > gmake install |& tee makeinstall.log
+
+#---------------------------------------------------------------------------------
+#  Running Coupled model
+#---------------------------------------------------------------------------------
+0) prepare dir and make some links in home dir to bypass some hard coded paths 
+   in some scripts
+ cd $extd/geos5_coupl ; mkdir run_test
+ tar -xzf fr_Dimitris/geos5-tiny.tgz
+ cd ~ ; mkdir geos5
+ ln -s $extd/geos5_coupl/TinyFromMatt .
+ ln -s $extd/geos5_coupl/run_test .
+   
+1) cd $ESMADIR/src/Applications/GEOSgcm_App
+./gcm_setup
+# Enter the Experiment ID: run_test
+# Enter a 1-line Experiment Description: test-1
+# Do you wish to CLONE an old experiment? NO
+# Enter the Atmospheric Horizontal Resolution code: c12
+# Enter the Atmospheric Model Vertical Resolution: 72
+# Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
+# Enter the Ocean Lat/Lon Horizontal Resolution: c32
+# Enter the Ocean Model Vertical Resolution: 15
+# Enter the choice of  Land Surface Model: 1
+# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Enter the tag or directory: Current
+# Enter Desired Location for HOME: /run/media/jmc/extd/jmc/geos5_coupl/run_test
+# Enter Desired Location for EXPERIMENT: /run/media/jmc/extd/jmc/geos5_coupl/run_test
+# Enter Location for Build directory: /run/media/jmc/extd/jmc/geos5_coupl/work_dir/GEOSodas
+# Enter your GROUP ID for Current EXP: jmc
+
+2) cd $extd/geos5_coupl/run_test
+  $GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
+  cp -p $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
+  ln -sf ../fr_Dimitris/mitocean_run.tgz .
+
+3) run:
+  setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
+  ./gcm_run.j |&  tee gcm_run.out
+
+to check the output:
+  Ocean output in: $extd/geos5_coupl/run_test/scratch/mitocean_run/
+  Atmos output in files: TEST.mit_ocn.2000041?_????z.nc4
+
+#===========================================================================
