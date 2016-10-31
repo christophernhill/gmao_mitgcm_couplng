@@ -165,6 +165,7 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 ln -sf $WorkingDir/mitocean_run.tgz .
 
 # Run coupled code
+# Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out

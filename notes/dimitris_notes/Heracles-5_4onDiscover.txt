@@ -96,9 +96,9 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 ln -sf /discover/nobackup/dmenemen/geos5/tarballs_100816/mitocean_run.tgz .
 
 # Run coupled code
+# Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
-
 
 
 
