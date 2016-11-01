@@ -1,7 +1,7 @@
 
 
-
-
+- checkpoint_0_B (2016/11/01)
+  * runs and builds repeatebly on lubuntu, discover and fedora
 
 - checkpoint_0_B (2016/10/12)
   * merged some cleanup, still MITgcm 2007
