@@ -1,6 +1,7 @@
-
+  * Remove DESKTOP_SESSION check for setting "site" in g5_modules.
+     Instead it is now set by checking "uname -n" or environment variable "SITE".
   * Reduce optimization from O3 to O1 for GEOS_MoistGridComp.F90
-    because compilation was failing for gfortran/gcc 6.2.1.
+     because compilation was failing for gfortran/gcc 6.2.1.
   * Adding GenericLinux site to g5_modules.
   * Adding instructions for compiling and running on Fedora 24 Workstation.
 
@@ -9,7 +10,6 @@
 
 - checkpoint_0_B (2016/10/12)
   * merged some cleanup, still MITgcm 2007
-  
   * changes to mesh GEOS-5 git (`git clone discover:/discover/swdev/adasilva/bridge/GEOSodas`) and 
      MIT-GMAO coupling git (`git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git`). See
      notes for details.

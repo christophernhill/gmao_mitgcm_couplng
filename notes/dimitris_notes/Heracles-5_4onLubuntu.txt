@@ -127,7 +127,7 @@ cd ../mitgcm_setup/build
 ln -sf $OPENMPI/include/mpi/mpif.h .
 
 # Build coupled GEOS-5 + MITgcm.
-# Approximately 9 minutes on MacBook Pro (2015).
+# Approximately 8 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $ESMADIR/src

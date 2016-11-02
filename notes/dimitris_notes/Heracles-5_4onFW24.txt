@@ -56,6 +56,7 @@ reboot
 # heracles, Devices, Insert Guest Additions CD image..., Run
 # Activities, Show Applications, Utilities, Terminal
 sudo usermod -aG vboxsf heracles
+sudo hostnamectl set-hostname --static heracles
 reboot
 
 # Extra packages needed to get and run MITgcm
@@ -77,8 +78,8 @@ sudo dnf install lapack-devel
 sudo dnf install numpy
 sudo dnf install python-devel
 sudo dnf install numpy-f2py
-sudo dnf install perl-Env
-sudo dnf install redhat-rpm-config
+sudo dnf install perl-Env          # fix for "Can't locate Env.pm in @INC"
+sudo dnf install redhat-rpm-config # fix for "missing redhat-hardened-cc1"
 
 # Start tcsh, set $WorkingDir, and load openmpi
 tcsh
