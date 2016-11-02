@@ -26,6 +26,15 @@ sudo apt-get install gitk
 # See history of current branch with tags:
 git log --decorate=full
 
+# How to add a tag:
+heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git pull
+heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git tag checkpoint_0_C
+heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git push origin --tags
+#
+heracles@heracles:~/foo_tag/GEOSodas$ git pull
+heracles@heracles:~/foo_tag/GEOSodas$ git tag checkpoint_0_C
+heracles@heracles:~/foo_tag/GEOSodas$ git push origin --tags
+
 # How to set up git email notifications:
 # http://root42.blogspot.com/2009/11/this-is-not-very-well-documented-in-git.html
 ssh eofe4.mit.edu
