@@ -1,0 +1,19 @@
+- complete 3d mask + exchange variable list
+
+- update to newer MITgcm
+
+- automatic Makefile creation for MITgcm build
+
+- get rid of mpif.h link in mitgcm_setup/build
+
+- get rid of mitocean_run.tgz
+
+- make g5_modules more compatible among platforms
+  by moving coupling parameters to instructions
+  or set_mitgcm_env.sh
+
+- instructions for running on NAS
+
+- cleaner, more concise instructions
+
+- better testing
