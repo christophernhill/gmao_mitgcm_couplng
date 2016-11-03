@@ -6,8 +6,6 @@
 
 - get rid of mpif.h link in mitgcm_setup/build
 
-- get rid of mitocean_run.tgz
-
 - make g5_modules more compatible among platforms
   by moving coupling parameters to instructions
   or set_mitgcm_env.sh

@@ -67,7 +67,6 @@ this installs a module "openmpi-x86_64" in /etc/modulefiles/mpi/ where all paths
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #  take: GMAO-Baselibs-4_0_7.withNewCDO.tgz
 #        geos5-tiny.tgz
-#        mitocean_run.tgz
 #   and put them in:  $extd/geos5_coupl/fr_Dimitris
 
 0) my FC23 settings:
@@ -159,7 +158,6 @@ jaures{src}% ls -lt Applications/GEOSgcm_App/*.x
 2) cd $extd/geos5_coupl/run_test
   $GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
   cp -p $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
-  ln -sf ../fr_Dimitris/mitocean_run.tgz .
 
 3) run:
   setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'

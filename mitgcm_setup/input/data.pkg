@@ -1,0 +1,8 @@
+# Packages
+ &PACKAGES
+ useGMRedi=.TRUE.,
+#useDiagnostics=.TRUE.,
+#useMNC=.TRUE.,
+#useBulkforce=.TRUE.,
+#useThermSeaIce=.TRUE.,
+ &end

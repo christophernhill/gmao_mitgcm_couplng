@@ -87,40 +87,14 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: /home/heracles/geos5/GEOSodas
 # Enter your GROUP ID for Current EXP: s1353
 
-# Get input files for coupled code
+# Get GEOS-5 boundary conditions
 cd $WorkingDir
 tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
 cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
-ln -sf /discover/nobackup/dmenemen/geos5/tarballs_100816/mitocean_run.tgz .
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
-
-
-
-
-
-
-
-
-
-######################################################
-# Ignore this for time being.
-# May be used to replace mitocean_run.tgz in next tag
-# create mitocean_run directory
-cd $WorkingDir
-mkdir mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/data mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/data.gmredi mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/data.pkg mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/eedata mitocean_run
-cp MITgcm/verification/tutorial_held_suarez_cs/input/g* mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/lev* mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/pic* mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/shi* mitocean_run
-cp MITgcm/verification/global_ocean.cs32x15/input/tre* mitocean_run

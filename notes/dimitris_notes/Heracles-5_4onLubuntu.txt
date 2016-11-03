@@ -153,16 +153,14 @@ cd $ESMADIR/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: /home/heracles/geos5/GEOSodas
 # Enter your GROUP ID for Current EXP: heracles
 
-# Get input files for coupled code
-#   geos5-tiny.tgz and mitocean_run.tgz are available in:
-#   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
-#   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+# Get GEOS-5 boundary conditions geos5-tiny.tgz
+#   from engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+#   or discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
 cd $WorkingDir
 tar -xf geos5-tiny.tgz
 cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
-ln -sf $WorkingDir/mitocean_run.tgz .
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/verification

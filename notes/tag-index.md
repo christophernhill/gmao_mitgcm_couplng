@@ -1,3 +1,6 @@
+  * Remove mitocean_run.tgz
+     Boundary condition files are now linked from $MITGCM_ROOT/verification
+     and runtime parameter files from $GMAO_MITGCM_COUPLNG/mitgcm_setup/input
   * Remove DESKTOP_SESSION check for setting "site" in g5_modules.
      Instead it is now set by checking "uname -n" or environment variable "SITE".
   * Reduce optimization from O3 to O1 for GEOS_MoistGridComp.F90
