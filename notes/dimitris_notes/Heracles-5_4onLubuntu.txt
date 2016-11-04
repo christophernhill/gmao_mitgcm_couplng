@@ -22,6 +22,7 @@
 #       System/Processor
 #         Processors: 4 CPUs
 #         Execution Cap: 100%
+#         Extended Features: V Enable PAE/NX
 #       Storage
 #         Controller: IDE (click on circle with green plus)
 #         Choose disk: Downloads/lubuntu-16.04.1-desktop-amd64.iso
