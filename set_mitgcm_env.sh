@@ -5,13 +5,6 @@ if [ "x${MITGCM_ROOT}" == "x" ]; then
 fi
 
 (
-cd ..
-for d in model eesupp tools pkg ; do
- \rm -f ${d}
- ln -s ${MITGCM_ROOT}/${d} ${d}
- echo "Creating link \"${d}/\" to \"${MITGCM_ROOT}/${d}/\""
-done
-)
 
 # unpack Makefile and inc/*h files 
 # **** this needs to be cleaned up                         ****

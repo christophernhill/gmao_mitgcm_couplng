@@ -101,7 +101,7 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
-# Get MITgcm
+# Get MITgcm from anonymous CVS server
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login # enter the CVS password: "cvsanon"
@@ -109,29 +109,37 @@ cvs co -D "01/31/07" MITgcm_code
 cvs co -D "01/31/07" MITgcm/verification/testreport
 cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
 cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
-cd MITgcm/verification
-./testreport -j 4 -t global_ocean.cs32x15
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_gfortran Makefile
+setenv MPI_INC_DIR /usr/include/mpi
+
+# Run MITgcm verification experiment
+# This is needed to create some MITgcm exchange files
+# and a Makefile that can be modified for coupled code
+cd $WorkingDir/MITgcm/verification
+./testreport -mpi -j 4 -of $GMAO_MITGCM_COUPLNG/modifications/linux_amd64_gfortran -t global_ocean.cs32x15
+cd global_ocean.cs32x15/build
+mpirun -np 2 mitgcmuv
 
 # Apply Atanas' changes to MITgcm"
 cd $GMAO_MITGCM_COUPLNG/modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
-cd ../mitgcm_setup/build
-ln -sf $OPENMPI/include/mpi/mpif.h .
 
 # Build coupled GEOS-5 + MITgcm.
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ln -sf Makefile_gfortran Makefile
+# For Makefile recipe, compare
+# $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
+# $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
+cd $ESMADIR/src
+gmake pinstall -j 4 |& tee makeinstall.log
 # Approximately 8 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
-cd $ESMADIR/src
-gmake pinstall -j 4 |& tee makeinstall.log
 
 # Set up coupled code
 cd $ESMADIR/src/Applications/GEOSgcm_App
