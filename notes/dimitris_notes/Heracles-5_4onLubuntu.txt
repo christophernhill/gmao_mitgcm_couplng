@@ -131,16 +131,16 @@ cd $GMAO_MITGCM_COUPLNG/modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
 
 # Build coupled GEOS-5 + MITgcm.
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_gfortran Makefile
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
-cd $ESMADIR/src
-gmake pinstall -j 4 |& tee makeinstall.log
 # Approximately 8 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ln -sf Makefile_gfortran Makefile
+cd $ESMADIR/src
+gmake pinstall -j 4 |& tee makeinstall.log
 
 # Set up coupled code
 cd $ESMADIR/src/Applications/GEOSgcm_App

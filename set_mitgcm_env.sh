@@ -4,8 +4,6 @@ if [ "x${MITGCM_ROOT}" == "x" ]; then
  exit
 fi
 
-(
-
 # unpack Makefile and inc/*h files 
 # **** this needs to be cleaned up                         ****
 # **** the files should be generated from a script somehow ****
