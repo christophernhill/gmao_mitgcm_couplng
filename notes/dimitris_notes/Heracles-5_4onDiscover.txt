@@ -66,14 +66,14 @@ cp timers.F $WorkingDir/MITgcm/eesupp/src
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
-# $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
+# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
 ln -sf Makefile_ifort Makefile
-cd $ESMADIR/src
-gmake pinstall -j 16 |& tee makeinstall.log 
+cd $WorkingDir/GEOSodas/src
+gmake pinstall -j 16 |& tee makeinstall.log
 
 # Set up coupled code
-cd $ESMADIR/src/Applications/GEOSgcm_App
+cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -103,7 +103,6 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 # Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
-
 
 
 #===========================================================================
