@@ -1,3 +1,5 @@
+  *  Remove links to MITgcm code in GuestOcean_GridComp
+  *  Remove link to mpif.h from mitgcm_setup/build
   * Remove mitocean_run.tgz
      Boundary condition files are now linked from $MITGCM_ROOT/verification
      and runtime parameter files from $GMAO_MITGCM_COUPLNG/mitgcm_setup/input

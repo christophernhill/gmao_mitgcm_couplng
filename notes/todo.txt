@@ -4,8 +4,6 @@
 
 - automatic Makefile creation for MITgcm build
 
-- get rid of mpif.h link in mitgcm_setup/build
-
 - get rid of mitgcm_setup/mitgcm_special_bits.tgz
 
 - make g5_modules more compatible among platforms
