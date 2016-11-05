@@ -40,13 +40,9 @@ LIB  = lib$(THIS).a
 esma_install install: $(LIB)
 	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
 	$(CP) -p *.a            $(ESMALIB)
-	$(CP) -p *.mod          $(ESMAINC)/$(THIS)
-#	$(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
 
 esma_clean clean:
 	-$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
 
 esma_distclean distclean:
-	-$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
-
-
+	-$(RM) *~ *.[aoxdchfF] *.[Mm][Oo][Dd]
