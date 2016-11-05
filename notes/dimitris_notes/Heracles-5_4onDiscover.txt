@@ -1,7 +1,7 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled with MITgcm on Discover
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onDiscover.txt
 
-# Set WorkingDir to a location where you have write permission
+# Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
 setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
 mkdir $WorkingDir
@@ -24,7 +24,7 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 
-# Get MITgcm
+# Get MITgcm from anonymous CVS server
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
@@ -38,37 +38,42 @@ xsub -I -l select=1,walltime=8:00:00
 tcsh
 setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
 
-# Set GEOS-5 environment variables
+# Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
-
-# Run MITgcm verification experiment to generate some needed
-# files and to test that MITgcm was installed correctly
-cd $WorkingDir/MITgcm/verification
-./testreport -j 16 -of /discover/nobackup/dmenemen/mitgcm/013107/linux_amd64_ifort_discover -t global_ocean.cs32x15
-
-# Set MITgcm environment variables
 setenv ESMA_NOCVS
 setenv MITGCM_ROOT $WorkingDir/MITgcm
 setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 cd $GMAO_MITGCM_COUPLNG
-./set_mitgcm_env.sh 
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_ifort Makefile
+./set_mitgcm_env.sh
+setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
+
+# Run MITgcm verification experiment
+# This is needed to create some MITgcm exchange files
+# and a Makefile that can be modified for coupled code
+cd $WorkingDir/MITgcm/verification
+./testreport -mpi -j 4 -of $GMAO_MITGCM_COUPLNG/modifications/linux_amd64_ifort_discover -t global_ocean.cs32x15
+cd global_ocean.cs32x15/build
+mpirun -np 2 ./mitgcmuv
 
 # Apply Atanas' changes to MITgcm"
 cd $GMAO_MITGCM_COUPLNG/modifications
 cp timers.F $WorkingDir/MITgcm/eesupp/src
 
 # Build coupled GEOS-5 + MITgcm.
+# For Makefile recipe, compare
+# $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
+# $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
-# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
-cd $WorkingDir/GEOSodas/src
+# $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
+cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ln -sf Makefile_ifort Makefile
+cd $ESMADIR/src
 gmake pinstall -j 16 |& tee makeinstall.log 
 
 # Set up coupled code
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+cd $ESMADIR/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -98,3 +103,17 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 # Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
+
+
+
+#===========================================================================
+# Get and test latest MITgcm (bash)
+export CVSROOT=:pserver:cvsanon@mitgcm.org:/u/gcmpack
+cvs login # enter the CVS password: "cvsanon"
+cvs co MITgcm_code
+cvs co MITgcm/verification/testreport
+cvs co MITgcm/verification/tutorial_held_suarez_cs
+cvs co MITgcm/verification/global_ocean.cs32x15
+cd MITgcm/verification
+./testreport -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
+./testreport -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -mpi -t global_ocean.cs32x15

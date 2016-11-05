@@ -85,7 +85,7 @@ esma_distclean distclean:
 ROOTDIR     = $(MITGCM_ROOT)
 BUILDDIR    = .  
 SOURCEDIRS  =  ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/eesupp/src $(MITGCM_ROOT)/model/src
-INCLUDEDIRS =  /usr/include/mpi ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/eesupp/inc $(MITGCM_ROOT)/model/inc
+INCLUDEDIRS = $(MPI_INC_DIR) ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/eesupp/inc $(MITGCM_ROOT)/model/inc
 EXEDIR      = .
 EXECUTABLE  = $(EXEDIR)/mitgcmuv
 TOOLSDIR    = $(MITGCM_ROOT)/tools
