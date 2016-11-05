@@ -1,5 +1,5 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Fedora 24 Worstation
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onFW24.txt
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Fedora 24 Workstation
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onFC24.txt
 
 # Set up a Fedora 24 Workstation virtual machine under VirtualBox
 #   Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
