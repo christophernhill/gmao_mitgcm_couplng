@@ -4,15 +4,6 @@ if [ "x${MITGCM_ROOT}" == "x" ]; then
  exit
 fi
 
-# Unpack Makefile and inc/*h files 
-# **** this needs to be cleaned up                         ****
-# **** the files should be generated from a script somehow ****
-(
-cd mitgcm_setup
-tar -xf mitgcm_special_bits.tgz
-echo "Unpacked mitgcm_special_bits.tgz"
-)
-
 # Move Fortran files from subdirectories in mitgcm_setup/code_split_driver
 # to a flat set of files in the code_split_driver directory.
 # Original instructions are from:

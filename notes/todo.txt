@@ -4,7 +4,7 @@
 
 - automatic Makefile creation for MITgcm build
 
-- get rid of mitgcm_setup/mitgcm_special_bits.tgz
+- automatic generation of gmao_mitgcm_couplng/mitgcm_setup/inc
 
 - make g5_modules more compatible among platforms
   by moving coupling parameters to instructions

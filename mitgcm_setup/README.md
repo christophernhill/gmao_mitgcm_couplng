@@ -1,19 +1,19 @@
 Contains code to interface between standard MITgcm and GEOS-5/MAPL world.
 
-* `mitgcm_special_bits.tar` This contains a custom inc/ directory
-    that is a copy of many MITgcm header files, with some comment "C" markers
-    changes to "!" instead - to allow for fixed form and free form compile use
-    (we think). Untar this file in the `code_split_driver/` directory before
-    building executables etc...
+* `inc/' This directory contains a copy of many MITgcm header files, with some
+    comment "C" markers changes to "!" instead - to allow for fixed form and
+    free form compile use (we think). This needs to be cleaned up. The files
+    should be generated from a script somehow.
 
-* `code/` This is a directory of standard MITgcm code/ customization for a specific
-    experiment (global_ocean_c32 in this case).
+* `code/` This is a directory of standard MITgcm code/ customization for a
+    specific experiment (global_ocean_c32 in this case).
 
-* `code_split_driver/` This is core F90 code that connects MITgcm data structutures and
-    MAPL data structures. The code is in a tree of files but Makefile dependencies are 
-    currently for a flat set of files in the `code_split_driver/` directory, as is done
-    by gmao_mitgcm_couplng/set_mitgcm_env.sh
+* `code_split_driver/` This is core F90 code that connects MITgcm data
+    structutures and MAPL data structures. The code is in a tree of files but
+    Makefile dependencies are currently for a flat set of files in the
+    `code_split_driver/` directory, as is done by
+    gmao_mitgcm_couplng/set_mitgcm_env.sh
 
 * code needs to compatible with whatever configuration/checkpoint of MITgcm has
-   been selected. The MITgcm checkpoint source are linked in with soft links under
-   gmao_mitgcm_couplng/mitgcm_setup/build by the Makefile
+    been selected. The MITgcm checkpoint source are linked in with soft links
+    under gmao_mitgcm_couplng/mitgcm_setup/build by the Makefile
