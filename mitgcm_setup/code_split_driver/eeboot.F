@@ -1,31 +1,30 @@
-C $Header: /u/gcmpack/MITgcm_contrib/PRM/multi_comp_setup/comp_mitgcm/code_basic/eeboot.F,v 1.1.1.1 2006/10/10 18:17:28 cnh Exp $
+C $Header: /u/gcmpack/MITgcm/eesupp/src/eeboot.F,v 1.23 2013/11/27 01:24:05 jmc Exp $
 C $Name:  $
 
 #include "CPP_EEOPTIONS.h"
 #include "PACKAGES_CONFIG.h"
 
-CBOP             
+CBOP
 C     !ROUTINE: EEBOOT
 
 C     !INTERFACE:
       SUBROUTINE EEBOOT( myComm )
-      IMPLICIT NONE
 
 C     !DESCRIPTION:
 C     *==========================================================*
-C     | SUBROUTINE EEBOOT                                         
-C     | o Set up execution "environment", particularly perform    
-C     |   steps to initialise parallel processing.                
+C     | SUBROUTINE EEBOOT
+C     | o Set up execution "environment", particularly perform
+C     |   steps to initialise parallel processing.
 C     *==========================================================*
-C     | Note: This routine can also be compiled with CPP          
-C     | directives set so that no multi-processing is initialised 
-C     | This is OK and works fine.                          
+C     | Note: This routine can also be compiled with CPP
+C     | directives set so that no multi-processing is initialised
+C     | This is OK and works fine.
 C     *==========================================================*
 
 C     !CALLING SEQUENCE:
 C     eeboot()
 C       |
-C       |-- eeboot_minimal() :: Minimal startup. Just enough to 
+C       |-- eeboot_minimal() :: Minimal startup. Just enough to
 C       |                       allow basic I/O.
 C       |
 C       |-- eeintro_msg()    :: Write startup greeting.
@@ -38,9 +37,12 @@ C       |-- ini_procs()      :: Associate processes with grid regions.
 C       |
 C       |-- ini_threading_environment() :: Associate threads with grid regions.
 C       |
-C       |-- dfile_init()     :: Initialise simple multi-process I/O pacakge.
+C       |-- cpl_register()   :: Pass attributes to the coupler
+C       |
+C       |-- w2_eeboot()      :: Initialise WRAPPER2 execution environment
 
 C     !USES:
+      IMPLICIT NONE
 C     == Global variables ==
 #include "SIZE.h"
 #include "EEPARAMS.h"
@@ -56,6 +58,7 @@ C     !LOCAL VARIABLES:
 C     == Local variables ==
 C     I :: Loop counter
       INTEGER I
+      LOGICAL doReport
 CEOP
 
 C--   Set error reporting flags and I/O streams
@@ -68,15 +71,15 @@ C                          writing textual, informational output.
 C     eeBootError is a flag used to indicate an error in the
 C                "execution environment" startup pahse as opposed
 C                to the simulation pahse of the execution.
-C     eeEndError is used to indicate an "execution environment" shutdown 
+C     eeEndError is used to indicate an "execution environment" shutdown
 C                error.
 C     thError flag used to allow a thread to report an error.
-C             This is only really used during the startup process, 
+C             This is only really used during the startup process,
 C             although it could be used elsewhere.
 C     allMyEdgesAreSharedMemory flag which says for a particular
 C                               set of blocks the only form of communication
 C                               it does is using shared memory.
-C     threadIsRunning used during startup to enable check that all 
+C     threadIsRunning used during startup to enable check that all
 C                     the threads are running.
       fatalError          = .FALSE.
       eeBootError         = .FALSE.
@@ -95,29 +98,19 @@ C                     the threads are running.
       modelDataUnit       = 34
       errorMessageUnit    = 35
 cph   errorMessageUnit = 0 is not allowed on some platforms, e.g. SP3
-C
-C     Annoyingly there is no universal way to have the usingMPI
-C     parameter work as one might expect. This is because, on some
-C     systems I/O does not work until MPI_Init has been called. The
-C     solution for now is that the parameter below may need to be changed
-C     manually!
-#ifdef ALLOW_USE_MPI
-      usingMPI = .TRUE.
-#endif
 
-C--   Start minimal environment so that we can do I/O
-C--   to report errors.
+C--   Start minimal environment so that we can do I/O to report errors.
 C     Notes
 C     =====
 C     o Here we start MPI and setup the I/O environment
-C       thatis needed for error reporting.
+C       that is needed for error reporting.
 C     o Under MPI I/O support is very variable until
 C       MPI is started. This makes is hard to trap the case
-C       where mpirun is used to start a non-MPI run or 
+C       where mpirun is used to start a non-MPI run or
 C       we try to start MPI when mpirun was not used.
 C       after it is started.
-C jmc: test:    
-C     If necessary ( COMPONENT_MODULE defined ) add a 1rst preliminary 
+C jmc: test:
+C     If necessary ( COMPONENT_MODULE defined ) add a 1rst preliminary
 C     call to eeset_params (in EEBOOT_MINIMAL) to set useCoupler (needed
 C     very early, and the stardard call eeset_params below comes too late)
 C jmc: This needs to be sorted-out in a cleaner way.
@@ -128,7 +121,8 @@ C--   Now we can write a startup message
       CALL EEINTRO_MSG
 
 C--   Initialise parameters associated with execution environment.
-      CALL EESET_PARMS
+      doReport = .TRUE.
+      CALL EESET_PARMS ( doReport )
       IF ( eeBootError ) GOTO 999
 
 C--   Write summary of execution environment configuration for this run
@@ -137,13 +131,10 @@ C--   Write summary of execution environment configuration for this run
 C--   Now do the rest of the multi-process startup.
 C     o Here we map processes to the model grid.
 C     o Print tables of process-grid mappings.
-C     o Do other miscellaneous multi-processing set up steps. For 
+C     o Do other miscellaneous multi-processing set up steps. For
 C       example under MPI we create datatypes for communication
 C       of array edges.
       CALL INI_PROCS
-#ifdef LETS_MAKE_JAM
-      CALL INI_JAM
-#endif
       IF ( eeBootError ) GOTO 999
 
 C--   Initialise variables to support "nThreads" of computation.
@@ -152,22 +143,16 @@ C       execution at this stage.
       CALL INI_THREADING_ENVIRONMENT
       IF ( eeBootError ) GOTO 999
 
-C--   Pass attributes to the coupler
-#ifdef COMPONENT_MODULE
-      IF ( useCoupler ) CALL CPL_REGISTER
-#endif
-
-#ifdef USE_DFILE
-C--   Initiialise the multi-process IO package
-      CALL DFILE_INIT
-#endif
-
 #ifdef ALLOW_EXCH2
 C--   Initialise WRAPPER2 execution environment
       CALL W2_EEBOOT
 #endif /* ALLOW_EXCH2 */
 
- 
+C--   Pass attributes to the coupler
+#ifdef COMPONENT_MODULE
+      IF ( useCoupler ) CALL CPL_REGISTER
+#endif
+
   999 CONTINUE
       RETURN
       END

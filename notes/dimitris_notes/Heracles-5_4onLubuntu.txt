@@ -106,10 +106,10 @@ git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
-cvs co -D "01/31/07" MITgcm_code
-cvs co -D "01/31/07" MITgcm/verification/testreport
-cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
-cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
+cvs co MITgcm_code
+cvs co MITgcm/verification/testreport
+cvs co MITgcm/verification/tutorial_held_suarez_cs
+cvs co MITgcm/verification/global_ocean.cs32x15
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
@@ -122,13 +122,7 @@ setenv MPI_INC_DIR /usr/include/mpi
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -of $GMAO_MITGCM_COUPLNG/modifications/linux_amd64_gfortran -t global_ocean.cs32x15
-cd global_ocean.cs32x15/build
-mpirun -np 2 ./mitgcmuv
-
-# Apply Atanas' changes to MITgcm"
-cd $GMAO_MITGCM_COUPLNG/modifications
-cp timers.F $WorkingDir/MITgcm/eesupp/src
+./testreport -mpi -j 4 -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
@@ -180,10 +174,11 @@ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 # Looking at GEOS-5 output with matlab
 cd $WorkingDir/TEST/scratch
 matlab
-ncdisp('TEST.geosgcm_surf.20000415_1930z.nc4')
-lat=ncread('TEST.geosgcm_surf.20000415_1930z.nc4','lat');
-lon=ncread('TEST.geosgcm_surf.20000415_1930z.nc4','lon');
-BULK_SST=ncread('TEST.geosgcm_surf.20000415_1930z.nc4','TS');
+fnm='TEST.mit_ocn.20000414_2300z.nc4';
+ncdisp(fnm)
+lat=ncread(fnm,'lat');
+lon=ncread(fnm,'lon');
+TS=ncread(fnm,'TS');
 pcolor(lon,lat,TS')
 shading flat
 colorbar

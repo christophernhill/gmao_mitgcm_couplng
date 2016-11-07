@@ -1,4 +1,4 @@
-! $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEMACROS.h,v 1.15 2006/08/10 17:46:55 edhill Exp $
+! $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEMACROS.h,v 1.24 2012/09/19 20:46:03 utke Exp $
 ! $Name:  $
 
 !BOP
@@ -108,7 +108,7 @@
 !      #define _END_MASTER(a)    CALL BARRIER_MU(a) N EWLINE        ENDIF
 !      'CPP = cat $< | $(TOOLSDIR)/set64bitConst.sh |  grep -v '^[cC].*_MASTER' | cpp  -traditional -P'
 !      .F.f:
-!	        $(CPP) $(DEFINES) $(INCLUDES) |  sed 's/N EWLINE/\n/' > $@
+!      $(CPP) $(DEFINES) $(INCLUDES) |  sed 's/N EWLINE/\n/' > $@
 !cnhDebugEnds
 
 !--   Control storage of floating point operands
@@ -119,34 +119,42 @@
 !     boosting performance because of a smaller working
 !     set size. However, on vector CRAY systems this degrades
 !     performance.
+!- Note: global_sum/max macros were used to switch to  JAM routines (obsolete);
+!  in addition, since only the R4 & R8 S/R are coded, GLOBAL RS & RL macros
+!  enable to call the corresponding R4 or R8 S/R.
 #ifdef REAL4_IS_SLOW
 #define _RS Real*8
 #define RS_IS_REAL8
-#define _GLOBAL_SUM_R4(a,b) CALL GLOBAL_SUM_R8 ( a, b)
-#define _GLOBAL_MAX_R4(a,b) CALL GLOBAL_MAX_R8 ( a, b )
+#define _GLOBAL_SUM_RS(a,b) CALL GLOBAL_SUM_R8 ( a, b)
+#define _GLOBAL_MAX_RS(a,b) CALL GLOBAL_MAX_R8 ( a, b )
 #define _MPI_TYPE_RS MPI_DOUBLE_PRECISION
+#ifdef USE_OLD_MACROS_R4R8toRSRL
+#define _GLOBAL_SUM_R4(a,b) CALL GLOBAL_SUM_R8 ( a, b ) 
+#define _GLOBAL_MAX_R4(a,b) CALL GLOBAL_MAX_R8 ( a, b )
+#endif
 #else
 #define _RS Real*4
 #define RS_IS_REAL4
-#define _GLOBAL_SUM_R4(a,b) CALL GLOBAL_SUM_R4 ( a, b )
-#define _GLOBAL_MAX_R4(a,b) CALL GLOBAL_MAX_R4 ( a, b )
+#define _GLOBAL_SUM_RS(a,b) CALL GLOBAL_SUM_R4 ( a, b )
+#define _GLOBAL_MAX_RS(a,b) CALL GLOBAL_MAX_R4 ( a, b )
 #define _MPI_TYPE_RS MPI_REAL
+#ifdef USE_OLD_MACROS_R4R8toRSRL
+!ph Needed for some backward compatibility with broken packages
+#define _GLOBAL_SUM_R4(a,b) CALL GLOBAL_SUM_R4 ( a, b ) 
+#define _GLOBAL_MAX_R4(a,b) CALL GLOBAL_MAX_R4 ( a, b )
 #endif
-#define _EXCH_XY_R4(a,b) CALL EXCH_XY_RL ( a, b )
-#define _EXCH_XYZ_R4(a,b) CALL EXCH_XYZ_RL ( a, b )
+#endif
 
 #define _RL Real*8
 #define RL_IS_REAL8
-#define _EXCH_XY_R8(a,b) CALL EXCH_XY_RL ( a, b )
-#define _EXCH_XYZ_R8(a,b) CALL EXCH_XYZ_RL ( a, b )
+#define _GLOBAL_SUM_RL(a,b) CALL GLOBAL_SUM_R8 ( a, b )
+#define _GLOBAL_MAX_RL(a,b) CALL GLOBAL_MAX_R8 ( a, b )
+#ifdef USE_OLD_MACROS_R4R8toRSRL
+!ph Needed for some backward compatibility with broken packages
 #define _GLOBAL_SUM_R8(a,b) CALL GLOBAL_SUM_R8 ( a, b )
 #define _GLOBAL_MAX_R8(a,b) CALL GLOBAL_MAX_R8 ( a, b )
+#endif
 #define _MPI_TYPE_RL MPI_DOUBLE_PRECISION
-
-#define _EXCH_XY_RS(a,b) CALL EXCH_XY_RL ( a, b )
-#define _EXCH_XYZ_RS(a,b) CALL EXCH_XYZ_RL ( a, b )
-#define _EXCH_XY_RL(a,b) CALL EXCH_XY_RL ( a, b )
-#define _EXCH_XYZ_RL(a,b) CALL EXCH_XYZ_RL ( a, b )
 
 #define _MPI_TYPE_R4 MPI_REAL
 #if (defined (TARGET_SGI) || defined (TARGET_AIX) || defined (TARGET_LAM))
@@ -157,23 +165,34 @@
 #define _R4 Real*4
 #define _R8 Real*8
 
-!--   Control use of JAM routines for Artic network
+!- Note: a) exch macros were used to switch to  JAM routines (obsolete)
+!        b) exch R4 & R8 macros are not practically used ; if needed,
+!           will directly call the corrresponding S/R.
+#define _EXCH_XY_RS(a,b) CALL EXCH_XY_RS ( a, b )
+#define _EXCH_XY_RL(a,b) CALL EXCH_XY_RL ( a, b )
+#define _EXCH_XYZ_RS(a,b) CALL EXCH_XYZ_RS ( a, b )
+#define _EXCH_XYZ_RL(a,b) CALL EXCH_XYZ_RL ( a, b )
+#ifdef USE_OLD_MACROS_R4R8toRSRL
+!ph Needed for some backward compatibility with broken packages
+#define _EXCH_XY_R4(a,b) CALL EXCH_XY_RS ( a, b )
+#define _EXCH_XY_R8(a,b) CALL EXCH_XY_RL ( a, b )
+#define _EXCH_XYZ_R4(a,b) CALL EXCH_XYZ_RS ( a, b )
+#define _EXCH_XYZ_R8(a,b) CALL EXCH_XYZ_RL ( a, b )
+#endif
+
+!--   Control use of JAM routines for Artic network (no longer supported)
 !     These invoke optimized versions of "exchange" and "sum" that
 !     utilize the programmable aspect of Artic cards.
-#ifdef LETS_MAKE_JAM
-#define _GLOBAL_SUM_R4(a,b) CALL GLOBAL_SUM_R8_JAM ( a, b)
-#define _EXCH_XY_R4(a,b) CALL EXCH_XY_R8_JAM ( a, b )
-#define _EXCH_XYZ_R4(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
-#define _EXCH_XY_R8(a,b) CALL EXCH_XY_R8_JAM ( a, b )
-#define _EXCH_XYZ_R8(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
-#define _GLOBAL_SUM_R8(a,b) CALL GLOBAL_SUM_R8_JAM ( a, b )
+!XXX No longer supported ; started to remove JAM routines.
+!XXX #ifdef LETS_MAKE_JAM
+!XXX #define _GLOBAL_SUM_RS(a,b) CALL GLOBAL_SUM_R8_JAM ( a, b)
+!XXX #define _GLOBAL_SUM_RL(a,b) CALL GLOBAL_SUM_R8_JAM ( a, b )
+!XXX #define _EXCH_XY_RS(a,b) CALL EXCH_XY_R8_JAM ( a, b )
+!XXX #define _EXCH_XY_RL(a,b) CALL EXCH_XY_R8_JAM ( a, b )
+!XXX #define _EXCH_XYZ_RS(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
+!XXX #define _EXCH_XYZ_RL(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
+!XXX #endif
 
-#define _EXCH_XY_RS(a,b) CALL EXCH_XY_R8_JAM ( a, b )
-#define _EXCH_XYZ_RS(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
-#define _EXCH_XY_RL(a,b) CALL EXCH_XY_R8_JAM ( a, b )
-#define _EXCH_XYZ_RL(a,b) CALL EXCH_XYZ_R8_JAM ( a, b )
-#endif
- 
 !--   Control use of "double" precision constants.
 !     Use D0 where it means REAL*8 but not where it means REAL*16
 #ifdef REAL_D0_IS_16BYTES
@@ -185,11 +204,9 @@
 !     unless .Dnn is specified. CRAY vector machines use 16-byte
 !     precision when they see .Dnn which runs very slowly!
 #ifdef REAL_D0_IS_16BYTES
-#define _d E
 #define _F64( a ) a
 #endif
 #ifndef REAL_D0_IS_16BYTES
-#define _d D
 #define _F64( a ) DFLOAT( a )
 #endif
 
