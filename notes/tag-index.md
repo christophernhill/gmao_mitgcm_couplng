@@ -1,3 +1,4 @@
+- checkpoint_0_E (2016/11/06)
   * Removing mitgcm_special_bits.tgz and adding files to git
 
 - checkpoint_0_D (2016/11/05)
