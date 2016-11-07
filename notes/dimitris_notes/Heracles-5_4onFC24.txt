@@ -121,11 +121,11 @@ git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 # Get MITgcm from anonymous CVS server
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login # enter the CVS password: "cvsanon"
-cvs co -D "01/31/07" MITgcm_code
-cvs co -D "01/31/07" MITgcm/verification/testreport
-cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
-cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
+cvs login                         # enter the CVS password: "cvsanon"
+cvs co -r checkpoint66a MITgcm_code
+cvs co -r checkpoint66a MITgcm/verification/testreport
+cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
+cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
@@ -142,13 +142,7 @@ ln -s $MPI_INC_DIR mpi
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -of $GMAO_MITGCM_COUPLNG/modifications/linux_amd64_gfortran -t global_ocean.cs32x15
-cd global_ocean.cs32x15/build
-mpirun -np 2 mitgcmuv
-
-# Apply Atanas' changes to MITgcm"
-cd $GMAO_MITGCM_COUPLNG/modifications
-cp timers.F $WorkingDir/MITgcm/eesupp/src
+./testreport -mpi -j 4 -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
@@ -197,17 +191,14 @@ cd $WorkingDir/TEST
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out
 
-
-#===========================================================================
-# Get and test latest MITgcm (bash)
-export CVSROOT=:pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login # enter the CVS password: "cvsanon"
-cvs co MITgcm_code
-cvs co MITgcm/verification/testreport
-cvs co MITgcm/verification/tutorial_held_suarez_cs
-cvs co MITgcm/verification/global_ocean.cs32x15
-cd MITgcm/verification
-./testreport -j 4 -t global_ocean.cs32x15
-module load mpi
-export MPI_INC_DIR=/usr/include/openmpi-x86_64
-./testreport -mpi -j 4 -t global_ocean.cs32x15
+# Looking at GEOS-5 output with matlab
+cd $WorkingDir/TEST/scratch
+matlab
+fnm='TEST.mit_ocn.20000414_2300z.nc4';
+ncdisp(fnm)
+lat=ncread(fnm,'lat');
+lon=ncread(fnm,'lon');
+TS=ncread(fnm,'TS');
+pcolor(lon,lat,TS')
+shading flat
+colorbar

@@ -31,7 +31,7 @@
 #         V Auto-mount
 #     Start
 
-# Install Lubuntu 16.04
+# Install Lubuntu
 #   Download Updates; Install third-party software
 #   Erase disk and install Lubuntu
 #   Your name: heracles

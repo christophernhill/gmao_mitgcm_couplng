@@ -118,6 +118,10 @@ esma_doc doc:
 
 #.
 
+#              ------------------------------------------
+#              Package Dependencies for Parallel Install
+#              ------------------------------------------
+
+mitgcm_setup/code_split_driver_install : mitgcm_setup/build_install
 
   -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
-
