@@ -63,7 +63,6 @@ reboot
 sudo dnf install cvs
 sudo dnf install gcc-gfortran
 sudo dnf install openmpi-devel  # for parallel integration of MITgcm
-sudo dnf install imake          # provide makedepend for older MITgcm code
 
 # Extra packages needed to build GEOS-5 baselibs
 sudo dnf install gcc-c++
@@ -78,8 +77,8 @@ sudo dnf install lapack-devel
 sudo dnf install numpy
 sudo dnf install python-devel
 sudo dnf install numpy-f2py
-sudo dnf install perl-Env          # fix for "Can't locate Env.pm in @INC"
-sudo dnf install redhat-rpm-config # fix for "missing redhat-hardened-cc1"
+sudo dnf install perl-Env           # fix for "Can't locate Env.pm in @INC"
+sudo dnf install redhat-rpm-config  # fix for "missing redhat-hardened-cc1"
 
 # Start tcsh, set $WorkingDir, and load openmpi
 tcsh
@@ -148,13 +147,13 @@ cd $WorkingDir/MITgcm/verification
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
-# Approximately 10 minutes on MacBook Pro (2015).
+# Approximately 11 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
 ln -sf Makefile_gfortran Makefile
 cd $ESMADIR/src
-gmake pinstall -j 4 |& tee makeinstall.log
+gmake pinstall -j 3 |& tee makeinstall.log
 
 # Set up coupled code
 cd $ESMADIR/src/Applications/GEOSgcm_App

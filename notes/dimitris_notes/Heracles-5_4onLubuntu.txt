@@ -47,8 +47,7 @@ sudo reboot
 # Extra packages needed to get and run MITgcm
 sudo apt install cvs
 sudo apt install gfortran
-sudo apt install xutils-dev     # needed for circa-2007 MITgcm
-sudo apt install libopenmpi-dev # needed for parallel run of MITgcm
+sudo apt install libopenmpi-dev   # needed for parallel run of MITgcm
 
 # Extra packages needed to build GEOS-5 baselibs
 sudo apt install g++

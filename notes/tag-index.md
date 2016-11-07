@@ -1,3 +1,6 @@
+- checkpoint_0_F (2016/11/07)
+  * Updating to latest MITgcm checkpoint (checkpoint66a)
+
 - checkpoint_0_E (2016/11/06)
   * Removing mitgcm_special_bits.tgz and adding files to git
 
