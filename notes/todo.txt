@@ -13,3 +13,7 @@
 - cleaner, more concise instructions
 
 - better testing
+
+- revisit whether -O1 is needed for GEOS_MoistGridComp.F90
+  (the same compiler error seems to also happen when the
+   compiler runs out of core memory on the virtual box)
