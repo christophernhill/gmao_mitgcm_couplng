@@ -8,7 +8,7 @@
   by moving coupling parameters to instructions
   or set_mitgcm_env.sh
 
-- instructions for running on NAS
+- instructions for running on NAS and engaging
 
 - cleaner, more concise instructions
 
