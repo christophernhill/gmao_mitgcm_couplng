@@ -107,7 +107,7 @@ C     CALL MONITOR( myCurrentIter, myCurrentTime, myThid )
       myRank = mpiMyId
 
 C     Write TAUX to a current iter numbered file
-      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'taux_import.',myRank,'.',
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'taux_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
@@ -115,7 +115,7 @@ C     Write TAUX to a current iter numbered file
       WRITE(dUnit) TAUX
       CLOSE(dUnit)
 C     Write TAUY to a current iter numbered file
-      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'tauy_import.',myRank,'.',
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'tauy_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
@@ -123,7 +123,7 @@ C     Write TAUY to a current iter numbered file
       WRITE(dUnit) TAUY
       CLOSE(dUnit)
 C     Write PS to a current iter numbered file
-      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'ps_import.',myRank,'.',
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'ps_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
@@ -131,7 +131,7 @@ C     Write PS to a current iter numbered file
       WRITE(dUnit) PS
       CLOSE(dUnit)
 C     Write LAT to a current iter numbered file
-      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'lat_import.',myRank,'.',
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'lat_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
@@ -139,7 +139,7 @@ C     Write LAT to a current iter numbered file
       WRITE(dUnit) LAT
       CLOSE(dUnit)
 C     Write LON to a current iter numbered file
-      WRITE(tFnam,'(A12,I6.6,A,I10.10,A5)') 'lon_import.',myRank,'.',
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'lon_import.',myRank,'.',
      &       myCurrentIter,'.data'
       CALL MDSFINDUNIT( dUnit, myThid )
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
