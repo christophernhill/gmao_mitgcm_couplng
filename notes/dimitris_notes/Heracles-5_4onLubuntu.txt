@@ -106,10 +106,10 @@ git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
-cvs co MITgcm_code
-cvs co MITgcm/verification/testreport
-cvs co MITgcm/verification/tutorial_held_suarez_cs
-cvs co MITgcm/verification/global_ocean.cs32x15
+cvs co -r checkpoint66a MITgcm_code
+cvs co -r checkpoint66a MITgcm/verification/testreport
+cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
+cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src

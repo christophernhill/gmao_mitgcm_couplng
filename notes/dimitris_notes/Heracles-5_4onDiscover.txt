@@ -28,10 +28,10 @@ git clone https://github.com/christophernhill/gmao_mitgcm_couplng
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
-cvs co -D "01/31/07" MITgcm_code
-cvs co -D "01/31/07" MITgcm/verification/testreport
-cvs co -D "01/31/07" MITgcm/verification/tutorial_held_suarez_cs
-cvs co -D "01/31/07" MITgcm/verification/global_ocean.cs32x15
+cvs co -r checkpoint66a MITgcm_code
+cvs co -r checkpoint66a MITgcm/verification/testreport
+cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
+cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
 # Request node and reset WorkingDir to same location as above
 xsub -I -l select=1,walltime=8:00:00
@@ -52,13 +52,7 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -of $GMAO_MITGCM_COUPLNG/modifications/linux_amd64_ifort_discover -t global_ocean.cs32x15
-cd global_ocean.cs32x15/build
-mpirun -np 2 ./mitgcmuv
-
-# Apply Atanas' changes to MITgcm"
-cd $GMAO_MITGCM_COUPLNG/modifications
-cp timers.F $WorkingDir/MITgcm/eesupp/src
+./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
@@ -103,16 +97,3 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 # Some verification output in $GMAO_MITGCM_COUPLNG/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
-
-
-#===========================================================================
-# Get and test latest MITgcm (bash)
-export CVSROOT=:pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login # enter the CVS password: "cvsanon"
-cvs co MITgcm_code
-cvs co MITgcm/verification/testreport
-cvs co MITgcm/verification/tutorial_held_suarez_cs
-cvs co MITgcm/verification/global_ocean.cs32x15
-cd MITgcm/verification
-./testreport -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
-./testreport -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -mpi -t global_ocean.cs32x15
