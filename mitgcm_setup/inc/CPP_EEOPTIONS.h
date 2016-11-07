@@ -1,4 +1,4 @@
-! $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEOPTIONS.h,v 1.27 2006/11/22 09:43:27 dimitri Exp $
+! $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEOPTIONS.h,v 1.41 2015/11/04 20:49:37 jmc Exp $
 ! $Name:  $
 
 !BOP
@@ -46,6 +46,29 @@
 !     ALWAYS - indicates the choice will be fixed at compile time
 !              so no run-time option will be present
 
+!=== Macro related options ===
+!--   Control storage of floating point operands
+!     On many systems it improves performance only to use
+!     8-byte precision for time stepped variables.
+!     Constant in time terms ( geometric factors etc.. )
+!     can use 4-byte precision, reducing memory utilisation and
+!     boosting performance because of a smaller working set size.
+!     However, on vector CRAY systems this degrades performance.
+!     Enable to switch REAL4_IS_SLOW from genmake2 (with LET_RS_BE_REAL4):
+#ifdef LET_RS_BE_REAL4
+#undef REAL4_IS_SLOW
+#else /* LET_RS_BE_REAL4 */
+#define REAL4_IS_SLOW
+#endif /* LET_RS_BE_REAL4 */
+
+!--   Control use of "double" precision constants.
+!     Use D0 where it means REAL*8 but not where it means REAL*16
+#define D0 d0
+
+!--   Enable some old macro conventions for backward compatibility
+#undef USE_OLD_MACROS_R4R8toRSRL
+
+!=== IO related options ===
 !--   Flag used to indicate whether Fortran formatted write
 !     and read are threadsafe. On SGI the routines can be thread
 !     safe, on Sun it is not possible - if you are unsure then
@@ -59,6 +82,17 @@
 !--   Flag to turn off the writing of error message to ioUnit zero
 #undef DISABLE_WRITE_TO_UNIT_ZERO
 
+!--   Alternative formulation of BYTESWAP, faster than
+!     compiler flag -byteswapio on the Altix.
+#undef FAST_BYTESWAP
+
+!--   Flag defined for eeboot_minimal.F, eeset_parms.F and open_copy_data_file.F
+!     to write STDOUT, STDERR and scratch files from process 0 only.
+! WARNING: to use only when absolutely confident that the setup is working
+!     since any message (error/warning/print) from any proc <> 0 will be lost.
+#undef SINGLE_DISK_IO
+
+!=== MPI, EXCH and GLOBAL_SUM related options ===
 !--   Flag turns off MPI_SEND ready_to_receive polling in the
 !     gather_* subroutines to speed up integrations.
 #undef DISABLE_MPI_READY_TO_RECEIVE
@@ -68,7 +102,6 @@
 !XXX To use MPI, use an appropriate genmake2 options file or use
 !XXX genmake2 -mpi .
 !XXX #undef  ALLOW_USE_MPI
-!XXX #undef  ALWAYS_USE_MPI
 
 !--   Control use of communication that might overlap computation.
 !     Under MPI selects/deselects "non-blocking" sends and receives.
@@ -80,26 +113,6 @@
 #define ALLOW_SYNC_COMMUNICATION
 #undef  ALWAYS_USE_SYNC_COMMUNICATION
 
-!--   Control use of JAM routines for Artic network
-!     These invoke optimized versions of "exchange" and "sum" that
-!     utilize the programmable aspect of Artic cards.
-#undef  LETS_MAKE_JAM
-#undef  JAM_WITH_TWO_PROCS_PER_NODE
-
-!--   Control storage of floating point operands
-!     On many systems it improves performance only to use
-!     8-byte precision for time stepped variables.
-!     Constant in time terms ( geometric factors etc.. )
-!     can use 4-byte precision, reducing memory utilisation and
-!     boosting performance because of a smaller working
-!     set size. However, on vector CRAY systems this degrades
-!     performance.
-#define REAL4_IS_SLOW
-
-!--   Control use of "double" precision constants.
-!     Use D0 where it means REAL*8 but not where it means REAL*16
-#define D0 d0
-
 !--   Control XY periodicity in processor to grid mappings
 !     Note: Model code does not need to know whether a domain is
 !           periodic because it has overlap regions for every box.
@@ -110,11 +123,31 @@
 #define CAN_PREVENT_X_PERIODICITY
 #define CAN_PREVENT_Y_PERIODICITY
 
-!--   Alternative formulation of BYTESWAP, faster than
-!     compiler flag -byteswapio on the Altix.
-#undef FAST_BYTESWAP
+!--   disconnect tiles (no exchange between tiles, just fill-in edges
+!     assuming locally periodic subdomain)
+#undef DISCONNECTED_TILES
+
+!--   Always cumulate tile local-sum in the same order by applying MPI allreduce
+!     to array of tiles ; can get slower with large number of tiles (big set-up)
+#define GLOBAL_SUM_ORDER_TILES
+
+!--   Alternative way of doing global sum without MPI allreduce call
+!     but instead, explicit MPI send & recv calls. Expected to be slower.
+#undef GLOBAL_SUM_SEND_RECV
+
+!--   Alternative way of doing global sum on a single CPU
+!     to eliminate tiling-dependent roundoff errors. Note: This is slow.
+#undef  CG2D_SINGLECPU_SUM
+
+!=== Other options (to add/remove pieces of code) ===
+!--   Flag to turn on checking for errors from all threads and procs
+!     (calling S/R STOP_IF_ERROR) before stopping.
+#define USE_ERROR_STOP
+
+!--   Control use of communication with other component:
+!     allow to import and export from/to Coupler interface.
+#undef COMPONENT_MODULE
 
 #endif /* _CPP_EEOPTIONS_H_ */
 
 #include "CPP_EEMACROS.h"
-
