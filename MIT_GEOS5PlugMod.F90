@@ -171,14 +171,13 @@ contains
 
 !   -------------------------
 
-    nexports  = 15
+    nexports  = 14
     allocate(exports(nexports))
     exports    = (/ &
     mstate('US',    'top_layer_Agrid_eastward_velocity',     'm s-1',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('VS',    'top_layer_Agrid_northward_velocity',    'm s-1',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TS',    'top_layer_temperature',                 'K',         MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('SS',    'top_layer_salinity',                    'psu',       MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
-    mstate('DS',    'top_layer_thickness',                   'm',        MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('MIT_3D_MASK',  'ocean mask at t-points',         '1',         MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('DH',    'layer_thickness',                       'm',         MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('SLV',   'sea_level_with_ice_loading',            'm',         MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -296,7 +295,6 @@ contains
     REAL_, pointer                         :: VS  (:,:)
     REAL_, pointer                         :: TS  (:,:)
     REAL_, pointer                         :: SS  (:,:)
-    REAL_, pointer                         :: DS  (:,:)
     REAL_, pointer                         :: pMASK(:,:,:)
     REAL_, pointer                         :: mMASK(:,:,:) => NULL()
     REAL_, pointer                         :: pMASK2d(:,:)
@@ -475,7 +473,6 @@ contains
     REAL_, pointer                         :: VS  (:,:)
     REAL_, pointer                         :: TS  (:,:)
     REAL_, pointer                         :: SS  (:,:)
-    REAL_, pointer                         :: DS  (:,:)
     REAL_, pointer                         :: MASK(:,:,:)
 
 !   Type for getting MITgcm internal state pointer
@@ -576,14 +573,12 @@ contains
     CALL MAPL_GetPointer(EXPORT,   VS,   'VS', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   TS,   'TS', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   SS,   'SS', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT,   DS,   'DS', RC=STATUS); VERIFY_(STATUS)
-    call MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
+    CALL MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'TS',   TS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'SS',   SS )
-!   CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'DS',   DS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr, 'MASK', MASK )
 
 !ALT: next lines are totally fake 
@@ -592,7 +587,6 @@ contains
 !@    US = 0.01
 !@    VS = 0.01
 !@    SS = 30.
-    !DS = 30.
     MASK=1.
 
     CALL MAPL_TimerOff(MAPL,"RUN"   )
