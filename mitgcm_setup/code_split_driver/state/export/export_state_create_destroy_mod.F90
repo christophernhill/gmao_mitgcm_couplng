@@ -17,12 +17,12 @@
       CONTAINS
 
       SUBROUTINE MITGCM_EXPORT_CREATE( exportPtr,        &
-                 snx, sny, olx, oly, nr, nsx, nsy        &
+                 snx, sny, olx, oly, Nr, nSx, nSy        &
                  )
 !     -- Allocate memory for MITgcm dynvars_h type of a specific size --
       TYPE(MITGCM_EXPORT), POINTER :: exportPtr
       INTEGER                      :: snx, sny, olx, oly
-      INTEGER                      :: nr, nsx, nsy
+      INTEGER                      :: Nr, nSx, nSy
 
 !     -- Local variables --
       TYPE(MITGCM_EXPORT), POINTER :: p
@@ -35,7 +35,7 @@
       ALLOCATE ( p%SA(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%TS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SS(1:snx*nSx,1:sny*nSy)  )
-      ALLOCATE ( p%DS(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%MASK(1:snx*nSx,1:sny*nSy,1:Nr)  )
      
       RETURN
       END SUBROUTINE
@@ -55,7 +55,7 @@
        _DEALLOC ( p%SA     )
        _DEALLOC ( p%TS     )
        _DEALLOC ( p%SS     )
-       _DEALLOC ( p%DS     )
+       _DEALLOC ( p%MASK   )
        _DEALLOC( exportPtr )
       ENDIF
  

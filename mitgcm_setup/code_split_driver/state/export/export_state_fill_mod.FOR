@@ -103,10 +103,24 @@
          DO i=1,sNx
           p%TS(iSLo+i,jSLo+j) = theta(i,j,k,bi,bj) + celsius2K
           p%SS(iSLo+i,jSLo+j) =  salt(i,j,k,bi,bj)
-          p%DS(iSLo+i,jSLo+j) = hFacC(i,j,k,bi,bj)*drF(k)
          ENDDO
         ENDDO
 
+       ENDDO
+      ENDDO
+
+!     store 3-D mask to export
+      DO bj=1,nSy
+       DO bi=1,nSx
+        jSLo = (bj-1)*sNy
+        iSLo = (bi-1)*sNx
+        DO k=1,Nr
+         DO j=1,sNy
+          DO i=1,sNx
+           p%MASK(iSLo+i,jSLo+j,k) =  maskC(i,j,k,bi,bj)
+          ENDDO
+         ENDDO
+        ENDDO
        ENDDO
       ENDDO
 
