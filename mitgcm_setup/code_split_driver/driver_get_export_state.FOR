@@ -33,7 +33,12 @@ C     == Local variables ==
       INTEGER i, j, bi, bj, iSLo, jSLo
 
       IF ( code .EQ. 'TS' ) THEN
-!      Copy TS to fld
+!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+!    &      //'. Processing ...'
+!      print *, ' associated=',ASSOCIATED(fld)
+!      print *, ' shape     =',SHAPE(fld)
+
+!     Copy TS to fld
        DO bj=1,nSy
         DO bi=1,nSx
          jSLo = (bj-1)*sNy
@@ -46,19 +51,10 @@ C     == Local variables ==
         ENDDO
        ENDDO
 
-      ELSEIF ( code .EQ. 'DS' ) THEN
-!      Copy DS to fld
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-          fld(iSLo+i,jSLo+j) = mitgcmIState%export%DS(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+      ELSE
+
+!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+!    &      //'. This code is stubbed!'
 
       ENDIF
 
@@ -66,15 +62,50 @@ C     == Local variables ==
       END SUBROUTINE
 
       SUBROUTINE DRIVER_GET_EXPORT_STATE_3D( mitgcmIState, code, fld)
+C     !USES:
       USE MITGCM_STATE_MOD , ONLY :
      &    MITGCM_ISTATE
+      IMPLICIT NONE
+#include "SIZE.h"
+
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       CHARACTER*(*) code
       REAL_, pointer :: fld(:,:,:)
 
-      print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
+C     == Local variables ==
+      INTEGER i, j, k, bi, bj, iSLo, jSLo
+
+      IF ( code .EQ. 'MASK' ) THEN
+       IF ( ASSOCIATED(fld) ) THEN
+        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
+     &      //' : Associated & shape =', SHAPE(fld)
+!     Copy MASK to fld
+        DO k=1,Nr
+         DO bj=1,nSy
+          DO bi=1,nSx
+           jSLo = (bj-1)*sNy
+           iSLo = (bi-1)*sNx
+           DO j=1,sNy
+            DO i=1,sNx
+             fld(iSLo+i,jSLo+j,k) = 
+     &                 mitgcmIState%export%MASK(iSLo+i,jSLo+j,k)
+            ENDDO
+           ENDDO
+          ENDDO
+         ENDDO
+        ENDDO
+       ELSE
+        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
+     &      //' : Pointer not associated!'
+       ENDIF
+
+      ELSE
+
+       print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
      &      //'. This code is stubbed!'
+
+      ENDIF
 
       RETURN
       END SUBROUTINE
