@@ -579,7 +579,7 @@ contains
 !@    US = 0.01
 !@    VS = 0.01
 !@    SS = 30.
-    MASK=1.
+!@    MASK=1.
 
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
