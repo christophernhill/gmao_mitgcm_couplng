@@ -396,16 +396,8 @@ contains
     VERIFY_(STATUS)
 
     call WRITE_PARALLEL("Calling DRIVER_Get_ExportState")
-    CALL DRIVER_GET_EXPORT_STATE(privateState%ptr, 'MASK', mMASK )
+    CALL DRIVER_GET_EXPORT_STATE(privateState%ptr, 'MASK', pMASK )
     call WRITE_PARALLEL("Done DRIVER_Get_ExportState")
-
-    if (associated(pMASK)) then
-       if (associated(mMASK) ) then
-        pMASK = mMASK
-       else
-        pMASK = 1.0
-       endif
-    end if
 
 
 ! All Done
