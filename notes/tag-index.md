@@ -1,3 +1,9 @@
+- checkpoint 0_G (2016/11/09)
+  * Export of 3-D mask, removal of 3d mask stub, and fix
+    for null pointer issue in MIT_GEOS5PlugMod.F90
+  * Changes to Makefile_gfortran to make it compatible
+    with GMAO desktops.
+
 - checkpoint_0_F (2016/11/07)
   * Updating to latest MITgcm checkpoint (checkpoint66a)
 
