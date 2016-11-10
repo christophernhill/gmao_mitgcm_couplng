@@ -36,13 +36,13 @@
  hFacMin=.1,
  hFacMinDr=20.,
  readBinaryPrec=64,
+ useSingleCpuIo=.TRUE.,
  &end
 
 # Elliptic solver parameters
  &PARM02
  cg2dMaxIters=200,
-#cg2dTargetResidual=1.E-9,
- cg2dTargetResWunit=1.E-14,
+ cg2dTargetResidual=1.E-9,
  &end
 
 # Time stepping parameters
