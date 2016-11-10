@@ -65,11 +65,15 @@ C     == Local variables ==
 
 C     == Variables for reading TAUX from import state part of the internal
 C     == state pointer that is passed in as an argument.
-      _RL, pointer                         ::   TAUX(:,:  )
-      _RL, pointer                         ::   TAUY(:,:  )
-      _RL, pointer                         ::   PS(  :,:  )
-      _RL, pointer                         ::   LAT( :,:  )
-      _RL, pointer                         ::   LON( :,:  )
+      _RL, pointer                         ::   TAUX(  :,:  )
+      _RL, pointer                         ::   TAUY(  :,:  )
+      _RL, pointer                         ::   PS(    :,:  )
+      _RL, pointer                         ::   SWHEAT(:,:,:)
+      _RL, pointer                         ::   QFLX(  :,:  )
+      _RL, pointer                         ::   HFLX(  :,:  )
+      _RL, pointer                         ::   SFLX(  :,:  )
+      _RL, pointer                         ::   LAT(   :,:  )
+      _RL, pointer                         ::   LON(   :,:  )
       CHARACTER*1024  tFnam
       INTEGER dUnit
       INTEGER i0, j0
@@ -86,11 +90,15 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
 
 C     Extract the import fields
 C     MITgcm FFIELDS taux0
-      TAUX => mitgcmIState%import%tx
-      TAUY => mitgcmIState%import%ty
-      PS   => mitgcmIState%import%ps
-      LAT  => mitgcmIState%import%lat
-      LON  => mitgcmIState%import%lon
+      TAUX   => mitgcmIState%import%tx
+      TAUY   => mitgcmIState%import%ty
+      PS     => mitgcmIState%import%ps
+      SWHEAT => mitgcmIState%import%swheat
+      QFLX   => mitgcmIState%import%qflx
+      HFLX   => mitgcmIState%import%hflx
+      SFLX   => mitgcmIState%import%sflx
+      LAT    => mitgcmIState%import%lat
+      LON    => mitgcmIState%import%lon
 
 
 C     myThid = 1
@@ -129,6 +137,38 @@ C     Write PS to a current iter numbered file
       OPEN( dUnit, file=tFnam, status='UNKNOWN',
      &        form='UNFORMATTED')
       WRITE(dUnit) PS
+      CLOSE(dUnit)
+C     Write SWHEAT to a current iter numbered file
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'swheat_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) SWHEAT
+      CLOSE(dUnit)
+C     Write QFLX to a current iter numbered file
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'qflx_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) QFLX
+      CLOSE(dUnit)
+C     Write HFLX to a current iter numbered file
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'hflx_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) HFLX
+      CLOSE(dUnit)
+C     Write SFLX to a current iter numbered file
+      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'sflx_import.',myRank,'.',
+     &       myCurrentIter,'.data'
+      CALL MDSFINDUNIT( dUnit, myThid )
+      OPEN( dUnit, file=tFnam, status='UNKNOWN',
+     &        form='UNFORMATTED')
+      WRITE(dUnit) SFLX
       CLOSE(dUnit)
 C     Write LAT to a current iter numbered file
       WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'lat_import.',myRank,'.',

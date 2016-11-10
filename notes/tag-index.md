@@ -1,3 +1,5 @@
+  * Adding remaining import and export fields (except sea-ice).
+
 - checkpoint 0_G (2016/11/09)
   * Export of 3-D mask, removal of 3d mask stub, and fix
     for null pointer issue in MIT_GEOS5PlugMod.F90

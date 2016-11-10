@@ -27,17 +27,18 @@ C     !ROUTINE: DRIVER_SET_IMPORT_STATE
 C     !INTERFACE:
       SUBROUTINE DRIVER_SET_IMPORT_STATE_2D( mitgcmIState, code, fld)
 C     !USES:
-
       USE MITGCM_STATE_MOD , ONLY :
      &    MITGCM_ISTATE
 #include "SIZE.h"
-!#include "GRID.h"
-!#include "DYNVARS.h"
+
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       CHARACTER*(*) code
       REAL_, pointer :: fld(:,:)
-C
+
+C     == Local variables ==
+      INTEGER i, j, bi, bj, iSLo, jSLo
+
       IF ( code .EQ. 'TAUX' ) THEN
 !      Copy fld to TX
        DO bj=1,nSy
@@ -80,6 +81,48 @@ C
         ENDDO
        ENDDO
       ENDIF
+      IF ( code .EQ. 'QFLX' ) THEN
+!      Copy fld to QFLX
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%QFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'HFLX' ) THEN
+!      Copy fld to HFLX
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%HFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+      IF ( code .EQ. 'SFLX' ) THEN
+!      Copy fld to SFLX
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+           mitgcmIState%import%SFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
       IF ( code .EQ. 'LATS' ) THEN
 !      Copy fld to LAT
        DO bj=1,nSy
@@ -114,14 +157,39 @@ C
       END SUBROUTINE
 
       SUBROUTINE DRIVER_SET_IMPORT_STATE_3D( mitgcmIState, code, fld)
+C     !USES:
       USE MITGCM_STATE_MOD , ONLY :
      &    MITGCM_ISTATE
+      IMPLICIT NONE
+#include "SIZE.h"
+
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       CHARACTER*(*) code
       REAL_, pointer :: fld(:,:,:)
 
-      print *,'DRIVER_SET_IMPORT_STATE_3D:'//trim(code)//'. This code is stubbed!'
+C     == Local variables ==
+      INTEGER i, j, k, bi, bj, iSLo, jSLo
+
+      IF ( code .EQ. 'SWHEAT' ) THEN
+!      Copy fld to SWHEAT
+       DO k=1,Nr
+        DO bj=1,nSy
+         DO bi=1,nSx
+          jSLo = (bj-1)*sNy
+          iSLo = (bi-1)*sNx
+          DO j=1,sNy
+           DO i=1,sNx
+            mitgcmIState%import%SWHEAT(iSLo+i,jSLo+j,k)
+     &             = fld(iSLo+i,jSLo+j,k)
+           ENDDO
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDIF
+
+      RETURN
       END SUBROUTINE
       END MODULE
 
