@@ -189,15 +189,3 @@ cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
 cd $WorkingDir/TEST
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out
-
-# Looking at GEOS-5 output with matlab
-cd $WorkingDir/TEST/scratch
-matlab
-fnm='TEST.mit_ocn.20000414_2300z.nc4';
-ncdisp(fnm)
-lat=ncread(fnm,'lat');
-lon=ncread(fnm,'lon');
-TS=ncread(fnm,'TS');
-pcolor(lon,lat,TS')
-shading flat
-colorbar
