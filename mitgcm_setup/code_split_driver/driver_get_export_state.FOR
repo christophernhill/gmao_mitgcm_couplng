@@ -32,7 +32,45 @@ C     == Routine arguments ==
 C     == Local variables ==
       INTEGER i, j, bi, bj, iSLo, jSLo
 
-      IF ( code .EQ. 'TS' ) THEN
+      IF ( code .EQ. 'US' ) THEN
+!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+!    &      //'. Processing ...'
+!      print *, ' associated=',ASSOCIATED(fld)
+!      print *, ' shape     =',SHAPE(fld)
+
+!     Copy US to fld
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+          fld(iSLo+i,jSLo+j) = mitgcmIState%export%US(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+
+      ELSEIF ( code .EQ. 'VS' ) THEN
+!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+!    &      //'. Processing ...'
+!      print *, ' associated=',ASSOCIATED(fld)
+!      print *, ' shape     =',SHAPE(fld)
+
+!     Copy VS to fld
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+          fld(iSLo+i,jSLo+j) = mitgcmIState%export%VS(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+
+      ELSEIF ( code .EQ. 'TS' ) THEN
 !      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
 !    &      //'. Processing ...'
 !      print *, ' associated=',ASSOCIATED(fld)
@@ -46,6 +84,25 @@ C     == Local variables ==
          DO j=1,sNy
           DO i=1,sNx
           fld(iSLo+i,jSLo+j) = mitgcmIState%export%TS(iSLo+i,jSLo+j)
+          ENDDO
+         ENDDO
+        ENDDO
+       ENDDO
+
+      ELSEIF ( code .EQ. 'SS' ) THEN
+!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+!    &      //'. Processing ...'
+!      print *, ' associated=',ASSOCIATED(fld)
+!      print *, ' shape     =',SHAPE(fld)
+
+!     Copy SS to fld
+       DO bj=1,nSy
+        DO bi=1,nSx
+         jSLo = (bj-1)*sNy
+         iSLo = (bi-1)*sNx
+         DO j=1,sNy
+          DO i=1,sNx
+          fld(iSLo+i,jSLo+j) = mitgcmIState%export%SS(iSLo+i,jSLo+j)
           ENDDO
          ENDDO
         ENDDO
