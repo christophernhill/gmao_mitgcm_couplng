@@ -1,4 +1,16 @@
-- complete 3d mask + exchange variable list
+- complete exchange variable list
+
+  For the "first-draft" coupling, I would like to see all of the
+  output fields (US, VS, SS) to be set. Look at lines 564-568 in the
+  MIT_Plug. The actual code that sets them is in
+  mitgcm_setup/code_split_driver/driver_get_export_state.FOR. All of
+  these variables are 2d, and you can see around line 35 there is "if"
+  block to handle TS, but the rest is stubbed.
+
+  Similarly, for the import from GEOS-5, only TAUX and TAUY are
+  handled by driver_set_import_state.FOR. But the list is much larger:
+  check lines 546-554 in MIT_Plug (the LATS abd LONS are actually only
+  for debugging)
 
 - automatic Makefile creation for MITgcm build
 
