@@ -1,8 +1,8 @@
-- checkpoint 0_G (2016/11/10)
+- checkpoint_0_H (2016/11/10)
   * Adding remaining import and export fields (except sea-ice).
   * Adding matlab scripts for looking at MITgcm and GEOS-5 output.
 
-- checkpoint 0_G (2016/11/09)
+- checkpoint_0_G (2016/11/09)
   * Export of 3-D mask, removal of 3d mask stub, and fix
     for null pointer issue in MIT_GEOS5PlugMod.F90
   * Changes to Makefile_gfortran to make it compatible
