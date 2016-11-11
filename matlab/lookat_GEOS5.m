@@ -1,7 +1,7 @@
 % Looking at GEOS-5 output with matlab
 % Compare output from path pn1 to path pn2
-pn1='/Users/dmenemen/Desktop/TEST3/'
-pn2='/Users/dmenemen/Desktop/TEST4/'
+pn1='/Users/dmenemen/Desktop/TEST3/';
+pn2='/Users/dmenemen/Desktop/TEST4/';
 fn='TEST.mit_ocn.20000415_2100z.nc4';
 
 % readin in and plot pn1 variables

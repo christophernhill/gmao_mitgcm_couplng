@@ -1,4 +1,6 @@
+- checkpoint 0_G (2016/11/10)
   * Adding remaining import and export fields (except sea-ice).
+  * Adding matlab scripts for looking at MITgcm and GEOS-5 output.
 
 - checkpoint 0_G (2016/11/09)
   * Export of 3-D mask, removal of 3d mask stub, and fix
