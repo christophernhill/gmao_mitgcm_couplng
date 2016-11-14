@@ -1,3 +1,7 @@
+  * Replacing verification output. The output files changed
+    when one-way coupling was enabled.
+  * Adding figures in verification output for comparison.
+
 - checkpoint_0_H (2016/11/10)
   * Adding remaining import and export fields (except sea-ice).
   * Adding matlab scripts for looking at MITgcm and GEOS-5 output.

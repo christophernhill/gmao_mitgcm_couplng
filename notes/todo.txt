@@ -3,6 +3,9 @@
   Lines 546-554 in MIT_GEOS5PlugMod.F90 and driver_set_import_state.FOR
   contain the list of imported variables.
 
+- Check why swheat_import.*.000007200[0-6].data are zeros.
+  Values start after time step 6.
+
 - FFIELDS.h is duplicated (and different vintage) in build and code_split_driver
 
 - code_split_driver/mk_src_links is ~duplicate of gmao_mitgcm_couplng/set_mitgcm_env.sh
