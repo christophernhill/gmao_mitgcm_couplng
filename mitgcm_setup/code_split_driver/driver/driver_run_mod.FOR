@@ -90,8 +90,8 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
 
 C     Extract the import fields
 C     MITgcm FFIELDS taux0
-      TAUX   => mitgcmIState%import%tx
-      TAUY   => mitgcmIState%import%ty
+      TAUX   => mitgcmIState%import%taux
+      TAUY   => mitgcmIState%import%tauy
       PS     => mitgcmIState%import%ps
       SWHEAT => mitgcmIState%import%swheat
       QFLX   => mitgcmIState%import%qflx
