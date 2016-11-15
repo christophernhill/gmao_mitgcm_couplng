@@ -6,10 +6,6 @@
 - Check why swheat_import.*.000007200[0-6].data are zeros.
   Values start after time step 6.
 
-- FFIELDS.h is duplicated (and different vintage) in build and code_split_driver
-
-- code_split_driver/mk_src_links is ~duplicate of gmao_mitgcm_couplng/set_mitgcm_env.sh
-
 - automatic Makefile creation for MITgcm build
 
 - automatic generation of gmao_mitgcm_couplng/mitgcm_setup/inc
@@ -27,3 +23,7 @@
 - revisit whether -O1 is needed for GEOS_MoistGridComp.F90
   (the same compiler error seems to also happen when the
    compiler runs out of core memory on the virtual box)
+
+- Work towards more flexible MITgcm tile decomposition.
+  For example, "sNx=16,sNy=32" will work, but
+  "sNx=32,sNy=16" will export distorted fields.
