@@ -29,11 +29,6 @@
       TYPE(MITGCM_EXPORT), POINTER :: p
       INTEGER bi, bj, i, j, k, jSLo, iSLo
       _RL tmpU, tmpV
-      _RL, POINTER :: tmp1(:,:,:,:)
-      _RL, POINTER :: tmp2(:,:,:,:)
-      _RL, POINTER :: tmp3(:,:,:,:)
-      _RL, POINTER :: tmp4(:,:,:,:)
-      _RL, POINTER :: tmp5(:,:,:,:)
 
 !     -- Put flow vectors on a-grid and rotate to geographical coordinate system.
       p => exportPtr
