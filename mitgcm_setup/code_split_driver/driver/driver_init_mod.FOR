@@ -85,8 +85,7 @@ C     o save
       sv%myTime = myCurrentTime
       sv%myIter = myCurrentIter
       sv%iLoop  = iLoop
-      CALL SAVE_STATE( mitgcmIState, 
-     &                 sv )
+      CALL SAVE_STATE( mitgcmIState, sv )
       CALL FILL( mitgcmIState%export )
 
 !     CLOSE(errorMessageUnit)

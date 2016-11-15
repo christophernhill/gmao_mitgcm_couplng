@@ -38,6 +38,10 @@ C     !USES:
      &    MITGCM_STACKVARS,
      &    RESTORE_STATE,
      &    SAVE_STATE
+      USE EXPORT_STATE_MOD , ONLY :
+     &     FILL
+      USE IMPORT_STATE_MOD , ONLY :
+     &     FILL
 
       IMPLICIT NONE
 C     == Global variables ==
@@ -46,7 +50,7 @@ C     == Global variables ==
 #include "EESUPPORT.h"
 #include "PARAMS.h"
 #include "GRID.h"
-C #include "OCNCPL.h"
+#include "FFIELDS.h"
 
 C     == Routine arguments ==
       INTEGER nTimeS
@@ -187,9 +191,19 @@ C     Write LON to a current iter numbered file
       WRITE(dUnit) LON
       CLOSE(dUnit)
 
-C     OPEN()
-C     CLOSE()
-      
+C     Fill the import fields
+      CALL FILL( mitgcmIState%import )
+      WRITE(msgBuf,'(I10.10)') myCurrentIter
+      CALL WRITE_FLD_XY_RL('FU.'      ,msgBuf,FU,
+     &                                 myCurrentIter,myThid)
+      CALL WRITE_FLD_XY_RL('FV.'      ,msgBuf,FV,
+     &                                 myCurrentIter,myThid)
+      CALL WRITE_FLD_XY_RL('EMPMR.'   ,msgBuf,EMPMR,
+     &                                 myCurrentIter,myThid)
+      CALL WRITE_FLD_XY_RL('QNET.'    ,msgBuf,QNET,
+     &                                 myCurrentIter,myThid)
+      CALL WRITE_FLD_XY_RL('SALTFLUX.',msgBuf,SALTFLUX,
+     &                                 myCurrentIter,myThid)
 
       DO iStep = 1, nTimeS
        CALL FORWARD_STEP( iLoop, myCurrentTime, 
@@ -202,9 +216,8 @@ C     CLOSE()
       sv%iLoop  = iLoop
       CALL SAVE_STATE( mitgcmIState, sv )
 C     Fill the export fields
+      CALL FILL( mitgcmIState%export )
 
-!cnhdbg      CLOSE(errorMessageUnit)
-!cnhdbg      CLOSE(standardMessageUnit)
 C     CALL COMP_OCN_POP_CONTEXT(1)
       CALL POPDIR
 

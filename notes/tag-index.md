@@ -1,3 +1,5 @@
+  * Transferring import fields to MITgcm variables and writing
+    them to files for comparison with the *import* output files.
   * Replacing verification output. The output files changed
     when one-way coupling was enabled.
   * Adding figures in verification output for comparison.
