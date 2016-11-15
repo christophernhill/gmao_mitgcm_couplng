@@ -40,28 +40,28 @@ C     == Local variables ==
       INTEGER i, j, bi, bj, iSLo, jSLo
 
       IF ( code .EQ. 'TAUX' ) THEN
-!      Copy fld to TX
+!      Copy fld to TAUX
        DO bj=1,nSy
         DO bi=1,nSx
          jSLo = (bj-1)*sNy
          iSLo = (bi-1)*sNx
          DO j=1,sNy
           DO i=1,sNx
-           mitgcmIState%import%TX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+           mitgcmIState%import%TAUX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
           ENDDO
          ENDDO
         ENDDO
        ENDDO
       ENDIF
       IF ( code .EQ. 'TAUY' ) THEN
-!      Copy fld to TY
+!      Copy fld to TAUY
        DO bj=1,nSy
         DO bi=1,nSx
          jSLo = (bj-1)*sNy
          iSLo = (bi-1)*sNx
          DO j=1,sNy
           DO i=1,sNx
-           mitgcmIState%import%TY(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
+           mitgcmIState%import%TAUY(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
           ENDDO
          ENDDO
         ENDDO
