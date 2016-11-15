@@ -8,9 +8,9 @@
 
       IMPLICIT NONE
 
-!     TX     - surface stress (cell-centered, for now 
+!     TAUX   - surface stress (cell-centered, for now 
 !              along EW latitude, +ve E)
-!     TY     - surface stress (cell-centered, for now 
+!     TAUY   - surface stress (cell-centered, for now 
 !              along NS longitude, +ve N => a mess at the pole)
 !     PS     - surface pressure (cell-centered)
 !     SWHEAT - shortwave heating (spread over several levels)
@@ -21,8 +21,8 @@
 !     LON    - cell center longitudes for grid that imports have been interpolated to
       TYPE MITGCM_IMPORT  
        SEQUENCE
-       _RL , POINTER :: TX(       :,:  ) => NULL()
-       _RL , POINTER :: TY(       :,:  ) => NULL()
+       _RL , POINTER :: TAUX(     :,:  ) => NULL()
+       _RL , POINTER :: TAUY(     :,:  ) => NULL()
        _RL , POINTER :: PS(       :,:  ) => NULL()
        _RL , POINTER :: SWHEAT(   :,:,:) => NULL()
        _RL , POINTER :: QFLX(     :,:  ) => NULL()
