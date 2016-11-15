@@ -1,3 +1,5 @@
+  * The export fields are now updated every time step, instead
+    of only during initialization.
   * Transferring import fields to MITgcm variables and writing
     them to files for comparison with the *import* output files.
   * Replacing verification output. The output files changed
