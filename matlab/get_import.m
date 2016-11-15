@@ -1,7 +1,7 @@
 % Get MITgcm import time series with matlab.
 
 % Replace with location of your output files
-pnm='/Users/dmenemen/Desktop/scratch/mitocean_run/';
+pnm='~/geos5/TEST/scratch/mitocean_run/';
 
 % Read MITgcm import files before transfer to MITgcm arrays
 fld={'lon','lat','hflx','sflx','qflx','taux','tauy','ps','swheat'};
@@ -54,12 +54,14 @@ for t=1:nt
     clf
     colormap(jet)
     crossmap(FU(:,:,:,t)-taux(:,:,:,t),cx,['FU-taux ' int2str(t)])
-    pause(1)
+    pause(.1)
 end
 
 % look at time series of surface swheat
+figure(4)
+colormap(jet)
 for t=1:nt
-    clf
-    crossmap(swheat(:,:,:,1,t),[min(swheat(:)) max(swheat(:))],['swheat ' int2str(t)])
-    pause(1)
+  clf
+  crossmap(swheat(:,:,:,1,t),[min(swheat(:)) max(swheat(:))],['swheat ' int2str(t)])
+  pause(.1)
 end

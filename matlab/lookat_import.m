@@ -2,7 +2,7 @@
 % Compare to gmao_mitgcm_couplng/verification/*_import_72007.jpg
 
 % Replace with location of your output files
-pnm='/Users/dmenemen/Desktop/mitocean_run/';
+pnm='~/geos5/TEST/scratch/mitocean_run/';
 
 % Read and plot MITgcm import files
 ts=72007;
@@ -20,7 +20,7 @@ for i=1:8
   tmp((f*nx+1):((f+1)*nx),:)=readbin(fnm,[nx nx],0,'real*8');
  end
  crossmap(reshape(tmp,[nx 6 nx]),[min(tmp(:)) max(tmp(:))],fld{i})
- eval(['print -djpeg ' fld{i} '_import_' int2str(ts)])
+% eval(['print -djpeg ' fld{i} '_import_' int2str(ts)])
 end
 i=9;
 figure(i)
@@ -37,4 +37,4 @@ for k=1:4
  colorbar
  title([fld{i} ' level ' int2str(k)])
 end
-eval(['print -djpeg ' fld{i} '_import_' int2str(ts)])
+%eval(['print -djpeg ' fld{i} '_import_' int2str(ts)])

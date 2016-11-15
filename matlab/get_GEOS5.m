@@ -1,15 +1,15 @@
 % Get GEOS-5 output time series with matlab.
 
 % Replace with location of your output file
-pnm='/Users/dmenemen/Desktop/scratch/';
+pnm='~/geos5/TEST/scratch/';
 
 % Read and plot mit_ocn variables
 fnm=dir([pnm 'TEST.mit*']);
 nx=48;
 ny=25;
 nt=length(fnm);
-lat=ncread(fnm(1).name,'lat');
-lon=ncread(fnm(1).name,'lon');
+lat=ncread([pnm fnm(1).name],'lat');
+lon=ncread([pnm fnm(1).name],'lon');
 SS=zeros(nx,ny,nt);
 TS=zeros(nx,ny,nt);
 US=zeros(nx,ny,nt);
@@ -27,6 +27,6 @@ for t=1:nt
     mypcolor(US(:,:,t)');
     caxis([-1 1]*.1)
     colorbar
-    title(t)
-    pause(1)
+    title(['US ' int2str(t)])
+    pause(.1)
 end
