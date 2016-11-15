@@ -23,11 +23,6 @@
        _RS, POINTER :: QSW(:,:,:,:)  => NULL()
       END TYPE
 
-      TYPE FFIELDS_DQDT
-       SEQUENCE
-       _RS, POINTER :: DQDT(:,:,:,:)  => NULL()
-      END TYPE
-
       TYPE FFIELDS_EMPMR
        SEQUENCE
        _RS, POINTER :: EMPMR(:,:,:,:)  => NULL()
@@ -67,22 +62,6 @@
       TYPE FFIELDS_SICELOAD
        SEQUENCE
        _RS, POINTER :: SICELOAD(:,:,:,:)  => NULL()
-      END TYPE
-#endif
-
-#ifdef ALLOW_EP_FLUX
-      TYPE EFLUXFFIELD
-       SEQUENCE
-       _RL, POINTER :: EFluxY(:,:,:,:,:) => NULL()
-       _RL, POINTER :: EFLuxP(:,:,:,:,:) => NULL()
-      END TYPE
-#endif
-
-#ifdef ALLOW_TAU_EDDY
-      TYPE EDTAUFFIELDS
-       SEQUENCE
-       _RS, POINTER :: EDDYTAUX(:,:,:,:,:) => NULL()
-       _RS, POINTER :: EDDYTAUY(:,:,:,:,:) => NULL()
       END TYPE
 #endif
 
@@ -129,7 +108,6 @@
        TYPE(FFIELDS_FV)       , POINTER :: FFIELDS_FV => NULL()
        TYPE(FFIELDS_QNET)     , POINTER :: FFIELDS_QNET => NULL()
        TYPE(FFIELDS_QSW)      , POINTER :: FFIELDS_QSW   => NULL()
-       TYPE(FFIELDS_DQDT)     , POINTER :: FFIELDS_DQDT  => NULL()
        TYPE(FFIELDS_EMPMR)    , POINTER :: FFIELDS_EMPMR => NULL()
        TYPE(FFIELDS_SALTFLUX) , POINTER :: FFIELDS_SALTFLUX => NULL()
        TYPE(FFIELDS_SST)      , POINTER :: FFIELDS_SST       => NULL()
@@ -139,12 +117,6 @@
 #ifdef ALLOW_ATMOSPHERIC_LOADING
        TYPE(FFIELDS_PLOAD)    , POINTER :: FFIELDS_PLOAD => NULL()
        TYPE(FFIELDS_SICELOAD) , POINTER :: FFIELDS_SICELOAD => NULL()
-#endif
-#ifdef ALLLOW_EPFLUX
-       TYPE(EFLUXFFIELDS)     , POINTER :: EFLUXFFIELDS => NULL()
-#endif
-#ifdef ALLOW_TAU_EDDY
-       TYPE(EDTAUFFIELDS)     , POINTER :: EDTAUFFIELDS => NULL()
 #endif
 #ifndef ALLOW_EXF
        TYPE(TDFIELDS)         , POINTER :: TDFIELDS => NULL()
@@ -190,9 +162,6 @@
        _DEALLOC( ffieldshPtr%ffields_qsw%qsw                 )
        _DEALLOC( ffieldshPtr%ffields_qsw                     )
  
-       _DEALLOC( ffieldshPtr%ffields_dqdt%dqdt               )
-       _DEALLOC( ffieldshPtr%ffields_dqdt                    )
- 
        _DEALLOC( ffieldshPtr%ffields_empmr%empmr             )
        _DEALLOC( ffieldshPtr%ffields_empmr                   )
  
@@ -216,18 +185,6 @@
        _DEALLOC( ffieldshPtr%ffields_pload                   )
        _DEALLOC( ffieldshPtr%ffields_sIceLoad%IceLoad        )
        _DEALLOC( ffieldshPtr%ffields_sIceLoad                )
-#endif
-
-#ifdef ALLLOW_EPFLUX
-       _DEALLOC( ffieldshPtr%efluxffields%EFluxY             )
-       _DEALLOC( ffieldshPtr%efluxffields%EFluxP             )
-       _DEALLOC( ffieldshPtr%efluxffields                    )
-#endif
-
-#ifdef ALLOW_TAU_EDDY
-       _DEALLOC( ffieldshPtr%edtauffields%EddyTauX           )
-       _DEALLOC( ffieldshPtr%edtauffields%EddyTauY           )
-       _DEALLOC( ffieldshPtr%edtauffields                    )
 #endif
 
 #ifndef ALLOW_EXF
