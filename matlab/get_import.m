@@ -3,7 +3,7 @@
 % Replace with location of your output files
 pnm='/Users/dmenemen/Desktop/scratch/mitocean_run/';
 
-% Read and plot MITgcm import files
+% Read MITgcm import files before transfer to MITgcm arrays
 fld={'lon','lat','hflx','sflx','qflx','taux','tauy','ps','swheat'};
 nx=32;
 nz=15;
@@ -28,10 +28,32 @@ for t=1:nt
     end
 end
 
-% look at time series of taux
+% Read MITgcm import files after transfer to MITgcm arrays
+FLD={'FU','FV','EMPMR','QNET','SALTFLUX'};
+for i=1:length(FLD)
+    for t=1:nt
+        suf=['.' myint2str(71999+t,10) '.data'];
+        fnm=[pnm FLD{i} suf];
+        eval([fld{i} '=zeros(nx,6,nx,nt);'])
+        eval([FLD{i} '(:,:,:,t)=readbin(fnm,[nx 6 nx]);'])
+    end
+end
+
+% compare time series of taux vs FU
+cx=[-1 1]*.5;
 for t=1:nt
+    figure(1)
     clf
-    crossmap(taux(:,:,:,t),[min(taux(:)) max(taux(:))],['taux ' int2str(t)])
+    colormap(jet)
+    crossmap(taux(:,:,:,t),cx,['taux ' int2str(t)])
+    figure(2)
+    clf
+    colormap(jet)
+    crossmap(FU(:,:,:,t),cx,['FU ' int2str(t)])
+    figure(3)
+    clf
+    colormap(jet)
+    crossmap(FU(:,:,:,t)-taux(:,:,:,t),cx,['FU-taux ' int2str(t)])
     pause(1)
 end
 

@@ -20,3 +20,13 @@ for t=1:nt
     US(:,:,t)=ncread([pnm fnm(t).name],'US');
     VS(:,:,t)=ncread([pnm fnm(t).name],'VS');
 end
+
+% look at time series of US
+for t=1:nt
+    clf
+    mypcolor(US(:,:,t)');
+    caxis([-1 1]*.1)
+    colorbar
+    title(t)
+    pause(1)
+end
