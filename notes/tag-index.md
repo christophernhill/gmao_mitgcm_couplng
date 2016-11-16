@@ -1,8 +1,15 @@
+  * Removing WRITE_FLD_XY_RLs of FU, FV, EMPMR, QNET, QSW,
+    and SALTFLUX from driver_run_mod.FOR, since they can
+    be obtained from pkg/diagnostics oceTAUX, oceTAUY,
+    -oceFWflx, -oceQnet, -oceQsw, and -oceSflux.
+    (Note sign reversal of last 4 fields.)
+
 - checkpoint_0_J (2016/11/16)
   * Modified input/data.pkg and data.diagnostics so that
     diagnostic output fluxes (oceTAUX, oceTAUY, oceFWflx,
     oceQnet, oceQsw, oceSflux) can be directly compared
-    with MITgcm debug outputs of these same variable.
+    with MITgcm debug outputs of these same variable
+    (FU, FV, EMPMR, QNET, QSW, SALTFLUX).
     Matlab script matlab/get_MITgcm.m does this comparison
     and shows that they are bit-identical, which in turn
     are bit-identical to the *import* output fields of

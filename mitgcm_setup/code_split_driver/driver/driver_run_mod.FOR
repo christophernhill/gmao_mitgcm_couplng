@@ -1,6 +1,5 @@
       MODULE DRIVER_RUN_MOD
 C $Header: /u/gcmpack/MITgcm_contrib/PRM/multi_comp_setup/comp_mitgcm/code_basic/driver_run.F,v 1.1.1.1 2006/10/10 18:17:28 cnh Exp $
-C $Name:  $
 
 #include "CPP_OPTIONS.h"
 
@@ -51,7 +50,6 @@ C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
 
 C     == Local variables ==
-      CHARACTER*(MAX_LEN_MBUF) msgBuf
       INTEGER iStep
       TYPE(MITGCM_STACKVARS) sv
       INTEGER myThid
@@ -69,21 +67,6 @@ CEOP
 
 C     Fill the import fields
       CALL FILL( mitgcmIState%import )
-
-C     Write out the import fields
-      WRITE(msgBuf,'(I10.10)') myCurrentIter
-      CALL WRITE_FLD_XY_RL('FU.'      ,msgBuf,FU,
-     &                                 myCurrentIter,myThid)
-      CALL WRITE_FLD_XY_RL('FV.'      ,msgBuf,FV,
-     &                                 myCurrentIter,myThid)
-      CALL WRITE_FLD_XY_RL('EMPMR.'   ,msgBuf,EMPMR,
-     &                                 myCurrentIter,myThid)
-      CALL WRITE_FLD_XY_RL('QNET.'    ,msgBuf,QNET,
-     &                                 myCurrentIter,myThid)
-      CALL WRITE_FLD_XY_RL('QSW.'     ,msgBuf,QSW,
-     &                                 myCurrentIter,myThid)
-      CALL WRITE_FLD_XY_RL('SALTFLUX.',msgBuf,SALTFLUX,
-     &                                 myCurrentIter,myThid)
 
       DO iStep = 1, nTimeS
        CALL FORWARD_STEP( iLoop, myCurrentTime, 
