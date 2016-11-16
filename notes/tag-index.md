@@ -1,3 +1,6 @@
+- checkpoint_0_I (2016/11/15)
+  * Have verified with matlab/get_import.m that *_import.* files
+    are identical to MITgcm output files.
   * The export fields are now updated every time step, instead
     of only during initialization.
   * Transferring import fields to MITgcm variables and writing

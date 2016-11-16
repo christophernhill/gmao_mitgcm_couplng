@@ -202,6 +202,8 @@ C     Fill the import fields
      &                                 myCurrentIter,myThid)
       CALL WRITE_FLD_XY_RL('QNET.'    ,msgBuf,QNET,
      &                                 myCurrentIter,myThid)
+      CALL WRITE_FLD_XY_RL('QSW.'     ,msgBuf,QSW,
+     &                                 myCurrentIter,myThid)
       CALL WRITE_FLD_XY_RL('SALTFLUX.',msgBuf,SALTFLUX,
      &                                 myCurrentIter,myThid)
 
