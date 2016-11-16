@@ -1,7 +1,21 @@
+- checkpoint_0_J (2016/11/16)
+  * Modified input/data.pkg and data.diagnostics so that
+    diagnostic output fluxes (oceTAUX, oceTAUY, oceFWflx,
+    oceQnet, oceQsw, oceSflux) can be directly compared
+    with MITgcm debug outputs of these same variable.
+    Matlab script matlab/get_MITgcm.m does this comparison
+    and shows that they are bit-identical, which in turn
+    are bit-identical to the *import* output fields of
+    previous checkpoint.
+  * Modified mitgcm_setup/input/data so that fluxes are
+    obtained from GEOS-5 instead of read-in. The model
+    is now officially 2-way coupled! But there is still
+    some interpolation, rotation, and units issues to be
+    sorted out.
   * Removed *import* debug output files and matlab scripts to
-    look at them.  They are replaced by MITgcm output files.
+    look at them. They are replaced by MITgcm output files.
   * Moved driver_get* and driver_set* to subdirectory driver.
-  * Removed mk_src_links.  Links are now created by Makefile.
+  * Removed mk_src_links. Links are now created by Makefile.
 
 - checkpoint_0_I (2016/11/15)
   * Have verified with matlab/get_import.m that *_import.* files

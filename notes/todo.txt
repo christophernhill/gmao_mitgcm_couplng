@@ -1,7 +1,5 @@
-- Make MITgcm imprt variables active by completing import_state_fill_mod.FOR
-  (export_state_fill_mod.FOR can be used as template)
-  Lines 546-554 in MIT_GEOS5PlugMod.F90 and driver_set_import_state.FOR
-  contain the list of imported variables.
+- Verify and correct units, location, and rotation of fluxes
+  imported by MITgcm from GEOS-5 atmosphere.
 
 - First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
   See explanation and fix in notes.txt
