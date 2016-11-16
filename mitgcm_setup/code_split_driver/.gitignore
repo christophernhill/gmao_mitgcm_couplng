@@ -1,14 +1,14 @@
-### Fortran ###
-
 # Object Files
 *.o
 
 # Module Files
 *.mod
 
-FFIELDS.h
+# Fortran Files
 driver_init_mod.FOR
 driver_run_mod.FOR
+driver_get_export_state.FOR
+driver_set_import_state.FOR
 dynvars_h_state_create_destroy_mod.F90
 dynvars_h_state_mod.F90
 dynvars_h_state_save_restore_mod.FOR

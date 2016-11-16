@@ -1,3 +1,8 @@
+  * Removed *import* debug output files and matlab scripts to
+    look at them.  They are replaced by MITgcm output files.
+  * Moved driver_get* and driver_set* to subdirectory driver.
+  * Removed mk_src_links.  Links are now created by Makefile.
+
 - checkpoint_0_I (2016/11/15)
   * Have verified with matlab/get_import.m that *_import.* files
     are identical to MITgcm output files.

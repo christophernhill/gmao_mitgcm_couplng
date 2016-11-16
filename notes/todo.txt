@@ -4,7 +4,7 @@
   contain the list of imported variables.
 
 - Check why swheat_import.*.000007200[0-6].data are zeros.
-  Values start after time step 6.
+  Values start after time step 4.
 
 - automatic Makefile creation for MITgcm build
 
@@ -27,8 +27,3 @@
 - Work towards more flexible MITgcm tile decomposition.
   For example, "sNx=16,sNy=32" will work, but
   "sNx=32,sNy=16" will export distorted fields.
-
-- Remove mk_src_links and include capability in Makefile instead.
-  It is all partially there.  Move driver_get_* and driver_set_*
-  to subdirectories, then include linked files in distclean
-  and remove from .gitignore

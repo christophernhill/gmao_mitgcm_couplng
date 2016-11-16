@@ -38,17 +38,19 @@ esma_help help:
 
 THIS = mitgcmuv_driver
 LIB  = lib$(THIS).a
-esma_install install pinstall: $(LIB)
+esma_install install pinstall: links
+	@$(MAKE) --no-print-directory target
+
+target: $(LIB)
 	$(MKDIR) $(ESMALIB) $(ESMAINC)/$(THIS)
 	$(CP) -p *.a            $(ESMALIB)
 	$(CP) -p *.mod          $(ESMAINC)/$(THIS)
-#	$(CP) -p GEOS_ErrLog.h  $(ESMAINC)/$(THIS)
 
 esma_clean clean:
 	-$(RM) *~ *.[aox] *.[Mm][Oo][Dd]
 
 esma_distclean distclean:
-	-$(RM) *~ *.[aoxd] *.[Mm][Oo][Dd]
+	-$(RM) *~ *.[aoxd] *.F?? *.[Mm][Oo][Dd]
 
 
 #                  --------------------
@@ -56,7 +58,6 @@ esma_distclean distclean:
 #                  --------------------
 
 # ESMF bits
-#ESMF_ROOT=/home/cnh/src/esmf_builds/ESMF_2_2_2r/esmf
 ESMF_F90COMPILEOPTS=#-threads
 ESMF_F90COMPILEPATHS=-I$(BASEDIR)/Linux/include/esmf
 ESMF_F90LINKLIBS=-lcprts -limf -lm -lcxa -lunwind -lrt -ldl
@@ -69,48 +70,44 @@ MAPL_F90LINKPATHS=-L$(ESMADIR)/Linux/lib -lMAPL_Base -lesmf   -lmpich -lpmpich++
 F_MAIN=main.F
 F_SRCS=eeboot.F eeboot_minimal.F
 C_SRCS=setdir.c
-F90_FREE_SRCS=
-F90_FIXED_SRCS=
 
-F90_FIXED_SRCS+= driver_set_import_state.FOR \
-                 driver_get_export_state.FOR
+F90_FIXED_SRCS =driver/driver_init_mod.FOR         \
+                driver/driver_run_mod.FOR          \
+                driver/driver_get_export_state.FOR \
+                driver/driver_set_import_state.FOR
+F90_FREE_SRCS  =driver/mitgcm_driver_mod.F90
 
-F90_FREE_SRCS+= state/dynvars_h/dynvars_h_state_mod.F90                 \
-                state/dynvars_h/dynvars_h_state_types_mod.F90           \
-                state/dynvars_h/dynvars_h_state_create_destroy_mod.F90
 F90_FIXED_SRCS+=state/dynvars_h/dynvars_h_state_save_restore_mod.FOR
+F90_FREE_SRCS +=state/dynvars_h/dynvars_h_state_mod.F90                \
+                state/dynvars_h/dynvars_h_state_types_mod.F90          \
+                state/dynvars_h/dynvars_h_state_create_destroy_mod.F90
 
-F90_FREE_SRCS+= state/export/export_state_create_destroy_mod.F90  \
-                state/export/export_state_mod.F90                 \
-                state/export/export_state_types_mod.F90
 F90_FIXED_SRCS+=state/export/export_state_fill_mod.FOR
-
-F90_FREE_SRCS+= state/import/import_state_create_destroy_mod.F90  \
-                state/import/import_state_mod.F90                 \
-                state/import/import_state_types_mod.F90
-F90_FIXED_SRCS+=state/import/import_state_fill_mod.FOR
-
-F90_FREE_SRCS+= state/timevars/timevars_state_mod.F90                   \
-                state/timevars/timevars_state_types_mod.F90             \
-                state/timevars/timevars_state_create_destroy_mod.F90 
-F90_FIXED_SRCS+=state/timevars/timevars_state_save_restore_mod.FOR
-
-F90_FREE_SRCS+= state/mitgcm_state/mitgcm_state_mod.F90                  \
-                state/mitgcm_state/mitgcm_state_types_mod.F90            \
-                state/mitgcm_state/mitgcm_state_create_destroy_mod.F90   \
-                state/mitgcm_state/mitgcm_state_save_restore_mod.F90     \
-                state/mitgcm_state/mitgcm_state_getdp_mod.F90           
+F90_FREE_SRCS +=state/export/export_state_create_destroy_mod.F90 \
+                state/export/export_state_mod.F90                \
+                state/export/export_state_types_mod.F90
 
 F90_FREE_SRCS+= state/ffields_h/ffields_h_state_mod.F90
 
-F90_FREE_SRCS+= state/stackvars/stackvars_state_mod.F90
+F90_FIXED_SRCS+=state/import/import_state_fill_mod.FOR
+F90_FREE_SRCS +=state/import/import_state_create_destroy_mod.F90 \
+                state/import/import_state_mod.F90                \
+                state/import/import_state_types_mod.F90
 
-F90_FREE_SRCS+= driver/mitgcm_driver_mod.F90
+F90_FREE_SRCS +=state/mitgcm_state/mitgcm_state_mod.F90                \
+                state/mitgcm_state/mitgcm_state_types_mod.F90          \
+                state/mitgcm_state/mitgcm_state_create_destroy_mod.F90 \
+                state/mitgcm_state/mitgcm_state_save_restore_mod.F90   \
+                state/mitgcm_state/mitgcm_state_getdp_mod.F90
 
-F90_FREE_SRCS+= utils/str4c.F90
+F90_FREE_SRCS +=state/stackvars/stackvars_state_mod.F90
 
-F90_FIXED_SRCS+=driver/driver_run_mod.FOR                                \
-                driver/driver_init_mod.FOR
+F90_FIXED_SRCS+=state/timevars/timevars_state_save_restore_mod.FOR
+F90_FREE_SRCS +=state/timevars/timevars_state_mod.F90                \
+                state/timevars/timevars_state_types_mod.F90          \
+                state/timevars/timevars_state_create_destroy_mod.F90
+
+F90_FREE_SRCS +=utils/str4c.F90
 
 F_OBJS=$(F_SRCS:.F=.o)
 F90_OBJS1=$(F90_FREE_SRCS:.F90=.o)
@@ -135,8 +132,6 @@ F90_FLAGS=-I../inc -I../build $(FREAL8) $(BIG_ENDIAN) $(F90FLAGS) $(ESMF_F90COMP
 F90_OPT=$(FC_OPT) -g #-check -ftrapuv
 LIBS=-L../lib -lmitgcmuv $(ESMF_F90LINKPATHS) $(ESMF_F90ESMFLINKLIBS) $(MAPL_F90LINKPATHS)
 
-
-
 .SUFFIXES:
 .SUFFIXES: .o .c .FOR .F .f .c .F90
 
@@ -150,7 +145,6 @@ lib: libmitgcmuv_driver.a
 libmitgcmuv_driver.a: $(OBJS)
 	@ echo Creating \"$@\"
 	ar rcv $@ $(OBJS)
-
 
 %.o: %.F
 	@ echo Compiling \"$<\"
@@ -169,8 +163,8 @@ libmitgcmuv_driver.a: $(OBJS)
 	$(CC) $(CC_FLAGS) $(CC_OPT) $(CPP_FLAGS) -c $<
 
 links:
-	ln -s $(F90_FIXED_SRCS) .
-	ln -s $(F90_FREE_SRCS) .
+	@ln -sf $(F90_FIXED_SRCS) .
+	@ln -sf $(F90_FREE_SRCS) .
 
 CLEAN:
 	@rm -f *.o *.mod STD* a.out

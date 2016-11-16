@@ -10,12 +10,6 @@ CBOP
 C     !ROUTINE: DRIVER_RUN
 C     !INTERFACE:
       SUBROUTINE DRIVER_RUN( mitgcmIState, nTimeS)
-!     SUBROUTINE DRIVER_RUN( mitgcmIState, nTimeS,
-!    &                         iLoop,
-!    &                         myCurrentTime,
-!    &                         myCurrentIter )
-
-
 C     !DESCRIPTION: \bv
 C     *==================================================================
 C     | SUBROUTINE driver_run
@@ -57,142 +51,26 @@ C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
 
 C     == Local variables ==
-      INTEGER i,j,bi,bj
       CHARACTER*(MAX_LEN_MBUF) msgBuf
-      CHARACTER*13 fNam
       INTEGER iStep
       TYPE(MITGCM_STACKVARS) sv
       INTEGER myThid
       INTEGER myCurrentIter
       _RL     myCurrentTime
       INTEGER iLoop
-
-C     == Variables for reading TAUX from import state part of the internal
-C     == state pointer that is passed in as an argument.
-      _RL, pointer                         ::   TAUX(  :,:  )
-      _RL, pointer                         ::   TAUY(  :,:  )
-      _RL, pointer                         ::   PS(    :,:  )
-      _RL, pointer                         ::   SWHEAT(:,:,:)
-      _RL, pointer                         ::   QFLX(  :,:  )
-      _RL, pointer                         ::   HFLX(  :,:  )
-      _RL, pointer                         ::   SFLX(  :,:  )
-      _RL, pointer                         ::   LAT(   :,:  )
-      _RL, pointer                         ::   LON(   :,:  )
-      CHARACTER*1024  tFnam
-      INTEGER dUnit
-      INTEGER i0, j0
-
-!     Variables used in getting MPI rank
-      INTEGER myRank, mpiRC
 CEOP
-
-C     CALL COMP_OCN_PUSH_CONTEXT(1)
-!     Get MPI global rank
-!     RETURN
 
       myThid = 1
 
-C     Extract the import fields
-C     MITgcm FFIELDS taux0
-      TAUX   => mitgcmIState%import%taux
-      TAUY   => mitgcmIState%import%tauy
-      PS     => mitgcmIState%import%ps
-      SWHEAT => mitgcmIState%import%swheat
-      QFLX   => mitgcmIState%import%qflx
-      HFLX   => mitgcmIState%import%hflx
-      SFLX   => mitgcmIState%import%sflx
-      LAT    => mitgcmIState%import%lat
-      LON    => mitgcmIState%import%lon
-
-
-C     myThid = 1
-C     myCurrentTime = startTime
-C     myCurrentIter = nIter0
-C     myThid        = 1
-C     nTimesteps    = 1
-
-C     CALL MONITOR( myCurrentIter, myCurrentTime, myThid )
       CALL RESTORE_STATE( mitgcmIState, sv )
       myCurrentTime = sv%myTime
       myCurrentIter = sv%myIter
       iLoop         = sv%iLoop
-      myRank = mpiMyId
-
-C     Write TAUX to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'taux_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) TAUX
-      CLOSE(dUnit)
-C     Write TAUY to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'tauy_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) TAUY
-      CLOSE(dUnit)
-C     Write PS to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'ps_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) PS
-      CLOSE(dUnit)
-C     Write SWHEAT to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'swheat_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) SWHEAT
-      CLOSE(dUnit)
-C     Write QFLX to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'qflx_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) QFLX
-      CLOSE(dUnit)
-C     Write HFLX to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'hflx_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) HFLX
-      CLOSE(dUnit)
-C     Write SFLX to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'sflx_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) SFLX
-      CLOSE(dUnit)
-C     Write LAT to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'lat_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) LAT
-      CLOSE(dUnit)
-C     Write LON to a current iter numbered file
-      WRITE(tFnam,'(A,I4.4,A,I10.10,A)') 'lon_import.',myRank,'.',
-     &       myCurrentIter,'.data'
-      CALL MDSFINDUNIT( dUnit, myThid )
-      OPEN( dUnit, file=tFnam, status='UNKNOWN',
-     &        form='UNFORMATTED')
-      WRITE(dUnit) LON
-      CLOSE(dUnit)
 
 C     Fill the import fields
       CALL FILL( mitgcmIState%import )
+
+C     Write out the import fields
       WRITE(msgBuf,'(I10.10)') myCurrentIter
       CALL WRITE_FLD_XY_RL('FU.'      ,msgBuf,FU,
      &                                 myCurrentIter,myThid)
@@ -217,6 +95,7 @@ C     Fill the import fields
       sv%myIter = myCurrentIter
       sv%iLoop  = iLoop
       CALL SAVE_STATE( mitgcmIState, sv )
+
 C     Fill the export fields
       CALL FILL( mitgcmIState%export )
 

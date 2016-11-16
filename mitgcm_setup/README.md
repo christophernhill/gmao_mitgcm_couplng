@@ -1,7 +1,7 @@
 Contains code to interface between standard MITgcm and GEOS-5/MAPL world.
 
-* `inc/' This directory contains a copy of many MITgcm header files, with some
-    comment "C" markers changes to "!" instead - to allow for fixed form and
+* `inc/' This directory contains a copy of some MITgcm header files, with
+    comment "C" markers changed to "!" instead - to allow for fixed form and
     free form compile use (we think). This needs to be cleaned up. The files
     should be generated from a script somehow.
 
@@ -11,8 +11,7 @@ Contains code to interface between standard MITgcm and GEOS-5/MAPL world.
 * `code_split_driver/` This is core F90 code that connects MITgcm data
     structutures and MAPL data structures. The code is in a tree of files but
     Makefile dependencies are currently for a flat set of files in the
-    `code_split_driver/` directory, as is done by
-    gmao_mitgcm_couplng/set_mitgcm_env.sh
+    `code_split_driver/` directory.
 
 * code needs to compatible with whatever configuration/checkpoint of MITgcm has
     been selected. The MITgcm checkpoint source are linked in with soft links
