@@ -3,24 +3,24 @@
   Lines 546-554 in MIT_GEOS5PlugMod.F90 and driver_set_import_state.FOR
   contain the list of imported variables.
 
-- Check why swheat_import.*.000007200[0-6].data are zeros.
-  Values start after time step 4.
+- First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
+  See explanation and fix in notes.txt
 
-- automatic Makefile creation for MITgcm build
+- Automatic Makefile creation for MITgcm build
 
-- automatic generation of gmao_mitgcm_couplng/mitgcm_setup/inc
+- Automatic generation of gmao_mitgcm_couplng/mitgcm_setup/inc
 
-- make g5_modules more compatible among platforms
+- Make g5_modules more compatible among platforms
   by moving coupling parameters to instructions
   or set_mitgcm_env.sh
 
-- instructions for running on NAS and engaging
+- Instructions for running on NAS and engaging
 
-- cleaner, more concise instructions
+- Cleaner, more concise instructions
 
-- better testing
+- Better testing
 
-- revisit whether -O1 is needed for GEOS_MoistGridComp.F90
+- Revisit whether -O1 is needed for GEOS_MoistGridComp.F90
   (the same compiler error seems to also happen when the
    compiler runs out of core memory on the virtual box)
 
