@@ -1,3 +1,6 @@
+  * Matlab script matlab/view_output.m to compare
+    GEOS-5 *.nc4 and MITgcm pkg/diagnostics output files.
+  * One-hour time step for MITgcm.
   * Removing WRITE_FLD_XY_RLs of FU, FV, EMPMR, QNET, QSW,
     and SALTFLUX from driver_run_mod.FOR, since they can
     be obtained from pkg/diagnostics oceTAUX, oceTAUY,

@@ -25,3 +25,7 @@
 - Work towards more flexible MITgcm tile decomposition.
   For example, "sNx=16,sNy=32" will work, but
   "sNx=32,sNy=16" will export distorted fields.
+
+- llc90 and llc270 configurations
+
+- Add dynamic/thermodynamics sea ice

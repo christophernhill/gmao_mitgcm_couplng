@@ -8,16 +8,10 @@
  sRef=15*35.,
  viscAh =3.E5,
  viscAr =1.E-3,
- diffKhT=0.,
- diffK4T=0.,
  diffKrT=3.E-5,
- diffKhS=0.,
- diffK4S=0.,
  diffKrS=3.E-5,
  ivdc_kappa=10.,
  implicitDiffusion=.TRUE.,
- rotationPeriod=86400.,
- gravity=9.81,
  rhonil=1035.,
  rhoConstFresh=1000.,
  eosType='JMD95Z',
@@ -27,8 +21,6 @@
  exactConserv=.TRUE.,
  select_rStar=2,
  nonlinFreeSurf=4,
- hFacInf=0.2,
- hFacSup=2.0,
  useRealFreshWaterFlux=.TRUE.,
  allowFreezing=.TRUE.,
  hFacMin=.1,
@@ -39,18 +31,16 @@
 
 # Elliptic solver parameters
  &PARM02
- cg2dMaxIters=200,
- cg2dTargetResidual=1.E-9,
  &end
 
 # Time stepping parameters
  &PARM03
  nIter0           = 72000,
  nTimeSteps       = 99999,
- deltaT           = 1200.,
+ deltaT           = 3600.,
+ monitorFreq      = 3600.,
  abEps            = 0.1,
  tracForcingOutAB = 1,
- monitorFreq      = 1200.,
  &end
 
 # Gridding parameters
@@ -65,6 +55,4 @@
 # Input datasets
  &PARM05
  bathyFile      ='bathy_Hmin50.bin',
- hydrogThetaFile='lev_T_cs_15k.bin',
- hydrogSaltFile ='lev_S_cs_15k.bin',
  &end

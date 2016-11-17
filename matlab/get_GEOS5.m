@@ -1,32 +1,48 @@
-% Get GEOS-5 output time series with matlab.
+% Read GEOS-5 output files
 
-% Replace with location of your output file
+% Replace with location of your GEOS-5 output files
 pnm='~/geos5/TEST/scratch/';
 
-% Read and plot mit_ocn variables
+% Initialize variables
 fnm=dir([pnm 'TEST.mit*']);
-nx=48;
-ny=25;
-nt=length(fnm);
-lat=ncread([pnm fnm(1).name],'lat');
+%ncdisp([pnm fnm(1).name])
 lon=ncread([pnm fnm(1).name],'lon');
-SS=zeros(nx,ny,nt);
-TS=zeros(nx,ny,nt);
-US=zeros(nx,ny,nt);
-VS=zeros(nx,ny,nt);
-for t=1:nt
-    SS(:,:,t)=ncread([pnm fnm(t).name],'SS');
-    TS(:,:,t)=ncread([pnm fnm(t).name],'TS');
-    US(:,:,t)=ncread([pnm fnm(t).name],'US');
-    VS(:,:,t)=ncread([pnm fnm(t).name],'VS');
-end
+lat=ncread([pnm fnm(1).name],'lat');
+lev=ncread([pnm fnm(1).name],'lev');
+nx=length(lon);
+ny=length(lat);
+nz=length(lev);
+nt=length(fnm);
+FLD={'HFLX','QFLX','SFLX','TAUX','TAUY','SS','TS','US','VS','PS'};
+FLD3={'SWHEAT','MASK'};
 
-% look at time series of US
-for t=1:nt
-    clf
-    mypcolor(US(:,:,t)');
-    caxis([-1 1]*.1)
-    colorbar
-    title(['US ' int2str(t)])
-    pause(.1)
+% Read GEOS-5 mit_ocn variables
+for f=1:length(FLD)
+    fld=zeros(nx,ny,nt);
+    for t=1:nt
+        fld(:,:,t)=ncread([pnm fnm(t).name],FLD{f});
+    end
+    % Convert to degree Celsius
+    if f==7
+        fld=fld-273.15;
+    end
+    % Match pkg/diagnostics sign convetion        
+    if f<4
+        eval([FLD{f} '=-fld;'])
+    else
+        eval([FLD{f} '=fld;'])
+    end
 end
+for f=1:length(FLD3)
+    fld=zeros(nx,ny,nz,nt);
+    for t=1:nt
+        fld(:,:,:,t)=ncread([pnm fnm(t).name],FLD3{f});
+    end
+    % Match pkg/diagnostics sign convetion
+    if f<2
+        eval([FLD3{f} '=-fld;'])
+    else
+        eval([FLD3{f} '=fld;'])
+    end
+end
+clear f fld fnm pnm t
