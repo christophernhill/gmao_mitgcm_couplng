@@ -1,3 +1,4 @@
+================================================================
 11/19/2016: SFLX
 'SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2',
 
@@ -18,6 +19,173 @@ They probably should be g/m^2/s instead of N/m^2.
 ================================================================
 11/18/2016: HEARTBEAT_DT from CAP.rc
 For time being set MITgcm deltaT to be identical to HEARTBEAT_DT
+
+================================================================
+11/17/2016: Coupling details
+
+so i verified the info related to the "HFLX" field. it is what i thought, which is,
+the turb heat flux (sens+lat) into the ocean from the bottom of the skin layer.
+it does not have the net radiation in there. it basically sort of redoes the bulk
+formula, using the skin temp and the top of the ocean temp to compute
+the fluxes. this may not be all that far from sensible+latent at the surface,
+but it is not that.
+
+one other note: the enthalpy in mom is apparantly not impacted by the
+precip, its done in some other way that i don't know now.
+(jean michel, i have images of the "temperature of the rain" discussions
+with john and alistair..... cracks me up to remember....)
+
+we need to talk (tomorrow i guess) about the science here.
+
+QFLX has the same issue as HFLX - it is not e-p over the open ocean
+(runoff and ice melt where needed). it is the flux from the skin layer
+into the ocean. runoff is not here (connection is elsewhere) and ice
+melt is "taken" by the skin layer.
+
+andrea
+
+
+On 11/17/2016 11:34 AM, Menemenlis, Dimitris (329C) wrote:
+Hi Andrea, are you available to discuss the coupled code sometime today?
+
+We have a first-draft two-way coupled system up and running!
+But now we need to fine-tune the fields that are passed back-and-forth and
+make sure that the units, parameters, signs, location on grid, and orientation are all correct.
+
+Here is a summary of what I think we have right now:
+(I can share screen when we talk and show you these fields in plots and animations.)
+
+=============
+Time step:
+
+MITgcm at cs32 configuration is running with 1 hour time steps.
+But we can change that as needed.
+
+(Note that as previously configured, the MITgcm DeltatT was
+ set to 20 minute while GEOS-5 MIT_DT was set to 15 minutes.
+ This caused the MITgcm to run for 96 hours while GEOS-5 ran for 24 hours.
+ At least now both GEOS-5 and MITgcm run for 24 hours.
+ But Atanas and I are not 100% sure this is set correctly.)
+
+=============
+Surface stress:
+
+GEOS-5 passes:
+'TAUX',  'Agrid_eastward_stress_on_skin',         'N m-2’
+'TAUY',  'Agrid_northward_stress_on_skin',        'N m-2’
+
+Please confirm that what GESO-5 sends to MITgcm is “geographical East and North”,
+not “East and North relative to MITgcm cube-sphere grid orientation”.
+Also please confirm that “eastward stress on skin” means that
+ocean surface current current will be accelerated towards the East direction.
+
+MITgcm expects:
+C     fu    :: Surface wind stress in N/m^2
+C              > 0 for increase in uVel (grid-orienation-aligned)
+C              Typical range: -0.5 < fu < 0.5
+C              Southwest C-grid U point
+C
+C     fv    :: Surface wind stress in N/m^2
+C              > 0 for increase in vVel (grid-orienation-aligned)
+C              Typical range: -0.5 < fv < 0.5
+C              Southwest C-grid V point
+
+I think what I need to do is interpolate to C-grid locations and rotate to
+from geographic to MITgcm coordinates.
+
+=============
+Surface het flux:
+
+GEOS-5 passes:
+'HFLX',  'turbulent_heat_flux_from_skin_to_ocean','W m-2’
+'SWHEAT','solar_heating_rate',                    'W m-2’,   (note this is a 3D field)
+
+Please confirm whether or not HFLX includes sensible, latent, and radiation heating,
+and whether positive HFLX and SWHEAT means ocean cooling.
+
+MITgcm expects:
+C     Qnet  :: Net upward surface heat flux (including shortwave) in W/m^2
+C              Qnet = latent + sensible + net longwave + net shortwave
+C              > 0 for decrease in theta (ocean cooling)
+C              Typical range: -250 < Qnet < 600
+C              Southwest C-grid tracer point
+C     Qsw   :: Net upward shortwave radiation in W/m^2
+C              Qsw = - ( downward - ice and snow absorption - reflected )
+C              > 0 for decrease in theta (ocean cooling)
+C              Typical range: -350 < Qsw < 0
+C              Southwest C-grid tracer point
+
+I think what needs to be done is (i) make sure MITgcm gets “net” surface heat flux
+from GEOS-5 and (ii) collapse GEOS-5 SWHEAT to surface level and let MITgcm
+redistribute the shortwave heating vertically.
+
+=============
+Surface freshwater flux:
+
+GEOS-5 passes:
+'QFLX',  'freshwater_flux_from_skin_to_ocean',    'kg m-2 s-1’
+
+Please confirm that positive QFLX means ocean freshening.
+And whether QFLX includes evaporation, precipitation, and runoff.
+
+MITgcm expects:
+C     EmPmR :: Net upward freshwater flux in kg/m2/s
+C              EmPmR = Evaporation - precipitation - runoff
+C              > 0 for increase in salt (ocean salinity)
+C              Typical range: -1e-4 < EmPmR < 1e-4
+C              Southwest C-grid tracer point
+
+=============
+Surface salt flux:
+
+GEOS-5 passes:
+'SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2’
+
+The units seem wrong.
+Also, I only expected salt flux when sea ice is forming or melting
+(or possibly from rivers).  Why is there non-zero salt flux above open ocean?
+
+MITgcm expects:
+C  saltFlux :: Net upward salt flux in psu.kg/m^2/s
+C              flux of Salt taken out of the ocean per time unit (second).
+C              Note: a) only used when salty sea-ice forms or melts.
+C                    b) units: when salinity (unit= psu) is expressed
+C                       in g/kg, saltFlux unit becomes g/m^2/s.
+C              > 0 for decrease in SSS.
+C              Southwest C-grid tracer point
+
+=============
+Atmospheric pressure:
+
+GEOS-5 passes:
+'PS',    'Surface Atmospheric Pressure',          ‘Pa'
+
+MITgcm expects:
+C     pLoad :: for the ocean:      atmospheric pressure at z=eta
+C                Units are           Pa=N/m^2
+
+I think we can ignore surface pressure for time being, as it has negligible dynamical consequence
+on ocean circulation.  (But easy to include if needed.)
+
+=============
+Sea surface temperature and salinity
+
+MITgcm passes:
+!     TS - sea surface temperature in K
+!     SS - sea surface salinty     in g/kg
+
+I think we are all set here.
+
+=============
+Ocean surface velocity
+
+MITgcm passes:
+!     US - surface currents (cell-centered, along latitude circles)
+!     VS - surface currents (cell-centered, along longitude lines)
+
+Again, I think we are all set.  That is we rotate vectors to geographical coordinates
+and interpolate to MITgcm grid cell centers before sending to GEOS-5.
+But be good to double-check this is what GEOS-5 expects.
 
 ================================================================
 11/16/2016: First 4 time steps of SWHEAT are zeros
