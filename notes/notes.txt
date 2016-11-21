@@ -1,3 +1,25 @@
+11/19/2016: SFLX
+'SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2',
+
+I am guessing that when there is evaporation:
+(i) "salty water" flows into the skin layer from the ocean,
+(ii) freshwater flows from skin layer to atmosphere, and
+(iii) salt flows from skin layer to ocean.
+
+If SFLX is this third component of evaporation, it can be ignored for driving
+MITgcm since MITgcm only exports freshwater from ocean during evaporation.
+But SFLUX has both positive and negative numbers, so above decomposition may not be correct.
+
+Another detail that we will need to worry about later on is that in the presence of sea-ice
+the MITgcm exports “salty water” to the ice and then rejects some of that salt back to
+the ocean.  Also, the unit of SFLX specified in MIT_GEOS5PlugMod.F90 seem wrong.
+They probably should be g/m^2/s instead of N/m^2.
+
+================================================================
+11/18/2016: HEARTBEAT_DT from CAP.rc
+For time being set MITgcm deltaT to be identical to HEARTBEAT_DT
+
+================================================================
 11/16/2016: First 4 time steps of SWHEAT are zeros
 
 I would not worry too much about the 1-hour "delay" in SWHEAT. This is

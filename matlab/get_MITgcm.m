@@ -9,6 +9,8 @@ FLDmit={'oceQnet','oceFWflx','oceSflux','oceTAUX', ...
 XC=rdmds([pnm 'XC']);
 YC=rdmds([pnm 'YC']);
 hFacC=rdmds([pnm 'hFacC']);
+AngleCS=rdmds([pnm 'AngleCS']);
+AngleSN=rdmds([pnm 'AngleSN']);
 
 % Read MITgcm output files
 for f=1:length(FLDmit)

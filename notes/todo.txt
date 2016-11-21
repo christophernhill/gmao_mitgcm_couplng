@@ -1,6 +1,8 @@
 - Verify and correct units, location, and rotation of fluxes
   imported by MITgcm from GEOS-5 atmosphere.
 
+- Does uVel and vVel need to be rotated in export_state_fill_mod.FOR ?
+
 - First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
   See explanation and fix in notes.txt
 
@@ -28,4 +30,21 @@
 
 - llc90 and llc270 configurations
 
+- runoff is missing in QFLX
+  Will need to be specified separately in MITgcm or obtained from
+  MIT_GEOS5PlugMod.F90 DISCHARGE (river_discharge_at_ocean_points).
+
+- Handle enthalpy exchange:
+  one other note: the enthalpy in mom is apparantly not impacted by the
+  precip, its done in some other way that i don't know now.
+  (jean michel, i have images of the "temperature of the rain" discussions
+  with john and alistair..... cracks me up to remember....)
+
 - Add dynamic/thermodynamics sea ice
+
+- Code is not thread-safe, e.g., mythid is hard-coded to 1 in
+  eeboot_minimal.F and in "CALL EXCH_UV_AGRID_3D_RL".
+  Will we ever need to use thread-safe code for coupled set-up?
+
+- Find out why code crashes when "pLoad(i,j,bi,bj)=p%PS(iSLo+i,jSLo+j)"
+  is uncommented in import_state_fill_mod.FOR

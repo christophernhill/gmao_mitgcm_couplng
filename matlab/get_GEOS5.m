@@ -22,27 +22,13 @@ for f=1:length(FLD)
     for t=1:nt
         fld(:,:,t)=ncread([pnm fnm(t).name],FLD{f});
     end
-    % Convert to degree Celsius
-    if f==7
-        fld=fld-273.15;
-    end
-    % Match pkg/diagnostics sign convetion        
-    if f<4
-        eval([FLD{f} '=-fld;'])
-    else
-        eval([FLD{f} '=fld;'])
-    end
+    eval([FLD{f} '=fld;'])
 end
 for f=1:length(FLD3)
     fld=zeros(nx,ny,nz,nt);
     for t=1:nt
         fld(:,:,:,t)=ncread([pnm fnm(t).name],FLD3{f});
     end
-    % Match pkg/diagnostics sign convetion
-    if f<2
-        eval([FLD3{f} '=-fld;'])
-    else
-        eval([FLD3{f} '=fld;'])
-    end
+    eval([FLD3{f} '=fld;'])
 end
 clear f fld fnm pnm t

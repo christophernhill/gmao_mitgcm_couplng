@@ -37,8 +37,8 @@
  &PARM03
  nIter0           = 72000,
  nTimeSteps       = 99999,
- deltaT           = 3600.,
- monitorFreq      = 3600.,
+ deltaT           = 900.,
+ monitorFreq      = 1.,
  abEps            = 0.1,
  tracForcingOutAB = 1,
  &end

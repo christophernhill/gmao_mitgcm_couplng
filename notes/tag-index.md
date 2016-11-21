@@ -1,6 +1,13 @@
+- checkpoint_0_K (2016/11/21)
   * Matlab script matlab/view_output.m to compare
     GEOS-5 *.nc4 and MITgcm pkg/diagnostics output files.
-  * One-hour time step for MITgcm.
+  * New verification output.
+  * Checking and documenting units consistency for
+    import/export variables.
+  * Rotate/interpolate MITgcm uVel and vVel to A-grid and
+    geographical North/East directions.
+  * Rotate/interpolate GEOS-5 TAUX and TAUY to MITgcm grid.
+  * MITgcm detlaT = GEOS-5 HEARTBEAT_DT = 900 s
   * Removing WRITE_FLD_XY_RLs of FU, FV, EMPMR, QNET, QSW,
     and SALTFLUX from driver_run_mod.FOR, since they can
     be obtained from pkg/diagnostics oceTAUX, oceTAUY,

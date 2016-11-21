@@ -92,19 +92,11 @@
 (PID.TID 0001.0001) > tRef=15*20.,
 (PID.TID 0001.0001) > sRef=15*35.,
 (PID.TID 0001.0001) > viscAh =3.E5,
-(PID.TID 0001.0001) >#- biharmonic Viscosity: 3.e15 is close to the stability limit with deltaTmom=20mn
-(PID.TID 0001.0001) >#viscA4 =3.E15,
 (PID.TID 0001.0001) > viscAr =1.E-3,
-(PID.TID 0001.0001) > diffKhT=0.,
-(PID.TID 0001.0001) > diffK4T=0.,
 (PID.TID 0001.0001) > diffKrT=3.E-5,
-(PID.TID 0001.0001) > diffKhS=0.,
-(PID.TID 0001.0001) > diffK4S=0.,
 (PID.TID 0001.0001) > diffKrS=3.E-5,
 (PID.TID 0001.0001) > ivdc_kappa=10.,
 (PID.TID 0001.0001) > implicitDiffusion=.TRUE.,
-(PID.TID 0001.0001) > rotationPeriod=86400.,
-(PID.TID 0001.0001) > gravity=9.81,
 (PID.TID 0001.0001) > rhonil=1035.,
 (PID.TID 0001.0001) > rhoConstFresh=1000.,
 (PID.TID 0001.0001) > eosType='JMD95Z',
@@ -114,8 +106,6 @@
 (PID.TID 0001.0001) > exactConserv=.TRUE.,
 (PID.TID 0001.0001) > select_rStar=2,
 (PID.TID 0001.0001) > nonlinFreeSurf=4,
-(PID.TID 0001.0001) > hFacInf=0.2,
-(PID.TID 0001.0001) > hFacSup=2.0,
 (PID.TID 0001.0001) > useRealFreshWaterFlux=.TRUE.,
 (PID.TID 0001.0001) > allowFreezing=.TRUE.,
 (PID.TID 0001.0001) > hFacMin=.1,
@@ -126,34 +116,16 @@
 (PID.TID 0001.0001) >
 (PID.TID 0001.0001) ># Elliptic solver parameters
 (PID.TID 0001.0001) > &PARM02
-(PID.TID 0001.0001) > cg2dMaxIters=200,
-(PID.TID 0001.0001) > cg2dTargetResidual=1.E-9,
 (PID.TID 0001.0001) > &end
 (PID.TID 0001.0001) >
 (PID.TID 0001.0001) ># Time stepping parameters
 (PID.TID 0001.0001) > &PARM03
-(PID.TID 0001.0001) > nIter0=72000,
-(PID.TID 0001.0001) > nTimeSteps=20,
-(PID.TID 0001.0001) > deltaTmom   =1200.,
-(PID.TID 0001.0001) > deltaTtracer=86400.,
-(PID.TID 0001.0001) > deltaTfreesurf=86400.,
-(PID.TID 0001.0001) > deltaTClock =86400.,
-(PID.TID 0001.0001) > abEps = 0.1,
-(PID.TID 0001.0001) >#forcing_In_AB=.FALSE.,
-(PID.TID 0001.0001) > tracForcingOutAB=1,
-(PID.TID 0001.0001) > pChkptFreq  =1728000.,
-(PID.TID 0001.0001) >#chkptFreq   =311040000.,
-(PID.TID 0001.0001) > taveFreq    =1244160000.,
-(PID.TID 0001.0001) > dumpFreq    =622080000.,
-(PID.TID 0001.0001) > monitorFreq =31104000.,
-(PID.TID 0001.0001) > periodicExternalForcing=.TRUE.,
-(PID.TID 0001.0001) > externForcingPeriod=2592000.,
-(PID.TID 0001.0001) > externForcingCycle=31104000.,
-(PID.TID 0001.0001) ># 2 months restoring timescale for temperature
-(PID.TID 0001.0001) > tauThetaClimRelax = 5184000.,
-(PID.TID 0001.0001) ># 2yrs restoring timescale for salinity
-(PID.TID 0001.0001) > tauSaltClimRelax = 62208000.,
-(PID.TID 0001.0001) > monitorFreq =1.,
+(PID.TID 0001.0001) > nIter0           = 72000,
+(PID.TID 0001.0001) > nTimeSteps       = 99999,
+(PID.TID 0001.0001) > deltaT           = 900.,
+(PID.TID 0001.0001) > monitorFreq      = 1.,
+(PID.TID 0001.0001) > abEps            = 0.1,
+(PID.TID 0001.0001) > tracForcingOutAB = 1,
 (PID.TID 0001.0001) > &end
 (PID.TID 0001.0001) >
 (PID.TID 0001.0001) ># Gridding parameters
@@ -168,14 +140,6 @@
 (PID.TID 0001.0001) ># Input datasets
 (PID.TID 0001.0001) > &PARM05
 (PID.TID 0001.0001) > bathyFile      ='bathy_Hmin50.bin',
-(PID.TID 0001.0001) > hydrogThetaFile='lev_T_cs_15k.bin',
-(PID.TID 0001.0001) > hydrogSaltFile ='lev_S_cs_15k.bin',
-(PID.TID 0001.0001) > zonalWindFile  ='trenberth_taux.bin',
-(PID.TID 0001.0001) > meridWindFile  ='trenberth_tauy.bin',
-(PID.TID 0001.0001) > thetaClimFile  ='lev_surfT_cs_12m.bin',
-(PID.TID 0001.0001) > saltClimFile   ='lev_surfS_cs_12m.bin',
-(PID.TID 0001.0001) > surfQFile      ='shiQnet_cs32.bin',
-(PID.TID 0001.0001) > EmPmRFile      ='shiEmPR_cs32.bin',
 (PID.TID 0001.0001) > &end
 (PID.TID 0001.0001) 
 (PID.TID 0001.0001)  INI_PARMS ; starts to read PARM01
@@ -197,10 +161,7 @@
 (PID.TID 0001.0001) ># Packages
 (PID.TID 0001.0001) > &PACKAGES
 (PID.TID 0001.0001) > useGMRedi=.TRUE.,
-(PID.TID 0001.0001) >#useDiagnostics=.TRUE.,
-(PID.TID 0001.0001) >#useMNC=.TRUE.,
-(PID.TID 0001.0001) >#useBulkforce=.TRUE.,
-(PID.TID 0001.0001) >#useThermSeaIce=.TRUE.,
+(PID.TID 0001.0001) > useDiagnostics=.TRUE.,
 (PID.TID 0001.0001) > &end
 (PID.TID 0001.0001) 
 (PID.TID 0001.0001)  PACKAGES_BOOT: finished reading data.pkg
@@ -212,14 +173,14 @@
  pkg/bulk_force           compiled but not used ( useBulkForce             = F )
  pkg/seaice               compiled but not used ( useSEAICE                = F )
  pkg/thsice               compiled but not used ( useThSIce                = F )
- pkg/diagnostics          compiled but not used ( useDiagnostics           = F )
+ pkg/diagnostics          compiled   and   used ( useDiagnostics           = T )
  -------- pkgs without standard "usePKG" On/Off switch in "data.pkg":  --------
  pkg/generic_advdiff      compiled   and   used ( useGAD                   = T )
  pkg/mom_common           compiled   and   used ( momStepping              = T )
  pkg/mom_vecinv           compiled   and   used ( +vectorInvariantMomentum = T )
  pkg/mom_fluxform         compiled but not used ( & not vectorInvariantMom = F )
  pkg/monitor              compiled   and   used ( monitorFreq > 0.         = T )
- pkg/timeave              compiled   and   used ( taveFreq > 0.            = T )
+ pkg/timeave              compiled but not used ( taveFreq > 0.            = F )
  pkg/debug                compiled but not used ( debugMode                = F )
  pkg/exch2                compiled   and   used
  pkg/rw                   compiled   and   used
@@ -261,6 +222,171 @@
 (PID.TID 0001.0001) >
 (PID.TID 0001.0001) 
 (PID.TID 0001.0001)  GM_READPARMS: finished reading data.gmredi
+(PID.TID 0001.0001)  DIAGNOSTICS_READPARMS: opening data.diagnostics
+(PID.TID 0001.0001)  OPEN_COPY_DATA_FILE: opening file data.diagnostics
+(PID.TID 0001.0001) // =======================================================
+(PID.TID 0001.0001) // Parameter file "data.diagnostics"
+(PID.TID 0001.0001) // =======================================================
+(PID.TID 0001.0001) ># Diagnostic Package Choices
+(PID.TID 0001.0001) >#--------------------
+(PID.TID 0001.0001) >#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+(PID.TID 0001.0001) >#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+(PID.TID 0001.0001) >#--for each output-stream:
+(PID.TID 0001.0001) >#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+(PID.TID 0001.0001) >#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+(PID.TID 0001.0001) >#               > 0 : write time-average output every frequency seconds
+(PID.TID 0001.0001) >#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+(PID.TID 0001.0001) >#    averagingFreq  : frequency (in s) for periodic averaging interval
+(PID.TID 0001.0001) >#    averagingPhase : phase     (in s) for periodic averaging interval
+(PID.TID 0001.0001) >#    repeatCycle    : number of averaging intervals in 1 cycle
+(PID.TID 0001.0001) >#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+(PID.TID 0001.0001) >#                when this entry is missing, select all common levels of this list
+(PID.TID 0001.0001) >#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+(PID.TID 0001.0001) >#                (see "available_diagnostics.log" file for the full list of diags)
+(PID.TID 0001.0001) >#  missing_value(n) : missing value for real-type fields in output file "n"
+(PID.TID 0001.0001) >#  fileFlags(n)     : specific code (8c string) for output file "n"
+(PID.TID 0001.0001) >#--------------------
+(PID.TID 0001.0001) ># oceTAUX  zonal surface wind stress, >0 increases uVel (N/m^2)
+(PID.TID 0001.0001) ># oceTAUY  meridional surf. wind stress, >0 increases vVel (N/m^2)
+(PID.TID 0001.0001) ># oceFWflx net surface Fresh-Water flux into ocean, >0 decreases salinity (kg/m^2/s)
+(PID.TID 0001.0001) ># oceSflux net surface Salt flux into the ocean, >0 increases salinity (g/m^2/s)
+(PID.TID 0001.0001) ># oceQnet  net surface heat flux into the ocean, >0 increases theta (W/m^2)
+(PID.TID 0001.0001) ># oceQsw   net Short-Wave radiation (+=down), >0 increases theta (W/m^2)
+(PID.TID 0001.0001) ># SSS      Sea Surface Salinity (g/kg)
+(PID.TID 0001.0001) ># SST      Sea Surface Temperature (degC)
+(PID.TID 0001.0001) ># UVEL1    Zonal Surface Velocity (m/s)
+(PID.TID 0001.0001) ># VVEL1    Meridional Surface Velocity (m/s)
+(PID.TID 0001.0001) >
+(PID.TID 0001.0001) > &DIAGNOSTICS_LIST
+(PID.TID 0001.0001) >   frequency(1)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,1)  = 'oceTAUX ',
+(PID.TID 0001.0001) >    filename(1)  = 'oceTAUX',
+(PID.TID 0001.0001) >   frequency(2)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,2)  = 'oceTAUY ',
+(PID.TID 0001.0001) >    filename(2)  = 'oceTAUY',
+(PID.TID 0001.0001) >   frequency(3)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,3)  = 'oceFWflx',
+(PID.TID 0001.0001) >    filename(3)  = 'oceFWflx',
+(PID.TID 0001.0001) >   frequency(4)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,4)  = 'oceSflux',
+(PID.TID 0001.0001) >    filename(4)  = 'oceSflux',
+(PID.TID 0001.0001) >   frequency(5)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,5)  = 'oceQnet ',
+(PID.TID 0001.0001) >    filename(5)  = 'oceQnet',
+(PID.TID 0001.0001) >   frequency(6)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,6)  = 'oceQsw  ',
+(PID.TID 0001.0001) >    filename(6)  = 'oceQsw',
+(PID.TID 0001.0001) >   frequency(7)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,7)  = 'SALT    ',
+(PID.TID 0001.0001) >    levels(1,7)  = 1.,
+(PID.TID 0001.0001) >    filename(7)  = 'SSS',
+(PID.TID 0001.0001) >   frequency(8)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,8)  = 'THETA   ',
+(PID.TID 0001.0001) >    levels(1,8)  = 1.,
+(PID.TID 0001.0001) >    filename(8)  = 'SST',
+(PID.TID 0001.0001) >   frequency(9)  = -3600.,
+(PID.TID 0001.0001) >    fields(1,9)  = 'UVELMASS',
+(PID.TID 0001.0001) >    levels(1,9)  = 1.,
+(PID.TID 0001.0001) >    filename(9)  = 'UVEL1',
+(PID.TID 0001.0001) >   frequency(10) = -3600.,
+(PID.TID 0001.0001) >    fields(1,10) = 'VVELMASS',
+(PID.TID 0001.0001) >    levels(1,10) = 1.,
+(PID.TID 0001.0001) >    filename(10) = 'VVEL1',
+(PID.TID 0001.0001) > /
+(PID.TID 0001.0001) >
+(PID.TID 0001.0001) > &DIAG_STATIS_PARMS
+(PID.TID 0001.0001) > /
+(PID.TID 0001.0001) 
+(PID.TID 0001.0001) S/R DIAGNOSTICS_READPARMS, read namelist "diagnostics_list": start
+(PID.TID 0001.0001) S/R DIAGNOSTICS_READPARMS, read namelist "diagnostics_list": OK
+(PID.TID 0001.0001) S/R DIAGNOSTICS_READPARMS, read namelist "DIAG_STATIS_PARMS": start
+(PID.TID 0001.0001) S/R DIAGNOSTICS_READPARMS, read namelist "DIAG_STATIS_PARMS": OK
+(PID.TID 0001.0001)  DIAGNOSTICS_READPARMS: global parameter summary:
+(PID.TID 0001.0001)  dumpAtLast = /* always write time-ave diags at the end */
+(PID.TID 0001.0001)                   F
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001)  diag_mnc =   /* write NetCDF output files */
+(PID.TID 0001.0001)                   F
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001)  useMissingValue = /* put MissingValue where mask = 0 */
+(PID.TID 0001.0001)                   F
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001)  diagCG_maxIters = /* max number of iters in diag_cg2d */
+(PID.TID 0001.0001)                     150
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001)  diagCG_resTarget = /* residual target for diag_cg2d */
+(PID.TID 0001.0001)                 1.000000000000000E-07
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001)  diagCG_pcOffDFac = /* preconditioner off-diagonal factor */
+(PID.TID 0001.0001)                 9.611687812379854E-01
+(PID.TID 0001.0001)     ;
+(PID.TID 0001.0001) -----------------------------------------------------
+(PID.TID 0001.0001)  DIAGNOSTICS_READPARMS: active diagnostics summary:
+(PID.TID 0001.0001) -----------------------------------------------------
+(PID.TID 0001.0001) Creating Output Stream: oceTAUX
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceTAUX
+(PID.TID 0001.0001) Creating Output Stream: oceTAUY
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceTAUY
+(PID.TID 0001.0001) Creating Output Stream: oceFWflx
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceFWflx
+(PID.TID 0001.0001) Creating Output Stream: oceSflux
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceSflux
+(PID.TID 0001.0001) Creating Output Stream: oceQnet
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceQnet
+(PID.TID 0001.0001) Creating Output Stream: oceQsw
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:    will be set later
+(PID.TID 0001.0001)  Fields:    oceQsw
+(PID.TID 0001.0001) Creating Output Stream: SSS
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001)  Fields:    SALT
+(PID.TID 0001.0001) Creating Output Stream: SST
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001)  Fields:    THETA
+(PID.TID 0001.0001) Creating Output Stream: UVEL1
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001)  Fields:    UVELMASS
+(PID.TID 0001.0001) Creating Output Stream: VVEL1
+(PID.TID 0001.0001) Output Frequency:      -3600.000000 ; Phase:        1800.000000
+(PID.TID 0001.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0001.0001)  missing value: -9.990000000000E+02
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001)  Fields:    VVELMASS
+(PID.TID 0001.0001) -----------------------------------------------------
+(PID.TID 0001.0001)  DIAGNOSTICS_READPARMS: statistics diags. summary:
+(PID.TID 0001.0001) -----------------------------------------------------
+(PID.TID 0001.0001) 
 (PID.TID 0001.0001) SET_PARMS: done
 (PID.TID 0001.0001) Enter INI_VERTICAL_GRID: setInterFDr=    T ; setCenterDr=    F
 (PID.TID 0001.0001) tile:   2 ; Read from file grid_cs32.face002.bin
@@ -425,6 +551,43 @@
 (PID.TID 0001.0001)                   F
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) // ===================================
+(PID.TID 0001.0001) ------------------------------------------------------------
+(PID.TID 0001.0001) DIAGNOSTICS_SET_LEVELS: done
+(PID.TID 0001.0001)  Total Nb of available Diagnostics: ndiagt=   215
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    81 oceTAUX
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    82 oceTAUY
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    85 oceFWflx
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    86 oceSflux
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    87 oceQnet
+(PID.TID 0001.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    88 oceQsw
+(PID.TID 0001.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    27 SALT
+(PID.TID 0001.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    26 THETA
+(PID.TID 0001.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    45 UVELMASS
+(PID.TID 0001.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    46 VVELMASS
+(PID.TID 0001.0001)   space allocated for all diagnostics:      66 levels
+(PID.TID 0001.0001)   set mate pointer for diag #    81  oceTAUX  , Parms: UU      U1 , mate:    82
+(PID.TID 0001.0001)   set mate pointer for diag #    82  oceTAUY  , Parms: VV      U1 , mate:    81
+(PID.TID 0001.0001)   set mate pointer for diag #    45  UVELMASS , Parms: UUr     MR , mate:    46
+(PID.TID 0001.0001)   set mate pointer for diag #    46  VVELMASS , Parms: VVr     MR , mate:    45
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceTAUX
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceTAUY
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceFWflx
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceSflux
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceQnet
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: oceQsw
+(PID.TID 0001.0001)  Levels:       1.
+(PID.TID 0001.0001) DIAGNOSTICS_SET_POINTERS: done
+(PID.TID 0001.0001) ------------------------------------------------------------
+(PID.TID 0001.0001) DIAGSTATS_SET_REGIONS: define   0 regions:
+(PID.TID 0001.0001) ------------------------------------------------------------
+(PID.TID 0001.0001)   space allocated for all stats-diags:       0 levels
+(PID.TID 0001.0001) DIAGSTATS_SET_POINTERS: done
+(PID.TID 0001.0001) ------------------------------------------------------------
 (PID.TID 0001.0001) INI_GLOBAL_DOMAIN: Found  19 CS-corner Pts in the domain
 (PID.TID 0001.0001) INI_CG2D: CG2D normalisation factor =  1.9156564154949553E-04
 (PID.TID 0001.0001) 
@@ -580,10 +743,10 @@
 (PID.TID 0001.0001)    16 @  1.000000000000000E+00              /* K =  1: 16 */
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) rotationPeriod =   /* Rotation Period ( s ) */
-(PID.TID 0001.0001)                 8.640000000000000E+04
+(PID.TID 0001.0001)                 8.616400000000000E+04
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) omega =   /* Angular velocity ( rad/s ) */
-(PID.TID 0001.0001)                 7.272205216643040E-05
+(PID.TID 0001.0001)                 7.292123516990375E-05
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) f0 =   /* Reference coriolis parameter ( 1/s ) */
 (PID.TID 0001.0001)                 1.000000000000000E-04
@@ -791,7 +954,7 @@
 (PID.TID 0001.0001)                   F
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) doThetaClimRelax = /* apply SST relaxation on/off flag */
-(PID.TID 0001.0001)                   T
+(PID.TID 0001.0001)                   F
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) balanceThetaClimRelax= /* balance SST relaxation on/off flag */
 (PID.TID 0001.0001)                   F
@@ -815,7 +978,7 @@
 (PID.TID 0001.0001)                   F
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) doSaltClimRelax = /* apply SSS relaxation on/off flag */
-(PID.TID 0001.0001)                   T
+(PID.TID 0001.0001)                   F
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) balanceSaltClimRelax= /* balance SSS relaxation on/off flag */
 (PID.TID 0001.0001)                   F
@@ -852,7 +1015,7 @@
 (PID.TID 0001.0001) // Elliptic solver(s) paramters ( PARM02 in namelist )
 (PID.TID 0001.0001) //
 (PID.TID 0001.0001) cg2dMaxIters =   /* Upper limit on 2d con. grad iterations  */
-(PID.TID 0001.0001)                     200
+(PID.TID 0001.0001)                     150
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) cg2dChkResFreq =   /* 2d con. grad convergence test frequency */
 (PID.TID 0001.0001)                       1
@@ -861,7 +1024,7 @@
 (PID.TID 0001.0001)                       0
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) cg2dTargetResidual =   /* 2d con. grad target residual  */
-(PID.TID 0001.0001)                 1.000000000000000E-09
+(PID.TID 0001.0001)                 1.000000000000000E-07
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) cg2dTargetResWunit =   /* CG2d target residual [W units] */
 (PID.TID 0001.0001)                -1.000000000000000E+00
@@ -879,16 +1042,16 @@
 (PID.TID 0001.0001) // Time stepping paramters ( PARM03 in namelist )
 (PID.TID 0001.0001) //
 (PID.TID 0001.0001) deltaTMom =   /* Momentum equation timestep ( s ) */
-(PID.TID 0001.0001)                 1.200000000000000E+03
+(PID.TID 0001.0001)                 9.000000000000000E+02
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) deltaTFreeSurf = /* FreeSurface equation timestep ( s ) */
-(PID.TID 0001.0001)                 8.640000000000000E+04
+(PID.TID 0001.0001)                 9.000000000000000E+02
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) dTtracerLev =  /* Tracer equation timestep ( s ) */
-(PID.TID 0001.0001)    15 @  8.640000000000000E+04              /* K =  1: 15 */
+(PID.TID 0001.0001)    15 @  9.000000000000000E+02              /* K =  1: 15 */
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) deltaTClock  =   /* Model clock timestep ( s ) */
-(PID.TID 0001.0001)                 8.640000000000000E+04
+(PID.TID 0001.0001)                 9.000000000000000E+02
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) cAdjFreq =   /* Convective adjustment interval ( s ) */
 (PID.TID 0001.0001)                 0.000000000000000E+00
@@ -918,22 +1081,22 @@
 (PID.TID 0001.0001)                   72000
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) nTimeSteps = /* Number of timesteps */
-(PID.TID 0001.0001)                      20
+(PID.TID 0001.0001)                   99999
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) nEndIter =   /* Run ending timestep number */
-(PID.TID 0001.0001)                   72020
+(PID.TID 0001.0001)                  171999
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) baseTime =   /* Model base time ( s ) */
 (PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) startTime =  /* Run start time ( s ) */
-(PID.TID 0001.0001)                 6.220800000000000E+09
+(PID.TID 0001.0001)                 6.480000000000000E+07
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) endTime  =   /* Integration ending time ( s ) */
-(PID.TID 0001.0001)                 6.222528000000000E+09
+(PID.TID 0001.0001)                 1.547991000000000E+08
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) pChkPtFreq = /* Permanent restart/pickup file interval ( s ) */
-(PID.TID 0001.0001)                 1.728000000000000E+06
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) chkPtFreq  = /* Rolling restart/pickup file interval ( s ) */
 (PID.TID 0001.0001)                 0.000000000000000E+00
@@ -951,7 +1114,7 @@
 (PID.TID 0001.0001)                   T
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) dumpFreq =   /* Model state write out interval ( s ). */
-(PID.TID 0001.0001)                 6.220800000000000E+08
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) dumpInitAndLast= /* write out Initial & Last iter. model state */
 (PID.TID 0001.0001)                   T
@@ -969,16 +1132,16 @@
 (PID.TID 0001.0001)                   T
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) externForcingPeriod =   /* forcing period (s) */
-(PID.TID 0001.0001)                 2.592000000000000E+06
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) externForcingCycle =   /* period of the cyle (s). */
-(PID.TID 0001.0001)                 3.110400000000000E+07
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) tauThetaClimRelax =   /* relaxation time scale (s) */
-(PID.TID 0001.0001)                 5.184000000000000E+06
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) tauSaltClimRelax =   /* relaxation time scale (s) */
-(PID.TID 0001.0001)                 6.220800000000000E+07
+(PID.TID 0001.0001)                 0.000000000000000E+00
 (PID.TID 0001.0001)     ;
 (PID.TID 0001.0001) latBandClimRelax =   /* max. Lat. where relaxation */
 (PID.TID 0001.0001)                 1.800000000000000E+02
@@ -2045,595 +2208,904 @@
 (PID.TID 0001.0001) READ_MFLDS_3D_RL: read field: "dEtaHdt ", #  10 in fldList, rec= 122
 (PID.TID 0001.0001) READ_MFLDS_3D_RL: read field: "EtaH    ", #  11 in fldList, rec= 123
 (PID.TID 0001.0001) READ_MFLDS_CHECK: - normal end ; reset MFLDS file-name: pickup.0000072000
+(PID.TID 0001.0001)  write diagnostics summary to file ioUnit:      6
+Iter.Nb:     72000 ; Time(s):  6.4800000000000E+07
+------------------------------------------------------------------------
+2D/3D diagnostics: Number of lists:    10
+------------------------------------------------------------------------
+listId=    1 ; file name: oceTAUX
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    81 |oceTAUX |      1 |      2 |   1 |       0 |       0 |
+------------------------------------------------------------------------
+listId=    2 ; file name: oceTAUY
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    82 |oceTAUY |      2 |      1 |   1 |       0 |       0 |
+------------------------------------------------------------------------
+listId=    3 ; file name: oceFWflx
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    85 |oceFWflx|      3 |      0 |   1 |       0 |
+------------------------------------------------------------------------
+listId=    4 ; file name: oceSflux
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    86 |oceSflux|      4 |      0 |   1 |       0 |
+------------------------------------------------------------------------
+listId=    5 ; file name: oceQnet
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    87 |oceQnet |      5 |      0 |   1 |       0 |
+------------------------------------------------------------------------
+listId=    6 ; file name: oceQsw
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    88 |oceQsw  |      6 |      0 |   1 |       0 |
+------------------------------------------------------------------------
+listId=    7 ; file name: SSS
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    27 |SALT    |      7 |      0 |  15 |       0 |
+------------------------------------------------------------------------
+listId=    8 ; file name: SST
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    26 |THETA   |     22 |      0 |  15 |       0 |
+------------------------------------------------------------------------
+listId=    9 ; file name: UVEL1
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    45 |UVELMASS|     37 |     52 |  15 |       0 |       0 |
+------------------------------------------------------------------------
+listId=   10 ; file name: VVEL1
+ nFlds, nActive,       freq     &     phase        , nLev               
+    1  |    1  |     -3600.000000      1800.000000 |   1
+ levels:   1
+ diag# | name   |   ipt  |  iMate | kLev|   count |   mate.C|           
+    46 |VVELMASS|     52 |     37 |  15 |       0 |       0 |
+------------------------------------------------------------------------
+Global & Regional Statistics diagnostics: Number of lists:     0
+------------------------------------------------------------------------
 (PID.TID 0001.0001) // =======================================================
 (PID.TID 0001.0001) // Model current state
 (PID.TID 0001.0001) // =======================================================
 (PID.TID 0001.0001) 
  DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72000 : iP,iLd,i0,i1=   12    0   12    1 ; Wght=  0.5000000000  0.5000000000
- EXTERNAL_FIELDS_LOAD, it=     72000 : Reading new data, i0,i1=   12    1 (prev=   12    0 )
 (PID.TID 0001.0001) SOLVE_FOR_PRESSURE: putPmEinXvector =    F
 (PID.TID 0001.0001) SOLVE_FOR_PRESSURE: zeroPsNH=    F , zeroMeanPnh=    F
 (PID.TID 0001.0001) SOLVE_FOR_PRESSURE: oldFreeSurfTerm =    F
- cg2d: Sum(rhs),rhsMax =  -2.16004991671070E-12  4.28049811553101E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.49231114896081E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.52216993506949E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72001 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.4666666667  0.5333333333
- cg2d: Sum(rhs),rhsMax =  -2.20268248085631E-12  4.27718244078996E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.46503609348449E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.76256965335756E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72002 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.4333333333  0.5666666667
- cg2d: Sum(rhs),rhsMax =  -2.15294448935310E-12  4.27443733666879E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.46978069876167E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.89059596849510E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72003 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.4000000000  0.6000000000
- cg2d: Sum(rhs),rhsMax =  -2.25242047235952E-12  4.27185687491110E+00
-(PID.TID 0001.0001)      cg2d_init_res =   4.09351530750851E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.19289490788742E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72004 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.3666666667  0.6333333333
- cg2d: Sum(rhs),rhsMax =  -2.25952589971712E-12  4.26946649194377E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.55346818387124E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.49272203158059E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72005 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.3333333333  0.6666666667
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.26728141631992E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.45997408874173E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.32814104509869E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72006 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.3000000000  0.7000000000
- cg2d: Sum(rhs),rhsMax =  -2.18847162614111E-12  4.26529429802506E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.45806342161225E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.29935442968464E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72007 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.2666666667  0.7333333333
- cg2d: Sum(rhs),rhsMax =  -2.21689333557151E-12  4.26349261414611E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.47976215153924E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.32410517556502E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72008 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.2333333333  0.7666666667
- cg2d: Sum(rhs),rhsMax =  -2.22399876292911E-12  4.26186294475048E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.45158314787046E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.30219657459174E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72009 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.2000000000  0.8000000000
- cg2d: Sum(rhs),rhsMax =  -2.23820961764432E-12  4.26039120546814E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.44374605882875E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.25396016519514E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72010 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.1666666667  0.8333333333
- cg2d: Sum(rhs),rhsMax =  -2.22399876292911E-12  4.25906155109651E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.44001733802257E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.29604312151777E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72011 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.1333333333  0.8666666667
- cg2d: Sum(rhs),rhsMax =  -2.28084218178992E-12  4.25785527158430E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.45739723911077E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.33081728793910E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72012 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.1000000000  0.9000000000
- cg2d: Sum(rhs),rhsMax =  -2.25242047235952E-12  4.25675039290756E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.48108491025775E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.32972435675280E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72013 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.0666666667  0.9333333333
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.25572200452936E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.49785442325270E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.39815305355778E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72014 : iP,iLd,i0,i1=   12    1   12    1 ; Wght=  0.0333333333  0.9666666667
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.25474299351470E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.52044273242975E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.50968137478300E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72015 : iP,iLd,i0,i1=   12    1    1    2 ; Wght=  1.0000000000  0.0000000000
- EXTERNAL_FIELDS_LOAD, it=     72015 : Reading new data, i0,i1=    1    2 (prev=   12    1 )
- cg2d: Sum(rhs),rhsMax =  -2.30926389122033E-12  4.25378485756544E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.54775046347710E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.64483163936550E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72016 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.9666666667  0.0333333333
- cg2d: Sum(rhs),rhsMax =  -2.25242047235952E-12  4.25272378017616E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.53057852841043E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.66568066439602E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72017 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.9333333333  0.0666666667
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.25172908352945E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.64127678673927E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.70420570156124E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72018 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.9000000000  0.1000000000
- cg2d: Sum(rhs),rhsMax =  -2.22399876292911E-12  4.25068983918074E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.81588646516096E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.90372633545702E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72019 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.8666666667  0.1333333333
- cg2d: Sum(rhs),rhsMax =  -2.20978790821391E-12  4.24956972529272E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.75393124852200E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.59146929741537E-10
-(PID.TID 0001.0001) %CHECKPOINT     72020 0000072020
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72020 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.8333333333  0.1666666667
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.24834332297018E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.49751074524850E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.42661370570262E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72021 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.8000000000  0.2000000000
- cg2d: Sum(rhs),rhsMax =  -2.20268248085631E-12  4.24698563548118E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.35902407221758E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.27939592933235E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72022 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.7666666667  0.2333333333
- cg2d: Sum(rhs),rhsMax =  -2.36610731008113E-12  4.24547436411507E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.34128928558967E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.25599125554700E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72023 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.7333333333  0.2666666667
- cg2d: Sum(rhs),rhsMax =  -2.20268248085631E-12  4.24379159286911E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.32521662010905E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.22769615860570E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72024 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.7000000000  0.3000000000
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.24192424870365E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.32378526670239E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.20917044769978E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72025 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.6666666667  0.3333333333
- cg2d: Sum(rhs),rhsMax =  -2.27373675443232E-12  4.23986388765508E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.32819009640493E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.21090110965041E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72026 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.6333333333  0.3666666667
- cg2d: Sum(rhs),rhsMax =  -2.21689333557151E-12  4.23760634096296E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.36691105500264E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.29643663485059E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72027 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.6000000000  0.4000000000
- cg2d: Sum(rhs),rhsMax =  -2.27373675443232E-12  4.23515149871006E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.33899582015448E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.26159498390053E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72028 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.5666666667  0.4333333333
- cg2d: Sum(rhs),rhsMax =  -2.33768560065073E-12  4.23250330143512E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.33078804661773E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.28128081585166E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72029 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.5333333333  0.4666666667
- cg2d: Sum(rhs),rhsMax =  -2.33768560065073E-12  4.22966987728451E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.34960872053711E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.34175288612858E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72030 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.5000000000  0.5000000000
- cg2d: Sum(rhs),rhsMax =  -2.22399876292911E-12  4.22666370569334E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.38159987084416E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.39643012194954E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72031 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.4666666667  0.5333333333
- cg2d: Sum(rhs),rhsMax =  -2.19557705349871E-12  4.22350168944756E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.41068881617143E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.44229380659984E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72032 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.4333333333  0.5666666667
- cg2d: Sum(rhs),rhsMax =  -2.36610731008113E-12  4.22020506673974E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.42383339711168E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.44573552776492E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72033 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.4000000000  0.6000000000
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.21679915066632E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.37556270099961E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.37763080568131E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72034 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.3666666667  0.6333333333
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.21331291786091E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.35117872190609E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.32924676244719E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72035 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.3333333333  0.6666666667
- cg2d: Sum(rhs),rhsMax =  -2.20978790821391E-12  4.20977848321525E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.56104855770025E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.80997596525028E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72036 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.3000000000  0.7000000000
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.20623049984806E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.57768928560166E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.82448659565893E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72037 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.2666666667  0.7333333333
- cg2d: Sum(rhs),rhsMax =  -2.22399876292911E-12  4.20270557413576E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.81136282262638E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.00941530056341E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72038 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.2333333333  0.7666666667
- cg2d: Sum(rhs),rhsMax =  -2.25242047235952E-12  4.19924153075314E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.95074805073517E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.08688099541505E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72039 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.2000000000  0.8000000000
- cg2d: Sum(rhs),rhsMax =  -2.32347474593553E-12  4.19587671244405E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.41180990969217E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.18415966977486E-10
-(PID.TID 0001.0001) %CHECKPOINT     72040 0000072040
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72040 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.1666666667  0.8333333333
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.19264924136704E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.45824519305457E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.96168746518952E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72041 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.1333333333  0.8666666667
- cg2d: Sum(rhs),rhsMax =  -2.33768560065073E-12  4.19412632716634E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.62836056490260E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.05527978876482E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72042 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.1000000000  0.9000000000
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.19791006816102E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.42881277619712E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.82175563824975E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72043 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.0666666667  0.9333333333
- cg2d: Sum(rhs),rhsMax =  -2.38031816479634E-12  4.20180108415768E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.34535439938228E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.75503123013150E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72044 : iP,iLd,i0,i1=    1    2    1    2 ; Wght=  0.0333333333  0.9666666667
- cg2d: Sum(rhs),rhsMax =  -2.32347474593553E-12  4.20575217986618E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.34385514647932E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.74227780379143E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72045 : iP,iLd,i0,i1=    1    2    2    3 ; Wght=  1.0000000000  0.0000000000
- EXTERNAL_FIELDS_LOAD, it=     72045 : Reading new data, i0,i1=    2    3 (prev=    1    2 )
- cg2d: Sum(rhs),rhsMax =  -2.24531504500192E-12  4.20971425392905E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.33272335634350E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.77346781674246E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72046 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.9666666667  0.0333333333
- cg2d: Sum(rhs),rhsMax =  -2.34479102800833E-12  4.21364597587675E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.33458910110169E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.84098943601069E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72047 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.9333333333  0.0666666667
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.21745276974613E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.30189967075897E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.56800735592685E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72048 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.9000000000  0.1000000000
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.22109156097929E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.26823557750695E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.26950535857764E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72049 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.8666666667  0.1333333333
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.22451523050124E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.23856636073761E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.21901108318219E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72050 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.8333333333  0.1666666667
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.22767948180637E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.20693647561846E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.21259587093397E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72051 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.8000000000  0.2000000000
- cg2d: Sum(rhs),rhsMax =  -2.25242047235952E-12  4.23054255634604E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.17099849852120E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.11107171857926E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72052 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.7666666667  0.2333333333
- cg2d: Sum(rhs),rhsMax =  -2.35189645536593E-12  4.23306733948759E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.13540246484429E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.66284197760814E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72053 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.7333333333  0.2666666667
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.23522215572123E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.09828948574990E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   8.97054074126008E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72054 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.7000000000  0.3000000000
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.23698091158782E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.07449585010220E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   8.80368325180903E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72055 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.6666666667  0.3333333333
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.23832318770522E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.06687410211081E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   9.32686385945208E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72056 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.6333333333  0.3666666667
- cg2d: Sum(rhs),rhsMax =  -2.35189645536593E-12  4.23923450629728E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.08445511531326E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   8.70585619180695E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72057 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.6000000000  0.4000000000
- cg2d: Sum(rhs),rhsMax =  -2.17426077142591E-12  4.23970657138745E+00
-(PID.TID 0001.0001)      cg2d_init_res =   3.05367946547854E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   8.27844442452882E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72058 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.5666666667  0.4333333333
- cg2d: Sum(rhs),rhsMax =  -2.19557705349871E-12  4.23973734856315E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.97321302930530E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   8.45138701838139E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72059 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.5333333333  0.4666666667
- cg2d: Sum(rhs),rhsMax =  -2.24531504500192E-12  4.23933096104203E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.95284057692218E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   9.28139504680613E-10
-(PID.TID 0001.0001) %CHECKPOINT     72060 0000072060
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72060 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.5000000000  0.5000000000
- cg2d: Sum(rhs),rhsMax =  -2.19557705349871E-12  4.23849740350905E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.94060032750713E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.45400969755324E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72061 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.4666666667  0.5333333333
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.23725211294848E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.93430295947000E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.33734809290112E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72062 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.4333333333  0.5666666667
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.23561545575896E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.92742512466895E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.57802957789082E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72063 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.4000000000  0.6000000000
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.23361218547542E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.92598997811057E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.12022005027763E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72064 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.3666666667  0.6333333333
- cg2d: Sum(rhs),rhsMax =  -2.17426077142591E-12  4.23127088071094E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.92855898460014E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.49765320398131E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72065 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.3333333333  0.6666666667
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.22862338092626E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.92968121504033E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.78410579304764E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72066 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.3000000000  0.7000000000
- cg2d: Sum(rhs),rhsMax =  -2.30926389122033E-12  4.22570422472920E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.93319699201086E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.95210412625890E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72067 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.2666666667  0.7333333333
- cg2d: Sum(rhs),rhsMax =  -2.21689333557151E-12  4.22255008878328E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.93964900562652E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   8.64875148243635E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72068 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.2333333333  0.7666666667
- cg2d: Sum(rhs),rhsMax =  -2.30926389122033E-12  4.21919922292975E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.94547940192741E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   8.65716485296740E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72069 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.2000000000  0.8000000000
- cg2d: Sum(rhs),rhsMax =  -2.24531504500192E-12  4.21569087837304E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.95311873297774E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.89848385818287E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72070 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.1666666667  0.8333333333
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.21206473562251E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.96038346112465E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.62893228077589E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72071 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.1333333333  0.8666666667
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.20836033673115E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.96849025483187E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.19948798470152E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72072 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.1000000000  0.9000000000
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.20596705022154E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.97425529859576E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.95095594388401E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72073 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.0666666667  0.9333333333
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.20692354246547E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.97835405128729E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.23881590136895E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72074 : iP,iLd,i0,i1=    2    3    2    3 ; Wght=  0.0333333333  0.9666666667
- cg2d: Sum(rhs),rhsMax =  -2.38742359215394E-12  4.20769748415605E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.98172489912688E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.71623509160568E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72075 : iP,iLd,i0,i1=    2    3    3    4 ; Wght=  1.0000000000  0.0000000000
- EXTERNAL_FIELDS_LOAD, it=     72075 : Reading new data, i0,i1=    3    4 (prev=    2    3 )
- cg2d: Sum(rhs),rhsMax =  -2.21689333557151E-12  4.20828878582472E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.98688258011258E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.58406266688864E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72076 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.9666666667  0.0333333333
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.20863361903168E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.99102468290743E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.00347564863708E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72077 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.9333333333  0.0666666667
- cg2d: Sum(rhs),rhsMax =  -2.28084218178992E-12  4.20882508248203E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.97790406171022E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.24994459379777E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72078 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.9000000000  0.1000000000
- cg2d: Sum(rhs),rhsMax =  -2.23110419028671E-12  4.20887134152155E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.94439982690390E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.29853929137742E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72079 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.8666666667  0.1333333333
- cg2d: Sum(rhs),rhsMax =  -2.37321273743873E-12  4.20878890081879E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.92246745741351E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.36781505541376E-10
-(PID.TID 0001.0001) %CHECKPOINT     72080 0000072080
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72080 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.8333333333  0.1666666667
- cg2d: Sum(rhs),rhsMax =  -2.24531504500192E-12  4.20858756372376E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.90042885209450E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.47444504154070E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72081 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.8000000000  0.2000000000
- cg2d: Sum(rhs),rhsMax =  -2.30215846386272E-12  4.20828127236413E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.88057038326690E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.52512786102039E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72082 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.7666666667  0.2333333333
- cg2d: Sum(rhs),rhsMax =  -2.38031816479634E-12  4.20788809342381E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.85806146001632E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.35357887181018E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72083 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.7333333333  0.2666666667
- cg2d: Sum(rhs),rhsMax =  -2.28794760914752E-12  4.20742802616842E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.83618490654083E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.60827433366967E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72084 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.7000000000  0.3000000000
- cg2d: Sum(rhs),rhsMax =  -2.33058017329313E-12  4.20692207362944E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.81629770982282E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      83
-(PID.TID 0001.0001)      cg2d_last_res =   9.17923713975967E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72085 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.6666666667  0.3333333333
- cg2d: Sum(rhs),rhsMax =  -2.35189645536593E-12  4.20639176007730E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.79644947899970E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      84
-(PID.TID 0001.0001)      cg2d_last_res =   9.95950861972619E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72086 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.6333333333  0.3666666667
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.20585858420454E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.77815190009472E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   8.50514630500340E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72087 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.6000000000  0.4000000000
- cg2d: Sum(rhs),rhsMax =  -2.29505303650512E-12  4.20534343950251E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.76236534547496E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      85
-(PID.TID 0001.0001)      cg2d_last_res =   9.59909063517554E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72088 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.5666666667  0.4333333333
- cg2d: Sum(rhs),rhsMax =  -2.24531504500192E-12  4.20486614857545E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.74608777888678E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   8.70122995132341E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72089 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.5333333333  0.4666666667
- cg2d: Sum(rhs),rhsMax =  -2.26663132707472E-12  4.20444516073495E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.73293371964300E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.20663955550937E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72090 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.5000000000  0.5000000000
- cg2d: Sum(rhs),rhsMax =  -2.31636931857793E-12  4.20409737325364E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.72249525335586E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.59211200799588E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72091 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.4666666667  0.5333333333
- cg2d: Sum(rhs),rhsMax =  -2.35189645536593E-12  4.20383801830756E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.71423888110356E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      86
-(PID.TID 0001.0001)      cg2d_last_res =   9.88501010518269E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72092 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.4333333333  0.5666666667
- cg2d: Sum(rhs),rhsMax =  -2.27373675443232E-12  4.20368058689180E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.70927578323342E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   8.71078528319432E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72093 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.4000000000  0.6000000000
- cg2d: Sum(rhs),rhsMax =  -2.33768560065073E-12  4.20363675275616E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.70688729039210E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   8.88364843976554E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72094 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.3666666667  0.6333333333
- cg2d: Sum(rhs),rhsMax =  -2.28084218178992E-12  4.20371629539105E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.70757410988502E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   9.01172139268257E-10
- DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
- EXTERNAL_FIELDS_LOAD,     72095 : iP,iLd,i0,i1=    3    4    3    4 ; Wght=  0.3333333333  0.6666666667
- cg2d: Sum(rhs),rhsMax =  -2.25952589971712E-12  4.20392702390173E+00
-(PID.TID 0001.0001)      cg2d_init_res =   2.71390500237857E-02
-(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      87
-(PID.TID 0001.0001)      cg2d_last_res =   9.09124525794110E-10
+ cg2d: Sum(rhs),rhsMax =  -1.20554350147557E+00  3.74657673604091E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.43059256328334E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   3.42231856544124E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.76335562623294E+00  1.71200128487613E+02
+(PID.TID 0001.0001)      cg2d_init_res =   1.69047112768845E+00
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   6.36957559070560E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -5.18722527263772E+00  1.77171333484927E+02
+(PID.TID 0001.0001)      cg2d_init_res =   8.71378043748956E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   6.23640285120550E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -6.01383184750209E+00  1.70687984164467E+02
+(PID.TID 0001.0001)      cg2d_init_res =   4.23341318222041E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   5.36622460150051E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -6.60013103848051E+00  1.61549036755926E+02
+(PID.TID 0001.0001)      cg2d_init_res =   3.48215852301599E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   6.47037603710683E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.41760507348926E+00  1.50610337008021E+02
+(PID.TID 0001.0001)      cg2d_init_res =   3.94983543907375E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   7.52620205519539E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.40310997716915E+00  1.38187801594397E+02
+(PID.TID 0001.0001)      cg2d_init_res =   3.94489629757650E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   8.51707308186033E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -9.93491686098172E+00  1.24575751327413E+02
+(PID.TID 0001.0001)      cg2d_init_res =   5.01057593771532E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.84810846791463E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.15382900413864E+01  1.10072693274168E+02
+(PID.TID 0001.0001)      cg2d_init_res =   4.40366233102803E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.77964251256282E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.36799899818492E+01  9.49762590659108E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.72725397019306E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.02510426752293E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.66953991099117E+01  7.95769782797010E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.06418377974623E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.46349632108722E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.87510042331096E+01  7.24069389357611E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.20575770709805E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.12369655499915E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.13815129040890E+01  6.48541871343753E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.67544996374704E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.62219550728203E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.14543596894703E+01  6.59799317009179E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.48535147278144E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.08176300462477E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.01158651322788E+01  7.18092919647573E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.85844379103814E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.40839961353126E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.91415718981910E+01  7.70017230569561E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.26892834270069E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.13879238328075E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.84568418337121E+01  8.14502632073611E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.75998501632667E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.53893635604890E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.80162124159412E+01  8.50671680320095E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.37021352983731E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.73725846478994E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.77901901092510E+01  8.77849143158158E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.09112836738589E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.10196707179713E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.77614961008125E+01  8.95567015254139E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.87741718301824E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.48402945115389E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.79224616822876E+01  9.03564471745853E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.68106272232678E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.56773078759209E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.82738878990744E+01  9.01783606137417E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.47757156298353E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.97242524455594E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.88262177562516E+01  8.90360908769222E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.27365089510738E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.44977601758082E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -1.95980762258946E+01  8.69615336121918E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.10206958068024E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.28534189039781E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.06237797933090E+01  8.40033029687925E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.00957712063374E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.68018565659141E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.19424594952443E+01  8.02249700090503E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.03196702387261E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.98764822889865E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.33099587479064E+01  7.66853585390989E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.15085080836947E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.94235047670285E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.45725255583730E+01  7.38364876139763E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.31916957253589E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.75913089642173E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.63981769107018E+01  6.97468572272622E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.55780654751555E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.69274905023213E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -2.89571501850357E+01  6.45198540062779E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.85257454564657E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.19833740887366E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.28047573055561E+01  5.82767237099366E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.30849690834193E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.98409120372058E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.79283257215606E+01  5.11541482150775E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.86379059860577E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.95143960197897E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.53865332683934E+01  4.33012854661995E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.59910779865009E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   4.61250873334552E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.73529260933488E+01  4.20229672959887E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.59604663306216E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   4.69135032395785E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.86596806369579E+01  4.13974921433127E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.48729325939411E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   4.65982964579163E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.59057619485592E+01  4.44136463967540E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.03875027694358E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   4.13668495423409E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.34765048506896E+01  4.74517998048875E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.67894966247217E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.58044332038590E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.14026177253907E+01  5.04080867588324E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.38721978247030E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.08654852864649E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.96387572298281E+01  5.32477130877156E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.13906530199138E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.73436982207702E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.81509979822134E+01  5.59361382868320E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.91763348479269E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.51420240697303E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.69125257808803E+01  5.84396512662156E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.71367297505652E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.34081061428574E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.59005634683477E+01  6.07258966277761E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.52123412794806E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.47712265171285E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.50979737199414E+01  6.27644128168189E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.33701549001141E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.58993619738556E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.44883941922363E+01  6.45271164715006E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.15982594534179E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.63522185076703E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.40633606415322E+01  6.59887680286934E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.99076408036371E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.41442280399123E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.38155072871531E+01  6.71273673310083E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.83270576895928E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.67515663969858E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.37425661732474E+01  6.79245084873648E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.69080169393496E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.42471346073545E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.38438181746241E+01  6.83656708999955E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.57222311542936E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.94646604490396E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.41211391184746E+01  6.84404414053581E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.48536099627610E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.63175994990960E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.45830510729917E+01  6.81426623930542E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.43742819949967E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.69339925456085E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.52403787919127E+01  6.74705463171059E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.43133394594517E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.70625720420292E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.61092722616345E+01  6.64266616220905E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.46476028945040E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.36832999237403E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.72106473092693E+01  6.50178992156100E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.53114221654094E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.20538101114781E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -3.85726623208273E+01  6.32553649259633E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.62283983425440E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.32058751137348E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.02306033490588E+01  6.11542186675238E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.73382118148159E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.86632730823870E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.22319469187268E+01  5.87334326160962E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.85967051368031E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.91341931568476E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.46391910221817E+01  5.60155188640077E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.99867529466206E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.56690290133029E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -4.75293780795084E+01  5.30262389657689E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.15040192194035E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.81332850074216E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -5.10084955331718E+01  4.97942146487349E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.31644612898654E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.83777984309783E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -5.52181762083542E+01  4.63505729716375E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.49931295959000E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.70704263409074E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -6.03506798130435E+01  4.27284992593815E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.70343327585449E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.21659530424100E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -6.66753097480345E+01  3.89628581797943E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.93612381495569E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.98364892694948E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.17216985231215E+01  3.64865388830880E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.08475562341246E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.55129283906772E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.23268910204386E+01  3.64409309272871E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.02069923930177E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.87501120631840E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.29311100807304E+01  3.63951764831940E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.94205352993811E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.48434991026170E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.33056244181255E+01  3.64609427868487E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.84289565905687E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.46728073393804E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.37070254933511E+01  3.65096695393014E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.73700220270325E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.02087509055227E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.41458423113917E+01  3.65379803329481E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.62742494473441E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.49485969470611E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.46242273903122E+01  3.65440821887811E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.51651222630883E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.31762361707972E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.51475234521899E+01  3.65267451199196E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.40703999246379E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.46355992538880E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.57167429532029E+01  3.64859296428110E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.30165377216197E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.54075222871664E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.61101854572153E+01  3.65281158554645E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.19678166881350E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.52171310061619E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.64767035039127E+01  3.65817139115311E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.10102444819116E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.25676945902630E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.68664351540372E+01  3.66229432690313E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.01948255186568E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.64284849420118E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.72887355845747E+01  3.66499885790596E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.95599783451480E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.52665462922393E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.77611874984257E+01  3.66612070833496E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92769718844440E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.13673145519696E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.82772053696863E+01  3.66557673499633E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.89945208316898E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.08126392096250E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.87711584703698E+01  3.66344953689168E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.95424773181543E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.86252228164492E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.92898561686927E+01  3.65985982111580E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.90367232881165E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.92730765636825E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -7.98349029850882E+01  3.65495934769434E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.90276749436341E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.99430064831858E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.04029923750786E+01  3.64898522971605E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92494039707117E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.34681998432595E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.09853767917409E+01  3.64224078278197E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94768567292893E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.78497008702619E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.15755312754731E+01  3.63509640635524E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.96680976041590E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.69957272349904E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.21650747063675E+01  3.62795093158955E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.98073236625489E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.35761580944455E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.27032163029656E+01  3.62298448765310E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.98664352646377E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.87154891352195E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.30220470961174E+01  3.62751603634503E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.98031448753891E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.32057412650016E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.33350012835621E+01  3.63218464441019E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.96628932026128E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.67264454304250E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.36406930791629E+01  3.63696609978211E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94451884072676E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.65230317982755E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.39419941010401E+01  3.64184342721933E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.91628609990068E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.00905076802645E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.42397274178377E+01  3.64679844023969E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.88258116461179E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.17578774399907E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.45411532566072E+01  3.65181478149847E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.84882503651876E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.52538420786559E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.48364469079918E+01  3.65686485029279E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.80234106167697E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.32298677755895E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.50977926872542E+01  3.66191595223777E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.77755015859385E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.41855905946576E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.53529549507227E+01  3.66693163555951E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.72316897374833E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.93112614391744E-08
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.56059933697121E+01  3.67187260763025E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.66688364428339E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.14789305500575E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
+ cg2d: Sum(rhs),rhsMax =  -8.58581693291772E+01  3.67669373034461E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.61712331620939E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.19265660100807E-08
  DRIVER_GET_EXPORT_STATE_3D:MASK : Associated & shape =          32          32          15
