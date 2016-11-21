@@ -56,8 +56,8 @@
 
 !     Transfer HFLX + SWHEAT to Qnet.
 !     HFLX   : Turbulent heat flux from skin to ocean in W/m^2.
-!              Includes sensible, latent, and longwave heat flux
-!              that is transferred from skin to atmosphere.
+!              Accounts for the effect of sensible, latent and radiative
+!              fluxes at the interface between the skin and the atmosphere.
 !              > 0 for increase in theta (ocean warming)
 !     Qnet   : Net upward surface heat flux (including shortwave) in W/m^2.
 !              Qnet = latent + sensible + net longwave + net shortwave
@@ -68,6 +68,7 @@
           
 !     Transfer QFLX to EMPMR.
 !     QFLX   : Freshwater flux from skin to ocean in kg/m2/s.
+!              > 0 for decrease in salt (ocean salinity)
 !     EmPmR  : Net upward freshwater flux in kg/m2/s.
 !              EmPmR = Evaporation - precipitation - runoff
 !              > 0 for increase in salt (ocean salinity)
