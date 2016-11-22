@@ -8,6 +8,7 @@ FLDmit={'oceQnet','oceFWflx','oceSflux','oceTAUX', ...
         'oceTAUY','SSS','SST','UVEL1','VVEL1','oceQsw'};
 XC=rdmds([pnm 'XC']);
 YC=rdmds([pnm 'YC']);
+RAC=rdmds([pnm 'RAC']);
 hFacC=rdmds([pnm 'hFacC']);
 AngleCS=rdmds([pnm 'AngleCS']);
 AngleSN=rdmds([pnm 'AngleSN']);
