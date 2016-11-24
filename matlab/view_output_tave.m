@@ -45,7 +45,7 @@ subplot(223)
 pcolor(lon,lat,-fld'), shading flat
 caxis([-1 1]*2e-4), colorbar
 title(['-QFLX (kg/m^2/s), ' int2str(gm) ' Gg/s freshening'])
-
+pause
 
 % Plot oceTAUX, oceTAUY, UVEL1, and VVEL1
 % oceTAUX : x-direction surface wind stress in N/m^2 

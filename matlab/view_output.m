@@ -16,7 +16,7 @@ mk_binavg
 %    oceQnet : W/m^2 net surface heat flux into the ocean (+=down), >0 increases theta
 %              Southwest C-grid tracer point (i.e., A-grid)
 cx=[-400 400];
-for t=1:nt
+for t=1:(nt-1)
     fld1=sum(SWHEAT(:,:,:,t),3);
     tmp=oceQsw(:,:,t);
     fld2=reshape(bin_average*tmp(:),length(lon),length(lat));
@@ -52,7 +52,7 @@ end
 %              (+=down), >0 increases salinity
 %              Southwest C-grid tracer point (i.e., A-grid)
 cx=[-1 1]/1e4;
-for t=1:nt
+for t=1:(nt-1)
     fld1=QFLX(:,:,t);
     tmp=oceFWflx(:,:,t);
     fld2=reshape(bin_average*tmp(:),length(lon),length(lat));
@@ -87,7 +87,7 @@ end
 %              Southwest C-grid tracer point (i.e., A-grid)
 cx1=[28 38];
 cx2=[-2 34];
-for t=1:nt
+for t=1:(nt-1)
     fld1=SS(:,:,t);
     tmp=SSS(:,:,t);
     fld2=reshape(bin_average*tmp(:),length(lon),length(lat));
@@ -121,7 +121,7 @@ end
 %    oceTAUY : N/m^2 y-direction surface wind stress, >0 increases vVel
 %              Southwest C-grid velocity locations
 cx=[-1 1]/4;
-for t=1:nt
+for t=1:(nt-1)
     fld1=TAUX(:,:,t);
     fld3=TAUY(:,:,t);
     [tE,tN]=rotate_uv2uvEN(oceTAUX(:,:,t),oceTAUY(:,:,t),AngleCS,AngleSN);
@@ -154,7 +154,7 @@ end
 %     VVEL1  : m/s y-direction surface velocity
 %              Southwest C-grid velocity locations
 cx=[-1 1]/4;
-for t=1:nt
+for t=1:(nt-1)
     fld1=US(:,:,t);
     fld3=VS(:,:,t);
     [uE,uN]=rotate_uv2uvEN(UVEL1(:,:,t),VVEL1(:,:,t),AngleCS,AngleSN);
