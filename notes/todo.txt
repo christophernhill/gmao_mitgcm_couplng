@@ -1,7 +1,21 @@
-- Verify and correct units, location, and rotation of fluxes
-  imported by MITgcm from GEOS-5 atmosphere.
+- SFLUX: does it need to be included in surface forcing?
+  Right now it is zero.
 
-- Does uVel and vVel need to be rotated in export_state_fill_mod.FOR ?
+   The unit of SFLX specified in MIT_GEOS5PlugMod.F90 seem wrong.
+   'SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2',
+   They probably should be g/m^2/s instead of N/m^2.
+
+   SFLX exactly analagous to HFLX, but for the salt content. ie., the skin layer
+   uses evap and precip and ice melt to update a "skin salinity".
+   the gradient between that skin salinity and the upper level of the ocean salinity
+   is what is used to compute the turbulent salinity flux from the skin layer into the
+   top ocean layer.
+   runoff is handled outside of this skin mechanism, and i know that there are
+   thoughts about getting the sea ice melt out of there as well, but for now its
+   there.
+
+- QFLUX: why does it have anomalies near land?  Is it a masking and
+  interpolation issue?
 
 - First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
   See explanation and fix in notes.txt
@@ -14,7 +28,7 @@
   by moving coupling parameters to instructions
   or set_mitgcm_env.sh
 
-- Instructions for running on NAS and engaging
+- Instructions for running on engaging
 
 - Cleaner, more concise instructions
 
