@@ -1,3 +1,6 @@
+  * Move modifications and verification to experiments/exp01
+  * Check-in a c48/cs32 year-long set-up in experiments/exp02
+
 - checkpoint_0_K (2016/11/21)
   * Matlab script matlab/view_output.m to compare
     GEOS-5 *.nc4 and MITgcm pkg/diagnostics output files.

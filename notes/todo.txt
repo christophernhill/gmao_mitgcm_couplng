@@ -15,7 +15,8 @@
    there.
 
 - QFLUX: why does it have anomalies near land?  Is it a masking and
-  interpolation issue?
+  interpolation issue?  The anomalies appear to go away after aboout 1 week,
+  so maybe initialization transients?
 
 - First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
   See explanation and fix in notes.txt

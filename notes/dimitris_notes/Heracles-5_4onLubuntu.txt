@@ -129,14 +129,16 @@ cd $WorkingDir/MITgcm/verification
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # Approximately 8 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
-# $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
+# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
 ln -sf Makefile_gfortran Makefile
-cd $ESMADIR/src
+cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 4 |& tee makeinstall.log
 
-# Set up coupled code
-cd $ESMADIR/src/Applications/GEOSgcm_App
+# Set up coupled code for experiments/exp01
+# Be sure to replace "Desired Location" and "Build"
+# directories below with your own
+cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -161,11 +163,11 @@ cd $ESMADIR/src/Applications/GEOSgcm_App
 cd $WorkingDir
 tar -xf geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
+$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
 # Run coupled code
-# Some verification output in $GMAO_MITGCM_COUPLNG/verification
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
 cd $WorkingDir/TEST
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out

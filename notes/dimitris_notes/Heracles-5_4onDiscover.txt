@@ -66,7 +66,9 @@ ln -sf Makefile_ifort Makefile
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
 
-# Set up coupled code
+# Set up coupled code for experiments/exp01
+# Be sure to replace "Desired Location" and "Build"
+# directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
@@ -86,14 +88,14 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: /discover/nobackup/dmenemen/Heracles-5_4/GEOSodas
 # Enter your GROUP ID for Current EXP: s1353
 
-# Get GEOS-5 boundary conditions
+# Get GEOS-5 boundary conditions for experiments/exp01
 cd $WorkingDir
 tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
+$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
 # Run coupled code
-# Some verification output in $GMAO_MITGCM_COUPLNG/verification
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out

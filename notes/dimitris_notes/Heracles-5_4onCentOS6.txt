@@ -1,3 +1,5 @@
+### Work in progress --- Instructions are not completed ###
+
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on CentOS 6.8
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onCentOS6.txt
 
@@ -159,14 +161,16 @@ cd $WorkingDir/MITgcm/verification
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # Approximately 11 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
-# $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
+# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
 ln -sf Makefile_gfortran Makefile
-cd $ESMADIR/src
-gmake pinstall -j 3 |& tee makeinstall.log
+cd $WorkingDir/GEOSodas/src
+gmake pinstall -j 4 |& tee makeinstall.log
 
-# Set up coupled code
-cd $ESMADIR/src/Applications/GEOSgcm_App
+# Set up coupled code for experiments/exp01
+# Be sure to replace "Desired Location" and "Build"
+# directories below with your own
+cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -191,11 +195,12 @@ cd $ESMADIR/src/Applications/GEOSgcm_App
 cd $WorkingDir
 tar -xf geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/modifications/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/modifications/HISTORY.rc .
+$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
 # Run coupled code
-# Some verification output in $GMAO_MITGCM_COUPLNG/verification
+
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
 cd $WorkingDir/TEST
 setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 ./gcm_run.j |&  tee gcm_run.out
