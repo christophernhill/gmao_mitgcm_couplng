@@ -1,3 +1,13 @@
+11/27/2016: Compilation on Engaging
+The first attempt was with:
+  module purge
+  module add mvapich2/gcc
+  setenv MVAMPIC2 /cm/shared/apps/mvapich2/gcc/64/2.0b
+  setenv MPI_INC_DIR /cm/shared/apps/mvapich2/gcc/64/2.0b/include
+I was able to build Baselibs but failed to compile code_split_driver
+because of missing coarray support in gcc version 4.4.7.
+We probably need gcc >= 4.7 (https://gcc.gnu.org/wiki/Coarray).
+
 ================================================================
 11/19/2016: SFLX
 'SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2',

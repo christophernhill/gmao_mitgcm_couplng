@@ -21,6 +21,8 @@
 - First 4 time steps of SWHEAT (QSW.000007200[0-3].data) are zeros.
   See explanation and fix in notes.txt
 
+- pickups for continuation, and pass the 2+2=4 test
+
 - Automatic Makefile creation for MITgcm build
 
 - Automatic generation of gmao_mitgcm_couplng/mitgcm_setup/inc
