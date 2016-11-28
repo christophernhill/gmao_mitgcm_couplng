@@ -3,12 +3,18 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Engaging
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onEngaging.txt
 
+# Request node.
+# Replace dmenemen and node088 with your username and allocated node.
+# Model can also be compiled and run on engaging front end eofe*.
+salloc -N 1 -n 16 -p sched_mit_hill --time=12:00:00 --exclusive
+squeue -a | grep dmenemen
+ssh node088
+
 # Start tcsh, set $WorkingDir to a location where you have write permission, and load mpi
 tcsh
 setenv WorkingDir /nobackup1b/users/dmenemen/geos5
 mkdir $WorkingDir
-module purge
-module add mvapich2/gcc
+module load engaging/openmpi
 
 # Link or build GEOS-5 baselibs in $WorkingDir
 # Note that if Baselibs is moved to a different location, it needs
@@ -18,8 +24,23 @@ module add mvapich2/gcc
 cd $WorkingDir
 # tar xf /nobackup1b/users/dmenemen/geos5/tarballs_100816/GMAO-Baselibs-4_0_7.withNewCDO.tgz
 # cd GMAO-Baselibs-4_0_7/src
-# make install |& tee makeinstall.log
+# make -j 16 install ESMF_COMM=openmpi |& tee makeinstall.log
 ln -sf /nobackup1b/users/dmenemen/geos5/GMAO-Baselibs-4_0_7 .
+
+# Get MITgcm from anonymous CVS server
+cd $WorkingDir
+setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
+cvs login                         # enter the CVS password: "cvsanon"
+cvs co -r checkpoint66a MITgcm_code
+cvs co -r checkpoint66a MITgcm/verification/testreport
+cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
+cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
+
+# Run MITgcm verification experiment
+# This is needed to create some MITgcm exchange files
+# and a Makefile that can be modified for coupled code
+cd $WorkingDir/MITgcm/verification
+./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_gfortran -t global_ocean.cs32x15
 
 # Get GEOS-5
 # For instructions below to work, you need to:
@@ -42,73 +63,49 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
-# Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs co -r checkpoint66a MITgcm_code
-cvs co -r checkpoint66a MITgcm/verification/testreport
-cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
-cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
-
-# Run MITgcm verification experiment
-# This is needed to create some MITgcm exchange files
-# and a Makefile that can be modified for coupled code
-cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -t global_ocean.cs32x15
-
-
-
-
-
-
-
-
-
-module add gcc mvapich2/gcc slurm
-module add harvard/centos6/hdf5-1.8.11_gcc-4.4.7
-module add harvard/centos6/netcdf-4.3.0_gcc-4.4.7
-
-
-cd $WorkingDir
-tar xf /nobackup1b/users/dmenemen/geos5/tarballs_100816/GMAO-Baselibs-4_0_7.withNewCDO.tgz
-cd GMAO-Baselibs-4_0_7/src
-make -j 4 install ESMF_COMM=openmpi |& tee makeinstall.log
-
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
-setenv ESMA_NOCVS
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh
+setenv MPI_INC_DIR /cm/shared/engaging/openmpi/1.8.8/include
+
+
+   set basedir=/nobackup1/dmenemen/geos5/GMAO-Baselibs-4_0_6/x86_64-unknown-linux-gnu/gfortran
+   setenv ESMADIR $WorkingDir/GEOSodas
+   setenv MITGCM_ROOT $WorkingDir/MITgcm
+   setenv GMAO_MITGCM_COUPLNG $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+   setenv ESMA_FC gfortran
+   setenv ESMA_NOCVS
+   setenv OPENMPI $MPI_HOME
+   set mod1 = mvapich2/gcc/64/2.0b
+   set mods = ( $mod1 )
+   set modinit = /usr/share/Modules/init/tcsh
+   set loadmodules = 0
+   set usemodules = 0
+
+ESMADIR=/nobackup1b/users/dmenemen/geos5/GEOSodas
+MITGCM_ROOT=/nobackup1b/users/dmenemen/geos5/MITgcm
+GMAO_MITGCM_COUPLNG=/nobackup1b/users/dmenemen/geos5/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ESMA_FC=gfortran
+ESMA_NOCVS=
+OPENMPI=/cm/shared/apps/mvapich2/gcc/64/2.0b
+BASEDIR=/nobackup1/dmenemen/geos5/GMAO-Baselibs-4_0_6/x86_64-unknown-linux-gnu/gfortran
+LD_RUN_PATH=/cm/shared/apps/mvapich2/gcc/64/2.0b/lib
+LOADEDMODULES=mvapich2/gcc/64/2.0b
+MPICH_USE_SHLIB=yes
+MPI_HOME=/cm/shared/apps/mvapich2/gcc/64/2.0b
+MPI_RUN=/cm/shared/apps/mvapich2/gcc/64/2.0b/bin/mpirun_rsh
+P4_GLOBMEMSIZE=67108864
+_LMFILES_=/cm/shared/modulefiles/mvapich2/gcc/64/2.0b
+
+
+
+module add gcc mvapich2/gcc slurm
+module add harvard/centos6/hdf5-1.8.11_gcc-4.4.7
+module add harvard/centos6/netcdf-4.3.0_gcc-4.4.7
 setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
 
-# Run MITgcm verification experiment
-# This is needed to create some MITgcm exchange files
-# and a Makefile that can be modified for coupled code
-
-module purge
-module add mvapich2/gcc
-
-/gcc slurm
-
-module add gcc mvapich2/gcc slurm
-module add harvard/centos6/hdf5-1.8.11_gcc-4.4.7
-module add harvard/centos6/netcdf-4.3.0_gcc-4.4.7
-
-cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -t global_ocean.cs32x15
-
-
-
-module purge
-module add gcc mvapich2/gcc slurm
-module add harvard/centos6/hdf5-1.8.11_gcc-4.4.7
-module add harvard/centos6/netcdf-4.3.0_gcc-4.4.7
-cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
@@ -118,9 +115,14 @@ cd $WorkingDir/MITgcm/verification
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_ifort Makefile
+ln -sf Makefile_gfortran Makefile
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
+
+rm makeinstall.log
+gmake realclean
+source g5_modules
+gmake install |& tee makeinstall.log
 
 # Set up coupled code for experiments/exp01
 # Be sure to replace "Desired Location" and "Build"
