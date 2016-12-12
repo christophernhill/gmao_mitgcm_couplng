@@ -1,3 +1,11 @@
+GEOS-5 Documentation for Heracles 5.4
+http://geos5.org/wiki/index.php?title=GEOS-5_Documentation_for_Heracles_5.4
+
+MITgcm documentation
+http://mitgcm.org
+http://mitgcm.org/public/r2_manual/latest/
+
+================================================================
 11/27/2016: Compilation on Engaging
 The first attempt was with:
   module purge
