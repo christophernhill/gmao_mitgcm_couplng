@@ -1,0 +1,69 @@
+# Diagnostic Package Choices
+#--------------------
+#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+#--for each output-stream:
+#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+#               > 0 : write time-average output every frequency seconds
+#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+#    averagingFreq  : frequency (in s) for periodic averaging interval
+#    averagingPhase : phase     (in s) for periodic averaging interval
+#    repeatCycle    : number of averaging intervals in 1 cycle
+#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+#                when this entry is missing, select all common levels of this list
+#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#  missing_value(n) : missing value for real-type fields in output file "n"
+#  fileFlags(n)     : specific code (8c string) for output file "n"
+#--------------------
+# oceTAUX  zonal surface wind stress, >0 increases uVel (N/m^2)
+# oceTAUY  meridional surf. wind stress, >0 increases vVel (N/m^2)
+# oceFWflx net surface Fresh-Water flux into ocean, >0 decreases salinity (kg/m^2/s)
+# oceSflux net surface Salt flux into the ocean, >0 increases salinity (g/m^2/s)
+# oceQnet  net surface heat flux into the ocean, >0 increases theta (W/m^2)
+# oceQsw   net Short-Wave radiation (+=down), >0 increases theta (W/m^2)
+# SSS      Sea Surface Salinity (g/kg)
+# SST      Sea Surface Temperature (degC)
+# UVEL1    Zonal Surface Velocity (m/s)
+# VVEL1    Meridional Surface Velocity (m/s)
+
+ &DIAGNOSTICS_LIST
+   frequency(1)  = 21600.,
+    fields(1,1)  = 'oceTAUX ',
+    filename(1)  = 'oceTAUX',
+   frequency(2)  = 21600.,
+    fields(1,2)  = 'oceTAUY ',
+    filename(2)  = 'oceTAUY',
+   frequency(3)  = 21600.,
+    fields(1,3)  = 'oceFWflx',
+    filename(3)  = 'oceFWflx',
+   frequency(4)  = 21600.,
+    fields(1,4)  = 'oceSflux',
+    filename(4)  = 'oceSflux',
+   frequency(5)  = 21600.,
+    fields(1,5)  = 'oceQnet ',
+    filename(5)  = 'oceQnet',
+   frequency(6)  = 21600.,
+    fields(1,6)  = 'oceQsw  ',
+    filename(6)  = 'oceQsw',
+   frequency(7)  = 21600.,
+    fields(1,7)  = 'SALT    ',
+    levels(1,7)  = 1.,
+    filename(7)  = 'SSS',
+   frequency(8)  = 21600.,
+    fields(1,8)  = 'THETA   ',
+    levels(1,8)  = 1.,
+    filename(8)  = 'SST',
+   frequency(9)  = 21600.,
+    fields(1,9)  = 'UVELMASS',
+    levels(1,9)  = 1.,
+    filename(9)  = 'UVEL1',
+   frequency(10) = 21600.,
+    fields(1,10) = 'VVELMASS',
+    levels(1,10) = 1.,
+    filename(10) = 'VVEL1',
+ &
+
+ &DIAG_STATIS_PARMS
+ &
