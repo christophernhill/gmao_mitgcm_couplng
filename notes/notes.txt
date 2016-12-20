@@ -6,6 +6,24 @@ http://mitgcm.org
 http://mitgcm.org/public/r2_manual/latest/
 
 ================================================================
+12/19/2016: GEOS-5 documentation and restarts
+
+In order to run multiple segments you have to do some things between
+segments. These things are in the gcm_run.j script.  On discover at least
+makes a "scratch" directory anew for each segment. this means that when a
+segment is done you need to copy the "restart" files back to the place you
+will copy them from (so that when you copy them from there you have the most
+current ones). this includes the little file called cap_restart. if you are
+doing this with the restarts and not for cap_restart then you are moving the
+atmospheric state forward but not the boundary conditions or the sun (people
+run ensembles that way....).
+
+now - as for the details of the model and the equations. for the atmosphere
+you can look at the GMD paper from last year (Molod et al) and it will
+describe the physics in part, refer to a tech memo (rienecker et al 2008) for
+more details and have references for the dynamics.
+
+================================================================
 11/27/2016: Compilation on Engaging
 The first attempt was with:
   module purge
