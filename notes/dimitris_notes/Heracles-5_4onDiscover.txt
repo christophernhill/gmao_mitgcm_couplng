@@ -71,8 +71,10 @@ cd $WorkingDir/MITgcm/verification
 #   2. add at top of file  -    include g5_make_head.mk 
 #   3. change              - .../SLES/... $(MPI_IN_DIR)
 #   4. add at bottom file  -
-#  # Provides rule to make target 'pinstall'.
-#   -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
+#    # Provides rule to make target 'pinstall'.
+#     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
+#   5. Need to add SPECIAL_FILES target to libmitgcmuv
+#
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
