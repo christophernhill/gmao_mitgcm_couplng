@@ -75,6 +75,8 @@ cd $WorkingDir/MITgcm/verification
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
 #   5. Need to add SPECIAL_FILES target to libmitgcmuv
 #
+# mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
+#
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
