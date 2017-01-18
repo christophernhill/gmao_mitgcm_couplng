@@ -57,6 +57,10 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 cd $WorkingDir/MITgcm/verification
 ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
+#### Chris trying to get global_oce_llc90
+#### ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
+####
+
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
