@@ -57,6 +57,7 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 cd $WorkingDir/MITgcm/verification
 ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
+####
 #### Chris trying to get global_oce_llc90
 #### ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
 ####
@@ -65,10 +66,20 @@ cd $WorkingDir/MITgcm/verification
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
+# - changes are
+#   1. change              - ../../.. to $(MITGCM_ROOT)
+#   2. add at top of file  -    include g5_make_head.mk 
+#   3. change              - .../SLES/... $(MPI_IN_DIR)
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+
+####
+#### Chris trying to get global_oce_llc90
+#### ln -s  Makefile_global_oce_llc90_ifort Makefile
+####
+
 ln -sf Makefile_ifort Makefile
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
