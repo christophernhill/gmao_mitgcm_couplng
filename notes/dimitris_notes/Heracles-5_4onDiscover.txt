@@ -76,6 +76,10 @@ cd $WorkingDir/MITgcm/verification
 #   5. Need to add SPECIAL_FILES target to libmitgcmuv
 #
 # mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
+##### main bits to fix are automatically creating CPP_OPTIONS.h etc... in
+##### gmao_mitgcm_couplng/mitgcm_setup/inc - these need to generated from experiment
+##### build directory versions with 'C' to '!' changes so they are consistent with
+##### packages that are active. 
 #
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
