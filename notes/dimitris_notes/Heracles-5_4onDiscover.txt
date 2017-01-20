@@ -61,6 +61,8 @@ cd $WorkingDir/MITgcm/verification
 #### Chris trying to get global_oce_llc90
 #### ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
 ####
+#### need to update ```../tools/build_options/linux_amd64_ifort_discover``` to have --mcmodel=medium
+####
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
