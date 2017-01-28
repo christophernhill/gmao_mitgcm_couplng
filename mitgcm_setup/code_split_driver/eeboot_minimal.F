@@ -1,4 +1,4 @@
-C $Header: /u/gcmpack/MITgcm/eesupp/src/eeboot_minimal.F,v 1.28 2014/05/16 18:31:18 jmc Exp $
+C $Header: /u/gcmpack/MITgcm/eesupp/src/eeboot_minimal.F,v 1.29 2017/01/28 18:39:06 jmc Exp $
 C $Name:  $
 
 #include "PACKAGES_CONFIG.h"
@@ -38,6 +38,8 @@ C     == Global data ==
 
 C     !ROUTINE ARGUMENTS
 C     == Routine arguments ==
+C     myComm     :: Communicator that is passed down from
+C                   upper level driver (if there is one).
       INTEGER myComm
 
 C     !LOCAL VARIABLES:
@@ -51,6 +53,7 @@ C     msgBuf     :: Used to build messages for printing.
 #ifdef ALLOW_USE_MPI
 C     mpiRC      :: Error code reporting variable used with MPI.
       INTEGER mpiRC
+      INTEGER mpiIsInitialized
       LOGICAL doReport
 #ifdef COMPONENT_MODULE
       INTEGER mpiMyWid
@@ -58,7 +61,6 @@ C     mpiRC      :: Error code reporting variable used with MPI.
 #if defined(ALLOW_NEST_PARENT) || defined(ALLOW_NEST_CHILD)
       INTEGER mpiMyWid, color
 #endif
-      INTEGER mpiIsInitialized
 #endif /* ALLOW_USE_MPI */
 CEOP
 
@@ -95,27 +97,33 @@ C--   MPI style multiple-process initialisation
 C--   =========================================
 
        CALL MPI_Initialized( mpiIsInitialized, mpiRC )
-C--    Initialise MPI multi-process parallel environment.
-C      On some systems program forks at this point. Others have already
-C      forked within mpirun - now thats an open standard!
+
        IF ( mpiIsInitialized .EQ. 0 ) THEN
+C--     Initialise MPI multi-process parallel environment.
+C       On some systems program forks at this point. Others have already
+C       forked within mpirun - now thats an open standard!
         CALL MPI_INIT( mpiRC )
-        mpiRC = MPI_SUCCESS
         IF ( mpiRC .NE. MPI_SUCCESS ) THEN
          eeBootError = .TRUE.
          WRITE(msgBuf,'(A,I5)')
-     &         'S/R INI_PROCS: MPI_INIT return code',
-     &         mpiRC 
-         CALL PRINT_ERROR( msgBuf , myThid)
+     &        'EEBOOT_MINIMAL: MPI_INIT return code', mpiRC
+         CALL PRINT_ERROR( msgBuf, myThid )
          GOTO 999
         ENDIF
+
+C--     MPI has now been initialized ; now we need to either
+C       ask for a communicator or pretend that we have:
+C       Pretend that we have asked for a communicator
         MPI_COMM_MODEL = MPI_COMM_WORLD
+
        ELSE
+C--     MPI was already initialized and communicator has been passed
+C       down from upper level driver
         MPI_COMM_MODEL = myComm
+
        ENDIF
 
        doReport = .FALSE.
-
 #ifdef ALLOW_OASIS
 C      add a 1rst preliminary call EESET_PARAMS to set useOASIS
 C      (needed to decide either to call OASIS_INIT or not)
@@ -134,7 +142,7 @@ C      (needed to decide either to call CPL_INIT or not)
        CALL EESET_PARMS ( doReport )
 C- jmc: test end ; otherwise, uncomment next line:
 c      useCoupler = .TRUE.
-       useCoupler = .FALSE.
+
 C--    Ask coupler interface for a communicator
        IF ( useCoupler) CALL CPL_INIT
 #endif /* COMPONENT_MODULE */
@@ -168,12 +176,10 @@ C--    Get my process number
 #ifdef SINGLE_DISK_IO
         IF( myProcId .EQ. 0 ) THEN
 #endif
-        if (myProcId /= 0) then
          WRITE(fNam,'(A,A)') 'STDERR.', myProcessStr(1:4)
          OPEN(errorMessageUnit,FILE=fNam,STATUS='unknown')
          WRITE(fNam,'(A,A)') 'STDOUT.', myProcessStr(1:4)
          OPEN(standardMessageUnit,FILE=fNam,STATUS='unknown')
-        ENDIF
 #ifdef SINGLE_DISK_IO
         ELSE
          OPEN(errorMessageUnit,FILE='/dev/null',STATUS='unknown')
