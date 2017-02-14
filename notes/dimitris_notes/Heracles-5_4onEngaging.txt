@@ -49,6 +49,9 @@ cd $WorkingDir/MITgcm/verification
 # (3) replace "dmenemen" with your engaging username.
 cd $WorkingDir
 git clone dmenemen@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+# (if logged in to engaging then 
+#   git clone /pool001/cnh/geos5mit_write/GEOSodas.git
+# works too)
 cd GEOSodas
 git checkout b_geos5mit
 
