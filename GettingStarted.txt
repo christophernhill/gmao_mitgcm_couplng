@@ -9,3 +9,6 @@ Instructions for getting started with GEOS-5/MITgcm code.
    https://eofe1.mit.edu/request_account
    Sponsor Name and Affiliation: Chris Hill, MIT.
    Short sentence about project: Coupled GEOS-5/MITgcm project.
+
+4) Follow one of the instructions files located here:
+   gmao_mitgcm_couplng/notes/dimitris_notes/Heracles-5_4on*

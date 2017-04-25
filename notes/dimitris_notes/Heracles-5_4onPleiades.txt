@@ -52,7 +52,7 @@ cd $GMAO_MITGCM_COUPLNG
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 20 -of ../tools/build_options/linux_amd64_ifort+mpi_ice_nas -t global_ocean.cs32x15
+./testreport -mpi -c 'mpiexec -np TR_NPROC mitgcmuv' -j 20 -of ../tools/build_options/linux_amd64_ifort+mpi_ice_nas -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
