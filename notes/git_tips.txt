@@ -45,3 +45,10 @@ git config hooks.mailinglist "cnh@mit.edu, jmc@mit.edu, ..."
 git config hooks.emailprefix "New commit for "
 # An alternative script recommended by Matt Thompson:
 # http://www.icir.org/robin/git-notifier
+
+
+#Add file
+# generate file
+# git add <file name>
+# git commit
+# git push
