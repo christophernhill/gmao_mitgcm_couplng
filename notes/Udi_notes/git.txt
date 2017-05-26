@@ -1,1 +1,5 @@
-xcvx
+# To add a file:
+# generate a file then:
+git add <file name>
+git commit
+git push
