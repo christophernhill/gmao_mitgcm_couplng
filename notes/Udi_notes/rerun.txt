@@ -4,7 +4,6 @@
 # reset WorkingDir
 tcsh
 setenv WorkingDir /discover/nobackup/estrobac/Heracles-5_4
-mkdir $WorkingDir
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
@@ -40,9 +39,8 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 
 
 # Get GEOS-5 boundary conditions for experiments/exp01
-cd $WorkingDir
-tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
-cd $WorkingDir/geos5/TEST
+setenv RunDir /home/estrobac/data/geos5/TEST
+cd $RunDir
 $GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
