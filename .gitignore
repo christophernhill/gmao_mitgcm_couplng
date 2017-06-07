@@ -2,3 +2,4 @@ mitgcm_setup/build/Makefile
 *.a
 *.o
 *.mod
+*~

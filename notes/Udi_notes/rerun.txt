@@ -46,11 +46,11 @@ cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
-cd $WorkingDir/geos5/TEST
+cd $RunDir
 # change the wall time in gcm_run.j (default is 15 minutes)
 # set the start date in CAP.rc and in cap_restart
-# set end data and segments in CAP.rc
-sbatch --mail-user=estrobac ./gcm_run.j
+# set end date and segments in CAP.rc
+sbatch ./gcm_run.j
 
 
 
