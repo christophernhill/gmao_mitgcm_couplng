@@ -135,8 +135,8 @@ C     == Local variables ==
 
       IF ( code .EQ. 'MASK' ) THEN
        IF ( ASSOCIATED(fld) ) THEN
-        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
-     &      //' : Associated & shape =', SHAPE(fld)
+!        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
+!     &      //' : Associated & shape =', SHAPE(fld)
 !     Copy MASK to fld
         DO k=1,Nr
          DO bj=1,nSy

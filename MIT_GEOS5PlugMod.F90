@@ -394,10 +394,16 @@ contains
 
     call MAPL_GetPointer(EXPORT, pMASK, trim(COMP_NAME)//'_3D_MASK',  alloc=.true., RC=STATUS)
     VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT, TS,  'TS',  alloc=.true., RC=STATUS)
+    VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT, SS,  'SS',  alloc=.true., RC=STATUS)
+    VERIFY_(STATUS)
 
     call WRITE_PARALLEL("Calling DRIVER_Get_ExportState")
     CALL DRIVER_GET_EXPORT_STATE(privateState%ptr, 'MASK', pMASK )
-    call WRITE_PARALLEL("Done DRIVER_Get_ExportState")
+    CALL DRIVER_GET_EXPORT_STATE(privateState%ptr, 'TS', TS )
+    CALL DRIVER_GET_EXPORT_STATE(privateState%ptr, 'SS', SS )
+     call WRITE_PARALLEL("Done DRIVER_Get_ExportState")
 
 
 ! All Done
