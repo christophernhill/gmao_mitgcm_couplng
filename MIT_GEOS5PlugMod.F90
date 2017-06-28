@@ -390,7 +390,26 @@ contains
 !   ----------------------------------------------------
     call MAPL_GetPointer(EXPORT, DH, 'DH',  alloc=.true., RC=STATUS)
     VERIFY_(STATUS)
-    DH=1000.
+!!  DH=1000.
+!!  Remove set to 1000 m depths, include info from mitgcm input data file.
+
+!! Hard-wired for now
+
+    DH(:,:, 1) = 50.
+    DH(:,:, 2) = 70.
+    DH(:,:, 3) = 100.
+    DH(:,:, 4) = 140.
+    DH(:,:, 5) = 190.
+    DH(:,:, 6) = 240.
+    DH(:,:, 7) = 290.
+    DH(:,:, 8) = 340.
+    DH(:,:, 9) = 390.
+    DH(:,:,10) = 440.
+    DH(:,:,11) = 490.
+    DH(:,:,12) = 540.
+    DH(:,:,13) = 590.
+    DH(:,:,14) = 640.
+    DH(:,:,15) = 690.
 
     call MAPL_GetPointer(EXPORT, pMASK, trim(COMP_NAME)//'_3D_MASK',  alloc=.true., RC=STATUS)
     VERIFY_(STATUS)
