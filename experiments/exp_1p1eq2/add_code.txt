@@ -1,0 +1,45 @@
+
+# -------------------
+# For MITgcm restarts
+# -------------------
+
+# get start date from CAP.rc
+set starty = `cat CAP.rc | grep BEG_DATE:     | cut -d: -f2 | tr -s " " | cut -d" " -f2`
+set starth = `cat CAP.rc | grep BEG_DATE:     | cut -d: -f2 | tr -s " " | cut -d" " -f3`
+
+cd mitocean_run
+
+# Calculate segment time steps
+set mit_nTimeSteps = `cat ${SCRDIR}/CAP.rc | grep HEARTBEAT_DT: | cut -d: -f2 | tr -s " " | cut -d" " -f2`
+@ mit_nTimeSteps = $dt / $mit_nTimeSteps
+
+#change namelist cvariables in data - nTimeSteps and chkptFreq
+sed -i "s/^ nTimeSteps .*/ nTimeSteps       = ${mit_nTimeSteps},/" data
+sed -i "/^ pChkptFreq .*/a \ chkptFreq        = ${dt}.0," data
+
+# get nIter0
+if ( ( ${starty} == ${nymdc} ) &&  ( ${starth} == ${nhmsc} ) ) then
+
+  if (! -e ${EXPDIR}/restarts/MITgcm_restart_dates.txt ) then
+    set nIter0 = `grep nIter0 data | tr -s " " | cut -d" " -f4 | cut -d"," -f1`
+  else
+    set nIter0 = `grep "$nymdc $nhmsc" ${EXPDIR}/restarts/MITgcm_restart_dates.txt | cut -d" " -f5`
+    sed -i "s/^ nIter0 .*/ nIter0           = ${nIter0},/" data
+  endif
+
+else
+
+  if (! -e ${EXPDIR}/restarts/MITgcm_restart_dates.txt ) then
+    set nIter0 = `grep nIter0 data | tr -s " " | cut -d" " -f4 | cut -d"," -f1`
+  else
+    set nIter0 = `grep "$nymdc $nhmsc" ${EXPDIR}/restarts/MITgcm_restart_dates.txt | cut -d" " -f5`
+    sed -i "s/^ nIter0 .*/ nIter0           = ${nIter0},/" data
+  endif
+
+endif
+
+# Update nIter0 for next segment
+@ nIter0 = $nIter0 + $mit_nTimeSteps
+set znIter0 = `echo $nIter0 | awk '{printf("%010d",$1)}'`
+
+cd ..
