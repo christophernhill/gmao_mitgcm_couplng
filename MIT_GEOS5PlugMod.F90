@@ -463,6 +463,9 @@ contains
 ! Locals
     type (MAPL_MetaComp), pointer          :: MAPL 
 
+    integer :: IM, JM
+    REAL_, pointer :: FRESHW(:,:)
+
     REAL*8, POINTER :: uVel(:,:,:,:,:)
 
 !   Pointers for passing import state values to component
@@ -473,6 +476,7 @@ contains
     REAL_, pointer                         ::   QFLX(:,:  )
     REAL_, pointer                         ::   HFLX(:,:  )
     REAL_, pointer                         ::   SFLX(:,:  )
+    REAL_, pointer                         ::   DISCHARGE(:,:  )
     REAL_, pointer                         ::   LATS(:,:  )
     REAL_, pointer                         ::   LONS(:,:  )
 
@@ -484,6 +488,7 @@ contains
     REAL_, pointer                         ::   QFLXe(:,:  )
     REAL_, pointer                         ::   HFLXe(:,:  )
     REAL_, pointer                         ::   SFLXe(:,:  )
+    REAL_, pointer                         ::   DISCHARGEe(:,:  )
 
 !   Pointers for fetching export state values from component
     REAL_, pointer                         :: US  (:,:)
@@ -542,6 +547,7 @@ contains
     call MAPL_GetPointer(IMPORT,   QFLX,   'QFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   HFLX,   'HFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   SFLX,   'SFLX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,   DISCHARGE, 'DISCHARGE', RC=STATUS); VERIFY_(STATUS)
     call MAPL_Get(MAPL, LATS=LATS, LONS=LONS, RC=status); VERIFY_(STATUS)
 
 ! Get EXPORT pointers to mirror imports
@@ -553,6 +559,7 @@ contains
     call MAPL_GetPointer(EXPORT,   QFLXe,   'QFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   HFLXe,   'HFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   SFLXe,   'SFLX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   DISCHARGEe, 'DISCHARGEe', RC=STATUS); VERIFY_(STATUS)
 
     ! Actual copy (only if needed)
     if (associated(TAUXe)) TAUXe = TAUX
@@ -562,6 +569,15 @@ contains
     if (associated(QFLXe)) QFLXe = QFLX
     if (associated(HFLXe)) HFLXe = HFLX
     if (associated(SFLXe)) SFLXe = SFLX
+    if (associated(DISCHARGEe)) DISCHARGEe = DISCHARGE
+
+    IM = size(DISCHARGE,1)
+    JM = size(DISCHARGE,2)
+    allocate(FRESHW(IM,JM), STAT=status)
+    VERIFY_(STATUS)
+    ! ALT: As suggested by JMC, 
+    ! adding river routing (DISCHARGE) to QFLX
+    FRESHW = QFLX + DISCHARGE
 
     call MAPL_GetResource( MAPL, ocean_dir, label='OCEAN_DIR:', rc=status ) ; VERIFY_(STATUS)
     call str4c( iarr, TRIM(ocean_dir) )
@@ -572,7 +588,8 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUY',   TAUY )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,     'PS',     PS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr, 'SWHEAT', SWHEAT )
-    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'QFLX',   QFLX )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'QFLX',   FRESHW )
+    deallocate(FRESHW)
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HFLX',   HFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SFLX',   SFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
