@@ -137,7 +137,7 @@ contains
     mstate('SWHEAT','solar_heating_rate',                    'W m-2',     MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('QFLX',  'freshwater_flux_from_skin_to_ocean',    'kg m-2 s-1',MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('HFLX',  'turbulent_heat_flux_from_skin_to_ocean','W m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
-    mstate('SFLX',  'salt_flux_from_skin_to_ocean',          'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('SFLX',  'salt_flux_from_skin_to_ocean',          'kg m-2 s-1',MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PENUVR','net_downward_penetrating_direct_UV_flux','W m-2',    MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PENPAR','net_downward_penetrating_direct_PAR_flux','W m-2',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PENUVF','net_downward_penetrating_diffuse_UV_flux','W m-2',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
