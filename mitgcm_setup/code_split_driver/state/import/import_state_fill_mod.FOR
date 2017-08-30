@@ -64,8 +64,8 @@
 !              > 0 for decrease in theta (ocean cooling)
 !              Typical range: -250 < Qnet < 600
 !              Southwest C-grid tracer point (i.e., A-grid)
-          Qnet(i,j,bi,bj) = Qsw(i,j,bi,bj) - p%HFLX(iSLo+i,jSLo+j)          
-          
+          Qnet(i,j,bi,bj) = Qsw(i,j,bi,bj) - p%HFLX(iSLo+i,jSLo+j)
+
 !     Transfer QFLX to EMPMR.
 !     QFLX   : Freshwater flux from skin to ocean in kg/m2/s.
 !              > 0 for decrease in salt (ocean salinity)
@@ -74,14 +74,12 @@
 !              > 0 for increase in salt (ocean salinity)
 !              Typical range: -1e-4 < EmPmR < 1e-4
 !              Southwest C-grid tracer point (i.e., A-grid)
-! Note that runoff is missing.
-! Will need to be specified separately in MITgcm or obtained from
-! MIT_GEOS5PlugMod.F90 DISCHARGE (river_discharge_at_ocean_points).
+! Note: runoff (=DISCHARGE) has been added to QFLX later on.
           EmPmR(i,j,bi,bj) = - p%QFLX(iSLo+i,jSLo+j)
 
 !     Transfer of SFLX to saltFlux
-!     SFLX   : Salt flux from skin to ocean in TBD units.
-!   saltFlux : Net upward salt flux in psu.kg/m^2/s.
+!     SFLX   : Salt flux from skin to ocean in kg/m^2/s
+!   saltFlux : Net upward salt flux in g/m^2/s (=psu.kg/m^2/s) .
 !              flux of Salt taken out of the ocean per time unit (second).
 !              Note: a) only used when salty sea-ice forms or melts.
 !                    b) units: when salinity (unit= psu) is expressed
@@ -97,10 +95,9 @@
 ! But SFLUX has both positive and negative numbers, so above decomposition may not be correct.
 ! Another detail that we will need to worry about later on is that in the presence of sea-ice
 ! the MITgcm exports “salty water” to the ice and then rejects some of that salt back to
-! the ocean.  Also, the unit of SFLX specified in MIT_GEOS5PlugMod.F90 seem wrong.
-! They probably should be g/m^2/s instead of N/m^2.
-!         saltFlux(i,j,bi,bj) = p%SFLX(iSLo+i,jSLo+j)
-          saltFlux(i,j,bi,bj) = 0.0D0
+! the ocean.
+          saltFlux(i,j,bi,bj) = -1000.D0 * p%SFLX(iSLo+i,jSLo+j)
+!         saltFlux(i,j,bi,bj) = 0.0D0
 
 !     Transfer of PS to pLoad
 !     PS     : Surface atmospheric pressure in Pa
