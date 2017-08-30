@@ -1,4 +1,4 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm llc90 configuration on Discover
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onDiscover.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
@@ -33,7 +33,16 @@ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs co -r checkpoint66a MITgcm_code
 cvs co -r checkpoint66a MITgcm/verification/testreport
-cvs co -r checkpoint66a MITgcm/verification/global_oce_llc90
+cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
+cd MITgcm/verification/
+cvs co -d global_oce_llc90 -P -r checkpoint66a MITgcm_contrib/verification_other/global_oce_llc90
+cd global_oce_llc90/code
+rm A* CP* CT* DIAG_* E* G* L* M* m* P* p* r* SE* t*
+cp ../../global_ocean.cs32x15/code/packages.conf .
+cp ../../global_ocean.cs32x15/code/CPP_OPTIONS.h .
+cp ../../global_ocean.cs32x15/code/DIAG_OPTIONS.h .
+cp ../../global_ocean.cs32x15/code/EXF_OPTIONS.h .
+cp ../../global_ocean.cs32x15/code/SEAICE_OPTIONS.h .
 
 # Request node and reset WorkingDir to same location as above
 xsub -I -l select=1,walltime=8:00:00
@@ -54,45 +63,35 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
-
-####
-#### Chris trying to get global_oce_llc90
-#### ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
-####
-#### need to update ```../tools/build_options/linux_amd64_ifort_discover``` to have --mcmodel=medium
-####
+./testreport -mpi -j 8 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # - changes are
-#   1. change              - ../../.. to $(MITGCM_ROOT)
-#   2. add at top of file  -    include g5_make_head.mk 
-#   3. change              - .../SLES/... $(MPI_IN_DIR)
-#   4. add at bottom file  -
+#   1. add at top of file: include g5_make_head.mk 
+#   2. change: ../../.. to $(MITGCM_ROOT)
+#   3. change: .../SLES*/.../.. to $(MPI_IN_DIR)
+#   4. add: -mcmodel=medium to FFLAGS and CFLAGS
+#   5. add at bottom file:
 #    # Provides rule to make target 'pinstall'.
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
-#   5. Need to add SPECIAL_FILES target to libmitgcmuv
-#
+#   6. Need to add SPECIAL_FILES target to libmitgcmuv
+
 # mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
-##### main bits to fix are automatically creating CPP_OPTIONS.h etc... in
-##### gmao_mitgcm_couplng/mitgcm_setup/inc - these need to generated from experiment
-##### build directory versions with 'C' to '!' changes so they are consistent with
-##### packages that are active. 
-#
+# main bits to fix are automatically creating CPP_OPTIONS.h etc... in
+# gmao_mitgcm_couplng/mitgcm_setup/inc - these need to generated from experiment
+# build directory versions with 'C' to '!' changes so they are consistent with
+# packages that are active. 
+
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-
-####
-#### Chris trying to get global_oce_llc90
-#### ln -s  Makefile_global_oce_llc90_ifort Makefile
-####
-
-ln -sf Makefile_ifort Makefile
+ln -s  Makefile_ifort Makefile
+cd ../code
+cp $WorkingDir/MITgcm/verification/global_oce_llc90/code/SIZE.h_mpi SIZE.h
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
 
