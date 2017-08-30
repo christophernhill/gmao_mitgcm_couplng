@@ -57,13 +57,6 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 cd $WorkingDir/MITgcm/verification
 ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
-####
-#### Chris trying to get global_oce_llc90
-#### ./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
-####
-#### need to update ```../tools/build_options/linux_amd64_ifort_discover``` to have --mcmodel=medium
-####
-
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
@@ -78,21 +71,11 @@ cd $WorkingDir/MITgcm/verification
 #   5. Need to add SPECIAL_FILES target to libmitgcmuv
 #
 # mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
-##### main bits to fix are automatically creating CPP_OPTIONS.h etc... in
-##### gmao_mitgcm_couplng/mitgcm_setup/inc - these need to generated from experiment
-##### build directory versions with 'C' to '!' changes so they are consistent with
-##### packages that are active. 
 #
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-
-####
-#### Chris trying to get global_oce_llc90
-#### ln -s  Makefile_global_oce_llc90_ifort Makefile
-####
-
 ln -sf Makefile_ifort Makefile
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
