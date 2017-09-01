@@ -4,7 +4,7 @@
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
 module load other/git
-setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 mkdir $WorkingDir
 
 # Get GEOS-5
@@ -105,27 +105,24 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Ocean Lat/Lon Horizontal Resolution: llc90
 # Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: /discover/nobackup/dmenemen/Heracles-5_4/TEST
-# Enter Desired Location for EXPERIMENT: /discover/nobackup/dmenemen/Heracles-5_4/TEST
-# Enter Location for Build directory: /discover/nobackup/dmenemen/Heracles-5_4/GEOSodas
+# Enter Desired Location for HOME: $NOBACKUP/Heracles-5_4/TEST
+# Enter Desired Location for EXPERIMENT: $NOBACKUP/Heracles-5_4/TEST
+# Enter Location for Build directory: $NOBACKUP/Heracles-5_4/GEOSodas
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 boundary conditions for experiments/exp01
 cd $WorkingDir/TEST
 cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
 cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
-emacs -nw CAP.rc
-JOB_SGMT:     00000001 000000
-NUM_SGMT:     1
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
 ~atrayano/bin/interactive.py -X -n 96 --nomail --debug
 tcsh
-setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
 # alternatively try "qsub gcm_run.j"
