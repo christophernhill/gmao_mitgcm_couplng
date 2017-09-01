@@ -1,3 +1,7 @@
+- checkpoint_0_L (2017/09/01)
+  * Lots of undocumented modifications for first clunky but
+    working llc90 + c48 configuration includes thermodynamics
+    sea ice but no runoff
   * Move modifications and verification to experiments/exp01
   * Check-in a c48/cs32 year-long set-up in experiments/exp02
 
