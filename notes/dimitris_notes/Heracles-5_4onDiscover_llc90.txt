@@ -3,6 +3,7 @@
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
+module load other/git
 setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
 mkdir $WorkingDir
 
@@ -44,11 +45,6 @@ cp ../../global_ocean.cs32x15/code/DIAG_OPTIONS.h .
 cp ../../global_ocean.cs32x15/code/EXF_OPTIONS.h .
 cp ../../global_ocean.cs32x15/code/SEAICE_OPTIONS.h .
 
-# Request node and reset WorkingDir to same location as above
-xsub -I -l select=1,walltime=8:00:00
-tcsh
-setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
-
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
@@ -89,7 +85,7 @@ cd $WorkingDir/MITgcm/verification
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -s  Makefile_ifort Makefile
+ln -s  Makefile_ifort_medium Makefile
 cd ../code
 cp $WorkingDir/MITgcm/verification/global_oce_llc90/code/SIZE.h_mpi SIZE.h
 cd $WorkingDir/GEOSodas/src
@@ -103,11 +99,11 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c12
+# Enter the Atmospheric Horizontal Resolution code: c48
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: c32
-# Enter the Ocean Model Vertical Resolution: 15
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc90
+# Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? NO
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
@@ -118,13 +114,18 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 boundary conditions for experiments/exp01
-cd $WorkingDir
-tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
+cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
+cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
+emacs -nw CAP.rc
+JOB_SGMT:     00000001 000000
+NUM_SGMT:     1
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
+~atrayano/bin/interactive.py -X -n 96 --nomail --debug
+tcsh
+setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
+# alternatively try "qsub gcm_run.j"
