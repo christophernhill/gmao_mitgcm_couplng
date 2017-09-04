@@ -112,6 +112,14 @@ contains
     INTEGER I
 
 ! Locals
+    type (MAPL_MetaComp),  pointer     :: MAPL  
+    type  (ESMF_Config)                :: CF
+
+    integer            :: NUM_ICE_CATEGORIES
+    integer            :: NUM_ICE_LAYERS
+    integer, parameter :: NUM_SNOW_LAYERS=1
+    integer            :: NUM_ICE_LAYERS_ALL
+    integer            :: NUM_SNOW_LAYERS_ALL
 
 !=============================================================================
 
@@ -121,7 +129,7 @@ contains
 ! ---------------------------------------
 
     Iam = 'SetServices'
-    call ESMF_GridCompGet( GC, NAME=COMP_NAME, RC=STATUS )
+    call ESMF_GridCompGet( GC, NAME=COMP_NAME, CONFIG=CF, RC=STATUS )
     VERIFY_(STATUS)
     Iam = trim(COMP_NAME) // Iam
 
@@ -203,7 +211,227 @@ contains
     ENDDO
 
     deallocate(exports)
-    
+
+!ALT The following mods are necessary to handle SeaIce
+
+    call MAPL_GetObjectFromGC ( GC, MAPL, RC=STATUS)
+    VERIFY_(STATUS)
+
+! Get constants from CF
+! ---------------------
+
+    call ESMF_ConfigGetAttribute(CF, NUM_ICE_CATEGORIES, Label="CICE_N_ICE_CATEGORIES:" , RC=STATUS)
+    VERIFY_(STATUS)
+
+    call ESMF_ConfigGetAttribute(CF, NUM_ICE_LAYERS,     Label="CICE_N_ICE_LAYERS:" ,     RC=STATUS)
+    VERIFY_(STATUS)
+
+    NUM_ICE_LAYERS_ALL  = NUM_ICE_LAYERS  * NUM_ICE_CATEGORIES
+    NUM_SNOW_LAYERS_ALL = NUM_SNOW_LAYERS * NUM_ICE_CATEGORIES
+
+!ALT: These were brought from  the originalCICEdyna
+! CICE orininal imports/exports/internal
+!================= begin section for sea ice needed imports/exports ==========
+
+! !Import state:
+
+    call MAPL_AddImportSpec(GC,                            &
+         SHORT_NAME         = 'FRACICE',                           &
+         LONG_NAME          = 'fractional_cover_of_seaice',        &
+         UNITS              = '1',                                 &
+         DIMS               = MAPL_DimsHorzOnly,                   &
+         UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+         VLOCATION          = MAPL_VLocationNone,                  &
+         RC=STATUS  )
+    VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                            &
+    SHORT_NAME         = 'TI',                                &
+    LONG_NAME          = 'seaice_skin_temperature',           &
+    UNITS              = 'K',                                 &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+    VLOCATION          = MAPL_VLocationNone,                  &
+    RESTART            = MAPL_RestartOptional,                &
+    DEFAULT            = MAPL_TICE,                           &
+                                                   RC=STATUS  )
+  VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                            &
+    SHORT_NAME         = 'SI',                                &
+    LONG_NAME          = 'seaice_skin_salinity',              &
+    UNITS              = 'psu',                               &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    VLOCATION          = MAPL_VLocationNone,                  &
+    RESTART            = MAPL_RestartOptional,                &
+    DEFAULT            = 4.,                                  &
+                                                   RC=STATUS  )
+  VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                                &
+    SHORT_NAME         = 'VOLICE',                            &
+    LONG_NAME          = 'ice_category_volume_per_unit_area_of_grid_cell',&
+    UNITS              = 'm',                                 &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+    VLOCATION          = MAPL_VLocationNone,                  &
+    RESTART            = MAPL_RestartOptional,                &
+    DEFAULT            = 0.0,                                 &
+                                                       RC=STATUS  )
+  VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                                &
+    SHORT_NAME         = 'VOLSNO',                            &
+    LONG_NAME          = 'sno_category_volume_per_unit_area_of_grid_cell',&
+    UNITS              = 'm',                                 &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+    VLOCATION          = MAPL_VLocationNone,                  &
+    RESTART            = MAPL_RestartOptional,                &
+    DEFAULT            = 0.0,                                 &
+                                                       RC=STATUS  )
+  VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                                &
+        SHORT_NAME         = 'ERGICE',                            &
+        LONG_NAME          = 'ice_category_layer_internal_energy',&
+        UNITS              = 'J m-2',                             &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+        UNGRIDDED_DIMS     = (/NUM_ICE_LAYERS_ALL/),              &
+        !VLOCATION          = MAPL_VLocationCenter,                 &
+    !    DEFAULT            = 0.0,                                 &
+        RESTART            = MAPL_RestartSkip,                    &
+                                                       RC=STATUS  )
+   VERIFY_(STATUS)
+
+   call MAPL_AddImportSpec(GC,                                &
+        SHORT_NAME         = 'ERGSNO',                            &
+        LONG_NAME          = 'snow_category_layer_internal_energy',&
+        UNITS              = 'J m-2',                             &
+        !DIMS               = MAPL_DimsHorzVert,                   &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+        UNGRIDDED_DIMS     = (/NUM_SNOW_LAYERS_ALL/),             &
+        !VLOCATION          = MAPL_VLocationCenter,                 &
+        RESTART            = MAPL_RestartSkip,                    &
+        !DEFAULT            = 0.0,                                 &
+                                                       RC=STATUS  )
+   VERIFY_(STATUS)
+
+    call MAPL_AddImportSpec(GC                                     ,&
+        LONG_NAME          = 'melt_pond_volume'                     ,&
+        UNITS              = 'm'                                ,&
+        SHORT_NAME         = 'MPOND'                                 ,&
+        !DIMS               = MAPL_DimsHorzVert,                   &
+        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+        !VLOCATION          = MAPL_VLocationCenter,                 &
+        !DEFAULT            = 0.0                                    ,&
+        RESTART            = MAPL_RestartSkip,                    &
+        RC=STATUS                                                 )
+
+     VERIFY_(STATUS)
+
+   call MAPL_AddImportSpec(GC,                                &
+        SHORT_NAME         = 'TAUAGE',                            &
+        LONG_NAME          = 'volume_weighted_mean_ice_age',      &
+        UNITS              = 's',                                 &
+        !DIMS               = MAPL_DimsHorzVert,                   &
+        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+        !VLOCATION          = MAPL_VLocationCenter,                 &
+        RESTART            = MAPL_RestartSkip,                    &
+        !DEFAULT            = 0.0,                                 &
+                                                       RC=STATUS  )
+   VERIFY_(STATUS)
+
+  call MAPL_AddImportSpec(GC,                            &
+         SHORT_NAME         = 'HI',                                &
+         LONG_NAME          = 'seaice_skin_layer_depth',            &
+         UNITS              = 'm',                                 &
+         DIMS               = MAPL_DimsHorzOnly,                   &
+         VLOCATION          = MAPL_VLocationNone,                  &
+                                                   RC=STATUS  )
+    VERIFY_(STATUS)
+
+
+! !Internal state: NO INTERNAL STATE for MITgcm!
+
+
+!  !Export state:
+
+  call MAPL_AddExportSpec(GC,                            &
+    SHORT_NAME         = 'UI',                                &
+    LONG_NAME          = 'zonal_velocity_of_surface_seaice',   &
+    UNITS              = 'm s-1 ',                            &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    VLOCATION          = MAPL_VLocationNone,                  &
+                                                   RC=STATUS  )
+  VERIFY_(STATUS)
+
+  call MAPL_AddExportSpec(GC,                            &
+    SHORT_NAME         = 'VI',                                &
+    LONG_NAME          = 'meridional_velocity_of_surface_seaice',&
+    UNITS              = 'm s-1 ',                            &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    VLOCATION          = MAPL_VLocationNone,                  &
+                                                   RC=STATUS  )
+  VERIFY_(STATUS)
+
+    call MAPL_AddExportSpec(GC,                                  &
+        SHORT_NAME         = 'TAUXBOT',                           &
+        LONG_NAME          = 'eastward_stress_at_base_of_ice',    &
+        UNITS              = 'N m-2',                             &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+                                                       RC=STATUS  )
+     VERIFY_(STATUS)
+
+     call MAPL_AddExportSpec(GC,                                  &
+        SHORT_NAME         = 'TAUYBOT',                           &
+        LONG_NAME          = 'northward_stress_at_base_of_ice',   &
+        UNITS              = 'N m-2',                             &
+        DIMS               = MAPL_DimsHorzOnly,                   &
+        VLOCATION          = MAPL_VLocationNone,                  &
+                                                       RC=STATUS  )
+     VERIFY_(STATUS)
+
+
+  call MAPL_AddExportSpec(GC,                            &
+    SHORT_NAME         = 'FRACICE',                           &
+    LONG_NAME          = 'fractional_cover_of_seaice',        &
+    UNITS              = '1',                                 &
+    DIMS               = MAPL_DimsHorzOnly,                   &
+    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+    VLOCATION          = MAPL_VLocationNone,                  &
+                                                   RC=STATUS  )
+  VERIFY_(STATUS)
+
+
+
+  call MAPL_AddExportSpec(GC,                            &
+    SHORT_NAME         = 'TAUXI'                             ,&
+    LONG_NAME          = 'eastward_stress_on_ice'            ,&
+    UNITS              = 'N m-2'                             ,&
+    DIMS               = MAPL_DimsHorzOnly                   ,&
+    VLOCATION          = MAPL_VLocationNone                  ,&
+                                           RC=STATUS          )
+  VERIFY_(STATUS)
+
+  call MAPL_AddExportSpec(GC,                            &
+    SHORT_NAME         = 'TAUYI'                             ,&
+    LONG_NAME          = 'northward_stress_on_ice',           &
+    UNITS              = 'N m-2'                             ,&
+    DIMS               = MAPL_DimsHorzOnly                   ,&
+    VLOCATION          = MAPL_VLocationNone                  ,&
+                                           RC=STATUS          )
+  VERIFY_(STATUS)
+
+!================= end of the sea ice needed imports/exports ==========
+
 !EOP
 
 ! Set the Initialize, Run, Finalize entry points
@@ -480,6 +708,9 @@ contains
     REAL_, pointer                         ::   LATS(:,:  )
     REAL_, pointer                         ::   LONS(:,:  )
 
+! Sea ice vars
+    REAL_, pointer                         :: FRI(:,:,:)
+
 !   Pointers for mirroring import state values to exports
     REAL_, pointer                         ::   TAUXe(:,:  )
     REAL_, pointer                         ::   TAUYe(:,:  )
@@ -496,6 +727,24 @@ contains
     REAL_, pointer                         :: TS  (:,:)
     REAL_, pointer                         :: SS  (:,:)
     REAL_, pointer                         :: MASK(:,:,:)
+
+! Sea ice vars
+    REAL_, pointer                         :: FRACICE(:,:,:)
+    REAL_, pointer                         :: VOLICE(:,:,:)
+    REAL_, pointer                         :: VOLSNO(:,:,:)
+    REAL_, pointer                         :: ERGICE(:,:,:)
+    REAL_, pointer                         :: ERGSNO(:,:,:)
+    REAL_, pointer                         :: TI(:,:,:)
+    REAL_, pointer                         :: SI(:,:)
+    REAL_, pointer                         :: HI(:,:)
+    REAL_, pointer                         :: MPOND (:,:,:)
+    REAL_, pointer                         :: TAUAGE(:,:,:)
+    REAL_, pointer                         :: UI(:,:)
+    REAL_, pointer                         :: VI(:,:)
+    REAL_, pointer                         :: TAUXI(:,:)
+    REAL_, pointer                         :: TAUYI(:,:)
+    REAL_, pointer                         :: TAUXBOT(:,:)
+    REAL_, pointer                         :: TAUYBOT(:,:)
 
 !   Type for getting MITgcm internal state pointer
     TYPE(T_PrivateState_Wrap) wrap
@@ -550,6 +799,19 @@ contains
     call MAPL_GetPointer(IMPORT,   DISCHARGE, 'DISCHARGE', RC=STATUS); VERIFY_(STATUS)
     call MAPL_Get(MAPL, LATS=LATS, LONS=LONS, RC=status); VERIFY_(STATUS)
 
+! Sea ice vars
+    call MAPL_GetPointer(IMPORT,     HI,     'HI', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,     TI,     'TI', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,     SI,     'SI', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, VOLICE, 'VOLICE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, VOLSNO, 'VOLSNO', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, ERGICE, 'ERGICE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, ERGSNO, 'ERGSNO', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, TAUAGE, 'TAUAGE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,  MPOND,  'MPOND', RC=STATUS); VERIFY_(STATUS)
+
+    call MAPL_GetPointer(IMPORT, FRI,'FRACICE', RC=STATUS); VERIFY_(STATUS)
+
 ! Get EXPORT pointers to mirror imports
 !--------------------------------------
     call MAPL_GetPointer(EXPORT,   TAUXe,   'TAUX', RC=STATUS); VERIFY_(STATUS)
@@ -595,6 +857,17 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
 
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE',  FRI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TI',  TI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SI',  SI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HI',  HI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLSNO',  VOLSNO )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGICE',  ERGICE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGSNO',  ERGSNO )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'MPOND',  MPOND )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUAGE',  TAUAGE )
+
     call MAPL_GetResource( MAPL, passive_ocean, label='STEADY_STATE_OCEAN:', &
          default=1, rc=status ) ; VERIFY_(STATUS)
 
@@ -609,11 +882,32 @@ contains
     CALL MAPL_GetPointer(EXPORT,   SS,   'SS', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
 
+! Sea ice exports
+    call MAPL_GetPointer(EXPORT, FRACICE,'FRACICE', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT,   UI,   'UI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT,   VI,   'VI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUXI, 'TAUXI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUYI, 'TAUYI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
+
+
+
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'TS',   TS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'SS',   SS )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr, 'MASK', MASK )
+
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'UI',   UI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VI',   VI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXI',TAUXI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYI',TAUYI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXBOT',TAUXBOT )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYBOT',TAUYBOT )
+
+! ALT: for now, until JM/DM fix the code, we do this
+    FRACICE = FRI
 
 !ALT: next lines are totally fake 
 !     There somewhat realistic to avoid GEOS-5 hick-ups until we have coupling!
