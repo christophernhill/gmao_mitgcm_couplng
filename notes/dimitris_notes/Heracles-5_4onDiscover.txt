@@ -56,7 +56,7 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 8 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
+./testreport -mpi -j 16 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
@@ -71,9 +71,7 @@ cd $WorkingDir/MITgcm/verification
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
 #   5. Need to add SPECIAL_FILES target to libmitgcmuv
 #
-# mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
-#
-# Approximately 16 minutes with "-j 16".
+# Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
@@ -82,7 +80,7 @@ cd ..
 ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/code .
 ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/input .
 cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 8 |& tee makeinstall.log
+gmake pinstall -j 16 |& tee makeinstall.log
 
 # Set up coupled code for experiments/exp01
 # Be sure to replace "Desired Location" and "Build"
@@ -113,10 +111,8 @@ cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/exp01/*.rc .
 
-# Run coupled code
+# Run coupled code as an interactive jobs
+# Alternatively try "qsub gcm_run.j"
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
 cd $WorkingDir/TEST
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 ./gcm_run.j |&  tee gcm_run.out
-# alternatively try "qsub gcm_run.j"

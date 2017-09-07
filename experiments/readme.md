@@ -7,4 +7,6 @@ exp02 : c48/cs32, 1-year, daily output
 exp03 : c90/cs32, 1-year, 6-hourly output
  - not yet tested
 
-llc_exps : setups for LLC90 related work
+exp_1p1eq2 : ???
+
+llc_exp01 : Chris Hill's simplified LLC90 set-up
