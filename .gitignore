@@ -1,4 +1,6 @@
 mitgcm_setup/build/Makefile
+mitgcm_setup/code
+mitgcm_setup/input
 *.a
 *.o
 *.mod

@@ -9,11 +9,11 @@ mkdir $WorkingDir
 
 # Get GEOS-5
 # For instructions below to work, you need to:
-# (i) have an account on engaging,
-# (ii) have correct id_rsa key in ~/.ssh, and
-# (iii) replace "dmenemen" with your engaging username.
+# (1) have an account on engaging,
+# (2) have correct id_rsa key in ~/.ssh, and
+# (3) specify engaging username if it differs from discover username
 cd $WorkingDir
-git clone dmenemen@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
 cd GEOSodas
 git checkout b_geos5mit
 
@@ -34,16 +34,8 @@ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs co -r checkpoint66a MITgcm_code
 cvs co -r checkpoint66a MITgcm/verification/testreport
+cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
 cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
-cd MITgcm/verification/
-cvs co -d global_oce_llc90 -P -r checkpoint66a MITgcm_contrib/verification_other/global_oce_llc90
-cd global_oce_llc90/code
-rm A* CP* CT* DIAG_* E* G* L* M* m* P* p* r* SE* t*
-cp ../../global_ocean.cs32x15/code/packages.conf .
-cp ../../global_ocean.cs32x15/code/CPP_OPTIONS.h .
-cp ../../global_ocean.cs32x15/code/DIAG_OPTIONS.h .
-cp ../../global_ocean.cs32x15/code/EXF_OPTIONS.h .
-cp ../../global_ocean.cs32x15/code/SEAICE_OPTIONS.h .
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
@@ -59,7 +51,7 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 8 -of ../tools/build_options/linux_amd64_ifort_discover -t global_oce_llc90
+./testreport -mpi -j 4 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
