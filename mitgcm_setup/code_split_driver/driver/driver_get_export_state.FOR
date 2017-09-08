@@ -33,80 +33,41 @@ C     == Local variables ==
       INTEGER i, j, bi, bj, iSLo, jSLo
 
       IF ( code .EQ. 'US' ) THEN
-!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
-!    &      //'. Processing ...'
-!      print *, ' associated=',ASSOCIATED(fld)
-!      print *, ' shape     =',SHAPE(fld)
-
 !     Copy US to fld
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-          fld(iSLo+i,jSLo+j) = mitgcmIState%export%US(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+         fld = mitgcmIState%export%US
 
       ELSEIF ( code .EQ. 'VS' ) THEN
-!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
-!    &      //'. Processing ...'
-!      print *, ' associated=',ASSOCIATED(fld)
-!      print *, ' shape     =',SHAPE(fld)
-
 !     Copy VS to fld
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-          fld(iSLo+i,jSLo+j) = mitgcmIState%export%VS(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+         fld = mitgcmIState%export%VS
 
       ELSEIF ( code .EQ. 'TS' ) THEN
-!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
-!    &      //'. Processing ...'
-!      print *, ' associated=',ASSOCIATED(fld)
-!      print *, ' shape     =',SHAPE(fld)
-
 !     Copy TS to fld
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-          fld(iSLo+i,jSLo+j) = mitgcmIState%export%TS(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+         fld = mitgcmIState%export%TS
 
       ELSEIF ( code .EQ. 'SS' ) THEN
-!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
-!    &      //'. Processing ...'
-!      print *, ' associated=',ASSOCIATED(fld)
-!      print *, ' shape     =',SHAPE(fld)
-
 !     Copy SS to fld
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-          fld(iSLo+i,jSLo+j) = mitgcmIState%export%SS(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+          fld = mitgcmIState%export%SS
+!=========== JM/DM => Please note that this sea ice section is stubbed!
+!=====================================================================
+! just look for !@@@@ and uncomment once done (and delete 0.0)
+      ELSEIF ( code .EQ. 'UI' ) THEN
+!     Copy UI to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%UI
+      ELSEIF ( code .EQ. 'VI' ) THEN
+!     Copy VI to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%VI
+      ELSEIF ( code .EQ. 'TAUXI' ) THEN
+!     Copy TAUXI to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%TAUXI
+      ELSEIF ( code .EQ. 'TAUYI' ) THEN
+!     Copy TAUYI to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%TAUYI
+      ELSEIF ( code .EQ. 'TAUXBOT' ) THEN
+!     Copy TAUXBOT to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%TAUXBOT
+      ELSEIF ( code .EQ. 'TAUYBOT' ) THEN
+!     Copy TAUYBOT to fld
+         fld = 0.0 !@@@@ mitgcmIState%export%TAUYBOT
 
       ELSE
 
@@ -135,28 +96,20 @@ C     == Local variables ==
 
       IF ( code .EQ. 'MASK' ) THEN
        IF ( ASSOCIATED(fld) ) THEN
-!        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
-!     &      //' : Associated & shape =', SHAPE(fld)
-!     Copy MASK to fld
-        DO k=1,Nr
-         DO bj=1,nSy
-          DO bi=1,nSx
-           jSLo = (bj-1)*sNy
-           iSLo = (bi-1)*sNx
-           DO j=1,sNy
-            DO i=1,sNx
-             fld(iSLo+i,jSLo+j,k) = 
-     &                 mitgcmIState%export%MASK(iSLo+i,jSLo+j,k)
-            ENDDO
-           ENDDO
-          ENDDO
-         ENDDO
-        ENDDO
+             fld = mitgcmIState%export%MASK
        ELSE
         print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
      &      //' : Pointer not associated!'
        ENDIF
 
+      ELSEIF ( code .EQ. 'FRACICE' ) THEN
+!     Copy FRACICE to fld
+!ALT: Attention JM/DM: the next line is stubbed!
+!==============================================
+! This should be uncommented and the line after that deleted!
+! Until fixed, we are copying FRACICE from the Import
+!@@@@         fld = mitgcmIState%export%FRACICE
+         fld = mitgcmIState%import%FRACICE
       ELSE
 
        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)

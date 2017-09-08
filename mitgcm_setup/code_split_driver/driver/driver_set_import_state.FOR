@@ -37,119 +37,38 @@ C     == Routine arguments ==
       REAL_, pointer :: fld(:,:)
 
 C     == Local variables ==
-      INTEGER i, j, bi, bj, iSLo, jSLo
+!      INTEGER i, j, bi, bj, iSLo, jSLo
 
       IF ( code .EQ. 'TAUX' ) THEN
 !      Copy fld to TAUX
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%TAUX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'TAUY' ) THEN
+         mitgcmIState%import%TAUX = fld
+      ELSEIF ( code .EQ. 'TAUY' ) THEN
 !      Copy fld to TAUY
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%TAUY(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'PS' ) THEN
+         mitgcmIState%import%TAUY = fld
+      ELSEIF ( code .EQ. 'PS' ) THEN
 !      Copy fld to PS
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%PS(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'QFLX' ) THEN
+         mitgcmIState%import%PS = fld
+      ELSEIF ( code .EQ. 'QFLX' ) THEN
 !      Copy fld to QFLX
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%QFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'HFLX' ) THEN
+         mitgcmIState%import%QFLX = fld
+      ELSEIF ( code .EQ. 'HFLX' ) THEN
 !      Copy fld to HFLX
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%HFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'SFLX' ) THEN
+         mitgcmIState%import%HFLX = fld
+      ELSEIF ( code .EQ. 'SFLX' ) THEN
 !      Copy fld to SFLX
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%SFLX(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'LATS' ) THEN
+         mitgcmIState%import%SFLX = fld
+      ELSEIF ( code .EQ. 'LATS' ) THEN
 !      Copy fld to LAT
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%LAT(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
-      ENDIF
-      IF ( code .EQ. 'LONS' ) THEN
+         mitgcmIState%import%LAT = fld
+      ELSEIF ( code .EQ. 'LONS' ) THEN
 !      Copy fld to LON
-       DO bj=1,nSy
-        DO bi=1,nSx
-         jSLo = (bj-1)*sNy
-         iSLo = (bi-1)*sNx
-         DO j=1,sNy
-          DO i=1,sNx
-           mitgcmIState%import%LON(iSLo+i,jSLo+j) = fld(iSLo+i,jSLo+j)
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+         mitgcmIState%import%LON = fld
+      ELSEIF ( code .EQ. 'SI' ) THEN
+!      Copy fld to SI
+         mitgcmIState%import%SI = fld
+      ELSEIF ( code .EQ. 'HI' ) THEN
+!      Copy fld to HI
+         mitgcmIState%import%HI = fld
       ENDIF
 
 C
@@ -173,20 +92,31 @@ C     == Local variables ==
 
       IF ( code .EQ. 'SWHEAT' ) THEN
 !      Copy fld to SWHEAT
-       DO k=1,Nr
-        DO bj=1,nSy
-         DO bi=1,nSx
-          jSLo = (bj-1)*sNy
-          iSLo = (bi-1)*sNx
-          DO j=1,sNy
-           DO i=1,sNx
-            mitgcmIState%import%SWHEAT(iSLo+i,jSLo+j,k)
-     &             = fld(iSLo+i,jSLo+j,k)
-           ENDDO
-          ENDDO
-         ENDDO
-        ENDDO
-       ENDDO
+            mitgcmIState%import%SWHEAT = fld
+      ELSEIF ( code .EQ. 'FRACICE' ) THEN
+!      Copy fld to FRACICE
+         mitgcmIState%import%FRACICE = fld
+      ELSEIF ( code .EQ. 'TI' ) THEN
+!      Copy fld to TI
+         mitgcmIState%import%TI = fld
+      ELSEIF ( code .EQ. 'VOLICE' ) THEN
+!      Copy fld to VOLICE
+         mitgcmIState%import%VOLICE = fld
+      ELSEIF ( code .EQ. 'VOLSNO' ) THEN
+!      Copy fld to VOLSNO
+         mitgcmIState%import%VOLSNO = fld
+      ELSEIF ( code .EQ. 'ERGICE' ) THEN
+!      Copy fld to ERGICE
+         mitgcmIState%import%ERGICE = fld
+      ELSEIF ( code .EQ. 'ERGSNO' ) THEN
+!      Copy fld to ERGSNO
+         mitgcmIState%import%ERGSNO = fld
+      ELSEIF ( code .EQ. 'MPOND' ) THEN
+!      Copy fld to MPOND
+         mitgcmIState%import%MPOND = fld
+      ELSEIF ( code .EQ. 'TAUAGE' ) THEN
+!      Copy fld to TAUAGE
+         mitgcmIState%import%TAUAGE = fld
       ENDIF
 
       RETURN

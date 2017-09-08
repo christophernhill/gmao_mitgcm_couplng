@@ -23,6 +23,14 @@
        _RL , POINTER :: TS(   :,:) => NULL()
        _RL , POINTER :: SS(   :,:) => NULL()
        _RL , POINTER :: MASK(:,:,:) => NULL()
+!ALT: the following variable are added to couple the sea-ice
+       _RL, POINTER  :: FRACICE(:,:,:) => NULL()
+       _RL, POINTER  :: UI(       :,:) => NULL()
+       _RL, POINTER  :: VI(       :,:) => NULL()
+       _RL, POINTER  :: TAUXI(    :,:) => NULL()
+       _RL, POINTER  :: TAUYI(    :,:) => NULL()
+       _RL, POINTER  :: TAUXBOT(  :,:) => NULL()
+       _RL, POINTER  :: TAUYBOT(  :,:) => NULL()
       END TYPE
 
       END MODULE

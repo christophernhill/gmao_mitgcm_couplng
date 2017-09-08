@@ -30,6 +30,17 @@
        _RL , POINTER :: SFLX(     :,:  ) => NULL()
        _RL , POINTER :: LAT(      :,:  ) => NULL()
        _RL , POINTER :: LON(      :,:  ) => NULL()
+!ALT: the following variable are added to couple the sea-ice
+       _RL, POINTER  :: FRACICE(:,:,:) => NULL()
+       _RL, POINTER  :: VOLICE( :,:,:) => NULL()
+       _RL, POINTER  :: VOLSNO( :,:,:) => NULL()
+       _RL, POINTER  :: ERGICE( :,:,:) => NULL()
+       _RL, POINTER  :: ERGSNO( :,:,:) => NULL()
+       _RL, POINTER  :: TI(     :,:,:) => NULL()
+       _RL, POINTER  :: SI(       :,:) => NULL()
+       _RL, POINTER  :: HI(       :,:) => NULL()
+       _RL, POINTER  :: MPOND ( :,:,:) => NULL()
+       _RL, POINTER  :: TAUAGE( :,:,:) => NULL()
       END TYPE
 
       END MODULE
