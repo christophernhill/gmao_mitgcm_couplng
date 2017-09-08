@@ -76,14 +76,14 @@ CPPINCLUDES =  -I/usr/local/intel/mpi/5.0.3.048/include64 -I/usr/local/intel/Com
 KFLAGS1 = 
 KFLAGS2 = 
 # Optim./debug for FC
-FFLAGS =  -fPIC -w95 -W0 -WB -convert big_endian -assume byterecl -noalign
+FFLAGS =  -fPIC -w95 -W0 -WB -convert big_endian -assume byterecl -noalign -mcmodel=medium
 FOPTIM = -O0 
 # Optim./debug for FC
 F90FLAGS = 
 F90OPTIM = 
 F90FIXEDFORMAT = 
 # Flags for CC
-CFLAGS = -fPIC
+CFLAGS = -fPIC -mcmodel=medium
 # Files that should not be optimized
 NOOPTFILES = 
 NOOPTFLAGS = -O0 -fPIC

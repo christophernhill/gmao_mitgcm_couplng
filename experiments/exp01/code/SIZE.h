@@ -1,5 +1,5 @@
-C $Header: /u/gcmpack/MITgcm_contrib/verification_other/global_oce_llc90/code/SIZE.h_mpi,v 1.1 2012/08/24 16:33:53 gforget Exp $
-C $Name: checkpoint66a $
+C $Header: $
+C $Name: $
 
 CBOP
 C    !ROUTINE: SIZE.h
@@ -7,15 +7,15 @@ C    !INTERFACE:
 C    include SIZE.h
 C    !DESCRIPTION: \bv
 C     *==========================================================*
-C     | SIZE.h Declare size of underlying computational grid.
+C     | SIZE.h Declare size of underlying computational grid.     
 C     *==========================================================*
-C     | The design here support a three-dimensional model grid
-C     | with indices I,J and K. The three-dimensional domain
-C     | is comprised of nPx*nSx blocks of size sNx along one axis
-C     | nPy*nSy blocks of size sNy along another axis and one
-C     | block of size Nz along the final axis.
-C     | Blocks have overlap regions of size OLx and OLy along the
-C     | dimensions that are subdivided.
+C     | The design here support a three-dimensional model grid    
+C     | with indices I,J and K. The three-dimensional domain      
+C     | is comprised of nPx*nSx blocks of size sNx along one axis 
+C     | nPy*nSy blocks of size sNy along another axis and one     
+C     | block of size Nz along the final axis.                    
+C     | Blocks have overlap regions of size OLx and OLy along the 
+C     | dimensions that are subdivided.                           
 C     *==========================================================*
 C     \ev
 CEOP
@@ -42,27 +42,28 @@ C     Nr  :: No. points in Z for full process domain.
       INTEGER Nx
       INTEGER Ny
       INTEGER Nr
+C-- Note: the 4 test-experiments (input, input.thsice, input.viscA4 and
+C         input.icedyn ) have different minimum Overlap-size requirement:
+C    input & input.thsice : work with Olx=Oly=2 (= absolute minimum size) ;
+C    input.viscA4 : needs at least Olx=Oly=3 (for biharmonic viscosity) ;
+C    input.icedyn : needs at least Olx=Oly=4 (CS-grid multidimensional Advect.)
       PARAMETER (
-     &           sNx =  30,
-     &           sNy =  30,
+     &           sNx =  32,
+     &           sNy =  32,
      &           OLx =   4,
      &           OLy =   4,
      &           nSx =   1,
      &           nSy =   1,
-     &           nPx =  96,
+     &           nPx =   6,
      &           nPy =   1,
      &           Nx  = sNx*nSx*nPx,
      &           Ny  = sNy*nSy*nPy,
-     &           Nr  =  50 )
+     &           Nr  =  15)
 
-C     MAX_OLX  - Set to the maximum overlap region size of any array
+C     MAX_OLX :: Set to the maximum overlap region size of any array
 C     MAX_OLY    that will be exchanged. Controls the sizing of exch
-C                routine buufers.
+C                routine buffers.
       INTEGER MAX_OLX
       INTEGER MAX_OLY
       PARAMETER ( MAX_OLX = OLx,
      &            MAX_OLY = OLy )
-
-      integer     nobcs
-      parameter ( nobcs = 4 )
-

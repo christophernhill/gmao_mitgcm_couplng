@@ -1,3 +1,6 @@
+  * Moving code and input from mitgcm_setup to experiments/exp01
+    The will allow multiple configurations to be checked in.
+
 - checkpoint_0_L (2017/09/01)
   * Lots of undocumented modifications for first clunky but
     working llc90 + c48 configuration includes thermodynamics

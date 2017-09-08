@@ -1,18 +1,19 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm llc90 configuration on Discover
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onDiscover.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
-setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
+module load other/git
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 mkdir $WorkingDir
 
 # Get GEOS-5
 # For instructions below to work, you need to:
-# (i) have an account on engaging,
-# (ii) have correct id_rsa key in ~/.ssh, and
-# (iii) replace "dmenemen" with your engaging username.
+# (1) have an account on engaging,
+# (2) have correct id_rsa key in ~/.ssh, and
+# (3) specify engaging username if it differs from discover username
 cd $WorkingDir
-git clone dmenemen@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
 cd GEOSodas
 git checkout b_geos5mit
 
@@ -36,11 +37,6 @@ cvs co -r checkpoint66a MITgcm/verification/testreport
 cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
 cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
-# Request node and reset WorkingDir to same location as above
-xsub -I -l select=1,walltime=8:00:00
-tcsh
-setenv WorkingDir /discover/nobackup/dmenemen/Heracles-5_4
-
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
@@ -62,21 +58,28 @@ cd $WorkingDir/MITgcm/verification
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 # - changes are
-#   1. change              - ../../.. to $(MITGCM_ROOT)
-#   2. add at top of file  -    include g5_make_head.mk 
-#   3. change              - .../SLES/... $(MPI_IN_DIR)
-#   4. add at bottom file  -
+#   1. add at top of file: include g5_make_head.mk 
+#   2. change: ../../.. to $(MITGCM_ROOT)
+#   3. change: .../SLES*/.../.. to $(MPI_IN_DIR)
+#   4. add: -mcmodel=medium to FFLAGS and CFLAGS
+#   5. add at bottom file:
 #    # Provides rule to make target 'pinstall'.
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
-#   5. Need to add SPECIAL_FILES target to libmitgcmuv
-#
+#   6. Need to add SPECIAL_FILES target to libmitgcmuv
+
 # mitgcm_setup/ contains mix of general and experiment specific file changes. Need to fix this
-#
+# main bits to fix are automatically creating CPP_OPTIONS.h etc... in
+# gmao_mitgcm_couplng/mitgcm_setup/inc - these need to generated from experiment
+# build directory versions with 'C' to '!' changes so they are consistent with
+# packages that are active. 
+
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_ifort Makefile
+ln -s  Makefile_ifort_medium Makefile
+cd ../code
+cp $WorkingDir/MITgcm/verification/global_oce_llc90/code/SIZE.h_mpi SIZE.h
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
 
@@ -88,28 +91,30 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c12
+# Enter the Atmospheric Horizontal Resolution code: c48
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: c32
-# Enter the Ocean Model Vertical Resolution: 15
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc90
+# Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: /discover/nobackup/dmenemen/Heracles-5_4/TEST
-# Enter Desired Location for EXPERIMENT: /discover/nobackup/dmenemen/Heracles-5_4/TEST
-# Enter Location for Build directory: /discover/nobackup/dmenemen/Heracles-5_4/GEOSodas
+# Enter Desired Location for HOME: $NOBACKUP/Heracles-5_4/TEST
+# Enter Desired Location for EXPERIMENT: $NOBACKUP/Heracles-5_4/TEST
+# Enter Location for Build directory: $NOBACKUP/Heracles-5_4/GEOSodas
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 boundary conditions for experiments/exp01
-cd $WorkingDir
-tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
+cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
+cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
+~atrayano/bin/interactive.py -X -n 96 --nomail --debug
+tcsh
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
+# alternatively try "qsub gcm_run.j"
