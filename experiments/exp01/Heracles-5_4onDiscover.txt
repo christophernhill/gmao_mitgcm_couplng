@@ -56,21 +56,26 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 16 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
+cp $GMAO_MITGCM_COUPLNG/experiments/exp01/code/* global_ocean.cs32x15/code
+setenv ROOTDIR $WorkingDir/MITgcm
+./testreport -mpi -fast -j 16 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
-# Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
-# - changes are
-#   1. change              - ../../.. to $(MITGCM_ROOT)
-#   2. add at top of file  -    include g5_make_head.mk 
-#   3. change              - .../SLES/... $(MPI_IN_DIR)
-#   4. add at bottom file  -
+#   1. add at top of file: include g5_make_head.mk
+#   2. change: $MITGCM_ROOT to $(MITGCM_ROOT)
+#   3. change: $MPI_INC_DIR to $(MPI_INC_DIR)
+#   4. add: -mcmodel=medium to FFLAGS and CFLAGS
+#   5. set: LIBS = -L$(MPI_INC_DIR)/../lib
+#   6. remove: eeboot.F and eeboot_minimal.F from 3 locations
+#   7. add: $(SPECIAL_FILES) to libmitgcmuv.a
+#   8. remove: lines starting with eeboot.f and eeboot_minimal.f
+#   9. add at bottom of file:
 #    # Provides rule to make target 'pinstall'.
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
-#   5. Need to add SPECIAL_FILES target to libmitgcmuv
-#
+
+# Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x

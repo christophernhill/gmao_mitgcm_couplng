@@ -1,5 +1,5 @@
-C $Header: $
-C $Name: $
+C $Header: /u/gcmpack/MITgcm/verification/global_ocean.cs32x15/code/SIZE.h_mpi,v 1.6 2011/02/12 22:04:41 jmc Exp $
+C $Name: checkpoint66a $
 
 CBOP
 C    !ROUTINE: SIZE.h
@@ -49,12 +49,12 @@ C    input.viscA4 : needs at least Olx=Oly=3 (for biharmonic viscosity) ;
 C    input.icedyn : needs at least Olx=Oly=4 (CS-grid multidimensional Advect.)
       PARAMETER (
      &           sNx =  32,
-     &           sNy =  32,
+     &           sNy =  16,
      &           OLx =   4,
      &           OLy =   4,
-     &           nSx =   1,
+     &           nSx =   6,
      &           nSy =   1,
-     &           nPx =   6,
+     &           nPx =   2,
      &           nPy =   1,
      &           Nx  = sNx*nSx*nPx,
      &           Ny  = sNy*nSy*nPy,
@@ -71,6 +71,5 @@ C                routine buffers.
 C Variables needed by ctrl_getrec.F and ctrl_pack.F
 C This is temporary fix to break dependencies of pkg/ctrl
       integer     nobcs
-      parameter ( nobcs = 4 )
-      Real*8      fc
-      parameter ( fc    = 0 )
+      parameter ( nobcs = 0 )
+      _RL fc
