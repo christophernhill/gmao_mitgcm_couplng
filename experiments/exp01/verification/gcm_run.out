@@ -1,65 +1,66 @@
-g5_modules: Setting BASEDIR and modules for borgs140
-[1] 24859
-[2] 24860
+g5_modules: Setting BASEDIR and modules for borgq158
+/bin/rm: No match.
+[1] 12699
+[2] 12700
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_import_rst ) /bin/cp ...
-[3] 24861
+[3] 12701
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_internal_rst )  ...
-[4] 24862
-[5] 24863
-[6] 24864
-[7] 24865
-[8] 24866
-[9] 24867
-[1] 24868
-[2] 24869
-[10] 24870
-[11] 24871
-[12] 24872
-[13] 24873
-[14] 24874
-[15] 24875
-[16] 24876
-[17] 24877
-[18] 24878
-[19] 24879
-[20] 24880
-[21] 24881
-[22] 24882
-[23] 24883
-[24] 24884
-[25] 24885
-[26] 24886
+[4] 12702
+[5] 12703
+[6] 12704
+[7] 12705
+[8] 12708
+[9] 12709
+[1] 12711
+[2] 12713
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
 [7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catchcn_internal_rst )  ...
-[7] 24887
-[27] 24888
-[28] 24889
-[29] 24890
-[30] 24892
-[30] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
-[29] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
-[28] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
-[27] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
-[7]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
-[26] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
-[25] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
-[24] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
-[23] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
-[22] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
-[21] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
-[20] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
-[19] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
-[18] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
-[17] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/carma_internal_rst )  ...
-[16] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
-[15] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
-[14] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
-[13] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
-[12] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
-[11] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
-[10] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
-[2]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
-[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
-[9]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_import_rst )  ...
+[1] 12714
+[7] 12715
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_import_rst )  ...
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
+[9] 12717
+[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
+[1] 12718
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
+[9] 12719
+[2] 12720
+[7] 12721
+[10] 12723
+[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
+[2] 12724
+[10]   Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/carma_internal_rst )  ...
+[9] 12725
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
+[2] 12726
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
+[9] 12727
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
+[2] 12728
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
+[9] 12729
+[7] 12730
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
+[2] 12731
+[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
+[9] 12732
+[7] 12733
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
+[2] 12734
+[10] 12735
+[11] 12736
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
+[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
+[2] 12738
+[11]   Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
+[10]   Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
+[2]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
+[9]  - Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
+[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
 [8]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_internal_rst )  ...
 [6]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catch_internal_rst )  ...
 [5]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/landice_internal_rst )  ...
@@ -886,965 +887,322 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
  Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
   Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  
- PCHEM::Run: Indices selected from climatology are           15          16
-  
- 
- Updated CO2 in solar for year/day 2000/106 is  0.36855E-03
- 
- 
- Updated Solar Constant for year/day 2000/106 is  0.13618E+04
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
- 
- 
-   -----------------------------------------------------
-      Block          User time  System Time   Total Time
-   -----------------------------------------------------
-   TOTAL                      101.2109       0.0000     101.2109
-   COMM_TOTAL                   0.6653       0.0000       0.6653
-   C_SW                         0.2219       0.0000       0.2219
-   D_SW                         0.7989       0.0000       0.7989
-   FV_TP_2D                     4.4607       0.0000       4.4607
-   TRACER_2D                    4.7115       0.0000       4.7115
-   COMM_TRAC                    0.3636       0.0000       0.3636
-   REMAPPING                    1.6752       0.0000       1.6752
- 
- Using parallel NetCDF for file: fvcore_internal_checkpoint
-  
-  Times for DYN
-TOTAL                   :      12.256
-INITIALIZE              :       0.010
-RUN                     :      11.184
-RUN2                    :       1.003
--DYN_INIT               :       0.002
---FMS_INIT              :       0.049
---FV_INIT               :       0.034
--DYN_CORE               :       8.951
-FINALIZE                :       0.006
-GenInitTot              :       0.049
---GenInitMine           :       0.049
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.014
---GenFinalMine          :       0.014
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for SUPERDYNAMICS
-TOTAL                   :      12.298
-DYN                     :       0.078
-GenInitTot              :       0.067
---GenInitMine           :       0.009
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.020
---GenFinalMine          :       0.000
-GenRecordTot            :       0.001
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for GWD
-TOTAL                   :       0.697
-DRIVER                  :       0.664
--DRIVER_RUN             :       0.000
--INTR                   :       0.519
--DRIVER_DATA            :       0.000
---DRIVER_DATA_DEVICE    :       0.000
---DRIVER_DATA_CONST     :       0.000
--DRIVER_ALLOC           :       0.000
--DRIVER_DEALLOC         :       0.000
-GenInitTot              :       0.004
---GenInitMine           :       0.004
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: moist_internal_checkpoint
- Using parallel NetCDF for file: moist_import_checkpoint
-  
-  Times for MOIST
-TOTAL                   :       3.989
-DRIVER                  :       3.925
--PRE_RAS                :       0.091
--RAS                    :       0.469
---RAS_RUN               :       0.463
--POST_RAS               :       0.074
--CLOUD                  :       1.917
---CLOUD_RUN             :       1.676
----ACTIV                :       0.000
----CLDMACRO             :       0.000
----MGMICRO              :       0.000
---CLOUD_DATA            :       0.000
----CLOUD_DATA_DEVICE    :       0.000
----CLOUD_DATA_CONST     :       0.000
---CLOUD_ALLOC           :       0.000
---CLOUD_DEALLOC         :       0.000
--MISC                   :       1.379
---FLASH                 :       0.147
-GenInitTot              :       0.061
---GenInitMine           :       0.061
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.024
---GenFinalMine          :       0.024
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Deallocating column physics arrays from SALTWATERFinalize
- Using parallel NetCDF for file: saltwater_internal_checkpoint
- Using parallel NetCDF for file: saltwater_import_checkpoint
-  
-  Times for SALTWATER
-TOTAL                   :       5.392
-INITIALIZE              :       0.139
-RUN1                    :       1.447
-RUN2                    :       3.611
--BeforeSaltWaterCore    :       1.114
--OpenWater              :       0.031
--Thermo1                :       1.743
--Thermo2                :       0.792
--Albedo                 :       0.104
-FINALIZE                :       0.000
-GenInitTot              :       0.137
---GenInitMine           :       0.137
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.060
---GenFinalMine          :       0.060
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: lake_internal_checkpoint
-  
-  Times for LAKE
-TOTAL                   :       0.230
-RUN1                    :       0.115
-RUN2                    :       0.095
-GenInitTot              :       0.010
---GenInitMine           :       0.010
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.009
---GenFinalMine          :       0.009
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: landice_internal_checkpoint
-  
-  Times for LANDICE
-TOTAL                   :       0.286
-RUN1                    :       0.099
-RUN2                    :       0.165
-GenInitTot              :       0.015
---GenInitMine           :       0.015
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.007
---GenFinalMine          :       0.007
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for VEGDYN
-TOTAL                   :       0.215
-GenInitTot              :       0.037
---GenInitMine           :       0.037
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: catch_internal_checkpoint
-  
-  Times for CATCH
-TOTAL                   :      13.683
-RUN1                    :       6.054
--SURF                   :       5.752
-RUN2                    :       7.220
--CATCH                  :       4.254
--ALBEDO                 :       0.113
-GenInitTot              :       0.356
---GenInitMine           :       0.356
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.053
---GenFinalMine          :       0.053
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for LAND
-TOTAL                   :      13.947
-INITIALIZE              :       0.425
-RUN1                    :       6.234
-RUN2                    :       7.233
-VEGDYN                  :       0.216
-CATCH                   :      13.697
-GenInitTot              :       0.425
---GenInitMine           :       0.033
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.054
---GenFinalMine          :       0.000
-GenRecordTot            :       0.001
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: surf_import_checkpoint
-  
-  Times for SURFACE
-TOTAL                   :      21.993
-INITIALIZE              :       0.695
-InitChild               :       0.619
-LocStreamCreate         :       0.004
-LocStreamXForm          :       0.073
--RUN1                   :       8.315
---RUN1_SALTWATER        :       1.571
---RUN1_LAKE             :       0.231
---RUN1_LANDICE          :       0.211
---RUN1_LAND             :       6.410
--RUN2                   :      12.925
---RUN2_SALTWATER        :       3.823
---RUN2_LAKE             :       0.204
---RUN2_LANDICE          :       0.275
---RUN2_LAND             :       7.593
-SALTWATER               :       5.593
-LAKE                    :       0.453
-LANDICE                 :       0.509
-LAND                    :      14.483
-GenInitTot              :       0.619
---GenInitMine           :       0.034
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.131
---GenFinalMine          :       0.015
-GenRecordTot            :       0.004
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: turb_internal_checkpoint
- Using parallel NetCDF for file: turb_import_checkpoint
-  
-  Times for TURBULENCE
-TOTAL                   :       1.326
--RUN1                   :       1.008
---DIFFUSE               :       0.183
---REFRESHKS             :       0.652
----REFRESHKS_RUN        :       0.000
----REFRESHKS_DATA       :       0.000
-----REFRESHKS_DATA_DEVIC:       0.000
-----REFRESHKS_DATA_CONST:       0.000
----REFRESHKS_ALLOC      :       0.000
----REFRESHKS_DEALLOC    :       0.000
----PRELIMS              :       0.268
----LOUIS                :       0.053
----LOCK                 :       0.049
----POSTLOCK             :       0.260
----BELJAARS             :       0.012
----DECOMP               :       0.011
--RUN2                   :       0.299
---UPDATE                :       0.165
-GenInitTot              :       0.010
---GenInitMine           :       0.010
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.009
---GenFinalMine          :       0.009
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for CHEMENV
-TOTAL                   :       0.004
-GenInitTot              :       0.004
---GenInitMine           :       0.004
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: pchem_internal_checkpoint
-  
-  Times for PCHEM
-TOTAL                   :       1.298
-RUN                     :       0.808
--Read Species           :       0.315
-INITIALIZE              :       0.164
--Read Header            :       0.153
-GenInitTot              :       0.011
---GenInitMine           :       0.011
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.011
---GenFinalMine          :       0.011
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: gocartdata_internal_checkpoint
-  
-  Times for GOCART.data
-TOTAL                   :       0.973
-RUN                     :       0.140
-INITIALIZE              :       0.821
-FINALIZE                :       0.000
-GenInitTot              :       0.020
---GenInitMine           :       0.020
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.016
---GenFinalMine          :       0.016
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for CHEMISTRY
-TOTAL                   :       2.374
-CHEMENV                 :       0.078
-PCHEM                   :       1.299
-GOCART.data             :       0.974
-GenInitTot              :       1.009
---GenInitMine           :       0.020
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.028
---GenFinalMine          :       0.000
-GenRecordTot            :       0.002
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: solar_internal_checkpoint
-  
-  Times for SOLAR
-TOTAL                   :       4.279
-PRELIMS                 :       0.054
-REFRESH                 :       3.896
--SORAD                  :       3.120
---SORAD_RUN             :       3.120
---SORAD_DATA            :       0.000
----SORAD_DATA_DEVICE    :       0.000
----SORAD_DATA_CONST     :       0.000
---SORAD_ALLOC           :       0.000
---SORAD_DEALLOC         :       0.000
--RRTMG                  :       0.000
---RRTMG_RUN             :       0.000
---RRTMG_INIT            :       0.000
---RRTMG_FLIP            :       0.000
--BALANCE                :       0.165
---CREATE                :       0.065
---DISTRIBUTE            :       0.014
---RETRIEVE              :       0.028
---DESTROY               :       0.000
--MISC                   :       0.039
-UPDATE                  :       0.311
--AEROSOLS               :       0.582
-GenInitTot              :       0.012
---GenInitMine           :       0.012
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.012
---GenFinalMine          :       0.012
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: irrad_internal_checkpoint
-  
-  Times for IRRAD
-TOTAL                   :       8.472
--LW_DRIVER              :       8.388
---IRRAD                 :       7.643
----IRRAD_RUN            :       7.643
----IRRAD_DATA           :       0.000
-----IRRAD_DATA_DEVICE   :       0.000
-----IRRAD_DATA_CONST    :       0.000
----IRRAD_ALLOC          :       0.000
----IRRAD_DEALLOC        :       0.000
---RRTMG                 :       0.000
----RRTMG_RUN            :       0.000
----RRTMG_INIT           :       0.000
----RRTMG_FLIP           :       0.000
---MISC                  :       0.753
----AEROSOLS             :       0.720
--UPDATE_FLX             :       0.039
-GenInitTot              :       0.010
---GenInitMine           :       0.010
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.017
---GenFinalMine          :       0.017
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for RADIATION
-TOTAL                   :      12.786
-SOLAR                   :       4.281
-IRRAD                   :       8.473
-GenInitTot              :       0.035
---GenInitMine           :       0.014
-GenRunTot               :      12.709
---GenRunMine            :       0.000
-GenFinalTot             :       0.030
---GenFinalMine          :       0.000
-GenRecordTot            :       0.002
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for PHYSICS
-TOTAL                   :      45.533
-INITIALIZE              :       0.006
-RUN                     :      43.546
-GWD                     :       0.699
-MOIST                   :       3.990
-SURFACE                 :      22.071
-TURBULENCE              :       1.329
-CHEMISTRY               :       2.376
-RADIATION               :      12.788
-GenInitTot              :       1.833
---GenInitMine           :       0.020
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.215
---GenFinalMine          :       0.000
-GenRecordTot            :       0.012
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for ORBIT
-TOTAL                   :       0.003
-Run                     :       0.000
-GenInitTot              :       0.003
---GenInitMine           :       0.003
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for AGCM
-TOTAL                   :      58.184
-SUPERDYNAMICS           :      12.299
-PHYSICS                 :      45.534
-ORBIT                   :       0.005
-GenInitTot              :       1.927
---GenInitMine           :       0.020
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.233
---GenFinalMine          :       0.000
-GenRecordTot            :       0.015
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-INITIALIZE              :       1.978
-RUN                     :      56.036
-  
-  
-  Times for AIAU
-TOTAL                   :       0.008
-INITIALIZE              :       0.000
-DRIVER                  :       0.000
--INTR                   :       0.000
--RUN                    :       0.000
--REGRIDSPC              :       0.000
-GenInitTot              :       0.008
---GenInitMine           :       0.008
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for ADFI
-TOTAL                   :       0.007
-INITIALIZE              :       0.000
-GenInitTot              :       0.007
---GenInitMine           :       0.007
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for OBIO
-TOTAL                   :       0.002
-GenInitTot              :       0.002
---GenInitMine           :       0.002
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- Using parallel NetCDF for file: orad_import_checkpoint
-  
-  Times for ORAD
-TOTAL                   :       0.113
-RUN                     :       0.109
-GenInitTot              :       0.003
---GenInitMine           :       0.003
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.005
---GenFinalMine          :       0.005
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for MIT
-TOTAL                   :       7.077
-INITIALIZE              :       0.000
-RUN                     :       7.072
-FINALIZE                :       0.000
-GenInitTot              :       0.005
---GenInitMine           :       0.005
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for OCEAN
-TOTAL                   :       7.820
-MIT                     :       7.634
-GenInitTot              :       0.567
---GenInitMine           :       0.010
-GenRunTot               :       7.077
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.001
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-INITIALIZE              :       0.567
-RUN                     :       7.253
---ModRun                :       7.077
-  
-  
-  Times for OGCM
-TOTAL                   :       8.267
-INITIALIZE              :       0.577
-RUN                     :       7.684
-InitChild               :       0.576
-OBIO                    :       0.003
-ORAD                    :       0.114
-OCEAN                   :       7.822
-GenInitTot              :       0.576
---GenInitMine           :       0.005
-GenRunTot               :       7.362
---GenRunMine            :       0.000
-GenFinalTot             :       0.005
---GenFinalMine          :       0.000
-GenRecordTot            :       0.002
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for GCM
-TOTAL                   :      67.152
-AGCM                    :      58.184
-AIAU                    :       0.009
-ADFI                    :       0.007
-OGCM                    :       8.268
-GenInitTot              :       2.579
---GenInitMine           :       0.013
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.239
---GenFinalMine          :       0.000
-GenRecordTot            :       0.019
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-INITIALIZE              :       2.828
-RUN                     :      64.147
---OCEAN                 :       7.684
---ATMOSPHERE            :      56.037
---REPLAY                :       0.000
---A2O                   :       0.215
---O2A                   :       0.233
-  
-  
-  Times for ANA
-TOTAL                   :       0.002
-GenInitTot              :       0.002
---GenInitMine           :       0.002
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for GCS
-TOTAL                   :      67.166
-GCM                     :      67.154
-ANA                     :       0.003
-GenInitTot              :       2.839
---GenInitMine           :       0.003
-GenRunTot               :      64.149
---GenRunMine            :       0.000
-GenFinalTot             :       0.239
---GenFinalMine          :       0.000
-GenRecordTot            :       0.020
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for HIST
-TOTAL                   :       2.847
-Initialize              :       0.174
-Finalize                :       0.000
-Run                     :       2.672
---Couplers              :       0.341
---I/O                   :       2.333
-----IO Create           :       1.084
-----IO Write            :       1.680
------IO Post            :       1.333
------IO Wait            :       0.347
------IO Write           :       0.949
--ParserRun              :       0.000
-GenInitTot              :       0.000
---GenInitMine           :       0.000
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.001
---GenFinalMine          :       0.001
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for EXTDATA
-TOTAL                   :      29.433
-Initialize              :       9.655
-Run                     :      19.963
--Read_Loop              :      19.667
---CheckUpd              :       0.004
---Read                  :       6.640
---Swap                  :       0.001
---Bracket               :      16.941
--Interpolate            :       0.305
-GenInitTot              :       0.002
---GenInitMine           :       0.002
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.001
---GenFinalMine          :       0.001
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
- NOT using buffer I/O for file: cap_restart
-GEOSgcm Run Status: 0
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+libirc.so          00002AAAAF4E8961  Unknown               Unknown  Unknown
+libirc.so          00002AAAAF4E70B7  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E1194  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041E0FA6  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000041700CF  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000004179C6D  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF769910  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E7B6B  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000027E08A7  mit_geos5plugmod_         908  MIT_GEOS5PlugMod.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027BC0B2  guestocean_gridco        1578  GuestOcean_GridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000027A0783  geos_ogcmgridcomp        2064  GEOS_OgcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000051A384  geos_gcmgridcompm        1570  GEOS_GcmGridComp.F90
+GEOSgcm.x          0000000000514EBA  geos_gcmgridcompm        1389  GEOS_GcmGridComp.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000309F87F  mapl_genericmod_m        1704  MAPL_Generic.F90
+GEOSgcm.x          00000000032C1708  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C3816  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032D317D  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000032C2269  Unknown               Unknown  Unknown
+GEOSgcm.x          0000000003360DB5  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000034AADA8  Unknown               Unknown  Unknown
+GEOSgcm.x          00000000030FBBDB  mapl_capmod_mp_ma         787  MAPL_Cap.F90
+GEOSgcm.x          000000000050D689  MAIN__                     90  GEOSgcm.F90
+GEOSgcm.x          000000000050D5BE  Unknown               Unknown  Unknown
+libc.so.6          00002AAAAF755C36  Unknown               Unknown  Unknown
+GEOSgcm.x          000000000050D4C9  Unknown               Unknown  Unknown
+GEOSgcm Run Status: -1

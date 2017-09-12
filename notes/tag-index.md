@@ -1,3 +1,4 @@
+  * Creating custom Makefiles for experiments/*
   * Changes to MITgcm plug and export/import files that add
     sea ice variables.
   * Moving code and input from mitgcm_setup to experiments/exp01
