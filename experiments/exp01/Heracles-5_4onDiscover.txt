@@ -38,6 +38,7 @@ cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
 cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
 # Request interactive job
+# xsub -I -l select=1,walltime=8:00:00
 ~atrayano/bin/interactive.py -X -n 6 --nomail --debug
 tcsh
 setenv WorkingDir $NOBACKUP/Heracles-5_4
@@ -56,7 +57,6 @@ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/inc
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
-cp $GMAO_MITGCM_COUPLNG/experiments/exp01/code/* global_ocean.cs32x15/code
 setenv ROOTDIR $WorkingDir/MITgcm
 ./testreport -mpi -fast -j 16 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
 
@@ -80,7 +80,7 @@ setenv ROOTDIR $WorkingDir/MITgcm
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_ifort Makefile
+ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/code/Makefile_ifort Makefile
 cd ..
 ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/code .
 ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/input .
