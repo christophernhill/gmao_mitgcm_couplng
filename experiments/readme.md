@@ -1,4 +1,4 @@
-exp01 : c12/cs32, 1-day, hourly output
+c12_cs32_01 : c12/cs32, 1-day, hourly output
 
 exp02 : c48/cs32, 1-year, daily output
  - did not complete a full year

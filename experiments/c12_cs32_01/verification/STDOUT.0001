@@ -57,7 +57,7 @@
 (PID.TID 0001.0001) maxLengthPrt1D=   65 /* maxLength of 1D array printed to StdOut */
 (PID.TID 0001.0001) 
 (PID.TID 0001.0001) ======= Starting MPI parallel Run =========
-(PID.TID 0001.0001)  My Processor Name (len:  8 ) = borgq158
+(PID.TID 0001.0001)  My Processor Name (len:  8 ) = borgs068
 (PID.TID 0001.0001)  Located at (  1,  0) on processor grid (0:  5,0:  0)
 (PID.TID 0001.0001)  Origin at  (    33,     1) on global grid (1:   192,1:    32)
 (PID.TID 0001.0001)  North neighbor = processor 0001
@@ -2296,3 +2296,719 @@ Global & Regional Statistics diagnostics: Number of lists:     0
 (PID.TID 0001.0001)      cg2d_init_res =   1.82624810261998E+00
 (PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
 (PID.TID 0001.0001)      cg2d_last_res =   5.39276090171663E-08
+ cg2d: Sum(rhs),rhsMax =  -4.50305717787043E+00  1.77240683104720E+02
+(PID.TID 0001.0001)      cg2d_init_res =   1.50012571290649E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   4.09780940376876E-08
+ cg2d: Sum(rhs),rhsMax =  -4.96484697179872E+00  1.70737441242964E+02
+(PID.TID 0001.0001)      cg2d_init_res =   1.96543031647575E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   4.60321122598747E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -5.53247745233584E+00  1.61502119593665E+02
+(PID.TID 0001.0001)      cg2d_init_res =   2.22910488278627E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   4.87725643595499E-08
+ cg2d: Sum(rhs),rhsMax =  -6.22955130941052E+00  1.50489568656344E+02
+(PID.TID 0001.0001)      cg2d_init_res =   2.42948119341090E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   5.63179550587147E-08
+ cg2d: Sum(rhs),rhsMax =  -7.10143260772642E+00  1.37982156432531E+02
+(PID.TID 0001.0001)      cg2d_init_res =   2.61196405059381E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   6.87808533669625E-08
+ cg2d: Sum(rhs),rhsMax =  -8.21389924363915E+00  1.24274827950976E+02
+(PID.TID 0001.0001)      cg2d_init_res =   2.81136880873968E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   8.11414029388458E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -9.66911806655312E+00  1.09668227949766E+02
+(PID.TID 0001.0001)      cg2d_init_res =   3.07346993307593E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   9.25030746027227E-08
+ cg2d: Sum(rhs),rhsMax =  -1.16328738358802E+01  9.44616462115245E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.46627399695698E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.24700457087673E-08
+ cg2d: Sum(rhs),rhsMax =  -1.43931624163205E+01  7.89466407455919E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.08229787952961E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.79586300397244E-08
+ cg2d: Sum(rhs),rhsMax =  -1.84987686784917E+01  6.34013964124591E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.04824994770080E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.01692350735769E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -1.93709407833650E+01  6.23988521970412E+01
+(PID.TID 0001.0001)      cg2d_init_res =   5.07913174638333E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.05311939956613E-08
+ cg2d: Sum(rhs),rhsMax =  -1.81579366676470E+01  6.85127328776646E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.51170474682910E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.16270454664269E-08
+ cg2d: Sum(rhs),rhsMax =  -1.72703133359502E+01  7.40537912709042E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.97722458031948E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.64143363931532E-08
+ cg2d: Sum(rhs),rhsMax =  -1.66457609407216E+01  7.89070802678053E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.46654794306422E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.18748991552348E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -1.62422026960780E+01  8.29762933655946E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.99555806857652E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.24390341566337E-08
+ cg2d: Sum(rhs),rhsMax =  -1.60324312344231E+01  8.61849775769635E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.59115340969777E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.96984544098238E-08
+ cg2d: Sum(rhs),rhsMax =  -1.59986311431124E+01  8.84772243947455E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.27561199402128E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.51529369383657E-08
+ cg2d: Sum(rhs),rhsMax =  -1.61304334932243E+01  8.98178369144115E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.05946561057290E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.15569371439603E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -1.64276731995760E+01  9.01920385137872E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.93334655884501E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.13658894034836E-08
+ cg2d: Sum(rhs),rhsMax =  -1.68967800636634E+01  8.96047365435529E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.87260897790268E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.43996860463321E-08
+ cg2d: Sum(rhs),rhsMax =  -1.75521698353897E+01  8.80794246579715E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.85028236128875E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1       9
+(PID.TID 0001.0001)      cg2d_last_res =   9.03894198742614E-08
+ cg2d: Sum(rhs),rhsMax =  -1.84164640698736E+01  8.56567512919209E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.84837964179525E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.82172435585565E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -1.95230068908928E+01  8.23928062874739E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.86350939990634E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.72865498345105E-08
+ cg2d: Sum(rhs),rhsMax =  -2.09192472769563E+01  7.83572156101830E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.90481680598705E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.61750970394683E-08
+ cg2d: Sum(rhs),rhsMax =  -2.19542678622589E+01  7.60372459156800E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92750300222892E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.84249466131236E-08
+ cg2d: Sum(rhs),rhsMax =  -2.31930044264174E+01  7.32681693496517E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.00021913096467E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.95180412602384E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -2.49428273837447E+01  6.93025130259826E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.14059515151692E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.26840357436731E-08
+ cg2d: Sum(rhs),rhsMax =  -2.73556294009509E+01  6.42402798880138E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.36838793297489E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.85584931371201E-08
+ cg2d: Sum(rhs),rhsMax =  -3.06774761647149E+01  5.81990157392201E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.69019761481779E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.66224560717908E-08
+ cg2d: Sum(rhs),rhsMax =  -3.53278113854368E+01  5.13113504757023E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.12844142906996E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.85252306043540E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -4.20681284893839E+01  4.37220798978985E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.73474628081287E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.16311953304202E-08
+ cg2d: Sum(rhs),rhsMax =  -4.57021145999380E+01  4.08195200053925E+01
+(PID.TID 0001.0001)      cg2d_init_res =   4.02942538471754E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.58916341335325E-08
+ cg2d: Sum(rhs),rhsMax =  -4.51665173215759E+01  4.18758828501285E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.92443042718793E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.58837442985023E-08
+ cg2d: Sum(rhs),rhsMax =  -4.26355393224977E+01  4.49607091918923E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.62599277900455E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   3.29878354723153E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -4.04681572067752E+01  4.79902685774709E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.35129677804637E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.94159659438886E-08
+ cg2d: Sum(rhs),rhsMax =  -3.86160463839007E+01  5.09299958457170E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.10207502976467E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.57575121052201E-08
+ cg2d: Sum(rhs),rhsMax =  -3.70387724408246E+01  5.37452529011305E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.87869019610883E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   9.97900006492752E-08
+ cg2d: Sum(rhs),rhsMax =  -3.57054124401168E+01  5.64018713513008E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.67191669795266E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.71295642677971E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -3.46004684996241E+01  5.88666975758220E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.46805902419970E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.97090205964948E-08
+ cg2d: Sum(rhs),rhsMax =  -3.37034806683901E+01  6.11081219657573E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.27923803111155E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.19164402891261E-08
+ cg2d: Sum(rhs),rhsMax =  -3.29984466726744E+01  6.30965761733643E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.10427990889318E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.66780884901226E-08
+ cg2d: Sum(rhs),rhsMax =  -3.24732938738533E+01  6.48050039157727E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94206599981961E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.50748420535763E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -3.21190651878764E+01  6.62092840340731E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.79293829515077E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.80155042663603E-08
+ cg2d: Sum(rhs),rhsMax =  -3.19294536233695E+01  6.72886031669904E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.65888280222985E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.97750440563537E-08
+ cg2d: Sum(rhs),rhsMax =  -3.19025047524314E+01  6.80257761125502E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.54373513913400E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.43400297347240E-08
+ cg2d: Sum(rhs),rhsMax =  -3.20391577337431E+01  6.84075018078377E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.45207350262896E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.60712840262816E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -3.23425306394896E+01  6.84245550318667E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.38864201763525E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.66136140295029E-08
+ cg2d: Sum(rhs),rhsMax =  -3.28203587165688E+01  6.80719176390196E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.35673495501507E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.67372950689609E-08
+ cg2d: Sum(rhs),rhsMax =  -3.34841511582702E+01  6.73488404241592E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.35741925769920E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.68633605050497E-08
+ cg2d: Sum(rhs),rhsMax =  -3.43490831570147E+01  6.62588414058379E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.38937695227153E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.71990168558612E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -3.54356775325300E+01  6.48096404008860E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.44941798374780E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.78119757407367E-08
+ cg2d: Sum(rhs),rhsMax =  -3.67723589238861E+01  6.30130369573964E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.53368851323336E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.86161213145943E-08
+ cg2d: Sum(rhs),rhsMax =  -3.83935765177340E+01  6.08847308738500E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.63861828725334E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.93722524131865E-08
+ cg2d: Sum(rhs),rhsMax =  -4.03494808253744E+01  5.84440883319499E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.76214748249887E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.98520518632258E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -4.28973507993935E+01  5.57138709029220E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.80967034743968E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      11
+(PID.TID 0001.0001)      cg2d_last_res =   2.63503562963570E-08
+ cg2d: Sum(rhs),rhsMax =  -4.57177382429316E+01  5.27199120827548E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.21746798706010E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.73541595765347E-08
+ cg2d: Sum(rhs),rhsMax =  -4.90890993750449E+01  4.94907691624985E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.46751899093229E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.49766004594910E-08
+ cg2d: Sum(rhs),rhsMax =  -5.31623424156891E+01  4.60573462893182E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.59987980230742E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.12464715075496E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -5.81215354415802E+01  4.24524879908989E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.73365140558402E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.85590630767550E-08
+ cg2d: Sum(rhs),rhsMax =  -6.42207738168119E+01  3.87105648449232E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.91509136199757E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.86180442720327E-08
+ cg2d: Sum(rhs),rhsMax =  -6.83064846235041E+01  3.66671750822164E+01
+(PID.TID 0001.0001)      cg2d_init_res =   3.00947865856056E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.10324225777273E-08
+ cg2d: Sum(rhs),rhsMax =  -6.88901165558235E+01  3.66238761860964E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.95084657990847E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.31766721786585E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -6.94715264840213E+01  3.65768637253897E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.88463043528093E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.50979480380900E-08
+ cg2d: Sum(rhs),rhsMax =  -7.00548566106816E+01  3.65269056520568E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.80302759642006E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.38802138051918E-08
+ cg2d: Sum(rhs),rhsMax =  -7.06386199558433E+01  3.64752806594200E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.70576599893663E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.55188602293318E-08
+ cg2d: Sum(rhs),rhsMax =  -7.12212186256813E+01  3.64230084367387E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.59667221041062E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.52280888915059E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -7.17987975274839E+01  3.63715621452819E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.48141888993392E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.43454000004655E-08
+ cg2d: Sum(rhs),rhsMax =  -7.23688678526524E+01  3.63219766247471E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.36689069569637E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.08979560348612E-08
+ cg2d: Sum(rhs),rhsMax =  -7.29306118143942E+01  3.62754274356391E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.25863408126750E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.61295632809691E-08
+ cg2d: Sum(rhs),rhsMax =  -7.30543132259633E+01  3.64446227117716E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.14762426390228E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.40758540686598E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -7.19512736273143E+01  3.72361569363888E+01
+(PID.TID 0001.0001)      cg2d_init_res =   2.01528421456105E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.57947892526012E-08
+ cg2d: Sum(rhs),rhsMax =  -7.19583680440507E+01  3.74626445985143E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92914182519735E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.64591820147094E-08
+ cg2d: Sum(rhs),rhsMax =  -7.30140886523014E+01  3.71453314434526E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.88582791805472E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.73530502167526E-08
+ cg2d: Sum(rhs),rhsMax =  -7.51363755933314E+01  3.63125914961404E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.88484766263189E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.85667164454797E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -7.60482323246770E+01  3.60876375202237E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.86956098439989E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.74235329034137E-08
+ cg2d: Sum(rhs),rhsMax =  -7.65211913242537E+01  3.60717201302231E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.86001342744069E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.50639994558088E-08
+ cg2d: Sum(rhs),rhsMax =  -7.69347643211340E+01  3.60820271905846E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.86246593788001E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   8.21660765041717E-08
+ cg2d: Sum(rhs),rhsMax =  -7.73166293541091E+01  3.61051050931492E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.87351496006871E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.79905446663047E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -7.77052787745271E+01  3.61226755799937E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.89009172873132E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   7.18247866731563E-08
+ cg2d: Sum(rhs),rhsMax =  -7.81027922193877E+01  3.61348724350680E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.90842791076961E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   6.37342262774876E-08
+ cg2d: Sum(rhs),rhsMax =  -7.85050425806922E+01  3.61421294068965E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92545785386532E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   5.44431295366906E-08
+ cg2d: Sum(rhs),rhsMax =  -7.89117181031139E+01  3.61453105597231E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.93910622230911E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.61825797816041E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -7.93207445482355E+01  3.61454825623607E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94725521552076E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   4.05083291569615E-08
+ cg2d: Sum(rhs),rhsMax =  -7.97332966237163E+01  3.61439807602838E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94877410307060E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.77789592363843E-08
+ cg2d: Sum(rhs),rhsMax =  -8.01393109801672E+01  3.61420942883255E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.94246893706038E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.72141200036715E-08
+ cg2d: Sum(rhs),rhsMax =  -8.05413771452657E+01  3.61408539790220E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.92849173044653E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.75916944562726E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -8.09348176162112E+01  3.61418828114531E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.90702544946711E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.69600881647674E-08
+ cg2d: Sum(rhs),rhsMax =  -8.13158301460067E+01  3.61461061923913E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.87861761461920E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.66083474126344E-08
+ cg2d: Sum(rhs),rhsMax =  -8.16856732813440E+01  3.61541286567285E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.84393300167357E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.59552778225991E-08
+ cg2d: Sum(rhs),rhsMax =  -8.20430786677151E+01  3.61660984514788E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.80463488832973E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.51832605497986E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -8.23880528303485E+01  3.61823238013292E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.76176901151090E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.36679442355484E-08
+ cg2d: Sum(rhs),rhsMax =  -8.27201817774227E+01  3.62024694067469E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.71665751605101E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.18854622086870E-08
+ cg2d: Sum(rhs),rhsMax =  -8.30415102880926E+01  3.62251537323021E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.67115400751065E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   3.00225669977941E-08
+ cg2d: Sum(rhs),rhsMax =  -8.33515246545031E+01  3.62516442424416E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.62632642686458E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.87256459949691E-08
+ Computing Diagnostic #     81  oceTAUX      Counter:       1   Parms: UU      U1      
+           Vector  Mate for  oceTAUX      Diagnostic #     82  oceTAUY  exists 
+ Computing Diagnostic #     82  oceTAUY      Counter:       1   Parms: VV      U1      
+           Vector  Mate for  oceTAUY      Diagnostic #     81  oceTAUX  exists 
+ Computing Diagnostic #     85  oceFWflx     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     86  oceSflux     Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     87  oceQnet      Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     88  oceQsw       Counter:       1   Parms: SM      U1      
+ Computing Diagnostic #     27  SALT         Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     26  THETA        Counter:       1   Parms: SMR     MR      
+ Computing Diagnostic #     45  UVELMASS     Counter:       1   Parms: UUr     MR      
+           Vector  Mate for  UVELMASS     Diagnostic #     46  VVELMASS exists 
+ Computing Diagnostic #     46  VVELMASS     Counter:       1   Parms: VVr     MR      
+           Vector  Mate for  VVELMASS     Diagnostic #     45  UVELMASS exists 
+ cg2d: Sum(rhs),rhsMax =  -8.36284806325044E+01  3.62911151126106E+01
+(PID.TID 0001.0001)      cg2d_init_res =   1.58292987482253E-01
+(PID.TID 0001.0001)      cg2d_iters(min,last) =      -1      10
+(PID.TID 0001.0001)      cg2d_last_res =   2.98610448952163E-08

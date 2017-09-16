@@ -1,18 +1,15 @@
   include g5_make_head.mk
 
-#                  --------------------
-#                  User Defined Targets
-#                  --------------------
 # Multithreaded + multi-processing makefile for:
-#    Linux discover07 3.0.101-0.47.90-default #1 SMP Wed Oct 19 14:11:00 UTC 2016 (56c73f1) x86_64 x86_64 x86_64 GNU/Linux
+#    Linux borgs068 3.0.101-0.47.105-default #1 SMP Thu Jun 22 17:13:58 UTC 2017 (e1c7e3b) x86_64 x86_64 x86_64 GNU/Linux
 # This makefile was generated automatically on
-#    Mon Nov  7 07:03:34 EST 2016
+#    Sat Sep 16 12:47:08 EDT 2017
 # by the command:
-#    ../../../tools/genmake2 -ds -m make -mods=../code -optfile=/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/tools/build_options/linux_amd64_ifort_discover -ieee -mpi
+#    ../../../tools/genmake2 -ds -m make -mods=../code -optfile=/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/tools/build_options/linux_amd64_ifort11 -mpi
 # executed by:
-#    dmenemen@discover07:/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/verification/global_ocean.cs32x15/build
+#    dmenemen@borgs068:/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/verification/global_ocean.cs32x15/build
 #
-# OPTFILE="/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/tools/build_options/linux_amd64_ifort_discover"
+# OPTFILE="/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/tools/build_options/linux_amd64_ifort11"
 #
 # BUILDDIR     : Directory where object files are written
 # SOURCEDIRS   : Directories containing the source (.F) files
@@ -33,7 +30,7 @@
 ROOTDIR     = $(MITGCM_ROOT)
 BUILDDIR    = .
 SOURCEDIRS  =  ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/exf $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/seaice $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/pkg/cal $(MITGCM_ROOT)/eesupp/src $(MITGCM_ROOT)/model/src
-INCLUDEDIRS = $(MPI_INC_DIR) ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/exf $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/seaice $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/pkg/cal $(MITGCM_ROOT)/eesupp/inc $(MITGCM_ROOT)/model/inc
+INCLUDEDIRS =  $(MPI_INC_DIR) ../code $(MITGCM_ROOT)/pkg/bulk_force $(MITGCM_ROOT)/pkg/debug $(MITGCM_ROOT)/pkg/diagnostics $(MITGCM_ROOT)/pkg/exch2 $(MITGCM_ROOT)/pkg/exf $(MITGCM_ROOT)/pkg/generic_advdiff $(MITGCM_ROOT)/pkg/gmredi $(MITGCM_ROOT)/pkg/mdsio $(MITGCM_ROOT)/pkg/mom_common $(MITGCM_ROOT)/pkg/mom_fluxform $(MITGCM_ROOT)/pkg/mom_vecinv $(MITGCM_ROOT)/pkg/monitor $(MITGCM_ROOT)/pkg/rw $(MITGCM_ROOT)/pkg/seaice $(MITGCM_ROOT)/pkg/thsice $(MITGCM_ROOT)/pkg/timeave $(MITGCM_ROOT)/pkg/cal $(MITGCM_ROOT)/eesupp/inc $(MITGCM_ROOT)/model/inc
 EXEDIR      = .
 EXECUTABLE  = $(EXEDIR)/mitgcmuv
 TOOLSDIR    = $(MITGCM_ROOT)/tools
@@ -58,37 +55,37 @@ MAKEDEPEND = $(TOOLSDIR)/xmakedepend
 # Special preprocessor (KAP on DECs, FPP on Crays)
 KPP = 
 # Fortran compiler
-FC = mpif90
+FC = /usr/local/intel/Composer/composer_xe_2015.2.164/bin/intel64/ifort
 # Fortran compiler
-F90C = 
+F90C = mpif90
 # C compiler
 CC = mpicc
 # Link editor
-LINK = mpif90 -shared-intel
+LINK = mpif90 -shared-intel -no-ipo 
 
 # Defines for CPP
 DEFINES = -DWORDLENGTH=4 -DALLOW_USE_MPI -DHAVE_SYSTEM -DHAVE_FDATE -DHAVE_ETIME_FCT -DHAVE_CLOC -DHAVE_SETRLSTK -DHAVE_SIGREG -DHAVE_STAT -DHAVE_FLUSH 
 # Includes for CPP
-INCLUDES = -I$(MPI_INC_DIR)
+INCLUDES =  -I$(MPI_INC_DIR)
 # default CPP includes for makedepend
-CPPINCLUDES =  -I/usr/local/intel/mpi/5.0.3.048/include64 -I/usr/local/intel/Composer/composer_xe_2015.2.164/ipp/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/mkl/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/tbb/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/4.3/include -I/usr/lib64/gcc/x86_64-suse-linux/4.3/include-fixed -I/usr/lib64/gcc/x86_64-suse-linux/4.3/$(MITGCM_ROOT)/../x86_64-suse-linux/include -I/usr/include
+CPPINCLUDES =  -I/usr/local/intel/mpi/5.0.3.048/include64 -I/usr/local/intel/Composer/composer_xe_2015.2.164/ipp/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/mkl/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/tbb/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include -I/usr/local/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed -I/usr/include
 # Flags for KPP
 KFLAGS1 = 
 KFLAGS2 = 
 # Optim./debug for FC
-FFLAGS =  -fPIC -w95 -W0 -WB -convert big_endian -assume byterecl -noalign
-FOPTIM = -O0 
+FFLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
+FOPTIM = -O2 -align -ip -fp-model source -xHost 
 # Optim./debug for FC
-F90FLAGS = 
-F90OPTIM = 
-F90FIXEDFORMAT = 
+F90FLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
+F90OPTIM = -O2 -align -ip -fp-model source -xHost
+F90FIXEDFORMAT = -fixed -Tf
 # Flags for CC
-CFLAGS = -fPIC
+CFLAGS = -O0 -ip -m64 -xHost -mcmodel=medium
 # Files that should not be optimized
 NOOPTFILES = 
-NOOPTFLAGS = -O0 -fPIC
+NOOPTFLAGS = -O0 -g
 # Flags and libraries needed for linking
-LIBS = -L$(MPI_INC_DIR)/../lib
+LIBS = 
 # Name of the makefile
 MAKEFILE = Makefile
 # Name of the make program
@@ -1906,7 +1903,7 @@ CLEAN:
 	-rm -f oad_cp.[0-9][0-9][0-9].?????
 
 makefile:
-	$(TOOLSDIR)/genmake2  "-ds" "-m" "make" "-mods=../code" "-optfile=/discover/nobackup/dmenemen/Heracles-5_4/MITgcm/tools/build_options/linux_amd64_ifort_discover" "-ieee" "-mpi"
+	../../../tools/genmake2  "-ds" "-m" "make" "-mods=../code" "-optfile=$(MITGCM_ROOT)/tools/build_options/linux_amd64_ifort11" "-mpi"
 cleanlinks:
 	-find . -type l -exec rm {} \;
 
@@ -1925,8 +1922,8 @@ BUILD_INFO.h:
 	@echo Creating $@ ...
 	-echo "#define THISVER 'checkpoint66a'" > $@
 	-echo "#define THISUSER 'dmenemen'" >> $@
-	-echo "#define THISDATE 'Mon Nov  7 07:03:34 EST 2016'" >> $@
-	-echo "#define THISHOST 'discover07'" >> $@
+	-echo "#define THISDATE 'Sat Sep 16 12:47:08 EDT 2017'" >> $@
+	-echo "#define THISHOST 'borgs068'" >> $@
 
 # The normal chain of rules is (  .F - .f - .o  )
 
@@ -1934,7 +1931,7 @@ BUILD_INFO.h:
 ## %.o : %.F
 
 # C preprocessing and replacing the _d in constants:
-CPPCMD = cat $< |  /lib/cpp  -traditional -P $(DEFINES) $(INCLUDES) | $(TOOLSDIR)/set64bitConst.sh
+CPPCMD = cat $< |  cpp -traditional -P $(DEFINES) $(INCLUDES) | $(TOOLSDIR)/set64bitConst.sh
 
 .F.f:
 	$(CPPCMD)  > $@

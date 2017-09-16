@@ -1,5 +1,5 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/exp01/Heracles-5_4onDiscover.txt
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c12_cs32_01/Heracles-5_4onDiscover.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
@@ -47,31 +47,30 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 cd $WorkingDir/GEOSodas/src
 source g5_modules
 setenv ESMA_NOCVS
+setenv ESMA_CC mpicc
 setenv MITGCM_ROOT $WorkingDir/MITgcm
+setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
 setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh
-setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
 
 # Run MITgcm verification experiment
 # This is needed to create some MITgcm exchange files
 # and a Makefile that can be modified for coupled code
 cd $WorkingDir/MITgcm/verification
+setenv CC $ESMA_CC
 setenv ROOTDIR $WorkingDir/MITgcm
-./testreport -mpi -fast -j 16 -of ../tools/build_options/linux_amd64_ifort_discover -t global_ocean.cs32x15
+./testreport -mpi -fast -j 16 -of ../tools/build_options/linux_amd64_ifort11 -t global_ocean.cs32x15
 
 # For Makefile recipe, compare
-# $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
+# $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code/Makefile_ifort to
 # $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
 #   1. add at top of file: include g5_make_head.mk
 #   2. change: $MITGCM_ROOT to $(MITGCM_ROOT)
 #   3. change: $MPI_INC_DIR to $(MPI_INC_DIR)
-#   4. add: -mcmodel=medium to FFLAGS and CFLAGS
-#   5. set: LIBS = -L$(MPI_INC_DIR)/../lib
-#   6. remove: eeboot.F and eeboot_minimal.F from 3 locations
-#   7. add: $(SPECIAL_FILES) to libmitgcmuv.a
-#   8. remove: lines starting with eeboot.f and eeboot_minimal.f
-#   9. add at bottom of file:
+#   4. remove: eeboot.F and eeboot_minimal.F
+#   5. add: $(SPECIAL_FILES) to libmitgcmuv.a
+#   6. add at bottom of file:
 #    # Provides rule to make target 'pinstall'.
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
 
@@ -80,14 +79,14 @@ setenv ROOTDIR $WorkingDir/MITgcm
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/code/Makefile_ifort Makefile
+ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code/Makefile_ifort Makefile
 cd ..
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/code .
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/exp01/input .
+ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code .
+ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input .
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 16 |& tee makeinstall.log
 
-# Set up coupled code for experiments/exp01
+# Set up coupled code for experiments/c12_cs32_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -109,15 +108,15 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: $NOBACKUP/Heracles-5_4/GEOSodas
 # Enter your GROUP ID for Current EXP: s1353
 
-# Get GEOS-5 boundary conditions for experiments/exp01
+# Get GEOS-5 boundary conditions for experiments/c12_cs32_01
 cd $WorkingDir
 tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/exp01/*.rc .
+$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 
 # Run coupled code as an interactive jobs
 # Alternatively try "qsub gcm_run.j"
-# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
