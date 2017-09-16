@@ -905,10 +905,10 @@ contains
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYI',TAUYI )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXBOT',TAUXBOT )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYBOT',TAUYBOT )
-    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'FRACICE',FRACICE )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'FRACICE',FRACICE )
 
 ! ALT: for now, until JM/DM fix the code, we do this
-!    FRACICE = FRI
+    FRACICE = FRI
 
 !ALT: next lines are totally fake 
 !     There somewhat realistic to avoid GEOS-5 hick-ups until we have coupling!
