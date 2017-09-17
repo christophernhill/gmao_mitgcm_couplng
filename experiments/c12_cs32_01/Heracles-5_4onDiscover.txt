@@ -68,9 +68,10 @@ setenv ROOTDIR $WorkingDir/MITgcm
 #   1. add at top of file: include g5_make_head.mk
 #   2. change: $MITGCM_ROOT to $(MITGCM_ROOT)
 #   3. change: $MPI_INC_DIR to $(MPI_INC_DIR)
-#   4. remove: eeboot.F and eeboot_minimal.F
-#   5. add: $(SPECIAL_FILES) to libmitgcmuv.a
-#   6. add at bottom of file:
+#   4. change: -O2 to -O0
+#   5. remove: eeboot.F and eeboot_minimal.F
+#   6. add: $(SPECIAL_FILES) to libmitgcmuv.a
+#   7. add at bottom of file:
 #    # Provides rule to make target 'pinstall'.
 #     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
 

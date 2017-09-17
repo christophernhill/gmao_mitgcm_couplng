@@ -1,3 +1,4 @@
+- checkpoint_0_M (2017/09/17)
   * Moving experiments/exp01 to experiments/c12_cs32_01
   * Explicitly require CC=ESMA_CC=mpicc (instead of gcc)
   * Creating custom Makefiles for experiments/*

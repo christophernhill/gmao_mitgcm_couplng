@@ -74,10 +74,10 @@ KFLAGS1 =
 KFLAGS2 = 
 # Optim./debug for FC
 FFLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
-FOPTIM = -O2 -align -ip -fp-model source -xHost 
+FOPTIM = -O0 -align -ip -fp-model source -xHost 
 # Optim./debug for FC
 F90FLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
-F90OPTIM = -O2 -align -ip -fp-model source -xHost
+F90OPTIM = -O0 -align -ip -fp-model source -xHost
 F90FIXEDFORMAT = -fixed -Tf
 # Flags for CC
 CFLAGS = -O0 -ip -m64 -xHost -mcmodel=medium
