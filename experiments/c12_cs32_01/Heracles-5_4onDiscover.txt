@@ -32,10 +32,10 @@ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
-cvs co -r checkpoint66a MITgcm_code
-cvs co -r checkpoint66a MITgcm/verification/testreport
-cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
-cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
+cvs -q co MITgcm_code
+cvs -q co MITgcm/verification/testreport
+cvs -q co MITgcm/verification/tutorial_held_suarez_cs
+cvs -q co MITgcm/verification/global_ocean.cs32x15
 
 # Request interactive job
 # xsub -I -l select=1,walltime=8:00:00
@@ -44,54 +44,45 @@ tcsh
 setenv WorkingDir $NOBACKUP/Heracles-5_4
 
 # Set GEOS-5 and MITgcm environment variables
-cd $WorkingDir/GEOSodas/src
-source g5_modules
-setenv ESMA_NOCVS
-setenv ESMA_CC mpicc
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
-cd $GMAO_MITGCM_COUPLNG
-./set_mitgcm_env.sh
+ cd $WorkingDir/GEOSodas/src
+ source g5_modules
+ setenv ESMA_NOCVS
+ setenv MITGCM_ROOT $WorkingDir/MITgcm
+ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
+ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ cd $GMAO_MITGCM_COUPLNG
+ ./set_mitgcm_env.sh
 
-# Run MITgcm verification experiment
-# This is needed to create some MITgcm exchange files
-# and a Makefile that can be modified for coupled code
-cd $WorkingDir/MITgcm/verification
-setenv CC $ESMA_CC
-setenv ROOTDIR $WorkingDir/MITgcm
-./testreport -mpi -fast -j 16 -of ../tools/build_options/linux_amd64_ifort11 -t global_ocean.cs32x15
+# Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
+#       but for real application, "-ieee" should be dropped to speed up ocean run.
+ cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
+ mkdir build ; cd build
+ setenv ROOTDIR $WorkingDir/MITgcm
+ $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
+ make depend
 
-# For Makefile recipe, compare
-# $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code/Makefile_ifort to
-# $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
-#   1. add at top of file: include g5_make_head.mk
-#   2. change: $MITGCM_ROOT to $(MITGCM_ROOT)
-#   3. change: $MPI_INC_DIR to $(MPI_INC_DIR)
-#   4. change: -O2 to -O0
-#   5. remove: eeboot.F and eeboot_minimal.F
-#   6. add: $(SPECIAL_FILES) to libmitgcmuv.a
-#   7. add at bottom of file:
-#    # Provides rule to make target 'pinstall'.
-#     -include $(ESMADIR)/Config/ESMA_post.mk  # ESMA additional targets, macros
+#- Generate modified src code and Makefile for MITgcm
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
+ ./mk_local ../../experiments/c12_cs32_01/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ ./mk_local ../../experiments/c12_cs32_01/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
+ ln -s ../experiments/c12_cs32_01/code .
+ ln -s ../experiments/c12_cs32_01/input .
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code/Makefile_ifort Makefile
-cd ..
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/code .
-ln -sf $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input .
-cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 |& tee makeinstall.log
+ cd $WorkingDir/GEOSodas/src
+ gmake pinstall -j 16 |& tee makeinstall.log
 
 # Set up coupled code for experiments/c12_cs32_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-./gcm_setup
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -110,9 +101,11 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 boundary conditions for experiments/c12_cs32_01
-cd $WorkingDir
-tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
-cd $WorkingDir/TEST
+ cd $WorkingDir
+ tar -xf /discover/nobackup/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
+ find TinyFromMatt -type d | xargs chmod g+rxs
+ find TinyFromMatt -type f | xargs chmod g+r
+ cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 

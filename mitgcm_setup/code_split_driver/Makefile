@@ -68,7 +68,7 @@ MAPL_F90COMPILEPATHS=-I$(ESMADIR)/Linux/include/MAPL_Base
 MAPL_F90LINKPATHS=-L$(ESMADIR)/Linux/lib -lMAPL_Base -lesmf   -lmpich -lpmpich++ -lcprts -limf -lm -lcxa -lunwind -lrt -ldl
 
 F_MAIN=main.F
-F_SRCS=eeboot.F eeboot_minimal.F
+F_SRCS=
 C_SRCS=setdir.c
 
 F90_FIXED_SRCS =driver/driver_init_mod.FOR         \
