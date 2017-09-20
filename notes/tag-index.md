@@ -1,3 +1,14 @@
+  * update MITgcm code from checkpoint66a to latest:
+    This changes results at truncation level (due to ordering of
+    sum in ini_masks_etc.F);
+  * semi-automatic generation of MITgcm makefile in 2 steps:
+    a) run genmake2 + "make depend" in experiments/*/build using local code dir
+    b) generate modified Makefile in mitgcm_setup/build by using (new) local 
+       script: "mk_local"
+  * generate config-specific version of header files (*.h) in mitgcm_setup/inc
+    by using (new) local script: "mk_local"
+  * for discover, switch to new optfile: tools/build_options/linux_amd64_ifort+gcc
+
 - checkpoint_0_M (2017/09/17)
   * Moving experiments/exp01 to experiments/c12_cs32_01
   * Explicitly require CC=ESMA_CC=mpicc (instead of gcc)
