@@ -1,3 +1,4 @@
+- checkpoint_0_N (2017/09/20, compatible with MITgcm checkpoint66k)
   * update MITgcm code from checkpoint66a to latest:
     This changes results at truncation level (due to ordering of
     sum in ini_masks_etc.F);
