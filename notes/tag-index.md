@@ -14,7 +14,7 @@
     by using (new) local script: "mk_local"
   * for discover, switch to new optfile: tools/build_options/linux_amd64_ifort+gcc
 
-- checkpoint_0_M (2017/09/17)
+- checkpoint_0_M (2017/09/17, compatible with MITgcm checkpoint66a)
   * Moving experiments/exp01 to experiments/c12_cs32_01
   * Explicitly require CC=ESMA_CC=mpicc (instead of gcc)
   * Creating custom Makefiles for experiments/*
@@ -23,14 +23,16 @@
   * Moving code and input from mitgcm_setup to experiments/exp01
     The will allow multiple configurations to be checked in.
 
-- checkpoint_0_L (2017/09/01)
+- checkpoint_0_L (2017/09/01, compatible with MITgcm checkpoint66a)
+  (to run gmao_mitgcm_couplng/experiments/exp01, need to manually
+   update mitgcm_setup/code/SIZE.h and TEST/AGCM.rc)
   * Lots of undocumented modifications for first clunky but
     working llc90 + c48 configuration includes thermodynamics
     sea ice but no runoff
   * Move modifications and verification to experiments/exp01
   * Check-in a c48/cs32 year-long set-up in experiments/exp02
 
-- checkpoint_0_K (2016/11/21)
+- checkpoint_0_K (2016/11/21, compatible with MITgcm checkpoint66a)
   * Matlab script matlab/view_output.m to compare
     GEOS-5 *.nc4 and MITgcm pkg/diagnostics output files.
   * New verification output.
@@ -46,7 +48,7 @@
     -oceFWflx, -oceQnet, -oceQsw, and -oceSflux.
     (Note sign reversal of last 4 fields.)
 
-- checkpoint_0_J (2016/11/16)
+- checkpoint_0_J (2016/11/16, compatible with MITgcm checkpoint66a)
   * Modified input/data.pkg and data.diagnostics so that
     diagnostic output fluxes (oceTAUX, oceTAUY, oceFWflx,
     oceQnet, oceQsw, oceSflux) can be directly compared
@@ -66,7 +68,7 @@
   * Moved driver_get* and driver_set* to subdirectory driver.
   * Removed mk_src_links. Links are now created by Makefile.
 
-- checkpoint_0_I (2016/11/15)
+- checkpoint_0_I (2016/11/15, compatible with MITgcm checkpoint66a)
   * Have verified with matlab/get_import.m that *_import.* files
     are identical to MITgcm output files.
   * The export fields are now updated every time step, instead
@@ -77,23 +79,23 @@
     when one-way coupling was enabled.
   * Adding figures in verification output for comparison.
 
-- checkpoint_0_H (2016/11/10)
+- checkpoint_0_H (2016/11/10, compatible with MITgcm checkpoint66a)
   * Adding remaining import and export fields (except sea-ice).
   * Adding matlab scripts for looking at MITgcm and GEOS-5 output.
 
-- checkpoint_0_G (2016/11/09)
+- checkpoint_0_G (2016/11/09, compatible with MITgcm checkpoint66a)
   * Export of 3-D mask, removal of 3d mask stub, and fix
     for null pointer issue in MIT_GEOS5PlugMod.F90
   * Changes to Makefile_gfortran to make it compatible
     with GMAO desktops.
 
-- checkpoint_0_F (2016/11/07)
+- checkpoint_0_F (2016/11/07, compatible with MITgcm checkpoint66a)
   * Updating to latest MITgcm checkpoint (checkpoint66a)
 
-- checkpoint_0_E (2016/11/06)
+- checkpoint_0_E (2016/11/06, compatible with MITgcm -D "01/31/07")
   * Removing mitgcm_special_bits.tgz and adding files to git
 
-- checkpoint_0_D (2016/11/05)
+- checkpoint_0_D (2016/11/05, compatible with MITgcm -D "01/31/07")
   * Adding recipe for generating custom Makefile
   * Remove links to MITgcm code in GuestOcean_GridComp
   * Remove link to mpif.h from mitgcm_setup/build
@@ -107,10 +109,10 @@
   * Adding GenericLinux site to g5_modules
   * Adding instructions for compiling and running on Fedora 24 Workstation.
 
-- checkpoint_0_C (2016/11/01)
+- checkpoint_0_C (2016/11/01, compatible with MITgcm -D "01/31/07")
   * Runs and builds repeatebly on lubuntu, discover and fedora.
 
-- checkpoint_0_B (2016/10/12)
+- checkpoint_0_B (2016/10/12, compatible with MITgcm -D "01/31/07")
   * Merged some cleanup, still MITgcm 2007.
   * Changes to mesh GEOS-5 git
      (`git clone discover:/discover/swdev/adasilva/bridge/GEOSodas`)
@@ -118,5 +120,5 @@
      (`git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git`).
      See notes for details.
 
-- checkpoint_0_A (2016/08/26)
+- checkpoint_0_A (2016/08/26, compatible with MITgcm -D "01/31/07")
   * Base code for MITgcm 2007 from discover.
