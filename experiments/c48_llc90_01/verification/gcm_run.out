@@ -1,80 +1,80 @@
-g5_modules: Setting BASEDIR and modules for borg01z125
+g5_modules: Setting BASEDIR and modules for borgq111
 /bin/rm: No match.
-[1] 9641
-[2] 9642
+[1] 19433
+[2] 19434
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_import_rst ) /bin/cp ...
-[3] 9643
+[3] 19435
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_internal_rst )  ...
-[4] 9645
-[5] 9646
+[4] 19437
+[5] 19438
 [4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/lake_internal_rst )  ...
-[6] 9647
-[7] 9649
-[8] 9651
+[6] 19439
+[7] 19441
+[8] 19443
+[9] 19444
 [7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catchcn_internal_rst )  ...
-[9] 9652
-[1] 9654
+[1] 19446
 [9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_import_rst )  ...
-[9] 9655
-[2] 9656
-[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
+[9] 19447
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
-[9] 9657
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
-[1] 9658
+[1] 19448
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
+[9] 19449
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
+[1] 19450
 [9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
-[9] 9659
-[2] 9661
-[4] 9662
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
+[9] 19451
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
-[1] 9663
-[2] 9664
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
-[1] 9665
+[1] 19452
+[2] 19454
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
+[1] 19455
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
+[2] 19456
+[4] 19457
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/carma_internal_rst )  ...
-[2] 9666
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
-[1] 9667
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
-[2] 9668
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
-[1] 9669
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
-[2] 9670
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
-[1] 9671
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
-[2] 9672
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
-[1] 9673
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
-[2] 9675
-[4] 9676
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
-[2] 9677
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
-[4] 9678
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
-[2] 9679
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
 [5]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/landice_internal_rst )  ...
-[2]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
-[1]  - Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
+[1] 19458
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
+[2] 19459
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
+[1] 19460
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
+[2] 19461
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
+[1] 19462
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
+[2] 19463
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
+[1] 19464
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
+[2] 19465
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
+[1] 19466
+[4] 19468
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
+[1] 19469
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
+[4] 19470
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
+[1] 19471
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
+[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
+[2]  - Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
 [9]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
 [8]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_internal_rst )  ...
 [6]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catch_internal_rst )  ...
 [3]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/fvcore_internal_rst )  ...
 /bin/cp: No match.
 /bin/ls: No match.
-[1] 9690
-[2] 9691
-[3] 9692
-[4] 9693
-[5] 9694
+[1] 19482
+[2] 19483
+[3] 19484
+[4] 19485
+[5] 19486
 [2]    Done                          /bin/cp landice_internal_rst  ...
-[6] 9695
+[6] 19487
 [6]    Done                          /bin/cp saltwater_internal_rst  ...
 [5]  + Done                          /bin/cp pchem_internal_rst  ...
 [4]  + Done                          /bin/cp moist_internal_rst  ...
@@ -84,13 +84,13 @@ srun.slurm: cluster configuration lacks support for cpu binding
 srun.slurm: cluster configuration lacks support for cpu binding
  
  In MAPL_Shmem:
-     NumCores per Node =           16
-     NumNodes in use   =            6
+     NumCores per Node =           24
+     NumNodes in use   =            4
      Total PEs         =           96
  
  
  In MAPL_InitializeShmem (NodeRootsComm):
-     NumNodes in use   =            6
+     NumNodes in use   =            4
  
    Integer*4 Resource Parameter HEARTBEAT_DT:         900
  NOT using buffer I/O for file: cap_restart
@@ -136,12 +136,12 @@ Using non_ortho :       T
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
- create_grid: Looking for cubed-grid mosaic: Inline
- create_grid: Creating Global cubed-grid 
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
+ create_grid: Looking for cubed-grid mosaic: Inline
+ create_grid: Creating Global cubed-grid 
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
@@ -590,6 +590,8 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Calling DRIVER_Get_ExportState
  Done DRIVER_Get_ExportState
  Done MIT_PlugInit
+   Integer*4 Resource Parameter INTERPOLATE_SST:           0
+   Integer*4 Resource Parameter BYPASS_OGCM:           0
  
  EXPSRC:Heracles-5_3
  EXPID: TEST
@@ -608,6 +610,9 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  
  NOT using buffer I/O for file: tile.bin
  NOT using buffer I/O for file: tile.bin
+ Freq: 060000  Dur: 060000  TM:   -1  Collection: geosgcm_prog
+ Freq: 030000  Dur: 030000  TM:   -1  Collection: geosgcm_surf
+ Freq: 030000  Dur: 030000  TM:   -1  Collection: mit_ocn
  
  Independent Output Export States:
  ---------------------------------
@@ -976,6 +981,16 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
     20060401             0
  CFIO: Reading ExtData/g5gcm/moist/L72/Wvar_positive_05hrdeg_200605.nc4 at 
     20060501             0
+      Real*4 Resource Parameter ALPHA:    0.00000    
+      Real*4 Resource Parameter BETA:    1.00000    
+      Real*4 Resource Parameter ALPHAQ:    0.00000    
+      Real*4 Resource Parameter BETAQ:    1.00000    
+      Real*4 Resource Parameter ALPHAO:    0.00000    
+      Real*4 Resource Parameter BETAO:    1.00000    
+      Real*4 Resource Parameter TAUANL:    21600.0    
+   Integer*4 Resource Parameter IS_FCST:           0
+   Integer*4 Resource Parameter CONSTRAIN_DAS:           1
+   Character Resource Parameter ANA_IS_WEIGHTED: NO
  Advecting the following    20 tracers in FV:
  CFC11
  CFC12
@@ -997,13 +1012,217 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Rn222
  aoa
  e90
+   Integer*4 Resource Parameter CONSV:           1
+   Integer*4 Resource Parameter FILL:           0
  Global Area=   510064471909928.     
+   Character Resource Parameter DPEDT_PHYS: YES
+      Real*4 Resource Parameter DOPHYSICS:    1.00000    
+   Integer*4 Resource Parameter PGWV:           4
+      Real*4 Resource Parameter EFFGWORO:   0.250000    
+      Real*4 Resource Parameter EFFGWBKG:   0.125000    
+      Real*4 Resource Parameter EFFORONH:    1.00000    
+      Real*4 Resource Parameter EFFOROSH:    2.50000    
+      Real*4 Resource Parameter RAYLEIGH_Z1:    75000.0    
+      Real*4 Resource Parameter RAYLEIGH_TAU1:    172800.    
+      Real*4 Resource Parameter RAYLEIGH_H0:    7000.00    
+      Real*4 Resource Parameter RAYLEIGH_HH:    7500.00    
+   Integer*4 Resource Parameter CLEANUP_RH:           1
+      Real*4 Resource Parameter CUFRICFAC:    1.00000    
+      Real*4 Resource Parameter SHR_LAMBDA_FAC:   0.500000E-01
+      Real*4 Resource Parameter AUTOC_CN:   0.250000E-02
+      Real*4 Resource Parameter AUTO_CNV:    1.00000    
+      Real*4 Resource Parameter LCCIRRUS:    500.000    
+      Real*4 Resource Parameter UISCALE:    1.00000    
+      Real*4 Resource Parameter OVERSHOOT_FRAC:    0.00000    
+      Real*4 Resource Parameter LIU_MU:    2.00000    
+      Real*4 Resource Parameter NPRE_FRAC:    1.00000    
+      Real*4 Resource Parameter LTS_LOW:    12.0000    
+      Real*4 Resource Parameter LTS_UP:    22.0000    
+      Real*4 Resource Parameter MIN_EXP:    1.00000    
+      Real*4 Resource Parameter DCRIT_DRIZZLE:    1.00000    
+      Real*4 Resource Parameter USE_AV_V:    0.00000    
+      Real*4 Resource Parameter TS_AUTO_ICE:    1.50000    
+      Real*4 Resource Parameter TMAXLL:    296.000    
+      Real*4 Resource Parameter CCNPARAM:    2.00000    
+      Real*4 Resource Parameter INPARAM:    5.00000    
+      Real*4 Resource Parameter FDROP_DUST:   0.500000    
+      Real*4 Resource Parameter FDROP_SOOT:   0.100000E-01
+      Real*4 Resource Parameter SIGMA_NUC:   0.280000    
+      Real*4 Resource Parameter SS_SCALE:    14.0000    
+      Real*4 Resource Parameter MIN_ALH:    300.000    
+      Real*4 Resource Parameter USE_NAT_WSUB:    1.00000    
+      Real*4 Resource Parameter BKG_TAU:   0.150000E-01
+      Real*4 Resource Parameter DCS:   0.350000E-03
+      Real*4 Resource Parameter QC_CRIT_CN:   0.800000E-03
+      Real*4 Resource Parameter RASAL1:    1800.00    
+      Real*4 Resource Parameter RASAL2:    43200.0    
+      Real*4 Resource Parameter RASNCL:   -300.000    
+      Real*4 Resource Parameter LAMBDA_FAC:    4.00000    
+      Real*4 Resource Parameter LAMBMX_FAC:    0.00000    
+      Real*4 Resource Parameter MIN_DIAMETER:    200.000    
+      Real*4 Resource Parameter CUFRICLAMBDA:   0.750000E-03
+      Real*4 Resource Parameter RDTLEXPON:    1.00000    
+      Real*4 Resource Parameter STRAPPING:   -1.00000    
+      Real*4 Resource Parameter SDQV2:    1.30000    
+      Real*4 Resource Parameter SDQV3:    1.30000    
+      Real*4 Resource Parameter SDQVT1:    263.000    
+      Real*4 Resource Parameter ACRITFAC:   0.500000    
+      Real*4 Resource Parameter HMINTRIGGER:    1.00000    
+      Real*4 Resource Parameter LLDISAGGXP:    0.00000    
+      Real*4 Resource Parameter PBLFRAC:   0.100000    
+      Real*4 Resource Parameter RASAUTORAMPB:   0.800000    
+      Real*4 Resource Parameter PMIN_DET    3000.00    
+      Real*4 Resource Parameter PMIN_CBL    50000.0    
+      Real*4 Resource Parameter AUTOC_CN_LAND:   0.250000E-02
+      Real*4 Resource Parameter AUTOC_CN_ZDEP:    1.00000    
+      Real*4 Resource Parameter MAXDALLOWED_S:    4000.00    
+      Real*4 Resource Parameter MAXDALLOWED_D:    2000.00    
+      Real*4 Resource Parameter RAS_RHMIN:   0.500000    
+      Real*4 Resource Parameter RAS_RHFULL:   0.650000    
+   Integer*4 Resource Parameter CBL_METHOD:           6
+      Real*4 Resource Parameter CBL_TPERT:    1.00000    
+      Real*4 Resource Parameter CBL_QPERT:    0.00000    
+      Real*4 Resource Parameter CBL_TPERT_MXOCN:    2.00000    
+      Real*4 Resource Parameter CBL_TPERT_MXLND:    4.00000    
+      Real*4 Resource Parameter CNV_Q600_MIN:   0.250000E-02
+      Real*4 Resource Parameter CNV_Q600_MAX:   0.250000E-02
+      Real*4 Resource Parameter CNV_BETA:    10.0000    
+      Real*4 Resource Parameter ANV_BETA:    4.00000    
+      Real*4 Resource Parameter LS_BETA:    4.00000    
+      Real*4 Resource Parameter RH_CRIT:    1.00000    
+      Real*4 Resource Parameter AUTOC_LS:   0.200000E-02
+      Real*4 Resource Parameter QC_CRIT_LS:   0.800000E-03
+      Real*4 Resource Parameter ACCRETION:    2.00000    
+      Real*4 Resource Parameter RAIN_REVAP_FAC:    1.00000    
+      Real*4 Resource Parameter VOL_TO_FRAC:   -1.00000    
+      Real*4 Resource Parameter SUPERSAT:    0.00000    
+      Real*4 Resource Parameter SHEAR_EVAP_FAC:    1.30000    
+      Real*4 Resource Parameter MIN_ALLOW_CCW:   0.100000E-08
+      Real*4 Resource Parameter CCW_EVAP_EFF:   0.330000E-03
+      Real*4 Resource Parameter NSUB_AUTOCONV:    20.0000    
+      Real*4 Resource Parameter LS_SUND_INTER:    4.80000    
+      Real*4 Resource Parameter LS_SUND_COLD:    4.80000    
+      Real*4 Resource Parameter LS_SUND_TEMP1:    230.000    
+      Real*4 Resource Parameter ANV_SUND_INTER:    1.00000    
+      Real*4 Resource Parameter ANV_SUND_COLD:    1.00000    
+      Real*4 Resource Parameter ANV_SUND_TEMP1:    230.000    
+      Real*4 Resource Parameter ANV_TO_LS_TIME:    14400.0    
+      Real*4 Resource Parameter NCCN_WARM:    50.0000    
+      Real*4 Resource Parameter NCCN_ICE:   0.100000E-01
+      Real*4 Resource Parameter NCCN_ANVIL:   0.100000    
+      Real*4 Resource Parameter NCCN_PBL:    200.000    
+      Real*4 Resource Parameter DISABLE_RAD:    0.00000    
+      Real*4 Resource Parameter ICE_SETTLE:    0.00000    
+      Real*4 Resource Parameter ANV_ICEFALL:   0.500000    
+      Real*4 Resource Parameter LS_ICEFALL:   0.500000    
+      Real*4 Resource Parameter REVAP_OFF_P:    2000.00    
+      Real*4 Resource Parameter WRHODEP:   0.500000    
+      Real*4 Resource Parameter ICE_RAMP:   -40.0000    
+      Real*4 Resource Parameter CNV_ICEPARAM:    1.00000    
+      Real*4 Resource Parameter CNV_ICEFRPWR:    4.00000    
+      Real*4 Resource Parameter CNV_DDRF:    0.00000    
+      Real*4 Resource Parameter ANV_DDRF:    0.00000    
+      Real*4 Resource Parameter LS_DDRF:    0.00000    
+      Real*4 Resource Parameter AUTOC_ANV:   0.100000E-02
+      Real*4 Resource Parameter QC_CRIT_ANV:   0.800000E-03
+      Real*4 Resource Parameter TANHRHCRIT:    1.00000    
+      Real*4 Resource Parameter MINRHCRIT:   0.800000    
+      Real*4 Resource Parameter MAXRHCRIT:    1.00000    
+      Real*4 Resource Parameter PRECIPRAD:    0.00000    
+      Real*4 Resource Parameter MAXRHCRITLAND:   0.810000    
+      Real*4 Resource Parameter SNOW_REVAP_FAC:    1.00000    
+      Real*4 Resource Parameter CNV_ENVF:   0.800000    
+      Real*4 Resource Parameter SCLMFDFR:    1.00000    
+      Real*4 Resource Parameter TURNRHCRIT:    750.000    
+      Real*4 Resource Parameter MOVE2RAS:    1.00000    
+      Real*4 Resource Parameter FR_LS_WAT:    1.00000    
+      Real*4 Resource Parameter FR_LS_ICE:    1.00000    
+      Real*4 Resource Parameter FR_AN_WAT:    0.00000    
+      Real*4 Resource Parameter FR_AN_ICE:    0.00000    
+      Real*4 Resource Parameter MIN_RL:   0.100000E-04
+      Real*4 Resource Parameter MIN_RI:   0.200000E-04
+      Real*4 Resource Parameter MAX_RL:   0.210000E-04
+      Real*4 Resource Parameter MAX_RI:   0.400000E-04
+      Real*4 Resource Parameter RI_ANV:   0.300000E-04
+      Real*4 Resource Parameter PDFSHAPE:    1.00000    
+      Real*4 Resource Parameter TURNRHCRIT_UP:    300.000    
+      Real*4 Resource Parameter RSUB_RADIUS:   0.100000E-02
+      Real*4 Resource Parameter MARINE_A0:   0.139868E-01
+      Real*4 Resource Parameter MARINE_A1:   0.358764E-01
+      Real*4 Resource Parameter MARINE_A2:  -0.610214E-01
+      Real*4 Resource Parameter MARINE_A3:  -0.102320E-01
+      Real*4 Resource Parameter MARINE_A4:   0.313520E-02
+      Real*4 Resource Parameter MARINE_A5:   0.346241E-01
+      Real*4 Resource Parameter CONTINENT_A0:  -0.183172E-01
+      Real*4 Resource Parameter CONTINENT_A1:  -0.562338E-01
+      Real*4 Resource Parameter CONTINENT_A2:   0.186274    
+      Real*4 Resource Parameter CONTINENT_A3:  -0.233630E-02
+      Real*4 Resource Parameter CONTINENT_A4:  -0.138380E-02
+      Real*4 Resource Parameter CONTINENT_A5:   0.114759E-01
+      Real*4 Resource Parameter X1_DIVISOR:    4.36000    
+      Real*4 Resource Parameter X2_DIVISOR:    9.27000    
+      Real*4 Resource Parameter X3_DIVISOR:    34.4000    
+      Real*4 Resource Parameter X4_DIVISOR:    21.4000    
+      Real*4 Resource Parameter X5_DIVISOR:    14600.0    
+      Real*4 Resource Parameter X5_EXPONENT:    3.00000    
+      Real*4 Resource Parameter SFC_T_LIMIT:    273.000    
+      Real*4 Resource Parameter AIR_T_LIMIT:    263.000    
+      Real*4 Resource Parameter CLOUD_TOP_LIMIT:    500.000    
+   Integer*4 Resource Parameter CHOOSEMOSFC:           1
+   Integer*4 Resource Parameter INTERPOLATE_ATMLM:           0
+   Integer*4 Resource Parameter CHOOSEZ0:           3
+      Real*4 Resource Parameter OCEANICEZ0:   0.100000E-02
+      Real*4 Resource Parameter OCEANZ0:   0.100000E-02
+      Real*4 Resource Parameter ICEZ0:   0.500000E-03
+   Character Resource Parameter LAI_FILE: lai.data
+   Character Resource Parameter GREEN_FILE: green.data
  NOT using buffer I/O for file: lai.data
+   Integer*4 Resource Parameter PARALLEL_READFORCING:           1
  Using parallel IO for file: lai.data
  Using parallel IO for file: lai.data
  NOT using buffer I/O for file: green.data
  Using parallel IO for file: green.data
  Using parallel IO for file: green.data
+      Real*4 Resource Parameter SCALE4Z0:    2.00000    
+      Real*4 Resource Parameter TURBULENCE_LOUIS:    5.00000    
+      Real*4 Resource Parameter TURBULENCE_LAMBDAM:    160.000    
+      Real*4 Resource Parameter TURBULENCE_LAMBDAM2:    1.00000    
+      Real*4 Resource Parameter TURBULENCE_LAMBDAH:    160.000    
+      Real*4 Resource Parameter TURBULENCE_LAMBDAH2:    1.00000    
+      Real*4 Resource Parameter TURBULENCE_ZKMENV:    3000.00    
+      Real*4 Resource Parameter TURBULENCE_ZKHENV:    3000.00    
+      Real*4 Resource Parameter TURBULENCE_MINTHICK:   0.100000    
+      Real*4 Resource Parameter TURBULENCE_MINSHEAR:   0.300000E-02
+      Real*4 Resource Parameter TURBULENCE_C_B:   0.102000E-06
+      Real*4 Resource Parameter TURBULENCE_LAMBDA_B:    1500.00    
+      Real*4 Resource Parameter TURBULENCE_AKHMMAX:    500.000    
+   Integer*4 Resource Parameter TURBULENCE_LOCK_ON:           1
+      Real*4 Resource Parameter TURBULENCE_PRANDTLSFC:    1.00000    
+      Real*4 Resource Parameter TURBULENCE_PRANDTLRAD:   0.750000    
+      Real*4 Resource Parameter TURBULENCE_BETA_RAD:   0.500000    
+      Real*4 Resource Parameter TURBULENCE_BETA_SURF:   0.250000    
+      Real*4 Resource Parameter TURBULENCE_KHRADFAC:   0.850000    
+      Real*4 Resource Parameter TURBULENCE_KHSFCFAC:   0.450000    
+      Real*4 Resource Parameter TURBULENCE_TPFAC_SURF:    20.0000    
+      Real*4 Resource Parameter TURBULENCE_ENTRATE_SURF:   0.150000E-02
+      Real*4 Resource Parameter TURBULENCE_PCEFF_SURF:   0.500000    
+      Real*4 Resource Parameter TURBULENCE_LOUIS_MEMORY:   -999.000    
+   Integer*4 Resource Parameter TURBULENCE_PBLHT_OPTION:           4
+      Real*4 Resource Parameter ECCENTRICITY:   0.167000E-01
+      Real*4 Resource Parameter OBLIQUITY:    23.4500    
+      Real*4 Resource Parameter PERIHELION:    102.000    
+   Integer*4 Resource Parameter EQUINOX:          80
+   Character Resource Parameter PRECIP_FILE: null
+      Real*4 Resource Parameter SOLAR_CONSTANT:   -1.00000    
+   Integer*4 Resource Parameter INTERPOLATE_ATMTAU:           0
+      Real*4 Resource Parameter LANDICEEMISS:   0.999990    
+      Real*4 Resource Parameter LANDICEALBEDO:   0.580000    
+      Real*4 Resource Parameter LANDICEDEPTH:   0.700000E-01
+      Real*4 Resource Parameter LANDICECOND:    1.20000    
+      Real*4 Resource Parameter LANDICETDEEP:    230.000    
+      Real*4 Resource Parameter SURFLAY:    50.0000    
+   Character Resource Parameter VISDF_FILE: visdf.dat
+   Character Resource Parameter NIRDF_FILE: nirdf.dat
  NOT using buffer I/O for file: visdf.dat
  Previous time forVISDFs is:
            1           4           7           0           0           0
@@ -1016,43 +1235,123 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
            1           4          15           0           0           0
  Using parallel IO for file: nirdf.dat
  Using parallel IO for file: nirdf.dat
+      Real*4 Resource Parameter MAX_SEAICE_DEPTH:   0.700000E-01
+      Real*4 Resource Parameter MIN_SEAICE_DEPTH:   0.700000E-01
+   Integer*4 Resource Parameter USE_SKIN_LAYER:           0
+      Real*4 Resource Parameter MAX_WATER_DEPTH:    20.0000    
+      Real*4 Resource Parameter MIN_WATER_DEPTH:   0.500000    
+      Real*4 Resource Parameter MU_SKIN:   0.200000    
+      Real*4 Resource Parameter STOKES_VELOCITY:   0.100000E-01
+   Integer*4 Resource Parameter USE_KPAR:           1
+      Real*4 Resource Parameter CICE_EMSICE:   0.999990    
+      Real*4 Resource Parameter MAX_SALINITY:    40.0000    
+      Real*4 Resource Parameter MIN_SALINITY:    5.00000    
+      Real*4 Resource Parameter LATSO:    70.0000    
+      Real*4 Resource Parameter LONSO:    70.0000    
+      Real*4 Resource Parameter CICE_FRZMLT_MAX:    1000.00    
+   Integer*4 Resource Parameter DIAG_ICE_BUDGET:           0
+   Integer*4 Resource Parameter COOL_SKIN_LAYER_ITERATIONS           3
+      Real*4 Resource Parameter THRESHOLD_ICE_FR_SST:   0.150000    
+      Real*4 Resource Parameter FRESH_NEW_ICE_MIN_SALINITY:    5.00000    
+      Real*4 Resource Parameter CICE_ICE_THICKNESS_THRESH:    1.50000    
+      Real*4 Resource Parameter CICE_ICE_ARTIFICIAL_MELT:   0.100000    
+      Real*4 Resource Parameter SHVC_EFFECT:    0.00000    
   
  PCHEM::Run: Indices selected from climatology are         1563        1564
   
+      Real*4 Resource Parameter CH4_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter CH4_RELAXTIME:    259200.    
+      Real*4 Resource Parameter CH4_DELP:    5000.00    
+      Real*4 Resource Parameter CH4_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter N2O_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter N2O_RELAXTIME:    259200.    
+      Real*4 Resource Parameter N2O_DELP:    5000.00    
+      Real*4 Resource Parameter N2O_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter CFC11_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter CFC11_RELAXTIME:    259200.    
+      Real*4 Resource Parameter CFC11_DELP:    5000.00    
+      Real*4 Resource Parameter CFC11_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter CFC12_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter CFC12_RELAXTIME:    259200.    
+      Real*4 Resource Parameter CFC12_DELP:    5000.00    
+      Real*4 Resource Parameter CFC12_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter HCFC22_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter HCFC22_RELAXTIME:    259200.    
+      Real*4 Resource Parameter HCFC22_DELP:    5000.00    
+      Real*4 Resource Parameter HCFC22_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter OX_FIXED_VALUE:   -1.00000    
+      Real*4 Resource Parameter OX_RELAXTIME:    259200.    
+      Real*4 Resource Parameter OX_DELP:    5000.00    
+      Real*4 Resource Parameter OX_PCRIT:   0.100000E+17
+      Real*4 Resource Parameter H2O_RELAXTIME:    259200.    
+      Real*4 Resource Parameter H2O_DELP:    5000.00    
+      Real*4 Resource Parameter H2O_PCRIT:    20000.0    
+      Real*4 Resource Parameter PRS_LOW_MID_CLOUDS:    70000.0    
+      Real*4 Resource Parameter PRS_MID_HIGH_CLOUDS:    40000.0    
+      Real*4 Resource Parameter CO2:   -1.00000    
+   Integer*4 Resource Parameter SUN_FLAG:           0
+   Integer*4 Resource Parameter SOLAR_LOAD_BALANCE:           1
  
  Updated CO2 in solar for year/day 2000/105 is  0.36854E-03
  
  
  Updated Solar Constant for year/day 2000/105 is  0.13618E+04
  
+   Integer*4 Resource Parameter CALLED_LAST:           1
+      Real*4 Resource Parameter TAUCRIT:   0.100000    
+   Character Resource Parameter KPAR_FILE: SEAWIFS_KPAR_mon_clim.data
  NOT using buffer I/O for file: SEAWIFS_KPAR_mon_clim.data
  Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
  Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
+      Real*4 Resource Parameter MIT_TAU_MIN:    60.0000    
+      Real*4 Resource Parameter MIT_TAU_MAX:    86400.0    
+      Real*4 Resource Parameter MIT_M3:    1.00000    
+      Real*4 Resource Parameter MIT_SKINH:    2.00000    
+  Starting plug run method 
+   Integer*4 Resource Parameter STEADY_STATE_OCEAN:           1
+  Finished plug run method 
+   Integer*4 Resource Parameter INTERPOLATE_OCEAN_ICE_CURRENTS:           0
+ AGCM Date: 2000/04/14  Time: 21:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 21:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 21:45:00
+      Real*4 Resource Parameter USE_RRTMG_SORAD:    0.00000    
+      Real*4 Resource Parameter USE_RRTMG_IRRAD:    0.00000    
+   Integer*4 Resource Parameter NUM_BANDS:          18
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 22:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 22:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 22:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 22:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 23:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 23:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 23:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/14  Time: 23:45:00
   Starting plug run method 
   Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 00:00:00
  
+ Writing:    483 Slices (  2 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0000z.nc4
+ Writing:    148 Slices (  1 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_surf.20000414_2230z.nc4
+ Writing:    111 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000414_2230z.nc4
  
   
  PCHEM::Run: Indices selected from climatology are         1563        1564
@@ -1065,217 +1364,354 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 00:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 00:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 00:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 01:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 01:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 01:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 01:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 02:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 02:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 02:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 02:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 03:00:00
  
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
+ Writing:    148 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0130z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0130z.nc4
  
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 03:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 03:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 03:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 04:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 04:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 04:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 04:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 05:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 05:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 05:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 05:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 06:00:00
  
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
+ Writing:    483 Slices (  2 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0600z.nc4
+ Writing:    148 Slices (  1 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0430z.nc4
+ Writing:    111 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0430z.nc4
  
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 06:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 06:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 06:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 07:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 07:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 07:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 07:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 08:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 08:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 08:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 08:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 09:00:00
  
- 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
-  Starting plug run method 
-  Finished plug run method 
- 
+ Writing:    148 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0730z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0730z.nc4
  
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 09:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 09:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 09:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 10:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 10:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 10:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 10:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 11:00:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 11:15:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 11:30:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 11:45:00
   Starting plug run method 
   Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 12:00:00
  
+ Writing:    483 Slices (  2 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1200z.nc4
+ Writing:    148 Slices (  1 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1030z.nc4
+ Writing:    111 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1030z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 12:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 12:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 12:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 13:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 13:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 13:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 13:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 14:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 14:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 14:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 14:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 15:00:00
+ 
+ Writing:    148 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1330z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1330z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 15:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 15:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 15:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 16:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 16:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 16:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 16:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 17:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 17:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 17:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 17:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 18:00:00
+ 
+ Writing:    483 Slices (  2 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1800z.nc4
+ Writing:    148 Slices (  1 Nodes,  2 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1630z.nc4
+ Writing:    111 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1630z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 18:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 18:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 18:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 19:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 19:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 19:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 19:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 20:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 20:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 20:30:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 20:45:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 21:00:00
+ 
+ Writing:    148 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1930z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1930z.nc4
  
  
    -----------------------------------------------------
       Block          User time  System Time   Total Time
    -----------------------------------------------------
-   TOTAL                      200.6300       0.0000     200.6300
-   COMM_TOTAL                   2.5982       0.0000       2.5982
-   C_SW                         0.6065       0.0000       0.6065
-   D_SW                         2.1046       0.0000       2.1046
-   FV_TP_2D                     7.3366       0.0000       7.3366
-   TRACER_2D                    8.5956       0.0000       8.5956
-   COMM_TRAC                    1.0753       0.0000       1.0753
-   REMAPPING                    3.0588       0.0000       3.0588
+   TOTAL                      182.6761       0.0000     182.6761
+   COMM_TOTAL                   2.2744       0.0000       2.2744
+   C_SW                         0.4807       0.0000       0.4807
+   D_SW                         1.7691       0.0000       1.7691
+   FV_TP_2D                     6.2719       0.0000       6.2719
+   TRACER_2D                    7.3466       0.0000       7.3466
+   COMM_TRAC                    0.9269       0.0000       0.9269
+   REMAPPING                    2.3351       0.0000       2.3351
  
+   Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
+   Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: fvcore_internal_checkpoint
+   Character Resource Parameter MOIST_INTERNAL_CHECKPOINT_FILE: moist_internal_checkpoint
+   Character Resource Parameter MOIST_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: moist_internal_checkpoint
+   Character Resource Parameter MOIST_IMPORT_CHECKPOINT_FILE: moist_import_checkpoint
+   Character Resource Parameter MOIST_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: moist_import_checkpoint
  Deallocating column physics arrays from SALTWATERFinalize
+   Character Resource Parameter SALTWATER_INTERNAL_CHECKPOINT_FILE: saltwater_internal_checkpoint
+   Character Resource Parameter SALTWATER_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: saltwater_internal_checkpoint
+   Character Resource Parameter SALTWATER_IMPORT_CHECKPOINT_FILE: saltwater_import_checkpoint
+   Character Resource Parameter SALTWATER_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: saltwater_import_checkpoint
+   Character Resource Parameter LAKE_INTERNAL_CHECKPOINT_FILE: lake_internal_checkpoint
+   Character Resource Parameter LAKE_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: lake_internal_checkpoint
+   Character Resource Parameter LANDICE_INTERNAL_CHECKPOINT_FILE: landice_internal_checkpoint
+   Character Resource Parameter LANDICE_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: landice_internal_checkpoint
+   Character Resource Parameter CATCH_INTERNAL_CHECKPOINT_FILE: catch_internal_checkpoint
+   Character Resource Parameter CATCH_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: catch_internal_checkpoint
+   Character Resource Parameter SURFACE_IMPORT_CHECKPOINT_FILE: surf_import_checkpoint
+   Character Resource Parameter SURFACE_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: surf_import_checkpoint
+   Character Resource Parameter TURBULENCE_INTERNAL_CHECKPOINT_FILE: turb_internal_checkpoint
+   Character Resource Parameter TURBULENCE_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: turb_internal_checkpoint
+   Character Resource Parameter TURBULENCE_IMPORT_CHECKPOINT_FILE: turb_import_checkpoint
+   Character Resource Parameter TURBULENCE_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: turb_import_checkpoint
+   Character Resource Parameter PCHEM_INTERNAL_CHECKPOINT_FILE: pchem_internal_checkpoint
+   Character Resource Parameter PCHEM_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: pchem_internal_checkpoint
+   Character Resource Parameter GOCART.data_INTERNAL_CHECKPOINT_FILE: gocartdata_internal_checkpoint
+   Character Resource Parameter GOCART.data_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: gocartdata_internal_checkpoint
+   Character Resource Parameter TR_INTERNAL_CHECKPOINT_FILE: tr_internal_checkpoint
+   Character Resource Parameter TR_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: tr_internal_checkpoint
+   Character Resource Parameter TR_IMPORT_CHECKPOINT_FILE: tr_import_checkpoint
+   Character Resource Parameter TR_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: tr_import_checkpoint
+   Character Resource Parameter SOLAR_INTERNAL_CHECKPOINT_FILE: solar_internal_checkpoint
+   Character Resource Parameter SOLAR_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: solar_internal_checkpoint
+   Character Resource Parameter IRRAD_INTERNAL_CHECKPOINT_FILE: irrad_internal_checkpoint
+   Character Resource Parameter IRRAD_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: irrad_internal_checkpoint
+   Character Resource Parameter ORAD_IMPORT_CHECKPOINT_FILE: orad_import_checkpoint
+   Character Resource Parameter ORAD_IMPORT_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: orad_import_checkpoint
  NOT using buffer I/O for file: cap_restart
 GEOSgcm Run Status: 0
