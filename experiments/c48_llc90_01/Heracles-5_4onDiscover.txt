@@ -33,9 +33,6 @@ cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
-cvs -q co MITgcm/verification/testreport
-cvs -q co MITgcm/verification/tutorial_held_suarez_cs
-cvs -q co MITgcm/verification/global_ocean.cs32x15
 
 # Request interactive job
 ~atrayano/bin/interactive.py -X -n 96 --nomail --debug
