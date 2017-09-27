@@ -2,6 +2,8 @@ c12_cs32_01 : c12/cs32, 1-day, hourly output
 
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
 
+c48_llc90_02 : c48/llc90, 1-day ECCO_v4_r2 set-up
+
 exp02 : c48/cs32, 1-year, daily output
  - did not complete a full year
    20000414 to 20000916, 5 months only for some reason

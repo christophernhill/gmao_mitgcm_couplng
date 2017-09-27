@@ -1,5 +1,7 @@
+  * Created 48_llc90_02, a c48/llc90, 1-day experiment with ECCOv4r2 set-up
+
 - checkpoint_0_O (2017/09/21, compatible with MITgcm checkpoint66k)
-  * checking in c48_llc90_01, a c48/llc90, 1-day experiment
+  * Created c48_llc90_01, a c48/llc90, 1-day experiment
     with simplified llc90 set-up for testing.
 
 - checkpoint_0_N (2017/09/20, compatible with MITgcm checkpoint66k)
