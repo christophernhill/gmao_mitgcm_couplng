@@ -104,6 +104,13 @@ cd $WorkingDir/TEST
 ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
 ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
+# Populate the input_mit directory
+cd $WorkingDir/TEST
+mkdir input_mit
+cd input_mit
+ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
+ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
+
 # Run coupled code as an interactive jobs
 # Alternatively try "qsub gcm_run.j"
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/verification
