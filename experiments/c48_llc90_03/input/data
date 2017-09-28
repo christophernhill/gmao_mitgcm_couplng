@@ -56,7 +56,7 @@
  &PARM03
  nIter0=1,
  nTimeSteps=175295,
- deltaT=3600.,
+ deltaT=900.,
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
