@@ -119,7 +119,6 @@ cvs -q co MITgcm/verification/global_ocean.cs32x15
  setenv ESMA_NOCVS
  setenv MITGCM_ROOT $WorkingDir/MITgcm
  setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
- cd $GMAO_MITGCM_COUPLNG
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
