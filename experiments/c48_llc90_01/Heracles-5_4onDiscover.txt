@@ -49,7 +49,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
- cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02
+ cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_01
  mkdir build ; cd build; \rm *
  setenv ROOTDIR $WorkingDir/MITgcm
  setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
@@ -63,8 +63,8 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
  ./mk_local ../../experiments/c48_llc90_01/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
  \rm code input
- ln -s ../experiments/c12_cs32_01/code .
- ln -s ../experiments/c12_cs32_01/input .
+ ln -s ../experiments/c48_llc90_01/code .
+ ln -s ../experiments/c48_llc90_01/input .
  cd build
  \rm *.a *.c *.f *.h *.o *.F
 
