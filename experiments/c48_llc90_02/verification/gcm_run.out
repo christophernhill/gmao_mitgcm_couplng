@@ -1,66 +1,66 @@
-g5_modules: Setting BASEDIR and modules for borgt165
-[1] 6594
-[2] 6595
+g5_modules: Setting BASEDIR and modules for borgo113
+[1] 30102
+[2] 30103
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_import_rst ) /bin/cp ...
-[3] 6596
+[3] 30104
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_internal_rst )  ...
-[4] 6597
-[5] 6598
-[6] 6599
-[7] 6600
+[4] 30105
+[5] 30106
 [4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/lake_internal_rst )  ...
-[8] 6601
-[9] 6602
-[1] 6603
-[2] 6604
-[4] 6605
-[10] 6606
-[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catchcn_internal_rst )  ...
-[7] 6607
-[11] 6608
-[12] 6609
-[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
-[10]   Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
+[6] 30107
+[7] 30108
+[8] 30109
+[9] 30110
+[1] 30111
 [9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_import_rst )  ...
-[1] 6610
-[12]   Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
-[2] 6611
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
-[1] 6612
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
-[2] 6613
+[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catchcn_internal_rst )  ...
+[9] 30112
+[2] 30113
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
+[9] 30114
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
+[1] 30115
+[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
+[9] 30116
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
+[1] 30117
+[2] 30118
+[4] 30119
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
+[1] 30120
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
+[2] 30121
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
+[4] 30122
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/carma_internal_rst )  ...
-[1] 6614
+[1] 30123
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
-[2] 6615
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
-[1] 6616
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
-[2] 6617
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
-[1] 6618
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
-[2] 6619
+[2] 30124
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
+[4] 30125
+[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
+[1] 30126
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
+[2] 30127
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
+[4] 30128
 [1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
-[1] 6620
+[1] 30129
 [2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
-[2] 6621
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
-[1] 6622
-[4] 6623
-[7] 6624
-[9] 6625
+[2] 30130
+[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
+[4] 30131
+[7] 30133
+[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
+[2] 30134
 [4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
-[1] 6626
+[4] 30135
 [7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
-[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
-[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
-[2]  - Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
-[11] + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
+[4]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
+[2]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
+[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
+[9]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
 [8]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_internal_rst )  ...
 [6]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catch_internal_rst )  ...
 [5]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/landice_internal_rst )  ...
@@ -126,20 +126,20 @@ whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
  create_grid: Looking for cubed-grid mosaic: Inline
  create_grid: Creating Global cubed-grid 
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
@@ -1635,14 +1635,14 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
    -----------------------------------------------------
       Block          User time  System Time   Total Time
    -----------------------------------------------------
-   TOTAL                      213.6856       0.0000     213.6856
-   COMM_TOTAL                   2.2819       0.0000       2.2819
-   C_SW                         0.4959       0.0000       0.4959
-   D_SW                         1.7723       0.0000       1.7723
-   FV_TP_2D                     6.2921       0.0000       6.2921
-   TRACER_2D                    7.3171       0.0000       7.3171
-   COMM_TRAC                    0.9274       0.0000       0.9274
-   REMAPPING                    2.3373       0.0000       2.3373
+   TOTAL                      199.1373       0.0000     199.1373
+   COMM_TOTAL                   2.2528       0.0000       2.2528
+   C_SW                         0.4772       0.0000       0.4772
+   D_SW                         1.7518       0.0000       1.7518
+   FV_TP_2D                     6.2480       0.0000       6.2480
+   TRACER_2D                    7.2904       0.0000       7.2904
+   COMM_TRAC                    0.9247       0.0000       0.9247
+   REMAPPING                    2.3258       0.0000       2.3258
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
