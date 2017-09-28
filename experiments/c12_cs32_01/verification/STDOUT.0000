@@ -8,7 +8,7 @@
 (PID.TID 0000.0001) // MITgcmUV version:  checkpoint66k
 (PID.TID 0000.0001) // Build user:        heracles
 (PID.TID 0000.0001) // Build host:        heracles
-(PID.TID 0000.0001) // Build date:        Sat Sep 23 12:48:01 PDT 2017
+(PID.TID 0000.0001) // Build date:        Wed Sep 27 21:56:52 PDT 2017
 (PID.TID 0000.0001) 
 (PID.TID 0000.0001) // =======================================================
 (PID.TID 0000.0001) // Execution Environment parameter file "eedata"
@@ -168,11 +168,7 @@
 (PID.TID 0000.0001)  PACKAGES_BOOT: On/Off package Summary
  --------  pkgs with a standard "usePKG" On/Off switch in "data.pkg":  --------
  pkg/gmredi               compiled   and   used ( useGMRedi                = T )
- pkg/cal                  compiled but not used ( useCAL                   = F )
- pkg/exf                  compiled but not used ( useEXF                   = F )
  pkg/bulk_force           compiled but not used ( useBulkForce             = F )
- pkg/seaice               compiled but not used ( useSEAICE                = F )
- pkg/thsice               compiled but not used ( useThSIce                = F )
  pkg/diagnostics          compiled   and   used ( useDiagnostics           = T )
  -------- pkgs without standard "usePKG" On/Off switch in "data.pkg":  --------
  pkg/generic_advdiff      compiled   and   used ( useGAD                   = T )

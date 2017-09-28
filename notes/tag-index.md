@@ -1,6 +1,9 @@
+  * Created 48_llc90_03, a c48/llc90, 1-day experiment with
+    llc4320-like set-up
   * All MITgcm input files are expected to be in $EXPDIR/input_mit,
     which is populated separately.
-  * Created 48_llc90_02, a c48/llc90, 1-day experiment with ECCOv4r2 set-up
+  * Created 48_llc90_02, a c48/llc90, 1-day experiment with
+    ECCOv4r2-like set-up
 
 - checkpoint_0_O (2017/09/21, compatible with MITgcm checkpoint66k)
   * Created c48_llc90_01, a c48/llc90, 1-day experiment

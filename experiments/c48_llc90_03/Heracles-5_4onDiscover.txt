@@ -1,9 +1,10 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c12_cs32_01/Heracles-5_4onPleiades.txt
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_03/Heracles-5_4onDiscover.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
-setenv WorkingDir /nobackup/$USER/geos5
+module load other/git
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 mkdir $WorkingDir
 
 # Get GEOS-5
@@ -32,20 +33,16 @@ cd $WorkingDir
 setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
-cvs -q co MITgcm/verification/testreport
-cvs -q co MITgcm/verification/tutorial_held_suarez_cs
-cvs -q co MITgcm/verification/global_ocean.cs32x15
 
-# Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=1:ncpus=20:model=ivy,walltime=2:00:00
+# Request interactive job
+~atrayano/bin/interactive.py -X -n 96 --nomail --debug
 tcsh
-setenv WorkingDir /nobackup/$USER/geos5
+setenv WorkingDir $NOBACKUP/Heracles-5_4
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
  setenv ESMA_NOCVS
- setenv ESMADIR $WorkingDir/GEOSodas
  setenv MITGCM_ROOT $WorkingDir/MITgcm
  setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
  cd $GMAO_MITGCM_COUPLNG
@@ -53,21 +50,22 @@ setenv WorkingDir /nobackup/$USER/geos5
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
- cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
+ cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03
  mkdir build ; cd build; rm *
  setenv ROOTDIR $WorkingDir/MITgcm
- $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+mpi_ice_nas -ieee
+ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
+ $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
- ./mk_local ../../experiments/c12_cs32_01/build
+ ./mk_local ../../experiments/c48_llc90_03/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
- ./mk_local ../../experiments/c12_cs32_01/build
+ ./mk_local ../../experiments/c48_llc90_03/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
- rm code input
- ln -s ../experiments/c12_cs32_01/code .
- ln -s ../experiments/c12_cs32_01/input .
+ rm -rf code input
+ ln -s ../experiments/c48_llc90_03/code .
+ ln -s ../experiments/c48_llc90_03/input .
  cd build
  rm *.a *.c *.f *.h *.o *.F
 
@@ -78,7 +76,7 @@ setenv WorkingDir /nobackup/$USER/geos5
  cd $WorkingDir/GEOSodas/src
  gmake pinstall -j 16 |& tee makeinstall.log
 
-# Set up coupled code for experiments/c12_cs32_01
+# Set up coupled code for experiments/c48_llc90_03
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
  cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -86,40 +84,34 @@ setenv WorkingDir /nobackup/$USER/geos5
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c12
+# Enter the Atmospheric Horizontal Resolution code: c48
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: cs32
-# Enter the Ocean Model Vertical Resolution: 15
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc90
+# Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: /nobackup/$USER/geos5/TEST
-# Enter Desired Location for EXPERIMENT: /nobackup/$USER/geos5/TEST
-# Enter Location for Build directory: /nobackup/$USER/geos5/GEOSodas
-# Enter your GROUP ID for Current EXP: g26209
+# Enter Desired Location for HOME: $NOBACKUP/Heracles-5_4/TEST
+# Enter Desired Location for EXPERIMENT: $NOBACKUP/Heracles-5_4/TEST
+# Enter Location for Build directory: $NOBACKUP/Heracles-5_4/GEOSodas
+# Enter your GROUP ID for Current EXP: s1353
 
-# Get GEOS-5 boundary conditions for experiments/c12_cs32_01
- cd $WorkingDir
- tar -xf /nobackup/dmenemen/GEOS5/geos5-tiny.tgz 
- find TinyFromMatt -type d | xargs chmod g+rxs
- find TinyFromMatt -type f | xargs chmod g+r
- cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
+# Get GEOS-5 boundary conditions for experiments/c48_llc90_03
+cd $WorkingDir/TEST
+ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
+ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
 # Populate the input_mit directory
 cd $WorkingDir/TEST
 mkdir input_mit
 cd input_mit
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
-ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
+ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
 ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
-# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/verification
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out

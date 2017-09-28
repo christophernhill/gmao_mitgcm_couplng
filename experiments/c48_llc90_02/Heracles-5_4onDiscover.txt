@@ -46,13 +46,12 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
  setenv MITGCM_ROOT $WorkingDir/MITgcm
  setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
  cd $GMAO_MITGCM_COUPLNG
- ./set_mitgcm_env.sh
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02
- mkdir build ; cd build
+ mkdir build ; cd build; rm *
  setenv ROOTDIR $WorkingDir/MITgcm
  setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
  $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
@@ -64,7 +63,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
  ./mk_local ../../experiments/c48_llc90_02/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
- rm -rf code input
+ rm code input
  ln -s ../experiments/c48_llc90_02/code .
  ln -s ../experiments/c48_llc90_02/input .
  cd build
@@ -111,7 +110,7 @@ cd input_mit
 ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
 ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
-# Run coupled code as an interactive jobs
+# Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/verification
 cd $WorkingDir/TEST
