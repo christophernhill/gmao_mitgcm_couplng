@@ -1,3 +1,6 @@
+  * Added new gcm_run.j to the GEOS5 repository
+  * All MITgcm input files are expected to be in $EXPDIR/mit_input
+    instead input_mit.
   * Created 48_llc90_03, a c48/llc90, 1-day experiment with
     llc4320-like set-up
   * All MITgcm input files are expected to be in $EXPDIR/input_mit,
