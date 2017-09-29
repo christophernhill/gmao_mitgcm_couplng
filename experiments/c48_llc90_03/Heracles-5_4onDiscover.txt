@@ -34,7 +34,7 @@ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
-# Request interactive job
+# Request interactive job and set WorkingDir to same location as above
 ~atrayano/bin/interactive.py -X -n 96 --nomail --debug
 tcsh
 setenv WorkingDir $NOBACKUP/Heracles-5_4
