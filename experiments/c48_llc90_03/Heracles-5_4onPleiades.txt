@@ -34,7 +34,7 @@ cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=1:ncpus=20:model=ivy,walltime=2:00:00
+qsub -I -q devel -l select=5:ncpus=20:model=ivy,walltime=2:00:00
 tcsh
 setenv WorkingDir /nobackup/$USER/geos5
 
@@ -69,7 +69,7 @@ setenv WorkingDir /nobackup/$USER/geos5
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
-# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
  cd $WorkingDir/GEOSodas/src
  gmake pinstall -j 16 |& tee makeinstall.log
 
@@ -97,16 +97,14 @@ setenv WorkingDir /nobackup/$USER/geos5
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_03
 cd $WorkingDir/TEST
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
 
 # Populate the input_mit directory
 cd $WorkingDir/TEST
 mkdir input_mit
 cd input_mit
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
-ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
 ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
 # Run coupled code as an interactive job
