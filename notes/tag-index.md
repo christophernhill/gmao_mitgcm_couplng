@@ -1,3 +1,5 @@
+- checkpoint_0_P (2017/10/01, compatible with MITgcm -D "09/30/17")
+  * Added instructions and verification output for pleiades
   * Added new gcm_run_restart.j to the GEOS5 repository with restart capability
   * All MITgcm input files are expected to be in $EXPDIR/mit_input
     instead input_mit.
