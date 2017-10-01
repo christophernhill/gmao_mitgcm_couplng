@@ -109,6 +109,6 @@ ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
-# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/verification
+# Some verification output in $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/verification
 cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out

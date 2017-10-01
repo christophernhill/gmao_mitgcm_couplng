@@ -71,7 +71,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
-# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
  cd $WorkingDir/GEOSodas/src
  gmake pinstall -j 16 |& tee makeinstall.log
 

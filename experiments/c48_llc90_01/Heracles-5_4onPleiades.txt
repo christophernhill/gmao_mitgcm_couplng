@@ -1,10 +1,9 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_01/Heracles-5_4onDiscover.txt
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_01/Heracles-5_4onPleiades.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
-module load other/git
-setenv WorkingDir $NOBACKUP/Heracles-5_4
+setenv WorkingDir /nobackup/$USER/geos5
 mkdir $WorkingDir
 
 # Get GEOS-5
@@ -34,10 +33,10 @@ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
 cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
-# Request interactive job
-~atrayano/bin/interactive.py -X -n 96 --nomail --debug
+# Request interactive job and set WorkingDir to same location as above
+qsub -I -q devel -l select=5:ncpus=20:model=ivy,walltime=2:00:00
 tcsh
-setenv WorkingDir $NOBACKUP/Heracles-5_4
+setenv WorkingDir /nobackup/$USER/geos5
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
@@ -52,8 +51,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_01
  mkdir build ; cd build; \rm *
  setenv ROOTDIR $WorkingDir/MITgcm
- setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
- $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
+ $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+mpi_ice_nas -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
@@ -71,7 +69,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 # If the build is successful, it will create:
-# $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
  cd $WorkingDir/GEOSodas/src
  gmake pinstall -j 16 |& tee makeinstall.log
 
@@ -92,21 +90,21 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 # Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $NOBACKUP/Heracles-5_4/TEST
-# Enter Desired Location for EXPERIMENT: $NOBACKUP/Heracles-5_4/TEST
-# Enter Location for Build directory: $NOBACKUP/Heracles-5_4/GEOSodas
-# Enter your GROUP ID for Current EXP: s1353
+# Enter Desired Location for HOME: /nobackup/$USER/geos5/TEST
+# Enter Desired Location for EXPERIMENT: /nobackup/$USER/geos5/TEST
+# Enter Location for Build directory: /nobackup/$USER/geos5/GEOSodas
+# Enter your GROUP ID for Current EXP: g26209
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_01
 cd $WorkingDir/TEST
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
 
 # Populate the input_mit directory
 cd $WorkingDir/TEST
 mkdir input_mit
 cd input_mit
-ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
+ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
 ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
 # Run coupled code as an interactive job
