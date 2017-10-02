@@ -102,7 +102,7 @@ cd $WorkingDir/TEST
 ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
 ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
-# Populate the input_mit directory
+# Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
