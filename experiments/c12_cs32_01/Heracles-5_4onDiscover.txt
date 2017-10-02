@@ -110,7 +110,7 @@ setenv WorkingDir $NOBACKUP/Heracles-5_4
 $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 
-# Populate the input_mit directory
+# Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
