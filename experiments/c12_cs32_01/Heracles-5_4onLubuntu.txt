@@ -182,10 +182,10 @@ cvs -q co MITgcm/verification/global_ocean.cs32x15
 $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 
-# Populate the input_mit directory
+# Populate the mit_input directory
 cd $WorkingDir/TEST
-mkdir input_mit
-cd input_mit
+mkdir mit_input
+cd mit_input
 ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
 ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
 ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
