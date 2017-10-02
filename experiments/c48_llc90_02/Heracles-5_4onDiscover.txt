@@ -104,8 +104,8 @@ ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
 # Populate the input_mit directory
 cd $WorkingDir/TEST
-mkdir input_mit
-cd input_mit
+mkdir mit_input
+cd mit_input
 ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
 ln -sf $GMAO_MITGCM_COUPLNG/mitgcm_setup/input/* .
 
