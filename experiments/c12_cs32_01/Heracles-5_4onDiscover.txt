@@ -54,7 +54,7 @@ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_Gri
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
 cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
-mkdir build ; cd build; \rm *
+mkdir build; cd build; \rm *
 setenv ROOTDIR $WorkingDir/MITgcm
 setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
 $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
