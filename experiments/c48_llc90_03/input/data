@@ -62,7 +62,6 @@
  momDissip_In_AB=.FALSE.,
  chkptFreq   = 43200.0,
  dumpfreq = 3600.,
- monitorFreq = 360.,
  dumpInitAndLast=.FALSE.,
  monitorFreq = 7200.0,
  &

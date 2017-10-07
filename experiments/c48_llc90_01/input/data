@@ -67,7 +67,6 @@
  chkptFreq   =31536000.0,
  monitorFreq = 3600.0,
  dumpInitAndLast = .FALSE.,
- adjMonitorFreq = 864000.0,
  pickupStrictlyMatch=.FALSE.,
  &
 
