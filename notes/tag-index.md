@@ -1,8 +1,11 @@
-- checkpoint_0_P (2017/10/01, compatible with MITgcm -D "09/30/17")
+- checkpoint_0_Q (2017/10/07, compatible with MITgcm -D "10/07/17")
+  * Moved gcm_run_restart.j to gcm_run.j
+  * All MITgcm input files are now expected to be in
+    $EXPDIR/mit_input instead $EXPDIR/input_mit
+
+- checkpoint_0_P (2017/10/01, compatible with MITgcm -D "10/01/17")
   * Added instructions and verification output for pleiades
   * Added new gcm_run_restart.j to the GEOS5 repository with restart capability
-  * All MITgcm input files are expected to be in $EXPDIR/mit_input
-    instead input_mit.
   * Created 48_llc90_03, a c48/llc90, 1-day experiment with
     llc4320-like set-up
   * All MITgcm input files are expected to be in $EXPDIR/input_mit,
