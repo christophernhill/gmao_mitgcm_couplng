@@ -14,6 +14,9 @@ c48_llc90_02 : c48/llc90, 1-day ECCO_v4_r2 set-up
 c48_llc90_03 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit
 
+c48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
+ - uses GEOSodas b_geos5mit-i30
+
 exp_1p1eq2 : c48/cs32 1day + 1day = 2days 
  - USE_CICE_Thermo: 0
  - 24 processors

@@ -1,0 +1,5 @@
+# Packages
+ &PACKAGES
+ useKPP         = .TRUE.,
+ useFRAZIL      = .TRUE.,
+ /

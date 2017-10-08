@@ -1,3 +1,5 @@
+  * Created experiments/c48_llc90_04 to test GEOSodas b_geos5mit-i30
+
 - checkpoint_0_Q (2017/10/07, compatible with MITgcm -D "10/07/17")
   * Moved gcm_run_restart.j to gcm_run.j
   * All MITgcm input files are now expected to be in
