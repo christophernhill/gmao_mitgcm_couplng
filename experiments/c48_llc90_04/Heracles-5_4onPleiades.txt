@@ -1,5 +1,5 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_03/Heracles-5_4onPleiades.txt
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_04/Heracles-5_4onPleiades.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
@@ -48,7 +48,7 @@ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_Gri
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03
+cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_04
 mkdir build; cd build; \rm *
 setenv ROOTDIR $WorkingDir/MITgcm
 $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+mpi_ice_nas -ieee
@@ -56,12 +56,12 @@ make depend
 
 #- Generate modified src code and Makefile for MITgcm
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c48_llc90_03/build
+./mk_local ../../experiments/c48_llc90_04/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c48_llc90_03/build
+./mk_local ../../experiments/c48_llc90_04/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
 \rm code
-ln -s ../experiments/c48_llc90_03/code .
+ln -s ../experiments/c48_llc90_04/code .
 cd build
 \rm *.a *.c *.f *.h *.o *.F
 
@@ -72,7 +72,7 @@ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
-# Set up coupled code for experiments/c48_llc90_03
+# Set up coupled code for experiments/c48_llc90_04
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -87,24 +87,26 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
-# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Do you wish to run GOCART with Actual or Climatological Aerosols? A
+# Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: /nobackup/$USER/geos5/TEST
 # Enter Desired Location for EXPERIMENT: /nobackup/$USER/geos5/TEST
 # Enter Location for Build directory: /nobackup/$USER/geos5/GEOSodas
 # Enter your GROUP ID for Current EXP: g26209
 
-# Get GEOS-5 boundary conditions for experiments/c48_llc90_03
+# Get GEOS-5 boundary conditions for experiments/c48_llc90_04
 cd $WorkingDir/TEST
 ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
 ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
+cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_04/CAP.rc .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
 ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/input/* .
+cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_04/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
@@ -113,4 +115,4 @@ cd $WorkingDir/TEST
 
 # Verify output
 diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/verification/STDOUT.0000_pleiades
+$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_04/verification/STDOUT.0000

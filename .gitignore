@@ -2,6 +2,7 @@ experiments/c12_cs32_01/build
 experiments/c48_llc90_01/build
 experiments/c48_llc90_02/build
 experiments/c48_llc90_03/build
+experiments/c48_llc90_04/build
 mitgcm_setup/build/Makefile
 mitgcm_setup/code
 mitgcm_setup/input
