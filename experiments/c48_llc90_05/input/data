@@ -36,8 +36,7 @@
 # debuglevel=-1,
  convertFW2Salt=-1.,
  useRealFreshWaterFlux=.TRUE.,
-# change useSingleCPUio to .FALSE. for asyncio
- useSingleCPUio=.TRUE.,
+ useSingleCPUio=.FALSE.,
  useSingleCpuInput=.TRUE.,
  globalFiles=.TRUE.,
  readBinaryPrec=32,
