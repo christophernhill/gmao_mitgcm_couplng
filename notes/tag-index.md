@@ -1,3 +1,6 @@
+- checkpoint_0_R (2017/10/09, compatible with MITgcm -D "10/09/17")
+  * Created experiments/c48_llc90_05 to test GEOSodas b_geos5mit-i30
+    inclusing GEOS USE_IOSERVER and MITgcm asyncio
   * Created experiments/c48_llc90_04 to test GEOSodas b_geos5mit-i30
 
 - checkpoint_0_Q (2017/10/07, compatible with MITgcm -D "10/07/17")
