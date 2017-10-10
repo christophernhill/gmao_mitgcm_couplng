@@ -269,6 +269,11 @@ bufHdr_t *inUseTileBufs_ptr = NULL;
 int maxTagValue = -1;
 int totalNumTiles = -1;
 
+int NumCoresAvail = 16;
+void NumCoresSet(int n) {
+  NumCoresAvail = n;
+}
+
 // routine to convert double to float during memcpy
 // need to get byteswapping in here as well
 memcpy_r8_2_r4 (float *f, double *d, long long *n)
@@ -1413,7 +1418,7 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
 int
 getNumCores(void)
 {
-  return 16;  // until we figure out why this cratered
+  return NumCoresAvail;  // until we figure out why this cratered
 
     char *magic = "cat /proc/cpuinfo | egrep \"core id|physical id\" | "
                   "tr -d \"\\n\" | sed s/physical/\\\\nphysical/g | "
