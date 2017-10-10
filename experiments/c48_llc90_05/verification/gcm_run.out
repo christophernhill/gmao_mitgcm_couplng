@@ -1,86 +1,117 @@
-g5_modules: Setting BASEDIR and modules for r465i3n3
+g5_modules: Setting BASEDIR and modules for r327i0n0
 /bin/rm: No match.
 /bin/rm: cannot remove 'strip': No such file or directory
 /bin/ln: No match.
-[1] 37501
-[2] 37502
-[3] 37503
-[4] 37504
-[5] 37505
-[6] 37506
-[7] 37508
+[1] 58558
+[2] 58559
+[3] 58560
+[4] 58562
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/lake_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/lake_internal_rst .
-[8] 37510
-[9] 37513
+[5] 58563
+[6] 58565
+[7] 58567
 [5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/catchcn_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/catchcn_internal_rst .
-[2] 37514
-[8]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/surf_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/surf_import_rst .
+[8] 58568
+[9] 58570
 [7]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/moist_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/moist_import_rst .
-[5] 37515
+[2] 58571
+[8]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/surf_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/surf_import_rst .
+[5] 58572
 [9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/solar_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/solar_internal_rst .
-[7] 37516
+[7] 58573
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/irrad_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/irrad_internal_rst .
-[8] 37517
+[8] 58574
 [5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/turb_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/turb_internal_rst .
-[9] 37518
+[9] 58575
 [7]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/turb_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/turb_import_rst .
-[2] 37519
-[5] 37521
+[2] 58576
+[5] 58578
 [9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gocart_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/gocart_import_rst .
-[9] 37523
+[9] 58579
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gocart_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/gocart_internal_rst .
+[2] 58580
 [5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gocartdata_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/gocartdata_internal_rst .
-[2] 37524
+[5] 58585
 [9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/geosachem_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/geosachem_internal_rst .
-[9] 37525
-[5] 37533
+[9] 58586
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/tr_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/tr_internal_rst .
-[2] 37537
-[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/tr_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/tr_import_rst .
-[9] 37540
-[5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/hemco_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/hemco_internal_rst .
-[5] 37542
+[2] 58587
+[5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/tr_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/tr_import_rst .
+[5] 58594
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/hemco_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/hemco_internal_rst .
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/hemco_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/hemco_import_rst .
-[2] 37546
-[7] 37548
-[5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/saltwater_import_rst .
-[5] 37549
+[9] 58597
+[2] 58602
+[7] 58604
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/saltwater_import_rst .
+[9] 58605
 [2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/seaice_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/seaice_import_rst .
-[5]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/orad_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/orad_import_rst .
-[7]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/seaice_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/seaice_internal_rst .
-[9]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst .
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst .
+[7]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/seaice_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/seaice_internal_rst .
+[9]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/orad_import_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/orad_import_rst .
+[5]  - Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst .
 [8]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/pchem_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/pchem_internal_rst .
 [6]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/moist_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/moist_internal_rst .
 [4]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/catch_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/catch_internal_rst .
 [3]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/landice_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/landice_internal_rst .
-[1]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst ) /usr/local/bin/mcp -a /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst .
 /usr/local/bin/mcp: No match.
 /bin/ls: No match.
-[1] 37565
-[2] 37566
-[3] 37567
-[4] 37568
-[1]    Done                          /usr/local/bin/mcp -a fvcore_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
-[2]    Done                          /usr/local/bin/mcp -a landice_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
-[5] 37585
-[3]    Done                          /usr/local/bin/mcp -a catch_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
-[4]    Done                          /usr/local/bin/mcp -a moist_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
-[6] 37590
-[5]    Done                          /usr/local/bin/mcp -a pchem_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
-[6]    Done                          /usr/local/bin/mcp -a saltwater_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000414_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[1] 58621
+[2] 58622
+[3] 58623
+[4] 58624
+[1]    Done                          /usr/local/bin/mcp -a fvcore_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[5] 58641
+[2]    Done                          /usr/local/bin/mcp -a landice_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[3]    Done                          /usr/local/bin/mcp -a catch_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[4]    Done                          /usr/local/bin/mcp -a moist_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[6] 58646
+[5]    Done                          /usr/local/bin/mcp -a pchem_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
+[6]    Done                          /usr/local/bin/mcp -a saltwater_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000415_21z.Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880.rst_CF0048x6C_DE0360xPE0180
  
  In MAPL_Shmem:
-     NumCores per Node varies from           16  to           20
-     NumNodes in use   =            5
+     NumCores per Node =           16
+     NumNodes in use   =            8
+     Total PEs         =          128
+ 
+ 
+ In MAPL_InitializeShmem (NodeRootsComm):
+     NumNodes in use   =            8
+ 
+ totalNumTiles           96
+ numComputeProcesses           96
+
+cpu assignments, epoch style 0
+ 2 3 4 5 6 7 8 9 10 11 12 13 0 0 1 1  #  #  #  #  #  # 
+
+
+cpu assignments, epoch style 1
+ 6 7 8 1 1 2 2 3 3 4 4 5 5 0 0 0  #  #  #  #  #  # 
+
+ Starting CFIO Server on           16  cores
+ 
+ In MAPL_Shmem:
+     NumCores per Node =           16
+     NumNodes in use   =            1
+     Total PEs         =           16
+ 
+ 
+ In MAPL_InitializeShmem (NodeRootsComm):
+     NumNodes in use   =            1
+ 
+ 
+ In MAPL_Shmem:
+     NumCores per Node =           16
+     NumNodes in use   =            6
      Total PEs         =           96
  
  
  In MAPL_InitializeShmem (NodeRootsComm):
-     NumNodes in use   =            5
+     NumNodes in use   =            6
  
    Integer*4 Resource Parameter HEARTBEAT_DT:         900
  NOT using buffer I/O for file: cap_restart
-Read CAP restart properly, Current Date =   2000/04/14
+Read CAP restart properly, Current Date =   2000/04/15
                            Current Time =   21:00:00
  
    Character Resource Parameter ROOT_CF: AGCM.rc
@@ -132,23 +163,15 @@ whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
 whalo =    1, ehalo =    1, shalo =    1, nhalo =    1
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
-whalo =    1, ehalo =    1, shalo =    1, nhalo =    1
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
@@ -165,6 +188,14 @@ whalo =    1, ehalo =    1, shalo =    1, nhalo =    1
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
 whalo =    1, ehalo =    1, shalo =    1, nhalo =    1
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    1, ehalo =    1, shalo =    1, nhalo =    1
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
@@ -190,9 +221,9 @@ GLOBAL AREA (m*m): 0.51006447190993E+15 IDEAL GLOBAL AREA (m*m): 0.5100644719097
   Cubed-Sphere Grid Stats :           49 x          49 x           6
       Grid Length               : min: 163384.22 max: 231009.55 avg: 193067.59 min/max:      0.71
       Deviation from Orthogonal : min:      0.00 max:     29.08 avg:      8.76
- Corner interpolation coefficient=   1.48641113578842     
       Aspect Ratio              : min:      1.00 max:      1.07 avg:      1.02
  
+ Corner interpolation coefficient=   1.48641113578842     
  Grid_init          72           1   100.000000000000     
  Hybrid Sigma-P: minimum allowable surface pressure (hpa)=
    14.8888888888891     
@@ -293,7 +324,7 @@ Number of true pressure levels =    1
  MAPL: adding export DISCHARGEe
  MAPL: adding export PBO
       Real*4 Resource Parameter DT:    900.000    
-   Integer*4 Resource Parameter REFERENCE_DATE:    20000414
+   Integer*4 Resource Parameter REFERENCE_DATE:    20000415
    Integer*4 Resource Parameter REFERENCE_TIME:           0
    Character Resource Parameter AGCM_GRIDNAME: PE48x288-CF
    Integer*4 Resource Parameter OGCM_NX:          96
@@ -555,6 +586,11 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Calling DRIVER_INIT
 ** WARNING ** EEBOOT_MINIMAL: defined SINGLE_DISK_IO will result in losing
 ** WARNING ** EEBOOT_MINIMAL: any message (error/warning) from any proc <> 0
+90 1170 50
+117 96
+30 30
+8 8
+I/O ranks waiting for new epoch
  Done DRIVER_INIT
  Calling DRIVER_Get_ExportState
  Done DRIVER_Get_ExportState
@@ -575,14 +611,10 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  NOT using buffer I/O for file: HISTORY.rc
  NOT using buffer I/O for file: geosgcm_prog.rcx
  NOT using buffer I/O for file: geosgcm_surf.rcx
- NOT using buffer I/O for file: mit_ocn.rcx
  
- NOT using buffer I/O for file: tile.bin
- NOT using buffer I/O for file: tile.bin
  Freq: 060000  Dur: 060000  TM:   -1  Collection: geosgcm_prog
  Gird distance at face edge (km)=   163384.217664128     
  Freq: 030000  Dur: 030000  TM:   -1  Collection: geosgcm_surf
- Freq: 030000  Dur: 030000  TM:   -1  Collection: mit_ocn
  
  Independent Output Export States:
  ---------------------------------
@@ -595,17 +627,16 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
            7 SOLAR
            8 RADIATION
            9 IRRAD
-          10 MIT
  
  Initializing Output Stream: geosgcm_prog
  --------------------------- 
-       Format: CFIO
+       Format: CFIOasync
          Mode: instantaneous
         Nbits:          100
        Slices:          483
       Deflate:            0
     Frequency:        60000
-     Ref_Date:     20000414
+     Ref_Date:     20000415
      Ref_Time:            0
      Duration:        60000
   Output RSLV:          180          91
@@ -628,36 +659,19 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  
  Initializing Output Stream: geosgcm_surf
  --------------------------- 
-       Format: CFIO
+       Format: CFIOasync
          Mode: time-averaged
         Nbits:          100
        Slices:          152
       Deflate:            0
     Frequency:        30000
  Acc_Interval:        30000
-     Ref_Date:     20000414
+     Ref_Date:     20000415
      Ref_Time:       210000
      Duration:        30000
   Output RSLV:          180          91
     XY-offset:            0   (DcPc: Dateline Center, Pole Center)
       Fields: PHIS SGH VARFLT TROPPV TROPPT TROPPB TROPT TROPQ QVFILL OXFILL TA QA US VS PS SPEED PBLH TS QS THAT QHAT CU2DRAINMOVE CU2DSNOWMOVE RAS_TIME RASPBLQ CNPRCP LSPRCP ANPRCP LSORIG CNORIG SNO PLS PCU LWP CCWP TAUTT TAULO TAUMD TAUHI CLDTT CLDLO CLDMD CLDHI SPLAND SPWATR RUNOFF BASEFLOW EMIS CT CQ CN CM RISFC LAI GRN SNOMAS VEGTYPE WET1 WET2 WET3 TSOIL1 TSOIL2 FRLAND FRLANDICE FRLAKE FRSEAICE FROCEAN USTAR Z0 Z0H LHFX SHFX EVAP TAUX TAUY RHOS U2M V2M T2M Q2M U10N V10N U10M V10M T10M Q10M U50M V50M GUST VENT ASNOW RADSRF FLNS FLNSC FLNSCNA OLR OLRC OLRCNA LWS LWSC LWSCNA SFCEM SWCLDTMP SWCLDPRS OSR OSRCLR SWTNET SWTNETC SWTNETCNA SWTNETNA RADSWT SWGDWN SWGDWNC SWGNET SWGNETC SWGNETNA SWGNETCNA ALBEDO ALBVR ALBVF ALBNR ALBNF EVLAND LHLAND SHLAND SWLAND LWLAND GHLAND SMLAND TWLAND TELAND EVAPOUT COSZ DCOOL DWARM DELT_COOL BULK_SST TDEL BCOOL LCOOL TBAR USTARW SWCOOL QCOOL DELTS QWARM SWWARM LANGM PHIW TAUTW ZETA_W DISCHARGE 
- 
- 
- Initializing Output Stream: mit_ocn
- --------------------------- 
-       Format: CFIO
-         Mode: time-averaged
-        Nbits:          100
-       Slices:          111
-      Deflate:            0
-    Frequency:        30000
- Acc_Interval:        30000
-     Ref_Date:     20000414
-     Ref_Time:            0
-     Duration:        30000
-  Output RSLV:          180          91
-    XY-offset:            0   (DcPc: Dateline Center, Pole Center)
-      Fields: US VS TS SS MASK TAUX TAUY PS SWHEAT QFLX HFLX SFLX DISCHARGEe 
  
  
  EXTDATA::Initialize_: ACTIVE
@@ -723,12 +737,12 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  ************************************************
  
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_bc.005.20000414.nc4 at 
-    20000414        120000
- NOT using buffer I/O for file: DC1152xPC0721_CF0048x6C.bin
- CFIO: Reading 
  ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_bc.005.20000415.nc4 at 
     20000415        120000
+ NOT using buffer I/O for file: DC1152xPC0721_CF0048x6C.bin
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_bc.005.20000416.nc4 at 
+    20000416        120000
  CFIO: Reading 
  ExtData/AeroCom/sfc/AeroCom.noship_BC_src.sfc.x360_y181_t44.19780703_12z_202107
  03_12z.nc at     19990703        180000
@@ -743,11 +757,11 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  ExtData/MERRA2/sfc/edgar-v41.emis_bc.navigation.x360_y181_t47.19750703T12z_2021
  0703T00z.nc4 at     20000702        180000
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_co.005.20000414.nc4 at 
-    20000414        120000
- CFIO: Reading 
  ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_co.005.20000415.nc4 at 
     20000415        120000
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_co.005.20000416.nc4 at 
+    20000416        120000
  CFIO: Reading 
  ExtData/MERRA2/L72/gmi_ctm_hindcast.oxidants.x144_y91_z72_t14.2000.nc4 at 
     20000317        120000
@@ -768,26 +782,26 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  ExtData/MERRA2/sfc/edgar-v42.emis_co.anthropogenic.x1152_y721.19700703T12z_2020
  0703T00z.w1A4.nc4 at     20000703             0
  CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010316        120000
+    20010415        120000
  NOT using buffer I/O for file: DC0288xPC0181_CF0048x6C.bin
  CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010415        120000
- CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010316        120000
+    20010515        120000
  CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
     20010415        120000
  CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010316        120000
+    20010515        120000
  CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
     20010415        120000
+ CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
+    20010515        120000
  CFIO: Reading ExtData/PIESA/sfc/gocart.dust_source.v5a.x1152_y721.nc at 
     19710605             0
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_nh3.005.20000414.nc4 at 
-    20000414        120000
- CFIO: Reading 
  ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_nh3.005.20000415.nc4 at 
     20000415        120000
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_nh3.005.20000416.nc4 at 
+    20000416        120000
  CFIO: Reading 
  ExtData/MERRA2/sfc/edgar-v42.emis_nh3.anthropogenic.x1152_y721.19700703T12z_202
  00703T00z.nc4 at     19990703        180000
@@ -810,11 +824,11 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
     20080101        120000
  NOT using buffer I/O for file: DC0540xPC0361_CF0048x6C.bin
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_oc.005.20000414.nc4 at 
-    20000414        120000
- CFIO: Reading 
  ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_oc.005.20000415.nc4 at 
     20000415        120000
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_oc.005.20000416.nc4 at 
+    20000416        120000
  CFIO: Reading ExtData/AeroCom/sfc/geia.terpene_biogenic.x144_y91_t12.1971.nc
   at     19710316        120000
  CFIO: Reading ExtData/AeroCom/sfc/geia.terpene_biogenic.x144_y91_t12.1971.nc
@@ -832,11 +846,11 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  ExtData/MERRA2/sfc/edgar-v41.emis_oc.navigation.x360_y181_t47.19750703T12z_2021
  0703T00z.nc4 at     20000702        180000
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_so2.005.20000414.nc4 at 
-    20000414        120000
- CFIO: Reading 
  ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_so2.005.20000415.nc4 at 
     20000415        120000
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_so2.005.20000416.nc4 at 
+    20000416        120000
  CFIO: Reading 
  ExtData/MERRA2/sfc/edgar-v42.emis_so2.non_energy.x1152_y721.19700703T12z_202007
  03T00z.nc4 at     19990703        180000
@@ -1265,13 +1279,7 @@ FV3 c2l_ord:    4
    Character Resource Parameter VISDF_FILE: visdf.dat
    Character Resource Parameter NIRDF_FILE: nirdf.dat
  NOT using buffer I/O for file: visdf.dat
- Previous time forVISDFs is:
-           1           4           7           0           0           0
-           1           4          15           0           0           0
  NOT using buffer I/O for file: nirdf.dat
- Previous time forNIRDFs is:
-           1           4           7           0           0           0
-           1           4          15           0           0           0
       Real*4 Resource Parameter MAX_SEAICE_DEPTH:    2.00000    
       Real*4 Resource Parameter MIN_SEAICE_DEPTH:   0.100000E-05
    Integer*4 Resource Parameter USE_SKIN_LAYER:           0
@@ -1329,10 +1337,10 @@ FV3 c2l_ord:    4
    Integer*4 Resource Parameter SUN_FLAG:           0
    Integer*4 Resource Parameter SOLAR_LOAD_BALANCE:           1
  
- Updated CO2 in solar for year/day 2000/105 is  0.36854E-03
+ Updated CO2 in solar for year/day 2000/106 is  0.36855E-03
  
  
- Updated Solar Constant for year/day 2000/105 is  0.13618E+04
+ Updated Solar Constant for year/day 2000/106 is  0.13618E+04
  
    Integer*4 Resource Parameter CALLED_LAST:           1
       Real*4 Resource Parameter TAUCRIT:   0.100000    
@@ -1346,375 +1354,795 @@ FV3 c2l_ord:    4
    Integer*4 Resource Parameter STEADY_STATE_OCEAN:           1
   Finished plug run method 
    Integer*4 Resource Parameter INTERPOLATE_OCEAN_ICE_CURRENTS:           0
- AGCM Date: 2000/04/14  Time: 21:15:00
+ AGCM Date: 2000/04/15  Time: 21:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 21:30:00
+ AGCM Date: 2000/04/15  Time: 21:30:00
   Starting plug run method 
+I/O ranks begining new epoch: 1, gcmIter = 4
+new epoch: epoch 1, style 0, gcmIter 4
+U.0000000004.data
+V.0000000004.data
+W.0000000004.data
+Salt.0000000004.data
+Theta.0000000004.data
+Eta.0000000004.data
+oceTAUX.0000000004.data
+oceTAUY.0000000004.data
+KPPhbl.0000000004.data
+oceSflux.0000000004.data
+oceFWflx.0000000004.data
+oceQnet.0000000004.data
+PhiBot.0000000004.data
+oceQsw.0000000004.data
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 21:45:00
+ AGCM Date: 2000/04/15  Time: 21:45:00
+I/O ranks waiting for new epoch
       Real*4 Resource Parameter USE_RRTMG_SORAD:    1.00000    
       Real*4 Resource Parameter USE_RRTMG_IRRAD:    1.00000    
    Integer*4 Resource Parameter NUM_BANDS:          30
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:00:00
+ AGCM Date: 2000/04/15  Time: 22:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:15:00
+ AGCM Date: 2000/04/15  Time: 22:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:30:00
+ AGCM Date: 2000/04/15  Time: 22:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 2, gcmIter = 8
+new epoch: epoch 2, style 0, gcmIter 8
+U.0000000008.data
+V.0000000008.data
+W.0000000008.data
+Salt.0000000008.data
+Theta.0000000008.data
+Eta.0000000008.data
+oceTAUX.0000000008.data
+oceTAUY.0000000008.data
+KPPhbl.0000000008.data
+oceSflux.0000000008.data
+oceFWflx.0000000008.data
+oceQnet.0000000008.data
+PhiBot.0000000008.data
+oceQsw.0000000008.data
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 22:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:45:00
+ AGCM Date: 2000/04/15  Time: 23:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:00:00
+ AGCM Date: 2000/04/15  Time: 23:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:15:00
+ AGCM Date: 2000/04/15  Time: 23:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 3, gcmIter = 12
+new epoch: epoch 3, style 0, gcmIter 12
+U.0000000012.data
+V.0000000012.data
+W.0000000012.data
+Salt.0000000012.data
+Theta.0000000012.data
+Eta.0000000012.data
+oceTAUX.0000000012.data
+oceTAUY.0000000012.data
+KPPhbl.0000000012.data
+oceSflux.0000000012.data
+oceFWflx.0000000012.data
+oceQnet.0000000012.data
+PhiBot.0000000012.data
+oceQsw.0000000012.data
+  Finished plug run method 
+ AGCM Date: 2000/04/15  Time: 23:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:00:00
+ AGCM Date: 2000/04/16  Time: 00:00:00
  
- Writing:    483 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0000z.nc4
- Writing:    152 Slices (   2 Nodes,    3 PartitionRoot) to File:  TEST.geosgcm_surf.20000414_2230z.nc4
- Writing:    111 Slices (   2 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000414_2230z.nc4
+ Writing:    483 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000416_0000z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_2230z.nc4
  
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_bc.005.20000416.nc4 at 
-    20000416        120000
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_bc.005.20000417.nc4 at 
+    20000417        120000
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_co.005.20000416.nc4 at 
-    20000416        120000
- CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010515        120000
- CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010515        120000
- CFIO: Reading ExtData/AeroCom/sfc/co_biogenic.x288_y181_t12.2006.nc at 
-    20010515        120000
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_co.005.20000417.nc4 at 
+    20000417        120000
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_nh3.005.20000416.nc4 at 
-    20000416        120000
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_nh3.005.20000417.nc4 at 
+    20000417        120000
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_oc.005.20000416.nc4 at 
-    20000416        120000
+ ExtData/PIESA/sfc/GEIA.emis_NH3.ocean.x576_y361.t12.20080715_12z.nc4 at 
+    19710517             0
+ CFIO: Reading ExtData/PIESA/L72/GMI.vmr_HNO3.x144_y91.t12.2006.nc4 at 
+    20060517             0
  CFIO: Reading 
- ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_so2.005.20000416.nc4 at 
-    20000416        120000
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_oc.005.20000417.nc4 at 
+    20000417        120000
+ CFIO: Reading ExtData/AeroCom/sfc/geia.terpene_biogenic.x144_y91_t12.1971.nc
+  at     19710516        120000
+ CFIO: Reading 
+ ExtData/PIESA/sfc/QFED/v2.4r6/Y2000/M04/qfed2.emis_so2.005.20000417.nc4 at 
+    20000417        120000
+ CFIO: Reading 
+ ExtData/MERRA2/sfc/DMSclim_sfcconcentration.x360_y181_t12.Lana2011.nc4 at 
+    20110516         40000
   
- PCHEM::Run: Indices selected from climatology are         1563        1564
+ PCHEM::Run: Indices selected from climatology are         1564        1565
   
  
- Updated CO2 in solar for year/day 2000/106 is  0.36855E-03
+ Updated CO2 in solar for year/day 2000/107 is  0.36855E-03
  
  
- Updated Solar Constant for year/day 2000/106 is  0.13618E+04
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:00:00
- 
- Writing:    152 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0130z.nc4
- Writing:    111 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0130z.nc4
+ Updated Solar Constant for year/day 2000/107 is  0.13618E+04
  
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:15:00
+ AGCM Date: 2000/04/16  Time: 00:15:00
+ Previous time forLAIs is:
+           1           4           1           0           0           0
+           1           5           1           0           0           0
+ Previous time forGRNs is:
+           1           4           1           0           0           0
+           1           5           1           0           0           0
+ Previous time forKPARs is:
+           1           4           1           0           0           0
+           1           5           1           0           0           0
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:30:00
+ AGCM Date: 2000/04/16  Time: 00:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 4, gcmIter = 16
+new epoch: epoch 4, style 0, gcmIter 16
+U.0000000016.data
+V.0000000016.data
+W.0000000016.data
+Salt.0000000016.data
+Theta.0000000016.data
+Eta.0000000016.data
+oceTAUX.0000000016.data
+oceTAUY.0000000016.data
+KPPhbl.0000000016.data
+oceSflux.0000000016.data
+oceFWflx.0000000016.data
+oceQnet.0000000016.data
+PhiBot.0000000016.data
+oceQsw.0000000016.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 00:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:45:00
+ AGCM Date: 2000/04/16  Time: 01:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:00:00
+ AGCM Date: 2000/04/16  Time: 01:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:15:00
+ AGCM Date: 2000/04/16  Time: 01:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 5, gcmIter = 20
+new epoch: epoch 5, style 0, gcmIter 20
+U.0000000020.data
+V.0000000020.data
+W.0000000020.data
+Salt.0000000020.data
+Theta.0000000020.data
+Eta.0000000020.data
+oceTAUX.0000000020.data
+oceTAUY.0000000020.data
+KPPhbl.0000000020.data
+oceSflux.0000000020.data
+oceFWflx.0000000020.data
+oceQnet.0000000020.data
+PhiBot.0000000020.data
+oceQsw.0000000020.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 01:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:30:00
+ AGCM Date: 2000/04/16  Time: 02:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:45:00
+ AGCM Date: 2000/04/16  Time: 02:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:00:00
+ AGCM Date: 2000/04/16  Time: 02:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 6, gcmIter = 24
+new epoch: epoch 6, style 0, gcmIter 24
+U.0000000024.data
+V.0000000024.data
+W.0000000024.data
+Salt.0000000024.data
+Theta.0000000024.data
+Eta.0000000024.data
+oceTAUX.0000000024.data
+oceTAUY.0000000024.data
+KPPhbl.0000000024.data
+oceSflux.0000000024.data
+oceFWflx.0000000024.data
+oceQnet.0000000024.data
+PhiBot.0000000024.data
+oceQsw.0000000024.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 02:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:00:00
+ AGCM Date: 2000/04/16  Time: 03:00:00
  
- Writing:    483 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0600z.nc4
- Writing:    152 Slices (   2 Nodes,    3 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0430z.nc4
- Writing:    111 Slices (   2 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0430z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:00:00
- 
- Writing:    152 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0730z.nc4
- Writing:    111 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0730z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:00:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:00:00
- 
- Writing:    483 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1200z.nc4
- Writing:    152 Slices (   2 Nodes,    3 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1030z.nc4
- Writing:    111 Slices (   2 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1030z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_0130z.nc4
  
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:15:00
+ AGCM Date: 2000/04/16  Time: 03:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:30:00
+ AGCM Date: 2000/04/16  Time: 03:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 7, gcmIter = 28
+new epoch: epoch 7, style 0, gcmIter 28
+U.0000000028.data
+V.0000000028.data
+W.0000000028.data
+Salt.0000000028.data
+Theta.0000000028.data
+Eta.0000000028.data
+oceTAUX.0000000028.data
+oceTAUY.0000000028.data
+KPPhbl.0000000028.data
+oceSflux.0000000028.data
+oceFWflx.0000000028.data
+oceQnet.0000000028.data
+PhiBot.0000000028.data
+oceQsw.0000000028.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 03:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:45:00
+ AGCM Date: 2000/04/16  Time: 04:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:00:00
+ AGCM Date: 2000/04/16  Time: 04:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:15:00
+ AGCM Date: 2000/04/16  Time: 04:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 8, gcmIter = 32
+new epoch: epoch 8, style 0, gcmIter 32
+U.0000000032.data
+V.0000000032.data
+W.0000000032.data
+Salt.0000000032.data
+Theta.0000000032.data
+Eta.0000000032.data
+oceTAUX.0000000032.data
+oceTAUY.0000000032.data
+KPPhbl.0000000032.data
+oceSflux.0000000032.data
+oceFWflx.0000000032.data
+oceQnet.0000000032.data
+PhiBot.0000000032.data
+oceQsw.0000000032.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 04:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:30:00
+ AGCM Date: 2000/04/16  Time: 05:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:45:00
+ AGCM Date: 2000/04/16  Time: 05:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:00:00
+ AGCM Date: 2000/04/16  Time: 05:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 9, gcmIter = 36
+new epoch: epoch 9, style 0, gcmIter 36
+U.0000000036.data
+V.0000000036.data
+W.0000000036.data
+Salt.0000000036.data
+Theta.0000000036.data
+Eta.0000000036.data
+oceTAUX.0000000036.data
+oceTAUY.0000000036.data
+KPPhbl.0000000036.data
+oceSflux.0000000036.data
+oceFWflx.0000000036.data
+oceQnet.0000000036.data
+PhiBot.0000000036.data
+oceQsw.0000000036.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 05:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:00:00
+ AGCM Date: 2000/04/16  Time: 06:00:00
  
- Writing:    152 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1330z.nc4
- Writing:    111 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1330z.nc4
+ Writing:    483 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000416_0600z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_0430z.nc4
  
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:15:00
+ AGCM Date: 2000/04/16  Time: 06:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:30:00
+ AGCM Date: 2000/04/16  Time: 06:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 10, gcmIter = 40
+new epoch: epoch 10, style 0, gcmIter 40
+U.0000000040.data
+V.0000000040.data
+W.0000000040.data
+Salt.0000000040.data
+Theta.0000000040.data
+Eta.0000000040.data
+oceTAUX.0000000040.data
+oceTAUY.0000000040.data
+KPPhbl.0000000040.data
+oceSflux.0000000040.data
+oceFWflx.0000000040.data
+oceQnet.0000000040.data
+PhiBot.0000000040.data
+oceQsw.0000000040.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 06:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:45:00
+ AGCM Date: 2000/04/16  Time: 07:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:00:00
+ AGCM Date: 2000/04/16  Time: 07:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:15:00
+ AGCM Date: 2000/04/16  Time: 07:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 11, gcmIter = 44
+new epoch: epoch 11, style 0, gcmIter 44
+U.0000000044.data
+V.0000000044.data
+W.0000000044.data
+Salt.0000000044.data
+Theta.0000000044.data
+Eta.0000000044.data
+oceTAUX.0000000044.data
+oceTAUY.0000000044.data
+KPPhbl.0000000044.data
+oceSflux.0000000044.data
+oceFWflx.0000000044.data
+oceQnet.0000000044.data
+PhiBot.0000000044.data
+oceQsw.0000000044.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 07:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:30:00
+ AGCM Date: 2000/04/16  Time: 08:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:45:00
+ AGCM Date: 2000/04/16  Time: 08:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:00:00
+ AGCM Date: 2000/04/16  Time: 08:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 12, gcmIter = 48
+new epoch: epoch 12, style 0, gcmIter 48
+U.0000000048.data
+V.0000000048.data
+W.0000000048.data
+Salt.0000000048.data
+Theta.0000000048.data
+Eta.0000000048.data
+oceTAUX.0000000048.data
+oceTAUY.0000000048.data
+KPPhbl.0000000048.data
+oceSflux.0000000048.data
+oceFWflx.0000000048.data
+oceQnet.0000000048.data
+PhiBot.0000000048.data
+oceQsw.0000000048.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 08:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:00:00
+ AGCM Date: 2000/04/16  Time: 09:00:00
  
- Writing:    483 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1800z.nc4
- Writing:    152 Slices (   2 Nodes,    3 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1630z.nc4
- Writing:    111 Slices (   2 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1630z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_0730z.nc4
  
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:15:00
+ AGCM Date: 2000/04/16  Time: 09:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:30:00
+ AGCM Date: 2000/04/16  Time: 09:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 13, gcmIter = 52
+new epoch: epoch 13, style 0, gcmIter 52
+U.0000000052.data
+V.0000000052.data
+W.0000000052.data
+Salt.0000000052.data
+Theta.0000000052.data
+Eta.0000000052.data
+oceTAUX.0000000052.data
+oceTAUY.0000000052.data
+KPPhbl.0000000052.data
+oceSflux.0000000052.data
+oceFWflx.0000000052.data
+oceQnet.0000000052.data
+PhiBot.0000000052.data
+oceQsw.0000000052.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 09:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:45:00
+ AGCM Date: 2000/04/16  Time: 10:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:00:00
+ AGCM Date: 2000/04/16  Time: 10:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:15:00
+ AGCM Date: 2000/04/16  Time: 10:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 14, gcmIter = 56
+new epoch: epoch 14, style 0, gcmIter 56
+U.0000000056.data
+V.0000000056.data
+W.0000000056.data
+Salt.0000000056.data
+Theta.0000000056.data
+Eta.0000000056.data
+oceTAUX.0000000056.data
+oceTAUY.0000000056.data
+KPPhbl.0000000056.data
+oceSflux.0000000056.data
+oceFWflx.0000000056.data
+oceQnet.0000000056.data
+PhiBot.0000000056.data
+oceQsw.0000000056.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 10:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:30:00
+ AGCM Date: 2000/04/16  Time: 11:00:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:45:00
+ AGCM Date: 2000/04/16  Time: 11:15:00
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:00:00
+ AGCM Date: 2000/04/16  Time: 11:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 15, gcmIter = 60
+new epoch: epoch 15, style 0, gcmIter 60
+U.0000000060.data
+V.0000000060.data
+W.0000000060.data
+Salt.0000000060.data
+Theta.0000000060.data
+Eta.0000000060.data
+oceTAUX.0000000060.data
+oceTAUY.0000000060.data
+KPPhbl.0000000060.data
+oceSflux.0000000060.data
+oceFWflx.0000000060.data
+oceQnet.0000000060.data
+PhiBot.0000000060.data
+oceQsw.0000000060.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 11:45:00
+I/O ranks waiting for new epoch
   Starting plug run method 
   Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 21:00:00
+ AGCM Date: 2000/04/16  Time: 12:00:00
  
- Writing:    152 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1930z.nc4
- Writing:    111 Slices (   4 Nodes,    1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1930z.nc4
+ Writing:    483 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000416_1200z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_1030z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 12:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 12:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 16, gcmIter = 64
+new epoch: epoch 16, style 0, gcmIter 64
+U.0000000064.data
+V.0000000064.data
+W.0000000064.data
+Salt.0000000064.data
+Theta.0000000064.data
+Eta.0000000064.data
+oceTAUX.0000000064.data
+oceTAUY.0000000064.data
+KPPhbl.0000000064.data
+oceSflux.0000000064.data
+oceFWflx.0000000064.data
+oceQnet.0000000064.data
+PhiBot.0000000064.data
+oceQsw.0000000064.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 12:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 13:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 13:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 13:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 17, gcmIter = 68
+new epoch: epoch 17, style 0, gcmIter 68
+U.0000000068.data
+V.0000000068.data
+W.0000000068.data
+Salt.0000000068.data
+Theta.0000000068.data
+Eta.0000000068.data
+oceTAUX.0000000068.data
+oceTAUY.0000000068.data
+KPPhbl.0000000068.data
+oceSflux.0000000068.data
+oceFWflx.0000000068.data
+oceQnet.0000000068.data
+PhiBot.0000000068.data
+oceQsw.0000000068.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 13:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 14:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 14:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 14:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 18, gcmIter = 72
+new epoch: epoch 18, style 0, gcmIter 72
+U.0000000072.data
+V.0000000072.data
+W.0000000072.data
+Salt.0000000072.data
+Theta.0000000072.data
+Eta.0000000072.data
+oceTAUX.0000000072.data
+oceTAUY.0000000072.data
+KPPhbl.0000000072.data
+oceSflux.0000000072.data
+oceFWflx.0000000072.data
+oceQnet.0000000072.data
+PhiBot.0000000072.data
+oceQsw.0000000072.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 14:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 15:00:00
+ 
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_1330z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 15:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 15:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 19, gcmIter = 76
+new epoch: epoch 19, style 0, gcmIter 76
+U.0000000076.data
+V.0000000076.data
+W.0000000076.data
+Salt.0000000076.data
+Theta.0000000076.data
+Eta.0000000076.data
+oceTAUX.0000000076.data
+oceTAUY.0000000076.data
+KPPhbl.0000000076.data
+oceSflux.0000000076.data
+oceFWflx.0000000076.data
+oceQnet.0000000076.data
+PhiBot.0000000076.data
+oceQsw.0000000076.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 15:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 16:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 16:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 16:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 20, gcmIter = 80
+new epoch: epoch 20, style 0, gcmIter 80
+U.0000000080.data
+V.0000000080.data
+W.0000000080.data
+Salt.0000000080.data
+Theta.0000000080.data
+Eta.0000000080.data
+oceTAUX.0000000080.data
+oceTAUY.0000000080.data
+KPPhbl.0000000080.data
+oceSflux.0000000080.data
+oceFWflx.0000000080.data
+oceQnet.0000000080.data
+PhiBot.0000000080.data
+oceQsw.0000000080.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 16:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 17:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 17:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 17:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 21, gcmIter = 84
+new epoch: epoch 21, style 0, gcmIter 84
+U.0000000084.data
+V.0000000084.data
+W.0000000084.data
+Salt.0000000084.data
+Theta.0000000084.data
+Eta.0000000084.data
+oceTAUX.0000000084.data
+oceTAUY.0000000084.data
+KPPhbl.0000000084.data
+oceSflux.0000000084.data
+oceFWflx.0000000084.data
+oceQnet.0000000084.data
+PhiBot.0000000084.data
+oceQsw.0000000084.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 17:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 18:00:00
+ 
+ Writing:    483 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_prog.20000416_1800z.nc4
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_1630z.nc4
+ 
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 18:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 18:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 22, gcmIter = 88
+new epoch: epoch 22, style 0, gcmIter 88
+U.0000000088.data
+V.0000000088.data
+W.0000000088.data
+Salt.0000000088.data
+Theta.0000000088.data
+Eta.0000000088.data
+oceTAUX.0000000088.data
+oceTAUY.0000000088.data
+KPPhbl.0000000088.data
+oceSflux.0000000088.data
+oceFWflx.0000000088.data
+oceQnet.0000000088.data
+PhiBot.0000000088.data
+oceQsw.0000000088.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 18:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 19:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 19:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 19:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 23, gcmIter = 92
+new epoch: epoch 23, style 0, gcmIter 92
+U.0000000092.data
+V.0000000092.data
+W.0000000092.data
+Salt.0000000092.data
+Theta.0000000092.data
+Eta.0000000092.data
+oceTAUX.0000000092.data
+oceTAUY.0000000092.data
+KPPhbl.0000000092.data
+oceSflux.0000000092.data
+oceFWflx.0000000092.data
+oceQnet.0000000092.data
+PhiBot.0000000092.data
+oceQsw.0000000092.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 19:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 20:00:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 20:15:00
+  Starting plug run method 
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 20:30:00
+  Starting plug run method 
+I/O ranks begining new epoch: 24, gcmIter = 96
+new epoch: epoch 24, style 0, gcmIter 96
+U.0000000096.data
+V.0000000096.data
+W.0000000096.data
+Salt.0000000096.data
+Theta.0000000096.data
+Eta.0000000096.data
+oceTAUX.0000000096.data
+oceTAUY.0000000096.data
+KPPhbl.0000000096.data
+oceSflux.0000000096.data
+oceFWflx.0000000096.data
+oceQnet.0000000096.data
+PhiBot.0000000096.data
+oceQsw.0000000096.data
+I/O ranks waiting for new epoch
+I/O ranks begining new epoch: 25, gcmIter = 96
+new epoch: epoch 25, style 1, gcmIter 96
+pickup_0000000096.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 20:45:00
+I/O ranks waiting for new epoch
+  Starting plug run method 
+I/O ranks begining new epoch: 26, gcmIter = 97
+new epoch: epoch 26, style 1, gcmIter 97
+pickup_0000000097.data
+  Finished plug run method 
+ AGCM Date: 2000/04/16  Time: 21:00:00
+ 
+ Writing:    152 Slices (   5 Nodes,    1 PartitionRoot) to File:  TEST.geosgcm_surf.20000416_1930z.nc4
  
  
    -----------------------------------------------------
       Block          Max time    Min Time   Load Imbalance
    -----------------------------------------------------
-   TOTAL                      257.2376     257.2087       0.0289
-   FV_DYN_LOOP                 24.1875      24.1286       0.0589
-   COMM_TOTAL                   4.3148       2.0406       2.2742
-   DYN_CORE                     7.6212       6.7453       0.8759
-   COMM_TRACER                  3.7508       1.7100       2.0408
-   C_SW                         0.6540       0.5229       0.1311
-   D_SW                         2.9201       2.3126       0.6075
-   PG_D                         0.6140       0.1612       0.4528
-   TRACER_2D                   11.4013       9.7877       1.6137
-   REMAPPING                    5.8514       4.9412       0.9101
+   TOTAL                      229.9509     229.9414       0.0095
+   FV_DYN_LOOP                 25.7996      25.7711       0.0285
+   COMM_TOTAL                   3.6343       3.0786       0.5557
+   DYN_CORE                     7.7650       7.4935       0.2716
+   COMM_TRACER                  3.1104       2.6169       0.4935
+   C_SW                         0.6843       0.5760       0.1082
+   D_SW                         3.1401       2.5678       0.5723
+   PG_D                         0.6745       0.1761       0.4984
+   TRACER_2D                   12.2882      11.1395       1.1487
+   REMAPPING                    6.2335       5.5753       0.6582
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: default
@@ -1723,6 +2151,7 @@ FV3 c2l_ord:    4
    Character Resource Parameter MOIST_INTERNAL_CHECKPOINT_FILE: moist_internal_checkpoint
    Character Resource Parameter MOIST_INTERNAL_CHECKPOINT_TYPE: default
  Using parallel NetCDF for file: moist_internal_checkpoint
+I/O ranks waiting for new epoch
    Character Resource Parameter MOIST_IMPORT_CHECKPOINT_FILE: moist_import_checkpoint
    Character Resource Parameter MOIST_IMPORT_CHECKPOINT_TYPE: default
  Using parallel NetCDF for file: moist_import_checkpoint
@@ -1776,4 +2205,5 @@ FV3 c2l_ord:    4
    Character Resource Parameter ORAD_IMPORT_CHECKPOINT_TYPE: default
  Using parallel NetCDF for file: orad_import_checkpoint
  NOT using buffer I/O for file: cap_restart
+I/O ranks begining new epoch: -1, gcmIter = 97
 GEOSgcm Run Status: 0

@@ -34,7 +34,7 @@ cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=5:ncpus=20:model=ivy,walltime=2:00:00
+qsub -I -q devel -l select=8:ncpus=16:model=ivy,walltime=2:00:00
 tcsh
 setenv WorkingDir /nobackup/$USER/geos5
 
@@ -51,7 +51,7 @@ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_Gri
 cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05
 mkdir build; cd build; \rm *
 setenv ROOTDIR $WorkingDir/MITgcm
-$ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+mpi_ice_nas -ieee
+$ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
 make depend
 
 #- Generate modified src code and Makefile for MITgcm
@@ -114,5 +114,5 @@ cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
-diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/verification/STDOUT.0000
+diff scratch/mitocean_run/STDOUT.00000 \
+$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/verification/STDOUT.00000

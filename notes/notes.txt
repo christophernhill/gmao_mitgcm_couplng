@@ -6,6 +6,18 @@ http://mitgcm.org
 http://mitgcm.org/public/r2_manual/latest/
 
 ================================================================
+10/09/2017: Adding print statements without recompiling complete code
+
+For example, after adding:
+      print *,'DEBUG: PE ', myrank, ' after ASYNCIO_INIT ', globalRank
+to: src/GMAO_Shared/MAPL_Base/MAPL_Cap.F90
+setenv ESMADIR $WorkingDir/GEOSodas
+cd $WorkingDir/GEOSodas/src/GMAO_Shared/MAPL_Base
+make install
+cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+make install
+
+================================================================
 12/19/2016: GEOS-5 documentation and restarts
 
 In order to run multiple segments you have to do some things between

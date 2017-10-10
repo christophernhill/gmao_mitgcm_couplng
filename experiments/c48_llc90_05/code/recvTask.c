@@ -1413,7 +1413,7 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
 int
 getNumCores(void)
 {
-  return 20;  // until we figure out why this cratered
+  return 16;  // until we figure out why this cratered
 
     char *magic = "cat /proc/cpuinfo | egrep \"core id|physical id\" | "
                   "tr -d \"\\n\" | sed s/physical/\\\\nphysical/g | "
