@@ -1,6 +1,11 @@
 c12_cs32_01 : c12/cs32, 1-day, hourly output
  - uses GEOSodas b_geos5mit
 
+c12_cs32_02 : c12/cs32, 1-hour
+ - uses GEOSodas b_geos5mit
+ - used for tests with pkg/exf and coupled timing strategies
+ - MIT_DT=DeltaT=25; HEARTBEAT_DT=90; OGCM_DT=OGCM_RUN_DT=900
+
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
  - uses GEOSodas b_geos5mit
 

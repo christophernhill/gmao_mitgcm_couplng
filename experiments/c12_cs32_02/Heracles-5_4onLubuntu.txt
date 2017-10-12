@@ -1,5 +1,5 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu 16.04
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c12_cs32_02/Heracles-5_4onLubuntu.txt
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c12_cs32_01/Heracles-5_4onLubuntu.txt
 
 # Link or build GEOS-5 baselibs in $WorkingDir
 # See instructions in notes/dimitris_notes/GMAO-Baselibs-Lubuntu.txt
@@ -49,7 +49,7 @@ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_Gri
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02
+cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
 mkdir build; cd build; \rm *
 setenv ROOTDIR $WorkingDir/MITgcm
 setenv MPI_INC_DIR /usr/include/mpi
@@ -58,12 +58,12 @@ make depend
 
 #- Generate modified src code and Makefile for MITgcm
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c12_cs32_02/build
+./mk_local ../../experiments/c12_cs32_01/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c12_cs32_02/build
+./mk_local ../../experiments/c12_cs32_01/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
 \rm code
-ln -s ../experiments/c12_cs32_02/code .
+ln -s ../experiments/c12_cs32_01/code .
 cd build
 \rm *.a *.c *.f *.h *.o *.F
 
@@ -74,7 +74,7 @@ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
-# Set up coupled code for experiments/c12_cs32_02
+# Set up coupled code for experiments/c12_cs32_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -99,13 +99,13 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Get GEOS-5 boundary conditions geos5-tiny.tgz
 #   from engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   or discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
-# cd $WorkingDir
-# tar -xf geos5-tiny.tgz
-# find TinyFromMatt -type d | xargs chmod g+rxs
-# find TinyFromMatt -type f | xargs chmod g+r
+cd $WorkingDir
+tar -xf geos5-tiny.tgz
+find TinyFromMatt -type d | xargs chmod g+rxs
+find TinyFromMatt -type f | xargs chmod g+r
 cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02/*.rc .
+$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
+cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
@@ -114,7 +114,7 @@ cd mit_input
 ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
 ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
 ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02/input/* .
+cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input/* .
 
 # Run coupled code
 cd $WorkingDir/TEST
@@ -123,4 +123,4 @@ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 
 # Verify output
 diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02/verification/STDOUT.0000
+$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/verification/STDOUT.0000_gfortran

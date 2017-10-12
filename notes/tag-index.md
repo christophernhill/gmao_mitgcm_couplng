@@ -1,3 +1,6 @@
+  * Adding experiments/c12_cs32_02 in order to test:
+    OGCM_DT=25, AGCM_DT=90, Coupling_DT=900
+
 - checkpoint_0_S (2017/10/11, compatible with MITgcm -D "10/11/17")
   * Switching to comp-intel/2017 and mpt.2.15r20
   * Replaced g5_modules with that of
