@@ -17,6 +17,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <dirent.h>
 
 #include <mpi.h>
 #include <alloca.h>
@@ -433,6 +434,35 @@ void write_pickup_meta(FILE *fp, int gcmIter, int pickup)
 
 
 
+
+int
+isDirectory (const char *filename)
+{
+  // Just do the simple stupid thing
+  DIR *d = opendir(filename);
+  if (NULL == d) return 0; // false
+  closedir(d);
+  return 1; // true
+}
+
+void
+constructOutputFilename (
+  char *buf,
+  char *template,
+  int iteration,
+  char *extension)
+{
+  char dirName[] = "mitocean_run/";
+
+  if (isDirectory(dirName)) { strcpy (buf, dirName); }
+  else { buf[0] = '\0'; }
+
+  sprintf (buf + strlen(buf), template, iteration, extension);
+}
+
+
+
+
 double *outBuf=NULL;//[NUM_X*NUM_Y*NUM_Z];  // only needs to be myNumZSlabs
 size_t outBufSize=0;
 
@@ -477,10 +507,8 @@ do_write(int io_epoch, fieldInfoThisEpoch_t *whichField, int firstZ, int numZ, i
   //////////////////////////////////
 
   char s[1024];
-  //sprintf(s,"henze_%d_%d_%c.dat",io_epoch,gcmIter,whichField->dataFieldID);
-
-  sprintf(s,whichField->filenameTemplate,gcmIter,"data");
-
+  //sprintf(s,whichField->filenameTemplate,gcmIter,"data");
+  constructOutputFilename (s, whichField->filenameTemplate, gcmIter, "data");
   int fd = open(s,O_CREAT|O_WRONLY,S_IRWXU|S_IRGRP);
   ASSERT(fd!=-1);
 
@@ -1124,14 +1152,16 @@ ioRankMain(int totalNumTiles)
 	      if (fieldInfo->pickup==0){    // for non-pickups, need to loop over individual fields
 		char f;
 		while (f = fieldInfo->dataFieldID){
-		  sprintf(s,fieldInfo->filenameTemplate,gcmIter,"data");
+		  //sprintf(s,fieldInfo->filenameTemplate,gcmIter,"data");
+                  constructOutputFilename (s, fieldInfo->filenameTemplate, gcmIter, "data");
 		  fprintf(stderr,"%s\n",s);
 		  res = unlink(s);
 		  if (-1==res && ENOENT!=errno) fprintf(stderr,"unable to rm %s\n",s);
 		  
 		  // skip writing meta files for non-pickup fields
 		  /*
-		  sprintf(s,fieldInfo->filenameTemplate,gcmIter,"meta");
+		  //sprintf(s,fieldInfo->filenameTemplate,gcmIter,"meta");
+                  constructOutputFilename (s, fieldInfo->filenameTemplate, gcmIter, "meta");
 		  fp = fopen(s,"w+");
 		  fclose(fp);
 		  */		  
@@ -1143,12 +1173,14 @@ ioRankMain(int totalNumTiles)
 	      
 	      else {                       // single pickup or pickup_seaice file
 
-		sprintf(s,fieldInfo->filenameTemplate,gcmIter,"data");
+		//sprintf(s,fieldInfo->filenameTemplate,gcmIter,"data");
+                constructOutputFilename (s, fieldInfo->filenameTemplate, gcmIter, "data");
 		fprintf(stderr,"%s\n",s);
 		res = unlink(s);
 		if (-1==res && ENOENT!=errno) fprintf(stderr,"unable to rm %s\n",s);
 
-		sprintf(s,fieldInfo->filenameTemplate,gcmIter,"meta");
+		//sprintf(s,fieldInfo->filenameTemplate,gcmIter,"meta");
+                constructOutputFilename (s, fieldInfo->filenameTemplate, gcmIter, "meta");
 		fp = fopen(s,"w+");
 		write_pickup_meta(fp, gcmIter, fieldInfo->pickup);
 		fclose(fp);
