@@ -1,29 +1,33 @@
 c12_cs32_01 : c12/cs32, 1-day, hourly output
- - uses GEOSodas b_geos5mit
+ - uses GEOSodas b_geos5mit (Heracles 5.4)
 
 c12_cs32_02 : c12/cs32, 1-hour
- - uses GEOSodas b_geos5mit
+ - uses GEOSodas b_geos5mit (Heracles 5.4)
  - used for tests with pkg/exf and coupled timing strategies
  - MIT_DT=DeltaT=25; HEARTBEAT_DT=90; OGCM_DT=OGCM_RUN_DT=900
 
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
- - uses GEOSodas b_geos5mit
+ - uses GEOSodas b_geos5mit (Heracles 5.4)
 
 c48_llc90_02 : c48/llc90, 1-day ECCO_v4_r2 set-up
- - uses GEOSodas b_geos5mit
+ - uses GEOSodas b_geos5mit (Heracles 5.4)
  - differences from Gael's simplified ECCO_v4_r2
    #undef ALLOW_ADAMSBASHFORTH_3 in CPP_OPTIONS.h
    useCTRL=.FALSE. in data.pkg
    ab2 instead of ab3 options in data
 
 c48_llc90_03 : c48/llc90, 1-day set-up using llc4320 parameters
- - uses GEOSodas b_geos5mit
+ - uses GEOSodas b_geos5mit (Heracles 5.4)
 
-c48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
- - uses GEOSodas b_geos5mit-i30
+C48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
+ - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
 
 c48_llc90_05 : c48/llc90, 1-day set-up using llc4320 parameters
- - uses GEOSodas b_geos5mit-i30
+ - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
+ - uses GEOS USE_IOSERVER and MITgcm asyncio
+
+c2880_llc4320_01 : c2880/llc4320 set-up
+ - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
  - uses GEOS USE_IOSERVER and MITgcm asyncio
 
 exp_1p1eq2 : c48/cs32 1day + 1day = 2days 

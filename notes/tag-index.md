@@ -1,3 +1,4 @@
+  * Adding experiments/c2880_llc4320_01
   * Mods related to regridding at hi-res and to llc4320 set-up
   * Adding experiments/c12_cs32_02 in order to test:
     OGCM_DT=25, AGCM_DT=90, Coupling_DT=900

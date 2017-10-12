@@ -1,5 +1,5 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_04/Heracles-5_4onPleiades.txt
+# Instructions for running GEOS-5 (Icarus-3_0) coupled to MITgcm on Pleiades
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_04/Icarus-3_0onPleiades.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
 tcsh
