@@ -4,7 +4,8 @@
 # $Name:  $
 
 # Used to run the testreport on pleiades with:
-# module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
+# module load comp-intel/2017.4.196 mpi-sgi/mpt.2.15r20
+# module load hdf4/4.2.12 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
 # works on all types of nodes
 
 FC=ifort
@@ -55,10 +56,10 @@ fi
 F90FLAGS=$FFLAGS
 F90OPTIM=$FOPTIM
 
-LIBS='-L/nasa/sgi/mpt/2.14r19/lib -lmpi -L/nasa/netcdf/4.4.1.1_mpt/lib -lnetcdf'
-INCLUDES='-I/nasa/sgi/mpt/2.14r19/include -I/nasa/netcdf/4.4.1.1_mpt/include'
-#INCLUDEDIRS='/nasa/sgi/mpt/2.14r19/include'
+LIBS='-L/nasa/sgi/mpt/2.15r20/lib -lmpi -L/nasa/netcdf/4.4.1.1_mpt/lib -lnetcdf'
+INCLUDES='-I/nasa/sgi/mpt/2.15r20/include -I/nasa/netcdf/4.4.1.1_mpt/include'
+#INCLUDEDIRS='/nasa/sgi/mpt/2.15r20/include'
 
 #- used for parallel (MPI) DIVA
- MPIINCLUDEDIR='/nasa/sgi/mpt/2.14r19/include'
+ MPIINCLUDEDIR='/nasa/sgi/mpt/2.15r20/include'
 #MPI_HEADER_FILES='mpif.h mpiof.h'

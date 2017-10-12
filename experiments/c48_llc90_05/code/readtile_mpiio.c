@@ -185,7 +185,7 @@ tileIO(
 
 
 // N.B.: tileID is 1-based, not 0-based
-inline int
+int
 isInSection1(int tileID)
 { return (tileID <= (7 * tilesPerFacet)); }
 
