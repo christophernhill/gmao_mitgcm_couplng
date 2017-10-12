@@ -1,3 +1,11 @@
+- checkpoint_0_S (2017/10/11, compatible with MITgcm -D "10/11/17")
+  * Switching to comp-intel/2017 and mpt.2.15r20
+  * Replaced g5_modules with that of
+    Icarus-3_0_UNSTABLE_FV_R8-NAS_C2880-Intel17
+  * Added NASYNC in CAP.rc, which controls number of nodes used by asyncio
+  * Write asyncio files to scratch/mitocean_run
+  * Added coe to automatically set CoresPerNode in asyncio
+
 - checkpoint_0_R (2017/10/09, compatible with MITgcm -D "10/09/17")
   * Created experiments/c48_llc90_05 to test GEOSodas b_geos5mit-i30
     inclusing GEOS USE_IOSERVER and MITgcm asyncio
