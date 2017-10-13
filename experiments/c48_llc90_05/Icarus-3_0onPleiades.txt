@@ -40,8 +40,12 @@ setenv WorkingDir /nobackup/$USER/geos5
 
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
-source g5_modules
+setenv ESMA_CC icc
+setenv ESMA_FC ifort
 setenv ESMA_NOCVS
+source g5_modules
+setenv CC icc
+setenv FC ifort
 setenv MITGCM_ROOT $WorkingDir/MITgcm
 setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
@@ -99,7 +103,7 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 cd $WorkingDir/TEST
 ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
 ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/CAP.rc .
+cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/*.rc .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
@@ -114,5 +118,5 @@ cd $WorkingDir/TEST
 ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
-diff scratch/mitocean_run/STDOUT.00000 \
-$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/verification/STDOUT.00000
+grep advcfl_W scratch/mitocean_run/STDOUT.00000
+grep advcfl_W $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/verification/STDOUT.00000
