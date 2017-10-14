@@ -1,3 +1,5 @@
+- checkpoint_0_T (2017/10/14, compatible with MITgcm -D "10/14/17")
+  * Code used for first attempt to run c2880/llc4320 on Electra
   * Adding experiments/c2880_llc4320_01
   * Mods related to regridding at hi-res and to llc4320 set-up
   * Adding experiments/c12_cs32_02 in order to test:

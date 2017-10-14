@@ -1,6 +1,7 @@
-C $Header: /u/gcmpack/MITgcm_contrib/llc_hires/llc_90/code-async-noseaice/SIZE.h,v 1.1 2017/10/09 02:02:49 dimitri Exp $
+C $Header: /u/gcmpack/MITgcm_contrib/llc_hires/llc_4320/code/SIZE.h_60x60x41851,v 1.2 2016/04/14 03:51:44 dimitri Exp $
 C $Name:  $
 
+C
 CBOP
 C    !ROUTINE: SIZE.h
 C    !INTERFACE:
@@ -43,17 +44,17 @@ C     Nr  :: No. points in Z for full process domain.
       INTEGER Ny
       INTEGER Nr
       PARAMETER (
-     &           sNx =  30,
-     &           sNy =  30,
+     &           sNx =  60,
+     &           sNy =  60,
      &           OLx =   8,
      &           OLy =   8,
      &           nSx =   1,
      &           nSy =   1,
-     &           nPx =  96,
+     &           nPx = 43200,
      &           nPy =   1,
      &           Nx  = sNx*nSx*nPx,
      &           Ny  = sNy*nSy*nPy,
-     &           Nr  =  50 )
+     &           Nr  =  90 )
 
 C     MAX_OLX :: Set to the maximum overlap region size of any array
 C     MAX_OLY    that will be exchanged. Controls the sizing of exch

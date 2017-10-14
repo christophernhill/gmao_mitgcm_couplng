@@ -112,9 +112,9 @@ initSizesAndTypes(void)
     /////////////////////////////////////////////
     // Fundamental values
     fieldElementalTypeMPI = MPI_DOUBLE;
-    facetElements1D = 90;
-    tileSizeX = 30;
-    tileSizeY = 30;
+    facetElements1D = 4320;
+    tileSizeX = 60;
+    tileSizeY = 60;
     xGhosts = 8;
     yGhosts = 8;
     /////////////////////////////////////////////
