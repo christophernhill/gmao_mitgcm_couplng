@@ -99,7 +99,7 @@ cd $WorkingDir/TEST
 cp /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
 cp /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
 chmod u+w *_rst cap_restart
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/* .
+cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/gcm_run.j_pleiades gcm_run.j
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST

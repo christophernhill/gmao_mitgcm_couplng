@@ -101,7 +101,7 @@ cd $WorkingDir/TEST
 cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
 cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 chmod u+w *_rst cap_restart
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/* .
+cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/gcm_run.j_discover gcm_run.j
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
