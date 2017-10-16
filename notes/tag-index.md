@@ -1,3 +1,6 @@
+- checkpoint_0_U (2017/10/15, compatible with MITgcm -D "10/15/17")
+  * Adding Pleiades instructions for experiments/c48_llc90_02
+
 - checkpoint_0_T (2017/10/14, compatible with MITgcm -D "10/14/17")
   * Code used for first attempt to run c2880/llc4320 on Electra
   * Adding experiments/c2880_llc4320_01
