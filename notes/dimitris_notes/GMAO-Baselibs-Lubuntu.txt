@@ -44,6 +44,14 @@ sudo apt install virtualbox-guest-dkms
 sudo adduser heracles vboxsf
 sudo reboot
 
+# As guest and host operating systems are updated,
+# sometimes cut/paste and other services do not fully work.
+# The fix is to recompile the guest services from scratch.
+# Click on "Devices" then "Insert Guest Additions CD Image..."
+# Open directory in terminal.
+sudo ./VBoxLinuxAdditions.run
+sudo reboot
+
 # Extra packages needed to get and run MITgcm
 sudo apt install cvs
 sudo apt install gfortran
