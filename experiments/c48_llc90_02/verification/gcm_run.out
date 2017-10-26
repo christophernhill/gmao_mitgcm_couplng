@@ -1,90 +1,89 @@
-g5_modules: Setting BASEDIR and modules for borgr092
+g5_modules: Setting BASEDIR and modules for r621i7n9
 /bin/rm: No match.
-[1] 2123
-[2] 2124
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_import_rst ) /bin/cp ...
-[3] 2125
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/agcm_internal_rst )  ...
-[4] 2126
-[5] 2127
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/lake_internal_rst )  ...
-[6] 2128
-[7] 2129
-[8] 2130
-[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catchcn_internal_rst )  ...
-[9] 2131
-[1] 2132
-[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_import_rst )  ...
-[9] 2133
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/surf_import_rst ) /bin/cp ...
-[1] 2134
-[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/solar_internal_rst )  ...
-[9] 2135
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/irrad_internal_rst )  ...
-[1] 2136
-[9]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_internal_rst )  ...
-[9] 2137
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/turb_import_rst ) /bin/cp ...
-[1] 2138
-[2] 2139
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/h2o_internal_rst )  ...
-[1] 2140
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocart_internal_rst )  ...
-[2] 2141
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gocartdata_internal_rst ) ...
-[1] 2143
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/carma_internal_rst )  ...
-[2] 2144
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_internal_rst )  ...
-[1] 2145
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/stratchem_import_rst )  ...
-[2] 2146
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_internal_rst )  ...
-[1] 2147
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/gmichem_import_rst )  ...
-[2] 2148
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/mam_internal_rst )  ...
-[1] 2149
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/geosachem_internal_rst )  ...
-[2] 2150
-[1]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_internal_rst ) /bin/cp ...
-[1] 2151
-[4] 2152
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/tr_import_rst ) /bin/cp  ...
-[2] 2154
-[7] 2156
-[4]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_import_rst )  ...
-[4] 2157
-[2]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_import_rst )  ...
-[2] 2158
-[7]    Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/seaice_internal_rst )  ...
-[2]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/vegdyn.data ) /bin/cp  ...
-[4]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/orad_import_rst ) /bin/cp ...
-[1]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/saltwater_internal_rst )  ...
-[9]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/pchem_internal_rst )  ...
-[8]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/moist_internal_rst )  ...
-[6]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/catch_internal_rst )  ...
-[5]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/landice_internal_rst )  ...
-[3]  + Done                          if ( -e /discover/nobackup/dmenemen/Heracles-5_4/TEST/fvcore_internal_rst )  ...
+/bin/ln: No match.
+[1] 10916
+[2] 10917
+[3] 10918
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/agcm_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/agcm_import_rst .
+[4] 10919
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/agcm_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/agcm_internal_rst .
+[5] 10920
+[6] 10922
+[4]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/lake_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/lake_internal_rst .
+[7] 10924
+[8] 10926
+[9] 10927
+[7]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/catchcn_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/catchcn_internal_rst .
+[1] 10928
+[2] 10930
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/moist_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/moist_import_rst .
+[9] 10931
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/surf_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/surf_import_rst .
+[1] 10932
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/solar_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/solar_internal_rst .
+[2] 10933
+[4] 10934
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/turb_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/turb_internal_rst .
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/irrad_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/irrad_internal_rst .
+[9] 10935
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/turb_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/turb_import_rst .
+[1] 10936
+[2] 10938
+[7] 10939
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gocart_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/gocart_internal_rst .
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/h2o_internal_rst .
+[9] 10940
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gocartdata_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/gocartdata_internal_rst .
+[1] 10941
+[7]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/carma_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/carma_internal_rst .
+[2] 10942
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/stratchem_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/stratchem_internal_rst .
+[9] 10943
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/stratchem_import_rst .
+[1] 10944
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/gmichem_internal_rst .
+[2] 10945
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/gmichem_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/gmichem_import_rst .
+[9] 10946
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/mam_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/mam_internal_rst .
+[1] 10947
+[2]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/geosachem_internal_rst .
+[2] 10948
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/tr_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/tr_internal_rst .
+[9] 10949
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/tr_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/tr_import_rst .
+[1] 10950
+[5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/landice_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/landice_internal_rst .
+[5] 10952
+[9]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/saltwater_import_rst .
+[9] 10953
+[1]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/seaice_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/seaice_import_rst .
+[1] 10954
+[5]    Done                          if ( -e /nobackup/dmenemen/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/seaice_internal_rst .
+[1]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/vegdyn.data ) /bin/cp /nobackup/dmenemen/geos5/TEST/vegdyn.data .
+[9]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/orad_import_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/orad_import_rst .
+[2]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst .
+[4]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/pchem_internal_rst .
+[8]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/moist_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/moist_internal_rst .
+[6]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/catch_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/catch_internal_rst .
+[3]  + Done                          if ( -e /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst ) /bin/cp /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst .
 /bin/cp: No match.
 /bin/ls: No match.
-[1] 2174
-[2] 2175
-[3] 2176
-[4] 2177
-[5] 2178
-[2]    Done                          /bin/cp landice_internal_rst  ...
-[6] 2179
-[6]    Done                          /bin/cp saltwater_internal_rst  ...
-[5]  + Done                          /bin/cp pchem_internal_rst  ...
-[4]  + Done                          /bin/cp moist_internal_rst  ...
-[3]  + Done                          /bin/cp catch_internal_rst  ...
-[1]  + Done                          /bin/cp fvcore_internal_rst  ...
-srun.slurm: cluster configuration lacks support for cpu binding
-srun.slurm: cluster configuration lacks support for cpu binding
+[1] 10963
+[2] 10964
+[3] 10965
+[4] 10966
+[2]    Done                          /bin/cp landice_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
+[1]    Done                          /bin/cp fvcore_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
+[5] 10967
+[6] 10968
+[6]    Done                          /bin/cp saltwater_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
+[5]  - Done                          /bin/cp pchem_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
+[4]  + Done                          /bin/cp moist_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
+[3]  + Done                          /bin/cp catch_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000414_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180
  
  In MAPL_Shmem:
-     NumCores per Node =           24
+     NumCores per Node varies from           12  to           28
      NumNodes in use   =            4
      Total PEs         =           96
  
@@ -135,10 +134,6 @@ Using non_ortho :       T
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12  12  12  12
-  Y-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
@@ -153,11 +148,15 @@ whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
  create_grid: Looking for cubed-grid mosaic: Inline
- create_grid: Creating Global cubed-grid 
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12  12  12  12
+  Y-AXIS =   12  12  12  12
+ create_grid: Creating Global cubed-grid 
  
   Cubed-Sphere Grid Stats :           49 x          49 x           6
       Grid Length               : min: 163384.22 max: 231009.55 avg: 193067.59 min/max:      0.71
@@ -1300,9 +1299,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
    Integer*4 Resource Parameter CALLED_LAST:           1
       Real*4 Resource Parameter TAUCRIT:   0.100000    
    Character Resource Parameter KPAR_FILE: SEAWIFS_KPAR_mon_clim.data
- NOT using buffer I/O for file: SEAWIFS_KPAR_mon_clim.data
- Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
- Using parallel IO for file: SEAWIFS_KPAR_mon_clim.data
       Real*4 Resource Parameter MIT_TAU_MIN:    60.0000    
       Real*4 Resource Parameter MIT_TAU_MAX:    86400.0    
       Real*4 Resource Parameter MIT_M3:    1.00000    
@@ -1649,14 +1645,14 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
    -----------------------------------------------------
       Block          User time  System Time   Total Time
    -----------------------------------------------------
-   TOTAL                      194.0903       0.0000     194.0903
-   COMM_TOTAL                   2.3671       0.0000       2.3671
-   C_SW                         0.5062       0.0000       0.5062
-   D_SW                         1.7601       0.0000       1.7601
-   FV_TP_2D                     6.2309       0.0000       6.2309
-   TRACER_2D                    7.4241       0.0000       7.4241
-   COMM_TRAC                    0.9293       0.0000       0.9293
-   REMAPPING                    2.3351       0.0000       2.3351
+   TOTAL                      195.1773       0.0000     195.1773
+   COMM_TOTAL                   2.1711       0.0000       2.1711
+   C_SW                         0.4613       0.0000       0.4613
+   D_SW                         1.7106       0.0000       1.7106
+   FV_TP_2D                     6.2674       0.0000       6.2674
+   TRACER_2D                    7.2715       0.0000       7.2715
+   COMM_TRAC                    0.9491       0.0000       0.9491
+   REMAPPING                    2.1796       0.0000       2.1796
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
@@ -1715,3 +1711,155 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Using parallel NetCDF for file: orad_import_checkpoint
  NOT using buffer I/O for file: cap_restart
 GEOSgcm Run Status: 0
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+/bin/cp: No match.
+[1] 11320
+[1]    Done                          /bin/cp fvcore_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11325
+[1]    Done                          /bin/cp lake_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.lake_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11330
+[1]    Done                          /bin/cp landice_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11335
+[1]    Done                          /bin/cp catch_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11340
+[1]    Done                          /bin/cp moist_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11345
+[1]    Done                          /bin/cp moist_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.moist_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11350
+[1]    Done                          /bin/cp surf_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.surf_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11355
+[1]    Done                          /bin/cp solar_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.solar_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11360
+[1]    Done                          /bin/cp irrad_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.irrad_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11365
+[1]    Done                          /bin/cp turb_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.turb_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11370
+[1]    Done                          /bin/cp turb_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.turb_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11375
+[1]    Done                          /bin/cp pchem_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11380
+[1]    Done                          /bin/cp gocartdata_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.gocartdata_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11385
+[1]    Done                          /bin/cp tr_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.tr_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11390
+[1]    Done                          /bin/cp tr_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.tr_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11395
+[1]    Done                          /bin/cp saltwater_internal_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11400
+[1]    Done                          /bin/cp saltwater_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.saltwater_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+[1] 11405
+[1]    Done                          /bin/cp orad_import_rst /nobackup/dmenemen/geos5/TEST/restarts/TEST.orad_import_rst.e20000415_21z.Heracles-5_3.rst_CF0048x6C_DE0360xPE0180.nc4
+/bin/cp: No match.
+/bin/mv: No match.
+ls: No match.
+/bin/ls: No match.
+/bin/ls: cannot access 'ocean_month.nc': No such file or directory
+[1] 11518
+[2] 11519
+[3] 11520
+[4] 11521
+[5] 11522
+[6] 11523
+[7] 11524
+[8] 11525
+[9] 11526
+[10] 11527
+[11] 11528
+[12] 11530
+[13] 11533
+[14] 11534
+/bin/cp: cannot stat 'agcm_import_rst': No such file or directory
+[15] 11535
+/bin/cp: cannot stat 'agcm_internal_rst': No such file or directory
+[16] 11536
+[1]    Exit 1                        /bin/cp agcm_import_rst /nobackup/dmenemen/geos5/TEST/agcm_import_rst
+[1] 11537
+[2]    Exit 1                        /bin/cp agcm_internal_rst /nobackup/dmenemen/geos5/TEST/agcm_internal_rst
+[2] 11538
+[17] 11539
+[18] 11540
+[19] 11541
+[20] 11542
+[21] 11543
+[22] 11544
+[23] 11545
+[24] 11546
+/bin/cp: cannot stat 'catchcn_internal_rst': No such file or directory
+[25] 11547
+[26] 11548
+[7]    Exit 1                        /bin/cp catchcn_internal_rst /nobackup/dmenemen/geos5/TEST/catchcn_internal_rst
+[7] 11550
+[27] 11551
+[28] 11552
+[29] 11553
+[30] 11554
+[5]    Done                          /bin/cp landice_internal_rst /nobackup/dmenemen/geos5/TEST/landice_internal_rst
+/bin/cp: cannot stat 'h2o_internal_rst': No such file or directory
+/bin/cp: cannot stat 'gocart_internal_rst': No such file or directory
+/bin/cp: cannot stat 'stratchem_internal_rst': No such file or directory
+/bin/cp: cannot stat 'carma_internal_rst': No such file or directory
+/bin/cp: cannot stat 'stratchem_import_rst': No such file or directory
+/bin/cp: cannot stat 'gmichem_internal_rst': No such file or directory
+/bin/cp: cannot stat 'gmichem_import_rst': No such file or directory
+/bin/cp: cannot stat 'mam_internal_rst': No such file or directory
+/bin/cp: cannot stat 'geosachem_internal_rst': No such file or directory
+/bin/cp: cannot stat 'seaice_internal_rst': No such file or directory
+/bin/cp: cannot stat 'seaice_import_rst': No such file or directory
+[30] - Done                          /bin/cp vegdyn.data /nobackup/dmenemen/geos5/TEST/vegdyn.data
+[29] - Done                          /bin/cp orad_import_rst /nobackup/dmenemen/geos5/TEST/orad_import_rst
+[28] + Exit 1                        /bin/cp seaice_internal_rst /nobackup/dmenemen/geos5/TEST/seaice_internal_rst
+[27] + Exit 1                        /bin/cp seaice_import_rst /nobackup/dmenemen/geos5/TEST/seaice_import_rst
+[7]  + Done                          /bin/cp saltwater_import_rst /nobackup/dmenemen/geos5/TEST/saltwater_import_rst
+[26] + Done                          /bin/cp saltwater_internal_rst /nobackup/dmenemen/geos5/TEST/saltwater_internal_rst
+[25] + Done                          /bin/cp tr_import_rst /nobackup/dmenemen/geos5/TEST/tr_import_rst
+[24] + Done                          /bin/cp tr_internal_rst /nobackup/dmenemen/geos5/TEST/tr_internal_rst
+[23] + Exit 1                        /bin/cp geosachem_internal_rst /nobackup/dmenemen/geos5/TEST/geosachem_internal_rst
+[22] + Exit 1                        /bin/cp mam_internal_rst /nobackup/dmenemen/geos5/TEST/mam_internal_rst
+[21] + Exit 1                        /bin/cp gmichem_import_rst /nobackup/dmenemen/geos5/TEST/gmichem_import_rst
+[20] + Exit 1                        /bin/cp gmichem_internal_rst /nobackup/dmenemen/geos5/TEST/gmichem_internal_rst
+[19] + Exit 1                        /bin/cp stratchem_import_rst /nobackup/dmenemen/geos5/TEST/stratchem_import_rst
+[18] + Exit 1                        /bin/cp stratchem_internal_rst /nobackup/dmenemen/geos5/TEST/stratchem_internal_rst
+[17] + Exit 1                        /bin/cp carma_internal_rst /nobackup/dmenemen/geos5/TEST/carma_internal_rst
+[2]  + Done                          /bin/cp gocartdata_internal_rst /nobackup/dmenemen/geos5/TEST/gocartdata_internal_rst
+[1]  + Exit 1                        /bin/cp gocart_internal_rst /nobackup/dmenemen/geos5/TEST/gocart_internal_rst
+[16] + Exit 1                        /bin/cp h2o_internal_rst /nobackup/dmenemen/geos5/TEST/h2o_internal_rst
+[15] + Done                          /bin/cp pchem_internal_rst /nobackup/dmenemen/geos5/TEST/pchem_internal_rst
+[14] + Done                          /bin/cp turb_import_rst /nobackup/dmenemen/geos5/TEST/turb_import_rst
+[13] + Done                          /bin/cp turb_internal_rst /nobackup/dmenemen/geos5/TEST/turb_internal_rst
+[12] + Done                          /bin/cp irrad_internal_rst /nobackup/dmenemen/geos5/TEST/irrad_internal_rst
+[11] + Done                          /bin/cp solar_internal_rst /nobackup/dmenemen/geos5/TEST/solar_internal_rst
+[10] + Done                          /bin/cp surf_import_rst /nobackup/dmenemen/geos5/TEST/surf_import_rst
+[9]  + Done                          /bin/cp moist_import_rst /nobackup/dmenemen/geos5/TEST/moist_import_rst
+[8]  + Done                          /bin/cp moist_internal_rst /nobackup/dmenemen/geos5/TEST/moist_internal_rst
+[6]  + Done                          /bin/cp catch_internal_rst /nobackup/dmenemen/geos5/TEST/catch_internal_rst
+[4]  + Done                          /bin/cp lake_internal_rst /nobackup/dmenemen/geos5/TEST/lake_internal_rst
+[3]  + Done                          /bin/cp fvcore_internal_rst /nobackup/dmenemen/geos5/TEST/fvcore_internal_rst

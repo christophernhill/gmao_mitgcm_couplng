@@ -28,11 +28,11 @@ git log --decorate=full
 
 # How to add a tag:
 heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git pull
-heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git tag checkpoint_0_U
+heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git tag checkpoint_0_V
 heracles@heracles:~/foo_tag/gmao_mitgcm_couplng$ git push origin --tags
 #
 heracles@heracles:~/foo_tag/GEOSodas$ git pull
-heracles@heracles:~/foo_tag/GEOSodas$ git tag checkpoint_0_U
+heracles@heracles:~/foo_tag/GEOSodas$ git tag checkpoint_0_V
 heracles@heracles:~/foo_tag/GEOSodas$ git push origin --tags
 
 # How to retrieve a tag, e.g., checkpoint_0_M:
