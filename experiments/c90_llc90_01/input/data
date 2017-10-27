@@ -49,12 +49,12 @@
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
  useSingleCpuIO=.TRUE.,
- tempAdvScheme=30,
- saltAdvScheme=30,
- tempVertAdvScheme=3,
- saltVertAdvScheme=3,
- tempImplVertAdv=.TRUE.,
- saltImplVertAdv=.TRUE.,
+ tempAdvScheme=77,
+ saltAdvScheme=77,
+#tempVertAdvScheme=3,
+#saltVertAdvScheme=3,
+#tempImplVertAdv=.TRUE.,
+#saltImplVertAdv=.TRUE.,
  staggerTimeStep=.TRUE.,
  vectorInvariantMomentum=.TRUE.,
 #when using the cd scheme:
@@ -73,7 +73,7 @@
 
 # Time stepping parameters
  &PARM03
- nIter0=1,
+ nIter0=174564,
 #2 lev2 for testing:
 #nTimeSteps=8,
 #20y:
@@ -86,7 +86,7 @@
 #when using the cd scheme:
 # epsAB_CD = 0.25,
 # tauCD=172800.0,
- deltaT = 900.,
+ deltaT = 450.,
 #when using ab2:
  abEps = 0.1,
 #when using ab3:
@@ -98,7 +98,7 @@
  chkptFreq   =31536000.0,
 # taveFreq    =31536000.0,
 # dumpFreq    =31536000.0,
- monitorFreq = 7200.0,
+ monitorFreq=10800,
  dumpInitAndLast = .TRUE.,
  pickupStrictlyMatch=.FALSE.,
  &
