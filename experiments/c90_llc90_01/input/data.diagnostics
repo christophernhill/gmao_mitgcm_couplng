@@ -31,7 +31,7 @@
  &DIAGNOSTICS_LIST
    frequency(1)  = 10800.,
    fields(1,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ',
-   filename(2)  = 'state_2d_set1',  
+   filename(1)  = 'state_2d_set1',  
  frequency(2)  = 10800.,
     fields(1,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS',
     levels(1,2)  = 1.,
