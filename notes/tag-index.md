@@ -1,5 +1,6 @@
 - checkpoint_0_V (2017/10/25, compatible with MITgcm checkpoint66l)
   * Add pkg/ctrl at compile and run time
+  * Created c90_llc90_02, a c90/llc90, 1-day experiment
 
 - checkpoint_0_U (2017/10/15, compatible with MITgcm -D "10/15/17")
   * Adding Pleiades instructions for experiments/c48_llc90_02
