@@ -74,7 +74,7 @@ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
-# Set up coupled code for experiments/c48_llc90_02
+# Set up coupled code for experiments/c90_llc90_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -82,7 +82,7 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c48
+# Enter the Atmospheric Horizontal Resolution code: c90
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
 # Enter the Ocean Lat/Lon Horizontal Resolution: llc90
@@ -96,18 +96,16 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: $WorkingDir/GEOSodas (spell out $WorkingDir)
 # Enter your GROUP ID for Current EXP: s1353
 
-# Get GEOS-5 files for experiments/c48_llc90_02
+# Get GEOS-5 files for experiments/c90_llc90_01
 cd $WorkingDir/TEST
-cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
-cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
+cp /discover/nobackup/estrobac/geos5/My_changes/c90_llc90_01_data/geos/* .
 chmod u+w *_rst cap_restart
-cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01/geos5/gcm_run.j_discover gcm_run.j
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
-ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
+cp /discover/nobackup/estrobac/geos5/My_changes/c90_llc90_01_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01/input/* .
 
 # Run coupled code as an interactive job
