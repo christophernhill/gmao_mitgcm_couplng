@@ -1,59 +1,59 @@
-g5_modules: Setting BASEDIR and modules for borgr073
+g5_modules: Setting BASEDIR and modules for borgw127
+/bin/rm: No match.
 /bin/ln: No match.
-mkdir: cannot create directory `/home/estrobac/data/geos5/c90_llc90_01/mit_output': File exists
-[1] 25866
-[2] 25867
+[1] 18606
+[2] 18607
 [1]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/agcm_import_rst ) /bin/cp  ...
-[3] 25868
+[3] 18608
 [2]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/agcm_internal_rst ) /bin/cp  ...
-[4] 25869
-[5] 25871
-[6] 25873
-[7] 25875
-[8] 25877
-[9] 25878
+[4] 18610
+[5] 18611
+[6] 18613
+[7] 18615
+[8] 18617
 [7]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/catchcn_internal_rst ) /bin/cp  ...
-[1] 25880
-[2] 25882
-[7] 25884
-[10] 25886
-[11] 25888
-[12] 25889
-[13] 25890
-[14] 25893
+[9] 18619
+[1] 18621
+[2] 18622
+[7] 18624
+[10] 18625
+[11] 18626
+[12] 18628
+[13] 18629
+[14] 18630
+[15] 18633
 [13]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/h2o_internal_rst ) /bin/cp  ...
-[13] 25895
-[15] 25898
-[16] 25899
-[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/carma_internal_rst ) /bin/cp  ...
-[15] 25900
-[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_internal_rst ) /bin/cp ...
-[16] 25901
-[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_import_rst ) /bin/cp  ...
-[15] 25902
-[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_internal_rst ) /bin/cp  ...
-[16] 25903
+[13] 18637
+[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gocartdata_internal_rst )  ...
+[15] 18638
+[13]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/carma_internal_rst ) /bin/cp  ...
+[13] 18639
+[16] 18640
+[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_internal_rst ) /bin/cp ...
+[15] 18641
+[13]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_import_rst ) /bin/cp  ...
+[13] 18642
 [15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_import_rst ) /bin/cp  ...
-[15] 25904
-[17] 25905
+[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_internal_rst ) /bin/cp  ...
+[15] 18643
+[13]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/mam_internal_rst ) /bin/cp  ...
+[13] 18644
 [15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/geosachem_internal_rst ) /bin/cp ...
-[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/mam_internal_rst ) /bin/cp  ...
-[15] 25906
-[16] 25909
-[18] 25911
-[19] 25912
-[20] 25914
-[19]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_import_rst ) /bin/cp  ...
-[19] 25915
-[21] 25917
-[20]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_internal_rst ) /bin/cp  ...
-[21] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data ) /bin/cp  ...
-[19] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst ) /bin/cp  ...
-[18] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_import_rst ) /bin/cp  ...
+[15] 18645
+[16] 18647
+[17] 18650
+[18] 18651
+[17]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_import_rst ) /bin/cp  ...
+[17] 18652
+[18]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_import_rst ) /bin/cp  ...
+[18] 18653
+[19] 18654
+[18]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst ) /bin/cp  ...
+[19] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data ) /bin/cp  ...
+[17] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_internal_rst ) /bin/cp  ...
 [16] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_internal_rst ) /bin/cp ...
 [15] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst ) /bin/cp  ...
-[17] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst ) /bin/cp  ...
-[13] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gocartdata_internal_rst )  ...
+[13] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst ) /bin/cp  ...
 [14] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gocart_internal_rst ) /bin/cp  ...
 [12] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/pchem_internal_rst ) /bin/cp  ...
 [11] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/turb_import_rst ) /bin/cp  ...
@@ -69,39 +69,31 @@ mkdir: cannot create directory `/home/estrobac/data/geos5/c90_llc90_01/mit_outpu
 [3]  + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/fvcore_internal_rst ) /bin/cp  ...
 /bin/cp: No match.
 /bin/ls: No match.
-[1] 25930
-[2] 25931
-[3] 25932
-[4] 25933
-[5] 25934
-[6] 25935
-[7] 25936
-[8] 25937
+[1] 18665
+[2] 18666
+[3] 18667
+[4] 18668
+[5] 18669
+[6] 18670
+[7] 18671
+[8] 18672
+[9] 18673
+[10] 18674
+[11] 18675
+[12] 18676
 [2]    Done                          /bin/cp lake_internal_rst  ...
-[9] 25938
-[2] 25939
-[10] 25940
-[11] 25941
-[12] 25942
-[13] 25943
-[14] 25944
-[15] 25945
-[16] 25946
-[17] 25947
+[2] 18677
 [3]    Done                          /bin/cp landice_internal_rst  ...
-[2]    Done                          /bin/cp turb_internal_rst  ...
-[2] 25948
-[3] 25949
-[3]  + Done                          /bin/cp vegdyn.data  ...
-[2]  + Done                          /bin/cp orad_import_rst  ...
-[17] + Done                          /bin/cp saltwater_import_rst  ...
-[16] + Done                          /bin/cp saltwater_internal_rst  ...
-[15] + Done                          /bin/cp tr_import_rst  ...
-[14] + Done                          /bin/cp tr_internal_rst  ...
-[13] + Done                          /bin/cp gocartdata_internal_rst  ...
-[12] + Done                          /bin/cp gocart_internal_rst  ...
-[11] + Done                          /bin/cp pchem_internal_rst  ...
-[10] + Done                          /bin/cp turb_import_rst  ...
+[10]   Done                          /bin/cp turb_internal_rst  ...
+[3] 18678
+[10] 18679
+[13] 18680
+[13] + Done                          /bin/cp saltwater_internal_rst  ...
+[10] + Done                          /bin/cp tr_import_rst  ...
+[3]  + Done                          /bin/cp tr_internal_rst  ...
+[2]  + Done                          /bin/cp gocart_internal_rst  ...
+[12] + Done                          /bin/cp pchem_internal_rst  ...
+[11] + Done                          /bin/cp turb_import_rst  ...
 [9]  + Done                          /bin/cp irrad_internal_rst  ...
 [8]  + Done                          /bin/cp solar_internal_rst  ...
 [7]  + Done                          /bin/cp surf_import_rst  ...
@@ -113,7 +105,7 @@ srun.slurm: cluster configuration lacks support for cpu binding
 srun.slurm: cluster configuration lacks support for cpu binding
  
  In MAPL_Shmem:
-     NumCores per Node varies from           25  to           28
+     NumCores per Node varies from           27  to           28
      NumNodes in use   =           13
      Total PEs         =          360
  
@@ -156,15 +148,15 @@ NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to  8388606.
 NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
  Starting PEs :          360
  Starting Threads :            1
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =    9   9   9   9   9   9   9   9   9   9
-  Y-AXIS =   15  15  15  15  15  15
  For k_split (remapping)=           2
 n_split is set to 02 for resolution-dt=0091x0091x6-  450.000
 Using grid_type :    0
 Using n_sponge :    9
 Using non_ortho :       T
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =    9   9   9   9   9   9   9   9   9   9
+  Y-AXIS =   15  15  15  15  15  15
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =    9   9   9   9   9   9   9   9   9   9
@@ -437,7 +429,7 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   
    Character Resource Parameter SALTWATER_IMPORT_RESTART_FILE: saltwater_import_rst
    Character Resource Parameter SALTWATER_IMPORT_RESTART_TYPE: pnc4
- Using parallel NetCDF for file: saltwater_import_rst
+ Bootstrapping saltwater_import_rst
    Character Resource Parameter SALTWATER_INTERNAL_RESTART_FILE: saltwater_internal_rst
    Character Resource Parameter SALTWATER_INTERNAL_RESTART_TYPE: pnc4
  Using parallel NetCDF for file: saltwater_internal_rst
@@ -474,7 +466,7 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   
    Character Resource Parameter GOCART.data_INTERNAL_RESTART_FILE: gocartdata_internal_rst
    Character Resource Parameter GOCART.data_INTERNAL_RESTART_TYPE: pnc4
- Using parallel NetCDF for file: gocartdata_internal_rst
+ Bootstrapping gocartdata_internal_rst
  GOCART.data::Initialize_: Diurnal Biomass Burning is ON
    Character Resource Parameter TR_IMPORT_RESTART_FILE: tr_import_rst
    Character Resource Parameter TR_IMPORT_RESTART_TYPE: pnc4
@@ -611,7 +603,7 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
    Character Resource Parameter FILTER_TYPE: NULL
    Character Resource Parameter ORAD_IMPORT_RESTART_FILE: orad_import_rst
    Character Resource Parameter ORAD_IMPORT_RESTART_TYPE: pnc4
- Using parallel NetCDF for file: orad_import_rst
+ Bootstrapping orad_import_rst
       Real*4 Resource Parameter MIT_DT:    450.000    
    Character Resource Parameter OCEAN_DIR: mitocean_run
  Calling DRIVER_INIT
@@ -2001,14 +1993,14 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
    -----------------------------------------------------
       Block          User time  System Time   Total Time
    -----------------------------------------------------
-   TOTAL                      263.3300       0.0000     263.3300
-   COMM_TOTAL                   5.3846       0.0000       5.3846
-   C_SW                         0.9529       0.0000       0.9529
-   D_SW                         3.3097       0.0000       3.3097
-   FV_TP_2D                    13.2403       0.0000      13.2403
-   TRACER_2D                   17.0147       0.0000      17.0147
-   COMM_TRAC                    2.5316       0.0000       2.5316
-   REMAPPING                    4.7623       0.0000       4.7623
+   TOTAL                      268.5545       0.0000     268.5545
+   COMM_TOTAL                   5.0968       0.0000       5.0968
+   C_SW                         0.9436       0.0000       0.9436
+   D_SW                         3.3428       0.0000       3.3428
+   FV_TP_2D                    12.9975       0.0000      12.9975
+   TRACER_2D                   16.8083       0.0000      16.8083
+   COMM_TRAC                    2.3093       0.0000       2.3093
+   REMAPPING                    4.9104       0.0000       4.9104
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
@@ -2067,120 +2059,121 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  Using parallel NetCDF for file: orad_import_checkpoint
  NOT using buffer I/O for file: cap_restart
 GEOSgcm Run Status: 0
-[1] 26381
+[1] 19116
 [1]    Done                          /bin/cp fvcore_internal_rst  ...
-[1] 26387
+[1] 19122
 [1]    Done                          /bin/cp lake_internal_rst  ...
-[1] 26393
+[1] 19128
 [1]    Done                          /bin/cp landice_internal_rst  ...
-[1] 26399
+[1] 19134
 [1]    Done                          /bin/cp catch_internal_rst  ...
-[1] 26405
+[1] 19140
 [1]    Done                          /bin/cp moist_internal_rst  ...
-[1] 26411
+[1] 19146
 [1]    Done                          /bin/cp moist_import_rst  ...
-[1] 26417
+[1] 19152
 [1]    Done                          /bin/cp surf_import_rst  ...
-[1] 26423
+[1] 19158
 [1]    Done                          /bin/cp solar_internal_rst  ...
-[1] 26429
+[1] 19164
 [1]    Done                          /bin/cp irrad_internal_rst  ...
-[1] 26435
+[1] 19170
 [1]    Done                          /bin/cp turb_internal_rst  ...
-[1] 26441
+[1] 19176
 [1]    Done                          /bin/cp turb_import_rst  ...
-[1] 26447
+[1] 19182
 [1]    Done                          /bin/cp pchem_internal_rst  ...
-[1] 26453
+[1] 19188
 [1]    Done                          /bin/cp gocartdata_internal_rst  ...
-[1] 26459
+[1] 19194
 [1]    Done                          /bin/cp tr_internal_rst  ...
-[1] 26465
+[1] 19200
 [1]    Done                          /bin/cp tr_import_rst  ...
-[1] 26471
+[1] 19206
 [1]    Done                          /bin/cp saltwater_internal_rst  ...
-[1] 26477
+[1] 19212
 [1]    Done                          /bin/cp saltwater_import_rst  ...
-[1] 26483
+[1] 19218
 [1]    Done                          /bin/cp orad_import_rst  ...
 /bin/cp: No match.
 /bin/mv: No match.
 ls: No match.
+/bin/ls: No match.
 /bin/ls: cannot access ocean_month.nc: No such file or directory
-19883155
-19883156
-19883157
-19883158
-19883160
-[1] 26646
-[2] 26647
-[3] 26648
-[4] 26649
-[5] 26650
-[6] 26651
-/bin/cp: cannot stat `agcm_import_rst'[7] 26652
-: No such file or directory
-[8] 26653
+19884607
+19884609
+19884610
+19884612
+19884613
+[1] 19381
+[2] 19382
+[3] 19383
+[4] 19384
+[5] 19385
+/bin/cp: cannot stat `agcm_import_rst': No such file or directory
+[6] 19386
+[7] 19387
 [1]    Exit 1                        /bin/cp agcm_import_rst /home/estrobac/data/geos5/c90_llc90_01/agcm_import_rst
-[9] 26654
-[1] 26655
-[10] 26656
-/bin/cp: cannot stat `agcm_internal_rst'[11] 26657
-: No such file or directory
-[12] 26658
+[8] 19388
+[9] 19389
+[1] 19390
+[10] 19391
+[11] 19392
+/bin/cp: cannot stat `agcm_internal_rst': No such file or directory
+[12] 19393
+[13] 19394
 [2]    Exit 1                        /bin/cp agcm_internal_rst  ...
-[2] 26659
-[13] 26660
-[14] 26661
-/bin/cp: [15] 26662
-cannot stat `catchcn_internal_rst': No such file or directory
-[16] 26663
-[17] 26664
+[2] 19395
+[14] 19396
+[15] 19397
+[16] 19398
+/bin/cp: cannot stat `catchcn_internal_rst'[17] 19399
+: No such file or directory
+[18] 19400
 [7]    Exit 1                        /bin/cp catchcn_internal_rst  ...
-[7] 26665
-[18] 26666
-[19] 26667
-[20] 26668
-[21] 26669
-/bin/cp: cannot stat `h2o_internal_rst': No such file or directory
-[22] 26670
+[7] 19401
+[19] 19402
+[20] 19403
+[21] 19404
+[22] 19405
+[23] 19406
+/bin/cp: cannot stat `h2o_internal_rst': No such file or directory[24] 19407
+
+[25] 19408
 [14]   Exit 1                        /bin/cp h2o_internal_rst  ...
-[14] 26671
-[23] 26672
-[24] 26673
-[25] 26674
-[26] 26675
-/bin/cp: cannot stat `carma_internal_rst'[27] 26676
+[14] 19409
+[26] 19410
+[27] 19411
+[28] 19412
+[29] 19413
+/bin/cp: cannot stat `carma_internal_rst': No such file or directory
+/bin/cp: cannot stat `stratchem_import_rst'/bin/cp: cannot stat `stratchem_internal_rst': No such file or directory
 : No such file or directory
-[28] 26677
-[17]   Exit 1                        /bin/cp carma_internal_rst  ...
-/bin/cp: cannot stat `stratchem_import_rst'[17] 26678
+/bin/cp: /bin/cp: cannot stat `gmichem_internal_rst'cannot stat `gmichem_import_rst': No such file or directory
+/bin/cp: cannot stat `geosachem_internal_rst'/bin/cp: : No such file or directory
+: No such file or directorycannot stat `mam_internal_rst'
 : No such file or directory
-/bin/cp: cannot stat `gmichem_internal_rst': No such file or directory
-/bin/cp: cannot stat `geosachem_internal_rst': No such file or directory
-/bin/cp: cannot stat `stratchem_internal_rst': No such file or directory
-/bin/cp: cannot stat `gmichem_import_rst': No such file or directory
-/bin/cp: /bin/cp: cannot stat `seaice_internal_rst'cannot stat `seaice_import_rst': No such file or directory
-: No such file or directory/bin/cp: cannot stat `mam_internal_rst'
-: No such file or directory
-[17] + Done                          /bin/cp vegdyn.data /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data
-[28] + Done                          /bin/cp orad_import_rst /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst
+/bin/cp: cannot stat `seaice_import_rst': No such file or directory/bin/cp: 
+cannot stat `seaice_internal_rst': No such file or directory
+[29] - Done                          /bin/cp vegdyn.data /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data
+[28] - Done                          /bin/cp orad_import_rst /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst
 [27] + Exit 1                        /bin/cp seaice_internal_rst  ...
 [26] + Exit 1                        /bin/cp seaice_import_rst  ...
-[25] + Done                          /bin/cp saltwater_import_rst  ...
-[24] + Done                          /bin/cp saltwater_internal_rst  ...
-[23] + Done                          /bin/cp tr_import_rst /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst
-[14] + Done                          /bin/cp tr_internal_rst /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst
+[14] + Done                          /bin/cp saltwater_import_rst  ...
+[25] + Done                          /bin/cp saltwater_internal_rst  ...
+[24] + Done                          /bin/cp tr_import_rst /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst
+[23] + Done                          /bin/cp tr_internal_rst /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst
 [22] + Exit 1                        /bin/cp geosachem_internal_rst  ...
 [21] + Exit 1                        /bin/cp mam_internal_rst  ...
 [20] + Exit 1                        /bin/cp gmichem_import_rst  ...
 [19] + Exit 1                        /bin/cp gmichem_internal_rst  ...
-[18] + Exit 1                        /bin/cp stratchem_import_rst  ...
-[7]  + Exit 1                        /bin/cp stratchem_internal_rst  ...
+[7]  + Exit 1                        /bin/cp stratchem_import_rst  ...
+[18] + Exit 1                        /bin/cp stratchem_internal_rst  ...
+[17] + Exit 1                        /bin/cp carma_internal_rst  ...
 [16] + Done                          /bin/cp gocartdata_internal_rst  ...
 [15] + Done                          /bin/cp gocart_internal_rst  ...
-[13] + Done                          /bin/cp pchem_internal_rst  ...
-[2]  + Done                          /bin/cp turb_import_rst /home/estrobac/data/geos5/c90_llc90_01/turb_import_rst
+[2]  + Done                          /bin/cp pchem_internal_rst  ...
+[13] + Done                          /bin/cp turb_import_rst /home/estrobac/data/geos5/c90_llc90_01/turb_import_rst
 [12] + Done                          /bin/cp turb_internal_rst  ...
 [11] + Done                          /bin/cp irrad_internal_rst  ...
 [10] + Done                          /bin/cp solar_internal_rst  ...
