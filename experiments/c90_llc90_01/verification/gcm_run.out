@@ -1,57 +1,58 @@
-g5_modules: Setting BASEDIR and modules for borgu110
+g5_modules: Setting BASEDIR and modules for borgr073
+/bin/ln: No match.
 mkdir: cannot create directory `/home/estrobac/data/geos5/c90_llc90_01/mit_output': File exists
-[1] 9234
-[2] 9235
-[3] 9236
+[1] 25866
+[2] 25867
 [1]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/agcm_import_rst ) /bin/cp  ...
+[3] 25868
 [2]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/agcm_internal_rst ) /bin/cp  ...
-[4] 9237
-[5] 9239
-[6] 9241
-[7] 9243
-[8] 9245
+[4] 25869
+[5] 25871
+[6] 25873
+[7] 25875
+[8] 25877
+[9] 25878
 [7]    Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/catchcn_internal_rst ) /bin/cp  ...
-[9] 9246
-[1] 9248
-[2] 9249
-[7] 9250
-[10] 9252
-[11] 9253
-[12] 9254
-[13] 9257
-[14] 9262
+[1] 25880
+[2] 25882
+[7] 25884
+[10] 25886
+[11] 25888
+[12] 25889
+[13] 25890
+[14] 25893
 [13]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/h2o_internal_rst ) /bin/cp  ...
-[13] 9263
-[15] 9265
-[16] 9267
+[13] 25895
+[15] 25898
+[16] 25899
 [15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/carma_internal_rst ) /bin/cp  ...
-[15] 9268
+[15] 25900
 [16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_internal_rst ) /bin/cp ...
-[16] 9269
-[17] 9270
-[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_internal_rst ) /bin/cp  ...
+[16] 25901
 [15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/stratchem_import_rst ) /bin/cp  ...
-[15] 9271
-[17]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_import_rst ) /bin/cp  ...
-[16] 9272
-[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/mam_internal_rst ) /bin/cp  ...
-[15] 9273
-[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/geosachem_internal_rst ) /bin/cp ...
-[16] 9274
-[17] 9276
-[18] 9278
-[19] 9280
-[20] 9282
+[15] 25902
+[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_internal_rst ) /bin/cp  ...
+[16] 25903
+[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gmichem_import_rst ) /bin/cp  ...
+[15] 25904
+[17] 25905
+[15]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/geosachem_internal_rst ) /bin/cp ...
+[16]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/mam_internal_rst ) /bin/cp  ...
+[15] 25906
+[16] 25909
+[18] 25911
+[19] 25912
+[20] 25914
 [19]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_import_rst ) /bin/cp  ...
-[19] 9283
+[19] 25915
+[21] 25917
 [20]   Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/seaice_internal_rst ) /bin/cp  ...
-[20] 9284
-[20] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data ) /bin/cp  ...
+[21] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data ) /bin/cp  ...
 [19] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst ) /bin/cp  ...
 [18] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_import_rst ) /bin/cp  ...
-[17] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_internal_rst ) /bin/cp ...
-[16] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst ) /bin/cp  ...
-[15] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst ) /bin/cp  ...
+[16] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/saltwater_internal_rst ) /bin/cp ...
+[15] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst ) /bin/cp  ...
+[17] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst ) /bin/cp  ...
 [13] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gocartdata_internal_rst )  ...
 [14] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/gocart_internal_rst ) /bin/cp  ...
 [12] + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/pchem_internal_rst ) /bin/cp  ...
@@ -67,11 +68,52 @@ mkdir: cannot create directory `/home/estrobac/data/geos5/c90_llc90_01/mit_outpu
 [4]  + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/lake_internal_rst ) /bin/cp  ...
 [3]  + Done                          if ( -e /home/estrobac/data/geos5/c90_llc90_01/fvcore_internal_rst ) /bin/cp  ...
 /bin/cp: No match.
+/bin/ls: No match.
+[1] 25930
+[2] 25931
+[3] 25932
+[4] 25933
+[5] 25934
+[6] 25935
+[7] 25936
+[8] 25937
+[2]    Done                          /bin/cp lake_internal_rst  ...
+[9] 25938
+[2] 25939
+[10] 25940
+[11] 25941
+[12] 25942
+[13] 25943
+[14] 25944
+[15] 25945
+[16] 25946
+[17] 25947
+[3]    Done                          /bin/cp landice_internal_rst  ...
+[2]    Done                          /bin/cp turb_internal_rst  ...
+[2] 25948
+[3] 25949
+[3]  + Done                          /bin/cp vegdyn.data  ...
+[2]  + Done                          /bin/cp orad_import_rst  ...
+[17] + Done                          /bin/cp saltwater_import_rst  ...
+[16] + Done                          /bin/cp saltwater_internal_rst  ...
+[15] + Done                          /bin/cp tr_import_rst  ...
+[14] + Done                          /bin/cp tr_internal_rst  ...
+[13] + Done                          /bin/cp gocartdata_internal_rst  ...
+[12] + Done                          /bin/cp gocart_internal_rst  ...
+[11] + Done                          /bin/cp pchem_internal_rst  ...
+[10] + Done                          /bin/cp turb_import_rst  ...
+[9]  + Done                          /bin/cp irrad_internal_rst  ...
+[8]  + Done                          /bin/cp solar_internal_rst  ...
+[7]  + Done                          /bin/cp surf_import_rst  ...
+[6]  + Done                          /bin/cp moist_import_rst  ...
+[5]  + Done                          /bin/cp moist_internal_rst  ...
+[4]  + Done                          /bin/cp catch_internal_rst  ...
+[1]  + Done                          /bin/cp fvcore_internal_rst  ...
 srun.slurm: cluster configuration lacks support for cpu binding
 srun.slurm: cluster configuration lacks support for cpu binding
  
  In MAPL_Shmem:
-     NumCores per Node varies from           27  to           28
+     NumCores per Node varies from           25  to           28
      NumNodes in use   =           13
      Total PEs         =          360
  
@@ -114,15 +156,15 @@ NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to  8388606.
 NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
  Starting PEs :          360
  Starting Threads :            1
+ Cubic: cubed-sphere domain decomposition
+whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =    9   9   9   9   9   9   9   9   9   9
+  Y-AXIS =   15  15  15  15  15  15
  For k_split (remapping)=           2
 n_split is set to 02 for resolution-dt=0091x0091x6-  450.000
 Using grid_type :    0
 Using n_sponge :    9
 Using non_ortho :       T
- Cubic: cubed-sphere domain decomposition
-whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =    9   9   9   9   9   9   9   9   9   9
-  Y-AXIS =   15  15  15  15  15  15
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =    9   9   9   9   9   9   9   9   9   9
@@ -596,7 +638,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  NOT using buffer I/O for file: geosgcm_cons.rcx
  NOT using buffer I/O for file: mit_ocn.rcx
  NOT using buffer I/O for file: mit_cons.rcx
- NOT using buffer I/O for file: mit_mask.rcx
  
  NOT using buffer I/O for file: tile.bin
  NOT using buffer I/O for file: tile.bin
@@ -605,7 +646,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  Freq: 030000  Dur: 030000  TM:   -1  Collection: geosgcm_cons
  Freq: 030000  Dur: 030000  TM:   -1  Collection: mit_ocn
  Freq: 030000  Dur: 030000  TM:   -1  Collection: mit_cons
- Freq: 010000  Dur: 010000  TM:   -1  Collection: mit_mask
  
  Independent Output Export States:
  ---------------------------------
@@ -714,21 +754,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
      Duration:        30000
     XY-offset:            0   (DcPc: Dateline Center, Pole Center)
       Fields: QFLX HFLX SFLX SWHEAT DISCHARGEe QFLUX HFLUX SFLUX 
- 
- 
- Initializing Output Stream: mit_mask
- --------------------------- 
-       Format: CFIO
-         Mode: instantaneous
-        Nbits:          100
-       Slices:            1
-      Deflate:            0
-    Frequency:        10000
-     Ref_Date:     20000414
-     Ref_Time:            0
-     Duration:        10000
-    XY-offset:            0   (DcPc: Dateline Center, Pole Center)
-      Fields: MASKO 
  
  
  EXTDATA::Initialize_: ACTIVE
@@ -1374,9 +1399,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 01:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0100z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 01:07:30
@@ -1401,9 +1423,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 02:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0200z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 02:07:30
@@ -1429,10 +1448,9 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 03:00:00
  
- Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_0130z.nc4
- Writing:    111 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0130z.nc4
- Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0130z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0300z.nc4
+ Writing:      5 Slices (  5 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_0130z.nc4
+ Writing:    111 Slices (  8 Nodes,  5 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0130z.nc4
+ Writing:     57 Slices (  4 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0130z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1458,9 +1476,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 04:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0400z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 04:07:30
@@ -1485,9 +1500,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 05:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0500z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 05:07:30
@@ -1515,9 +1527,8 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  
  Writing:    483 Slices (  9 Nodes,  4 PartitionRoot) to File:  c90_llc90_01.geosgcm_prog.20000414_0600z.nc4
  Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_0430z.nc4
- Writing:    111 Slices (  2 Nodes,  2 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0430z.nc4
- Writing:     57 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0430z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0600z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0430z.nc4
+ Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0430z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1543,9 +1554,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 07:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0700z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 07:07:30
@@ -1570,9 +1578,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 08:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0800z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 08:07:30
@@ -1598,10 +1603,9 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 09:00:00
  
- Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_0730z.nc4
- Writing:    111 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0730z.nc4
- Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0730z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_0900z.nc4
+ Writing:      5 Slices (  5 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_0730z.nc4
+ Writing:    111 Slices (  8 Nodes,  5 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_0730z.nc4
+ Writing:     57 Slices (  4 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_0730z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1627,9 +1631,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 10:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1000z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 10:07:30
@@ -1654,9 +1655,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 11:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1100z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 11:07:30
@@ -1684,9 +1682,8 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  
  Writing:    483 Slices (  9 Nodes,  4 PartitionRoot) to File:  c90_llc90_01.geosgcm_prog.20000414_1200z.nc4
  Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_1030z.nc4
- Writing:    111 Slices (  2 Nodes,  2 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1030z.nc4
- Writing:     57 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1030z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1200z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1030z.nc4
+ Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1030z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1712,9 +1709,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 13:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1300z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 13:07:30
@@ -1739,9 +1733,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 14:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1400z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 14:07:30
@@ -1767,10 +1758,9 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 15:00:00
  
- Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_1330z.nc4
- Writing:    111 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1330z.nc4
- Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1330z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1500z.nc4
+ Writing:      5 Slices (  5 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_1330z.nc4
+ Writing:    111 Slices (  8 Nodes,  5 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1330z.nc4
+ Writing:     57 Slices (  4 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1330z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1796,9 +1786,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 16:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1600z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 16:07:30
@@ -1823,9 +1810,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 17:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1700z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 17:07:30
@@ -1853,9 +1837,8 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  
  Writing:    483 Slices (  9 Nodes,  4 PartitionRoot) to File:  c90_llc90_01.geosgcm_prog.20000414_1800z.nc4
  Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_1630z.nc4
- Writing:    111 Slices (  2 Nodes,  2 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1630z.nc4
- Writing:     57 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1630z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1800z.nc4
+ Writing:    111 Slices (  3 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1630z.nc4
+ Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1630z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1881,9 +1864,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 19:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_1900z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 19:07:30
@@ -1908,9 +1888,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 20:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_2000z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 20:07:30
@@ -1936,11 +1913,10 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 21:00:00
  
- Writing:    148 Slices (  6 Nodes,  7 PartitionRoot) to File:  c90_llc90_01.geosgcm_surf.20000414_1930z.nc4
+ Writing:    148 Slices (  7 Nodes,  6 PartitionRoot) to File:  c90_llc90_01.geosgcm_surf.20000414_1930z.nc4
  Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_1930z.nc4
- Writing:    111 Slices (  4 Nodes,  3 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1930z.nc4
- Writing:     57 Slices (  2 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1930z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_2100z.nc4
+ Writing:    111 Slices (  5 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_1930z.nc4
+ Writing:     57 Slices ( 12 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_1930z.nc4
  
   Starting plug run method 
   Finished plug run method 
@@ -1966,9 +1942,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 22:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_2200z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 22:07:30
@@ -1993,9 +1966,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 23:00:00
- 
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000414_2300z.nc4
- 
   Starting plug run method 
   Finished plug run method 
  AGCM Date: 2000/04/14  Time: 23:07:30
@@ -2026,20 +1996,19 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  Writing:      5 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.geosgcm_cons.20000414_2230z.nc4
  Writing:    111 Slices (  2 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_ocn.20000414_2230z.nc4
  Writing:     57 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_cons.20000414_2230z.nc4
- Writing:      1 Slices (  1 Nodes,  1 PartitionRoot) to File:  c90_llc90_01.mit_mask.20000415_0000z.nc4
  
  
    -----------------------------------------------------
       Block          User time  System Time   Total Time
    -----------------------------------------------------
-   TOTAL                      281.9219       0.0000     281.9219
-   COMM_TOTAL                   5.0941       0.0000       5.0941
-   C_SW                         0.9387       0.0000       0.9387
-   D_SW                         3.3430       0.0000       3.3430
-   FV_TP_2D                    13.0292       0.0000      13.0292
-   TRACER_2D                   17.0185       0.0000      17.0185
-   COMM_TRAC                    2.3750       0.0000       2.3750
-   REMAPPING                    4.7277       0.0000       4.7277
+   TOTAL                      263.3300       0.0000     263.3300
+   COMM_TOTAL                   5.3846       0.0000       5.3846
+   C_SW                         0.9529       0.0000       0.9529
+   D_SW                         3.3097       0.0000       3.3097
+   FV_TP_2D                    13.2403       0.0000      13.2403
+   TRACER_2D                   17.0147       0.0000      17.0147
+   COMM_TRAC                    2.5316       0.0000       2.5316
+   REMAPPING                    4.7623       0.0000       4.7623
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
@@ -2098,124 +2067,121 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     450.0 secs.
  Using parallel NetCDF for file: orad_import_checkpoint
  NOT using buffer I/O for file: cap_restart
 GEOSgcm Run Status: 0
-/bin/cp: No match.
-[1] 9877
+[1] 26381
 [1]    Done                          /bin/cp fvcore_internal_rst  ...
-[1] 9883
+[1] 26387
 [1]    Done                          /bin/cp lake_internal_rst  ...
-[1] 9889
+[1] 26393
 [1]    Done                          /bin/cp landice_internal_rst  ...
-[1] 9895
+[1] 26399
 [1]    Done                          /bin/cp catch_internal_rst  ...
-[1] 9901
+[1] 26405
 [1]    Done                          /bin/cp moist_internal_rst  ...
-[1] 9907
+[1] 26411
 [1]    Done                          /bin/cp moist_import_rst  ...
-[1] 9913
+[1] 26417
 [1]    Done                          /bin/cp surf_import_rst  ...
-[1] 9919
+[1] 26423
 [1]    Done                          /bin/cp solar_internal_rst  ...
-[1] 9925
+[1] 26429
 [1]    Done                          /bin/cp irrad_internal_rst  ...
-[1] 9931
+[1] 26435
 [1]    Done                          /bin/cp turb_internal_rst  ...
-[1] 9937
+[1] 26441
 [1]    Done                          /bin/cp turb_import_rst  ...
-[1] 9943
+[1] 26447
 [1]    Done                          /bin/cp pchem_internal_rst  ...
-[1] 9949
+[1] 26453
 [1]    Done                          /bin/cp gocartdata_internal_rst  ...
-[1] 9955
+[1] 26459
 [1]    Done                          /bin/cp tr_internal_rst  ...
-[1] 9961
+[1] 26465
 [1]    Done                          /bin/cp tr_import_rst  ...
-[1] 9967
+[1] 26471
 [1]    Done                          /bin/cp saltwater_internal_rst  ...
-[1] 9973
+[1] 26477
 [1]    Done                          /bin/cp saltwater_import_rst  ...
-[1] 9979
+[1] 26483
 [1]    Done                          /bin/cp orad_import_rst  ...
 /bin/cp: No match.
 /bin/mv: No match.
 ls: No match.
-/bin/ls: No match.
 /bin/ls: cannot access ocean_month.nc: No such file or directory
-19283853
-19283855
-19283856
-19283860
-19283863
-19283864
-[1] 10268
-[2] 10269
-[3] 10270
-[4] 10271
-[5] 10272
-[6] 10273
-/bin/cp: cannot stat `agcm_import_rst': No such file or directory
-[7] 10274
-[8] 10275
-[1]    Exit 1                        /bin/cp agcm_import_rst /home/estrobac/data/geos5/c90_llc90_01/agcm_import_rst
-[9] 10276
-[1] 10277
-/bin/cp: cannot stat `agcm_internal_rst': No such file or directory
-[10] 10278
-[11] 10279
-[2]    Exit 1                        /bin/cp agcm_internal_rst  ...
-[2] 10280
-[12] 10281
-[13] 10282
-/bin/cp: cannot stat `catchcn_internal_rst': No such file or directory
-[14] 10283
-[15] 10284
-[7]    Exit 1                        /bin/cp catchcn_internal_rst  ...
-[7] 10285
-[16] 10286
-[17] 10287
-[18] 10288
-[19] 10289
-[20] 10290
-[21] 10291
-[22] 10292
-/bin/cp: cannot stat `h2o_internal_rst'[23] 10293
+19883155
+19883156
+19883157
+19883158
+19883160
+[1] 26646
+[2] 26647
+[3] 26648
+[4] 26649
+[5] 26650
+[6] 26651
+/bin/cp: cannot stat `agcm_import_rst'[7] 26652
 : No such file or directory
-[24] 10294
+[8] 26653
+[1]    Exit 1                        /bin/cp agcm_import_rst /home/estrobac/data/geos5/c90_llc90_01/agcm_import_rst
+[9] 26654
+[1] 26655
+[10] 26656
+/bin/cp: cannot stat `agcm_internal_rst'[11] 26657
+: No such file or directory
+[12] 26658
+[2]    Exit 1                        /bin/cp agcm_internal_rst  ...
+[2] 26659
+[13] 26660
+[14] 26661
+/bin/cp: [15] 26662
+cannot stat `catchcn_internal_rst': No such file or directory
+[16] 26663
+[17] 26664
+[7]    Exit 1                        /bin/cp catchcn_internal_rst  ...
+[7] 26665
+[18] 26666
+[19] 26667
+[20] 26668
+[21] 26669
+/bin/cp: cannot stat `h2o_internal_rst': No such file or directory
+[22] 26670
 [14]   Exit 1                        /bin/cp h2o_internal_rst  ...
-[14] 10295
-/bin/cp: [25] 10296
-cannot stat `carma_internal_rst': No such file or directory
-[26] 10297
-[16]   Exit 1                        /bin/cp carma_internal_rst  ...
-[16] 10298
-/bin/cp: cannot stat `stratchem_import_rst': No such file or directory
-[27] 10299
-[18]   Exit 1                        /bin/cp stratchem_import_rst  ...
-[18] 10300
-/bin/cp: cannot stat `mam_internal_rst': No such file or directory
-/bin/cp: cannot stat `stratchem_internal_rst': No such file or directory
-/bin/cp: cannot stat `geosachem_internal_rst': No such file or directory
+[14] 26671
+[23] 26672
+[24] 26673
+[25] 26674
+[26] 26675
+/bin/cp: cannot stat `carma_internal_rst'[27] 26676
+: No such file or directory
+[28] 26677
+[17]   Exit 1                        /bin/cp carma_internal_rst  ...
+/bin/cp: cannot stat `stratchem_import_rst'[17] 26678
+: No such file or directory
 /bin/cp: cannot stat `gmichem_internal_rst': No such file or directory
-/bin/cp: cannot stat `gmichem_import_rst'/bin/cp: cannot stat `seaice_import_rst': No such file or directory: No such file or directory
-
-/bin/cp: cannot stat `seaice_internal_rst': No such file or directory
-[18] + Done                          /bin/cp vegdyn.data /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data
-[27] + Done                          /bin/cp orad_import_rst /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst
-[16] + Exit 1                        /bin/cp seaice_internal_rst  ...
+/bin/cp: cannot stat `geosachem_internal_rst': No such file or directory
+/bin/cp: cannot stat `stratchem_internal_rst': No such file or directory
+/bin/cp: cannot stat `gmichem_import_rst': No such file or directory
+/bin/cp: /bin/cp: cannot stat `seaice_internal_rst'cannot stat `seaice_import_rst': No such file or directory
+: No such file or directory/bin/cp: cannot stat `mam_internal_rst'
+: No such file or directory
+[17] + Done                          /bin/cp vegdyn.data /home/estrobac/data/geos5/c90_llc90_01/vegdyn.data
+[28] + Done                          /bin/cp orad_import_rst /home/estrobac/data/geos5/c90_llc90_01/orad_import_rst
+[27] + Exit 1                        /bin/cp seaice_internal_rst  ...
 [26] + Exit 1                        /bin/cp seaice_import_rst  ...
 [25] + Done                          /bin/cp saltwater_import_rst  ...
-[14] + Done                          /bin/cp saltwater_internal_rst  ...
-[24] + Done                          /bin/cp tr_import_rst /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst
-[23] + Done                          /bin/cp tr_internal_rst /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst
+[24] + Done                          /bin/cp saltwater_internal_rst  ...
+[23] + Done                          /bin/cp tr_import_rst /home/estrobac/data/geos5/c90_llc90_01/tr_import_rst
+[14] + Done                          /bin/cp tr_internal_rst /home/estrobac/data/geos5/c90_llc90_01/tr_internal_rst
 [22] + Exit 1                        /bin/cp geosachem_internal_rst  ...
 [21] + Exit 1                        /bin/cp mam_internal_rst  ...
 [20] + Exit 1                        /bin/cp gmichem_import_rst  ...
 [19] + Exit 1                        /bin/cp gmichem_internal_rst  ...
-[17] + Exit 1                        /bin/cp stratchem_internal_rst  ...
-[7]  + Done                          /bin/cp gocartdata_internal_rst  ...
+[18] + Exit 1                        /bin/cp stratchem_import_rst  ...
+[7]  + Exit 1                        /bin/cp stratchem_internal_rst  ...
+[16] + Done                          /bin/cp gocartdata_internal_rst  ...
 [15] + Done                          /bin/cp gocart_internal_rst  ...
 [13] + Done                          /bin/cp pchem_internal_rst  ...
-[12] + Done                          /bin/cp turb_import_rst /home/estrobac/data/geos5/c90_llc90_01/turb_import_rst
-[2]  + Done                          /bin/cp turb_internal_rst  ...
+[2]  + Done                          /bin/cp turb_import_rst /home/estrobac/data/geos5/c90_llc90_01/turb_import_rst
+[12] + Done                          /bin/cp turb_internal_rst  ...
 [11] + Done                          /bin/cp irrad_internal_rst  ...
 [10] + Done                          /bin/cp solar_internal_rst  ...
 [1]  + Done                          /bin/cp surf_import_rst /home/estrobac/data/geos5/c90_llc90_01/surf_import_rst
