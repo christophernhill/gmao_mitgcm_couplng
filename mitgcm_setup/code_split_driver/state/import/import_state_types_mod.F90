@@ -31,6 +31,8 @@
        _RL , POINTER :: LAT(      :,:  ) => NULL()
        _RL , POINTER :: LON(      :,:  ) => NULL()
 !ALT: the following variable are added to couple the sea-ice
+       _RL , POINTER :: TAUXI(    :,:  ) => NULL()
+       _RL , POINTER :: TAUYI(    :,:  ) => NULL()
        _RL, POINTER  :: FRACICE(:,:,:) => NULL()
        _RL, POINTER  :: VOLICE( :,:,:) => NULL()
        _RL, POINTER  :: VOLSNO( :,:,:) => NULL()

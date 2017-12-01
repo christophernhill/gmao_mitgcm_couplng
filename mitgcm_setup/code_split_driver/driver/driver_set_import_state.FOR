@@ -45,6 +45,12 @@ C     == Local variables ==
       ELSEIF ( code .EQ. 'TAUY' ) THEN
 !      Copy fld to TAUY
          mitgcmIState%import%TAUY = fld
+      ELSEIF ( code .EQ. 'TAUXI' ) THEN
+!      Copy fld to TAUXI
+         mitgcmIState%import%TAUXI = fld
+      ELSEIF ( code .EQ. 'TAUYI' ) THEN
+!      Copy fld to TAUYI
+         mitgcmIState%import%TAUYI = fld
       ELSEIF ( code .EQ. 'PS' ) THEN
 !      Copy fld to PS
          mitgcmIState%import%PS = fld

@@ -136,11 +136,13 @@ contains
 !   Imports and exports specification
 !   ---------------------------------
 
-    nimports = 13
+    nimports = 15
     allocate(imports(nimports))
     imports    = (/                                                                                                 &
     mstate('TAUX',  'Agrid_eastward_stress_on_skin',         'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('TAUY',  'Agrid_northward_stress_on_skin',        'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('TAUXI',  'Agrid_eastward_stress_on_ice',         'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('TAUYI',  'Agrid_northward_stress_on_ice',        'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PS',    'Surface Atmospheric Pressure',          'Pa',        MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('SWHEAT','solar_heating_rate',                    'W m-2',     MAPL_DimsHorzVert,MAPL_VLocationCenter),  &
     mstate('QFLX',  'freshwater_flux_from_skin_to_ocean',    'kg m-2 s-1',MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -699,6 +701,8 @@ contains
 !   Pointers for passing import state values to component
     REAL_, pointer                         ::   TAUX(:,:  )
     REAL_, pointer                         ::   TAUY(:,:  )
+    REAL_, pointer                         ::   TAUXI(:,:  )
+    REAL_, pointer                         ::   TAUYI(:,:  )
     REAL_, pointer                         ::     PS(:,:  )
     REAL_, pointer                         :: SWHEAT(:,:,:)
     REAL_, pointer                         ::   QFLX(:,:  )
@@ -741,8 +745,8 @@ contains
     REAL_, pointer                         :: TAUAGE(:,:,:)
     REAL_, pointer                         :: UI(:,:)
     REAL_, pointer                         :: VI(:,:)
-    REAL_, pointer                         :: TAUXI(:,:)
-    REAL_, pointer                         :: TAUYI(:,:)
+    REAL_, pointer                         :: TAUXIe(:,:)
+    REAL_, pointer                         :: TAUYIe(:,:)
     REAL_, pointer                         :: TAUXBOT(:,:)
     REAL_, pointer                         :: TAUYBOT(:,:)
 
@@ -791,6 +795,8 @@ contains
 !--------------------
     call MAPL_GetPointer(IMPORT,   TAUX,   'TAUX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   TAUY,   'TAUY', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,  TAUXI,  'TAUXI', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,  TAUYI,  'TAUYI', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,     PS,     'PS', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT, SWHEAT, 'SWHEAT', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   QFLX,   'QFLX', RC=STATUS); VERIFY_(STATUS)
@@ -848,6 +854,8 @@ contains
 !------------------------------------
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUX',   TAUX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUY',   TAUY )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,  'TAUXI',  TAUXI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,  'TAUYI',  TAUYI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,     'PS',     PS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr, 'SWHEAT', SWHEAT )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'QFLX',   FRESHW )
@@ -886,8 +894,8 @@ contains
     call MAPL_GetPointer(EXPORT, FRACICE,'FRACICE', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   UI,   'UI', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   VI,   'VI', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, TAUXI, 'TAUXI', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, TAUYI, 'TAUYI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUXIe, 'TAUXI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, TAUYIe, 'TAUYI', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
 
@@ -901,8 +909,8 @@ contains
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'UI',   UI )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VI',   VI )
-    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXI',TAUXI )
-    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYI',TAUYI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXIe',TAUXI )
+    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYIe',TAUYI )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXBOT',TAUXBOT )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYBOT',TAUYBOT )
 !    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'FRACICE',FRACICE )
