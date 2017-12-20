@@ -31,6 +31,8 @@
       p => importPtr
       ALLOCATE ( p%TAUX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%TAUY(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%TAUXI(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%TAUYI(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%PS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SWHEAT(1:snx*nSx,1:sny*nSy,1:nr)  )
       ALLOCATE ( p%QFLX(1:snx*nSx,1:sny*nSy)  )
@@ -53,6 +55,8 @@
        p => importPtr
        _DEALLOC ( p%TAUX   )
        _DEALLOC ( p%TAUY   )
+       _DEALLOC ( p%TAUXI  )
+       _DEALLOC ( p%TAUYI  )
        _DEALLOC ( p%PS     )
        _DEALLOC ( p%SWHEAT )
        _DEALLOC ( p%QFLX   )
