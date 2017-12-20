@@ -412,25 +412,9 @@ contains
                                                    RC=STATUS  )
   VERIFY_(STATUS)
 
+  !ALT: TAUXI and TAUYI are also exports but they are added by 
+  !     mirroring the imports 
 
-
-  call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'TAUXI'                             ,&
-    LONG_NAME          = 'eastward_stress_on_ice'            ,&
-    UNITS              = 'N m-2'                             ,&
-    DIMS               = MAPL_DimsHorzOnly                   ,&
-    VLOCATION          = MAPL_VLocationNone                  ,&
-                                           RC=STATUS          )
-  VERIFY_(STATUS)
-
-  call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'TAUYI'                             ,&
-    LONG_NAME          = 'northward_stress_on_ice',           &
-    UNITS              = 'N m-2'                             ,&
-    DIMS               = MAPL_DimsHorzOnly                   ,&
-    VLOCATION          = MAPL_VLocationNone                  ,&
-                                           RC=STATUS          )
-  VERIFY_(STATUS)
 
 !================= end of the sea ice needed imports/exports ==========
 
