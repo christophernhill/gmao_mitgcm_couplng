@@ -623,7 +623,7 @@ contains
     DH(:,:,12) = 540.
     DH(:,:,13) = 590.
     DH(:,:,14) = 640.
-    DH(:,:,15) = 690.
+    DH(:,:,15:) = 690.
 
     call MAPL_GetPointer(EXPORT, pMASK, trim(COMP_NAME)//'_3D_MASK',  alloc=.true., RC=STATUS)
     VERIFY_(STATUS)
