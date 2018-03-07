@@ -17,17 +17,20 @@
       CONTAINS
 
       SUBROUTINE MITGCM_DYNVARS_H_CREATE( dynVarsPtr,      &
-                 snx, sny, olx, oly, nr, nsx, nsy        &
+                 snx, sny, olx, oly, n3ds, nsx, nsy        &
                  )
 !     -- Allocate memory for MITgcm dynvars_h type of a specific size --
       TYPE(MITGCM_DYNVARS_H), POINTER :: dynVarsPtr
       INTEGER                         :: snx, sny, olx, oly
-      INTEGER                         :: nr, nsx, nsy
+      INTEGER, intent(in), dimension(:) :: n3ds
+      INTEGER                         :: nsx, nsy
 
 !     -- Local variables --
+      INTEGER                         :: nr
       TYPE(MITGCM_DYNVARS),    POINTER :: p
       TYPE(MITGCM_DYNVARS_R),  POINTER :: p_dr
 
+      nr = n3ds(1)
       ALLOCATE( dynVarsPtr )
       ALLOCATE( dynVarsPtr%dynvars   )
       ALLOCATE( dynVarsPtr%dynvars_r )
@@ -51,11 +54,11 @@
       ALLOCATE ( p%etaNM1(1-olx:snx+olx,1-oly:sny+oly,nsx,nsy)   )
       p_dr => dynVarsPtr%dynvars_r
       ALLOCATE( p_dr%etaH(1-olx:snx+olx,1-oly:sny+oly,nsx,nsy)   )
-     
+
       RETURN
       END SUBROUTINE
 
-      SUBROUTINE MITGCM_DYNVARS_H_DESTROY( dynVarsPtr )          
+      SUBROUTINE MITGCM_DYNVARS_H_DESTROY( dynVarsPtr )
 !     -- Allocate memory for an array of MITgcm states of a specific size --
       TYPE(MITGCM_DYNVARS_H), POINTER :: dynVarsPtr
 
@@ -83,10 +86,10 @@
        _DEALLOC ( p%etaN   )
        _DEALLOC ( p%etaNM1 )
        p_dr => dynVarsPtr%dynvars_r
-       _DEALLOC ( p_dr%etaH ) 
+       _DEALLOC ( p_dr%etaH )
        _DEALLOC( dynVarsPtr )
       ENDIF
- 
+
       RETURN
       END SUBROUTINE
 

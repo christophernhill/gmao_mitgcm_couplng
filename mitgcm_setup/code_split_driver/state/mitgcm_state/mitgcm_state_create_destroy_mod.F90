@@ -1,6 +1,6 @@
       MODULE MITGCM_STATE_CREATE_DESTROY_MOD
 !--   Module of code that handles creation and destruction of of MITgcm state type variables --
-!--   The MITgcm state variables contain child types that are created (destroyed) here by 
+!--   The MITgcm state variables contain child types that are created (destroyed) here by
 !--   calls to those child types create (detroy) functions.
 
 !--   DYNVARS state child functions
@@ -49,13 +49,14 @@
       CONTAINS
 
       SUBROUTINE MITGCM_MULTI_ISTATE_CREATE( statesArr, nStates,  &
-                 snx, sny, olx, oly, nr, nsx, nsy                 &
+                 snx, sny, olx, oly, n3ds, nsx, nsy               &
                  )
 !     -- Allocate memory for an array of MITgcm states of a specific size --
       TYPE(MITGCM_MULTI_ISTATE), POINTER :: statesArr
       INTEGER                            :: nStates
       INTEGER                            :: snx, sny, olx, oly
-      INTEGER                            :: nr, nsx, nsy
+      INTEGER, intent(in), dimension(:)  :: n3ds
+      INTEGER                            :: nsx, nsy
 
 !     -- Local variables --
       INTEGER I
@@ -65,13 +66,13 @@
       ALLOCATE( statesArr%istate_list(nStates) )
       DO I=1,nStates
        p => statesArr%istate_list(I)
-       CALL CREATE( p,snx, sny, olx, oly, nr, nsx, nsy )
+       CALL CREATE( p,snx, sny, olx, oly, n3ds, nsx, nsy )
       ENDDO
-     
+
       RETURN
       END SUBROUTINE
 
-      SUBROUTINE MITGCM_MULTI_ISTATE_DESTROY( statesArr )          
+      SUBROUTINE MITGCM_MULTI_ISTATE_DESTROY( statesArr )
 !     -- Allocate memory for an array of MITgcm states of a specific size --
       TYPE(MITGCM_MULTI_ISTATE), POINTER :: statesArr
 
@@ -87,27 +88,28 @@
       ENDDO
       DEALLOCATE( statesArr%istate_list )
       DEALLOCATE( statesArr )
-     
+
       RETURN
       END SUBROUTINE
       SUBROUTINE MITGCM_ISTATE_CREATE( iState,         &
-                 snx, sny, olx, oly, nr, nsx, nsy      &
+                 snx, sny, olx, oly, n3ds, nsx, nsy    &
                  )
 !     -- Allocate memory an MITgcm internal state of a specific size --
       TYPE(MITGCM_ISTATE), POINTER :: iState
       INTEGER                      :: snx, sny, olx, oly
-      INTEGER                      :: nr, nsx, nsy
+      INTEGER, intent(in), dimension(:)  :: n3ds
+      INTEGER                      :: nsx, nsy
 
       ALLOCATE( iState )
       CALL CREATE( iState%dynvars_h,                                  &
-       snx, sny, olx, oly, nr, nsx, nsy                               )
-      CALL CREATE( iState%timevars, nr                                )
+       snx, sny, olx, oly, n3ds, nsx, nsy                             )
+      CALL CREATE( iState%timevars, n3ds                              )
       CALL CREATE( iState%stackvars                                   )
       CALL CREATE( iState%export,                                     &
-       snx, sny, olx, oly, nr, nsx, nsy                               )
+       snx, sny, olx, oly, n3ds, nsx, nsy                             )
       CALL CREATE( iState%import,                                     &
-       snx, sny, olx, oly, nr, nsx, nsy                               )
-     
+       snx, sny, olx, oly, n3ds, nsx, nsy                             )
+
       RETURN
       END SUBROUTINE
 
@@ -123,7 +125,7 @@
       CALL DESTROY( iState%export    )
       CALL DESTROY( iState%import    )
       DEALLOCATE( iState )
-     
+
       RETURN
       END SUBROUTINE
 

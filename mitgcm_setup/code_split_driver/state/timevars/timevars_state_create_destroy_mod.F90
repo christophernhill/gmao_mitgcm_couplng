@@ -13,21 +13,23 @@
 
       CONTAINS
 
-      SUBROUTINE TIMEVARS_CREATE( timeVarsPtr, nr )
+      SUBROUTINE TIMEVARS_CREATE( timeVarsPtr, n3ds )
 !     -- Allocate memory for MITgcm timevars variables. --
       TYPE(MITGCM_TIMEVARS), POINTER :: timeVarsPtr
-      INTEGER nr
+      INTEGER, intent(in), dimension(:) :: n3ds
 
 !     -- Local variables --
+      INTEGER nr
       TYPE(MITGCM_TIMEVARS),  POINTER :: p
 
+      nr = n3ds(1)
       ALLOCATE( timeVarsPtr )
       ALLOCATE( timeVarsPtr%dtTracerLev(nr) )
-     
+
       RETURN
       END SUBROUTINE
 
-      SUBROUTINE TIMEVARS_DESTROY( timeVarsPtr )          
+      SUBROUTINE TIMEVARS_DESTROY( timeVarsPtr )
 !     -- Deallocate memory for MITgcm timevars variables. --
       TYPE(MITGCM_TIMEVARS), POINTER :: timeVarsPtr
 
@@ -39,7 +41,7 @@
        DEALLOCATE( timeVarsPtr )
        NULLIFY( timeVarsPtr )
       ENDIF
- 
+
       RETURN
       END SUBROUTINE
 

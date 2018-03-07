@@ -17,16 +17,19 @@
       CONTAINS
 
       SUBROUTINE MITGCM_IMPORT_CREATE( importPtr,        &
-                 snx, sny, olx, oly, nr, nsx, nsy        &
+                 snx, sny, olx, oly, n3ds, nsx, nsy      &
                  )
 !     -- Allocate memory for MITgcm import state type of a specific size --
       TYPE(MITGCM_IMPORT), POINTER :: importPtr
       INTEGER                      :: snx, sny, olx, oly
-      INTEGER                      :: nr, nsx, nsy
+      INTEGER, intent(in), dimension(:) :: n3ds
+      INTEGER                      :: nsx, nsy
 
 !     -- Local variables --
+      INTEGER                      :: nr
       TYPE(MITGCM_IMPORT), POINTER :: p
 
+      nr = n3ds(1)
       ALLOCATE( importPtr )
       p => importPtr
       ALLOCATE ( p%TAUX(1:snx*nSx,1:sny*nSy)  )
@@ -40,11 +43,11 @@
       ALLOCATE ( p%SFLX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%LAT(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%LON(1:snx*nSx,1:sny*nSy)  )
-     
+
       RETURN
       END SUBROUTINE
 
-      SUBROUTINE MITGCM_IMPORT_DESTROY( importPtr )          
+      SUBROUTINE MITGCM_IMPORT_DESTROY( importPtr )
 !     -- Deallocate memory for an array of MITgcm imports.
       TYPE(MITGCM_IMPORT), POINTER :: importPtr
 
@@ -66,7 +69,7 @@
        _DEALLOC ( p%LON    )
        _DEALLOC( importPtr )
       ENDIF
- 
+
       RETURN
       END SUBROUTINE
 

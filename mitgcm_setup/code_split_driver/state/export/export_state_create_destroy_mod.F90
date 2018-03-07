@@ -17,16 +17,19 @@
       CONTAINS
 
       SUBROUTINE MITGCM_EXPORT_CREATE( exportPtr,        &
-                 snx, sny, olx, oly, Nr, nSx, nSy        &
+                 snx, sny, olx, oly, n3ds, nSx, nSy      &
                  )
 !     -- Allocate memory for MITgcm dynvars_h type of a specific size --
       TYPE(MITGCM_EXPORT), POINTER :: exportPtr
       INTEGER                      :: snx, sny, olx, oly
-      INTEGER                      :: Nr, nSx, nSy
+      INTEGER, intent(in), dimension(:) :: n3ds
+      INTEGER                      :: nSx, nSy
 
 !     -- Local variables --
+      INTEGER                      :: Nr
       TYPE(MITGCM_EXPORT), POINTER :: p
 
+      Nr = n3ds(1)
       ALLOCATE( exportPtr )
       p => exportPtr
       ALLOCATE ( p%US(1:snx*nSx,1:sny*nSy)  )
@@ -36,11 +39,11 @@
       ALLOCATE ( p%TS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%MASK(1:snx*nSx,1:sny*nSy,1:Nr)  )
-     
+
       RETURN
       END SUBROUTINE
 
-      SUBROUTINE MITGCM_EXPORT_DESTROY( exportPtr )          
+      SUBROUTINE MITGCM_EXPORT_DESTROY( exportPtr )
 !     -- Deallocate memory for an array of MITgcm exports.
       TYPE(MITGCM_EXPORT), POINTER :: exportPtr
 
@@ -58,7 +61,7 @@
        _DEALLOC ( p%MASK   )
        _DEALLOC( exportPtr )
       ENDIF
- 
+
       RETURN
       END SUBROUTINE
 

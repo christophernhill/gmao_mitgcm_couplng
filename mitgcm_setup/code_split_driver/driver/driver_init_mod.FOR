@@ -44,13 +44,14 @@ C     == Global variables ==
 #include "EESUPPORT.h"
 #include "PARAMS.h"
 #include "GRID.h"
-C #include "OCNCPL.h"
+
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
       INTEGER myComm
-CEOP  
+CEOP
 
 C     == Local variables ====
+      INTEGER n3dSize(4)
       INTEGER iLoop
       INTEGER myThid
       INTEGER myCurrentIter
@@ -66,6 +67,8 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
 !     Pass down a communicator from ESMF for EEBOOT
       CALL EEBOOT( myComm )
       myThid = 1
+      n3dSize(1:4) = 0
+      n3dSize(1) = Nr
 
 C     Extract the import public and private fields, filling internal
 C     state as appropriate.
@@ -80,7 +83,7 @@ C     Allocate a variable to save the internal state
 C     and then fill it from the current global heap and stack state.
 C     o create
       CALL CREATE( mitgcmIState,
-     &      snx, sny, olx, oly, nr, nsx, nsy  )
+     &      sNx, sNy, OLx, OLy, n3dSize, nSx, nSy  )
 C     o save
       sv%myTime = myCurrentTime
       sv%myIter = myCurrentIter

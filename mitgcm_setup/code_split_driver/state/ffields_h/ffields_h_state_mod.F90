@@ -18,7 +18,7 @@
        _RS, POINTER :: QNET(:,:,:,:)  => NULL()
       END TYPE
 
-      TYPE FFIELDS_QSW 
+      TYPE FFIELDS_QSW
        SEQUENCE
        _RS, POINTER :: QSW(:,:,:,:)  => NULL()
       END TYPE
@@ -134,13 +134,15 @@
       CONTAINS
 
       SUBROUTINE MITGCM_FFIELDS_H_CREATE( ffieldshPtr,      &
-                 snx, sny, olx, oly, nr, nsx, nsy           &
+                 sNx, sNy, OLx, OLy, n3ds, nSx, nSy         &
                  )
-!--   Create a forcing fields type, allocating space based on the 
+!--   Create a forcing fields type, allocating space based on the
 !--   per instance mesh size.
       TYPE(MITGCM_FFIELDS_H), POINTER :: ffieldshPtr
-      INTEGER                :: sNx, sNy, oLx, oLy, nr, nSx, nSy
-      
+      INTEGER                :: sNx, sNy, OLx, OLy
+      INTEGER, dimension(:)  :: n3ds
+      INTEGER                :: nSx, nSy
+
       RETURN
       END SUBROUTINE
 
@@ -152,31 +154,31 @@
        _DEALLOC( ffieldshPtr%ffields_fu%fu )
        _DEALLOC( ffieldshPtr%ffields_fu%fu )
        _DEALLOC( ffieldshPtr%ffields_fu                      )
- 
+
        _DEALLOC( ffieldshPtr%ffields_fv%fv                   )
        _DEALLOC( ffieldshPtr%ffields_fv                      )
- 
+
        _DEALLOC( ffieldshPtr%ffields_qnet%qnet               )
        _DEALLOC( ffieldshPtr%ffields_qnet                    )
- 
+
        _DEALLOC( ffieldshPtr%ffields_qsw%qsw                 )
        _DEALLOC( ffieldshPtr%ffields_qsw                     )
- 
+
        _DEALLOC( ffieldshPtr%ffields_empmr%empmr             )
        _DEALLOC( ffieldshPtr%ffields_empmr                   )
- 
+
        _DEALLOC( ffieldshPtr%ffields_saltflux%saltflux       )
        _DEALLOC( ffieldshPtr%ffields_saltflux                )
- 
+
        _DEALLOC( ffieldshPtr%ffields_sst%sst                 )
        _DEALLOC( ffieldshPtr%ffields_sst                     )
- 
+
        _DEALLOC( ffieldshPtr%ffields_sss%sss                 )
        _DEALLOC( ffieldshPtr%ffields_sss                     )
- 
+
        _DEALLOC( ffieldshPtr%ffields_lambdathetaclimrelax%lambdathetaclimrelax )
        _DEALLOC( ffieldshPtr%ffields_lambdathetaclimrelax    )
- 
+
        _DEALLOC( ffieldshPtr%ffields_lambdasaltclimrelax%lambdasaltclimrelax )
        _DEALLOC( ffieldshPtr%ffields_lambdasaltclimrelax     )
 
