@@ -98,16 +98,14 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 
 # Get GEOS-5 files for experiments/c48_llc90_02
 cd $WorkingDir/TEST
-cp /discover/nobackup/atrayano/TEST_LLC90/*_rst .
-cp /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
-chmod u+w *_rst cap_restart
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/gcm_run.j_discover gcm_run.j
+cp /discover/nobackup/estrobac/geos5/ICDIR/c48_llc90_01_data/geos/* .
+#cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/geos5/gcm_run.j_discover gcm_run.j
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
-ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
+cp /discover/nobackup/estrobac/geos5/ICDIR/c48_llc90_01_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/input/* .
 
 # Run coupled code as an interactive job
