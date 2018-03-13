@@ -96,14 +96,13 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_01
 cd $WorkingDir/TEST
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
+cp /nobackupp2/estrobac/geos5/ICDIR/c48_llc90_01_data/geos/* .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
+cp /nobackupp2/estrobac/geos5/ICDIR/c48_llc90_01_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_01/input/* .
 
 # Run coupled code as an interactive job
