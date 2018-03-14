@@ -44,6 +44,10 @@ C     == Global variables ==
 #include "EESUPPORT.h"
 #include "PARAMS.h"
 #include "GRID.h"
+#ifdef ALLOW_SEAICE
+# include "SEAICE_SIZE.h"
+#endif
+
 
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
@@ -67,8 +71,13 @@ C     CALL COMP_OCN_PUSH_CONTEXT(1)
 !     Pass down a communicator from ESMF for EEBOOT
       CALL EEBOOT( myComm )
       myThid = 1
-      n3dSize(1:4) = 0
+      n3dSize(1:4) = 1
       n3dSize(1) = Nr
+#ifdef ALLOW_SEAICE
+      n3dSize(2) = nITD
+      n3dSize(3) = nIceLayers
+      n3dSize(4) = nSnowLayers
+#endif
 
 C     Extract the import public and private fields, filling internal
 C     state as appropriate.

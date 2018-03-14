@@ -1,4 +1,6 @@
+#include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
+
       MODULE DRIVER_SET_IMPORT_STATE_MOD
 C     A GEOS-5 compatible version of set import state.
 C     Imports variables from MAPL that are used as
@@ -9,7 +11,6 @@ C
 C     o called from "plug" code as
 C     CALL DRIVER_SET_IMPORT_STATE( wrap%ptr,   'TAUX',   TAUX )
 C
-
 C     Temp until BNDY_STATE code is written
       USE IMPORT_STATE_MOD
 
@@ -99,9 +100,10 @@ C     == Local variables ==
       IF ( code .EQ. 'SWHEAT' ) THEN
 !      Copy fld to SWHEAT
             mitgcmIState%import%SWHEAT = fld
+#ifdef ALLOW_SEAICE
       ELSEIF ( code .EQ. 'FRACICE' ) THEN
 !      Copy fld to FRACICE
-         mitgcmIState%import%FRACICE = fld
+         mitgcmIState%import%FRAICE = fld
       ELSEIF ( code .EQ. 'TI' ) THEN
 !      Copy fld to TI
          mitgcmIState%import%TI = fld
@@ -123,6 +125,7 @@ C     == Local variables ==
       ELSEIF ( code .EQ. 'TAUAGE' ) THEN
 !      Copy fld to TAUAGE
          mitgcmIState%import%TAUAGE = fld
+#endif /* ALLOW_SEAICE */
       ENDIF
 
       RETURN
