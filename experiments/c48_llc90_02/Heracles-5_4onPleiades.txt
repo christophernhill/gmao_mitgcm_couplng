@@ -103,6 +103,7 @@ cp /nobackupp2/estrobac/geos5/ICDIR/c48_llc90_01_data/geos/* .
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
+#same initial conditions as c48_llc90_01
 cp /nobackupp2/estrobac/geos5/ICDIR/c48_llc90_01_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/input/* .
 
