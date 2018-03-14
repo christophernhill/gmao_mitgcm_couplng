@@ -34,7 +34,7 @@ cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=5:ncpus=20:model=ivy,walltime=2:00:00
+qsub -I -q devel -l select=18:ncpus=20:model=ivy,walltime=2:00:00
 tcsh
 setenv WorkingDir /nobackup/$USER/geos5
 
@@ -96,14 +96,13 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 
 # Get GEOS-5 files for experiments/c90_llc90_01
 cd $WorkingDir/TEST
-cp /nobackupp2/estrobac/c90_llc90_01_data/geos/* .
-chmod u+w *_rst cap_restart
+cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_01_data/geos/* .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
-cp /nobackupp2/estrobac/c90_llc90_01_data/mit/* .
+cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_01_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01/input/* .
 
 # Run coupled code as an interactive job
