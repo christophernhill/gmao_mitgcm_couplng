@@ -27,9 +27,13 @@
 
 !     -- Local variables --
       INTEGER                      :: nr
+      INTEGER                      :: nItd, nIla, nSla
       TYPE(MITGCM_IMPORT), POINTER :: p
 
       nr = n3ds(1)
+      nItd = n3ds(2)
+      nIla = n3ds(3)*nItd
+      nSla = n3ds(4)*nItd
       ALLOCATE( importPtr )
       p => importPtr
       ALLOCATE ( p%TAUX(1:snx*nSx,1:sny*nSy)  )
@@ -43,6 +47,16 @@
       ALLOCATE ( p%SFLX(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%LAT(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%LON(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%FRAICE(1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%VOLICE(1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%VOLSNO(1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%ERGICE(1:snx*nSx,1:sny*nSy,1:nIla)  )
+      ALLOCATE ( p%ERGSNO(1:snx*nSx,1:sny*nSy,1:nSla)  )
+      ALLOCATE ( p%MPOND( 1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%TAUAGE(1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%TI(1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%SI(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%HI(1:snx*nSx,1:sny*nSy)  )
 
       RETURN
       END SUBROUTINE
@@ -67,6 +81,16 @@
        _DEALLOC ( p%SFLX   )
        _DEALLOC ( p%LAT    )
        _DEALLOC ( p%LON    )
+       _DEALLOC ( p%FRAICE )
+       _DEALLOC ( p%VOLICE )
+       _DEALLOC ( p%VOLSNO )
+       _DEALLOC ( p%ERGICE )
+       _DEALLOC ( p%ERGSNO )
+       _DEALLOC ( p%MPOND  )
+       _DEALLOC ( p%TAUAGE )
+       _DEALLOC ( p%TI     )
+       _DEALLOC ( p%SI     )
+       _DEALLOC ( p%HI     )
        _DEALLOC( importPtr )
       ENDIF
 

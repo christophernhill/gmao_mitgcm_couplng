@@ -1,6 +1,10 @@
 ! $Id: $
 
+#include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
+#ifdef ALLOW_SEAICE
+# include "SEAICE_OPTIONS.h"
+#endif
 
       MODULE IMPORT_STATE_FILL_MOD
 
@@ -18,6 +22,12 @@
 #include "SIZE.h"
 #include "GRID.h"
 #include "FFIELDS.h"
+#ifdef ALLOW_SEAICE
+# include "SEAICE_SIZE.h"
+# include "SEAICE_PARAMS.h"
+# include "SEAICE.h"
+# include "SEAICE_LAYERS.h"
+#endif
 
 !     -- Routine arguments    --
 !     -- Import state pointer --
@@ -25,7 +35,8 @@
 
 !     -- Local variables --
       TYPE(MITGCM_IMPORT), POINTER :: p
-      INTEGER bi, bj, i, j, k, jSLo, iSLo
+      INTEGER bi, bj, i, j, jSLo, iSLo
+      INTEGER k, l, n
       INTEGER imin, imax, jmin, jmax
       PARAMETER ( imin = 1-OLx , imax = sNx+OLx )
       PARAMETER ( jmin = 1-OLy , jmax = sNy+OLy )
@@ -121,11 +132,11 @@
 
 !     Rotate stress from East/North to MITgcm grid orientation.
           tmpU(i,j,bi,bj) =
-     &         angleCosC(i,j,bi,bj) * p%TAUX(iSLo+i,jSLo+j) +
-     &         angleSinC(i,j,bi,bj) * p%TAUY(iSLo+i,jSLo+j)
-          tmpV(i,j,bi,bj) = -
-     &         angleSinC(i,j,bi,bj) * p%TAUX(iSLo+i,jSLo+j) +
-     &         angleCosC(i,j,bi,bj) * p%TAUY(iSLo+i,jSLo+j)
+     &         angleCosC(i,j,bi,bj) * p%TAUX(iSLo+i,jSLo+j)
+     &       + angleSinC(i,j,bi,bj) * p%TAUY(iSLo+i,jSLo+j)
+          tmpV(i,j,bi,bj) =
+     &       - angleSinC(i,j,bi,bj) * p%TAUX(iSLo+i,jSLo+j)
+     &       + angleCosC(i,j,bi,bj) * p%TAUY(iSLo+i,jSLo+j)
 
          ENDDO
         ENDDO
@@ -138,14 +149,99 @@
        DO bi=1,nSx
         DO j = jmin,jmax
          DO i = imin,imax
-          fu(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj)) *
-     &                    0.5D0 * maskW(i,j,1,bi,bj)
-          fv(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj)) *
-     &                    0.5D0 * maskS(i,j,1,bi,bj)
+          fu(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj))
+     &                  * 0.5D0 * maskW(i,j,1,bi,bj)
+          fv(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj))
+     &                  * 0.5D0 * maskS(i,j,1,bi,bj)
          ENDDO
         ENDDO
        ENDDO
       ENDDO
+
+#ifdef ALLOW_SEAICE
+!     Transfer fields from importPtr to MITgcm seaice variables.
+      DO bj=1,nSy
+       DO bi=1,nSx
+        jSLo = (bj-1)*sNy
+        iSLo = (bi-1)*sNx
+        DO j=1,sNy
+          DO i=1,sNx
+!     Rotate stress from East/North to MITgcm grid orientation.
+            tmpU(i,j,bi,bj) =
+     &         angleCosC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
+     &       + angleSinC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
+            tmpV(i,j,bi,bj) = -
+     &       - angleSinC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
+     &       + angleCosC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
+          ENDDO
+        ENDDO
+
+        DO n=1,nITD
+         DO j=1,sNy
+          DO i=1,sNx
+!     fractional_cover_of_seaice
+            AREAITD (i,j,n,bi,bj) = p%FRAICE(iSLo+i,jSLo+j,n)
+!     seaice and snow volume per grid-cell area [m]
+            HEFFITD (i,j,n,bi,bj) = p%VOLICE(iSLo+i,jSLo+j,n)
+            HSNOWITD(i,j,n,bi,bj) = p%VOLSNO(iSLo+i,jSLo+j,n)
+!     melt-pond volume per grid-cell area [m]
+            SImeltPd(i,j,n,bi,bj) = p%MPOND(iSLo+i,jSLo+j,n)
+!     seaice mean age [s]
+            SIiceAge(i,j,n,bi,bj) = p%TAUAGE(iSLo+i,jSLo+j,n)
+!     seaice skin temperature
+            TICES   (i,j,n,bi,bj) = p%TI(iSLo+i,jSLo+j,n)
+          ENDDO
+         ENDDO
+        ENDDO
+!     seaice energy
+        DO n=1,nITD
+         DO l=1,nIceLayers
+          k = l + (n-1)*nIceLayers
+          DO j=1,sNy
+           DO i=1,sNx
+            SIqIce(i,j,l,n,bi,bj) = p%ERGICE(iSLo+i,jSLo+j,k)
+           ENDDO
+          ENDDO
+         ENDDO
+        ENDDO
+!     snow energy
+        DO n=1,nITD
+         DO l=1,nSnowLayers
+          k = l + (n-1)*nSnowLayers
+          DO j=1,sNy
+           DO i=1,sNx
+            SIqSnow(i,j,l,n,bi,bj) = p%ERGSNO(iSLo+i,jSLo+j,k)
+           ENDDO
+          ENDDO
+         ENDDO
+        ENDDO
+        DO j=1,sNy
+          DO i=1,sNx
+!     seaice skin salinity
+            SIskinS(i,j,bi,bj) = p%SI(iSLo+i,jSLo+j)
+!     seaice skin-layer depth
+            SIskinH(i,j,bi,bj) = p%HI(iSLo+i,jSLo+j)
+          ENDDO
+        ENDDO
+!    end bi,bj loops
+       ENDDO
+      ENDDO
+
+!     Interpolate stress from A-grid to C-grid locations.
+      CALL EXCH_UV_AGRID_3D_RL(tmpU, tmpV, .TRUE., 1, 1)
+      DO bj=1,nSy
+       DO bi=1,nSx
+        DO j = jmin,jmax
+         DO i = imin,imax
+          SIwindTauX(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj))
+     &                  * 0.5D0 * maskW(i,j,1,bi,bj)
+          SIwindTauY(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj))
+     &                  * 0.5D0 * maskS(i,j,1,bi,bj)
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDDO
+#endif /* ALLOW_SEAICE */
 
       RETURN
       END SUBROUTINE
