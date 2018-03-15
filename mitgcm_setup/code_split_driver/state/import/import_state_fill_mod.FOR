@@ -24,7 +24,6 @@
 #include "FFIELDS.h"
 #ifdef ALLOW_SEAICE
 # include "SEAICE_SIZE.h"
-# include "SEAICE_PARAMS.h"
 # include "SEAICE.h"
 # include "SEAICE_LAYERS.h"
 #endif
