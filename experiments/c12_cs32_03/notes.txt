@@ -1,0 +1,26 @@
+Purpose: testing exchange of seaice state variables
+ in preparation for solving seaice dyn in Ocean component.
+
+Similar to experiment "c12_cs32_01" except:
+ - pkg/seaice is compiled (code/packages.conf) and use (useSEAICE=T)
+ - allowFreezing=F (wrong setting in c12_cs32_01 setup)
+For now:
+ - For testing only: compile with:  #undef ATMOSPHERIC_LOADING
+   in code/CPP_OPTIONS.h so that sIceLoad is ignored
+ - switch off all seaice update (no dynamics, no advection, no update
+   of ocean surface stress)
+so that results are identical to a run with useSEAICE=F
+
+Instructions:
+  identical to c12_cs32_01/Heracles-5_4*.txt (after replacing "c12_cs32_01"
+  with "c12_cs32_03") except in section below, need to link "pickup_seaice" files:
+
+# Populate the mit_input directory
+ cd $WorkingDir/TEST
+ mkdir mit_input ; cd mit_input
+ cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03/input/* .
+ ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
+ ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pickup.* .
+ ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input.icedyn/pickup_seaice.* .
+ ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/grid_cs32.* .
+

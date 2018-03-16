@@ -849,16 +849,16 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
 
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE',  FRI )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TI',  TI )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SI',  SI )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HI',  HI )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLSNO',  VOLSNO )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGICE',  ERGICE )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGSNO',  ERGSNO )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'MPOND',  MPOND )
-!DM    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUAGE',  TAUAGE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLSNO',  VOLSNO )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGICE',  ERGICE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGSNO',  ERGSNO )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'MPOND',   MPOND )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUAGE',  TAUAGE )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TI',  TI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SI',  SI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HI',  HI )
 
     call MAPL_GetResource( MAPL, passive_ocean, label='STEADY_STATE_OCEAN:', &
          default=1, rc=status ) ; VERIFY_(STATUS)
@@ -882,8 +882,6 @@ contains
     CALL MAPL_GetPointer(EXPORT, TAUYIe, 'TAUYI', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
-
-
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )

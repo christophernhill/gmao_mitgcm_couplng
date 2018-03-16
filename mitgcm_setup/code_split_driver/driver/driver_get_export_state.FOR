@@ -108,8 +108,8 @@ C     == Local variables ==
 !==============================================
 ! This should be uncommented and the line after that deleted!
 ! Until fixed, we are copying FRACICE from the Import
-!@@@@         fld = mitgcmIState%export%FRACICE
-         fld = mitgcmIState%import%FRACICE
+!@@@@         fld = mitgcmIState%export%FRAICE
+         fld = mitgcmIState%import%FRAICE
       ELSE
 
        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)

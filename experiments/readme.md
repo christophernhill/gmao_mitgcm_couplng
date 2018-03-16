@@ -6,6 +6,13 @@ c12_cs32_02 : c12/cs32, 1-hour
  - used for tests with pkg/exf and coupled timing strategies
  - MIT_DT=DeltaT=25; HEARTBEAT_DT=90; OGCM_DT=OGCM_RUN_DT=900
 
+c12_cs32_03 : c12/cs32, 1-day, hourly output
+ - used for testing exchange of seaice state variables
+   (in prep for solving seaice dyn in Ocean component):
+ compared to c12_cs32_01:
+ - compile with #undef ATMOSPHERIC_LOADING and pkg/seaice
+ - run with useSEAICE=T but everything turned off.
+
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
  - uses GEOSodas b_geos5mit (Heracles 5.4)
 
@@ -30,7 +37,7 @@ c2880_llc4320_01 : c2880/llc4320 set-up
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
  - uses GEOS USE_IOSERVER and MITgcm asyncio
 
-exp_1p1eq2 : c48/cs32 1day + 1day = 2days 
+exp_1p1eq2 : c48/cs32 1day + 1day = 2days
  - USE_CICE_Thermo: 0
  - 24 processors
  - 1+1 folder /home/estrobac/data/geos5/MITgcm5_1p1_24p

@@ -34,7 +34,7 @@ cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=18:ncpus=20:model=ivy,walltime=2:00:00
+qsub -I -q devel -l select=103:ncpus=28:model=bro,walltime=2:00:00
 tcsh
 setenv WorkingDir /nobackup/$USER/geos5
 
@@ -48,7 +48,7 @@ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_Gri
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01
+cd $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_01
 mkdir build; cd build; \rm *
 setenv ROOTDIR $WorkingDir/MITgcm
 $ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+mpi_ice_nas -ieee
@@ -56,12 +56,12 @@ make depend
 
 #- Generate modified src code and Makefile for MITgcm
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c90_llc90_01/build
+./mk_local ../../experiments/c720_llc1080_01/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c90_llc90_01/build
+./mk_local ../../experiments/c720_llc1080_01/build
 cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
 \rm code
-ln -s ../experiments/c90_llc90_01/code .
+ln -s ../experiments/c720_llc1080_01/code .
 cd build
 \rm *.a *.c *.f *.h *.o *.F
 
@@ -72,7 +72,7 @@ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
-# Set up coupled code for experiments/c90_llc90_01
+# Set up coupled code for experiments/c720_llc1080_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
 cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
@@ -80,11 +80,11 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c48
+# Enter the Atmospheric Horizontal Resolution code: c720
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: llc90
-# Enter the Ocean Model Vertical Resolution: 50
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc1080
+# Enter the Ocean Model Vertical Resolution: 90
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
@@ -94,16 +94,16 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: $WorkingDir/GEOSodas (spell out $WorkingDir)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Get GEOS-5 files for experiments/c90_llc90_01
+# Get GEOS-5 files for experiments/c720_llc1080_01
 cd $WorkingDir/TEST
-cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_01_data/geos/* .
+cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_01_data/geos/* .
 
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
-cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_01_data/mit/* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01/input/* .
+cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_01_data/mit/* .
+cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_01/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
