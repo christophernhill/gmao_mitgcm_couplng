@@ -36,9 +36,9 @@
 
   fields(1:8,3)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
-#  fileName(3) = 'snapshot',
-  frequency(3) = -86400.,
-  timePhase(3) =  3600.,
+   fileName(3) = 'iceInst',
+  frequency(3) = -900.,
+# timePhase(3) =  3600.,
   missing_value(3) = -999.,
  &
 
@@ -63,6 +63,6 @@
  stat_fields(1:8,1)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad', 
                        'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
   stat_fName(1) = 'iceStDiag',
-   stat_freq(1) = 7200.,
+   stat_freq(1) =  900.,
 # stat_phase(1) = 1800.,
  &
