@@ -20,6 +20,7 @@
       SUBROUTINE MITGCM_IMPORT_FILL  ( importPtr )
 !     -- Fill the imports for an MITgcm instance.
 #include "SIZE.h"
+#include "EEPARAMS.h"
 #include "GRID.h"
 #include "FFIELDS.h"
 #ifdef ALLOW_SEAICE
@@ -36,11 +37,18 @@
       TYPE(MITGCM_IMPORT), POINTER :: p
       INTEGER bi, bj, i, j, jSLo, iSLo
       INTEGER k, l, n
-      INTEGER imin, imax, jmin, jmax
-      PARAMETER ( imin = 1-OLx , imax = sNx+OLx )
-      PARAMETER ( jmin = 1-OLy , jmax = sNy+OLy )
+      INTEGER iMin, iMax, jMin, jMax
+      INTEGER n3d, myThid
+      PARAMETER ( iMin = 2-OLx , iMax = sNx+OLx )
+      PARAMETER ( jMin = 2-OLy , jMax = sNy+OLy )
       _RL tmpU (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL tmpV (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
+      _RL exclVal
+      Real*4 exclSng
+
+      myThid  = 1
+      exclSng = 1.E+15
+      exclVal = exclSng
 
 !     Transfer fields from importPtr to MITgcm forcing variables.
       p => importPtr
@@ -143,11 +151,11 @@
       ENDDO
 
 !     Interpolate stress from A-grid to C-grid locations.
-      CALL EXCH_UV_AGRID_3D_RL(tmpU, tmpV, .TRUE., 1, 1)
+      CALL EXCH_UV_AGRID_3D_RL( tmpU, tmpV, .TRUE., 1, myThid )
       DO bj=1,nSy
        DO bi=1,nSx
-        DO j = jmin,jmax
-         DO i = imin,imax
+        DO j = jMin,jMax
+         DO i = iMin,iMax
           fu(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj))
      &                  * 0.5D0 * maskW(i,j,1,bi,bj)
           fv(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj))
@@ -163,6 +171,7 @@
        DO bi=1,nSx
         jSLo = (bj-1)*sNy
         iSLo = (bi-1)*sNx
+
         DO j=1,sNy
           DO i=1,sNx
 !     Rotate stress from East/North to MITgcm grid orientation.
@@ -222,24 +231,67 @@
             SIskinH(i,j,bi,bj) = p%HI(iSLo+i,jSLo+j)
           ENDDO
         ENDDO
-!    end bi,bj loops
+
+!     Remove Exclude value from seaice fields:
+        DO n=1,nITD
+         DO j=1,sNy
+          DO i=1,sNx
+           IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
+            AREAITD (i,j,n,bi,bj) = 0.D0
+            HEFFITD (i,j,n,bi,bj) = 0.D0
+            HSNOWITD(i,j,n,bi,bj) = 0.D0
+            SImeltPd(i,j,n,bi,bj) = 0.D0
+            SIiceAge(i,j,n,bi,bj) = 0.D0
+            TICES   (i,j,n,bi,bj) = 0.D0
+            DO l=1,nIceLayers
+             SIqIce(i,j,l,n,bi,bj) = 0.D0
+            ENDDO
+            DO l=1,nSnowLayers
+             SIqSnow(i,j,l,n,bi,bj)= 0.D0
+            ENDDO
+            SIskinS(i,j,bi,bj) = 0.D0
+            SIskinH(i,j,bi,bj) = 0.D0
+           ENDIF
+          ENDDO
+         ENDDO
+        ENDDO
+
+!     end bi,bj loops
        ENDDO
       ENDDO
 
-!     Interpolate stress from A-grid to C-grid locations.
-      CALL EXCH_UV_AGRID_3D_RL(tmpU, tmpV, .TRUE., 1, 1)
+!     Apply EXCH to seaice fields:
+      CALL EXCH_UV_AGRID_3D_RL( tmpU, tmpV, .TRUE., 1, myThid )
+      CALL EXCH_3D_RL( AREAITD , nITD, myThid )
+      CALL EXCH_3D_RL( HEFFITD , nITD, myThid )
+      CALL EXCH_3D_RL( HSNOWITD, nITD, myThid )
+      CALL EXCH_3D_RL( SImeltPd, nITD, myThid )
+      CALL EXCH_3D_RL( SIiceAge, nITD, myThid )
+      CALL EXCH_3D_RL( TICES   , nITD, myThid )
+      n3d = nIceLayers*nITD
+      CALL EXCH_3D_RL( SIqIce , n3d, myThid )
+      n3d = nSnowLayers*nITD
+      CALL EXCH_3D_RL( SIqSnow, n3d, myThid )
+      CALL EXCH_XY_RL( SIskinS, myThid )
+      CALL EXCH_XY_RL( SIskinH, myThid )
+
       DO bj=1,nSy
        DO bi=1,nSx
-        DO j = jmin,jmax
-         DO i = imin,imax
+!     Interpolate stress from A-grid to C-grid locations.
+        DO j = jMin,jMax
+         DO i = iMin,iMax
           SIwindTauX(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj))
      &                  * 0.5D0 * maskW(i,j,1,bi,bj)
           SIwindTauY(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj))
      &                  * 0.5D0 * maskS(i,j,1,bi,bj)
          ENDDO
         ENDDO
+!     Fill-in grid-cell mean from all seaice categories
+        CALL SEAICE_ITD_SUM( bi, bj, zeroRL, 0, myThid )
+!     end bi,bj loops
        ENDDO
       ENDDO
+
 #endif /* ALLOW_SEAICE */
 
       RETURN
