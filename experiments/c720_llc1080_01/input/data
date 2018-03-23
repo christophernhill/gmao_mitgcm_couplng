@@ -87,7 +87,7 @@
  pChkptFreq  = 2592000.0,
  chkptFreq   = 259200.0,
  dumpfreq = 86400.,
- monitorFreq = 3600.,
+ monitorFreq = 86400.,
  dumpInitAndLast=.TRUE.,
  /
 
