@@ -415,119 +415,119 @@ contains
 
 ! !Export state - increments for seaice:
 
-    call MAPL_AddExportSpec(GC,                                    &
-         SHORT_NAME         = 'DELFRACICE',                        &
-         LONG_NAME          = 'delta_fractional_cover_of_seaice',  &
-         UNITS              = '1',                                 &
-         DIMS               = MAPL_DimsHorzOnly,                   &
-         UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-         VLOCATION          = MAPL_VLocationNone,                  &
-         RC=STATUS  )
-    VERIFY_(STATUS)
+!    call MAPL_AddExportSpec(GC,                                    &
+!         SHORT_NAME         = 'DELFRACICE',                        &
+!         LONG_NAME          = 'delta_fractional_cover_of_seaice',  &
+!         UNITS              = '1',                                 &
+!         DIMS               = MAPL_DimsHorzOnly,                   &
+!         UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!         VLOCATION          = MAPL_VLocationNone,                  &
+!         RC=STATUS  )
+!    VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'DELTI',                                &
-    LONG_NAME          = 'delta_seaice_skin_temperature',           &
-    UNITS              = 'K',                                 &
-    DIMS               = MAPL_DimsHorzOnly,                   &
-    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-    VLOCATION          = MAPL_VLocationNone,                  &
-    DEFAULT            = MAPL_TICE,                           &
-                                                   RC=STATUS  )
-  VERIFY_(STATUS)
+!  call MAPL_AddExportSpec(GC,                            &
+!    SHORT_NAME         = 'DELTI',                                &
+!    LONG_NAME          = 'delta_seaice_skin_temperature',           &
+!    UNITS              = 'K',                                 &
+!    DIMS               = MAPL_DimsHorzOnly,                   &
+!    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!    VLOCATION          = MAPL_VLocationNone,                  &
+!    DEFAULT            = MAPL_TICE,                           &
+!                                                   RC=STATUS  )
+!  VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'DELSI',                                &
-    LONG_NAME          = 'delta_seaice_skin_salinity',              &
-    UNITS              = 'psu',                               &
-    DIMS               = MAPL_DimsHorzOnly,                   &
-    VLOCATION          = MAPL_VLocationNone,                  &
-    DEFAULT            = 4.,                                  &
-                                                   RC=STATUS  )
-  VERIFY_(STATUS)
+!  call MAPL_AddExportSpec(GC,                            &
+!    SHORT_NAME         = 'DELSI',                                &
+!    LONG_NAME          = 'delta_seaice_skin_salinity',              &
+!    UNITS              = 'psu',                               &
+!    DIMS               = MAPL_DimsHorzOnly,                   &
+!    VLOCATION          = MAPL_VLocationNone,                  &
+!    DEFAULT            = 4.,                                  &
+!                                                   RC=STATUS  )
+!  VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                                &
-    SHORT_NAME         = 'DELVOLICE',                            &
-    LONG_NAME          = 'delta_ice_category_volume_per_unit_area_of_grid_cell',&
-    UNITS              = 'm',                                 &
-    DIMS               = MAPL_DimsHorzOnly,                   &
-    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-    VLOCATION          = MAPL_VLocationNone,                  &
-    DEFAULT            = 0.0,                                 &
-                                                       RC=STATUS  )
-  VERIFY_(STATUS)
+!  call MAPL_AddExportSpec(GC,                                &
+!    SHORT_NAME         = 'DELVOLICE',                            &
+!    LONG_NAME          = 'delta_ice_category_volume_per_unit_area_of_grid_cell',&
+!    UNITS              = 'm',                                 &
+!    DIMS               = MAPL_DimsHorzOnly,                   &
+!    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!    VLOCATION          = MAPL_VLocationNone,                  &
+!    DEFAULT            = 0.0,                                 &
+!                                                       RC=STATUS  )
+!  VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                                &
-    SHORT_NAME         = 'DELVOLSNO',                            &
-    LONG_NAME          = 'delta_sno_category_volume_per_unit_area_of_grid_cell',&
-    UNITS              = 'm',                                 &
-    DIMS               = MAPL_DimsHorzOnly,                   &
-    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-    VLOCATION          = MAPL_VLocationNone,                  &
-    DEFAULT            = 0.0,                                 &
-                                                       RC=STATUS  )
-  VERIFY_(STATUS)
+!  call MAPL_AddExportSpec(GC,                                &
+!    SHORT_NAME         = 'DELVOLSNO',                            &
+!    LONG_NAME          = 'delta_sno_category_volume_per_unit_area_of_grid_cell',&
+!    UNITS              = 'm',                                 &
+!    DIMS               = MAPL_DimsHorzOnly,                   &
+!    UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!    VLOCATION          = MAPL_VLocationNone,                  &
+!    DEFAULT            = 0.0,                                 &
+!                                                       RC=STATUS  )
+!  VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELERGICE',                            &
-        LONG_NAME          = 'delta_ice_category_layer_internal_energy',&
-        UNITS              = 'J m-2',                             &
-        DIMS               = MAPL_DimsHorzOnly,                   &
-        VLOCATION          = MAPL_VLocationNone,                  &
-        UNGRIDDED_DIMS     = (/NUM_ICE_LAYERS_ALL/),              &
-        !VLOCATION          = MAPL_VLocationCenter,                 &
+!  call MAPL_AddExportSpec(GC,                                &
+!        SHORT_NAME         = 'DELERGICE',                            &
+!        LONG_NAME          = 'delta_ice_category_layer_internal_energy',&
+!        UNITS              = 'J m-2',                             &
+!        DIMS               = MAPL_DimsHorzOnly,                   &
+!        VLOCATION          = MAPL_VLocationNone,                  &
+!        UNGRIDDED_DIMS     = (/NUM_ICE_LAYERS_ALL/),              &
+!        !VLOCATION          = MAPL_VLocationCenter,                 &
     !    DEFAULT            = 0.0,                                 &
-                                                       RC=STATUS  )
-   VERIFY_(STATUS)
+!                                                       RC=STATUS  )
+!   VERIFY_(STATUS)
 
-   call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELERGSNO',                            &
-        LONG_NAME          = 'delta_snow_category_layer_internal_energy',&
-        UNITS              = 'J m-2',                             &
-        !DIMS               = MAPL_DimsHorzVert,                   &
-        DIMS               = MAPL_DimsHorzOnly,                   &
-        VLOCATION          = MAPL_VLocationNone,                  &
-        UNGRIDDED_DIMS     = (/NUM_SNOW_LAYERS_ALL/),             &
-        !VLOCATION          = MAPL_VLocationCenter,                 &
-        !DEFAULT            = 0.0,                                 &
-                                                       RC=STATUS  )
-   VERIFY_(STATUS)
+!   call MAPL_AddExportSpec(GC,                                &
+!        SHORT_NAME         = 'DELERGSNO',                            &
+!        LONG_NAME          = 'delta_snow_category_layer_internal_energy',&
+!        UNITS              = 'J m-2',                             &
+!        !DIMS               = MAPL_DimsHorzVert,                   &
+!        DIMS               = MAPL_DimsHorzOnly,                   &
+!        VLOCATION          = MAPL_VLocationNone,                  &
+!        UNGRIDDED_DIMS     = (/NUM_SNOW_LAYERS_ALL/),             &
+!        !VLOCATION          = MAPL_VLocationCenter,                 &
+!        !DEFAULT            = 0.0,                                 &
+!                                                       RC=STATUS  )
+!   VERIFY_(STATUS)
 
-    call MAPL_AddExportSpec(GC                                     ,&
-        LONG_NAME          = 'delta_melt_pond_volume'                     ,&
-        UNITS              = 'm'                                ,&
-        SHORT_NAME         = 'DELMPOND'                                 ,&
-        !DIMS               = MAPL_DimsHorzVert,                   &
-        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-        DIMS               = MAPL_DimsHorzOnly,                   &
-        VLOCATION          = MAPL_VLocationNone,                  &
-        !VLOCATION          = MAPL_VLocationCenter,                 &
-        !DEFAULT            = 0.0                                    ,&
-        RC=STATUS                                                 )
+!    call MAPL_AddExportSpec(GC                                     ,&
+!        LONG_NAME          = 'delta_melt_pond_volume'                     ,&
+!        UNITS              = 'm'                                ,&
+!        SHORT_NAME         = 'DELMPOND'                                 ,&
+!        !DIMS               = MAPL_DimsHorzVert,                   &
+!        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!        DIMS               = MAPL_DimsHorzOnly,                   &
+!        VLOCATION          = MAPL_VLocationNone,                  &
+!        !VLOCATION          = MAPL_VLocationCenter,                 &
+!        !DEFAULT            = 0.0                                    ,&
+!        RC=STATUS                                                 )
 
-     VERIFY_(STATUS)
+!     VERIFY_(STATUS)
 
-   call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELTAUAGE',                            &
-        LONG_NAME          = 'delta_volume_weighted_mean_ice_age',      &
-        UNITS              = 's',                                 &
-        !DIMS               = MAPL_DimsHorzVert,                   &
-        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
-        DIMS               = MAPL_DimsHorzOnly,                   &
-        VLOCATION          = MAPL_VLocationNone,                  &
-        !VLOCATION          = MAPL_VLocationCenter,                 &
-        !DEFAULT            = 0.0,                                 &
-                                                       RC=STATUS  )
-   VERIFY_(STATUS)
+!   call MAPL_AddExportSpec(GC,                                &
+!        SHORT_NAME         = 'DELTAUAGE',                            &
+!        LONG_NAME          = 'delta_volume_weighted_mean_ice_age',      &
+!        UNITS              = 's',                                 &
+!        !DIMS               = MAPL_DimsHorzVert,                   &
+!        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
+!        DIMS               = MAPL_DimsHorzOnly,                   &
+!        VLOCATION          = MAPL_VLocationNone,                  &
+!        !VLOCATION          = MAPL_VLocationCenter,                 &
+!        !DEFAULT            = 0.0,                                 &
+!                                                       RC=STATUS  )
+!   VERIFY_(STATUS)
 
-  call MAPL_AddExportSpec(GC,                            &
-         SHORT_NAME         = 'DELHI',                                &
-         LONG_NAME          = 'delta_seaice_skin_layer_depth',            &
-         UNITS              = 'm',                                 &
-         DIMS               = MAPL_DimsHorzOnly,                   &
-         VLOCATION          = MAPL_VLocationNone,                  &
-                                                   RC=STATUS  )
-    VERIFY_(STATUS)
+!  call MAPL_AddExportSpec(GC,                            &
+!         SHORT_NAME         = 'DELHI',                                &
+!         LONG_NAME          = 'delta_seaice_skin_layer_depth',            &
+!         UNITS              = 'm',                                 &
+!         DIMS               = MAPL_DimsHorzOnly,                   &
+!         VLOCATION          = MAPL_VLocationNone,                  &
+!                                                   RC=STATUS  )
+!    VERIFY_(STATUS)
 
 
 
@@ -853,16 +853,16 @@ contains
     REAL_, pointer                         :: TAUXBOT(:,:)
     REAL_, pointer                         :: TAUYBOT(:,:)
 
-    REAL_, pointer                         :: DELFRACICE(:,:,:)
-    REAL_, pointer                         :: DELTI(:,:,:)
-    REAL_, pointer                         :: DELSI (:,:,:)
-    REAL_, pointer                         :: DELVOLICE(:,:,:)
-    REAL_, pointer                         :: DELVOLSNO(:,:,:)
-    REAL_, pointer                         :: DELERGICE(:,:,:)
-    REAL_, pointer                         :: DELERGSNO(:,:,:)
-    REAL_, pointer                         :: DELMPOND(:,:,:)
-    REAL_, pointer                         :: DELTAUAGE(:,:,:)
-    REAL_, pointer                         :: DELHI(:,:)
+!    REAL_, pointer                         :: DELFRACICE(:,:,:)
+!    REAL_, pointer                         :: DELTI(:,:,:)
+!    REAL_, pointer                         :: DELSI (:,:,:)
+!    REAL_, pointer                         :: DELVOLICE(:,:,:)
+!    REAL_, pointer                         :: DELVOLSNO(:,:,:)
+!    REAL_, pointer                         :: DELERGICE(:,:,:)
+!    REAL_, pointer                         :: DELERGSNO(:,:,:)
+!    REAL_, pointer                         :: DELMPOND(:,:,:)
+!    REAL_, pointer                         :: DELTAUAGE(:,:,:)
+1    REAL_, pointer                         :: DELHI(:,:)
 
 !   Type for getting MITgcm internal state pointer
     TYPE(T_PrivateState_Wrap) wrap
@@ -1013,16 +1013,16 @@ contains
     CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
     
-    CALL MAPL_GetPointer(EXPORT, DELFRACICE,'DELFRACICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTI,   'DELTI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELSI,   'DELSI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLICE, 'DELVOLICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLSNO, 'DELVOLSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGICE, 'DELERGICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGSNO, 'DELERGSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELMPOND, 'DELMPOND', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTAUAGE, 'DELTAUAGE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELHI, 'DELHI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELFRACICE,'DELFRACICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELTI,   'DELTI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELSI,   'DELSI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELVOLICE, 'DELVOLICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELVOLSNO, 'DELVOLSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELERGICE, 'DELERGICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELERGSNO, 'DELERGSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELMPOND, 'DELMPOND', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELTAUAGE, 'DELTAUAGE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+!    CALL MAPL_GetPointer(EXPORT, DELHI, 'DELHI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
