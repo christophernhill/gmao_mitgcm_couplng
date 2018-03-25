@@ -432,7 +432,6 @@ contains
     DIMS               = MAPL_DimsHorzOnly,                   &
     UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
     VLOCATION          = MAPL_VLocationNone,                  &
-    RESTART            = MAPL_RestartOptional,                &
     DEFAULT            = MAPL_TICE,                           &
                                                    RC=STATUS  )
   VERIFY_(STATUS)
@@ -443,7 +442,6 @@ contains
     UNITS              = 'psu',                               &
     DIMS               = MAPL_DimsHorzOnly,                   &
     VLOCATION          = MAPL_VLocationNone,                  &
-    RESTART            = MAPL_RestartOptional,                &
     DEFAULT            = 4.,                                  &
                                                    RC=STATUS  )
   VERIFY_(STATUS)
@@ -455,7 +453,6 @@ contains
     DIMS               = MAPL_DimsHorzOnly,                   &
     UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
     VLOCATION          = MAPL_VLocationNone,                  &
-    RESTART            = MAPL_RestartOptional,                &
     DEFAULT            = 0.0,                                 &
                                                        RC=STATUS  )
   VERIFY_(STATUS)
@@ -467,7 +464,6 @@ contains
     DIMS               = MAPL_DimsHorzOnly,                   &
     UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
     VLOCATION          = MAPL_VLocationNone,                  &
-    RESTART            = MAPL_RestartOptional,                &
     DEFAULT            = 0.0,                                 &
                                                        RC=STATUS  )
   VERIFY_(STATUS)
@@ -481,7 +477,6 @@ contains
         UNGRIDDED_DIMS     = (/NUM_ICE_LAYERS_ALL/),              &
         !VLOCATION          = MAPL_VLocationCenter,                 &
     !    DEFAULT            = 0.0,                                 &
-        RESTART            = MAPL_RestartSkip,                    &
                                                        RC=STATUS  )
    VERIFY_(STATUS)
 
@@ -494,7 +489,6 @@ contains
         VLOCATION          = MAPL_VLocationNone,                  &
         UNGRIDDED_DIMS     = (/NUM_SNOW_LAYERS_ALL/),             &
         !VLOCATION          = MAPL_VLocationCenter,                 &
-        RESTART            = MAPL_RestartSkip,                    &
         !DEFAULT            = 0.0,                                 &
                                                        RC=STATUS  )
    VERIFY_(STATUS)
@@ -509,7 +503,6 @@ contains
         VLOCATION          = MAPL_VLocationNone,                  &
         !VLOCATION          = MAPL_VLocationCenter,                 &
         !DEFAULT            = 0.0                                    ,&
-        RESTART            = MAPL_RestartSkip,                    &
         RC=STATUS                                                 )
 
      VERIFY_(STATUS)
@@ -523,7 +516,6 @@ contains
         DIMS               = MAPL_DimsHorzOnly,                   &
         VLOCATION          = MAPL_VLocationNone,                  &
         !VLOCATION          = MAPL_VLocationCenter,                 &
-        RESTART            = MAPL_RestartSkip,                    &
         !DEFAULT            = 0.0,                                 &
                                                        RC=STATUS  )
    VERIFY_(STATUS)
