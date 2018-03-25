@@ -415,9 +415,9 @@ contains
 
 ! !Export state - increments for seaice:
 
-    call MAPL_AddExportSpec(GC,                            &
-         SHORT_NAME         = 'DELFRACICE',                           &
-         LONG_NAME          = 'delta_fractional_cover_of_seaice',        &
+    call MAPL_AddExportSpec(GC,                                    &
+         SHORT_NAME         = 'DELFRACICE',                        &
+         LONG_NAME          = 'delta_fractional_cover_of_seaice',  &
          UNITS              = '1',                                 &
          DIMS               = MAPL_DimsHorzOnly,                   &
          UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
@@ -1021,16 +1021,16 @@ contains
     CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
     
-    CALL MAPL_GetPointer(EXPORT, DELFRACICE,'DELFRACICE', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTI,   'DELTI', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELSI,   'DELSI', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLICE, 'DELVOLICE', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLSNO, 'DELVOLSNO', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGICE, 'DELERGICE', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGSNO, 'DELERGSNO', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELMPOND, 'DELMPOND', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTAUAGE, 'DELTAUAGE', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELHI, 'DELHI', RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELFRACICE,'DELFRACICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELTI,   'DELTI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELSI,   'DELSI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELVOLICE, 'DELVOLICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELVOLSNO, 'DELVOLSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELERGICE, 'DELERGICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELERGSNO, 'DELERGSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELMPOND, 'DELMPOND', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELTAUAGE, 'DELTAUAGE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DELHI, 'DELHI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
