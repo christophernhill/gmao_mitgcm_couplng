@@ -123,13 +123,14 @@
 !              Units are           Pa=N/m^2
 ! For some reason code crashes if pLoad is set to p%PS.
 !         pLoad(i,j,bi,bj) = p%PS(iSLo+i,jSLo+j)
-!          pLoad(i,j,bi,bj) = 0.0D0
+         pLoad(i,j,bi,bj) = 0.0D0
 
-          IF ( p%PS(iSLo+i,jSLo+j).EQ.exclVal ) THEN
-            pLoad(i,j,bi,bj) = 0.0D0
-          ELSE
-            pLoad(i,j,bi,bj) = p%PS(iSLo+i,jSLo+j)
-          ENDIF
+! I treid to add protection but model still crush (Udi)
+!          IF ( p%PS(iSLo+i,jSLo+j).EQ.exclVal ) THEN
+!            pLoad(i,j,bi,bj) = 0.0D0
+!          ELSE
+!            pLoad(i,j,bi,bj) = p%PS(iSLo+i,jSLo+j)
+!          ENDIF
 
 !     Transfer TAUX and TAUY to fu and fv.
 !     TAUX   : A-grid eastward stress on skin in N/m^2.

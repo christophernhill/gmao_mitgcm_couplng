@@ -136,7 +136,7 @@ contains
 !   Imports and exports specification
 !   ---------------------------------
 
-    nimports = 15
+    nimports = 16
     allocate(imports(nimports))
     imports    = (/                                                                                                 &
     mstate('TAUX',  'Agrid_eastward_stress_on_skin',         'N m-2',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -153,7 +153,8 @@ contains
     mstate('PENUVF','net_downward_penetrating_diffuse_UV_flux','W m-2',   MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('PENPAF','net_downward_penetrating_diffuse_PAR_flux','W m-2',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
     mstate('DISCHARGE','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
-    mstate('PICE','pressure due to ice weight',             'Pa',         MAPL_DimsHorzOnly,MAPL_VLocationNone)     &
+    mstate('PICE','pressure due to ice weight',             'Pa',         MAPL_DimsHorzOnly,MAPL_VLocationNone),     &
+    mstate('WGHT', 'weight_for_ocean_grid','1',     MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
     /)
 
     DO I=1,NIMPORTS
@@ -921,6 +922,7 @@ contains
     REAL_, pointer                         ::   DISCHARGE(:,:  )
     REAL_, pointer                         ::   LATS(:,:  )
     REAL_, pointer                         ::   LONS(:,:  )
+    REAL_, pointer                         ::   WGHT(:,:  )
 
 ! Sea ice vars
     REAL_, pointer                         :: FRI(:,:,:)
@@ -934,6 +936,7 @@ contains
     REAL_, pointer                         ::   HFLXe(:,:  )
     REAL_, pointer                         ::   SFLXe(:,:  )
     REAL_, pointer                         ::   DISCHARGEe(:,:  )
+    REAL_, pointer                         ::   WGHTe(:,:  )
 
 !   Pointers for fetching export state values from component
     REAL_, pointer                         :: US  (:,:)
@@ -1035,6 +1038,7 @@ contains
     call MAPL_GetPointer(IMPORT,   HFLX,   'HFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   SFLX,   'SFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,   DISCHARGE, 'DISCHARGE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT,   WGHT,   'WGHT', RC=STATUS); VERIFY_(STATUS)
     call MAPL_Get(MAPL, LATS=LATS, LONS=LONS, RC=status); VERIFY_(STATUS)
 
 ! Sea ice vars
@@ -1059,6 +1063,7 @@ contains
     call MAPL_GetPointer(EXPORT,   QFLXe,   'QFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   HFLXe,   'HFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   SFLXe,   'SFLX', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   WGHTe,   'WGHT', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   DISCHARGEe, 'DISCHARGEe', RC=STATUS); VERIFY_(STATUS)
 
     CALL MAPL_GetPointer(EXPORT, TIe,   'TI', RC=STATUS); VERIFY_(STATUS)
@@ -1080,6 +1085,7 @@ contains
     if (associated(HFLXe)) HFLXe = HFLX
     if (associated(SFLXe)) SFLXe = SFLX
     if (associated(DISCHARGEe)) DISCHARGEe = DISCHARGE
+    if (associated(WGHTe)) WGHTe = WGHT
 
     if (associated(TIe)) TIe = TI
     if (associated(SIe)) SIe = SI
@@ -1102,6 +1108,9 @@ contains
     call MAPL_GetResource( MAPL, ocean_dir, label='OCEAN_DIR:', rc=status ) ; VERIFY_(STATUS)
     call str4c( iarr, TRIM(ocean_dir) )
 
+! We may need this in the future (Udi)
+!    where (WGHT<=0.0) PS = 0.0 
+
 ! Put import data into internal state
 !------------------------------------
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TAUX',   TAUX )
@@ -1116,6 +1125,7 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SFLX',   SFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
+!    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
 
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
