@@ -65,10 +65,15 @@ ln -s ../experiments/c720_llc1080_Debug/code .
 cd build
 \rm *.a *.c *.f *.h *.o *.F
 
+# Change Makefiles for traceback
+sed -i '/FOPTIM =/ s/$/ -g -traceback/' Makefile
+sed -i '/F90OPTIM =/ s/$/ -g -traceback/' Makefile
+sed -i 's/FC_OPT=-O3 $(ALIGNCOM)/FC_OPT=-O0 $(ALIGNCOM) -g -traceback/' ../code_split_driver/Makefile
+
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 |& tee makeinstall.log
+gmake pinstall -j 16 BOPT=g |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
