@@ -34,7 +34,7 @@ cvs login                         # enter the CVS password: "cvsanon"
 cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=103:ncpus=28:model=bro,walltime=2:00:00
+qsub -I -q devel -l select=144:ncpus=20:model=has,walltime=2:00:00
 tcsh
 setenv WorkingDir /nobackup/$USER/geos5
 
@@ -73,7 +73,7 @@ sed -i 's/FC_OPT=-O3 $(ALIGNCOM)/FC_OPT=-O0 $(ALIGNCOM) -g -traceback/' ../code_
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
 cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 BOPT=g |& tee makeinstall.log
+gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
@@ -99,16 +99,17 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter Location for Build directory: $WorkingDir/GEOSodas (spell out $WorkingDir)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Get GEOS-5 files for experiments/c720_llc1080_Debug
-cd $WorkingDir/TEST
-cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/* .
-
 # Populate the mit_input directory
 cd $WorkingDir/TEST
 mkdir mit_input
 cd mit_input
 cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/mit/* .
 cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/input/* .
+ 
+# Get GEOS-5 files for experiments/c720_llc1080_Debug
+cd $WorkingDir/TEST
+cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/mkexp.sh ./
+csh mkexp.sh
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
