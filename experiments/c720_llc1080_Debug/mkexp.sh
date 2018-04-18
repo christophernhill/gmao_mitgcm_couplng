@@ -13,8 +13,8 @@ sed -i "s|EXPDSC: .*|EXPDSC: ${EXPDSC} |" HISTORY.rc
 
 sed -i "s|#PBS -N .*|#PBS -N ${EXPID}_RUN |" gcm_run.j
 
-sed -i "s|setenv GEOSDIR .*|setenv GEOSDIR ${WorkingDir}GEOSodas |" gcm_run.j
-sed -i "s|setenv GEOSBIN .*|setenv GEOSBIN ${WorkingDir}GEOSodas/Linux/bin |" gcm_run.j
+sed -i "s|setenv GEOSDIR .*|setenv GEOSDIR ${WorkingDir}/GEOSodas |" gcm_run.j
+sed -i "s|setenv GEOSBIN .*|setenv GEOSBIN ${WorkingDir}/GEOSodas/Linux/bin |" gcm_run.j
 
 sed -i "s|setenv .*EXPID .*|setenv EXPID ${EXPID} |" gcm_run.j | grep EXPID
 sed -i "s|setenv .*EXPDIR .*|setenv EXPDIR ${EXPDIR} |" gcm_run.j
