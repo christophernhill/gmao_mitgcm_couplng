@@ -5,8 +5,13 @@ setenv EXPDSC `grep EXPDSC: HISTORY.rc | cut -d':' -f2 | tr -d " "`
 setenv EXPDIR `grep setenv gcm_run.j | grep " EXPDIR" | tr -s " " | cut -d" " -f3`
 setenv HOMDIR `grep setenv gcm_run.j | grep " HOMDIR" | tr -s " " | cut -d" " -f3`
 
-
-cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/* .
+cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/cap_restart .
+cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/gcm_run.j .
+cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/*.rc .
+ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/*.bin .
+ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/*.dat* .
+ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/*_rst .
+ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/geos/*.til .
 
 sed -i "s|EXPID: .*|EXPID: ${EXPID} |" HISTORY.rc
 sed -i "s|EXPDSC: .*|EXPDSC: ${EXPDSC} |" HISTORY.rc
