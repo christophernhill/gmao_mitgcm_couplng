@@ -116,7 +116,7 @@
 
 # Input datasets
  &PARM05
- bathyFile      ='bathy1080_g5_r4',
+ bathyFile      ='bathy1080_g5_filled_r4',
  hydrogThetaFile='Jan2010_THETA_1080x14040x90_r4',
  hydrogSaltFile ='Jan2010_SALT_1080x14040x90_r4',
  /
