@@ -105,8 +105,9 @@ mkdir mit_input
 cd mit_input
 ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_Debug_data/mit/* .
 ln -sf /nobackup/dmenemen/tarballs/llc_1080/run_template/bathy1080_g5_filled_r4 .
+ln -sf /nobackup/dmenemen/tarballs/llc_1080/run_template/SST_1080_Reynolds_Feb12 .
 cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/input/* .
- 
+
 # Get GEOS-5 files for experiments/c720_llc1080_Debug
 cd $WorkingDir/TEST
 cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/mkexp.sh ./

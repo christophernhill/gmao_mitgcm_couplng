@@ -60,7 +60,7 @@
  vectorInvariantMomentum=.TRUE.,
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
- debuglevel=5,
+ debuglevel=-1,
  convertFW2Salt=-1
  useRealFreshWaterFlux=.TRUE.,
  useSingleCPUio=.TRUE.,
@@ -78,16 +78,15 @@
 
 # Time stepping parameters
  &PARM03
- nIter0=731520,
+ nIter0=0,
  nTimeSteps=28800,
- deltaT = 300.,
+ deltaT = 60.,
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
- pChkptFreq  = 2592000.0,
- chkptFreq   = 259200.0,
- dumpfreq = 300.,
- monitorFreq = 300.,
+ chkptFreq   = 3600.0,
+ dumpfreq = 3600.,
+ monitorFreq = 60.,
  dumpInitAndLast=.TRUE.,
  /
 
@@ -117,7 +116,9 @@
 # Input datasets
  &PARM05
  bathyFile      ='bathy1080_g5_filled_r4',
- hydrogThetaFile='Jan2010_THETA_1080x14040x90_r4',
- hydrogSaltFile ='Jan2010_SALT_1080x14040x90_r4',
+ hydrogSaltFile ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/Salt.0000732360.data',
+ hydrogThetaFile='SST_1080_Reynolds_Feb12',
+ uVelInitFile   ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/U.0000732360.data',
+ vVelInitFile   ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/V.0000732360.data',
+ pSurfInitFile  ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/Eta.0000732360.data',
  /
-

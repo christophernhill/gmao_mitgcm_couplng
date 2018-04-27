@@ -5,5 +5,5 @@
  useSEAICE      = .FALSE.,
  useKPP         = .TRUE.,
  useFRAZIL      = .TRUE.,
- useDiagnostics     = .TRUE.,
+ useDiagnostics     = .FALSE.,
  /
