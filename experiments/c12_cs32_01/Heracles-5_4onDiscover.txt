@@ -32,14 +32,12 @@ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
  cd $WorkingDir
  git clone git@github.com:MITgcm/MITgcm.git
 
-# Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs -q co MITgcm_code
-cvs -q co MITgcm/verification/testreport
-cvs -q co MITgcm/verification/tutorial_held_suarez_cs
-cvs -q co MITgcm/verification/global_ocean.cs32x15
+# Get MITgcm from GitHub
+ cd $WorkingDir
+#- method 1, using https:
+ git clone https://github.com/MITgcm/MITgcm.git
+#- method 2, using ssh (requires a github account):
+git clone git@github.com:MITgcm/MITgcm.git
 
 # Request interactive job and set WorkingDir to same location as above
 # xsub -I -l select=1,walltime=8:00:00
