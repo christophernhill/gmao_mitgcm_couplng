@@ -28,10 +28,6 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
-# Get MITgcm from GitHub using ssh (requires a github account):
- cd $WorkingDir
- git clone git@github.com:MITgcm/MITgcm.git
-
 # Get MITgcm from GitHub
  cd $WorkingDir
 #- method 1, using https:
