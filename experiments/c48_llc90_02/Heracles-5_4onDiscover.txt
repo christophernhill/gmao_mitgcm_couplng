@@ -28,11 +28,12 @@ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
 cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
 git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
-# Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs -q co MITgcm_code
+# Get MITgcm from GitHub
+ cd $WorkingDir
+#- method 1, using https:
+ git clone https://github.com/MITgcm/MITgcm.git
+#- method 2, using ssh (requires a github account):
+git clone git@github.com:MITgcm/MITgcm.git
 
 # Request interactive job and set WorkingDir to same location as above
 ~atrayano/bin/interactive.py -X -n 96 --nomail --debug
