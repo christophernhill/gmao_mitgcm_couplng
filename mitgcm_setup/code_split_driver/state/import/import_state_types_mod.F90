@@ -8,9 +8,9 @@
 
       IMPLICIT NONE
 
-!     TAUX   - surface stress (cell-centered, for now 
+!     TAUX   - surface stress (cell-centered, for now
 !              along EW latitude, +ve E)
-!     TAUY   - surface stress (cell-centered, for now 
+!     TAUY   - surface stress (cell-centered, for now
 !              along NS longitude, +ve N => a mess at the pole)
 !     PS     - surface pressure (cell-centered)
 !     SWHEAT - shortwave heating (spread over several levels)
@@ -19,7 +19,7 @@
 !     SFLX   - salt flux (from skin layer)
 !     LAT    - cell center latitudes for grid that imports have been interpolated to
 !     LON    - cell center longitudes for grid that imports have been interpolated to
-      TYPE MITGCM_IMPORT  
+      TYPE MITGCM_IMPORT
        SEQUENCE
        _RL , POINTER :: TAUX(     :,:  ) => NULL()
        _RL , POINTER :: TAUY(     :,:  ) => NULL()
@@ -30,6 +30,7 @@
        _RL , POINTER :: SFLX(     :,:  ) => NULL()
        _RL , POINTER :: LAT(      :,:  ) => NULL()
        _RL , POINTER :: LON(      :,:  ) => NULL()
+       _RL , POINTER :: WGHT(     :,:  ) => NULL()
 !ALT: the following variable are added to couple the sea-ice
        _RL , POINTER :: TAUXI(  :,:  ) => NULL()
        _RL , POINTER :: TAUYI(  :,:  ) => NULL()

@@ -70,6 +70,9 @@ C     == Local variables ==
       ELSEIF ( code .EQ. 'LONS' ) THEN
 !      Copy fld to LON
          mitgcmIState%import%LON = fld
+      ELSEIF ( code .EQ. 'WGHT' ) THEN
+!      Copy fld to WGHT
+         mitgcmIState%import%WGHT = fld
       ELSEIF ( code .EQ. 'SI' ) THEN
 !      Copy fld to SI
          mitgcmIState%import%SI = fld

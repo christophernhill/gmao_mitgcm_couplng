@@ -1125,7 +1125,7 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SFLX',   SFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
-!    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
 
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
@@ -1153,7 +1153,7 @@ contains
     CALL MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
 
 ! Sea ice exports
-    call MAPL_GetPointer(EXPORT, FRACICE,'FRACICE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT, FRACICEe,'FRACICE', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   UI,   'UI', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   VI,   'VI', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUXIe, 'TAUXI', RC=STATUS); VERIFY_(STATUS)
@@ -1186,7 +1186,6 @@ contains
     TAUYIe = TAUYI
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXBOT',TAUXBOT )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYBOT',TAUYBOT )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'FRACICE',FRACICE )
 
 !    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELFRACICE',   DELFRACICE )
 !    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTI',   DELTI )
@@ -1199,8 +1198,14 @@ contains
 !    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTAUAGE',DELTAUAGE )
 !    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELHI',DELHI )
 
-! ALT: for now, until JM/DM fix the code, we do this
-    FRACICE = FRI
+    ! ALT: for now, we need to implement ridging
+    ! and/or make sure it stays between 0 and 1
+
+    ! ALT: THe import FRACICE is "friendly", i.e. we update it in-place
+    FRI = FRI + DELFRACICE
+    if (associated(FRACICEe)) then
+       FRACICEe = FRI
+    end if
 
 !ALT: next lines are totally fake 
 !     There somewhat realistic to avoid GEOS-5 hick-ups until we have coupling!

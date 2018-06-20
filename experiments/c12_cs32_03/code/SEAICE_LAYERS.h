@@ -40,6 +40,11 @@ C     SIwindTauY   :: wind stress over seaice, Y-component at V point
       _RL SIwindTauY(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       COMMON /SEAICE_DYN_FORCING/
      &        SIwindTauX, SIwindTauY
+
+C     oceWeight    :: grid-cell ocean fraction from GEOS [0-1]
+      _RL oceWeight(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
+      COMMON /DIAGS_GMAO_CPL/
+     &        oceWeight
 #endif /* HACK_FOR_GMAO_CPL */
 
 CEH3 ;;; Local Variables: ***
