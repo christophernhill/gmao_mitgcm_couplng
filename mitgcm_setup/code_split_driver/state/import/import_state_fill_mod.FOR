@@ -43,12 +43,26 @@
       PARAMETER ( jMin = 2-OLy , jMax = sNy+OLy )
       _RL tmpU (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL tmpV (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
+      _RL tmpW (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL exclVal
       Real*4 exclSng
 
       myThid  = 1
       exclSng = 1.E+15
       exclVal = exclSng
+
+!     Initialize local arrays:
+      DO bj=1,nSy
+       DO bi=1,nSx
+        DO j=1-OLy,sNy+OLy
+         DO i=1-OLx,sNx+OLx
+          tmpU(i,j,bi,bj) = 0.
+          tmpV(i,j,bi,bj) = 0.
+          tmpW(i,j,bi,bj) = 0.
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDDO
 
 !     Transfer fields from importPtr to MITgcm forcing variables.
       p => importPtr
@@ -58,6 +72,9 @@
         iSLo = (bi-1)*sNx
         DO j=1,sNy
          DO i=1,sNx
+
+!     Transfer WGHT to tmpW (in case we need to mask some imports)
+          tmpW(i,j,bi,bj) = p%WGHT(iSLo+i,jSLo+j)
 
 !     Transfer SWHEAT to Qsw.
 !     SWHEAT : Solar heating rate spread over several levels in W/m^2.
@@ -236,6 +253,8 @@
             SIskinS(i,j,bi,bj) = p%SI(iSLo+i,jSLo+j)
 !     seaice skin-layer depth
             SIskinH(i,j,bi,bj) = p%HI(iSLo+i,jSLo+j)
+!     Transfer WGHT to oceWeight (just for diagnostic purpose)
+            oceWeight(i,j,bi,bj) = tmpW(i,j,bi,bj)
           ENDDO
         ENDDO
 
@@ -243,7 +262,8 @@
         DO n=1,nITD
          DO j=1,sNy
           DO i=1,sNx
-           IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
+c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
+           IF ( tmpW(i,j,bi,bj).EQ.0.D0 ) THEN
             AREAITD (i,j,n,bi,bj) = 0.D0
             HEFFITD (i,j,n,bi,bj) = 0.D0
             HSNOWITD(i,j,n,bi,bj) = 0.D0
