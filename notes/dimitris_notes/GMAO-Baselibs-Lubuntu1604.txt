@@ -3,7 +3,7 @@
 
 # Set up a Lubuntu 16.04 virtual machine under VirtualBox
 #   Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
-#   Get lubuntu-16.04.2-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+#   Get lubuntu-16.04.4-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
 #   Start VirtualBox and set-up virtual machine
 #     New
 #       Name: lubuntu-16.04
@@ -12,8 +12,8 @@
 #       Memory size: 2048 MB
 #       Create a virtual hard disk now
 #       Hard disk file type: VDI (VirtualBox Disk Image)
-#       Storage on physical hard disk: Fixed size
-#       File location and size: 20.00 GB
+#       Storage on physical hard disk: Dynamically allocated
+#       File location and size: 32 GB
 #     Settings
 #       General
 #         Advanced
@@ -25,19 +25,34 @@
 #         Extended Features: V Enable PAE/NX
 #       Storage
 #         Controller: IDE (click on circle with green plus)
-#         Choose disk: Downloads/lubuntu-16.04.2-desktop-amd64.iso
+#         Choose disk: Downloads/lubuntu-16.04.4-desktop-amd64.iso
 #       Shared Folders (click on folder with green plus)
 #         Folder Path: Other, Open (to point to home directory on Mac)
 #         V Auto-mount
 #     Start
 
+# English, return
 # Install Lubuntu
-#   Download Updates; Install third-party software
-#   Erase disk and install Lubuntu
-#   Your name: heracles
-#   Your computer's name: heracles
-#   Password: heracles
-#   Log in automatically
+# English, Continue
+# V Download updates while installing Lubuntu
+# V Install third-party software ...
+# Continue
+# . Erase disk and install Lubuntu
+# Install Now, Continue
+# YOUR_CITY Time, Continue
+# English (US), English (US), Continue
+# Your name: heracles
+# Your computer's name: heracles
+# Pick a username: heracles
+# Password: heracles
+# . Log in automatically
+# Continue
+# Restart Now
+# Enter
+
+# Software Updater
+# Install Now
+# Restart Now...
 
 # Packages needed for VirtualBox to run smoothly
 sudo apt install virtualbox-guest-dkms

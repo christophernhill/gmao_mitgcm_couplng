@@ -7,7 +7,6 @@
 # Start tcsh and set $WorkingDir
 tcsh
 setenv WorkingDir ~/geos5
-mkdir $WorkingDir
 
 # Get GEOS-5
 # For instructions below to work, you need to:
@@ -40,17 +39,16 @@ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 # Set GEOS-5 and MITgcm environment variables
 cd $WorkingDir/GEOSodas/src
 source g5_modules
-setenv ESMA_NOCVS
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+# the following line is needed for lubuntu 16.04
+# setenv OPENMPI /usr/lib/openmpi
+setenv ROOTDIR $MITGCM_ROOT
+setenv MPI_INC_DIR /usr/include/mpi
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
 cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
 mkdir build; cd build; \rm *
-setenv ROOTDIR $WorkingDir/MITgcm
-setenv MPI_INC_DIR /usr/include/mpi
 $ROOTDIR/tools/genmake2 -mods ../code -mpi -ieee
 make depend
 
@@ -68,7 +66,7 @@ cd build
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 8 minutes with "-j 16".
 cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 |& tee makeinstall.log
+gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
