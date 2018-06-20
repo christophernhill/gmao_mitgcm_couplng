@@ -1,0 +1,104 @@
+# Instructions for building GMAO Baselibs (4_0_7) on Lubuntu 18.04
+# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/GMAO-Baselibs-Lubuntu.txt
+
+# Set up a Lubuntu 18.04 virtual machine under VirtualBox
+#   Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
+#   Get lubuntu-18.04-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+#   Start VirtualBox and set-up virtual machine
+#     New
+#       Name: lubuntu-18.04
+#       Type: Linux
+#       Version: Ubuntu (64-bit)
+#       Memory size: 2048 MB
+#       Create a virtual hard disk now
+#       Hard disk file type: VDI (VirtualBox Disk Image)
+#       Storage on physical hard disk: Dynamically allocated
+#       File location and size: 32 GB
+#     Settings
+#       General
+#         Advanced
+#           Shared Clipboard: Bidirectional
+#           Drag'n'Drop: Bidirectional
+#       System/Processor
+#         Processors: 4 CPUs
+#         Execution Cap: 100%
+#         Extended Features: V Enable PAE/NX
+#       Storage
+#         Controller: IDE (click on circle with green plus)
+#         Choose disk: Downloads/lubuntu-18.04-desktop-amd64.iso
+#       Shared Folders (click on folder with green plus)
+#         Folder Path: Other, Open (to point to home directory on Mac)
+#         V Auto-mount
+#     Start
+
+# English, return
+# Install Lubuntu
+# English, Continue
+# English (US), English (US), Continue
+#   . Normal installation
+#   v Download updates while installing Lubuntu
+#   v Install third-party software ...
+#   Continue
+#   . Erase disk and install Lubuntu
+#   Install Now, Continue
+#   YOUR_CITY Time, Continue
+#   Your name: heracles
+#   Your computer's name: heracles
+#   Pick a username: heracles
+#   Password: heracles
+#   . Log in automatically
+#   Continue
+#   Restart Now
+#   Reboot by pressing red "X"
+#   Power off the machine, OK
+
+# Packages needed for VirtualBox to run smoothly
+sudo apt install virtualbox-guest-dkms
+sudo reboot
+
+# As guest and host operating systems are updated,
+# sometimes cut/paste and other services do not fully work.
+# The fix is to recompile the guest services from scratch.
+# Click on "Devices" then "Insert Guest Additions CD Image..."
+# Open directory in terminal.
+sudo ./VBoxLinuxAdditions.run
+sudo adduser heracles vboxsf
+sudo reboot
+
+# Extra packages needed to get and run MITgcm
+sudo apt install cvs
+sudo apt install gfortran
+sudo apt install libopenmpi-dev   # needed for parallel run of MITgcm
+
+# Extra packages needed to build GEOS-5 baselibs
+sudo apt-get install bison
+sudo apt-get install flex
+sudo apt-get install libexpat1-dev
+
+# Extra packages needed to get and run GEOS-5
+sudo apt install git
+sudo apt install tcsh
+sudo apt install colordiff
+sudo apt-get install libblas-dev
+sudo apt-get install liblapack-dev
+sudo apt-get install python-dev
+sudo apt-get install python-numpy
+sudo ln -s /usr/bin/make /usr/bin/gmake
+
+# Start tcsh and set $WorkingDir
+tcsh
+setenv WorkingDir ~/geos5
+mkdir $WorkingDir
+
+# Link or build GEOS-5 baselibs in $WorkingDir
+#   GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
+#   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+#   discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+# Note that if Baselibs is moved to a different location, it needs
+# to be rebuilt (or linked to old location). This is because
+# netCDF libraries and LD paths are provided by
+# "nf_config --flibs" based on netCDF installation directory. 
+cd $WorkingDir
+tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
+cd GMAO-Baselibs-4_0_7/src
+make -j 8 install ESMF_COMM=openmpi |& tee makeinstall.log

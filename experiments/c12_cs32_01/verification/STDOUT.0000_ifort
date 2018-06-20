@@ -5,10 +5,10 @@
 (PID.TID 0000.0001) // ======================================================
 (PID.TID 0000.0001) // execution environment starting up...
 (PID.TID 0000.0001) 
-(PID.TID 0000.0001) // MITgcmUV version:  checkpoint67a
+(PID.TID 0000.0001) // MITgcmUV version:  checkpoint67b
 (PID.TID 0000.0001) // Build user:        estrobac
-(PID.TID 0000.0001) // Build host:        r427i3n13
-(PID.TID 0000.0001) // Build date:        Thu Mar 29 06:46:55 PDT 2018
+(PID.TID 0000.0001) // Build host:        borgo041
+(PID.TID 0000.0001) // Build date:        Tue Jun 19 12:18:46 EDT 2018
 (PID.TID 0000.0001) 
 (PID.TID 0000.0001) // =======================================================
 (PID.TID 0000.0001) // Execution Environment parameter file "eedata"
@@ -57,7 +57,7 @@
 (PID.TID 0000.0001) maxLengthPrt1D=   65 /* maxLength of 1D array printed to StdOut */
 (PID.TID 0000.0001) 
 (PID.TID 0000.0001) ======= Starting MPI parallel Run =========
-(PID.TID 0000.0001)  My Processor Name (len:  9 ) = r427i3n13
+(PID.TID 0000.0001)  My Processor Name (len: 10 ) = discover33
 (PID.TID 0000.0001)  Located at (  0,  0) on processor grid (0:  5,0:  0)
 (PID.TID 0000.0001)  Origin at  (     1,     1) on global grid (1:   192,1:    32)
 (PID.TID 0000.0001)  North neighbor = processor 0000
