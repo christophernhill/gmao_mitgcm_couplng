@@ -1125,7 +1125,7 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SFLX',   SFLX )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LATS',   LATS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
-!    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
 
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
