@@ -1,8 +1,7 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu 16.04
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c12_cs32_01/Heracles-5_4onLubuntu.txt
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
 # Link or build GEOS-5 baselibs in $WorkingDir
-# See instructions in notes/dimitris_notes/GMAO-Baselibs-Lubuntu.txt
+# See instructions in notes/Build_GMAO_Baselibs.txt
 
 # Start tcsh and set $WorkingDir
 tcsh
@@ -12,9 +11,9 @@ setenv WorkingDir ~/geos5
 # For instructions below to work, you need to:
 # (1) have an account on engaging,
 # (2) have correct id_rsa key in ~/.ssh, and
-# (3) replace "dmenemen" with your engaging username.
+# (3) replace USERNAME with your engaging username.
 cd $WorkingDir
-git clone dmenemen@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+git clone USERNAME@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
 cd GEOSodas
 git checkout b_geos5mit
 
@@ -64,7 +63,6 @@ cd build
 \rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
-# Approximately 8 minutes with "-j 16".
 cd $WorkingDir/GEOSodas/src
 gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
@@ -95,10 +93,10 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Get GEOS-5 boundary conditions geos5-tiny.tgz
 #   from engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   or discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
-# cd $WorkingDir
-# tar -xf geos5-tiny.tgz
-# find TinyFromMatt -type d | xargs chmod g+rxs
-# find TinyFromMatt -type f | xargs chmod g+r
+cd $WorkingDir
+tar -xf geos5-tiny.tgz
+find TinyFromMatt -type d | xargs chmod g+rxs
+find TinyFromMatt -type f | xargs chmod g+r
 cd $WorkingDir/TEST
 $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
 cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .

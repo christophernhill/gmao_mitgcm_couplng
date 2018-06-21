@@ -1,4 +1,6 @@
 # Instructions for building GMAO Baselibs (4_0_7) on Lubuntu 16.04 and 18.04
+# First make sure that all needed packages are installed, e.g.,
+# as per instructions in dimitris_notes/Lubuntu*_on_VirtualBox.txt
 tcsh
 setenv WorkingDir ~/geos5
 mkdir $WorkingDir
