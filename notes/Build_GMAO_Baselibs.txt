@@ -1,30 +1,7 @@
 # Instructions for building GMAO Baselibs (4_0_7) on Lubuntu 16.04 and 18.04
-
-# Extra packages needed to get and run MITgcm
-sudo apt install git
-sudo apt install gfortran
-sudo apt install libopenmpi-dev   # needed for parallel run of MITgcm
-
-# Extra packages needed to build GEOS-5 baselibs
-sudo apt install g++              # only needed for Lubuntu 16.04
-sudo apt-get install bison
-sudo apt-get install flex
-sudo apt-get install libexpat1-dev
-
-# Extra packages needed to get and run GEOS-5
-sudo apt install tcsh
-sudo apt install colordiff
-sudo apt-get install libblas-dev
-sudo apt-get install liblapack-dev
-sudo apt-get install python-dev
-sudo apt-get install python-numpy
-sudo ln -s /usr/bin/make /usr/bin/gmake
-
-# Start tcsh and set $WorkingDir
 tcsh
 setenv WorkingDir ~/geos5
 mkdir $WorkingDir
-
 # Link or build GEOS-5 baselibs in $WorkingDir
 #   GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816

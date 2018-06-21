@@ -69,3 +69,23 @@ sudo apt install virtualbox-guest-dkms
 sudo ./VBoxLinuxAdditions.run
 sudo adduser heracles vboxsf
 sudo reboot
+
+# Extra packages needed to get and run MITgcm
+sudo apt install git
+sudo apt install gfortran
+sudo apt install libopenmpi-dev   # needed for parallel run of MITgcm
+
+# Extra packages needed to build GEOS-5 baselibs
+sudo apt install g++
+sudo apt-get install bison
+sudo apt-get install flex
+sudo apt-get install libexpat1-dev
+
+# Extra packages needed to get and run GEOS-5
+sudo apt install tcsh
+sudo apt install colordiff
+sudo apt-get install libblas-dev
+sudo apt-get install liblapack-dev
+sudo apt-get install python-dev
+sudo apt-get install python-numpy
+sudo ln -s /usr/bin/make /usr/bin/gmake
