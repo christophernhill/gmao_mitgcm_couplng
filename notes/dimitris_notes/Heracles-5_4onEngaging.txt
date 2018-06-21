@@ -4,47 +4,47 @@
 # Request node.
 # Replace dmenemen and node161 with your username and allocated node.
 # Model can also be compiled and run on engaging front end eofe*.
-salloc -N 1 -n 16 --constraint=centos7 -p sched_mit_hill --time=12:00:00 --exclusive
-squeue -a | grep dmenemen
-ssh node161
+ salloc -N 1 -n 16 --constraint=centos7 -p sched_mit_hill --time=12:00:00 --exclusive
+ squeue -a | grep dmenemen
+ ssh node161
 
 # Start tcsh and load modules.
-tcsh
-module use /opt/ohpc/pub/modulefiles
-module use /opt/ohpc/pub/moduledeps
-module use /nfs/cnhlab002/cnh/software/lapack/modulefiles
-module use /nfs/cnhlab002/cnh/software/blas/modulefiles
-module load gnu/5.4.0
-module load gnu/openmpi/1.10.4
-module load lapack/default
-module load blas/default
-module load engaging/python/2.7.8
+ tcsh
+ module use /opt/ohpc/pub/modulefiles
+ module use /opt/ohpc/pub/moduledeps
+ module use /nfs/cnhlab002/cnh/software/lapack/modulefiles
+ module use /nfs/cnhlab002/cnh/software/blas/modulefiles
+ module load gnu/5.4.0
+ module load gnu/openmpi/1.10.4
+ module load lapack/default
+ module load blas/default
+ module load engaging/python/2.7.8
 
 # Set $WorkingDir to a location where you have write permission.
-setenv MYROOT /nobackup1b/users/dmenemen
-setenv MYDIR  geos5
-cd ${MYROOT}
-mkdir ${MYDIR}
-cd ${MYROOT}/${MYDIR}
-setenv WorkingDir `pwd`
-setenv SITE GenericLinux
+ setenv MYROOT /nobackup1b/users/dmenemen
+ setenv MYDIR  geos5
+ cd ${MYROOT}
+ mkdir ${MYDIR}
+ cd ${MYROOT}/${MYDIR}
+ setenv WorkingDir `pwd`
+ setenv SITE GenericLinux
 
 # Link or build GEOS-5 baselibs in $WorkingDir
 # Note that if Baselibs is moved to a different location, it needs
 # to be rebuilt (or linked to old location). This is because
 # netCDF libraries and LD paths are provided by
 # "nf_config --flibs" based on netCDF installation directory. 
-cd $WorkingDir
+ cd $WorkingDir
 # tar xf /nobackup1b/users/dmenemen/geos5/tarballs_100816/GMAO-Baselibs-4_0_7.withNewCDO.tgz
 # cd GMAO-Baselibs-4_0_7/src
 # make -j 16 install ESMF_COMM=openmpi |& tee makeinstall.log
-ln -sf /nobackup1b/users/dmenemen/geos5/GMAO-Baselibs-4_0_7 .
+ ln -sf /nobackup1b/users/dmenemen/geos5/GMAO-Baselibs-4_0_7 .
 
 # Get GEOS-5
-cd $WorkingDir
-git clone /pool001/cnh/geos5mit_write/GEOSodas.git
-cd GEOSodas
-git checkout b_geos5mit
+ cd $WorkingDir
+ git clone /pool001/cnh/geos5mit_write/GEOSodas.git
+ cd GEOSodas
+ git checkout b_geos5mit
 
 # Get GEOS-5 to MITgcm coupling code
 # For instructions below to work, you need to:
@@ -53,52 +53,52 @@ git checkout b_geos5mit
 #     https://github.com/christophernhill/gmao_mitgcm_couplng
 # (3) have added ssh key to your github account
 #     https://help.github.com/articles/generating-an-ssh-key
-cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
-cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
-git clone git@github.com:christophernhill/gmao_mitgcm_couplng
+ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
+ cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
 # Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs co -r checkpoint66a MITgcm_code
-cvs co -r checkpoint66a MITgcm/verification/testreport
-cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
-cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
+ cd $WorkingDir
+ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
+ cvs login                         # enter the CVS password: "cvsanon"
+ cvs co -r checkpoint66a MITgcm_code
+ cvs co -r checkpoint66a MITgcm/verification/testreport
+ cvs co -r checkpoint66a MITgcm/verification/tutorial_held_suarez_cs
+ cvs co -r checkpoint66a MITgcm/verification/global_ocean.cs32x15
 
 # Set GEOS-5 and MITgcm environment variables
-cd $WorkingDir/GEOSodas/src
-source g5_modules
-cd $GMAO_MITGCM_COUPLNG
-./set_mitgcm_env.sh
-setenv MPI_INC_DIR ${MPI_DIR}/include
-setenv MPI_INCLUDE ${MPI_DIR}/include
+ cd $WorkingDir/GEOSodas/src
+ source g5_modules
+ cd $GMAO_MITGCM_COUPLNG
+ ./set_mitgcm_env.sh
+ setenv MPI_INC_DIR ${MPI_DIR}/include
+ setenv MPI_INCLUDE ${MPI_DIR}/include
 
 # Run MITgcm verification experiment
-cd $WorkingDir/MITgcm/verification
-./testreport -mpi -j 4 -t global_ocean.cs32x15
+ cd $WorkingDir/MITgcm/verification
+ ./testreport -mpi -j 4 -t global_ocean.cs32x15
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 16 minutes with "-j 16".
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-ln -sf Makefile_gfortran Makefile
-cd $WorkingDir/GEOSodas/src
-mkdir $WorkingDir/include
-\rm $WorkingDir/include/mpi
-ln -s ${MPI_INCLUDE} $WorkingDir/include/mpi
-setenv LIBRARY_PATH ${LD_LIBRARY_PATH}
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ ln -sf Makefile_gfortran Makefile
+ cd $WorkingDir/GEOSodas/src
+ mkdir $WorkingDir/include
+ \rm $WorkingDir/include/mpi
+ ln -s ${MPI_INCLUDE} $WorkingDir/include/mpi
+ setenv LIBRARY_PATH ${LD_LIBRARY_PATH}
 #rm makeinstall.log
 #gmake realclean
-gmake install |& tee makeinstall.log
+ gmake install |& tee makeinstall.log
 #gmake pinstall -j 16 | & tee makeinstall.log
 
 # Set up coupled code for experiments/exp01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-./gcm_setup
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -117,14 +117,14 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: dmenemen
 
 # Get GEOS-5 boundary conditions for experiments/exp01
-cd $WorkingDir
-tar -xf /nobackup1b/users/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
-cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
+ cd $WorkingDir
+ tar -xf /nobackup1b/users/dmenemen/geos5/tarballs_100816/geos5-tiny.tgz
+ cd $WorkingDir/TEST
+ $GMAO_MITGCM_COUPLNG/experiments/exp01/makeoneday.bash TINY
+ cp $GMAO_MITGCM_COUPLNG/experiments/exp01/HISTORY.rc .
 
 # Run coupled code
 # Some verification output in $GMAO_MITGCM_COUPLNG/experiments/exp01/verification
-cd $WorkingDir/TEST
-setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
-./gcm_run.j |&  tee gcm_run.out
+ cd $WorkingDir/TEST
+ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
+ ./gcm_run.j |&  tee gcm_run.out

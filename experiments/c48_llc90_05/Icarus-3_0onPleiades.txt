@@ -2,19 +2,19 @@
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_05/Icarus-3_0onPleiades.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
-tcsh
-setenv WorkingDir /nobackup/$USER/geos5
-mkdir $WorkingDir
+ tcsh
+ setenv WorkingDir /nobackup/$USER/geos5
+ mkdir $WorkingDir
 
 # Get GEOS-5
 # For instructions below to work, you need to:
 # (1) have an account on engaging,
 # (2) have correct id_rsa key in ~/.ssh, and
 # (3) specify engaging username if it differs from discover username
-cd $WorkingDir
-git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
-cd GEOSodas
-git checkout b_geos5mit-i30
+ cd $WorkingDir
+ git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+ cd GEOSodas
+ git checkout b_geos5mit-i30
 
 # Get GEOS-5 to MITgcm coupling code
 # For instructions below to work, you need to:
@@ -23,64 +23,64 @@ git checkout b_geos5mit-i30
 #     https://github.com/christophernhill/gmao_mitgcm_couplng
 # (3) have added ssh key to your github account
 #     https://help.github.com/articles/generating-an-ssh-key
-cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
-cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
-git clone git@github.com:christophernhill/gmao_mitgcm_couplng
+ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
+ cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
 # Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs -q co MITgcm_code
+ cd $WorkingDir
+ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
+ cvs login                         # enter the CVS password: "cvsanon"
+ cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-qsub -I -q devel -l select=8:ncpus=16:model=ivy,walltime=2:00:00
-tcsh
-setenv WorkingDir /nobackup/$USER/geos5
+ qsub -I -q devel -l select=8:ncpus=16:model=ivy,walltime=2:00:00
+ tcsh
+ setenv WorkingDir /nobackup/$USER/geos5
 
 # Set GEOS-5 and MITgcm environment variables
-cd $WorkingDir/GEOSodas/src
-setenv ESMA_CC icc
-setenv ESMA_FC ifort
-setenv ESMA_NOCVS
-source g5_modules
-setenv CC icc
-setenv FC ifort
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ cd $WorkingDir/GEOSodas/src
+ setenv ESMA_CC icc
+ setenv ESMA_FC ifort
+ setenv ESMA_NOCVS
+ source g5_modules
+ setenv CC icc
+ setenv FC ifort
+ setenv MITGCM_ROOT $WorkingDir/MITgcm
+ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05
-mkdir build; cd build; \rm *
-setenv ROOTDIR $WorkingDir/MITgcm
-$ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
+ cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05
+ mkdir build; cd build; \rm *
+ setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
 make depend
 
 #- Generate modified src code and Makefile for MITgcm
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c48_llc90_05/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c48_llc90_05/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
-\rm code
-ln -s ../experiments/c48_llc90_05/code .
-cd build
-\rm *.a *.c *.f *.h *.o *.F
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
+ ./mk_local ../../experiments/c48_llc90_05/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ ./mk_local ../../experiments/c48_llc90_05/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
+ \rm code
+ ln -s ../experiments/c48_llc90_05/code .
+ cd build
+ \rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
-cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 |& tee makeinstall.log
+ cd $WorkingDir/GEOSodas/src
+ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c48_llc90_05
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-./gcm_setup
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -100,23 +100,23 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: g26209
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_05
-cd $WorkingDir/TEST
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/*.rc .
+ cd $WorkingDir/TEST
+ ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/*_rst .
+ ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/rst/cap_restart .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/*.rc .
 
 # Populate the mit_input directory
-cd $WorkingDir/TEST
-mkdir mit_input
-cd mit_input
-ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/input/* .
+ cd $WorkingDir/TEST
+ mkdir mit_input
+ cd mit_input
+ ln -sf /nobackupp8/dmenemen/GEOS5/experiments/llc90/data/* .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
-cd $WorkingDir/TEST
-./gcm_run.j |&  tee gcm_run.out
+ cd $WorkingDir/TEST
+ ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
-grep advcfl_W scratch/mitocean_run/STDOUT.00000
-grep advcfl_W $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/results/STDOUT.00000
+ grep advcfl_W scratch/mitocean_run/STDOUT.00000
+ grep advcfl_W $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/results/STDOUT.00000

@@ -23,4 +23,3 @@ Instructions:
  ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pickup.* .
  ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input.icedyn/pickup_seaice.* .
  ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/grid_cs32.* .
-

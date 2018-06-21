@@ -2,20 +2,20 @@
 # https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_03/Heracles-5_4onDiscover.txt
 
 # Start tcsh and set $WorkingDir to a location where you have write permission
-tcsh
-module load other/git
-setenv WorkingDir $NOBACKUP/Heracles-5_4
-mkdir $WorkingDir
+ tcsh
+ module load other/git
+ setenv WorkingDir $NOBACKUP/Heracles-5_4
+ mkdir $WorkingDir
 
 # Get GEOS-5
 # For instructions below to work, you need to:
 # (1) have an account on engaging,
 # (2) have correct id_rsa key in ~/.ssh, and
 # (3) specify engaging username if it differs from discover username
-cd $WorkingDir
-git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
-cd GEOSodas
-git checkout b_geos5mit
+ cd $WorkingDir
+ git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
+ cd GEOSodas
+ git checkout b_geos5mit
 
 # Get GEOS-5 to MITgcm coupling code
 # For instructions below to work, you need to:
@@ -24,61 +24,61 @@ git checkout b_geos5mit
 #     https://github.com/christophernhill/gmao_mitgcm_couplng
 # (3) have added ssh key to your github account
 #     https://help.github.com/articles/generating-an-ssh-key
-cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
-cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
-git clone git@github.com:christophernhill/gmao_mitgcm_couplng
+ cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
+ cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
+ git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
 # Get MITgcm from anonymous CVS server
-cd $WorkingDir
-setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
-cvs login                         # enter the CVS password: "cvsanon"
-cvs -q co MITgcm_code
+ cd $WorkingDir
+ setenv CVSROOT :pserver:cvsanon@mitgcm.org:/u/gcmpack
+ cvs login                         # enter the CVS password: "cvsanon"
+ cvs -q co MITgcm_code
 
 # Request interactive job and set WorkingDir to same location as above
-~atrayano/bin/interactive.py -X -n 96 --nomail --debug
-tcsh
-setenv WorkingDir $NOBACKUP/Heracles-5_4
+ ~atrayano/bin/interactive.py -X -n 96 --nomail --debug
+ tcsh
+ setenv WorkingDir $NOBACKUP/Heracles-5_4
 
 # Set GEOS-5 and MITgcm environment variables
-cd $WorkingDir/GEOSodas/src
-source g5_modules
-setenv ESMA_NOCVS
-setenv MITGCM_ROOT $WorkingDir/MITgcm
-setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ cd $WorkingDir/GEOSodas/src
+ source g5_modules
+ setenv ESMA_NOCVS
+ setenv MITGCM_ROOT $WorkingDir/MITgcm
+ setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03
-mkdir build; cd build; \rm *
-setenv ROOTDIR $WorkingDir/MITgcm
-setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
-$ROOTDIR/tools/genmake2 -mods ../code -mpi -of $ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
-make depend
+ cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03
+ mkdir build; cd build; \rm *
+ setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
+ setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $MITGCM_ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
+ make depend
 
 #- Generate modified src code and Makefile for MITgcm
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c48_llc90_03/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c48_llc90_03/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
-\rm code
-ln -s ../experiments/c48_llc90_03/code .
-cd build
-\rm *.a *.c *.f *.h *.o *.F
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
+ ./mk_local ../../experiments/c48_llc90_03/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ ./mk_local ../../experiments/c48_llc90_03/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
+ \rm code
+ ln -s ../experiments/c48_llc90_03/code .
+ cd build
+ \rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
-cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 16 |& tee makeinstall.log
+ cd $WorkingDir/GEOSodas/src
+ gmake pinstall -j 16 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c48_llc90_03
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-./gcm_setup
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -97,22 +97,22 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_03
-cd $WorkingDir/TEST
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
-ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
+ cd $WorkingDir/TEST
+ ln -sf /discover/nobackup/atrayano/TEST_LLC90/*_rst .
+ ln -sf /discover/nobackup/atrayano/TEST_LLC90/cap_restart .
 
 # Populate the mit_input directory
-cd $WorkingDir/TEST
-mkdir mit_input
-cd mit_input
-ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/input/* .
+ cd $WorkingDir/TEST
+ mkdir mit_input
+ cd mit_input
+ ln -sf /discover/nobackup/dmenemen/mitgcm/experiments/llc90/data/* .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
-cd $WorkingDir/TEST
-./gcm_run.j |&  tee gcm_run.out
+ cd $WorkingDir/TEST
+ ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
-diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/results/STDOUT.0000_discover
+ diff scratch/mitocean_run/STDOUT.0000 \
+  $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/results/STDOUT.0000_discover

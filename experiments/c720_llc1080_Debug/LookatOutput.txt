@@ -4,46 +4,46 @@ TEST/scratch
 TEST/scratch/mitocean_run
 
 # to load cdo and grads for looking at netcdf files
-module load cdo/1.9.0
-module load grads/2.1.1.b0
+ module load cdo/1.9.0
+ module load grads/2.1.1.b0
 
 # to get min max average
-cdo infon filename
+ cdo infon filename
 
 # to plot a variable
-grads
-sdfopen filename
-set gxout grfill
-d TS
+ grads
+ sdfopen filename
+ set gxout grfill
+ d TS
 
 # to load matlab
-module load matlab/2017b
-matlab -nosplash
+ module load matlab/2017b
+ matlab -nosplash
 
 # compare MIT and GEOS SST
-cd /nobackupp8/dmenemen/geos5/TEST_60s_1hr_2m_TAUMIN86400
-fnm='holding/mit_ocn/TEST_60s_1hr_2m.mit_ocn.20120202_2200z.nc4';
-ncdisp(fnm)
-TS=ncread(fnm,'TS');
-figure(1), clf
-mypcolor(TS'-273.15)
-colormap(jet), caxis([0 30]), colorbar('horiz')
-print -djpeg ~/Desktop/TS_2200z
+ cd /nobackupp8/dmenemen/geos5/TEST_60s_1hr_2m_TAUMIN86400
+ fnm='holding/mit_ocn/TEST_60s_1hr_2m.mit_ocn.20120202_2200z.nc4';
+ ncdisp(fnm)
+ TS=ncread(fnm,'TS');
+ figure(1), clf
+ mypcolor(TS'-273.15)
+ colormap(jet), caxis([0 30]), colorbar('horiz')
+ print -djpeg ~/Desktop/TS_2200z
 
-fnm='scratch/mitocean_run/T.0000000000.data';
-SST1=quikread_llc(fnm,1080);
-figure(2), clf
-quikplot_llc(SST1)
-colormap(jet), caxis([0 30]), colorbar('horiz')
-print -djpeg ~/Desktop/SST_2100z
+ fnm='scratch/mitocean_run/T.0000000000.data';
+ SST1=quikread_llc(fnm,1080);
+ figure(2), clf
+ quikplot_llc(SST1)
+ colormap(jet), caxis([0 30]), colorbar('horiz')
+ print -djpeg ~/Desktop/SST_2100z
 
-fnm='scratch/mitocean_run/T.0000000060.data';
-SST2=quikread_llc(fnm,1080);
-figure(3), clf
-quikplot_llc(SST2)
-colormap(jet), caxis([0 30]), colorbar('horiz')
-print -djpeg ~/Desktop/SST_2200z
+ fnm='scratch/mitocean_run/T.0000000060.data';
+ SST2=quikread_llc(fnm,1080);
+ figure(3), clf
+ quikplot_llc(SST2)
+ colormap(jet), caxis([0 30]), colorbar('horiz')
+ print -djpeg ~/Desktop/SST_2200z
 
-figure(4), clf
-quikplot_llc(SST2-SST1)
-colormap(jet), caxis([-1 1]/10), colorbar('horiz')
+ figure(4), clf
+ quikplot_llc(SST2-SST1)
+ colormap(jet), caxis([-1 1]/10), colorbar('horiz')

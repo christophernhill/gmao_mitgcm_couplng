@@ -1,9 +1,9 @@
 # Instructions for building GMAO Baselibs (4_0_7) on Lubuntu 16.04 and 18.04
 # First make sure that all needed packages are installed, e.g.,
 # as per instructions in dimitris_notes/Lubuntu*_on_VirtualBox.txt
-tcsh
-setenv WorkingDir ~/geos5
-mkdir $WorkingDir
+ tcsh
+ setenv WorkingDir ~/geos5
+ mkdir $WorkingDir
 # Link or build GEOS-5 baselibs in $WorkingDir
 #   GMAO-Baselibs-4_0_7.withNewCDO.tgz is available in
 #   engaging:/nobackup1/dmenemen/geos5/tarballs_100816
@@ -12,7 +12,7 @@ mkdir $WorkingDir
 # to be rebuilt (or linked to old location). This is because
 # netCDF libraries and LD paths are provided by
 # "nf_config --flibs" based on netCDF installation directory. 
-cd $WorkingDir
-tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
-cd GMAO-Baselibs-4_0_7/src
-make -j 8 install ESMF_COMM=openmpi |& tee makeinstall.log
+ cd $WorkingDir
+ tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
+ cd GMAO-Baselibs-4_0_7/src
+ make -j 8 install ESMF_COMM=openmpi |& tee makeinstall.log

@@ -11,11 +11,11 @@ http://mitgcm.org/public/r2_manual/latest/
 For example, after adding:
       print *,'DEBUG: PE ', myrank, ' after ASYNCIO_INIT ', globalRank
 to: src/GMAO_Shared/MAPL_Base/MAPL_Cap.F90
-setenv ESMADIR $WorkingDir/GEOSodas
-cd $WorkingDir/GEOSodas/src/GMAO_Shared/MAPL_Base
-make install
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-make install
+ setenv ESMADIR $WorkingDir/GEOSodas
+ cd $WorkingDir/GEOSodas/src/GMAO_Shared/MAPL_Base
+ make install
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ make install
 
 ================================================================
 12/19/2016: GEOS-5 documentation and restarts
