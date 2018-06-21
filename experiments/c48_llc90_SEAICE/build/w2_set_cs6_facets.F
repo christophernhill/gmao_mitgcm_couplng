@@ -1,1 +1,0 @@
-/discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/exch2/w2_set_cs6_facets.F

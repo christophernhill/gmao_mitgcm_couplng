@@ -1,1 +1,0 @@
-/discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/exch2/exch2_uv_bgrid_3d_r8.F
