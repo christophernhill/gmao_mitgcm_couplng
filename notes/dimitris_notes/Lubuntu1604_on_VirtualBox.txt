@@ -1,0 +1,71 @@
+# Instructions for setting up Lubuntu 16.04 on VirtualBox
+
+# Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
+# Get lubuntu-16.04.4-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+
+# Start VirtualBox and set-up virtual machine
+#   New
+#     Name: lubuntu-16.04
+#     Continue
+#     Memory size: 2048 MB
+#     Continue
+#     • Create a virtual hard disk now
+#     Create
+#     • VDI (VirtualBox Disk Image)
+#     Continue
+#     • Dynamically allocated
+#     Continue
+#     File location and size: 32 GB
+#     Create
+#   Settings
+#     General > Advanced
+#       Shared Clipboard: Bidirectional
+#       Drag'n'Drop: Bidirectional
+#     System > Processor
+#       Processor: 4 CPUs
+#       Extended Features: ✓ Enable PAE/NX
+#     Storage
+#       Controller: IDE
+#       Click on circle with green plus
+#       Choose disk: Downloads/lubuntu-16.04.4-desktop-amd64.iso
+#       Open
+#     Shared Folders
+#       Click on folder with green plus
+#       Folder Path: Other
+#       Point to home directory
+#       Open
+#       ✓ Auto-mount
+#       OK, OK
+#     Start
+
+# English, Return
+# Install Lubuntu, Return
+# English, Continue
+# ✓ Download updates while installing Lubuntu
+# ✓ Install third-party software ...
+# Continue
+# • Erase disk and install Lubuntu
+# Install Now
+# Continue
+# Your City, Continue
+# English (US), English (US), Continue
+# Your name: heracles
+# Your computer's name: heracles
+# Password: heracles
+# • Log in automatically
+# Continue
+# Restart Now
+# Return
+
+# Software Updater
+# Install Now
+# Restart Now...
+
+# Install guest additions
+sudo apt install virtualbox-guest-dkms
+# Click on "Devices" then "Insert Guest Additions CD image..."
+# Right-click on VBox_GAs_*
+# Open in Terminal
+sudo ./VBoxLinuxAdditions.run
+sudo adduser heracles vboxsf
+sudo reboot

@@ -1,3 +1,12 @@
+- checkpoint_0_W (2018/06/21, compatible with MITgcm checkpoint67b)
+  * Separating and consolidating instructions
+    - notes/dimitris_notes contains
+      instructions for building VirtualBox environments
+    - notes/Build_GMAO_Baselibs.txt contains
+      instructions for building GMAO Baselibs
+  * Designating experiments/c12_cs32_01 and c48_llc90_02
+    as "verification experiments".
+
 - checkpoint_0_V (2017/10/25, compatible with MITgcm checkpoint66l)
   * Add pkg/ctrl at compile and run time
   * Created c90_llc90_02, a c90/llc90, 1-day experiment
