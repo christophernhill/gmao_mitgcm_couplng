@@ -24,13 +24,23 @@
        _RL , POINTER :: SS(   :,:) => NULL()
        _RL , POINTER :: MASK(:,:,:) => NULL()
 !ALT: the following variable are added to couple the sea-ice
-       _RL, POINTER  :: FRACICE(:,:,:) => NULL()
+!      _RL, POINTER  :: FRACICE(:,:,:) => NULL()
        _RL, POINTER  :: UI(       :,:) => NULL()
        _RL, POINTER  :: VI(       :,:) => NULL()
-       _RL, POINTER  :: TAUXI(    :,:) => NULL()
-       _RL, POINTER  :: TAUYI(    :,:) => NULL()
+!      _RL, POINTER  :: TAUXI(    :,:) => NULL()
+!      _RL, POINTER  :: TAUYI(    :,:) => NULL()
        _RL, POINTER  :: TAUXBOT(  :,:) => NULL()
        _RL, POINTER  :: TAUYBOT(  :,:) => NULL()
+       _RL, POINTER  :: DELFRAICE(:,:,:) => NULL()
+       _RL, POINTER  :: DELVOLICE(:,:,:) => NULL()
+       _RL, POINTER  :: DELVOLSNO(:,:,:) => NULL()
+       _RL, POINTER  :: DELERGICE(:,:,:) => NULL()
+       _RL, POINTER  :: DELERGSNO(:,:,:) => NULL()
+       _RL, POINTER  :: DELMPOND (:,:,:) => NULL()
+       _RL, POINTER  :: DELTAUAGE(:,:,:) => NULL()
+       _RL, POINTER  :: DELTI    (:,:,:) => NULL()
+       _RL, POINTER  :: DELSI    (  :,:) => NULL()
+       _RL, POINTER  :: DELHI    (  :,:) => NULL()
       END TYPE
 
       END MODULE

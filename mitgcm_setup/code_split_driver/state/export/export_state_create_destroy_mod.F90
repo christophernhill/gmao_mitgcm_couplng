@@ -27,9 +27,13 @@
 
 !     -- Local variables --
       INTEGER                      :: Nr
+      INTEGER                      :: nItd, nIla, nSla
       TYPE(MITGCM_EXPORT), POINTER :: p
 
       Nr = n3ds(1)
+      nItd = n3ds(2)
+      nIla = n3ds(3)*nItd
+      nSla = n3ds(4)*nItd
       ALLOCATE( exportPtr )
       p => exportPtr
       ALLOCATE ( p%US(1:snx*nSx,1:sny*nSy)  )
@@ -39,6 +43,19 @@
       ALLOCATE ( p%TS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%SS(1:snx*nSx,1:sny*nSy)  )
       ALLOCATE ( p%MASK(1:snx*nSx,1:sny*nSy,1:Nr)  )
+
+      ALLOCATE ( p%UI(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%VI(1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%DELFRAICE(1:snx*nSx,1:sny*nSy,1:nItd) )
+      ALLOCATE ( p%DELVOLICE(1:snx*nSx,1:sny*nSy,1:nItd) )
+      ALLOCATE ( p%DELVOLSNO(1:snx*nSx,1:sny*nSy,1:nItd) )
+      ALLOCATE ( p%DELERGICE(1:snx*nSx,1:sny*nSy,1:nIla) )
+      ALLOCATE ( p%DELERGSNO(1:snx*nSx,1:sny*nSy,1:nSla) )
+      ALLOCATE ( p%DELMPOND (1:snx*nSx,1:sny*nSy,1:nItd) )
+      ALLOCATE ( p%DELTAUAGE(1:snx*nSx,1:sny*nSy,1:nItd) )
+      ALLOCATE ( p%DELTI(   1:snx*nSx,1:sny*nSy,1:nItd)  )
+      ALLOCATE ( p%DELSI(   1:snx*nSx,1:sny*nSy)  )
+      ALLOCATE ( p%DELHI(   1:snx*nSx,1:sny*nSy)  )
 
       RETURN
       END SUBROUTINE
@@ -59,6 +76,18 @@
        _DEALLOC ( p%TS     )
        _DEALLOC ( p%SS     )
        _DEALLOC ( p%MASK   )
+       _DEALLOC ( p%UI     )
+       _DEALLOC ( p%VI     )
+       _DEALLOC ( p%DELFRAICE )
+       _DEALLOC ( p%DELVOLICE )
+       _DEALLOC ( p%DELVOLSNO )
+       _DEALLOC ( p%DELERGICE )
+       _DEALLOC ( p%DELERGSNO )
+       _DEALLOC ( p%DELMPOND  )
+       _DEALLOC ( p%DELTAUAGE )
+       _DEALLOC ( p%DELTI )
+       _DEALLOC ( p%DELSI )
+       _DEALLOC ( p%DELHI )
        _DEALLOC( exportPtr )
       ENDIF
 
