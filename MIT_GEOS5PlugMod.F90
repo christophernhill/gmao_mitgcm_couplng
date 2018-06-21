@@ -1201,19 +1201,11 @@ contains
     ! ALT: for now, we need to implement ridging
     ! and/or make sure it stays between 0 and 1
 
-    ! ALT: THe import FRACICE is "friendly", i.e. we update it in-place
-    FRI = FRI + DELFRACICE
+    ! ALT: for now we leave FRI alone and pass the increment to SALT
+
     if (associated(FRACICEe)) then
        FRACICEe = FRI
     end if
-
-!ALT: next lines are totally fake 
-!     There somewhat realistic to avoid GEOS-5 hick-ups until we have coupling!
-!!!    TS = 285.
-!@    US = 0.01
-!@    VS = 0.01
-!@    SS = 30.
-!@    MASK=1.
 
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
