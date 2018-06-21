@@ -524,7 +524,7 @@ contains
 ! !Export state - increments for seaice:
 
     call MAPL_AddExportSpec(GC,                                    &
-         SHORT_NAME         = 'DELFRACICE',                        &
+         SHORT_NAME         = 'DEL_FRACICE',                        &
          LONG_NAME          = 'delta_fractional_cover_of_seaice',  &
          UNITS              = '1',                                 &
          DIMS               = MAPL_DimsHorzOnly,                   &
@@ -534,7 +534,7 @@ contains
     VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'DELTI',                                &
+    SHORT_NAME         = 'DEL_TI',                                &
     LONG_NAME          = 'delta_seaice_skin_temperature',           &
     UNITS              = 'K',                                 &
     DIMS               = MAPL_DimsHorzOnly,                   &
@@ -545,7 +545,7 @@ contains
   VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                            &
-    SHORT_NAME         = 'DELSI',                                &
+    SHORT_NAME         = 'DEL_SI',                                &
     LONG_NAME          = 'delta_seaice_skin_salinity',              &
     UNITS              = 'psu',                               &
     DIMS               = MAPL_DimsHorzOnly,                   &
@@ -555,7 +555,7 @@ contains
   VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                                &
-    SHORT_NAME         = 'DELVOLICE',                            &
+    SHORT_NAME         = 'DEL_VOLICE',                            &
     LONG_NAME          = 'delta_ice_category_volume_per_unit_area_of_grid_cell',&
     UNITS              = 'm',                                 &
     DIMS               = MAPL_DimsHorzOnly,                   &
@@ -566,7 +566,7 @@ contains
   VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                                &
-    SHORT_NAME         = 'DELVOLSNO',                            &
+    SHORT_NAME         = 'DEL_VOLSNO',                            &
     LONG_NAME          = 'delta_sno_category_volume_per_unit_area_of_grid_cell',&
     UNITS              = 'm',                                 &
     DIMS               = MAPL_DimsHorzOnly,                   &
@@ -577,7 +577,7 @@ contains
   VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELERGICE',                            &
+        SHORT_NAME         = 'DEL_ERGICE',                            &
         LONG_NAME          = 'delta_ice_category_layer_internal_energy',&
         UNITS              = 'J m-2',                             &
         DIMS               = MAPL_DimsHorzOnly,                   &
@@ -589,7 +589,7 @@ contains
    VERIFY_(STATUS)
 
    call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELERGSNO',                            &
+        SHORT_NAME         = 'DEL_ERGSNO',                            &
         LONG_NAME          = 'delta_snow_category_layer_internal_energy',&
         UNITS              = 'J m-2',                             &
         !DIMS               = MAPL_DimsHorzVert,                   &
@@ -604,7 +604,7 @@ contains
     call MAPL_AddExportSpec(GC                                     ,&
         LONG_NAME          = 'delta_melt_pond_volume'                     ,&
         UNITS              = 'm'                                ,&
-        SHORT_NAME         = 'DELMPOND'                                 ,&
+        SHORT_NAME         = 'DEL_MPOND'                                 ,&
         !DIMS               = MAPL_DimsHorzVert,                   &
        UNGRIDDED_DIMS     = (/NUM_ICE_CATEGORIES/),              &
         DIMS               = MAPL_DimsHorzOnly,                   &
@@ -616,7 +616,7 @@ contains
      VERIFY_(STATUS)
 
    call MAPL_AddExportSpec(GC,                                &
-        SHORT_NAME         = 'DELTAUAGE',                            &
+        SHORT_NAME         = 'DEL_TAUAGE',                            &
         LONG_NAME          = 'delta_volume_weighted_mean_ice_age',      &
         UNITS              = 's',                                 &
         !DIMS               = MAPL_DimsHorzVert,                   &
@@ -629,7 +629,7 @@ contains
    VERIFY_(STATUS)
 
   call MAPL_AddExportSpec(GC,                            &
-         SHORT_NAME         = 'DELHI',                                &
+         SHORT_NAME         = 'DEL_HI',                                &
          LONG_NAME          = 'delta_seaice_skin_layer_depth',            &
          UNITS              = 'm',                                 &
          DIMS               = MAPL_DimsHorzOnly,                   &
@@ -974,16 +974,16 @@ contains
     REAL_, pointer                         :: TAUAGEe(:,:,:)
     REAL_, pointer                         :: HIe(:,:)
 
-    REAL_, pointer                         :: DELFRACICE(:,:,:)
-    REAL_, pointer                         :: DELTI(:,:,:)
-    REAL_, pointer                         :: DELSI (:,:)
-    REAL_, pointer                         :: DELVOLICE(:,:,:)
-    REAL_, pointer                         :: DELVOLSNO(:,:,:)
-    REAL_, pointer                         :: DELERGICE(:,:,:)
-    REAL_, pointer                         :: DELERGSNO(:,:,:)
-    REAL_, pointer                         :: DELMPOND(:,:,:)
-    REAL_, pointer                         :: DELTAUAGE(:,:,:)
-    REAL_, pointer                         :: DELHI(:,:)
+    REAL_, pointer                         :: DEL_FRACICE(:,:,:)
+    REAL_, pointer                         :: DEL_TI(:,:,:)
+    REAL_, pointer                         :: DEL_SI (:,:)
+    REAL_, pointer                         :: DEL_VOLICE(:,:,:)
+    REAL_, pointer                         :: DEL_VOLSNO(:,:,:)
+    REAL_, pointer                         :: DEL_ERGICE(:,:,:)
+    REAL_, pointer                         :: DEL_ERGSNO(:,:,:)
+    REAL_, pointer                         :: DEL_MPOND(:,:,:)
+    REAL_, pointer                         :: DEL_TAUAGE(:,:,:)
+    REAL_, pointer                         :: DEL_HI(:,:)
 
 !   Type for getting MITgcm internal state pointer
     TYPE(T_PrivateState_Wrap) wrap
@@ -1161,16 +1161,16 @@ contains
     CALL MAPL_GetPointer(EXPORT, TAUXBOT, 'TAUXBOT', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT, TAUYBOT, 'TAUYBOT', RC=STATUS); VERIFY_(STATUS)
     
-    CALL MAPL_GetPointer(EXPORT, DELFRACICE,'DELFRACICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTI,   'DELTI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELSI,   'DELSI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLICE, 'DELVOLICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELVOLSNO, 'DELVOLSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGICE, 'DELERGICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELERGSNO, 'DELERGSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELMPOND, 'DELMPOND', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELTAUAGE, 'DELTAUAGE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, DELHI, 'DELHI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_FRACICE,'DEL_FRACICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_TI,   'DEL_TI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_SI,   'DEL_SI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_VOLICE, 'DEL_VOLICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_VOLSNO, 'DEL_VOLSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_ERGICE, 'DEL_ERGICE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_ERGSNO, 'DEL_ERGSNO', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_MPOND, 'DEL_MPOND', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_TAUAGE, 'DEL_TAUAGE', alloc=.true., RC=STATUS); VERIFY_(STATUS)
+    CALL MAPL_GetPointer(EXPORT, DEL_HI, 'DEL_HI', alloc=.true., RC=STATUS); VERIFY_(STATUS)
 
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'US',   US )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,   'VS',   VS )
@@ -1187,16 +1187,16 @@ contains
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUXBOT',TAUXBOT )
     CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'TAUYBOT',TAUYBOT )
 
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELFRACICE',   DELFRACICE )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTI',   DELTI )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELSI',DELSI )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELVOLICE',DELVOLICE )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELVOLSNO',DELVOLSNO )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELERGICE',   DELERGICE )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELERGSNO',   DELERGSNO )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELMPOND',DELMPOND )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTAUAGE',DELTAUAGE )
-!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELHI',DELHI )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELFRACICE', DEL_FRACICE )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTI', DEL_TI )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELSI', DEL_SI )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELVOLICE', DEL_VOLICE )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELVOLSNO', DEL_VOLSNO )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELERGICE', DEL_ERGICE )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELERGSNO', DEL_ERGSNO )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELMPOND', DEL_MPOND )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELTAUAGE', DEL_TAUAGE )
+!    CALL DRIVER_GET_EXPORT_STATE( PrivateState%ptr,'DELHI', DEL_HI )
 
     ! ALT: for now, we need to implement ridging
     ! and/or make sure it stays between 0 and 1
