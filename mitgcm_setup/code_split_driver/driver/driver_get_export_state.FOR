@@ -1,3 +1,6 @@
+#include "PACKAGES_CONFIG.h"
+#include "CPP_OPTIONS.h"
+
       MODULE DRIVER_GET_EXPORT_STATE_MOD
 C     A GEOS-5 compatible version of get export state.
 C     Exports variable from MITgcm that are used by other 
@@ -46,22 +49,15 @@ C     == Local variables ==
 
       ELSEIF ( code .EQ. 'SS' ) THEN
 !     Copy SS to fld
-          fld = mitgcmIState%export%SS
-!=========== JM/DM => Please note that this sea ice section is stubbed!
-!=====================================================================
-! just look for !@@@@ and uncomment once done (and delete 0.0)
+         fld = mitgcmIState%export%SS
+
       ELSEIF ( code .EQ. 'UI' ) THEN
 !     Copy UI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%UI
+         fld = mitgcmIState%export%UI
       ELSEIF ( code .EQ. 'VI' ) THEN
 !     Copy VI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%VI
-      ELSEIF ( code .EQ. 'TAUXI' ) THEN
-!     Copy TAUXI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%TAUXI
-      ELSEIF ( code .EQ. 'TAUYI' ) THEN
-!     Copy TAUYI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%TAUYI
+         fld = mitgcmIState%export%VI
+
       ELSEIF ( code .EQ. 'TAUXBOT' ) THEN
 !     Copy TAUXBOT to fld
          fld = 0.0 !@@@@ mitgcmIState%export%TAUXBOT
@@ -69,10 +65,17 @@ C     == Local variables ==
 !     Copy TAUYBOT to fld
          fld = 0.0 !@@@@ mitgcmIState%export%TAUYBOT
 
+      ELSEIF ( code .EQ. 'DELSI' ) THEN
+!     Copy DELSI to fld
+         fld = mitgcmIState%export%DELSI
+      ELSEIF ( code .EQ. 'DELHI' ) THEN
+!     Copy DELHI to fld
+         fld = mitgcmIState%export%DELHI
+
       ELSE
 
-!      print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
-!    &      //'. This code is stubbed!'
+       print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
+     &      //'. This code is stubbed!'
 
       ENDIF
 
@@ -102,14 +105,32 @@ C     == Local variables ==
      &      //' : Pointer not associated!'
        ENDIF
 
-      ELSEIF ( code .EQ. 'FRACICE' ) THEN
-!     Copy FRACICE to fld
-!ALT: Attention JM/DM: the next line is stubbed!
-!==============================================
-! This should be uncommented and the line after that deleted!
-! Until fixed, we are copying FRACICE from the Import
-!@@@@         fld = mitgcmIState%export%FRAICE
-         fld = mitgcmIState%import%FRAICE
+#ifdef ALLOW_SEAICE
+      ELSEIF ( code .EQ. 'DELFRACICE' ) THEN
+!     Copy DELFRAICE to fld
+         fld = mitgcmIState%export%DELFRAICE
+      ELSEIF ( code .EQ. 'DELVOLICE' ) THEN
+!     Copy DELVOLICE to fld
+         fld = mitgcmIState%export%DELVOLICE
+      ELSEIF ( code .EQ. 'DELVOLSNO' ) THEN
+!     Copy DELVOLSNO to fld
+         fld = mitgcmIState%export%DELVOLSNO
+      ELSEIF ( code .EQ. 'DELERGICE' ) THEN
+!     Copy DELERGICE to fld
+         fld = mitgcmIState%export%DELERGICE
+      ELSEIF ( code .EQ. 'DELERGSNO' ) THEN
+!     Copy DELERGSNO to fld
+         fld = mitgcmIState%export%DELERGSNO
+      ELSEIF ( code .EQ. 'DELMPOND' ) THEN
+!     Copy DELMPOND to fld
+         fld = mitgcmIState%export%DELMPOND
+      ELSEIF ( code .EQ. 'DELTAUAGE' ) THEN
+!     Copy DELTAUAGE to fld
+         fld = mitgcmIState%export%DELTAUAGE
+      ELSEIF ( code .EQ. 'DELTI' ) THEN
+!     Copy DELTI to fld
+         fld = mitgcmIState%export%DELTI
+#endif /* ALLOW_SEAICE */
       ELSE
 
        print *,'DRIVER_GET_EXPORT_STATE_3D:'//trim(code)
