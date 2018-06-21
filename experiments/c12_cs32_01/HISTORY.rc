@@ -37,8 +37,8 @@ COLLECTIONS: 'geosgcm_prog'
 # comment out the next 3 line (but lat and lon metadata will be wrong)
   mit_ocn.regrid_name: 'PE12x144-CF'  # this HAS to match the ATM gridname
   mit_ocn.regrid_exch: 'tile.bin',
-  mit_ice.regrid_nx: 1,
-  mit_ice.regrid_ny: 6,
+  mit_ocn.regrid_nx: 1,
+  mit_ocn.regrid_ny: 6,
   mit_ocn.resolution: 48 25,
   mit_ocn.fields: 'US'  , 'MIT',
   		  'VS'  , 'MIT',
@@ -77,12 +77,12 @@ COLLECTIONS: 'geosgcm_prog'
                   'VOLSNO'       , 'MIT',
                   'MPOND'       , 'MIT',
                   'TAUAGE'       , 'MIT',
-                  'DELFRACICE'  , 'MIT',
-                  'DELTI'       , 'MIT',
-                  'DELVOLICE'       , 'MIT',
-                  'DELVOLSNO'       , 'MIT',
-                  'DELMPOND'       , 'MIT',
-                  'DELTAUAGE'       , 'MIT',
+                  'DEL_FRACICE'  , 'MIT',
+                  'DEL_TI'       , 'MIT',
+                  'DEL_VOLICE'       , 'MIT',
+                  'DEL_VOLSNO'       , 'MIT',
+                  'DEL_MPOND'       , 'MIT',
+                  'DEL_TAUAGE'       , 'MIT',
                   ::
 
   mit_ice_all.template:  '%y4%m2%d2_%h2%n2z.nc4',
@@ -95,7 +95,7 @@ COLLECTIONS: 'geosgcm_prog'
   mit_ice_all.regrid_nx: 1,
   mit_ice_all.regrid_ny: 6,
   mit_ice_all.fields: 'ERGICE'  , 'MIT',
-                      'DELERGICE'  , 'MIT',
+                      'DEL_ERGICE'  , 'MIT',
                   ::
 
   mit_snow_all.template:  '%y4%m2%d2_%h2%n2z.nc4',
@@ -108,7 +108,7 @@ COLLECTIONS: 'geosgcm_prog'
   mit_snow_all.regrid_ny: 6,
   mit_snow_all.resolution: 48 25,
   mit_snow_all.fields: 'ERGSNO'  , 'MIT',
-                       'DELERGSNO'  , 'MIT',
+                       'DEL_ERGSNO'  , 'MIT',
                   ::
 
   geosgcm_prog.template:  '%y4%m2%d2_%h2%n2z.nc4',
