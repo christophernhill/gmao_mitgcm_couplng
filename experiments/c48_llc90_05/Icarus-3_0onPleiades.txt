@@ -119,4 +119,4 @@ cd $WorkingDir/TEST
 
 # Verify output
 grep advcfl_W scratch/mitocean_run/STDOUT.00000
-grep advcfl_W $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/verification/STDOUT.00000
+grep advcfl_W $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_05/results/STDOUT.00000

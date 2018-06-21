@@ -1,3 +1,8 @@
+  * Moving experiments/*/verification to experiments/*/results
+  * experiments/c12_cs32_0*/results/STDOUT.0000 and gcm_run.out
+    renamed STDOUT.0000_gfortran and gcm_run.out_gfortran
+    (these are for comparison with Linux gfortran tests)
+
 - checkpoint_0_W (2018/06/21, compatible with MITgcm checkpoint67b)
   * Separating and consolidating instructions
     - notes/dimitris_notes contains

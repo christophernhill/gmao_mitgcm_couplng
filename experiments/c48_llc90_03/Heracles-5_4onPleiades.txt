@@ -113,4 +113,4 @@ cd $WorkingDir/TEST
 
 # Verify output
 diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/verification/STDOUT.0000_pleiades
+$GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03/results/STDOUT.0000_pleiades

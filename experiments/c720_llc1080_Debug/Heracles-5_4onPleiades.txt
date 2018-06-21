@@ -120,4 +120,4 @@ cd $WorkingDir/TEST
 
 # Verify output
 diff scratch/mitocean_run/STDOUT.0000 \
- $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/verification/STDOUT.0000
+ $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_Debug/results/STDOUT.0000

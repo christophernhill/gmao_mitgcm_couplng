@@ -117,4 +117,4 @@ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
 
 # Verify output
 diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/verification/STDOUT.0000
+$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_gfortran
