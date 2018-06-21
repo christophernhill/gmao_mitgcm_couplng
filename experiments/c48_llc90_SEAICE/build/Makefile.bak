@@ -1,0 +1,2461 @@
+# Multithreaded + multi-processing makefile for:
+#    Linux borgo025 3.0.101-0.47.105-default #1 SMP Thu Jun 22 17:13:58 UTC 2017 (e1c7e3b) x86_64 x86_64 x86_64 GNU/Linux
+# This makefile was generated automatically on
+#    Wed Jun 20 18:54:08 EDT 2018
+# by the command:
+#    /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/tools/genmake2 -mods ../code -mpi -of /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/tools/build_options/linux_amd64_ifort+gcc -ieee
+# executed by:
+#    estrobac@borgo025:/discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng/experiments/c48_llc90_SEAICE/build
+#
+# OPTFILE="/discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/tools/build_options/linux_amd64_ifort+gcc"
+#
+# BUILDDIR     : Directory where object files are written
+# SOURCEDIRS   : Directories containing the source (.F) files
+# INCLUDEDIRS  : Directories containing the header-source (.h) files
+# EXEDIR       : Directory where executable that is generated is written
+# EXECUTABLE   : Full path of executable binary
+#
+# CPP          : C-preprocessor command
+# INCLUDES     : Directories searched for header files
+# DEFINES      : Macro definitions for CPP
+# MAKEDEPEND   : Dependency generator
+# FC           : Fortran compiler command
+# FFLAGS       : Configuration/debugging options for FC
+# FOPTIM       : Optimization options for FC
+# LINK         : Command for link editor program
+# LIBS         : Library flags /or/ additional optimization/debugging flags
+
+ROOTDIR     = /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm
+BUILDDIR    = .
+SOURCEDIRS  =  ../code $(ROOTDIR)/pkg/ctrl $(ROOTDIR)/pkg/debug $(ROOTDIR)/pkg/diagnostics $(ROOTDIR)/pkg/exch2 $(ROOTDIR)/pkg/generic_advdiff $(ROOTDIR)/pkg/ggl90 $(ROOTDIR)/pkg/gmredi $(ROOTDIR)/pkg/mdsio $(ROOTDIR)/pkg/mom_common $(ROOTDIR)/pkg/mom_fluxform $(ROOTDIR)/pkg/mom_vecinv $(ROOTDIR)/pkg/monitor $(ROOTDIR)/pkg/rw $(ROOTDIR)/pkg/salt_plume $(ROOTDIR)/pkg/seaice $(ROOTDIR)/eesupp/src $(ROOTDIR)/model/src
+INCLUDEDIRS =  /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include ../code $(ROOTDIR)/pkg/ctrl $(ROOTDIR)/pkg/debug $(ROOTDIR)/pkg/diagnostics $(ROOTDIR)/pkg/exch2 $(ROOTDIR)/pkg/generic_advdiff $(ROOTDIR)/pkg/ggl90 $(ROOTDIR)/pkg/gmredi $(ROOTDIR)/pkg/mdsio $(ROOTDIR)/pkg/mom_common $(ROOTDIR)/pkg/mom_fluxform $(ROOTDIR)/pkg/mom_vecinv $(ROOTDIR)/pkg/monitor $(ROOTDIR)/pkg/rw $(ROOTDIR)/pkg/salt_plume $(ROOTDIR)/pkg/seaice $(ROOTDIR)/eesupp/inc $(ROOTDIR)/model/inc
+EXEDIR      = .
+EXECUTABLE  = $(EXEDIR)/mitgcmuv
+TOOLSDIR    = $(ROOTDIR)/tools
+OADTOOLS    = 
+
+#eh3  new defines for the adjoint work
+AUTODIFF    = $(ROOTDIR)/pkg/autodiff
+EXE_AD      = mitgcmuv_ad
+EXE_FTL     = mitgcmuv_ftl
+EXE_SVD     = mitgcmuv_svd
+
+ENABLED_PACKAGES =  -DALLOW_CTRL -DALLOW_DEBUG -DALLOW_DIAGNOSTICS -DALLOW_EXCH2 -DALLOW_GENERIC_ADVDIFF -DALLOW_GGL90 -DALLOW_GMREDI -DALLOW_MDSIO -DALLOW_MOM_COMMON -DALLOW_MOM_FLUXFORM -DALLOW_MOM_VECINV -DALLOW_MONITOR -DALLOW_RW -DALLOW_SALT_PLUME -DALLOW_SEAICE
+DISABLED_PACKAGES =  -UALLOW_ADMTLM -UALLOW_AIM_V23 -UALLOW_ATM2D -UALLOW_ATM_COMMON -UALLOW_ATM_COMPON_INTERF -UALLOW_ATM_OCN_COUPLER -UALLOW_ATM_PHYS -UALLOW_AUTODIFF -UALLOW_BBL -UALLOW_BLING -UALLOW_BULK_FORCE -UALLOW_CAL -UALLOW_CD_CODE -UALLOW_CFC -UALLOW_CHEAPAML -UALLOW_CHRONOS -UALLOW_COMPON_COMMUNIC -UALLOW_COST -UALLOW_DIC -UALLOW_DOWN_SLOPE -UALLOW_EBM -UALLOW_ECCO -UALLOW_EMBED_FILES -UALLOW_EXF -UALLOW_FIZHI -UALLOW_FLT -UALLOW_FRAZIL -UALLOW_GCHEM -UALLOW_GRDCHK -UALLOW_GRIDALT -UALLOW_ICEFRONT -UALLOW_KL10 -UALLOW_KPP -UALLOW_LAND -UALLOW_LAYERS -UALLOW_LONGSTEP -UALLOW_MATRIX -UALLOW_MNC -UALLOW_MY82 -UALLOW_MYPACKAGE -UALLOW_OBCS -UALLOW_OCN_COMPON_INTERF -UALLOW_OFFLINE -UALLOW_OPENAD -UALLOW_OPPS -UALLOW_PP81 -UALLOW_PROFILES -UALLOW_PTRACERS -UALLOW_RBCS -UALLOW_REGRID -UALLOW_RUNCLOCK -UALLOW_SBO -UALLOW_SHAP_FILT -UALLOW_SHELFICE -UALLOW_SHOWFLOPS -UALLOW_SMOOTH -UALLOW_SPHERE -UALLOW_STREAMICE -UALLOW_THSICE -UALLOW_TIMEAVE -UALLOW_ZONAL_FILT
+
+# These files are created by Makefile
+SPECIAL_FILES = PACKAGES_CONFIG.h AD_CONFIG.h FC_NAMEMANGLE.h BUILD_INFO.h
+EMBEDDED_FILES = 
+# Unix ln (link)
+LN = ln -s
+# Dependency generator
+MAKEDEPEND = $(TOOLSDIR)/xmakedepend
+# Special preprocessor (KAP on DECs, FPP on Crays)
+KPP = 
+# Fortran compiler
+FC = /usr/local/intel/Composer/composer_xe_2015.2.164/bin/intel64/ifort
+# Fortran compiler
+F90C = mpif90
+# C compiler
+CC = gcc
+# Link editor
+LINK = mpif90 -shared-intel -no-ipo 
+
+# Defines for CPP
+DEFINES = -DWORDLENGTH=4 -DALLOW_USE_MPI -DHAVE_SYSTEM -DHAVE_FDATE -DHAVE_ETIME_FCT -DHAVE_CLOC -DHAVE_SETRLSTK -DHAVE_SIGREG -DHAVE_STAT -DHAVE_FLUSH 
+# Includes for CPP
+INCLUDES =  -I/usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
+# default CPP includes for makedepend
+CPPINCLUDES =  -I/usr/local/intel/mpi/5.0.3.048/include64 -I/usr/local/intel/Composer/composer_xe_2015.2.164/ipp/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/mkl/include -I/usr/local/intel/Composer/composer_xe_2015.2.164/tbb/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include -I/usr/local/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/include -I/gpfsm/dnb32/mbhat/GCC/install/gcc-4.6.3/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/include-fixed -I/usr/include
+# Flags for KPP
+KFLAGS1 = 
+KFLAGS2 = 
+# Optim./debug for FC
+FFLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
+FOPTIM = -O0 -fp-model source -noalign -xHost 
+# Optim./debug for FC
+F90FLAGS =  -m64 -convert big_endian -assume byterecl -mcmodel=medium
+F90OPTIM = -O0 -fp-model source -noalign -xHost
+F90FIXEDFORMAT = -fixed -Tf
+# Flags for CC
+CFLAGS = -O0 -mcmodel=medium
+# Files that should not be optimized
+NOOPTFILES = 
+NOOPTFLAGS = -O0 -g
+# Flags and libraries needed for linking
+LIBS = 
+# Name of the makefile
+MAKEFILE = Makefile
+# Name of the make program
+MAKE = make
+
+F77_SRC_FILES =  \
+ mom_calc_visc.F \
+ rotate_uv2en.F \
+ seaice_get_dynforcing.F \
+ adctrl_bound.F \
+ ctrl_bound.F \
+ ctrl_check.F \
+ ctrl_cost_driver.F \
+ ctrl_cost_gen.F \
+ ctrl_depth_ini.F \
+ ctrl_get_gen.F \
+ ctrl_get_gen_rec.F \
+ ctrl_getobcse.F \
+ ctrl_getobcsn.F \
+ ctrl_getobcss.F \
+ ctrl_getobcsw.F \
+ ctrl_getrec.F \
+ ctrl_hfacc_ini.F \
+ ctrl_init_ctrlvar.F \
+ ctrl_init.F \
+ ctrl_init_obcs_variables.F \
+ ctrl_init_rec.F \
+ ctrl_init_variables.F \
+ ctrl_init_wet.F \
+ ctrl_map_forcing.F \
+ ctrl_map_gentim2d.F \
+ ctrl_map_ini_ecco.F \
+ ctrl_map_ini.F \
+ ctrl_map_ini_genarr.F \
+ ctrl_map_ini_gen.F \
+ ctrl_map_ini_gentim2d.F \
+ ctrl_mask_set_xz.F \
+ ctrl_mask_set_yz.F \
+ ctrl_pack.F \
+ ctrl_readparms.F \
+ ctrl_set_fname.F \
+ ctrl_set_globfld_xy.F \
+ ctrl_set_globfld_xyz.F \
+ ctrl_set_globfld_xz.F \
+ ctrl_set_globfld_yz.F \
+ ctrl_set_pack_xy.F \
+ ctrl_set_pack_xyz.F \
+ ctrl_set_pack_xz.F \
+ ctrl_set_pack_yz.F \
+ ctrl_set_unpack_xy.F \
+ ctrl_set_unpack_xyz.F \
+ ctrl_set_unpack_xz.F \
+ ctrl_set_unpack_yz.F \
+ ctrl_smooth.F \
+ ctrl_summary.F \
+ ctrl_swapffields.F \
+ ctrl_unpack.F \
+ optim_readparms.F \
+ chksum_tiled.F \
+ debug_call.F \
+ debug_cs_corner_uv.F \
+ debug_enter.F \
+ debug_fld_stats_rl.F \
+ debug_fld_stats_rs.F \
+ debug_leave.F \
+ debug_msg.F \
+ debug_stats_rl.F \
+ debug_stats_rs.F \
+ fill_in_corners_rl.F \
+ write_fullarray_rl.F \
+ write_fullarray_rs.F \
+ diag_calc_psivel.F \
+ diag_cg2d.F \
+ diagnostics_addtolist.F \
+ diagnostics_calc_phivel.F \
+ diagnostics_check.F \
+ diagnostics_clear.F \
+ diagnostics_fill.F \
+ diagnostics_fill_field.F \
+ diagnostics_fill_rs.F \
+ diagnostics_fill_state.F \
+ diagnostics_fract_fill.F \
+ diagnostics_ini_io.F \
+ diagnostics_init_early.F \
+ diagnostics_init_fixed.F \
+ diagnostics_init_varia.F \
+ diagnostics_interp_p2p.F \
+ diagnostics_interp_vert.F \
+ diagnostics_is_on.F \
+ diagnostics_list_check.F \
+ diagnostics_main_init.F \
+ diagnostics_mnc_out.F \
+ diagnostics_out.F \
+ diagnostics_readparms.F \
+ diagnostics_read_pickup.F \
+ diagnostics_scale_fill.F \
+ diagnostics_scale_fill_rs.F \
+ diagnostics_set_calc.F \
+ diagnostics_setdiag.F \
+ diagnostics_set_levels.F \
+ diagnostics_set_pointers.F \
+ diagnostics_status_error.F \
+ diagnostics_sum_levels.F \
+ diagnostics_summary.F \
+ diagnostics_switch_onoff.F \
+ diagnostics_utils.F \
+ diagnostics_write.F \
+ diagnostics_write_pickup.F \
+ diagstats_ascii_out.F \
+ diagstats_calc.F \
+ diagstats_clear.F \
+ diagstats_close_io.F \
+ diagstats_fill.F \
+ diagstats_global.F \
+ diagstats_ini_io.F \
+ diagstats_local.F \
+ diagstats_mnc_out.F \
+ diagstats_others_calc.F \
+ diagstats_output.F \
+ diagstats_setdiag.F \
+ diagstats_set_pointers.F \
+ diagstats_set_regions.F \
+ diag_vegtile_fill.F \
+ exch2_3d_r4.F \
+ exch2_3d_r8.F \
+ exch2_3d_rl.F \
+ exch2_3d_rs.F \
+ exch2_ad_get_r41.F \
+ exch2_ad_get_r42.F \
+ exch2_ad_get_r81.F \
+ exch2_ad_get_r82.F \
+ exch2_ad_get_rl1.F \
+ exch2_ad_get_rl2.F \
+ exch2_ad_get_rs1.F \
+ exch2_ad_get_rs2.F \
+ exch2_ad_put_r41.F \
+ exch2_ad_put_r42.F \
+ exch2_ad_put_r81.F \
+ exch2_ad_put_r82.F \
+ exch2_ad_put_rl1.F \
+ exch2_ad_put_rl2.F \
+ exch2_ad_put_rs1.F \
+ exch2_ad_put_rs2.F \
+ exch2_check_depths.F \
+ exch2_get_r41.F \
+ exch2_get_r42.F \
+ exch2_get_r81.F \
+ exch2_get_r82.F \
+ exch2_get_rl1.F \
+ exch2_get_rl2.F \
+ exch2_get_rs1.F \
+ exch2_get_rs2.F \
+ exch2_get_scal_bounds.F \
+ exch2_get_uv_bounds.F \
+ exch2_put_r41.F \
+ exch2_put_r42.F \
+ exch2_put_r81.F \
+ exch2_put_r82.F \
+ exch2_put_rl1.F \
+ exch2_put_rl2.F \
+ exch2_put_rs1.F \
+ exch2_put_rs2.F \
+ exch2_r41_cube_ad.F \
+ exch2_r41_cube.F \
+ exch2_r42_cube_ad.F \
+ exch2_r42_cube.F \
+ exch2_r81_cube_ad.F \
+ exch2_r81_cube.F \
+ exch2_r82_cube_ad.F \
+ exch2_r82_cube.F \
+ exch2_recv_r41.F \
+ exch2_recv_r42.F \
+ exch2_recv_r81.F \
+ exch2_recv_r82.F \
+ exch2_recv_rl1.F \
+ exch2_recv_rl2.F \
+ exch2_recv_rs1.F \
+ exch2_recv_rs2.F \
+ exch2_rl1_cube_ad.F \
+ exch2_rl1_cube.F \
+ exch2_rl2_cube_ad.F \
+ exch2_rl2_cube.F \
+ exch2_rs1_cube_ad.F \
+ exch2_rs1_cube.F \
+ exch2_rs2_cube_ad.F \
+ exch2_rs2_cube.F \
+ exch2_s3d_r4.F \
+ exch2_s3d_r8.F \
+ exch2_s3d_rl.F \
+ exch2_s3d_rs.F \
+ exch2_send_r41.F \
+ exch2_send_r42.F \
+ exch2_send_r81.F \
+ exch2_send_r82.F \
+ exch2_send_rl1.F \
+ exch2_send_rl2.F \
+ exch2_send_rs1.F \
+ exch2_send_rs2.F \
+ exch2_sm_3d_r4.F \
+ exch2_sm_3d_r8.F \
+ exch2_sm_3d_rl.F \
+ exch2_sm_3d_rs.F \
+ exch2_uv_3d_r4.F \
+ exch2_uv_3d_r8.F \
+ exch2_uv_3d_rl.F \
+ exch2_uv_3d_rs.F \
+ exch2_uv_agrid_3d_r4.F \
+ exch2_uv_agrid_3d_r8.F \
+ exch2_uv_agrid_3d_rl.F \
+ exch2_uv_agrid_3d_rs.F \
+ exch2_uv_bgrid_3d_r4.F \
+ exch2_uv_bgrid_3d_r8.F \
+ exch2_uv_bgrid_3d_rl.F \
+ exch2_uv_bgrid_3d_rs.F \
+ exch2_uv_cgrid_3d_r4.F \
+ exch2_uv_cgrid_3d_r8.F \
+ exch2_uv_cgrid_3d_rl.F \
+ exch2_uv_cgrid_3d_rs.F \
+ exch2_uv_dgrid_3d_r4.F \
+ exch2_uv_dgrid_3d_r8.F \
+ exch2_uv_dgrid_3d_rl.F \
+ exch2_uv_dgrid_3d_rs.F \
+ exch2_z_3d_r4.F \
+ exch2_z_3d_r8.F \
+ exch2_z_3d_rl.F \
+ exch2_z_3d_rs.F \
+ w2_cumulsum_z_tile.F \
+ w2_e2setup.F \
+ w2_eeboot.F \
+ w2_map_procs.F \
+ w2_print_comm_sequence.F \
+ w2_print_e2setup.F \
+ w2_readparms.F \
+ w2_set_cs6_facets.F \
+ w2_set_f2f_index.F \
+ w2_set_gen_facets.F \
+ w2_set_map_cumsum.F \
+ w2_set_map_tiles.F \
+ w2_set_myown_facets.F \
+ w2_set_single_facet.F \
+ w2_set_tile2tiles.F \
+ gad_advection.F \
+ gad_advscheme.F \
+ gad_biharm_r.F \
+ gad_biharm_x.F \
+ gad_biharm_y.F \
+ gad_c2_adv_r.F \
+ gad_c2_adv_x.F \
+ gad_c2_adv_y.F \
+ gad_c2_impl_r.F \
+ gad_c4_adv_r.F \
+ gad_c4_adv_x.F \
+ gad_c4_adv_y.F \
+ gad_calc_rhs.F \
+ gad_check.F \
+ gad_del2.F \
+ gad_diagnostics_init.F \
+ gad_diagnostics_state.F \
+ gad_diff_r.F \
+ gad_diff_x.F \
+ gad_diff_y.F \
+ gad_dst2u1_adv_r.F \
+ gad_dst2u1_adv_x.F \
+ gad_dst2u1_adv_y.F \
+ gad_dst2u1_impl_r.F \
+ gad_dst3_adv_r.F \
+ gad_dst3_adv_x.F \
+ gad_dst3_adv_y.F \
+ gad_dst3fl_adv_r.F \
+ gad_dst3fl_adv_x.F \
+ gad_dst3fl_adv_y.F \
+ gad_dst3fl_impl_r.F \
+ gad_exch_som.F \
+ gad_fluxlimit_adv_r.F \
+ gad_fluxlimit_adv_x.F \
+ gad_fluxlimit_adv_y.F \
+ gad_fluxlimit_impl_r.F \
+ gad_grad_x.F \
+ gad_grad_y.F \
+ gad_implicit_r.F \
+ gad_init_fixed.F \
+ gad_init_varia.F \
+ gad_os7mp_adv_r.F \
+ gad_os7mp_adv_x.F \
+ gad_os7mp_adv_y.F \
+ gad_osc_hat_r.F \
+ gad_osc_hat_x.F \
+ gad_osc_hat_y.F \
+ gad_osc_mul_r.F \
+ gad_osc_mul_x.F \
+ gad_osc_mul_y.F \
+ gad_plm_fun.F \
+ gad_ppm_adv_r.F \
+ gad_ppm_adv_x.F \
+ gad_ppm_adv_y.F \
+ gad_ppm_flx_r.F \
+ gad_ppm_flx_x.F \
+ gad_ppm_flx_y.F \
+ gad_ppm_fun.F \
+ gad_ppm_hat_r.F \
+ gad_ppm_hat_x.F \
+ gad_ppm_hat_y.F \
+ gad_ppm_p3e_r.F \
+ gad_ppm_p3e_x.F \
+ gad_ppm_p3e_y.F \
+ gad_pqm_adv_r.F \
+ gad_pqm_adv_x.F \
+ gad_pqm_adv_y.F \
+ gad_pqm_flx_r.F \
+ gad_pqm_flx_x.F \
+ gad_pqm_flx_y.F \
+ gad_pqm_fun.F \
+ gad_pqm_hat_r.F \
+ gad_pqm_hat_x.F \
+ gad_pqm_hat_y.F \
+ gad_pqm_p5e_r.F \
+ gad_pqm_p5e_x.F \
+ gad_pqm_p5e_y.F \
+ gad_read_pickup.F \
+ gad_som_advect.F \
+ gad_som_adv_r.F \
+ gad_som_adv_x.F \
+ gad_som_adv_y.F \
+ gad_som_exchanges.F \
+ gad_som_fill_cs_corner.F \
+ gad_som_lim_r.F \
+ gad_som_prep_cs_corner.F \
+ gad_u3_adv_r.F \
+ gad_u3_adv_x.F \
+ gad_u3_adv_y.F \
+ gad_u3c4_impl_r.F \
+ gad_write_pickup.F \
+ salt_fill.F \
+ ggl90_calc_diff.F \
+ ggl90_calc.F \
+ ggl90_calc_visc.F \
+ ggl90_check.F \
+ ggl90_diagnostics_init.F \
+ ggl90_exchanges.F \
+ ggl90_idemix.F \
+ ggl90_init_fixed.F \
+ ggl90_init_varia.F \
+ ggl90_output.F \
+ ggl90_readparms.F \
+ ggl90_read_pickup.F \
+ ggl90_write_pickup.F \
+ gmredi_calc_diff.F \
+ gmredi_calc_eigs.F \
+ gmredi_calc_psi_b.F \
+ gmredi_calc_psi_bvp.F \
+ gmredi_calc_tensor.F \
+ gmredi_calc_urms.F \
+ gmredi_check.F \
+ gmredi_diagnostics_fill.F \
+ gmredi_diagnostics_impl.F \
+ gmredi_diagnostics_init.F \
+ gmredi_do_exch.F \
+ gmredi_init_fixed.F \
+ gmredi_init_varia.F \
+ gmredi_k3d.F \
+ gmredi_mnc_init.F \
+ gmredi_output.F \
+ gmredi_readparms.F \
+ gmredi_read_pickup.F \
+ gmredi_residual_flow.F \
+ gmredi_rtransport.F \
+ gmredi_slope_limit.F \
+ gmredi_slope_psi.F \
+ gmredi_write_pickup.F \
+ gmredi_xtransport.F \
+ gmredi_ytransport.F \
+ submeso_calc_psi.F \
+ mdsio_buffertorl.F \
+ mdsio_buffertors.F \
+ mdsio_check4file.F \
+ mdsio_facef_read.F \
+ mdsio_gl.F \
+ mdsio_gl_slice.F \
+ mdsio_pass_r4torl.F \
+ mdsio_pass_r4tors.F \
+ mdsio_pass_r8torl.F \
+ mdsio_pass_r8tors.F \
+ mdsio_rd_rec_rl.F \
+ mdsio_rd_rec_rs.F \
+ mdsio_read_field.F \
+ mdsio_read_meta.F \
+ mdsio_read_section.F \
+ mdsio_read_tape.F \
+ mdsio_readvec_loc.F \
+ mdsio_read_whalos.F \
+ mdsio_rw_field.F \
+ mdsio_rw_slice.F \
+ mdsio_seg4torl.F \
+ mdsio_seg4tors.F \
+ mdsio_seg8torl.F \
+ mdsio_seg8tors.F \
+ mdsio_segxtorx_2d.F \
+ mdsio_write_field.F \
+ mdsio_writelocal.F \
+ mdsio_write_meta.F \
+ mdsio_write_section.F \
+ mdsio_write_tape.F \
+ mdsio_writevec_loc.F \
+ mdsio_write_whalos.F \
+ mdsio_wr_metafiles.F \
+ mdsio_wr_rec_rl.F \
+ mdsio_wr_rec_rs.F \
+ mom_calc_3d_strain.F \
+ mom_calc_absvort3.F \
+ mom_calc_hdiv.F \
+ mom_calc_hfacz.F \
+ mom_calc_ke.F \
+ mom_calc_relvort3.F \
+ mom_calc_smag_3d.F \
+ mom_calc_strain.F \
+ mom_calc_tension.F \
+ mom_diagnostics_init.F \
+ mom_hdissip.F \
+ mom_init_fixed.F \
+ mom_quasihydrostatic.F \
+ mom_u_botdrag_impl.F \
+ mom_u_bottomdrag.F \
+ mom_u_coriolis_nh.F \
+ mom_u_implicit_r.F \
+ mom_u_metric_nh.F \
+ mom_u_rviscflux.F \
+ mom_u_sidedrag.F \
+ mom_uv_smag_3d.F \
+ mom_v_botdrag_impl.F \
+ mom_v_bottomdrag.F \
+ mom_v_coriolis_nh.F \
+ mom_v_implicit_r.F \
+ mom_v_metric_nh.F \
+ mom_v_rviscflux.F \
+ mom_v_sidedrag.F \
+ mom_w_coriolis_nh.F \
+ mom_w_metric_nh.F \
+ mom_w_sidedrag.F \
+ mom_w_smag_3d.F \
+ mom_calc_rtrans.F \
+ mom_fluxform.F \
+ mom_u_adv_uu.F \
+ mom_u_adv_vu.F \
+ mom_u_adv_wu.F \
+ mom_u_coriolis.F \
+ mom_u_del2u.F \
+ mom_u_metric_cylinder.F \
+ mom_u_metric_sphere.F \
+ mom_uv_boundary.F \
+ mom_u_xviscflux.F \
+ mom_u_yviscflux.F \
+ mom_v_adv_uv.F \
+ mom_v_adv_vv.F \
+ mom_v_adv_wv.F \
+ mom_v_coriolis.F \
+ mom_v_del2v.F \
+ mom_v_metric_cylinder.F \
+ mom_v_metric_sphere.F \
+ mom_v_xviscflux.F \
+ mom_v_yviscflux.F \
+ mom_vecinv.F \
+ mom_vi_coriolis.F \
+ mom_vi_del2uv.F \
+ mom_vi_hdissip.F \
+ mom_vi_u_coriolis_c4.F \
+ mom_vi_u_coriolis.F \
+ mom_vi_u_grad_ke.F \
+ mom_vi_u_vertshear.F \
+ mom_vi_v_coriolis_c4.F \
+ mom_vi_v_coriolis.F \
+ mom_vi_v_grad_ke.F \
+ mom_vi_v_vertshear.F \
+ mon_advcfl.F \
+ mon_advcflw2.F \
+ mon_advcflw.F \
+ mon_calc_advcfl.F \
+ mon_calc_stats_rl.F \
+ mon_calc_stats_rs.F \
+ mon_init.F \
+ monitor_ad.F \
+ monitor.F \
+ monitor_g.F \
+ mon_ke.F \
+ mon_out.F \
+ mon_printstats_rl.F \
+ mon_printstats_rs.F \
+ mon_set_iounit.F \
+ mon_set_pref.F \
+ mon_solution.F \
+ mon_stats_latbnd_rl.F \
+ mon_stats_rl.F \
+ mon_stats_rs.F \
+ mon_surfcor.F \
+ mon_vort3.F \
+ mon_writestats_rl.F \
+ mon_writestats_rs.F \
+ get_write_global_fld.F \
+ read_fld_xy_rl.F \
+ read_fld_xy_rs.F \
+ read_fld_xyz_rl.F \
+ read_fld_xyz_rs.F \
+ read_glvec_rl.F \
+ read_glvec_rs.F \
+ read_mflds.F \
+ read_rec.F \
+ rw_get_suffix.F \
+ set_write_global_fld.F \
+ write_fld_3d_rl.F \
+ write_fld_3d_rs.F \
+ write_fld_s3d_rl.F \
+ write_fld_s3d_rs.F \
+ write_fld_xy_rl.F \
+ write_fld_xy_rs.F \
+ write_fld_xyz_rl.F \
+ write_fld_xyz_rs.F \
+ write_glvec_rl.F \
+ write_glvec_rs.F \
+ write_local_rl.F \
+ write_local_rs.F \
+ write_rec.F \
+ salt_plume_apply.F \
+ salt_plume_calc_depth.F \
+ salt_plume_check.F \
+ salt_plume_diagnostics_fill.F \
+ salt_plume_diagnostics_init.F \
+ salt_plume_do_exch.F \
+ salt_plume_forcing_surf.F \
+ salt_plume_frac.F \
+ salt_plume_init_fixed.F \
+ salt_plume_init_varia.F \
+ salt_plume_mnc_init.F \
+ salt_plume_readparms.F \
+ salt_plume_tendency_apply_s.F \
+ salt_plume_tendency_apply_t.F \
+ salt_plume_volfrac.F \
+ advect.F \
+ cost_ice_test.F \
+ diffus.F \
+ dynsolver.F \
+ lsr.F \
+ ostres.F \
+ seaice_ad_dump.F \
+ seaice_advdiff.F \
+ seaice_advection.F \
+ seaice_bottomdrag_coeffs.F \
+ seaice_budget_ocean.F \
+ seaice_calc_ice_strength.F \
+ seaice_calc_lhs.F \
+ seaice_calc_residual.F \
+ seaice_calc_rhs.F \
+ seaice_calc_strainrates.F \
+ seaice_calc_stressdiv.F \
+ seaice_calc_viscosities.F \
+ seaice_check.F \
+ seaice_check_pickup.F \
+ seaice_cost_accumulate_mean.F \
+ seaice_cost_areasst.F \
+ seaice_cost_concentration.F \
+ seaice_cost_driver.F \
+ seaice_cost_export.F \
+ seaice_cost_final.F \
+ seaice_cost_init_fixed.F \
+ seaice_cost_init_varia.F \
+ seaice_cost_sensi.F \
+ seaice_cost_sss.F \
+ seaice_cost_sst.F \
+ seaice_cost_weights.F \
+ seaice_ctrl_map_ini.F \
+ seaice_diagnostics_init.F \
+ seaice_diagnostics_state.F \
+ seaice_diffusion.F \
+ seaice_do_ridging.F \
+ seaice_dynsolver.F \
+ seaice_evp.F \
+ seaice_fake.F \
+ seaice_fgmres.F \
+ seaice_freedrift.F \
+ seaice_growth.F \
+ seaice_init_fixed.F \
+ seaice_init_varia.F \
+ seaice_itd_pickup.F \
+ seaice_itd_redist.F \
+ seaice_itd_remap.F \
+ seaice_itd_sum.F \
+ seaice_jacvec.F \
+ seaice_jfnk.F \
+ seaice_krylov.F \
+ seaice_lsr.F \
+ seaice_map_thsice.F \
+ seaice_mnc_init.F \
+ seaice_model.F \
+ seaice_mom_advection.F \
+ seaice_monitor_ad.F \
+ seaice_monitor.F \
+ seaice_obcs_output.F \
+ seaice_oceandrag_coeffs.F \
+ seaice_ocean_stress.F \
+ seaice_output.F \
+ seaice_preconditioner.F \
+ seaice_prepare_ridging.F \
+ seaice_readparms.F \
+ seaice_read_pickup.F \
+ seaice_reg_ridge.F \
+ seaice_solve4temp.F \
+ seaice_summary.F \
+ seaice_tracer_phys.F \
+ seaice_turnoff_io.F \
+ seaice_write_pickup.F \
+ all_proc_die.F \
+ bar2.F \
+ bar_check.F \
+ barrier.F \
+ check_threads.F \
+ comm_stats.F \
+ cumulsum_z_tile.F \
+ different_multiple.F \
+ diff_phase_multiple.F \
+ eeboot.F \
+ eeboot_minimal.F \
+ eedata_example.F \
+ eedie.F \
+ eeintro_msg.F \
+ eeset_parms.F \
+ eewrite_eeenv.F \
+ exch0_r4.F \
+ exch0_r8.F \
+ exch0_rl.F \
+ exch0_rs.F \
+ exch1_bg_r4_cube.F \
+ exch1_bg_r8_cube.F \
+ exch1_bg_rl_cube.F \
+ exch1_bg_rs_cube.F \
+ exch1_r4_cube.F \
+ exch1_r4.F \
+ exch1_r8_cube.F \
+ exch1_r8.F \
+ exch1_rl_ad.F \
+ exch1_rl_cube_ad.F \
+ exch1_rl_cube.F \
+ exch1_rl.F \
+ exch1_rs_ad.F \
+ exch1_rs_cube_ad.F \
+ exch1_rs_cube.F \
+ exch1_rs.F \
+ exch1_uv_r4_cube.F \
+ exch1_uv_r8_cube.F \
+ exch1_uv_rl_cube.F \
+ exch1_uv_rs_cube.F \
+ exch1_z_r4_cube.F \
+ exch1_z_r8_cube.F \
+ exch1_z_rl_cube.F \
+ exch1_z_rs_cube.F \
+ exch_3d_r4.F \
+ exch_3d_r8.F \
+ exch_3d_rl.F \
+ exch_3d_rs.F \
+ exch_cycle_ebl.F \
+ exch_init.F \
+ exch_r4_recv_get_x.F \
+ exch_r4_recv_get_y.F \
+ exch_r4_send_put_x.F \
+ exch_r4_send_put_y.F \
+ exch_r8_recv_get_x.F \
+ exch_r8_recv_get_y.F \
+ exch_r8_send_put_x.F \
+ exch_r8_send_put_y.F \
+ exch_rl_recv_get_x.F \
+ exch_rl_recv_get_y.F \
+ exch_rl_send_put_x.F \
+ exch_rl_send_put_y.F \
+ exch_rs_recv_get_x.F \
+ exch_rs_recv_get_y.F \
+ exch_rs_send_put_x.F \
+ exch_rs_send_put_y.F \
+ exch_s3d_r4.F \
+ exch_s3d_r8.F \
+ exch_s3d_rl.F \
+ exch_s3d_rs.F \
+ exch_sm_3d_r4.F \
+ exch_sm_3d_r8.F \
+ exch_sm_3d_rl.F \
+ exch_sm_3d_rs.F \
+ exch_uv_3d_r4.F \
+ exch_uv_3d_r8.F \
+ exch_uv_3d_rl.F \
+ exch_uv_3d_rs.F \
+ exch_uv_agrid_3d_r4.F \
+ exch_uv_agrid_3d_r8.F \
+ exch_uv_agrid_3d_rl.F \
+ exch_uv_agrid_3d_rs.F \
+ exch_uv_bgrid_3d_r4.F \
+ exch_uv_bgrid_3d_r8.F \
+ exch_uv_bgrid_3d_rl.F \
+ exch_uv_bgrid_3d_rs.F \
+ exch_uv_dgrid_3d_r4.F \
+ exch_uv_dgrid_3d_r8.F \
+ exch_uv_dgrid_3d_rl.F \
+ exch_uv_dgrid_3d_rs.F \
+ exch_uv_xy_r4.F \
+ exch_uv_xy_r8.F \
+ exch_uv_xy_rl.F \
+ exch_uv_xy_rs.F \
+ exch_uv_xyz_r4.F \
+ exch_uv_xyz_r8.F \
+ exch_uv_xyz_rl.F \
+ exch_uv_xyz_rs.F \
+ exch_xy_r4.F \
+ exch_xy_r8.F \
+ exch_xy_rl.F \
+ exch_xy_rs.F \
+ exch_xyz_r4.F \
+ exch_xyz_r8.F \
+ exch_xyz_rl.F \
+ exch_xyz_rs.F \
+ exch_z_3d_r4.F \
+ exch_z_3d_r8.F \
+ exch_z_3d_rl.F \
+ exch_z_3d_rs.F \
+ fill_cs_corner_ag_rl.F \
+ fill_cs_corner_tr_rl.F \
+ fill_cs_corner_uv_rl.F \
+ fill_cs_corner_uv_rs.F \
+ fool_the_compiler.F \
+ gather_2d_r4.F \
+ gather_2d_r8.F \
+ gather_2d_wh_r4.F \
+ gather_2d_wh_r8.F \
+ gather_vec_r4.F \
+ gather_vec_r8.F \
+ gather_xz.F \
+ gather_yz.F \
+ get_periodic_interval.F \
+ global_max.F \
+ global_sum.F \
+ global_sum_singlecpu.F \
+ global_sum_tile.F \
+ global_vec_sum.F \
+ gsum.F \
+ ini_communication_patterns.F \
+ ini_procs.F \
+ ini_threading_environment.F \
+ lef_zero.F \
+ main.F \
+ master_cpu_io.F \
+ master_cpu_thread.F \
+ mds_byteswapi4.F \
+ mds_byteswapr4.F \
+ mds_byteswapr8.F \
+ mdsfindunit.F \
+ mds_flush.F \
+ mds_reclen.F \
+ memsync.F \
+ nml_change_syntax.F \
+ nml_set_terminator.F \
+ open_copy_data_file.F \
+ print.F \
+ reset_halo.F \
+ scatter_2d_r4.F \
+ scatter_2d_r8.F \
+ scatter_2d_wh_r4.F \
+ scatter_2d_wh_r8.F \
+ scatter_vec_r4.F \
+ scatter_vec_r8.F \
+ scatter_xz.F \
+ scatter_yz.F \
+ stop_if_error.F \
+ timers.F \
+ utils.F \
+ write_utils.F \
+ adams_bashforth2.F \
+ adams_bashforth3.F \
+ add_walls2masks.F \
+ apply_forcing.F \
+ calc_3d_diffusivity.F \
+ calc_adv_flow.F \
+ calc_div_ghat.F \
+ calc_eddy_stress.F \
+ calc_grad_phi_fv.F \
+ calc_grad_phi_hyd.F \
+ calc_grad_phi_surf.F \
+ calc_grid_angles.F \
+ calc_gw.F \
+ calc_ivdc.F \
+ calc_oce_mxlayer.F \
+ calc_phi_hyd.F \
+ calc_r_star.F \
+ calc_surf_dr.F \
+ calc_viscosity.F \
+ calc_wsurf_tr.F \
+ cg2d_ex0.F \
+ cg2d.F \
+ cg2d_nsa.F \
+ cg2d_sr.F \
+ cg3d_ex0.F \
+ cg3d.F \
+ check_pickup.F \
+ config_check.F \
+ config_summary.F \
+ convective_adjustment.F \
+ convective_adjustment_ini.F \
+ convectively_mixtracer.F \
+ convective_weights.F \
+ correction_step.F \
+ cycle_ab_tracer.F \
+ cycle_tracer.F \
+ diags_oceanic_surf_flux.F \
+ diags_phi_hyd.F \
+ diags_phi_rlow.F \
+ diags_rho.F \
+ do_atmospheric_phys.F \
+ do_fields_blocking_exchanges.F \
+ do_oceanic_phys.F \
+ do_stagger_fields_exchanges.F \
+ do_statevars_diags.F \
+ do_statevars_tave.F \
+ do_the_model_io.F \
+ do_write_pickup.F \
+ dynamics.F \
+ external_fields_load.F \
+ external_forcing.F \
+ external_forcing_surf.F \
+ find_alpha.F \
+ find_hyd_press_1d.F \
+ find_rho.F \
+ forcing_surf_relax.F \
+ forward_step.F \
+ freesurf_rescale_g.F \
+ freeze_surface.F \
+ grad_sigma.F \
+ gsw_teos10.F \
+ impldiff.F \
+ ini_cartesian_grid.F \
+ ini_cg2d.F \
+ ini_cg3d.F \
+ ini_cori.F \
+ ini_curvilinear_grid.F \
+ ini_cylinder_grid.F \
+ ini_depths.F \
+ ini_dynvars.F \
+ ini_eos.F \
+ ini_ffields.F \
+ ini_fields.F \
+ ini_forcing.F \
+ ini_global_domain.F \
+ ini_grid.F \
+ ini_linear_phisurf.F \
+ ini_local_grid.F \
+ ini_masks_etc.F \
+ ini_mixing.F \
+ ini_mnc_vars.F \
+ ini_model_io.F \
+ ini_nh_fields.F \
+ ini_nh_vars.F \
+ ini_nlfs_vars.F \
+ ini_parms.F \
+ ini_p_ground.F \
+ ini_pressure.F \
+ ini_psurf.F \
+ ini_salt.F \
+ ini_sigma_hfac.F \
+ ini_spherical_polar_grid.F \
+ ini_theta.F \
+ initialise_fixed.F \
+ initialise_varia.F \
+ ini_vel.F \
+ ini_vertical_grid.F \
+ integrate_for_w.F \
+ integr_continuity.F \
+ load_fields_driver.F \
+ load_grid_spacing.F \
+ load_ref_files.F \
+ main_do_loop.F \
+ momentum_correction_step.F \
+ packages_boot.F \
+ packages_check.F \
+ packages_error_msg.F \
+ packages_init_fixed.F \
+ packages_init_variables.F \
+ packages_print_msg.F \
+ packages_readparms.F \
+ packages_unused_msg.F \
+ packages_write_pickup.F \
+ plot_field.F \
+ port_rand.F \
+ post_cg3d.F \
+ pre_cg3d.F \
+ pressure_for_eos.F \
+ read_pickup.F \
+ remove_mean.F \
+ reset_nlfs_vars.F \
+ rotate_spherical_polar_grid.F \
+ salt_integrate.F \
+ seawater.F \
+ set_defaults.F \
+ set_grid_factors.F \
+ set_parms.F \
+ set_ref_state.F \
+ solve_for_pressure.F \
+ solve_pentadiagonal.F \
+ solve_tridiagonal.F \
+ solve_uv_tridiago.F \
+ state_summary.F \
+ swfrac.F \
+ taueddy_init_varia.F \
+ taueddy_tendency_apply.F \
+ temp_integrate.F \
+ the_main_loop.F \
+ the_model_main.F \
+ thermodynamics.F \
+ timestep.F \
+ timestep_tracer.F \
+ timestep_wvel.F \
+ tracers_correction_step.F \
+ tracers_iigw_correction.F \
+ turnoff_model_io.F \
+ update_cg2d.F \
+ update_etah.F \
+ update_etaws.F \
+ update_masks_etc.F \
+ update_r_star.F \
+ update_sigma.F \
+ update_surf_dr.F \
+ write_grid.F \
+ write_pickup.F \
+ write_state.F
+NON_AD_F77_SRC_FILES =  \
+ adctrl_bound.F \
+ ctrl_bound.F \
+ ctrl_check.F \
+ ctrl_hfacc_ini.F \
+ ctrl_init_ctrlvar.F \
+ ctrl_init.F \
+ ctrl_init_wet.F \
+ ctrl_mask_set_xz.F \
+ ctrl_mask_set_yz.F \
+ ctrl_pack.F \
+ ctrl_readparms.F \
+ ctrl_set_fname.F \
+ ctrl_set_globfld_xy.F \
+ ctrl_set_globfld_xyz.F \
+ ctrl_set_globfld_xz.F \
+ ctrl_set_globfld_yz.F \
+ ctrl_set_pack_xy.F \
+ ctrl_set_pack_xyz.F \
+ ctrl_set_pack_xz.F \
+ ctrl_set_pack_yz.F \
+ ctrl_set_unpack_xy.F \
+ ctrl_set_unpack_xyz.F \
+ ctrl_set_unpack_xz.F \
+ ctrl_set_unpack_yz.F \
+ ctrl_summary.F \
+ ctrl_unpack.F \
+ optim_readparms.F \
+ chksum_tiled.F \
+ debug_call.F \
+ debug_cs_corner_uv.F \
+ debug_enter.F \
+ debug_fld_stats_rl.F \
+ debug_fld_stats_rs.F \
+ debug_leave.F \
+ debug_msg.F \
+ debug_stats_rl.F \
+ debug_stats_rs.F \
+ fill_in_corners_rl.F \
+ write_fullarray_rl.F \
+ write_fullarray_rs.F \
+ diag_calc_psivel.F \
+ diag_cg2d.F \
+ diagnostics_addtolist.F \
+ diagnostics_calc_phivel.F \
+ diagnostics_check.F \
+ diagnostics_clear.F \
+ diagnostics_fill.F \
+ diagnostics_fill_field.F \
+ diagnostics_fill_rs.F \
+ diagnostics_fill_state.F \
+ diagnostics_fract_fill.F \
+ diagnostics_ini_io.F \
+ diagnostics_init_early.F \
+ diagnostics_init_fixed.F \
+ diagnostics_init_varia.F \
+ diagnostics_interp_p2p.F \
+ diagnostics_interp_vert.F \
+ diagnostics_list_check.F \
+ diagnostics_main_init.F \
+ diagnostics_mnc_out.F \
+ diagnostics_out.F \
+ diagnostics_readparms.F \
+ diagnostics_read_pickup.F \
+ diagnostics_scale_fill.F \
+ diagnostics_scale_fill_rs.F \
+ diagnostics_set_calc.F \
+ diagnostics_setdiag.F \
+ diagnostics_set_levels.F \
+ diagnostics_set_pointers.F \
+ diagnostics_status_error.F \
+ diagnostics_sum_levels.F \
+ diagnostics_summary.F \
+ diagnostics_switch_onoff.F \
+ diagnostics_utils.F \
+ diagnostics_write.F \
+ diagnostics_write_pickup.F \
+ diagstats_ascii_out.F \
+ diagstats_calc.F \
+ diagstats_clear.F \
+ diagstats_close_io.F \
+ diagstats_fill.F \
+ diagstats_global.F \
+ diagstats_ini_io.F \
+ diagstats_local.F \
+ diagstats_mnc_out.F \
+ diagstats_others_calc.F \
+ diagstats_output.F \
+ diagstats_setdiag.F \
+ diagstats_set_pointers.F \
+ diagstats_set_regions.F \
+ diag_vegtile_fill.F \
+ exch2_3d_r4.F \
+ exch2_3d_r8.F \
+ exch2_ad_get_r41.F \
+ exch2_ad_get_r42.F \
+ exch2_ad_get_r81.F \
+ exch2_ad_get_r82.F \
+ exch2_ad_get_rl1.F \
+ exch2_ad_get_rl2.F \
+ exch2_ad_get_rs1.F \
+ exch2_ad_get_rs2.F \
+ exch2_ad_put_r41.F \
+ exch2_ad_put_r42.F \
+ exch2_ad_put_r81.F \
+ exch2_ad_put_r82.F \
+ exch2_ad_put_rl1.F \
+ exch2_ad_put_rl2.F \
+ exch2_ad_put_rs1.F \
+ exch2_ad_put_rs2.F \
+ exch2_check_depths.F \
+ exch2_get_r41.F \
+ exch2_get_r42.F \
+ exch2_get_r81.F \
+ exch2_get_r82.F \
+ exch2_get_rl1.F \
+ exch2_get_rl2.F \
+ exch2_get_rs1.F \
+ exch2_get_rs2.F \
+ exch2_get_scal_bounds.F \
+ exch2_get_uv_bounds.F \
+ exch2_put_r41.F \
+ exch2_put_r42.F \
+ exch2_put_r81.F \
+ exch2_put_r82.F \
+ exch2_put_rl1.F \
+ exch2_put_rl2.F \
+ exch2_put_rs1.F \
+ exch2_put_rs2.F \
+ exch2_r41_cube_ad.F \
+ exch2_r41_cube.F \
+ exch2_r42_cube_ad.F \
+ exch2_r42_cube.F \
+ exch2_r81_cube_ad.F \
+ exch2_r81_cube.F \
+ exch2_r82_cube_ad.F \
+ exch2_r82_cube.F \
+ exch2_recv_r41.F \
+ exch2_recv_r42.F \
+ exch2_recv_r81.F \
+ exch2_recv_r82.F \
+ exch2_recv_rl1.F \
+ exch2_recv_rl2.F \
+ exch2_recv_rs1.F \
+ exch2_recv_rs2.F \
+ exch2_rl1_cube_ad.F \
+ exch2_rl1_cube.F \
+ exch2_rl2_cube_ad.F \
+ exch2_rl2_cube.F \
+ exch2_rs1_cube_ad.F \
+ exch2_rs1_cube.F \
+ exch2_rs2_cube_ad.F \
+ exch2_rs2_cube.F \
+ exch2_s3d_r4.F \
+ exch2_s3d_r8.F \
+ exch2_s3d_rl.F \
+ exch2_s3d_rs.F \
+ exch2_send_r41.F \
+ exch2_send_r42.F \
+ exch2_send_r81.F \
+ exch2_send_r82.F \
+ exch2_send_rl1.F \
+ exch2_send_rl2.F \
+ exch2_send_rs1.F \
+ exch2_send_rs2.F \
+ exch2_sm_3d_r4.F \
+ exch2_sm_3d_r8.F \
+ exch2_sm_3d_rs.F \
+ exch2_uv_3d_r4.F \
+ exch2_uv_3d_r8.F \
+ exch2_uv_agrid_3d_r4.F \
+ exch2_uv_agrid_3d_r8.F \
+ exch2_uv_bgrid_3d_r4.F \
+ exch2_uv_bgrid_3d_r8.F \
+ exch2_uv_bgrid_3d_rl.F \
+ exch2_uv_bgrid_3d_rs.F \
+ exch2_uv_cgrid_3d_r4.F \
+ exch2_uv_cgrid_3d_r8.F \
+ exch2_uv_cgrid_3d_rl.F \
+ exch2_uv_cgrid_3d_rs.F \
+ exch2_uv_dgrid_3d_r4.F \
+ exch2_uv_dgrid_3d_r8.F \
+ exch2_z_3d_r4.F \
+ exch2_z_3d_r8.F \
+ exch2_z_3d_rl.F \
+ exch2_z_3d_rs.F \
+ w2_cumulsum_z_tile.F \
+ w2_e2setup.F \
+ w2_eeboot.F \
+ w2_map_procs.F \
+ w2_print_comm_sequence.F \
+ w2_print_e2setup.F \
+ w2_readparms.F \
+ w2_set_cs6_facets.F \
+ w2_set_f2f_index.F \
+ w2_set_gen_facets.F \
+ w2_set_map_cumsum.F \
+ w2_set_map_tiles.F \
+ w2_set_myown_facets.F \
+ w2_set_single_facet.F \
+ w2_set_tile2tiles.F \
+ gad_advscheme.F \
+ gad_check.F \
+ gad_diagnostics_init.F \
+ gad_diagnostics_state.F \
+ gad_init_fixed.F \
+ gad_osc_hat_r.F \
+ gad_osc_hat_x.F \
+ gad_osc_hat_y.F \
+ gad_osc_mul_r.F \
+ gad_osc_mul_x.F \
+ gad_osc_mul_y.F \
+ gad_plm_fun.F \
+ gad_ppm_adv_r.F \
+ gad_ppm_adv_x.F \
+ gad_ppm_adv_y.F \
+ gad_ppm_flx_r.F \
+ gad_ppm_flx_x.F \
+ gad_ppm_flx_y.F \
+ gad_ppm_fun.F \
+ gad_ppm_hat_r.F \
+ gad_ppm_hat_x.F \
+ gad_ppm_hat_y.F \
+ gad_ppm_p3e_r.F \
+ gad_ppm_p3e_x.F \
+ gad_ppm_p3e_y.F \
+ gad_pqm_adv_r.F \
+ gad_pqm_adv_x.F \
+ gad_pqm_adv_y.F \
+ gad_pqm_flx_r.F \
+ gad_pqm_flx_x.F \
+ gad_pqm_flx_y.F \
+ gad_pqm_fun.F \
+ gad_pqm_hat_r.F \
+ gad_pqm_hat_x.F \
+ gad_pqm_hat_y.F \
+ gad_pqm_p5e_r.F \
+ gad_pqm_p5e_x.F \
+ gad_pqm_p5e_y.F \
+ gad_write_pickup.F \
+ salt_fill.F \
+ ggl90_check.F \
+ ggl90_diagnostics_init.F \
+ ggl90_idemix.F \
+ ggl90_output.F \
+ ggl90_readparms.F \
+ gmredi_calc_eigs.F \
+ gmredi_calc_psi_bvp.F \
+ gmredi_calc_urms.F \
+ gmredi_check.F \
+ gmredi_diagnostics_fill.F \
+ gmredi_diagnostics_impl.F \
+ gmredi_diagnostics_init.F \
+ gmredi_init_fixed.F \
+ gmredi_k3d.F \
+ gmredi_mnc_init.F \
+ gmredi_output.F \
+ gmredi_readparms.F \
+ gmredi_read_pickup.F \
+ gmredi_write_pickup.F \
+ submeso_calc_psi.F \
+ mdsio_buffertorl.F \
+ mdsio_buffertors.F \
+ mdsio_check4file.F \
+ mdsio_facef_read.F \
+ mdsio_gl.F \
+ mdsio_gl_slice.F \
+ mdsio_pass_r4torl.F \
+ mdsio_pass_r4tors.F \
+ mdsio_pass_r8torl.F \
+ mdsio_pass_r8tors.F \
+ mdsio_rd_rec_rl.F \
+ mdsio_rd_rec_rs.F \
+ mdsio_read_field.F \
+ mdsio_read_meta.F \
+ mdsio_read_section.F \
+ mdsio_read_tape.F \
+ mdsio_readvec_loc.F \
+ mdsio_read_whalos.F \
+ mdsio_rw_field.F \
+ mdsio_rw_slice.F \
+ mdsio_seg4torl.F \
+ mdsio_seg4tors.F \
+ mdsio_seg8torl.F \
+ mdsio_seg8tors.F \
+ mdsio_segxtorx_2d.F \
+ mdsio_write_field.F \
+ mdsio_writelocal.F \
+ mdsio_write_meta.F \
+ mdsio_write_section.F \
+ mdsio_write_tape.F \
+ mdsio_writevec_loc.F \
+ mdsio_write_whalos.F \
+ mdsio_wr_metafiles.F \
+ mdsio_wr_rec_rl.F \
+ mdsio_wr_rec_rs.F \
+ mom_calc_3d_strain.F \
+ mom_calc_smag_3d.F \
+ mom_diagnostics_init.F \
+ mom_init_fixed.F \
+ mom_u_botdrag_impl.F \
+ mom_u_implicit_r.F \
+ mom_uv_smag_3d.F \
+ mom_v_botdrag_impl.F \
+ mom_v_implicit_r.F \
+ mom_w_coriolis_nh.F \
+ mom_w_metric_nh.F \
+ mom_w_sidedrag.F \
+ mom_w_smag_3d.F \
+ mom_uv_boundary.F \
+ mon_advcfl.F \
+ mon_advcflw2.F \
+ mon_advcflw.F \
+ mon_calc_advcfl.F \
+ mon_calc_stats_rl.F \
+ mon_calc_stats_rs.F \
+ mon_init.F \
+ monitor_ad.F \
+ monitor.F \
+ monitor_g.F \
+ mon_ke.F \
+ mon_out.F \
+ mon_printstats_rl.F \
+ mon_printstats_rs.F \
+ mon_set_iounit.F \
+ mon_set_pref.F \
+ mon_solution.F \
+ mon_stats_latbnd_rl.F \
+ mon_stats_rl.F \
+ mon_stats_rs.F \
+ mon_surfcor.F \
+ mon_vort3.F \
+ mon_writestats_rl.F \
+ mon_writestats_rs.F \
+ get_write_global_fld.F \
+ read_glvec_rl.F \
+ read_glvec_rs.F \
+ read_mflds.F \
+ rw_get_suffix.F \
+ set_write_global_fld.F \
+ write_fld_3d_rl.F \
+ write_fld_3d_rs.F \
+ write_fld_s3d_rl.F \
+ write_fld_s3d_rs.F \
+ write_fld_xy_rl.F \
+ write_fld_xy_rs.F \
+ write_fld_xyz_rl.F \
+ write_fld_xyz_rs.F \
+ write_glvec_rl.F \
+ write_glvec_rs.F \
+ write_local_rl.F \
+ write_local_rs.F \
+ write_rec.F \
+ salt_plume_check.F \
+ salt_plume_diagnostics_init.F \
+ salt_plume_init_fixed.F \
+ salt_plume_mnc_init.F \
+ salt_plume_readparms.F \
+ seaice_ad_dump.F \
+ seaice_calc_lhs.F \
+ seaice_calc_residual.F \
+ seaice_calc_rhs.F \
+ seaice_check.F \
+ seaice_check_pickup.F \
+ seaice_cost_init_fixed.F \
+ seaice_cost_weights.F \
+ seaice_diagnostics_init.F \
+ seaice_do_ridging.F \
+ seaice_fgmres.F \
+ seaice_init_fixed.F \
+ seaice_itd_pickup.F \
+ seaice_itd_redist.F \
+ seaice_itd_remap.F \
+ seaice_itd_sum.F \
+ seaice_jacvec.F \
+ seaice_jfnk.F \
+ seaice_krylov.F \
+ seaice_mnc_init.F \
+ seaice_mom_advection.F \
+ seaice_monitor_ad.F \
+ seaice_monitor.F \
+ seaice_obcs_output.F \
+ seaice_output.F \
+ seaice_preconditioner.F \
+ seaice_prepare_ridging.F \
+ seaice_readparms.F \
+ seaice_summary.F \
+ seaice_turnoff_io.F \
+ seaice_write_pickup.F \
+ all_proc_die.F \
+ bar2.F \
+ bar_check.F \
+ barrier.F \
+ check_threads.F \
+ comm_stats.F \
+ cumulsum_z_tile.F \
+ diff_phase_multiple.F \
+ eeboot.F \
+ eeboot_minimal.F \
+ eedata_example.F \
+ eedie.F \
+ eeintro_msg.F \
+ eeset_parms.F \
+ eewrite_eeenv.F \
+ exch0_r4.F \
+ exch0_r8.F \
+ exch0_rl.F \
+ exch0_rs.F \
+ exch1_bg_r4_cube.F \
+ exch1_bg_r8_cube.F \
+ exch1_bg_rl_cube.F \
+ exch1_bg_rs_cube.F \
+ exch1_r4_cube.F \
+ exch1_r4.F \
+ exch1_r8_cube.F \
+ exch1_r8.F \
+ exch1_rl_ad.F \
+ exch1_rl_cube_ad.F \
+ exch1_rl_cube.F \
+ exch1_rl.F \
+ exch1_rs_ad.F \
+ exch1_rs_cube_ad.F \
+ exch1_rs_cube.F \
+ exch1_rs.F \
+ exch1_uv_r4_cube.F \
+ exch1_uv_r8_cube.F \
+ exch1_uv_rl_cube.F \
+ exch1_uv_rs_cube.F \
+ exch1_z_r4_cube.F \
+ exch1_z_r8_cube.F \
+ exch1_z_rl_cube.F \
+ exch1_z_rs_cube.F \
+ exch_3d_r4.F \
+ exch_3d_r8.F \
+ exch_cycle_ebl.F \
+ exch_init.F \
+ exch_r4_recv_get_x.F \
+ exch_r4_recv_get_y.F \
+ exch_r4_send_put_x.F \
+ exch_r4_send_put_y.F \
+ exch_r8_recv_get_x.F \
+ exch_r8_recv_get_y.F \
+ exch_r8_send_put_x.F \
+ exch_r8_send_put_y.F \
+ exch_rl_recv_get_x.F \
+ exch_rl_recv_get_y.F \
+ exch_rl_send_put_x.F \
+ exch_rl_send_put_y.F \
+ exch_rs_recv_get_x.F \
+ exch_rs_recv_get_y.F \
+ exch_rs_send_put_x.F \
+ exch_rs_send_put_y.F \
+ exch_s3d_r4.F \
+ exch_s3d_r8.F \
+ exch_s3d_rl.F \
+ exch_s3d_rs.F \
+ exch_sm_3d_r4.F \
+ exch_sm_3d_r8.F \
+ exch_sm_3d_rs.F \
+ exch_uv_3d_r4.F \
+ exch_uv_3d_r8.F \
+ exch_uv_agrid_3d_r4.F \
+ exch_uv_agrid_3d_r8.F \
+ exch_uv_bgrid_3d_r4.F \
+ exch_uv_bgrid_3d_r8.F \
+ exch_uv_bgrid_3d_rl.F \
+ exch_uv_bgrid_3d_rs.F \
+ exch_uv_dgrid_3d_r4.F \
+ exch_uv_dgrid_3d_r8.F \
+ exch_uv_xy_r4.F \
+ exch_uv_xy_r8.F \
+ exch_uv_xyz_r4.F \
+ exch_uv_xyz_r8.F \
+ exch_xy_r4.F \
+ exch_xy_r8.F \
+ exch_xyz_r4.F \
+ exch_xyz_r8.F \
+ exch_z_3d_r4.F \
+ exch_z_3d_r8.F \
+ exch_z_3d_rl.F \
+ exch_z_3d_rs.F \
+ fool_the_compiler.F \
+ gather_2d_r4.F \
+ gather_2d_r8.F \
+ gather_2d_wh_r4.F \
+ gather_2d_wh_r8.F \
+ gather_vec_r4.F \
+ gather_vec_r8.F \
+ gather_xz.F \
+ gather_yz.F \
+ global_max.F \
+ global_sum.F \
+ global_sum_singlecpu.F \
+ global_sum_tile.F \
+ global_vec_sum.F \
+ gsum.F \
+ ini_communication_patterns.F \
+ ini_procs.F \
+ ini_threading_environment.F \
+ main.F \
+ master_cpu_io.F \
+ master_cpu_thread.F \
+ mds_byteswapi4.F \
+ mds_byteswapr4.F \
+ mds_byteswapr8.F \
+ mdsfindunit.F \
+ mds_flush.F \
+ mds_reclen.F \
+ memsync.F \
+ nml_change_syntax.F \
+ nml_set_terminator.F \
+ open_copy_data_file.F \
+ print.F \
+ reset_halo.F \
+ scatter_2d_r4.F \
+ scatter_2d_r8.F \
+ scatter_2d_wh_r4.F \
+ scatter_2d_wh_r8.F \
+ scatter_vec_r4.F \
+ scatter_vec_r8.F \
+ scatter_xz.F \
+ scatter_yz.F \
+ stop_if_error.F \
+ timers.F \
+ utils.F \
+ write_utils.F \
+ add_walls2masks.F \
+ calc_eddy_stress.F \
+ calc_grid_angles.F \
+ calc_gw.F \
+ calc_oce_mxlayer.F \
+ cg2d_ex0.F \
+ cg2d.F \
+ cg2d_sr.F \
+ cg3d_ex0.F \
+ cg3d.F \
+ check_pickup.F \
+ config_check.F \
+ config_summary.F \
+ diags_oceanic_surf_flux.F \
+ do_statevars_diags.F \
+ do_statevars_tave.F \
+ do_the_model_io.F \
+ do_write_pickup.F \
+ external_forcing.F \
+ find_hyd_press_1d.F \
+ gsw_teos10.F \
+ ini_cartesian_grid.F \
+ ini_cg3d.F \
+ ini_cori.F \
+ ini_curvilinear_grid.F \
+ ini_cylinder_grid.F \
+ ini_eos.F \
+ ini_global_domain.F \
+ ini_grid.F \
+ ini_linear_phisurf.F \
+ ini_local_grid.F \
+ ini_masks_etc.F \
+ ini_mnc_vars.F \
+ ini_model_io.F \
+ ini_nh_vars.F \
+ ini_parms.F \
+ ini_sigma_hfac.F \
+ ini_spherical_polar_grid.F \
+ initialise_fixed.F \
+ ini_vertical_grid.F \
+ load_ref_files.F \
+ packages_boot.F \
+ packages_check.F \
+ packages_error_msg.F \
+ packages_init_fixed.F \
+ packages_print_msg.F \
+ packages_readparms.F \
+ packages_unused_msg.F \
+ packages_write_pickup.F \
+ plot_field.F \
+ port_rand.F \
+ post_cg3d.F \
+ pre_cg3d.F \
+ rotate_spherical_polar_grid.F \
+ set_defaults.F \
+ set_grid_factors.F \
+ set_parms.F \
+ set_ref_state.F \
+ solve_uv_tridiago.F \
+ the_model_main.F \
+ timestep_wvel.F \
+ tracers_iigw_correction.F \
+ turnoff_model_io.F \
+ write_grid.F \
+ write_pickup.F \
+ write_state.F
+C_SRC_FILES =  \
+ gsl_ieee_env.c \
+ ptwrapper.c \
+ setdir.c \
+ setrlstk.c \
+ sigreg.c \
+ tim.c \
+ timer_stats.c
+F90_SRC_FILES = 
+H_SRC_FILES =  \
+ CPP_EEOPTIONS.h \
+ CPP_OPTIONS.h \
+ CTRL_OPTIONS.h \
+ CTRL_SIZE.h \
+ DIAGNOSTICS_SIZE.h \
+ DIAG_OPTIONS.h \
+ GGL90_OPTIONS.h \
+ GMREDI_OPTIONS.h \
+ MDSIO_BUFF_3D.h \
+ MOM_COMMON_OPTIONS.h \
+ SEAICE_LAYERS.h \
+ SEAICE_OPTIONS.h \
+ SEAICE_SIZE.h \
+ SIZE.h \
+ ctrl_ad_check_lev1_dir.h \
+ ctrl_ad_check_lev2_dir.h \
+ ctrl_ad_check_lev3_dir.h \
+ ctrl_ad_check_lev4_dir.h \
+ ctrl_dummy.h \
+ CTRL_FIELDS.h \
+ CTRL_GENARR.h \
+ ctrl.h \
+ ctrl_local_params.h \
+ CTRL_OBCS.h \
+ ctrl_weights.h \
+ optim.h \
+ DEBUG_OPTIONS.h \
+ DIAGNOSTICS_CALC.h \
+ DIAGNOSTICS.h \
+ DIAGSTATS_REGIONS.h \
+ W2_EXCH2_BUFFER.h \
+ W2_EXCH2_PARAMS.h \
+ W2_EXCH2_SIZE.h \
+ W2_EXCH2_TOPOLOGY.h \
+ W2_OPTIONS.h \
+ gad_ad_check_lev1_dir.h \
+ gad_ad_check_lev2_dir.h \
+ gad_ad_check_lev3_dir.h \
+ gad_ad_check_lev4_dir.h \
+ GAD_FLUX_LIMITER.h \
+ GAD.h \
+ GAD_OPTIONS.h \
+ GAD_SOM_VARS.h \
+ ggl90_ad_check_lev1_dir.h \
+ ggl90_ad_check_lev2_dir.h \
+ ggl90_ad_check_lev3_dir.h \
+ ggl90_ad_check_lev4_dir.h \
+ GGL90.h \
+ GGL90_TAVE.h \
+ GMREDI.h \
+ GMREDI_TAVE.h \
+ MDSIO_BUFF_WH.h \
+ MDSIO_OPTIONS.h \
+ MOM_VISC.h \
+ MOM_FLUXFORM.h \
+ MOM_FLUXFORM_OPTIONS.h \
+ MOM_VECINV_OPTIONS.h \
+ MONITOR.h \
+ MONITOR_OPTIONS.h \
+ RW_MFLDS.h \
+ RW_OPTIONS.h \
+ salt_plume_ad_check_lev1_dir.h \
+ salt_plume_ad_check_lev2_dir.h \
+ salt_plume_ad_check_lev3_dir.h \
+ salt_plume_ad_check_lev4_dir.h \
+ SALT_PLUME.h \
+ SALT_PLUME_OPTIONS.h \
+ seaice_ad_check_lev1_dir.h \
+ seaice_ad_check_lev2_dir.h \
+ seaice_ad_check_lev3_dir.h \
+ seaice_ad_check_lev4_dir.h \
+ SEAICE_COST.h \
+ SEAICE.h \
+ SEAICE_PARAMS.h \
+ SEAICE_TAVE.h \
+ SEAICE_TRACER.h \
+ clog_commset.h \
+ clog_const.h \
+ clog_inttypes.h \
+ clog_uuid.h \
+ mpe_callstack.h \
+ mpe_graphicsf.h \
+ mpe_graphics.h \
+ mpe.h \
+ mpe_logf.h \
+ mpe_log.h \
+ mpe_log_thread.h \
+ mpe_misc.h \
+ mpicxx.h \
+ mpif.h \
+ mpi.h \
+ mpiof.h \
+ mpio.h \
+ mpix.h \
+ opa_config.h \
+ opa_primitives.h \
+ opa_queue.h \
+ opa_util.h \
+ BAR2.h \
+ BARRIER.h \
+ CPP_EEMACROS.h \
+ CUMULSUM.h \
+ DEF_IN_MAKEFILE.h \
+ EEBUFF_SCPU.h \
+ EEPARAMS.h \
+ EESUPPORT.h \
+ EXCH.h \
+ GLOBAL_MAX.h \
+ GLOBAL_SUM.h \
+ MAIN_PDIRECTIVES1.h \
+ MAIN_PDIRECTIVES2.h \
+ MPI_INFO.h \
+ SIGREG.h \
+ CG2D.h \
+ CG3D.h \
+ DXC_MACROS.h \
+ DXF_MACROS.h \
+ DXG_MACROS.h \
+ DXV_MACROS.h \
+ DYC_MACROS.h \
+ DYF_MACROS.h \
+ DYG_MACROS.h \
+ DYNVARS.h \
+ DYU_MACROS.h \
+ EOS.h \
+ FCORI_MACROS.h \
+ FFIELDS.h \
+ GRID.h \
+ GRID_MACROS.h \
+ HFACC_MACROS.h \
+ HFACS_MACROS.h \
+ HFACW_MACROS.h \
+ MASKS_MACROS.h \
+ MASKW_MACROS.h \
+ NH_VARS.h \
+ PARAMS.h \
+ RA_MACROS.h \
+ RAS_MACROS.h \
+ RAW_MACROS.h \
+ RECIP_DXC_MACROS.h \
+ RECIP_DXF_MACROS.h \
+ RECIP_DXG_MACROS.h \
+ RECIP_DXV_MACROS.h \
+ RECIP_DYC_MACROS.h \
+ RECIP_DYF_MACROS.h \
+ RECIP_DYG_MACROS.h \
+ RECIP_DYU_MACROS.h \
+ RECIP_HFACC_MACROS.h \
+ RECIP_HFACS_MACROS.h \
+ RECIP_HFACW_MACROS.h \
+ RESTART.h \
+ SET_GRID.h \
+ SOLVE_FOR_PRESSURE3D.h \
+ SOLVE_FOR_PRESSURE.h \
+ SURFACE.h \
+ TANPHIATU_MACROS.h \
+ TANPHIATV_MACROS.h \
+ THE_MODEL_COMMON_BLOCKS.h \
+ XC_MACROS.h \
+ YC_MACROS.h
+AD_FLOW_FILES =  \
+ ctrl_bound.flow \
+ debug_ad.flow \
+ diagnostics_ad.flow \
+ exch2.flow \
+ gmredi_ad.flow \
+ mdsio_ad.flow \
+ monitor_ad.flow \
+ rw_ad.flow \
+ seaice.flow \
+ eesupp.flow \
+ exch1_ad.flow
+
+F77_PP_SRC_FILES = $(F77_SRC_FILES:.F=.f)
+F90_PP_SRC_FILES = $(F90_SRC_FILES:.F90=.f90)
+OBJFILES= $(F77_SRC_FILES:.F=.o) $(C_SRC_FILES:.c=.o) $(F90_SRC_FILES:.F90=.o)
+FLOWFILES =  $(AD_FLOW_FILES:.flow=.flowdir)
+
+.SUFFIXES:
+.SUFFIXES: .o .f .p .F .c .ff90 .f90 .FF90 .F90 .flowdir .flow
+
+all: fwd_exe_target
+fwd_exe_target:
+	@echo Update AD_CONFIG.h and make $(EXECUTABLE)
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "Forward version" -bAD_CONFIG_H -UALLOW_ADJOINT_RUN -UALLOW_TANGENTLINEAR_RUN > ad_config.template
+	@cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+	$(MAKE) -f $(MAKEFILE) $(EXECUTABLE)
+
+$(EXECUTABLE): $(SPECIAL_FILES) $(F77_SRC_FILES) $(C_SRC_FILES) $(H_SRC_FILES) $(F90_SRC_FILES) $(OBJFILES) $(EMBEDDED_FILES)
+	@echo Creating $@ ...
+	$(LINK) -o $@ $(FFLAGS) $(FOPTIM) $(OBJFILES) $(LIBS)
+
+depend:
+	@$(MAKE) -f $(MAKEFILE) links
+	$(MAKEDEPEND) -f $(MAKEFILE) -o .f $(DEFINES) $(INCLUDES) $(CPPINCLUDES) $(F77_SRC_FILES)
+	$(TOOLSDIR)/f90mkdepend >> $(MAKEFILE)
+	-rm -f makedepend.out
+
+lib: libmitgcmuv.a
+
+libmitgcmuv.a: $(SPECIAL_FILES) $(OBJFILES)
+	ar rcv libmitgcmuv.a $(OBJFILES)
+	ar d   libmitgcmuv.a main.o
+
+obj: $(OBJFILES)
+
+links: $(F77_SRC_FILES) $(C_SRC_FILES) $(H_SRC_FILES) $(F90_SRC_FILES) $(SPECIAL_FILES)
+
+small_f: $(F77_PP_SRC_FILES) $(F90_PP_SRC_FILES)
+
+# remove most of the files that "make" generates
+clean:
+	-rm -rf *.p *.f90 *.mod  work.{pc,pcl} *.template
+	-rm -rf *.o
+	-rm -rf *.f *.flowdir
+	-rm -rf *.ff90 $(AD_CLEAN) ad_input*
+
+# remove most of the files that "make" and "make depend" generate
+Clean:
+	@$(MAKE) -f $(MAKEFILE) clean
+	@$(MAKE) -f $(MAKEFILE) cleanlinks
+	-rm -f $(SPECIAL_FILES) f90mkdepend.log Makefile.old
+	-rm -f taf_command taf_output taf_ad.log taf_ad_flow.log taf_ftl.log
+
+# remove also the executable, files that "genmake2" generates (except Makefile)
+#         and output from a run (plus log files from testreport)
+CLEAN:
+	@$(MAKE) -f $(MAKEFILE) Clean
+	-rm -f $(EXECUTABLE) $(EXE_AD) $(EXE_FTL) *.bak
+	-rm -f genmake.log genmake_state genmake_*optfile
+	-rm -f SIZE.h.mpi genmake.tr_log make.tr_log
+	-rm -rf mpi_headers mnc_test_*
+	-find $(EXEDIR) -name "*.meta" -exec rm {} \;
+	-find $(EXEDIR) -name "*.data" -exec rm {} \;
+	-find $(EXEDIR) -name "fort.*" -exec rm {} \;
+	-rm -f *.txt STDOUT.* STDERR.* *diagnostics.log *.[0-9][0-9][0-9][0-9].log
+	-rm -f datetime costfinal divided.ctrl snapshot* output_adm.txt.diva_*
+	-rm -f *_MIT_CE_000.opt0000 costfunction*0000
+	-rm -f oad_cp.[0-9][0-9][0-9].?????
+
+makefile:
+	$(TOOLSDIR)/genmake2  "-mods" "../code" "-mpi" "-of" "/discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/tools/build_options/linux_amd64_ifort+gcc" "-ieee"
+cleanlinks:
+	-find . -type l -exec rm {} \;
+
+# Special targets (SPECIAL_FILES) which are created by make
+PACKAGES_CONFIG.h:
+	@echo Creating $@ ...
+	@$(TOOLSDIR)/convert_cpp_cmd2defines -bPACKAGES_CONFIG_H "Disabled packages:" $(DISABLED_PACKAGES) " " "Enabled packages:" $(ENABLED_PACKAGES) > $@
+AD_CONFIG.h:
+	@echo Creating $@ ...
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "Default version" -bAD_CONFIG_H -UALLOW_ADJOINT_RUN -UALLOW_TANGENTLINEAR_RUN > $@
+FC_NAMEMANGLE.h:
+	@echo Creating $@ ...
+	echo "#define FC_NAMEMANGLE(X)  X ## _" > $@
+
+BUILD_INFO.h:
+	@echo Creating $@ ...
+	-echo "#define THISVER 'checkpoint67b'" > $@
+	-echo "#define THISUSER 'estrobac'" >> $@
+	-echo "#define THISDATE 'Wed Jun 20 18:54:08 EDT 2018'" >> $@
+	-echo "#define THISHOST 'borgo025'" >> $@
+
+# The normal chain of rules is (  .F - .f - .o  )
+
+## This nullifies any default implicit rules concerning these two file types:
+## %.o : %.F
+
+# C preprocessing and replacing the _d in constants:
+CPPCMD = cat $< |  cpp -traditional -P $(DEFINES) $(INCLUDES) | $(TOOLSDIR)/set64bitConst.sh
+
+.F.f:
+	$(CPPCMD)  > $@
+.f.o:
+	$(FC) $(FFLAGS) $(FOPTIM) -c $<
+.F.o:
+	$(FC) $(FFLAGS) $(FOPTIM) -c $<
+.F90.f90:
+	$(CPPCMD)  > $@
+.FF90.ff90:
+	$(CPPCMD)  > $@
+.f90.o:
+	$(F90C) $(F90FLAGS) $(F90OPTIM) -c $<
+.ff90.o:
+	cp $< $(basename  $<).f90
+	$(F90C) $(F90FLAGS) $(F90OPTIM) -c $(F90FIXEDFORMAT) $(basename  $<).f90
+.c.o:
+	$(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $<
+.flow.flowdir:
+	$(CPPCMD) > $@
+
+# Special exceptions that use the ( .F - .p - .f - .o ) rule-chain
+.F.p:
+	$(CPPCMD) > $@
+.p.f:
+	$(KPP) $(KFLAGS1)$@ $(KFLAGS2) $<
+
+
+TAMC           = tamc
+TAF            = staf
+
+TAF_EXTRA      = 
+TAMC_EXTRA     = 
+LOCAL_MPI_HEADERS    = 
+
+AD_TAMC_FLAGS        = -reverse -admark ad -i4 -r4 -l tamc_ad.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+AD_TAF_FLAGS         = -server fastopt.net -f77 -reverse -i4 -r4 -intrinsic system,flush -l taf_ad.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+FTL_TAMC_FLAGS       = -forward -ftlmark g_ -i4 -r4 -l tamc_ftl.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+FTL_TAF_FLAGS        = -server fastopt.net -f77 -forward -i4 -r4 -intrinsic system,flush -l taf_ftl.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+SVD_TAMC_FLAGS       = -reverse -forward -pure -i4 -r4 -l tamc_svd.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+SVD_TAF_FLAGS        = -server fastopt.net -f77 -reverse -forward -pure -i4 -r4 -intrinsic system,flush -l taf_svd.log -toplevel 'the_main_loop' -input 'xx_theta_dummy xx_salt_dummy xx_tr1_dummy xx_hflux_dummy xx_sflux_dummy xx_tauu_dummy xx_tauv_dummy xx_atemp_dummy xx_aqh_dummy xx_precip_dummy xx_swflux_dummy xx_swdown_dummy xx_lwflux_dummy xx_lwdown_dummy xx_evap_dummy xx_snowprecip_dummy xx_apressure_dummy xx_runoff_dummy xx_uwind_dummy xx_vwind_dummy xx_obcsn_dummy xx_obcss_dummy xx_obcsw_dummy xx_obcse_dummy xx_sst_dummy xx_sss_dummy xx_depth_dummy xx_diffkr_dummy xx_kapgm_dummy xx_kapredi_dummy xx_bottomdrag_dummy xx_efluxy_dummy xx_efluxp_dummy xx_edtaux_dummy xx_edtauy_dummy xx_uvel_dummy xx_vvel_dummy xx_etan_dummy xx_gen2d_dummy xx_gen3d_dummy xx_genarr2d_dummy xx_genarr3d_dummy xx_gentim2d_dummy xx_siarea_dummy xx_siheff_dummy xx_sihsnow_dummy xx_shifwflx_dummy xx_relaxsst_dummy xx_relaxsss_dummy xx_atemp_mean_dummy xx_aqh_mean_dummy xx_precip_mean_dummy xx_swdown_mean_dummy xx_uwind_mean_dummy xx_vwind_mean_dummy' -output 'fc'
+
+AD_FILES =  \
+ ctrl_cost_driver.f \
+ ctrl_cost_gen.f \
+ ctrl_depth_ini.f \
+ ctrl_get_gen.f \
+ ctrl_get_gen_rec.f \
+ ctrl_init_rec.f \
+ ctrl_init_variables.f \
+ ctrl_map_ini.f \
+ ctrl_map_ini_ecco.f \
+ ctrl_map_ini_gen.f \
+ ctrl_map_ini_genarr.f \
+ ctrl_map_ini_gentim2d.f \
+ ctrl_map_forcing.f \
+ ctrl_map_gentim2d.f \
+ ctrl_smooth.f \
+ ctrl_getobcse.f \
+ ctrl_getobcsn.f \
+ ctrl_getobcss.f \
+ ctrl_getobcsw.f \
+ ctrl_init_obcs_variables.f \
+ ctrl_getrec.f \
+ ctrl_swapffields.f \
+ diagnostics_is_on.f \
+ exch2_3d_rl.f \
+ exch2_3d_rs.f \
+ exch2_sm_3d_rl.f \
+ exch2_uv_3d_rs.f \
+ exch2_uv_3d_rl.f \
+ exch2_uv_agrid_3d_rs.f \
+ exch2_uv_agrid_3d_rl.f \
+ exch2_uv_dgrid_3d_rs.f \
+ exch2_uv_dgrid_3d_rl.f \
+ gad_advection.f \
+ gad_biharm_r.f \
+ gad_biharm_x.f \
+ gad_biharm_y.f \
+ gad_c2_adv_r.f \
+ gad_c2_impl_r.f \
+ gad_c2_adv_x.f \
+ gad_c2_adv_y.f \
+ gad_c4_adv_r.f \
+ gad_c4_adv_x.f \
+ gad_c4_adv_y.f \
+ gad_calc_rhs.f \
+ gad_del2.f \
+ gad_diff_r.f \
+ gad_diff_x.f \
+ gad_diff_y.f \
+ gad_dst2u1_adv_r.f \
+ gad_dst2u1_impl_r.f \
+ gad_dst2u1_adv_x.f \
+ gad_dst2u1_adv_y.f \
+ gad_dst3_adv_x.f \
+ gad_dst3_adv_y.f \
+ gad_dst3_adv_r.f \
+ gad_dst3fl_adv_x.f \
+ gad_dst3fl_adv_y.f \
+ gad_dst3fl_adv_r.f \
+ gad_dst3fl_impl_r.f \
+ gad_fluxlimit_adv_r.f \
+ gad_fluxlimit_impl_r.f \
+ gad_fluxlimit_adv_x.f \
+ gad_fluxlimit_adv_y.f \
+ gad_grad_x.f \
+ gad_grad_y.f \
+ gad_implicit_r.f \
+ gad_init_varia.f \
+ gad_os7mp_adv_x.f \
+ gad_os7mp_adv_y.f \
+ gad_os7mp_adv_r.f \
+ gad_read_pickup.f \
+ gad_u3_adv_r.f \
+ gad_u3c4_impl_r.f \
+ gad_u3_adv_x.f \
+ gad_u3_adv_y.f \
+ gad_som_advect.f \
+ gad_som_adv_r.f \
+ gad_som_adv_x.f \
+ gad_som_adv_y.f \
+ gad_som_fill_cs_corner.f \
+ gad_som_lim_r.f \
+ gad_som_prep_cs_corner.f \
+ gad_som_exchanges.f \
+ gad_exch_som.f \
+ ggl90_calc_diff.f \
+ ggl90_calc_visc.f \
+ ggl90_calc.f \
+ ggl90_exchanges.f \
+ ggl90_init_fixed.f \
+ ggl90_init_varia.f \
+ ggl90_read_pickup.f \
+ ggl90_write_pickup.f \
+ gmredi_calc_diff.f \
+ gmredi_calc_psi_b.f \
+ gmredi_calc_tensor.f \
+ gmredi_do_exch.f \
+ gmredi_init_varia.f \
+ gmredi_residual_flow.f \
+ gmredi_rtransport.f \
+ gmredi_slope_limit.f \
+ gmredi_slope_psi.f \
+ gmredi_xtransport.f \
+ gmredi_ytransport.f \
+ mom_calc_absvort3.f \
+ mom_calc_hdiv.f \
+ mom_calc_hfacz.f \
+ mom_calc_ke.f \
+ mom_calc_relvort3.f \
+ mom_calc_strain.f \
+ mom_calc_tension.f \
+ mom_calc_visc.f \
+ mom_hdissip.f \
+ mom_quasihydrostatic.f \
+ mom_u_coriolis_nh.f \
+ mom_u_metric_nh.f \
+ mom_u_bottomdrag.f \
+ mom_u_rviscflux.f \
+ mom_u_sidedrag.f \
+ mom_v_coriolis_nh.f \
+ mom_v_metric_nh.f \
+ mom_v_bottomdrag.f \
+ mom_v_rviscflux.f \
+ mom_v_sidedrag.f \
+ mom_calc_rtrans.f \
+ mom_fluxform.f \
+ mom_u_adv_uu.f \
+ mom_u_adv_vu.f \
+ mom_u_adv_wu.f \
+ mom_u_coriolis.f \
+ mom_u_del2u.f \
+ mom_u_metric_cylinder.f \
+ mom_u_metric_sphere.f \
+ mom_u_xviscflux.f \
+ mom_u_yviscflux.f \
+ mom_v_adv_uv.f \
+ mom_v_adv_vv.f \
+ mom_v_adv_wv.f \
+ mom_v_coriolis.f \
+ mom_v_del2v.f \
+ mom_v_metric_cylinder.f \
+ mom_v_metric_sphere.f \
+ mom_v_xviscflux.f \
+ mom_v_yviscflux.f \
+ mom_vecinv.f \
+ mom_vi_coriolis.f \
+ mom_vi_del2uv.f \
+ mom_vi_hdissip.f \
+ mom_vi_u_coriolis.f \
+ mom_vi_u_coriolis_c4.f \
+ mom_vi_u_grad_ke.f \
+ mom_vi_u_vertshear.f \
+ mom_vi_v_coriolis.f \
+ mom_vi_v_coriolis_c4.f \
+ mom_vi_v_grad_ke.f \
+ mom_vi_v_vertshear.f \
+ read_fld_xyz_rs.f \
+ read_fld_xyz_rl.f \
+ read_fld_xy_rs.f \
+ read_fld_xy_rl.f \
+ read_rec.f \
+ salt_plume_apply.f \
+ salt_plume_calc_depth.f \
+ salt_plume_diagnostics_fill.f \
+ salt_plume_do_exch.f \
+ salt_plume_forcing_surf.f \
+ salt_plume_frac.f \
+ salt_plume_init_varia.f \
+ salt_plume_tendency_apply_s.f \
+ salt_plume_tendency_apply_t.f \
+ salt_plume_volfrac.f \
+ advect.f \
+ diffus.f \
+ dynsolver.f \
+ lsr.f \
+ ostres.f \
+ seaice_advection.f \
+ seaice_advdiff.f \
+ seaice_budget_ocean.f \
+ seaice_diagnostics_state.f \
+ seaice_diffusion.f \
+ seaice_get_dynforcing.f \
+ seaice_fake.f \
+ seaice_growth.f \
+ seaice_init_varia.f \
+ seaice_model.f \
+ seaice_read_pickup.f \
+ seaice_solve4temp.f \
+ seaice_tracer_phys.f \
+ seaice_cost_accumulate_mean.f \
+ seaice_cost_areasst.f \
+ seaice_cost_concentration.f \
+ seaice_cost_driver.f \
+ seaice_cost_export.f \
+ seaice_cost_final.f \
+ seaice_cost_init_varia.f \
+ seaice_cost_sensi.f \
+ seaice_cost_sss.f \
+ seaice_cost_sst.f \
+ seaice_ctrl_map_ini.f \
+ cost_ice_test.f \
+ seaice_calc_strainrates.f \
+ seaice_calc_viscosities.f \
+ seaice_dynsolver.f \
+ seaice_evp.f \
+ seaice_lsr.f \
+ seaice_freedrift.f \
+ seaice_ocean_stress.f \
+ seaice_oceandrag_coeffs.f \
+ seaice_map_thsice.f \
+ seaice_calc_ice_strength.f \
+ seaice_reg_ridge.f \
+ seaice_bottomdrag_coeffs.f \
+ seaice_calc_stressdiv.f \
+ different_multiple.f \
+ fill_cs_corner_ag_rl.f \
+ fill_cs_corner_tr_rl.f \
+ fill_cs_corner_uv_rs.f \
+ fill_cs_corner_uv_rl.f \
+ get_periodic_interval.f \
+ lef_zero.f \
+ exch_sm_3d_rl.f \
+ exch_3d_rs.f \
+ exch_3d_rl.f \
+ exch_xy_rl.f \
+ exch_xy_rs.f \
+ exch_xyz_rl.f \
+ exch_xyz_rs.f \
+ exch_uv_3d_rs.f \
+ exch_uv_3d_rl.f \
+ exch_uv_xy_rs.f \
+ exch_uv_xy_rl.f \
+ exch_uv_xyz_rs.f \
+ exch_uv_xyz_rl.f \
+ exch_uv_agrid_3d_rs.f \
+ exch_uv_agrid_3d_rl.f \
+ exch_uv_dgrid_3d_rs.f \
+ exch_uv_dgrid_3d_rl.f \
+ adams_bashforth2.f \
+ adams_bashforth3.f \
+ apply_forcing.f \
+ calc_3d_diffusivity.f \
+ calc_adv_flow.f \
+ calc_div_ghat.f \
+ calc_grad_phi_fv.f \
+ calc_grad_phi_hyd.f \
+ calc_grad_phi_surf.f \
+ calc_ivdc.f \
+ calc_phi_hyd.f \
+ calc_r_star.f \
+ calc_surf_dr.f \
+ calc_viscosity.f \
+ calc_wsurf_tr.f \
+ cg2d_nsa.f \
+ convective_adjustment.f \
+ convective_adjustment_ini.f \
+ convective_weights.f \
+ convectively_mixtracer.f \
+ correction_step.f \
+ cycle_ab_tracer.f \
+ cycle_tracer.f \
+ diags_phi_hyd.f \
+ diags_phi_rlow.f \
+ diags_rho.f \
+ do_atmospheric_phys.f \
+ do_fields_blocking_exchanges.f \
+ do_oceanic_phys.f \
+ do_stagger_fields_exchanges.f \
+ dynamics.f \
+ external_fields_load.f \
+ external_forcing_surf.f \
+ forcing_surf_relax.f \
+ find_alpha.f \
+ find_rho.f \
+ forward_step.f \
+ freesurf_rescale_g.f \
+ freeze_surface.f \
+ grad_sigma.f \
+ impldiff.f \
+ ini_cg2d.f \
+ ini_depths.f \
+ ini_ffields.f \
+ ini_fields.f \
+ ini_forcing.f \
+ ini_mixing.f \
+ ini_nh_fields.f \
+ ini_nlfs_vars.f \
+ ini_p_ground.f \
+ ini_pressure.f \
+ ini_psurf.f \
+ ini_salt.f \
+ ini_theta.f \
+ ini_dynvars.f \
+ ini_vel.f \
+ initialise_varia.f \
+ integrate_for_w.f \
+ integr_continuity.f \
+ load_fields_driver.f \
+ load_grid_spacing.f \
+ main_do_loop.f \
+ momentum_correction_step.f \
+ packages_init_variables.f \
+ pressure_for_eos.f \
+ read_pickup.f \
+ remove_mean.f \
+ reset_nlfs_vars.f \
+ rotate_uv2en.f \
+ salt_integrate.f \
+ temp_integrate.f \
+ seawater.f \
+ solve_for_pressure.f \
+ state_summary.f \
+ solve_pentadiagonal.f \
+ solve_tridiagonal.f \
+ taueddy_init_varia.f \
+ taueddy_tendency_apply.f \
+ timestep.f \
+ the_main_loop.f \
+ thermodynamics.f \
+ timestep_tracer.f \
+ tracers_correction_step.f \
+ update_cg2d.f \
+ update_etah.f \
+ update_etaws.f \
+ update_masks_etc.f \
+ update_r_star.f \
+ update_sigma.f \
+ update_surf_dr.f \
+ swfrac.f
+
+# ... AD ...
+adall: ad_exe_target
+adtaf: ad_taf_output.f
+adtamc: ad_tamc_output.f
+
+ad_exe_target:
+	@echo Update AD_CONFIG.h and make $(EXE_AD)
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "Adjoint version" -bAD_CONFIG_H -DALLOW_ADJOINT_RUN -UALLOW_TANGENTLINEAR_RUN > ad_config.template
+	@cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+	$(MAKE) -f $(MAKEFILE) $(EXE_AD)
+
+ad_input_code.f: $(AD_FILES) $(AD_FLOW_FILES)
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "Adjoint version" -bAD_CONFIG_H -DALLOW_ADJOINT_RUN -UALLOW_TANGENTLINEAR_RUN > ad_config.template
+	cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+	@$(MAKE) -f $(MAKEFILE) $(F77_PP_SRC_FILES)
+	@$(MAKE) -f $(MAKEFILE) $(FLOWFILES)
+	cat $(FLOWFILES) $(AD_FILES) | sed -f $(TOOLSDIR)/remove_comments_sed > ad_input_code.f
+
+adtafonly:
+	$(TAF) $(AD_TAF_FLAGS) $(TAF_EXTRA) ad_input_code.f
+	ls -l ad_input_code_ad.f
+	cat ad_input_code_ad.f | sed -f $(TOOLSDIR)/adjoint_sed > ad_taf_output.f
+
+# ... send 1 file to TAF ...
+ad_taf_output.f: ad_input_code.f
+	@-rm -f ad_input_code_ad.f ; echo ''
+	$(TAF) $(AD_TAF_FLAGS) $(TAF_EXTRA) ad_input_code.f
+	ls -l ad_input_code_ad.f
+	cat ad_input_code_ad.f | sed -f $(TOOLSDIR)/adjoint_sed > ad_taf_output.f
+
+$(EXE_AD): $(SPECIAL_FILES) $(H_SRC_FILES) ad_taf_output.o $(NON_AD_F77_SRC_FILES:.F=.o) $(F90_SRC_FILES:.F90=.o) $(C_SRC_FILES:.c=.o) $(EMBEDDED_FILES)
+	$(LINK) -o ${EXE_AD} $(FFLAGS) $(FOPTIM) ad_taf_output.o $(NON_AD_F77_SRC_FILES:.F=.o) $(F90_SRC_FILES:.F90=.o) $(C_SRC_FILES:.c=.o) $(LIBS)
+
+adobj: ad_taf_output.o $(NON_AD_F77_SRC_FILES:.F=.o) $(F90_SRC_FILES:.F90=.o) $(C_SRC_FILES:.c=.o)
+
+adonlyfwd:
+	patch < $(TOOLSDIR)/ad_taf_output.f.onlyfwd.diff
+
+adtrick:
+	patch < $(TOOLSDIR)/ad_taf_output.f.adtrick.diff
+
+ad_tamc_output.f: ad_input_code.f
+	$(TAMC) $(AD_TAMC_FLAGS) $(TAMC_EXTRA) ad_input_code.f
+	cat ad_input_code_ad.f | sed -f $(TOOLSDIR)/adjoint_sed > ad_tamc_output.f
+
+ad_tamc: ad_tamc_output.o $(OBJFILES)
+	$(LINK) -o mitgcmuv_ad $(FFLAGS) $(FOPTIM) $(OBJFILES) ad_tamc_output.o $(LIBS)
+
+# ... FTL ...
+ftlall: ftl_exe_target
+ftltaf: ftl_taf_output.f
+ftltamc: ftl_tamc_output.f
+
+ftl_exe_target:
+	@echo Update AD_CONFIG.h and make $(EXE_FTL)
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "TangLin version" -bAD_CONFIG_H -UALLOW_ADJOINT_RUN -DALLOW_TANGENTLINEAR_RUN > ad_config.template
+	@cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+	$(MAKE) -f $(MAKEFILE) $(EXE_FTL)
+
+ftl_input_code.f: $(AD_FILES)
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "TangLin version" -bAD_CONFIG_H -UALLOW_ADJOINT_RUN -DALLOW_TANGENTLINEAR_RUN > ad_config.template
+	cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+	@$(MAKE) -f $(MAKEFILE) $(F77_PP_SRC_FILES)
+	@$(MAKE) -f $(MAKEFILE) $(AD_FLOW_FILES)
+	cat $(AD_FLOW_FILES) $(AD_FILES) | sed -f $(TOOLSDIR)/remove_comments_sed > ftl_input_code.f
+
+ftltafonly:
+	$(TAF) $(FTL_TAF_FLAGS) $(TAF_EXTRA) ftl_input_code.f
+	ls -l ftl_input_code_tl.f
+	cat ftl_input_code_tl.f | sed -f $(TOOLSDIR)/adjoint_sed > ftl_taf_output.f
+
+# ... send 1 file to TAF ...
+ftl_taf_output.f: ftl_input_code.f
+	@-rm -f ftl_input_code_tl.f ; echo ''
+	$(TAF) $(FTL_TAF_FLAGS) $(TAF_EXTRA) ftl_input_code.f
+	ls -l ftl_input_code_tl.f
+	cat ftl_input_code_tl.f | sed -f $(TOOLSDIR)/adjoint_sed > ftl_taf_output.f
+
+$(EXE_FTL): $(SPECIAL_FILES) $(H_SRC_FILES) ftl_taf_output.o $(NON_AD_F77_SRC_FILES:.F=.o) $(F90_SRC_FILES:.F90=.o) $(C_SRC_FILES:.c=.o) $(EMBEDDED_FILES)
+	$(LINK) -o ${EXE_FTL} $(FFLAGS) $(FOPTIM) ftl_taf_output.o $(NON_AD_F77_SRC_FILES:.F=.o) $(F90_SRC_FILES:.F90=.o) $(C_SRC_FILES:.c=.o) $(LIBS)
+
+ftl_tamc_output.f: ftl_input_code.f
+	$(TAMC) $(FTL_TAMC_FLAGS) $(TAMC_EXTRA) ftl_input_code.f
+	cat ftl_input_code_ftl.f | sed -f $(TOOLSDIR)/adjoint_sed > ftl_tamc_output.f
+
+ftl_tamc: ftl_tamc_output.o $(OBJFILES)
+	$(LINK) -o mitgcmuv_ftl $(FFLAGS) $(FOPTIM) $(OBJFILES) ftl_tamc_output.o $(LIBS)
+
+# ... SVD ...
+svdtaf: ad_taf_output.f ftl_taf_output.f
+	@echo "--->>> Only ran TAF to generate SVD code!    <<<---"
+	@echo "--->>> Do make svdall afterwards to compile. <<<---"
+svdall: svd_touch svd_taf
+
+svd_taf: $(OBJFILES)
+	$(LINK) -o mitgcmuv_svd $(FFLAGS) $(FOPTIM) $(OBJFILES) ad_taf_output.o ftl_taf_output.o $(LIBS)
+
+	@echo "--->>> Only COMPILE svd code! <<<---"
+	@echo "--->>> Assumes you previously <<<---"
+	@echo "--->>> did make svdtaf        <<<---"
+
+svd_touch:
+	@echo "--->>> Only COMPILE svd code! <<<---"
+	@echo "--->>> Assumes you previously <<<---"
+	@echo "--->>> did make svdtaf        <<<---"
+	touch ad_taf_output.f ftl_taf_output.f
+	$(FC) $(FFLAGS) $(FOPTIM) -c ad_taf_output.f
+	$(FC) $(FFLAGS) $(FOPTIM) -c ftl_taf_output.f
+	@$(TOOLSDIR)/convert_cpp_cmd2defines "SVD version" -bAD_CONFIG_H -UALLOW_ADJOINT_RUN -DALLOW_TANGENTLINEAR_RUN > ad_config.template
+	cmp ad_config.template AD_CONFIG.h || cat ad_config.template > AD_CONFIG.h
+	@-rm -f ad_config.template
+
+# This section creates symbolic links
+
+
+#  These files are linked from ../code ( aka ../code )
+ CPP_EEOPTIONS.h CPP_OPTIONS.h CTRL_OPTIONS.h CTRL_SIZE.h DIAGNOSTICS_SIZE.h DIAG_OPTIONS.h GGL90_OPTIONS.h GMREDI_OPTIONS.h MDSIO_BUFF_3D.h mom_calc_visc.F MOM_COMMON_OPTIONS.h rotate_uv2en.F seaice_get_dynforcing.F SEAICE_LAYERS.h SEAICE_OPTIONS.h SEAICE_SIZE.h SIZE.h :
+	if [ ! -L $@ ]; then $(LN) ../code/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/ctrl ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/ctrl )
+ adctrl_bound.F ctrl_ad_check_lev1_dir.h ctrl_ad_check_lev2_dir.h ctrl_ad_check_lev3_dir.h ctrl_ad_check_lev4_dir.h ctrl_bound.F ctrl_check.F ctrl_cost_driver.F ctrl_cost_gen.F ctrl_depth_ini.F ctrl_dummy.h CTRL_FIELDS.h CTRL_GENARR.h ctrl_get_gen.F ctrl_get_gen_rec.F ctrl_getobcse.F ctrl_getobcsn.F ctrl_getobcss.F ctrl_getobcsw.F ctrl_getrec.F ctrl.h ctrl_hfacc_ini.F ctrl_init_ctrlvar.F ctrl_init.F ctrl_init_obcs_variables.F ctrl_init_rec.F ctrl_init_variables.F ctrl_init_wet.F ctrl_local_params.h ctrl_map_forcing.F ctrl_map_gentim2d.F ctrl_map_ini_ecco.F ctrl_map_ini.F ctrl_map_ini_genarr.F ctrl_map_ini_gen.F ctrl_map_ini_gentim2d.F ctrl_mask_set_xz.F ctrl_mask_set_yz.F CTRL_OBCS.h ctrl_pack.F ctrl_readparms.F ctrl_set_fname.F ctrl_set_globfld_xy.F ctrl_set_globfld_xyz.F ctrl_set_globfld_xz.F ctrl_set_globfld_yz.F ctrl_set_pack_xy.F ctrl_set_pack_xyz.F ctrl_set_pack_xz.F ctrl_set_pack_yz.F ctrl_set_unpack_xy.F ctrl_set_unpack_xyz.F ctrl_set_unpack_xz.F ctrl_set_unpack_yz.F ctrl_smooth.F ctrl_summary.F ctrl_swapffields.F ctrl_unpack.F ctrl_weights.h optim.h optim_readparms.F ctrl_bound.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/ctrl/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/debug ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/debug )
+ chksum_tiled.F debug_call.F debug_cs_corner_uv.F debug_enter.F debug_fld_stats_rl.F debug_fld_stats_rs.F debug_leave.F debug_msg.F DEBUG_OPTIONS.h debug_stats_rl.F debug_stats_rs.F fill_in_corners_rl.F write_fullarray_rl.F write_fullarray_rs.F debug_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/debug/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/diagnostics ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/diagnostics )
+ diag_calc_psivel.F diag_cg2d.F diagnostics_addtolist.F DIAGNOSTICS_CALC.h diagnostics_calc_phivel.F diagnostics_check.F diagnostics_clear.F diagnostics_fill.F diagnostics_fill_field.F diagnostics_fill_rs.F diagnostics_fill_state.F diagnostics_fract_fill.F DIAGNOSTICS.h diagnostics_ini_io.F diagnostics_init_early.F diagnostics_init_fixed.F diagnostics_init_varia.F diagnostics_interp_p2p.F diagnostics_interp_vert.F diagnostics_is_on.F diagnostics_list_check.F diagnostics_main_init.F diagnostics_mnc_out.F diagnostics_out.F diagnostics_readparms.F diagnostics_read_pickup.F diagnostics_scale_fill.F diagnostics_scale_fill_rs.F diagnostics_set_calc.F diagnostics_setdiag.F diagnostics_set_levels.F diagnostics_set_pointers.F diagnostics_status_error.F diagnostics_sum_levels.F diagnostics_summary.F diagnostics_switch_onoff.F diagnostics_utils.F diagnostics_write.F diagnostics_write_pickup.F diagstats_ascii_out.F diagstats_calc.F diagstats_clear.F diagstats_close_io.F diagstats_fill.F diagstats_global.F diagstats_ini_io.F diagstats_local.F diagstats_mnc_out.F diagstats_others_calc.F diagstats_output.F DIAGSTATS_REGIONS.h diagstats_setdiag.F diagstats_set_pointers.F diagstats_set_regions.F diag_vegtile_fill.F diagnostics_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/diagnostics/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/exch2 ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/exch2 )
+ exch2_3d_r4.F exch2_3d_r8.F exch2_3d_rl.F exch2_3d_rs.F exch2_ad_get_r41.F exch2_ad_get_r42.F exch2_ad_get_r81.F exch2_ad_get_r82.F exch2_ad_get_rl1.F exch2_ad_get_rl2.F exch2_ad_get_rs1.F exch2_ad_get_rs2.F exch2_ad_put_r41.F exch2_ad_put_r42.F exch2_ad_put_r81.F exch2_ad_put_r82.F exch2_ad_put_rl1.F exch2_ad_put_rl2.F exch2_ad_put_rs1.F exch2_ad_put_rs2.F exch2_check_depths.F exch2_get_r41.F exch2_get_r42.F exch2_get_r81.F exch2_get_r82.F exch2_get_rl1.F exch2_get_rl2.F exch2_get_rs1.F exch2_get_rs2.F exch2_get_scal_bounds.F exch2_get_uv_bounds.F exch2_put_r41.F exch2_put_r42.F exch2_put_r81.F exch2_put_r82.F exch2_put_rl1.F exch2_put_rl2.F exch2_put_rs1.F exch2_put_rs2.F exch2_r41_cube_ad.F exch2_r41_cube.F exch2_r42_cube_ad.F exch2_r42_cube.F exch2_r81_cube_ad.F exch2_r81_cube.F exch2_r82_cube_ad.F exch2_r82_cube.F exch2_recv_r41.F exch2_recv_r42.F exch2_recv_r81.F exch2_recv_r82.F exch2_recv_rl1.F exch2_recv_rl2.F exch2_recv_rs1.F exch2_recv_rs2.F exch2_rl1_cube_ad.F exch2_rl1_cube.F exch2_rl2_cube_ad.F exch2_rl2_cube.F exch2_rs1_cube_ad.F exch2_rs1_cube.F exch2_rs2_cube_ad.F exch2_rs2_cube.F exch2_s3d_r4.F exch2_s3d_r8.F exch2_s3d_rl.F exch2_s3d_rs.F exch2_send_r41.F exch2_send_r42.F exch2_send_r81.F exch2_send_r82.F exch2_send_rl1.F exch2_send_rl2.F exch2_send_rs1.F exch2_send_rs2.F exch2_sm_3d_r4.F exch2_sm_3d_r8.F exch2_sm_3d_rl.F exch2_sm_3d_rs.F exch2_uv_3d_r4.F exch2_uv_3d_r8.F exch2_uv_3d_rl.F exch2_uv_3d_rs.F exch2_uv_agrid_3d_r4.F exch2_uv_agrid_3d_r8.F exch2_uv_agrid_3d_rl.F exch2_uv_agrid_3d_rs.F exch2_uv_bgrid_3d_r4.F exch2_uv_bgrid_3d_r8.F exch2_uv_bgrid_3d_rl.F exch2_uv_bgrid_3d_rs.F exch2_uv_cgrid_3d_r4.F exch2_uv_cgrid_3d_r8.F exch2_uv_cgrid_3d_rl.F exch2_uv_cgrid_3d_rs.F exch2_uv_dgrid_3d_r4.F exch2_uv_dgrid_3d_r8.F exch2_uv_dgrid_3d_rl.F exch2_uv_dgrid_3d_rs.F exch2_z_3d_r4.F exch2_z_3d_r8.F exch2_z_3d_rl.F exch2_z_3d_rs.F w2_cumulsum_z_tile.F w2_e2setup.F w2_eeboot.F W2_EXCH2_BUFFER.h W2_EXCH2_PARAMS.h W2_EXCH2_SIZE.h W2_EXCH2_TOPOLOGY.h w2_map_procs.F W2_OPTIONS.h w2_print_comm_sequence.F w2_print_e2setup.F w2_readparms.F w2_set_cs6_facets.F w2_set_f2f_index.F w2_set_gen_facets.F w2_set_map_cumsum.F w2_set_map_tiles.F w2_set_myown_facets.F w2_set_single_facet.F w2_set_tile2tiles.F exch2.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/exch2/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/generic_advdiff ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/generic_advdiff )
+ gad_ad_check_lev1_dir.h gad_ad_check_lev2_dir.h gad_ad_check_lev3_dir.h gad_ad_check_lev4_dir.h gad_advection.F gad_advscheme.F gad_biharm_r.F gad_biharm_x.F gad_biharm_y.F gad_c2_adv_r.F gad_c2_adv_x.F gad_c2_adv_y.F gad_c2_impl_r.F gad_c4_adv_r.F gad_c4_adv_x.F gad_c4_adv_y.F gad_calc_rhs.F gad_check.F gad_del2.F gad_diagnostics_init.F gad_diagnostics_state.F gad_diff_r.F gad_diff_x.F gad_diff_y.F gad_dst2u1_adv_r.F gad_dst2u1_adv_x.F gad_dst2u1_adv_y.F gad_dst2u1_impl_r.F gad_dst3_adv_r.F gad_dst3_adv_x.F gad_dst3_adv_y.F gad_dst3fl_adv_r.F gad_dst3fl_adv_x.F gad_dst3fl_adv_y.F gad_dst3fl_impl_r.F gad_exch_som.F gad_fluxlimit_adv_r.F gad_fluxlimit_adv_x.F gad_fluxlimit_adv_y.F GAD_FLUX_LIMITER.h gad_fluxlimit_impl_r.F gad_grad_x.F gad_grad_y.F GAD.h gad_implicit_r.F gad_init_fixed.F gad_init_varia.F GAD_OPTIONS.h gad_os7mp_adv_r.F gad_os7mp_adv_x.F gad_os7mp_adv_y.F gad_osc_hat_r.F gad_osc_hat_x.F gad_osc_hat_y.F gad_osc_mul_r.F gad_osc_mul_x.F gad_osc_mul_y.F gad_plm_fun.F gad_ppm_adv_r.F gad_ppm_adv_x.F gad_ppm_adv_y.F gad_ppm_flx_r.F gad_ppm_flx_x.F gad_ppm_flx_y.F gad_ppm_fun.F gad_ppm_hat_r.F gad_ppm_hat_x.F gad_ppm_hat_y.F gad_ppm_p3e_r.F gad_ppm_p3e_x.F gad_ppm_p3e_y.F gad_pqm_adv_r.F gad_pqm_adv_x.F gad_pqm_adv_y.F gad_pqm_flx_r.F gad_pqm_flx_x.F gad_pqm_flx_y.F gad_pqm_fun.F gad_pqm_hat_r.F gad_pqm_hat_x.F gad_pqm_hat_y.F gad_pqm_p5e_r.F gad_pqm_p5e_x.F gad_pqm_p5e_y.F gad_read_pickup.F gad_som_advect.F gad_som_adv_r.F gad_som_adv_x.F gad_som_adv_y.F gad_som_exchanges.F gad_som_fill_cs_corner.F gad_som_lim_r.F gad_som_prep_cs_corner.F GAD_SOM_VARS.h gad_u3_adv_r.F gad_u3_adv_x.F gad_u3_adv_y.F gad_u3c4_impl_r.F gad_write_pickup.F salt_fill.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/generic_advdiff/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/ggl90 ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/ggl90 )
+ ggl90_ad_check_lev1_dir.h ggl90_ad_check_lev2_dir.h ggl90_ad_check_lev3_dir.h ggl90_ad_check_lev4_dir.h ggl90_calc_diff.F ggl90_calc.F ggl90_calc_visc.F ggl90_check.F ggl90_diagnostics_init.F ggl90_exchanges.F GGL90.h ggl90_idemix.F ggl90_init_fixed.F ggl90_init_varia.F ggl90_output.F ggl90_readparms.F ggl90_read_pickup.F GGL90_TAVE.h ggl90_write_pickup.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/ggl90/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/gmredi ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/gmredi )
+ gmredi_calc_diff.F gmredi_calc_eigs.F gmredi_calc_psi_b.F gmredi_calc_psi_bvp.F gmredi_calc_tensor.F gmredi_calc_urms.F gmredi_check.F gmredi_diagnostics_fill.F gmredi_diagnostics_impl.F gmredi_diagnostics_init.F gmredi_do_exch.F GMREDI.h gmredi_init_fixed.F gmredi_init_varia.F gmredi_k3d.F gmredi_mnc_init.F gmredi_output.F gmredi_readparms.F gmredi_read_pickup.F gmredi_residual_flow.F gmredi_rtransport.F gmredi_slope_limit.F gmredi_slope_psi.F GMREDI_TAVE.h gmredi_write_pickup.F gmredi_xtransport.F gmredi_ytransport.F submeso_calc_psi.F gmredi_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/gmredi/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/mdsio ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/mdsio )
+ mdsio_buffertorl.F mdsio_buffertors.F MDSIO_BUFF_WH.h mdsio_check4file.F mdsio_facef_read.F mdsio_gl.F mdsio_gl_slice.F MDSIO_OPTIONS.h mdsio_pass_r4torl.F mdsio_pass_r4tors.F mdsio_pass_r8torl.F mdsio_pass_r8tors.F mdsio_rd_rec_rl.F mdsio_rd_rec_rs.F mdsio_read_field.F mdsio_read_meta.F mdsio_read_section.F mdsio_read_tape.F mdsio_readvec_loc.F mdsio_read_whalos.F mdsio_rw_field.F mdsio_rw_slice.F mdsio_seg4torl.F mdsio_seg4tors.F mdsio_seg8torl.F mdsio_seg8tors.F mdsio_segxtorx_2d.F mdsio_write_field.F mdsio_writelocal.F mdsio_write_meta.F mdsio_write_section.F mdsio_write_tape.F mdsio_writevec_loc.F mdsio_write_whalos.F mdsio_wr_metafiles.F mdsio_wr_rec_rl.F mdsio_wr_rec_rs.F mdsio_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/mdsio/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/mom_common ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/mom_common )
+ mom_calc_3d_strain.F mom_calc_absvort3.F mom_calc_hdiv.F mom_calc_hfacz.F mom_calc_ke.F mom_calc_relvort3.F mom_calc_smag_3d.F mom_calc_strain.F mom_calc_tension.F mom_diagnostics_init.F mom_hdissip.F mom_init_fixed.F mom_quasihydrostatic.F mom_u_botdrag_impl.F mom_u_bottomdrag.F mom_u_coriolis_nh.F mom_u_implicit_r.F mom_u_metric_nh.F mom_u_rviscflux.F mom_u_sidedrag.F mom_uv_smag_3d.F mom_v_botdrag_impl.F mom_v_bottomdrag.F mom_v_coriolis_nh.F mom_v_implicit_r.F MOM_VISC.h mom_v_metric_nh.F mom_v_rviscflux.F mom_v_sidedrag.F mom_w_coriolis_nh.F mom_w_metric_nh.F mom_w_sidedrag.F mom_w_smag_3d.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/mom_common/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/mom_fluxform ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/mom_fluxform )
+ mom_calc_rtrans.F mom_fluxform.F MOM_FLUXFORM.h MOM_FLUXFORM_OPTIONS.h mom_u_adv_uu.F mom_u_adv_vu.F mom_u_adv_wu.F mom_u_coriolis.F mom_u_del2u.F mom_u_metric_cylinder.F mom_u_metric_sphere.F mom_uv_boundary.F mom_u_xviscflux.F mom_u_yviscflux.F mom_v_adv_uv.F mom_v_adv_vv.F mom_v_adv_wv.F mom_v_coriolis.F mom_v_del2v.F mom_v_metric_cylinder.F mom_v_metric_sphere.F mom_v_xviscflux.F mom_v_yviscflux.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/mom_fluxform/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/mom_vecinv ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/mom_vecinv )
+ mom_vecinv.F MOM_VECINV_OPTIONS.h mom_vi_coriolis.F mom_vi_del2uv.F mom_vi_hdissip.F mom_vi_u_coriolis_c4.F mom_vi_u_coriolis.F mom_vi_u_grad_ke.F mom_vi_u_vertshear.F mom_vi_v_coriolis_c4.F mom_vi_v_coriolis.F mom_vi_v_grad_ke.F mom_vi_v_vertshear.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/mom_vecinv/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/monitor ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/monitor )
+ mon_advcfl.F mon_advcflw2.F mon_advcflw.F mon_calc_advcfl.F mon_calc_stats_rl.F mon_calc_stats_rs.F mon_init.F monitor_ad.F monitor.F monitor_g.F MONITOR.h MONITOR_OPTIONS.h mon_ke.F mon_out.F mon_printstats_rl.F mon_printstats_rs.F mon_set_iounit.F mon_set_pref.F mon_solution.F mon_stats_latbnd_rl.F mon_stats_rl.F mon_stats_rs.F mon_surfcor.F mon_vort3.F mon_writestats_rl.F mon_writestats_rs.F monitor_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/monitor/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/rw ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/rw )
+ get_write_global_fld.F read_fld_xy_rl.F read_fld_xy_rs.F read_fld_xyz_rl.F read_fld_xyz_rs.F read_glvec_rl.F read_glvec_rs.F read_mflds.F read_rec.F rw_get_suffix.F RW_MFLDS.h RW_OPTIONS.h set_write_global_fld.F write_fld_3d_rl.F write_fld_3d_rs.F write_fld_s3d_rl.F write_fld_s3d_rs.F write_fld_xy_rl.F write_fld_xy_rs.F write_fld_xyz_rl.F write_fld_xyz_rs.F write_glvec_rl.F write_glvec_rs.F write_local_rl.F write_local_rs.F write_rec.F rw_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/rw/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/salt_plume ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/salt_plume )
+ salt_plume_ad_check_lev1_dir.h salt_plume_ad_check_lev2_dir.h salt_plume_ad_check_lev3_dir.h salt_plume_ad_check_lev4_dir.h salt_plume_apply.F salt_plume_calc_depth.F salt_plume_check.F salt_plume_diagnostics_fill.F salt_plume_diagnostics_init.F salt_plume_do_exch.F salt_plume_forcing_surf.F salt_plume_frac.F SALT_PLUME.h salt_plume_init_fixed.F salt_plume_init_varia.F salt_plume_mnc_init.F SALT_PLUME_OPTIONS.h salt_plume_readparms.F salt_plume_tendency_apply_s.F salt_plume_tendency_apply_t.F salt_plume_volfrac.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/salt_plume/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/pkg/seaice ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/pkg/seaice )
+ advect.F cost_ice_test.F diffus.F dynsolver.F lsr.F ostres.F seaice_ad_check_lev1_dir.h seaice_ad_check_lev2_dir.h seaice_ad_check_lev3_dir.h seaice_ad_check_lev4_dir.h seaice_ad_dump.F seaice_advdiff.F seaice_advection.F seaice_bottomdrag_coeffs.F seaice_budget_ocean.F seaice_calc_ice_strength.F seaice_calc_lhs.F seaice_calc_residual.F seaice_calc_rhs.F seaice_calc_strainrates.F seaice_calc_stressdiv.F seaice_calc_viscosities.F seaice_check.F seaice_check_pickup.F seaice_cost_accumulate_mean.F seaice_cost_areasst.F seaice_cost_concentration.F seaice_cost_driver.F seaice_cost_export.F seaice_cost_final.F SEAICE_COST.h seaice_cost_init_fixed.F seaice_cost_init_varia.F seaice_cost_sensi.F seaice_cost_sss.F seaice_cost_sst.F seaice_cost_weights.F seaice_ctrl_map_ini.F seaice_diagnostics_init.F seaice_diagnostics_state.F seaice_diffusion.F seaice_do_ridging.F seaice_dynsolver.F seaice_evp.F seaice_fake.F seaice_fgmres.F seaice_freedrift.F seaice_growth.F SEAICE.h seaice_init_fixed.F seaice_init_varia.F seaice_itd_pickup.F seaice_itd_redist.F seaice_itd_remap.F seaice_itd_sum.F seaice_jacvec.F seaice_jfnk.F seaice_krylov.F seaice_lsr.F seaice_map_thsice.F seaice_mnc_init.F seaice_model.F seaice_mom_advection.F seaice_monitor_ad.F seaice_monitor.F seaice_obcs_output.F seaice_oceandrag_coeffs.F seaice_ocean_stress.F seaice_output.F SEAICE_PARAMS.h seaice_preconditioner.F seaice_prepare_ridging.F seaice_readparms.F seaice_read_pickup.F seaice_reg_ridge.F seaice_solve4temp.F seaice_summary.F SEAICE_TAVE.h SEAICE_TRACER.h seaice_tracer_phys.F seaice_turnoff_io.F seaice_write_pickup.F seaice.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/pkg/seaice/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/eesupp/src ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/eesupp/src )
+ all_proc_die.F bar2.F bar_check.F barrier.F check_threads.F comm_stats.F cumulsum_z_tile.F different_multiple.F diff_phase_multiple.F eeboot.F eeboot_minimal.F eedata_example.F eedie.F eeintro_msg.F eeset_parms.F eewrite_eeenv.F exch0_r4.F exch0_r8.F exch0_rl.F exch0_rs.F exch1_bg_r4_cube.F exch1_bg_r8_cube.F exch1_bg_rl_cube.F exch1_bg_rs_cube.F exch1_r4_cube.F exch1_r4.F exch1_r8_cube.F exch1_r8.F exch1_rl_ad.F exch1_rl_cube_ad.F exch1_rl_cube.F exch1_rl.F exch1_rs_ad.F exch1_rs_cube_ad.F exch1_rs_cube.F exch1_rs.F exch1_uv_r4_cube.F exch1_uv_r8_cube.F exch1_uv_rl_cube.F exch1_uv_rs_cube.F exch1_z_r4_cube.F exch1_z_r8_cube.F exch1_z_rl_cube.F exch1_z_rs_cube.F exch_3d_r4.F exch_3d_r8.F exch_3d_rl.F exch_3d_rs.F exch_cycle_ebl.F exch_init.F exch_r4_recv_get_x.F exch_r4_recv_get_y.F exch_r4_send_put_x.F exch_r4_send_put_y.F exch_r8_recv_get_x.F exch_r8_recv_get_y.F exch_r8_send_put_x.F exch_r8_send_put_y.F exch_rl_recv_get_x.F exch_rl_recv_get_y.F exch_rl_send_put_x.F exch_rl_send_put_y.F exch_rs_recv_get_x.F exch_rs_recv_get_y.F exch_rs_send_put_x.F exch_rs_send_put_y.F exch_s3d_r4.F exch_s3d_r8.F exch_s3d_rl.F exch_s3d_rs.F exch_sm_3d_r4.F exch_sm_3d_r8.F exch_sm_3d_rl.F exch_sm_3d_rs.F exch_uv_3d_r4.F exch_uv_3d_r8.F exch_uv_3d_rl.F exch_uv_3d_rs.F exch_uv_agrid_3d_r4.F exch_uv_agrid_3d_r8.F exch_uv_agrid_3d_rl.F exch_uv_agrid_3d_rs.F exch_uv_bgrid_3d_r4.F exch_uv_bgrid_3d_r8.F exch_uv_bgrid_3d_rl.F exch_uv_bgrid_3d_rs.F exch_uv_dgrid_3d_r4.F exch_uv_dgrid_3d_r8.F exch_uv_dgrid_3d_rl.F exch_uv_dgrid_3d_rs.F exch_uv_xy_r4.F exch_uv_xy_r8.F exch_uv_xy_rl.F exch_uv_xy_rs.F exch_uv_xyz_r4.F exch_uv_xyz_r8.F exch_uv_xyz_rl.F exch_uv_xyz_rs.F exch_xy_r4.F exch_xy_r8.F exch_xy_rl.F exch_xy_rs.F exch_xyz_r4.F exch_xyz_r8.F exch_xyz_rl.F exch_xyz_rs.F exch_z_3d_r4.F exch_z_3d_r8.F exch_z_3d_rl.F exch_z_3d_rs.F fill_cs_corner_ag_rl.F fill_cs_corner_tr_rl.F fill_cs_corner_uv_rl.F fill_cs_corner_uv_rs.F fool_the_compiler.F gather_2d_r4.F gather_2d_r8.F gather_2d_wh_r4.F gather_2d_wh_r8.F gather_vec_r4.F gather_vec_r8.F gather_xz.F gather_yz.F get_periodic_interval.F global_max.F global_sum.F global_sum_singlecpu.F global_sum_tile.F global_vec_sum.F gsl_ieee_env.c gsum.F ini_communication_patterns.F ini_procs.F ini_threading_environment.F lef_zero.F main.F master_cpu_io.F master_cpu_thread.F mds_byteswapi4.F mds_byteswapr4.F mds_byteswapr8.F mdsfindunit.F mds_flush.F mds_reclen.F memsync.F nml_change_syntax.F nml_set_terminator.F open_copy_data_file.F print.F ptwrapper.c reset_halo.F scatter_2d_r4.F scatter_2d_r8.F scatter_2d_wh_r4.F scatter_2d_wh_r8.F scatter_vec_r4.F scatter_vec_r8.F scatter_xz.F scatter_yz.F setdir.c setrlstk.c sigreg.c stop_if_error.F tim.c timers.F timer_stats.c utils.F write_utils.F eesupp.flow exch1_ad.flow :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/eesupp/src/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/model/src ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/model/src )
+ adams_bashforth2.F adams_bashforth3.F add_walls2masks.F apply_forcing.F calc_3d_diffusivity.F calc_adv_flow.F calc_div_ghat.F calc_eddy_stress.F calc_grad_phi_fv.F calc_grad_phi_hyd.F calc_grad_phi_surf.F calc_grid_angles.F calc_gw.F calc_ivdc.F calc_oce_mxlayer.F calc_phi_hyd.F calc_r_star.F calc_surf_dr.F calc_viscosity.F calc_wsurf_tr.F cg2d_ex0.F cg2d.F cg2d_nsa.F cg2d_sr.F cg3d_ex0.F cg3d.F check_pickup.F config_check.F config_summary.F convective_adjustment.F convective_adjustment_ini.F convectively_mixtracer.F convective_weights.F correction_step.F cycle_ab_tracer.F cycle_tracer.F diags_oceanic_surf_flux.F diags_phi_hyd.F diags_phi_rlow.F diags_rho.F do_atmospheric_phys.F do_fields_blocking_exchanges.F do_oceanic_phys.F do_stagger_fields_exchanges.F do_statevars_diags.F do_statevars_tave.F do_the_model_io.F do_write_pickup.F dynamics.F external_fields_load.F external_forcing.F external_forcing_surf.F find_alpha.F find_hyd_press_1d.F find_rho.F forcing_surf_relax.F forward_step.F freesurf_rescale_g.F freeze_surface.F grad_sigma.F gsw_teos10.F impldiff.F ini_cartesian_grid.F ini_cg2d.F ini_cg3d.F ini_cori.F ini_curvilinear_grid.F ini_cylinder_grid.F ini_depths.F ini_dynvars.F ini_eos.F ini_ffields.F ini_fields.F ini_forcing.F ini_global_domain.F ini_grid.F ini_linear_phisurf.F ini_local_grid.F ini_masks_etc.F ini_mixing.F ini_mnc_vars.F ini_model_io.F ini_nh_fields.F ini_nh_vars.F ini_nlfs_vars.F ini_parms.F ini_p_ground.F ini_pressure.F ini_psurf.F ini_salt.F ini_sigma_hfac.F ini_spherical_polar_grid.F ini_theta.F initialise_fixed.F initialise_varia.F ini_vel.F ini_vertical_grid.F integrate_for_w.F integr_continuity.F load_fields_driver.F load_grid_spacing.F load_ref_files.F main_do_loop.F momentum_correction_step.F packages_boot.F packages_check.F packages_error_msg.F packages_init_fixed.F packages_init_variables.F packages_print_msg.F packages_readparms.F packages_unused_msg.F packages_write_pickup.F plot_field.F port_rand.F post_cg3d.F pre_cg3d.F pressure_for_eos.F read_pickup.F remove_mean.F reset_nlfs_vars.F rotate_spherical_polar_grid.F salt_integrate.F seawater.F set_defaults.F set_grid_factors.F set_parms.F set_ref_state.F solve_for_pressure.F solve_pentadiagonal.F solve_tridiagonal.F solve_uv_tridiago.F state_summary.F swfrac.F taueddy_init_varia.F taueddy_tendency_apply.F temp_integrate.F the_main_loop.F the_model_main.F thermodynamics.F timestep.F timestep_tracer.F timestep_wvel.F tracers_correction_step.F tracers_iigw_correction.F turnoff_model_io.F update_cg2d.F update_etah.F update_etaws.F update_masks_etc.F update_r_star.F update_sigma.F update_surf_dr.F write_grid.F write_pickup.F write_state.F :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/model/src/$@ $@; fi
+
+#  These files are linked from /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include ( aka /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include )
+ clog_commset.h clog_const.h clog_inttypes.h clog_uuid.h mpe_callstack.h mpe_graphicsf.h mpe_graphics.h mpe.h mpe_logf.h mpe_log.h mpe_log_thread.h mpe_misc.h mpicxx.h mpif.h mpi.h mpiof.h mpio.h mpix.h opa_config.h opa_primitives.h opa_queue.h opa_util.h :
+	if [ ! -L $@ ]; then $(LN) /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/eesupp/inc ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/eesupp/inc )
+ BAR2.h BARRIER.h CPP_EEMACROS.h CUMULSUM.h DEF_IN_MAKEFILE.h EEBUFF_SCPU.h EEPARAMS.h EESUPPORT.h EXCH.h GLOBAL_MAX.h GLOBAL_SUM.h MAIN_PDIRECTIVES1.h MAIN_PDIRECTIVES2.h MPI_INFO.h SIGREG.h :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/eesupp/inc/$@ $@; fi
+
+#  These files are linked from $(ROOTDIR)/model/inc ( aka /discover/nobackup/estrobac/Heracles-5_4_c48_llc90_SEAICE//MITgcm/model/inc )
+ CG2D.h CG3D.h DXC_MACROS.h DXF_MACROS.h DXG_MACROS.h DXV_MACROS.h DYC_MACROS.h DYF_MACROS.h DYG_MACROS.h DYNVARS.h DYU_MACROS.h EOS.h FCORI_MACROS.h FFIELDS.h GRID.h GRID_MACROS.h HFACC_MACROS.h HFACS_MACROS.h HFACW_MACROS.h MASKS_MACROS.h MASKW_MACROS.h NH_VARS.h PARAMS.h RA_MACROS.h RAS_MACROS.h RAW_MACROS.h RECIP_DXC_MACROS.h RECIP_DXF_MACROS.h RECIP_DXG_MACROS.h RECIP_DXV_MACROS.h RECIP_DYC_MACROS.h RECIP_DYF_MACROS.h RECIP_DYG_MACROS.h RECIP_DYU_MACROS.h RECIP_HFACC_MACROS.h RECIP_HFACS_MACROS.h RECIP_HFACW_MACROS.h RESTART.h SET_GRID.h SOLVE_FOR_PRESSURE3D.h SOLVE_FOR_PRESSURE.h SURFACE.h TANPHIATU_MACROS.h TANPHIATV_MACROS.h THE_MODEL_COMMON_BLOCKS.h XC_MACROS.h YC_MACROS.h :
+	if [ ! -L $@ ]; then $(LN) $(ROOTDIR)/model/inc/$@ $@; fi
+
+
+# DO NOT DELETE

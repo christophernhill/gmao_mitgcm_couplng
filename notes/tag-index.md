@@ -1,4 +1,5 @@
 - checkpoint_0_W (2018/06/21, compatible with MITgcm checkpoint67b)
+  * Added new c48_llc90_SEAICE experiment
   * Separating and consolidating instructions
     - notes/dimitris_notes contains
       instructions for building VirtualBox environments
