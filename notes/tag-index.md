@@ -4,11 +4,18 @@
       instructions for building VirtualBox environments
     - notes/Build_GMAO_Baselibs.txt contains
       instructions for building GMAO Baselibs
+  * add to imports grid-cell ocean fraction from GEOS (WGHT) and
+    propagate it to MITgcm
   * Designating experiments/c12_cs32_01 and c48_llc90_02
     as "verification experiments".
   * Added new c720_llc1080_Restart experiment - after 5 days passive ocean
   * Added new c720_llc1080_Debug experiment - runs for 5 time steps
   * Added new c720_llc1080_01 experiment - setup for relaxation with passive ocean
+
+March 2018
+  * get MITgcm code from GitHub
+  * allow 3-D fields to have different 3rd dim in MITgcm State
+  * get seaice fields imported from GEOS to the Plug and then to MITgcm
 
 - checkpoint_0_V (2017/10/25, compatible with MITgcm checkpoint66l)
   * Add pkg/ctrl at compile and run time
