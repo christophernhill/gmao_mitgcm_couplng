@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 LIST_1="CPP_EEMACROS.h CPP_EEOPTIONS.h CPP_OPTIONS.h"
-LIST_2="EEPARAMS.h"
+LIST_2="EEPARAMS.h SEAICE_PARAMS.h"
 
 if test $# != 1 ; then
     echo "error: need argument = directory where original src files are"
@@ -18,11 +18,19 @@ else
 fi
 
 for ff in $LIST_1 ; do
+  if test -f $LOC_SRC_DIR/$ff ; then
     echo " generate local file: $ff"
     sed 's/^[Cc]/!/' $LOC_SRC_DIR/$ff > $ff
+  else
+    echo " missing original file: $ff"
+  fi
 done
 
 for ff in $LIST_2 ; do
+  if test -f $LOC_SRC_DIR/$ff ; then
     echo " generate local file: $ff"
     sed 's/ _d / D /g' $LOC_SRC_DIR/$ff > $ff
+  else
+    echo " missing original file: $ff"
+  fi
 done
