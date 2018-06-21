@@ -1,5 +1,4 @@
 - checkpoint_0_W (2018/06/21, compatible with MITgcm checkpoint67b)
-  * Added new c48_llc90_SEAICE experiment
   * Separating and consolidating instructions
     - notes/dimitris_notes contains
       instructions for building VirtualBox environments
@@ -7,6 +6,9 @@
       instructions for building GMAO Baselibs
   * Designating experiments/c12_cs32_01 and c48_llc90_02
     as "verification experiments".
+  * Added new c720_llc1080_Restart experiment - after 5 days passive ocean
+  * Added new c720_llc1080_Debug experiment - runs for 5 time steps
+  * Added new c720_llc1080_01 experiment - setup for relaxation with passive ocean
 
 - checkpoint_0_V (2017/10/25, compatible with MITgcm checkpoint66l)
   * Add pkg/ctrl at compile and run time
