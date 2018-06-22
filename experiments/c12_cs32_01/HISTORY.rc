@@ -56,8 +56,8 @@ COLLECTIONS: 'geosgcm_prog'
   		  'SFLX', 'MIT',
                   'SI','MIT',
                   'HI','MIT',
-                  'DELSI','MIT',
-                  'DELHI','MIT',
+                  'DEL_SI','MIT',
+                  'DEL_HI','MIT',
                   'WGHT','MIT'
 # we could put more exports once they are enabled in MIT plug
 		  ::
