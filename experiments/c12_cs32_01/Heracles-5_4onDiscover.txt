@@ -6,33 +6,8 @@
  setenv WorkingDir $NOBACKUP/Heracles-5_4
  mkdir $WorkingDir
 
-# Get GEOS-5
-# For instructions below to work, you need to:
-# (1) have an account on engaging,
-# (2) have correct id_rsa key in ~/.ssh, and
-# (3) replace USERNAME with your engaging username.
- cd $WorkingDir
- git clone USERNAME@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
- cd GEOSodas
- git checkout b_geos5mit
-
-# Get GEOS-5 to MITgcm coupling code
-# For instructions below to work, you need to:
-# (1) have a github account
-# (2) have been granted access to
-#     https://github.com/christophernhill/gmao_mitgcm_couplng
-# (3) have added ssh key to your github account
-#     https://help.github.com/articles/generating-an-ssh-key
- cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
- cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
- git clone git@github.com:christophernhill/gmao_mitgcm_couplng
-
-# Get MITgcm from GitHub
- cd $WorkingDir
-#- method 1, using https:
- git clone https://github.com/MITgcm/MITgcm.git
-#- method 2, using ssh (requires a github account):
- git clone git@github.com:MITgcm/MITgcm.git
+# Get GEOS-MITgcm code
+# See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
 # xsub -I -l select=1,walltime=8:00:00

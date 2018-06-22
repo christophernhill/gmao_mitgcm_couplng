@@ -1,10 +1,15 @@
-  * Replaced "\rm" with "rm"
-  * Adding spaces before commands for easier cut&paste
-  * Replaced deprecated ROOTDIR with MITGCM_ROOTDIR in instructions
-  * Moved experiments/*/verification to experiments/*/results
-  * experiments/c12_cs32_0*/results/STDOUT.0000 and gcm_run.out
-    renamed STDOUT.0000_gfortran and gcm_run.out_gfortran
-    (these are for comparison with Linux gfortran tests)
+  * Cleaning up and consolidating instructions
+    - Replaced "\rm" with "rm"
+    - Adding spaces before commands for easier cut&paste
+    - Replaced deprecated ROOTDIR with MITGCM_ROOTDIR in instructions
+    - Moved experiments/*/verification to experiments/*/results
+    - experiments/c12_cs32_0*/results/STDOUT.0000 and gcm_run.out
+      renamed STDOUT.0000_gfortran and gcm_run.out_gfortran
+      (these are for comparison with Linux gfortran tests)
+    - notes/build_GMAO-Baselibs.txt contains
+      instructions for building GMAO Baselibs
+    - notes/get_GEOS-MITgcm.txt contains
+      instructions for getting the GEOS-MITgcm code
 
 - checkpoint_0_W (2018/06/21, compatible with MITgcm checkpoint67b)
   * Separating and consolidating instructions
@@ -20,7 +25,7 @@
   * Added new c720_llc1080_Debug experiment - runs for 5 time steps
   * Added new c720_llc1080_01 experiment - setup for relaxation with passive ocean
 
-March 2018
+- March 2018
   * get MITgcm code from GitHub
   * allow 3-D fields to have different 3rd dim in MITgcm State
   * get seaice fields imported from GEOS to the Plug and then to MITgcm
