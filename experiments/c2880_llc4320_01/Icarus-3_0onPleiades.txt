@@ -53,7 +53,7 @@
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c2880_llc4320_01
- mkdir build; cd build; \rm *
+ mkdir build; cd build; rm *
  setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
  $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
  make depend
@@ -64,10 +64,10 @@
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
  ./mk_local ../../experiments/c2880_llc4320_01/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
- \rm code
+ rm code
  ln -s ../experiments/c2880_llc4320_01/code .
  cd build
- \rm *.a *.c *.f *.h *.o *.F
+ rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".
@@ -101,7 +101,7 @@
 
 # Get GEOS-5 boundary conditions for experiments/c2880_llc4320_01
  cd $WorkingDir/llc4320
- \rm -rf RC
+ rm -rf RC
  cp $GMAO_MITGCM_COUPLNG/experiments/c2880_llc4320_01/geos5/*.rc .
  cp $GMAO_MITGCM_COUPLNG/experiments/c2880_llc4320_01/geos5/cap_restart .
  cp $GMAO_MITGCM_COUPLNG/experiments/c2880_llc4320_01/geos5/gcm_run.j .

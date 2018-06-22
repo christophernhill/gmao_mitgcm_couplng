@@ -50,7 +50,7 @@
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_01
- mkdir build; cd build; \rm *
+ mkdir build; cd build; rm *
  setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
  setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
  $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $MITGCM_ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
@@ -62,10 +62,10 @@
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
  ./mk_local ../../experiments/c48_llc90_01/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
- \rm code
+ rm code
  ln -s ../experiments/c48_llc90_01/code .
  cd build
- \rm *.a *.c *.f *.h *.o *.F
+ rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
 # Approximately 12 minutes with "-j 16".

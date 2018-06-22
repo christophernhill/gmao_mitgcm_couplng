@@ -1,6 +1,7 @@
+  * Replaced "\rm" with "rm"
   * Adding spaces before commands for easier cut&paste
-  * Replacing deprecated ROOTDIR with MITGCM_ROOTDIR in instructions
-  * Moving experiments/*/verification to experiments/*/results
+  * Replaced deprecated ROOTDIR with MITGCM_ROOTDIR in instructions
+  * Moved experiments/*/verification to experiments/*/results
   * experiments/c12_cs32_0*/results/STDOUT.0000 and gcm_run.out
     renamed STDOUT.0000_gfortran and gcm_run.out_gfortran
     (these are for comparison with Linux gfortran tests)
