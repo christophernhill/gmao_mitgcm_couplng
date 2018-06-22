@@ -4,6 +4,9 @@ C $Name:  $
 
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
+#ifdef ALLOW_SEAICE
+# include "SEAICE_OPTIONS.h"
+#endif
 
 CBOP
 C     !ROUTINE: DRIVER_INIT
@@ -21,10 +24,8 @@ C     *==================================================================
 C     | SUBROUTINE driver_init
 C     | o External driver control routine for MITgcm init phase.
 C     *==================================================================
-C     |
 C     | DRIVER routines are used to control the MITgcm code from an external
 C     | driver. This routine invokes the init phase of code execution
-C     |
 C     *==================================================================
 C     \ev
 C     !USES:
@@ -47,7 +48,6 @@ C     == Global variables ==
 #ifdef ALLOW_SEAICE
 # include "SEAICE_SIZE.h"
 #endif
-
 
 C     == Routine arguments ==
       TYPE(MITGCM_ISTATE), POINTER :: mitgcmIState
