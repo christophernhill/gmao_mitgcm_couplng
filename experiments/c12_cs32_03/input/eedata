@@ -6,7 +6,7 @@
  useCubedSphereExchange=.TRUE.,
  nTx=1,
  nTy=1,
- &end
-# Note: Some systems use & as the
-# namelist terminator. Other systems
-# use a / character (as shown here).
+#debugMode=.TRUE.,
+ &
+# Note: Some systems use & as the namelist terminator (as shown here).
+#       Other systems use a / character.

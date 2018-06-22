@@ -27,6 +27,7 @@
  hFacMinDr=20.,
  readBinaryPrec=64,
  useSingleCpuIo=.TRUE.,
+ debugLevel=2,
  &
 
 # Elliptic solver parameters

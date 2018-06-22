@@ -26,20 +26,27 @@
                       'oceTAUX ','oceTAUY ',
                       'THETA   ','SALT    ','UVEL    ', 'VVEL    ',
    fileName(1) = 'surfDiag',
-  frequency(1) = 3600.,
+  frequency(1) = 43200.,
 
   fields(1:8,2)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
    fileName(2) = 'iceDiag',
-  frequency(2) =  3600.,
+  frequency(2) =  43200.,
   missing_value(2) = -999.,
 
-  fields(1:8,3)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
+  fields(1:9,3)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
+                   'SDIAG1  ',
    fileName(3) = 'iceInst',
-  frequency(3) = -900.,
-# timePhase(3) =  3600.,
+  frequency(3) = -3600.,
+  timePhase(3) =  0.,
   missing_value(3) = -999.,
+
+  fields(1:3,4)  = 'SIareaN ','SIheffN ','SIhsnowN',
+   fileName(4) = 'iceNcat',
+  frequency(4) = -3600.,
+  timePhase(4) =  0.,
+  fileFlags(4) = 'D       ',
  &
 
 #--------------------
@@ -63,6 +70,6 @@
  stat_fields(1:8,1)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad', 
                        'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
   stat_fName(1) = 'iceStDiag',
-   stat_freq(1) =  900.,
+   stat_freq(1) = 3600.,
 # stat_phase(1) = 1800.,
  &
