@@ -4,75 +4,53 @@
 # See instructions in notes/Build_GMAO_Baselibs.txt
 
 # Start tcsh and set $WorkingDir
-tcsh
-setenv WorkingDir ~/geos5
+ tcsh
+ setenv WorkingDir ~/geos5
 
-# Get GEOS-5
-# For instructions below to work, you need to:
-# (1) have an account on engaging,
-# (2) have correct id_rsa key in ~/.ssh, and
-# (3) replace USERNAME with your engaging username.
-cd $WorkingDir
-git clone USERNAME@eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git
-cd GEOSodas
-git checkout b_geos5mit
+# Get GEOS-MITgcm code
+# See instructions in notes/get_GEOS-MITgcm.txt
 
-# Get GEOS-5 to MITgcm coupling code
-# For instructions below to work, you need to:
-# (1) have a github account
-# (2) have been granted access to
-#     https://github.com/christophernhill/gmao_mitgcm_couplng
-# (3) have added ssh key to your github account
-#     https://help.github.com/articles/generating-an-ssh-key
-cd $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp
-cd GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp
-git clone git@github.com:christophernhill/gmao_mitgcm_couplng
+# Set GEOS-5 environment variables
+ cd $WorkingDir/GEOSodas/src
+ source g5_modules
 
-# Get MITgcm from GitHub
- cd $WorkingDir
-#- method 1, using https:
- git clone https://github.com/MITgcm/MITgcm.git
-#- method 2, using ssh (requires a github account):
- git clone git@github.com:MITgcm/MITgcm.git
+# Adjust OPENMPI variable for lubuntu 16.04 only
+ setenv OPENMPI /usr/lib/openmpi
 
-# Set GEOS-5 and MITgcm environment variables
-cd $WorkingDir/GEOSodas/src
-source g5_modules
-# the following line is needed for lubuntu 16.04
-# setenv OPENMPI /usr/lib/openmpi
-setenv ROOTDIR $MITGCM_ROOT
-setenv MPI_INC_DIR /usr/include/mpi
+# Set MITgcm environment variables
+ setenv MPI_INC_DIR $OPENMPI/include/mpi
+ setenv MITGCM_ROOTDIR $MITGCM_ROOT
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
-cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
-mkdir build; cd build; \rm *
-$ROOTDIR/tools/genmake2 -mods ../code -mpi -ieee
-make depend
+ cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
+ mkdir build; cd build; rm *
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -ieee
+ make depend
 
 #- Generate modified src code and Makefile for MITgcm
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
-./mk_local ../../experiments/c12_cs32_01/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
-./mk_local ../../experiments/c12_cs32_01/build
-cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
-\rm code
-ln -s ../experiments/c12_cs32_01/code .
-cd build
-\rm *.a *.c *.f *.h *.o *.F
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
+ ./mk_local ../../experiments/c12_cs32_01/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
+ ./mk_local ../../experiments/c12_cs32_01/build
+ cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
+ rm code
+ ln -s ../experiments/c12_cs32_01/code .
+ cd build
+ rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
-cd $WorkingDir/GEOSodas/src
-gmake pinstall -j 8 |& tee makeinstall.log
+ cd $WorkingDir/GEOSodas/src
+ gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
 # ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c12_cs32_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
-cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
-./gcm_setup
+ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -93,28 +71,28 @@ cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
 # Get GEOS-5 boundary conditions geos5-tiny.tgz
 #   from engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 #   or discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
-cd $WorkingDir
-tar -xf geos5-tiny.tgz
-find TinyFromMatt -type d | xargs chmod g+rxs
-find TinyFromMatt -type f | xargs chmod g+r
-cd $WorkingDir/TEST
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
-cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
+ cd $WorkingDir
+ tar -xf geos5-tiny.tgz
+ find TinyFromMatt -type d | xargs chmod g+rxs
+ find TinyFromMatt -type f | xargs chmod g+r
+ cd $WorkingDir/TEST
+ $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
+ cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
 
 # Populate the mit_input directory
-cd $WorkingDir/TEST
-mkdir mit_input
-cd mit_input
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
-ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
-ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
-cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input/* .
+ cd $WorkingDir/TEST
+ mkdir mit_input
+ cd mit_input
+ ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
+ ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
+ ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input/* .
 
 # Run coupled code
-cd $WorkingDir/TEST
-setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
-./gcm_run.j |&  tee gcm_run.out
+ cd $WorkingDir/TEST
+ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
+ ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
-diff scratch/mitocean_run/STDOUT.0000 \
-$GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_gfortran
+ diff scratch/mitocean_run/STDOUT.0000 \
+ $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_gfortran
