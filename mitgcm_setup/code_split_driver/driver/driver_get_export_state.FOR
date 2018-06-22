@@ -3,7 +3,7 @@
 
       MODULE DRIVER_GET_EXPORT_STATE_MOD
 C     A GEOS-5 compatible version of get export state.
-C     Exports variable from MITgcm that are used by other 
+C     Exports variable from MITgcm that are used by other
 C     components in a MAPL tree.
 C     Mapping from MITgcm five-dimensional to MAPL data
 C     structures takes place here.
@@ -130,6 +130,16 @@ C     == Local variables ==
       ELSEIF ( code .EQ. 'DELTI' ) THEN
 !     Copy DELTI to fld
          fld = mitgcmIState%export%DELTI
+#else  /* ALLOW_SEAICE */
+      ELSEIF ( code .EQ. 'DELFRACICE'
+     &    .OR. code .EQ. 'DELVOLICE'
+     &    .OR. code .EQ. 'DELVOLSNO'
+     &    .OR. code .EQ. 'DELERGICE'
+     &    .OR. code .EQ. 'DELERGSNO'
+     &    .OR. code .EQ. 'DELMPOND'
+     &    .OR. code .EQ. 'DELTAUAGE'
+     &    .OR. code .EQ. 'DELTI' ) THEN
+         fld = 0.0
 #endif /* ALLOW_SEAICE */
       ELSE
 
