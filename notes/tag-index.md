@@ -1,4 +1,6 @@
   * Cleaning up and consolidating instructions
+    - Removing duplicate environment variable MITGCM_ROOT
+      and replacing with MITGCM_ROOTDIR
     - g5_modules now handles default OPENMPI for *buntu 16.04 and
       defines MITGCM_ROOTDIR and MPI_INC_DIR for site=GenericLinux
     - Replaced "&end" and "/ with "&" in namelists

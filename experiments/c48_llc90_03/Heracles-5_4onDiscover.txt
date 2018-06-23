@@ -19,7 +19,7 @@
  cd $WorkingDir/GEOSodas/src
  source g5_modules
  setenv ESMA_NOCVS
- setenv MITGCM_ROOT $WorkingDir/MITgcm
+ setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
  setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
@@ -27,7 +27,6 @@
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_03
  mkdir build; cd build; rm *
- setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
  setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
  $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $MITGCM_ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
  make depend

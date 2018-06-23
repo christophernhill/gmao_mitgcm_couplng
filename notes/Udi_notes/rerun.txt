@@ -9,7 +9,7 @@ setenv WorkingDir /discover/nobackup/estrobac/Heracles-5_4
 cd $WorkingDir/GEOSodas/src
 source g5_modules
 setenv ESMA_NOCVS
-setenv MITGCM_ROOT $WorkingDir/MITgcm
+setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
 setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 cd $GMAO_MITGCM_COUPLNG
 ./set_mitgcm_env.sh

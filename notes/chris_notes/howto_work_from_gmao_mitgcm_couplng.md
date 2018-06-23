@@ -9,6 +9,6 @@ git clone git@github.com:christophernhill/gmao_mitgcm_couplng.git
 cd gmao_mitgcm_couplng
 git checkout 
 git checkout sync_to_current_mitgcm
-setenv MITGCM_ROOT /home/heracles/MITgcm
+setenv MITGCM_ROOTDIR /home/heracles/MITgcm
 ./set_mitgcm_env.sh
 ```

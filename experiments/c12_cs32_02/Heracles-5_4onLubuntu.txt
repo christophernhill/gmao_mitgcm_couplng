@@ -76,9 +76,9 @@
  cd $WorkingDir/TEST
  mkdir mit_input
  cd mit_input
- ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
- ln -sf $MITGCM_ROOT/verification/tutorial_held_suarez_cs/input/g* .
- ln -sf $MITGCM_ROOT/verification/global_ocean.cs32x15/input/pic* .
+ ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
+ ln -sf $MITGCM_ROOTDIR/verification/tutorial_held_suarez_cs/input/g* .
+ ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/pic* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_02/input/* .
 
 # Run coupled code

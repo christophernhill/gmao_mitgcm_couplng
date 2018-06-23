@@ -150,7 +150,7 @@ reboot
 # Build coupled GEOS-5 + MITgcm.
 # For Makefile recipe, compare
 # $GMAO_MITGCM_COUPLNG/mitgcm_setup/build/Makefile to
-# $MITGCM_ROOT/verification/global_ocean.cs32x15/build/Makefile
+# $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/build/Makefile
 # Approximately 11 minutes on MacBook Pro (2015).
 # If the build is successful, it will create:
 # $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x

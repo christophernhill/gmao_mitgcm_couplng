@@ -32,10 +32,10 @@ sed -i 's/^#PBS -l walltime=.*/#PBS -l walltime=00:10:00/' gcm_run.j
 sed -i -e '/echo GEOSgcm Run Status: $rc/{n;N;d}' gcm_run.j
 sed -i '/echo GEOSgcm Run Status: $rc/{G;G}' gcm_run.j
 # copy MITgcm files instead of linking
-sed -i 's/^ln -sf $MITGCM_ROOT/\/bin\/cp $MITGCM_ROOT/' gcm_run.j
+sed -i 's/^ln -sf $MITGCM_ROOTDIR/\/bin\/cp $MITGCM_ROOTDIR/' gcm_run.j
 sed -i 's/^ln -sf $GMAO_MITGCM_COUPLNG/\/bin\/cp $GMAO_MITGCM_COUPLNG/' gcm_run.j
 # Copy all restart files from previous runs
-sed -i '/\/bin\/cp $MITGCM_ROOT\/verification\/global_ocean.cs32x15\/input\/pic\* ./a /bin/cp $EXPDIR/restarts/pic* .' gcm_run.j
+sed -i '/\/bin\/cp $MITGCM_ROOTDIR\/verification\/global_ocean.cs32x15\/input\/pic\* ./a /bin/cp $EXPDIR/restarts/pic* .' gcm_run.j
 # fix CAP.rc date variables
 sed -i 's/cat CAP.rc | grep END_DATE:     | cut -d: -f2 | cut -c2-9/cat CAP.rc | grep END_DATE:     | cut -d: -f2 | tr -s " " | cut -d" " -f2/' gcm_run.j
 sed -i 's/cat CAP.rc | grep END_DATE:     | cut -d: -f2 | cut -c11-16/cat CAP.rc | grep END_DATE:     | cut -d: -f2 | tr -s " " | cut -d" " -f3/' gcm_run.j
