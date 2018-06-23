@@ -1,4 +1,6 @@
   * Cleaning up and consolidating instructions
+    - g5_modules now handles default OPENMPI for *buntu 16.04 and
+      defines MITGCM_ROOTDIR and MPI_INC_DIR for site=GenericLinux
     - Replaced "&end" and "/ with "&" in namelists
     - Set "debugLevel=2" in data and "#debugMode=.TRUE.," in eedata
     - Replaced "\rm" with "rm"
