@@ -59,5 +59,7 @@
   eeboot_minimal.F and in "CALL EXCH_UV_AGRID_3D_RL".
   Will we ever need to use thread-safe code for coupled set-up?
 
-- Find out why code crashes when "pLoad(i,j,bi,bj)=p%PS(iSLo+i,jSLo+j)"
-  is uncommented in import_state_fill_mod.FOR
+- Code crashes because of GEOS/MITgcm land mask inconsistency when
+  "pLoad(i,j,bi,bj)=p%PS(iSLo+i,jSLo+j)" in import_state_fill_mod.FOR
+  Set to zero for time being.  There is a debug line marked with "CDM"
+  in gmao_mitgcm_couplng/experiments/c12_cs32_01/code/external_forcing_surf.F

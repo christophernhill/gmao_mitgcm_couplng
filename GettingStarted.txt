@@ -10,5 +10,12 @@ Instructions for getting started with GEOS-5/MITgcm code.
    Sponsor Name and Affiliation: Chris Hill, MIT.
    Short sentence about project: Coupled GEOS-5/MITgcm project.
 
-4) Follow one of the instructions files located here:
-   gmao_mitgcm_couplng/notes/dimitris_notes/Heracles-5_4on*
+4) To run GEOS you need access to GMAO-Baselibs.
+   These are already available on some NASA computers, e.g.,
+   Discover and Pleiades.  The GMAO-Baselibs can also be
+   compiled using instructions in notes/build_GMAO-Baselibs.txt
+
+5) To get code, follow instructions in notes/get_GEOS-MITgcm.txt
+
+6) Some example experiments with instructions are located
+   in directory experiments.
