@@ -60,7 +60,7 @@
  vectorInvariantMomentum=.TRUE.,
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
-# debuglevel=-1,
+ debuglevel=-1,
  convertFW2Salt=-1
  useRealFreshWaterFlux=.TRUE.,
  useSingleCPUio=.TRUE.,
@@ -68,7 +68,7 @@
  readBinaryPrec=32,
  writeBinaryPrec=32,
  temp_EvPrRn=0.,
- /
+ &
 
 # Elliptic solver parameters
  &PARM02
@@ -89,7 +89,7 @@
  dumpfreq = 86400.,
  monitorFreq = 86400.,
  dumpInitAndLast=.TRUE.,
- /
+ &
 
 # Gridding parameters
  &PARM04
@@ -112,12 +112,11 @@
         146.30,  157.71,  170.35,  184.37, 199.89,
         217.09,  236.13,  257.21,  280.50, 306.24,
         334.64,  365.93,  400.38,  438.23, 479.74,
- /
+ &
 
 # Input datasets
  &PARM05
  bathyFile      ='bathy1080_g5_r4',
  hydrogThetaFile='Jan2010_THETA_1080x14040x90_r4',
  hydrogSaltFile ='Jan2010_SALT_1080x14040x90_r4',
- /
-
+ &

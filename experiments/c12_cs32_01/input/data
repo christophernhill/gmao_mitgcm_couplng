@@ -27,11 +27,12 @@
  hFacMinDr=20.,
  readBinaryPrec=64,
  useSingleCpuIo=.TRUE.,
- &end
+ debugLevel=2,
+ &
 
 # Elliptic solver parameters
  &PARM02
- &end
+ &
 
 # Time stepping parameters
  &PARM03
@@ -41,7 +42,7 @@
  monitorFreq      = 1.,
  abEps            = 0.1,
  tracForcingOutAB = 1,
- &end
+ &
 
 # Gridding parameters
  &PARM04
@@ -50,9 +51,9 @@
  delR= 50., 70., 100., 140., 190.,
        240., 290., 340., 390., 440.,
        490., 540., 590., 640., 690.,
- &end
+ &
 
 # Input datasets
  &PARM05
  bathyFile      ='bathy_Hmin50.bin',
- &end
+ &

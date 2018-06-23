@@ -68,7 +68,7 @@
  readBinaryPrec=32,
  writeBinaryPrec=32,
  temp_EvPrRn=0.,
- /
+ &
 
 # Elliptic solver parameters
  &PARM02
@@ -89,7 +89,7 @@
  dumpfreq = 3600.,
  monitorFreq = 60.,
  dumpInitAndLast=.TRUE.,
- /
+ &
 
 # Gridding parameters
  &PARM04
@@ -112,7 +112,7 @@
         146.30,  157.71,  170.35,  184.37, 199.89,
         217.09,  236.13,  257.21,  280.50, 306.24,
         334.64,  365.93,  400.38,  438.23, 479.74,
- /
+ &
 
 # Input datasets
  &PARM05
@@ -122,4 +122,4 @@
  uVelInitFile   ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/U.0000732360.data',
  vVelInitFile   ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/V.0000732360.data',
  pSurfInitFile  ='/nobackup/dmenemen/llc/llc_1080/MITgcm/run_day732_896/Eta.0000732360.data',
- /
+ &

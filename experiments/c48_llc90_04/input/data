@@ -33,7 +33,7 @@
  vectorInvariantMomentum=.TRUE.,
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
-# debuglevel=-1,
+ debuglevel=-1,
  convertFW2Salt=-1.,
  useRealFreshWaterFlux=.TRUE.,
 # change useSingleCPUio to .FALSE. for asyncio
@@ -45,7 +45,7 @@
  temp_EvPrRn=0.,
  implicSurfPress = 0.6,
  implicDiv2DFlow = 0.6,
- /
+ &
 
 # Elliptic solver parameters
  &PARM02

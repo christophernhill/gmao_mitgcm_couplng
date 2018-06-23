@@ -2,4 +2,4 @@
  &PACKAGES
  useGMRedi=.TRUE.,
  useDiagnostics=.TRUE.,
- &end
+ &

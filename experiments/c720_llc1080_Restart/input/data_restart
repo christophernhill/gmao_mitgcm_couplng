@@ -68,7 +68,7 @@
  readBinaryPrec=32,
  writeBinaryPrec=32,
  temp_EvPrRn=0.,
- /
+ &
 
 # Elliptic solver parameters
  &PARM02
@@ -89,7 +89,7 @@
  dumpfreq = 3600.,
  monitorFreq = 60.,
  dumpInitAndLast=.TRUE.,
- /
+ &
 
 # Gridding parameters
  &PARM04
@@ -112,9 +112,9 @@
         146.30,  157.71,  170.35,  184.37, 199.89,
         217.09,  236.13,  257.21,  280.50, 306.24,
         334.64,  365.93,  400.38,  438.23, 479.74,
- /
+ &
 
 # Input datasets
  &PARM05
  bathyFile      ='bathy1080_g5_filled_r4',
- /
+ &

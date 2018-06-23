@@ -1,7 +1,7 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
 # Link or build GEOS-5 baselibs in $WorkingDir
-# See instructions in notes/Build_GMAO_Baselibs.txt
+# See instructions in notes/build_GMAO-Baselibs.txt
 
 # Start tcsh and set $WorkingDir
  tcsh
@@ -10,16 +10,9 @@
 # Get GEOS-MITgcm code
 # See instructions in notes/get_GEOS-MITgcm.txt
 
-# Set GEOS-5 environment variables
+# Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
-
-# Adjust OPENMPI variable for lubuntu 16.04 only
- setenv OPENMPI /usr/lib/openmpi
-
-# Set MITgcm environment variables
- setenv MPI_INC_DIR $OPENMPI/include/mpi
- setenv MITGCM_ROOTDIR $MITGCM_ROOT
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
@@ -95,4 +88,4 @@
 
 # Verify output
  diff scratch/mitocean_run/STDOUT.0000 \
- $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_gfortran
+  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_gfortran

@@ -1,4 +1,6 @@
   * Cleaning up and consolidating instructions
+    - Replaced "&end" and "/ with "&" in namelists
+    - Set "debugLevel=2" in data and "#debugMode=.TRUE.," in eedata
     - Replaced "\rm" with "rm"
     - Adding spaces before commands for easier cut&paste
     - Replaced deprecated ROOTDIR with MITGCM_ROOTDIR in instructions
