@@ -63,6 +63,9 @@
     fields(1,10) = 'VVELMASS',
     levels(1,10) = 1.,
     filename(10) = 'VVEL1',
+   frequency(11) = -3600.,
+    fields(1,11) = 'atmPload',
+    filename(11) = 'atmPload',
  &
 
  &DIAG_STATIS_PARMS

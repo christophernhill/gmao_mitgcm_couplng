@@ -54,7 +54,7 @@ C   (3-D generalisation of oceanic real-fresh water flux)
 #undef ALLOW_ADDFLUID
 
 C o Include pressure loading code
-#define ATMOSPHERIC_LOADING
+#undef ATMOSPHERIC_LOADING
 
 C o exclude/allow external forcing-fields load
 C   this allows to read & do simple linear time interpolation of oceanic

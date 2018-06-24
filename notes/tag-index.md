@@ -1,4 +1,5 @@
   * Cleaning up and consolidating instructions
+    - Modified experiments/c12_cs32_01 to test pLoad issue
     - Removing duplicate environment variable MITGCM_ROOT
       and replacing with MITGCM_ROOTDIR
     - g5_modules now handles default OPENMPI for *buntu 16.04 and
