@@ -21,7 +21,7 @@ C  and "diagSt_size" (statistics-diags) since values here are deliberately small
       INTEGER    nRegions, sizRegMsk, nStats
       INTEGER    diagSt_size
       PARAMETER( ndiagMax = 500 )
-      PARAMETER( numlists = 10, numperlist = 50, numLevels=2*Nr )
+      PARAMETER( numlists = 11, numperlist = 50, numLevels=2*Nr )
       PARAMETER( numdiags = 40*Nr )
       PARAMETER( nRegions = 10 , sizRegMsk = 3 , nStats = 4 )
       PARAMETER( diagSt_size = 10*Nr )
