@@ -17,16 +17,12 @@ eval(['cd ' WorkingDir 'TEST/scratch/mitocean_run'])
 hFacC=read_cs_bin('hFacC.data',1,'real*4',32);
 figure(1), mycrossmap(hFacC)
 
-% Plot raw atmospheric pressure
+% Plot raw atmospheric pressure received from GEOS
 P=read_cs_bin('atmPload.0000072006.data',1,'real*4',32);
 figure(2), mycrossmap(P)
 
-% Plot raw atmospheric pressure
-P=read_cs_bin('atmPload.0000072006.data',1,'real*4',32);
-figure(2), mycrossmap(P)
-
-% Atmospheric pressure with pressure over land set to
-% mean atmospheric pressureover water.
+% Atmospheric pressure with pressure over GEOS land mask
+% set to mean atmospheric pressure over GEOS wet cells.
 P2=P;
 P2(find(P>1e14))=mean(P(find(P<1e14)));
 figure(3), mycrossmap(P2)
