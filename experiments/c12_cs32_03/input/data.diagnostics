@@ -36,7 +36,7 @@
 
   fields(1:9,3)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
-                   'SDIAG1  ',
+                   'CPLoWGHT',
    fileName(3) = 'iceInst',
   frequency(3) = -3600.,
   timePhase(3) =  0.,
