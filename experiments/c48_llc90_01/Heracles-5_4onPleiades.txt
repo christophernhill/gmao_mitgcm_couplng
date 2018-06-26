@@ -1,12 +1,12 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_01/Heracles-5_4onPleiades.txt
 
-# Start tcsh and set $WorkingDir to a location where you have write permission
+# Start tcsh and set $WorkingDir, e.g.,
  tcsh
  setenv WorkingDir /nobackup/$USER/geos5
  mkdir $WorkingDir
+ cd $WorkingDir
 
-# Get GEOS-MITgcm code
+# Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
@@ -17,12 +17,9 @@
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
- setenv ESMA_NOCVS
- setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
- setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_01
  mkdir build; cd build; rm *
@@ -41,16 +38,15 @@
  rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
-# Approximately 12 minutes with "-j 16".
- cd $WorkingDir/GEOSodas/src
- gmake pinstall -j 16 |& tee makeinstall.log
+ cd $ESMADIR/src
+ gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
-# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c48_llc90_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
- cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -64,9 +60,9 @@
 # Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: /nobackup/$USER/geos5/TEST
-# Enter Desired Location for EXPERIMENT: /nobackup/$USER/geos5/TEST
-# Enter Location for Build directory: /nobackup/$USER/geos5/GEOSodas
+# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
+# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_01

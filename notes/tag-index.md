@@ -1,4 +1,7 @@
   * Cleaning up and consolidating instructions
+    - Replace $WorkingDir with $ESMADIR/..
+      and add MITGCM_ROOTDIR and GMAO_MITGCM_COUPLNG
+      definitions to NCCS and NAS sites in g5_modules
     - Modified experiments/c12_cs32_01 to test pLoad issue
     - Removing duplicate environment variable MITGCM_ROOT
       and replacing with MITGCM_ROOTDIR

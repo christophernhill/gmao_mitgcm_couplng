@@ -1,13 +1,13 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/experiments/c48_llc90_02/Heracles-5_4onDiscover.txt
 
-# Start tcsh and set $WorkingDir to a location where you have write permission
+# Start tcsh and set $WorkingDir, e.g.,
  tcsh
- module load other/git
  setenv WorkingDir $NOBACKUP/Heracles-5_4
  mkdir $WorkingDir
+ cd $WorkingDir
+ module load other/git
 
-# Get GEOS-MITgcm code
+# Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
@@ -18,16 +18,12 @@
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
- setenv ESMA_NOCVS
- setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
- setenv GMAO_MITGCM_COUPLNG $WorkingDir/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimisation
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_01
  mkdir build; cd build; rm *
- setenv MPI_INC_DIR /usr/local/other/SLES11.1/mvapich2/1.8.1/intel-13.1.2.183/include
  $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $MITGCM_ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
  make depend
 
@@ -43,16 +39,15 @@
  rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
-# Approximately 14 minutes with "-j 16".
- cd $WorkingDir/GEOSodas/src
- gmake pinstall -j 16 |& tee makeinstall.log
+ cd $ESMADIR/src
+ gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
-# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c90_llc90_01
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
- cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -68,7 +63,7 @@
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
-# Enter Location for Build directory: $WorkingDir/GEOSodas (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: s1353
 
 # Get GEOS-5 files for experiments/c90_llc90_01

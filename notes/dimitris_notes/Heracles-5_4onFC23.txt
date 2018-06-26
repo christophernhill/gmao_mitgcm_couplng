@@ -1,5 +1,4 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled with MITgcm
-# https://github.com/christophernhill/gmao_mitgcm_couplng/blob/master/notes/dimitris_notes/Heracles-5_4onFedoraCore.txt
 
 # These instructions are intended for a Fedora-Core 23 linux box (fc23.x86_64)
 #   and are similar to the Lubuntu VitualBox instructions notes:

@@ -1,13 +1,15 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
+# Start tcsh and set $WorkingDir, e.g.,
+ tcsh
+ setenv WorkingDir ~/geos5
+ mkdir $WorkingDir
+ cd $WorkingDir
+
 # Link or build GEOS-5 baselibs in $WorkingDir
 # See instructions in notes/build_GMAO-Baselibs.txt
 
-# Start tcsh and set $WorkingDir
- tcsh
- setenv WorkingDir ~/geos5
-
-# Get GEOS-MITgcm code
+# Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Set GEOS-5 and MITgcm environment variables
@@ -34,15 +36,15 @@
  rm *.a *.c *.f *.h *.o *.F
 
 # Build coupled GEOS-5 + MITgcm.
- cd $WorkingDir/GEOSodas/src
+ cd $ESMADIR/src
  gmake pinstall -j 8 |& tee makeinstall.log
 # If the build is successful, it will create:
-# ls -l $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App/GEOSgcm.x
+# ls -l $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 
 # Set up coupled code for experiments/c12_cs32_02
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
- cd $WorkingDir/GEOSodas/src/Applications/GEOSgcm_App
+ cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
@@ -56,14 +58,15 @@
 # Do you wish to run  the Runoff Routing Model? NO
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: /home/heracles/geos5/TEST
-# Enter Desired Location for EXPERIMENT: /home/heracles/geos5/TEST
-# Enter Location for Build directory: /home/heracles/geos5/GEOSodas
+# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
+# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: heracles
 
-# Get GEOS-5 boundary conditions geos5-tiny.tgz
-#   from engaging:/nobackup1/dmenemen/geos5/tarballs_100816
-#   or discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+# Get GEOS-5 boundary conditions for experiments/c12_cs32_01
+# geos5-tiny.tgz is available in
+# engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+# discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
  cd $WorkingDir
  tar -xf geos5-tiny.tgz
  find TinyFromMatt -type d | xargs chmod g+rxs
