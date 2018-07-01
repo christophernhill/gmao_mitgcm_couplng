@@ -53,10 +53,10 @@ C     == Local variables ==
 
       ELSEIF ( code .EQ. 'UI' ) THEN
 !     Copy UI to fld
-         fld = mitgcmIState%export%UI
+         fld = 0.0 !@@@@ mitgcmIState%export%UI
       ELSEIF ( code .EQ. 'VI' ) THEN
 !     Copy VI to fld
-         fld = mitgcmIState%export%VI
+         fld = 0.0 !@@@@ mitgcmIState%export%VI
 
       ELSEIF ( code .EQ. 'TAUXBOT' ) THEN
 !     Copy TAUXBOT to fld
