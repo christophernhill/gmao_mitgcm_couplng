@@ -1205,6 +1205,20 @@ contains
        FRACICEe = FRI
     end if
 
+    ! zero out tendencies for non-ocean-points
+    where (MASK(:,:,1) == 0.0) 
+       DEL_FRACICE = 0.0
+       DEL_TI = 0.0
+       DEL_SI = 0.0
+       DEL_VOLICE = 0.0
+       DEL_VOLSNO = 0.0
+       DEL_ERGICE = 0.0
+       DEL_ERGSNO = 0.0
+       DEL_MPOND = 0.0
+       DEL_TAUAGE = 0.0
+       DEL_HI = 0.0
+    end where
+
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
 
