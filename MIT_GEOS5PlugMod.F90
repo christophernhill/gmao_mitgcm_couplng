@@ -1206,18 +1206,22 @@ contains
     end if
 
     ! zero out tendencies for non-ocean-points
-    where (MASK(:,:,1) == 0.0) 
-       DEL_FRACICE = 0.0
-       DEL_TI = 0.0
-       DEL_SI = 0.0
-       DEL_VOLICE = 0.0
-       DEL_VOLSNO = 0.0
-       DEL_ERGICE = 0.0
-       DEL_ERGSNO = 0.0
-       DEL_MPOND = 0.0
-       DEL_TAUAGE = 0.0
-       DEL_HI = 0.0
-    end where
+    DO J = 1, JM
+       DO I = 1, IM
+          if (MASK(I,J,1) == 0.0) then
+             DEL_FRACICE(I,J,:) = 0.0
+             DEL_TI(I,J,:) = 0.0
+             DEL_SI(I,J) = 0.0
+             DEL_VOLICE(I,J,:) = 0.0
+             DEL_VOLSNO(I,J,:) = 0.0
+             DEL_ERGICE(I,J,:) = 0.0
+             DEL_ERGSNO(I,J,:) = 0.0
+             DEL_MPOND(I,J,:) = 0.0
+             DEL_TAUAGE(I,J,:) = 0.0
+             DEL_HI(I,J) = 0.0
+          end if
+       end DO
+    end DO
 
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
