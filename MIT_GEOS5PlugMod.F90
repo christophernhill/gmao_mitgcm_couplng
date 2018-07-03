@@ -905,6 +905,7 @@ contains
     type (MAPL_MetaComp), pointer          :: MAPL 
 
     integer :: IM, JM
+    integer :: I, J
     REAL_, pointer :: FRESHW(:,:)
 
     REAL*8, POINTER :: uVel(:,:,:,:,:)
