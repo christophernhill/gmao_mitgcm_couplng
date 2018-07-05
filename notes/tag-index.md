@@ -1,3 +1,4 @@
+  * Added new experiment with sea ice advected - c48_llc90_06
   * Cleaning up and consolidating instructions
     - Replace $WorkingDir with $ESMADIR/..
       and add MITGCM_ROOTDIR and GMAO_MITGCM_COUPLNG
