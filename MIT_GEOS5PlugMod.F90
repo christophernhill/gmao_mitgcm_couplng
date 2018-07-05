@@ -1224,6 +1224,26 @@ contains
        end DO
     end DO
 
+    ! Update the sea-ice fields
+    FRI = FRI + DEL_FRACICE
+
+    !ALT: workaround to deal with a possible bug in DEL_TI
+    where(FRI == 0.0) DEL_TI = 0.0
+
+    ! continue with the fields update
+    TI = TI + DEL_TI
+    SI = SI + DEL_SI
+    VOLICE = VOLICE + DEL_VOLICE
+    VOLSNO = VOLSNO + DEL_VOLSNO
+    ERGICE = ERGICE + DEL_ERGICE
+    ERGSNO = ERGSNO + DEL_ERGSNO
+
+    MPOND = MPOND + DEL_MPOND
+    TAUAGE = TAUAGE + DEL_TAUAGE
+
+    !ALT we do not update skin, and the line below is commented out
+!!!    HI = HI + DEL_HI
+    
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
 
