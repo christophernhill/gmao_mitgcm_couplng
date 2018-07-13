@@ -51,13 +51,6 @@ C     == Local variables ==
 !     Copy SS to fld
          fld = mitgcmIState%export%SS
 
-      ELSEIF ( code .EQ. 'UI' ) THEN
-!     Copy UI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%UI
-      ELSEIF ( code .EQ. 'VI' ) THEN
-!     Copy VI to fld
-         fld = 0.0 !@@@@ mitgcmIState%export%VI
-
       ELSEIF ( code .EQ. 'TAUXBOT' ) THEN
 !     Copy TAUXBOT to fld
          fld = 0.0 !@@@@ mitgcmIState%export%TAUXBOT
@@ -65,13 +58,27 @@ C     == Local variables ==
 !     Copy TAUYBOT to fld
          fld = 0.0 !@@@@ mitgcmIState%export%TAUYBOT
 
+#ifdef ALLOW_SEAICE
+      ELSEIF ( code .EQ. 'UI' ) THEN
+!     Copy UI to fld
+         fld = mitgcmIState%export%UI
+      ELSEIF ( code .EQ. 'VI' ) THEN
+!     Copy VI to fld
+         fld = mitgcmIState%export%VI
+
       ELSEIF ( code .EQ. 'DELSI' ) THEN
 !     Copy DELSI to fld
          fld = mitgcmIState%export%DELSI
       ELSEIF ( code .EQ. 'DELHI' ) THEN
 !     Copy DELHI to fld
          fld = mitgcmIState%export%DELHI
-
+#else  /* ALLOW_SEAICE */
+      ELSEIF ( code .EQ. 'UI'
+     &    .OR. code .EQ. 'VI'
+     &    .OR. code .EQ. 'DELSI'
+     &    .OR. code .EQ. 'DELHI' ) THEN
+         fld = 0.0
+#endif /* ALLOW_SEAICE */
       ELSE
 
        print *,'DRIVER_GET_EXPORT_STATE_2D:'//trim(code)
