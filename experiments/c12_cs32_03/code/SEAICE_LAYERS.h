@@ -54,7 +54,7 @@ C     SIadv_skinH   :: advection increment of seaice skin-layer depth [m]
       COMMON /SEAICE_ADV_INCREMENT/
      &        SIadv_Area, SIadv_Heff, SIadv_Hsnow,
      &        SIadv_tIces, SIadv_qIce, SIadv_qSnow,
-     &        SIadv_meltPd, SIadv_iceAge, SIadv_skinS, SIadv_skinH 
+     &        SIadv_meltPd, SIadv_iceAge, SIadv_skinS, SIadv_skinH
       _RL SIadv_Area  (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nITD,nSx,nSy)
       _RL SIadv_Heff  (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nITD,nSx,nSy)
       _RL SIadv_Hsnow (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nITD,nSx,nSy)
