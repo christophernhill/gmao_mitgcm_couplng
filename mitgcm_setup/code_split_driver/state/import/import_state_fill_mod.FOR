@@ -139,8 +139,8 @@
 !     pLoad  : for the ocean:      atmospheric pressure at z=eta
 !              Units are           Pa=N/m^2
 ! Code crash because of GEOS/MITgcm land mask inconsistency if pLoad=p%PS.
-!         pLoad(i,j,bi,bj) = p%PS(iSLo+i,jSLo+j)
-         pLoad(i,j,bi,bj) = 0.0D0
+         pLoad(i,j,bi,bj) = p%PS(iSLo+i,jSLo+j)
+!         pLoad(i,j,bi,bj) = 0.0D0
 
 !     Transfer TAUX and TAUY to fu and fv.
 !     TAUX   : A-grid eastward stress on skin in N/m^2.
