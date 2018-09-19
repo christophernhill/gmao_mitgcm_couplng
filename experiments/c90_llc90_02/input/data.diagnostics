@@ -1,0 +1,94 @@
+# Diagnostic Package Choices
+#--------------------
+#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+#--for each output-stream:
+#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+#               > 0 : write time-average output every frequency seconds
+#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+#    averagingFreq  : frequency (in s) for periodic averaging interval
+#    averagingPhase : phase     (in s) for periodic averaging interval
+#    repeatCycle    : number of averaging intervals in 1 cycle
+#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+#                when this entry is missing, select all common levels of this list
+#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#  missing_value(n) : missing value for real-type fields in output file "n"
+#  fileFlags(n)     : specific code (8c string) for output file "n"
+#--------------------
+# oceTAUX  zonal surface wind stress, >0 increases uVel (N/m^2)
+# oceTAUY  meridional surf. wind stress, >0 increases vVel (N/m^2)
+# oceFWflx net surface Fresh-Water flux into ocean, >0 decreases salinity (kg/m^2/s)
+# oceSflux net surface Salt flux into the ocean, >0 increases salinity (g/m^2/s)
+# oceQnet  net surface heat flux into the ocean, >0 increases theta (W/m^2)
+# oceQsw   net Short-Wave radiation (+=down), >0 increases theta (W/m^2)
+# SSS      Sea Surface Salinity (g/kg)
+# SST      Sea Surface Temperature (degC)
+# UVEL1    Zonal Surface Velocity (m/s)
+# VVEL1    Meridional Surface Velocity (m/s)
+
+ &DIAGNOSTICS_LIST
+   frequency(1)  = 10800.,
+   fields(1,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ',
+   filename(1)  = 'state_2d_set1',  
+
+ frequency(2)  = 10800.,
+    fields(1,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS',
+    levels(1,2)  = 1.,
+    filename(2)  = 'state_3d_set1',
+
+  fields(1:8,3)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
+                   'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
+   fileName(3) = 'iceDiag',
+  frequency(3) =  10800.,
+  missing_value(3) = -999.,
+
+  fields(1:9,4)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
+                   'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
+                   'CPLoWGHT',
+#  fileName(4) = 'iceInst',
+  frequency(4) = -3600.,
+  timePhase(4) =  0.,
+  missing_value(4) = -999.,
+
+  fields(1:11,5) = 'SIareaN ','SIheffN ','SIhsnowN','SIqSnow ',
+                   'SImeltPd','SItIces ','SIiceAge',
+                   'SI_dArea','SI_dHeff','SI_dHsnw','SI_dQSnw',
+#                  'SI_dMPnd',
+#                  'SI_dTIce','SI_dIcAg',
+#  fileName(5) = 'iceNcat',
+  frequency(5) = 10800.,
+  timePhase(5) = 0.,
+  fileFlags(5) = 'D       ',
+
+  fields(1:2,6)  = 'SIqIce  ',
+                   'SI_dQIce',
+#  fileName(6) = 'iceEnerg',
+  frequency(6) = 10800.,
+  timePhase(6) =  0.,
+
+  fields(1:2,7)  = 'SIqSnow ',
+                   'SI_dQSnw',
+#  fileName(7) = 'snowEnerg',
+  frequency(7) = 10800.,
+  timePhase(7) =  0.,
+
+ &
+
+ &DIAG_STATIS_PARMS
+ stat_fields(1:6,1)  = 'ETAN    ', 'THETA   ','SALT    ','oceQnet ','oceFWflx','oceSflux',
+ stat_fName(1) = 'dynStDiag',
+ stat_freq(1)=  10800.0,
+ stat_fields(1:21,2)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad', 
+                        'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
+                        'SIareaN ','SIheffN ','SIhsnowN',
+                        'SIqSnow ','SIqIce  ','SImeltPd',
+                        'SItIces ','SIiceAge',
+                        'SI_dArea','SI_dHeff','SI_dHsnw',
+                        'SI_dQSnw','SI_dQIce',
+#                       'SI_dMPnd','SI_dTIce','SI_dIcAg',
+  stat_fName(2) = 'iceStDiag',
+   stat_freq(2) = 10800.,
+# stat_phase(2) = 1800.,
+ &
