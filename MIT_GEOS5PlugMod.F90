@@ -1226,7 +1226,15 @@ contains
 
     ! Update the sea-ice fields
     FRI = FRI + DEL_FRACICE
-
+ 
+    DO J = 1, JM
+       DO I = 1, IM
+          if (sum(FRI(I,J,:)) > 1) then
+             FRI(I,J,:) = FRI(I,J,:)/sum(FRI(I,J,:))
+          end if
+       end DO
+    end DO
+  
     !ALT: workaround to deal with a possible bug in DEL_TI
     where(FRI == 0.0) DEL_TI = 0.0
 
