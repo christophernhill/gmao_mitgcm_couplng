@@ -1,3 +1,4 @@
+  * New experiment with sea-ice advection - c90_llc90_02
   * Added new experiment with sea ice energy advected - c48_llc90_07
   * Added new experiment with sea ice advected - c48_llc90_06
   * Cleaning up and consolidating instructions
