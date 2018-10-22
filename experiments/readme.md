@@ -42,9 +42,9 @@ c48_llc90_05 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
  - uses GEOS USE_IOSERVER and MITgcm asyncio
 
-c90_llc90_03 : c90/llc90 test experiment for c1440_llc4320 set-up
+c90_llc90_03 : c90/llc90 test experiment for c1440_llc2160 set-up
 
-c1440_llc4320_01 : c1440/llc4320 set-up for ~10K cores
+c1440_llc2160_01 : c1440/llc2160 set-up for ~10K cores
 
 c2880_llc4320_01 : c2880/llc4320 set-up
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
