@@ -10,7 +10,7 @@
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q devel -l select=18:ncpus=20:model=ivy,walltime=2:00:00
+ qsub -I -q devel -l select=20:ncpus=20:model=ivy,walltime=2:00:00
  tcsh
  setenv WorkingDir /nobackup/$USER/geos5
 
@@ -51,7 +51,7 @@
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c48
+# Enter the Atmospheric Horizontal Resolution code: c90
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
 # Enter the Ocean Lat/Lon Horizontal Resolution: llc90
