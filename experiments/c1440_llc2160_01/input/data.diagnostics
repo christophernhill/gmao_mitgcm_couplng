@@ -35,7 +35,7 @@
    filename(1)  = 'state_2d_set1',  
 
  frequency(2)  = 10800.,
-    fields(1:7,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS','WVELMASS','GM_PsiX ','GM_PsiY ',
+    fields(1:5,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS','WVELMASS',
     filename(2)  = 'state_3d_set1',
 
  frequency(3)  = -10800.,
