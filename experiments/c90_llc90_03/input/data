@@ -26,8 +26,8 @@
  useAreaViscLength=.TRUE.,
  highOrderVorticity  = .TRUE.,
  bottomDragQuadratic = 0.0021,
- tempAdvScheme=7,
- saltAdvScheme=7,
+ tempAdvScheme=77,
+ saltAdvScheme=77,
  StaggerTimeStep=.TRUE.,
  multiDimAdvection=.TRUE.,
  vectorInvariantMomentum=.TRUE.,
@@ -54,16 +54,17 @@
 
 # Time stepping parameters
  &PARM03
- nIter0=0,
+ nIter0=174564,
  nTimeSteps=175295,
- deltaT=450.,
+ deltaT=45.,
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
  chkptFreq   = 43200.0,
  dumpfreq = 3600.,
  dumpInitAndLast=.FALSE.,
- monitorFreq = 900.0,
+ monitorFreq = 45.0,
+ pickupStrictlyMatch=.FALSE.,
  &
 
 # Gridding parameters
