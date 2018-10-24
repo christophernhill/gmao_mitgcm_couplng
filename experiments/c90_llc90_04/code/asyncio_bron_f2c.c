@@ -4,6 +4,10 @@ void bron_f2(int *);
 void bron_f3(char *, int *, int *, void *);
 void bron_f4(int *);
 
+void asyncio_num_cores_set_( int *NumCores ) { 
+ NumCoresSet(*NumCores);
+}
+
 // Initialization function. 
 // Only compute ranks return.
 void asyncio_bron_f_f1_( MPI_Comm *mpiCommParent,

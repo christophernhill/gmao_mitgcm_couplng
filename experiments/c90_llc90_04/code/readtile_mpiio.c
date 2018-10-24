@@ -152,17 +152,17 @@ tileIO(
 {
     int fileFlags;
     MPI_File fh;
-    int (*MPI_IO)();
+    int (*myMPI_IO)();
 
     int res,count;
     MPI_Status status;
 
     if (writeFlag) {
         fileFlags = MPI_MODE_WRONLY | MPI_MODE_CREATE;
-        MPI_IO = MPI_File_write_all;
+        myMPI_IO = MPI_File_write_all;
     } else {
         fileFlags = MPI_MODE_RDONLY;
-        MPI_IO = MPI_File_read_all;
+        myMPI_IO = MPI_File_read_all;
     }
 
     //printf("filename is %s\n",filename);
@@ -173,7 +173,7 @@ tileIO(
 
 
     // MPI_IO(fh, tileBuf, 1, tileLayoutInMemory, MPI_STATUS_IGNORE);
-    res = MPI_IO(fh, tileBuf, 1, tileLayoutInMemory, &status);
+    res = myMPI_IO(fh, tileBuf, 1, tileLayoutInMemory, &status);
     
     MPI_Get_count(&status,tileLayoutInFile,&count);
 
