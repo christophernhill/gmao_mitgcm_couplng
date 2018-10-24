@@ -6,7 +6,7 @@
       SEAICE_wetIceAlb   = 0.7060,
       SEAICE_drySnowAlb  = 0.8652,
       SEAICE_wetSnowAlb  = 0.8085,
-      SEAICE_waterDrag   = 5.5627,
+      SEAICE_waterDrag   = 5.41E-3,
       SEAICE_drag        = 0.00114,
       HO                 = 0.05,
 #
@@ -14,11 +14,11 @@
       SEAICE_wetIceAlb_south  = 0.7284,
       SEAICE_drySnowAlb_south = 0.7754,
       SEAICE_wetSnowAlb_south = 0.7753,
-      SEAICE_waterDrag_south  = 5.6221,
+      SEAICE_waterDrag_south  = 5.47E-3,
       SEAICE_drag_south       = 0.0012114,
 #
       SEAICE_no_slip     = .TRUE.,
-      SEAICEadvScheme    = 7,
+      SEAICEadvScheme    = 77,
 #
       MIN_ATEMP          = -40.,
       MIN_TICE           = -40.,
@@ -37,4 +37,4 @@
       HeffFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIheff.data',
       UiceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIuice.data',
       ViceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIvice.data',
- &
+&
