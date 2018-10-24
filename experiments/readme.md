@@ -41,12 +41,22 @@ C48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
 c48_llc90_05 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
  - uses GEOS USE_IOSERVER and MITgcm asyncio
+ 
+c90_llc90_01 : Experiment without sea-ice advaction
+
+c90_llc90_02 : New experiment with sea-ice advection
 
 c90_llc90_03 : c90/llc90 test experiment for c1440_llc2160
                set-up with standard MITgcm I/O
 
 c90_llc90_04 : c90/llc90 test experiment for c1440_llc2160
                set-up with ASYNCIO
+
+c720_llc1080_Restart : after 5 days passive ocean
+
+c720_llc1080_Debug : runs for 5 time steps
+
+c720_llc1080_01 : setup for relaxation with passive ocean
 
 c1440_llc2160_01 : c1440/llc2160 set-up for ~10K cores
 
