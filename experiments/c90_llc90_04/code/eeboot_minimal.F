@@ -172,13 +172,6 @@ C--    Setup Nesting Execution Environment
        CALL NEST_EEINIT( mpiMyWId, color )
 #endif /* ALLOW_NEST_PARENT | ALLOW_NEST_CHILD */
 
-#if defined(ALLOW_ASYNCIO)
-C--    Separate off asynchronous I/O nodes
-C--    For now this is incompatible with NEST and COMPONENT_MODULE modes
-       CALL ASYNCIO_INIT(MPI_COMM_WORLD,
-     U                   MPI_COMM_MODEL)
-#endif /* ALLOW_ASYNCIO */
-
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
 C--    Get my process number
