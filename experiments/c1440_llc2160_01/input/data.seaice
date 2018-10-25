@@ -28,11 +28,14 @@
  SEAICElinearIterMax=  500,
 #LSR_mixIniGuess    = 1,
  SEAICEadvScheme    = 77,
- AreaFile  = 'const100.bin',
- HeffFile  = 'const+20.bin',
- HsnowFile = 'const_00.bin',
  SEAICEwriteState   = .TRUE.,
 #SEAICE_monFreq = 1800.,
+ AreaFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIarea.data',
+ HsnowFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsnow.data',
+ HsaltFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsalt.data',
+ HeffFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIheff.data',
+ UiceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIuice.data',
+ ViceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIvice.data',
  &
 
  &SEAICE_PARM03
