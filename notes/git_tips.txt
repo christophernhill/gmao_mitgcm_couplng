@@ -28,7 +28,7 @@
 
 # How to add a tag (do in both gmao_mitgcm_couplng and GEOSodas):
  git pull
- git tag checkpoint_0_W
+ git tag checkpoint_0_X
  git push origin --tags
 
 # How to retrieve a tag, e.g., checkpoint_0_M:
