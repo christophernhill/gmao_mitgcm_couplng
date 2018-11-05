@@ -122,7 +122,7 @@
 (PID.TID 0000.0001) ># Time stepping parameters
 (PID.TID 0000.0001) > &PARM03
 (PID.TID 0000.0001) > nIter0           = 72000,
-(PID.TID 0000.0001) >  nTimeSteps       = 96,
+(PID.TID 0000.0001) > nTimeSteps       = 96,
 (PID.TID 0000.0001) > deltaT           = 900.,
 (PID.TID 0000.0001) > monitorFreq      = 1.,
 (PID.TID 0000.0001) > abEps            = 0.1,
