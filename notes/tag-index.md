@@ -1,3 +1,5 @@
+  * New experiment with updated moist - c90_llc90_02a
+  * New HiRes experiment - c2880_llc4320_01
   * New experiment with sea-ice advection - c90_llc90_02
   * Added new experiment with sea ice energy advected - c48_llc90_07
   * Added new experiment with sea ice advected - c48_llc90_06
