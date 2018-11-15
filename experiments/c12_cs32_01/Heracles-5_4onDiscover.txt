@@ -53,6 +53,7 @@
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
+# Is this verification/debug experiment? YES
 # Enter the Atmospheric Horizontal Resolution code: c12
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
