@@ -182,7 +182,7 @@ contains
 
 !   -------------------------
 
-    nexports  = 14
+    nexports  = 15
     allocate(exports(nexports))
     exports    = (/ &
     mstate('US',    'top_layer_Agrid_eastward_velocity',     'm s-1',     MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
@@ -198,7 +198,8 @@ contains
     mstate('T',   'potential_temperature',                 'm',           MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
     mstate('S',   'salinity',                              'psu',         MAPL_DimsHorzVert,MAPL_VLocationCenter),    &
     mstate('DISCHARGEe','river_discharge_at_ocean_points',  'kg m-2 s-1',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
-    mstate('PBO','pressure_at_bottom_of_ocean',  'N m-2',  MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
+    mstate('PBO','pressure_at_bottom_of_ocean',  'N m-2',  MAPL_DimsHorzOnly,MAPL_VLocationNone),    &
+    mstate('WGHTe', 'weight_for_ocean_grid','1',     MAPL_DimsHorzOnly,MAPL_VLocationNone)    &
      /)
 
     DO I=1,nexports
@@ -1064,7 +1065,7 @@ contains
     call MAPL_GetPointer(EXPORT,   QFLXe,   'QFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   HFLXe,   'HFLX', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   SFLXe,   'SFLX', RC=STATUS); VERIFY_(STATUS)
-    call MAPL_GetPointer(EXPORT,   WGHTe,   'WGHT', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(EXPORT,   WGHTe,   'WGHTe', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(EXPORT,   DISCHARGEe, 'DISCHARGEe', RC=STATUS); VERIFY_(STATUS)
 
     CALL MAPL_GetPointer(EXPORT, TIe,   'TI', RC=STATUS); VERIFY_(STATUS)
