@@ -16,11 +16,12 @@ C  and "diagSt_size" (statistics-diags) since values here are deliberately small
       INTEGER    numDiags
       INTEGER    nRegions, sizRegMsk, nStats
       INTEGER    diagSt_size
-      PARAMETER( ndiagMax = 500 )
-      PARAMETER( numlists = 10, numperlist = 50, numLevels=2*Nr )
-      PARAMETER( numDiags = 40*Nr )
-      PARAMETER( nRegions = 10 , sizRegMsk = 3 , nStats = 4 )
-      PARAMETER( diagSt_size = 10*Nr )
+      PARAMETER( ndiagMax = 700 )
+      PARAMETER( numlists = 70, numperlist = 30, numLevels=5*Nr )
+      PARAMETER( numDiags = 3000 )
+      PARAMETER( nRegions = 20 , sizRegMsk = 1 , nStats = 4 )
+      PARAMETER( diagSt_size = 50*Nr )
+
 
 CEH3 ;;; Local Variables: ***
 CEH3 ;;; mode:fortran ***

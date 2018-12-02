@@ -72,7 +72,6 @@ C     xA,yA     :: "areas" of X and Y face of tracer cells
       INTEGER l, n
 #endif /* HACK_FOR_GMAO_CPL */
       INTEGER ks
-      LOGICAL SEAICEmultiDimAdvection
 #ifdef ALLOW_AUTODIFF_TAMC
       INTEGER itmpkey
 #endif /* ALLOW_AUTODIFF_TAMC */
