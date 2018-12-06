@@ -43,21 +43,21 @@
 
 # Set up coupled code for experiments/c12_cs32_03
 # Be sure to replace "Desired Location" and "Build"
-# directories below with your own
+# directories below with your own.
  cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Is this verification/debug experiment? YES
-# Enter the Atmospheric Horizontal Resolution code: c12
+# Is this verification/debug experiment? NO
+# Enter the Atmospheric Horizontal Resolution code: c12 <-------------------------
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: cs32
+# Enter the Ocean Lat/Lon Horizontal Resolution: cs32 <---------------------------
 # Enter the Ocean Model Vertical Resolution: 15
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? FALSE
-# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Do you wish to run  the Runoff Routing Model? FALSE <---------------------------
+# Do you wish to run GOCART with Actual or Climatological Aerosols? C <-----------
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
