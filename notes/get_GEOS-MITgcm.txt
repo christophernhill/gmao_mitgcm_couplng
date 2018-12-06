@@ -25,3 +25,13 @@
  cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
  cd GEOSocean_GridComp/GuestOcean_GridComp
  git clone git@github.com:christophernhill/gmao_mitgcm_couplng
+
+# Get GEOS-5 boundary conditions
+# geos5-tiny.tgz is available in
+# engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+# discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+# pleiades:/nobackup/dmenemen/GEOS5
+ cd $WorkingDir
+ tar -xf geos5-tiny.tgz
+ find TinyFromMatt -type d | xargs chmod g+rxs
+ find TinyFromMatt -type f | xargs chmod g+r

@@ -9,7 +9,7 @@
 # Link or build GEOS-5 baselibs in $WorkingDir
 # See instructions in notes/build_GMAO-Baselibs.txt
 
-# Get GEOS-MITgcm code in $WorkingDir
+# Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Set GEOS-5 and MITgcm environment variables
@@ -56,7 +56,7 @@
 # Enter the Ocean Lat/Lon Horizontal Resolution: cs32
 # Enter the Ocean Model Vertical Resolution: 15
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run  the Runoff Routing Model? FALSE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
@@ -65,13 +65,6 @@
 # Enter your GROUP ID for Current EXP: heracles
 
 # Get GEOS-5 boundary conditions for experiments/c12_cs32_01
-# geos5-tiny.tgz is available in
-# engaging:/nobackup1/dmenemen/geos5/tarballs_100816
-# discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
- cd $WorkingDir
- tar -xf geos5-tiny.tgz
- find TinyFromMatt -type d | xargs chmod g+rxs
- find TinyFromMatt -type f | xargs chmod g+r
  cd $WorkingDir/TEST
  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
  cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .

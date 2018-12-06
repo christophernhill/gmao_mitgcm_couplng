@@ -2,7 +2,7 @@ The following two experiments are "verification experiments".
 Please be sure to check that output in "verification" subdirectory
 remains unchanged or that it is updated with explanation.
 
-c12_cs32_01 : c12/cs32, 1-day, hourly output
+c12_cs32_01 : c12/cs32, 1-hourly
  - uses GEOSodas b_geos5mit (Heracles 5.4)
 
 c48_llc90_02 : c48/llc90, 1-day ECCO_v4_r2 set-up

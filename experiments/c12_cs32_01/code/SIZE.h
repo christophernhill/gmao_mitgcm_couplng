@@ -1,36 +1,35 @@
-C $Header: $
-C $Name: $
-
 CBOP
 C    !ROUTINE: SIZE.h
 C    !INTERFACE:
 C    include SIZE.h
 C    !DESCRIPTION: \bv
 C     *==========================================================*
-C     | SIZE.h Declare size of underlying computational grid.     
+C     | SIZE.h Declare size of underlying computational grid.
 C     *==========================================================*
-C     | The design here support a three-dimensional model grid    
-C     | with indices I,J and K. The three-dimensional domain      
-C     | is comprised of nPx*nSx blocks of size sNx along one axis 
-C     | nPy*nSy blocks of size sNy along another axis and one     
-C     | block of size Nz along the final axis.                    
-C     | Blocks have overlap regions of size OLx and OLy along the 
-C     | dimensions that are subdivided.                           
+C     | The design here supports a three-dimensional model grid
+C     | with indices I,J and K. The three-dimensional domain
+C     | is comprised of nPx*nSx blocks (or tiles) of size sNx
+C     | along the first (left-most index) axis, nPy*nSy blocks
+C     | of size sNy along the second axis and one block of size
+C     | Nr along the vertical (third) axis.
+C     | Blocks/tiles have overlap regions of size OLx and OLy
+C     | along the dimensions that are subdivided.
 C     *==========================================================*
 C     \ev
+C
+C     Voodoo numbers controlling data layout:
+C     sNx :: Number of X points in tile.
+C     sNy :: Number of Y points in tile.
+C     OLx :: Tile overlap extent in X.
+C     OLy :: Tile overlap extent in Y.
+C     nSx :: Number of tiles per process in X.
+C     nSy :: Number of tiles per process in Y.
+C     nPx :: Number of processes to use in X.
+C     nPy :: Number of processes to use in Y.
+C     Nx  :: Number of points in X for the full domain.
+C     Ny  :: Number of points in Y for the full domain.
+C     Nr  :: Number of points in vertical direction.
 CEOP
-C     Voodoo numbers controlling data layout.
-C     sNx :: No. X points in sub-grid.
-C     sNy :: No. Y points in sub-grid.
-C     OLx :: Overlap extent in X.
-C     OLy :: Overlat extent in Y.
-C     nSx :: No. sub-grids in X.
-C     nSy :: No. sub-grids in Y.
-C     nPx :: No. of processes to use in X.
-C     nPy :: No. of processes to use in Y.
-C     Nx  :: No. points in X for the total domain.
-C     Ny  :: No. points in Y for the total domain.
-C     Nr  :: No. points in Z for full process domain.
       INTEGER sNx
       INTEGER sNy
       INTEGER OLx
@@ -42,11 +41,6 @@ C     Nr  :: No. points in Z for full process domain.
       INTEGER Nx
       INTEGER Ny
       INTEGER Nr
-C-- Note: the 4 test-experiments (input, input.thsice, input.viscA4 and
-C         input.icedyn ) have different minimum Overlap-size requirement:
-C    input & input.thsice : work with Olx=Oly=2 (= absolute minimum size) ;
-C    input.viscA4 : needs at least Olx=Oly=3 (for biharmonic viscosity) ;
-C    input.icedyn : needs at least Olx=Oly=4 (CS-grid multidimensional Advect.)
       PARAMETER (
      &           sNx =  32,
      &           sNy =  32,
@@ -68,9 +62,3 @@ C                routine buffers.
       PARAMETER ( MAX_OLX = OLx,
      &            MAX_OLY = OLy )
 
-C Variables needed by ctrl_getrec.F and ctrl_pack.F
-C This is temporary fix to break dependencies of pkg/ctrl
-      integer     nobcs
-      parameter ( nobcs = 4 )
-      Real*8      fc
-      parameter ( fc    = 0 )

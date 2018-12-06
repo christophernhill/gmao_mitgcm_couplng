@@ -1,3 +1,6 @@
+  * Added sea ice to c90_llc90_01 & reduced integration period to 1hr
+  * Updated c90_llc90_01 & c90_llc90_03 to MITgcm to checkpoint67f
+
 - checkpoint_0_X (2018/11/05, compatible with MITgcm checkpoint67e)
   * New experiment with updated moist - c90_llc90_02a
   * New HiRes experiment - c2880_llc4320_01

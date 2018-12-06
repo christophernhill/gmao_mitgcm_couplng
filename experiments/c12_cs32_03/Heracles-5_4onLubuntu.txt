@@ -1,20 +1,16 @@
-# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Discover
+# Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
- setenv WorkingDir $NOBACKUP/Heracles-5_4
+ setenv WorkingDir ~/geos5
  mkdir $WorkingDir
  cd $WorkingDir
- module load other/git
+
+# Link or build GEOS-5 baselibs in $WorkingDir
+# See instructions in notes/build_GMAO-Baselibs.txt
 
 # Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
-
-# Request interactive job and set WorkingDir to same location as above
-# xsub -I -l select=1,walltime=8:00:00
- ~atrayano/bin/interactive.py -X -n 6 --nomail --debug
- tcsh
- setenv WorkingDir $NOBACKUP/Heracles-5_4
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
@@ -23,19 +19,19 @@
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
- cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01
+ cd $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03
  mkdir build; cd build; rm *
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $MITGCM_ROOTDIR/tools/build_options/linux_amd64_ifort+gcc -ieee
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/inc
- ./mk_local ../../experiments/c12_cs32_01/build
+ ./mk_local ../../experiments/c12_cs32_03/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup/build
- ./mk_local ../../experiments/c12_cs32_01/build
+ ./mk_local ../../experiments/c12_cs32_03/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
  rm code
- ln -s ../experiments/c12_cs32_01/code .
+ ln -s ../experiments/c12_cs32_03/code .
  cd build
  rm *.a *.c *.f *.h *.o *.F
 
@@ -45,7 +41,7 @@
 # If the build is successful, it will create:
 # ls -l $ESMADIR/src/Applications/GEOSgcm_App/GEOSgcm.x
 
-# Set up coupled code for experiments/c12_cs32_01
+# Set up coupled code for experiments/c12_cs32_03
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
  cd $ESMADIR/src/Applications/GEOSgcm_App
@@ -66,12 +62,12 @@
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
 # Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
-# Enter your GROUP ID for Current EXP: s1353
+# Enter your GROUP ID for Current EXP: heracles
 
-# Get GEOS-5 boundary conditions for experiments/c12_cs32_01
+# Get GEOS-5 boundary conditions for experiments/c12_cs32_03
  cd $WorkingDir/TEST
- $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
- cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
+ $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03/makeoneday.bash TINY
+ cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03/*.rc .
 
 # Populate the mit_input directory
  cd $WorkingDir/TEST
@@ -80,13 +76,13 @@
  ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
  ln -sf $MITGCM_ROOTDIR/verification/tutorial_held_suarez_cs/input/g* .
  ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/pic* .
- cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input/* .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03/input/* .
 
-# Run coupled code as an interactive job
-# Alternatively try "qsub gcm_run.j"
+# Run coupled code
  cd $WorkingDir/TEST
+ setenv GFORTRAN_CONVERT_UNIT 'little_endian:20-25'
  ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
  diff scratch/mitocean_run/STDOUT.0000 \
-  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_ifort
+  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_03/results/STDOUT.0000_gfortran

@@ -6,7 +6,7 @@
  mkdir $WorkingDir
  cd $WorkingDir
 
-# Get GEOS-MITgcm code in $WorkingDir
+# Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
@@ -58,7 +58,7 @@
 # Enter the Ocean Lat/Lon Horizontal Resolution: cs32
 # Enter the Ocean Model Vertical Resolution: 15
 # Enter the choice of  Land Surface Model: 1
-# Do you wish to run  the Runoff Routing Model? NO
+# Do you wish to run  the Runoff Routing Model? FALSE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? C
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
@@ -67,10 +67,6 @@
 # Enter your GROUP ID for Current EXP: g26209
 
 # Get GEOS-5 boundary conditions for experiments/c12_cs32_01
- cd $WorkingDir
- tar -xf /nobackup/dmenemen/GEOS5/geos5-tiny.tgz
- find TinyFromMatt -type d | xargs chmod g+rxs
- find TinyFromMatt -type f | xargs chmod g+r
  cd $WorkingDir/TEST
  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/makeoneday.bash TINY
  cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/*.rc .
