@@ -299,7 +299,7 @@ CML   This has already been done in seaice_ocean_stress/ostres, so why repeat?
 CML   CALL EXCH_UV_XY_RS(fu,fv,.TRUE.,myThid)
 
 #ifdef HACK_FOR_GMAO_CPL
-C-    Save avective increments:
+C-    Save advective increments:
         CALL SEAICE_SAVE4GMAO( myTime, 2, myIter, myThid )
 C-    for now, reset increments to zero
 C-        CALL SEAICE_SAVE4GMAO( myTime, 0, myIter, myThid )

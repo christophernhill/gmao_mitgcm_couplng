@@ -2,7 +2,7 @@
  &SEAICE_PARM01
  usePW79thermodynamics= .FALSE.,
 # SEAICEuseDYNAMICS = .FALSE.,
-  SEAICEupdateOceanStress=.FALSE.,
+# SEAICEupdateOceanStress=.FALSE.,
 # SEAICEadvHeff  = .FALSE.,
 # SEAICEadvArea  = .FALSE.,
 # SEAICEadvSnow  = .FALSE.,

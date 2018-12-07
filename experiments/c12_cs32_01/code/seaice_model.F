@@ -197,7 +197,7 @@ C     After advection, the sea ice variables may have unphysical values
 C     e.g., < 0, that are regularized here. Concentration as a special case
 C     may be > 1 in convergent motion and a ridging algorithm redistributes
 C     the ice to limit the concentration to 1.
-      CALL SEAICE_REG_RIDGE( myTime, myIter, myThid )
+C      CALL SEAICE_REG_RIDGE( myTime, myIter, myThid )
 
 #ifndef DISABLE_SEAICE_GROWTH
 C     thermodynamics growth
