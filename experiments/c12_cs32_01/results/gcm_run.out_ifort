@@ -1,74 +1,74 @@
-g5_modules: Setting BASEDIR and modules for r437i4n16
+g5_modules: Setting BASEDIR and modules for r471i5n15
 /bin/rm: No match.
-/bin/ln: No match.
-[1] 80132
-[2] 80133
+[1] 88925
+[2] 88926
+[3] 88927
 [1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/agcm_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/agcm_import_rst .
-[3] 80134
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/agcm_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/agcm_internal_rst .
-[4] 80135
-[5] 80136
-[6] 80138
-[7] 80140
-[8] 80142
-[9] 80144
+[4] 88928
+[5] 88930
+[6] 88931
+[7] 88933
+[8] 88935
+[9] 88937
 [7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/catchcn_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/catchcn_internal_rst .
-[1] 80145
-[2] 80147
+[1] 88938
+[2] 88940
 [9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/moist_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/moist_import_rst .
-[9] 80148
+[9] 88941
 [1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/surf_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/surf_import_rst .
-[1] 80149
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/solar_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/solar_internal_rst .
+[1] 88942
+[2] 88943
 [9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/irrad_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/irrad_internal_rst .
-[9] 80150
+[9] 88944
 [1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/turb_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/turb_internal_rst .
-[1] 80151
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/turb_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/turb_import_rst .
-[9] 80152
-[2] 80153
-[7] 80155
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst .
-[9] 80156
+[1] 88945
+[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/turb_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/turb_import_rst .
+[2] 88946
+[7] 88948
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst .
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gocart_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gocart_internal_rst .
-[2] 80157
+[1] 88949
 [7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gocartdata_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gocartdata_internal_rst .
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst .
-[9] 80158
-[7] 80159
+[2] 88950
+[7] 88951
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst .
+[1] 88952
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/stratchem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/stratchem_internal_rst .
-[2] 80160
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst .
-[9] 80161
-[7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst .
-[7] 80162
+[2] 88953
+[7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst .
+[7] 88954
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst .
+[1] 88955
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gmichem_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gmichem_import_rst .
-[4]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst .
-[2] 80163
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst .
-[5]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst .
-[7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst .
-[9] 80164
-[4] 80165
+[2] 88956
+[7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst .
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst .
+[1] 88957
+[7] 88958
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/tr_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/tr_internal_rst .
-[2] 80166
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/tr_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/tr_import_rst .
-[9] 80167
-[5] 80169
+[2] 88959
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/tr_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/tr_import_rst .
+[1] 88960
+[10] 88962
 [2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/saltwater_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/saltwater_import_rst .
-[2] 80170
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst .
-[9] 80171
-[5]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst .
-[9]  - Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/vegdyn.data ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/vegdyn.data .
-[2]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/orad_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/orad_import_rst .
-[4]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst .
-[1]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst .
+[2] 88963
+[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst .
+[10]   Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst .
+[1] 88964
+[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/orad_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/orad_import_rst .
+[1]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/vegdyn.data ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/vegdyn.data .
+[7]  - Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst .
+[9]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst .
 [8]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/moist_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/moist_internal_rst .
 [6]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/catch_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/catch_internal_rst .
+[5]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst .
+[4]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst .
 [3]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/fvcore_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/fvcore_internal_rst .
 /bin/cp: No match.
 /bin/ls: No match.
+/bin/ln: No match.
 /bin/ln: No match.
  
  In MAPL_Shmem:
@@ -246,6 +246,7 @@ Number of true pressure levels =    1
  MAPL: adding export S
  MAPL: adding export DISCHARGEe
  MAPL: adding export PBO
+ MAPL: adding export WGHTe
       Real*4 Resource Parameter DT:    900.000    
    Integer*4 Resource Parameter REFERENCE_DATE:    20000414
    Integer*4 Resource Parameter REFERENCE_TIME:           0
@@ -1269,467 +1270,32 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000414_2200z.nc4
  Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000414_2200z.nc4
  
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000414_2300z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000414_2300z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000414_2300z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000414_2300z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:00:00
- 
- Writing:    483 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0000z.nc4
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000414_2230z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0000z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0000z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0000z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0000z.nc4
- 
-  
- PCHEM::Run: Indices selected from climatology are           15          16
-  
- 
- Updated CO2 in solar for year/day 2000/106 is  0.36855E-03
- 
- 
- Updated Solar Constant for year/day 2000/106 is  0.13618E+04
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 00:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0100z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0100z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0100z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0100z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 01:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0200z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0200z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0200z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0200z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 02:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:00:00
- 
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0130z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0300z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0300z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0300z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0300z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 03:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0400z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0400z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0400z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0400z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 04:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0500z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0500z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0500z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0500z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 05:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:00:00
- 
- Writing:    483 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_0600z.nc4
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0430z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0600z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0600z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0600z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0600z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 06:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0700z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0700z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0700z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0700z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 07:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0800z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0800z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0800z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0800z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 08:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:00:00
- 
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_0730z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_0900z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_0900z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_0900z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_0900z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 09:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1000z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1000z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1000z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1000z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 10:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1100z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1100z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1100z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1100z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 11:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:00:00
- 
- Writing:    483 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1200z.nc4
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1030z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1200z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1200z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1200z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1200z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 12:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1300z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1300z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1300z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1300z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 13:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1400z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1400z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1400z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1400z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 14:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:00:00
- 
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1330z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1500z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1500z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1500z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1500z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 15:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1600z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1600z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1600z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1600z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 16:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1700z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1700z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1700z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1700z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 17:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:00:00
- 
- Writing:    483 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_prog.20000415_1800z.nc4
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1630z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1800z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1800z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1800z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1800z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 18:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_1900z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_1900z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_1900z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_1900z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 19:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_2000z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_2000z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_2000z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_2000z.nc4
- 
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 20:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/15  Time: 21:00:00
- 
- Writing:    147 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.geosgcm_surf.20000415_1930z.nc4
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000415_2100z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000415_2100z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000415_2100z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000415_2100z.nc4
- 
  
    -----------------------------------------------------
       Block          Max time    Min Time   Load Imbalance
    -----------------------------------------------------
-   TOTAL                      124.9207     124.9194       0.0013
-   COMM_TOTAL                   0.6598       0.6027       0.0571
-   C_SW                         0.2697       0.2474       0.0224
-   D_SW                         1.0151       0.9488       0.0663
-   FV_TP_2D                     5.1684       5.0713       0.0971
-   TRACER_2D                    5.3027       5.2978       0.0049
-   COMM_TRAC                    0.4144       0.3658       0.0486
-   REMAPPING                    2.1916       2.1503       0.0414
+   TOTAL                       49.5596      49.5583       0.0013
+   COMM_TOTAL                   0.0277       0.0253       0.0024
+   C_SW                         0.0114       0.0107       0.0007
+   D_SW                         0.0421       0.0402       0.0019
+   FV_TP_2D                     0.2200       0.2139       0.0060
+   TRACER_2D                    0.2245       0.2243       0.0002
+   COMM_TRAC                    0.0174       0.0153       0.0021
+   REMAPPING                    0.0920       0.0887       0.0033
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: fvcore_internal_checkpoint
   
   Times for DYN
-TOTAL                   :      14.155
+TOTAL                   :       0.655
 INITIALIZE              :       0.007
-RUN                     :      12.777
-RUN2                    :       1.309
+RUN                     :       0.537
+RUN2                    :       0.046
 -DYN_INIT               :       0.003
---FMS_INIT              :       0.011
+--FMS_INIT              :       0.012
 --FV_INIT               :       0.029
--DYN_CORE               :      10.805
+-DYN_CORE               :       0.456
 FINALIZE                :       0.002
 GenInitTot              :       0.053
 --GenInitMine           :       0.053
@@ -1744,31 +1310,31 @@ GenRefreshTot           :       0.000
   
   
   Times for SUPERDYNAMICS
-TOTAL                   :      14.208
-DYN                     :       0.074
+TOTAL                   :       0.669
+DYN                     :       0.072
 GenInitTot              :       0.071
 --GenInitMine           :       0.012
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.013
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.002
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for GWD
-TOTAL                   :       0.878
-DRIVER                  :       0.830
+TOTAL                   :       0.043
+DRIVER                  :       0.036
 -DRIVER_RUN             :       0.000
--INTR                   :       0.656
+-INTR                   :       0.029
 -DRIVER_DATA            :       0.000
 --DRIVER_DATA_DEVICE    :       0.000
 --DRIVER_DATA_CONST     :       0.000
 -DRIVER_ALLOC           :       0.000
 -DRIVER_DEALLOC         :       0.000
-GenInitTot              :       0.005
+GenInitTot              :       0.006
 --GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
@@ -1787,14 +1353,14 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: moist_import_checkpoint
   
   Times for MOIST
-TOTAL                   :       4.765
-DRIVER                  :       4.662
--PRE_RAS                :       0.113
--RAS                    :       0.511
---RAS_RUN               :       0.506
--POST_RAS               :       0.086
--CLOUD                  :       2.198
---CLOUD_RUN             :       1.945
+TOTAL                   :       0.303
+DRIVER                  :       0.201
+-PRE_RAS                :       0.005
+-RAS                    :       0.024
+--RAS_RUN               :       0.024
+-POST_RAS               :       0.004
+-CLOUD                  :       0.092
+--CLOUD_RUN             :       0.081
 ---ACTIV                :       0.000
 ---CLDMACRO             :       0.000
 ---MGMICRO              :       0.000
@@ -1803,10 +1369,10 @@ DRIVER                  :       4.662
 ---CLOUD_DATA_CONST     :       0.000
 --CLOUD_ALLOC           :       0.000
 --CLOUD_DEALLOC         :       0.000
--MISC                   :       1.768
---FLASH                 :       0.191
-GenInitTot              :       0.075
---GenInitMine           :       0.075
+-MISC                   :       0.077
+--FLASH                 :       0.008
+GenInitTot              :       0.076
+--GenInitMine           :       0.076
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.028
@@ -1825,22 +1391,22 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: saltwater_import_checkpoint
   
   Times for SALTWATER
-TOTAL                   :       6.941
-INITIALIZE              :       0.178
-RUN1                    :       1.733
-RUN2                    :       4.785
--BeforeSaltWaterCore    :       1.318
--OpenWater              :       0.038
--Thermo1                :       2.395
--Thermo2                :       1.169
--Albedo                 :       0.119
+TOTAL                   :       0.692
+INITIALIZE              :       0.177
+RUN1                    :       0.072
+RUN2                    :       0.201
+-BeforeSaltWaterCore    :       0.055
+-OpenWater              :       0.002
+-Thermo1                :       0.098
+-Thermo2                :       0.049
+-Albedo                 :       0.005
 FINALIZE                :       0.000
-GenInitTot              :       0.177
---GenInitMine           :       0.177
+GenInitTot              :       0.176
+--GenInitMine           :       0.176
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.071
---GenFinalMine          :       0.071
+GenFinalTot             :       0.068
+--GenFinalMine          :       0.068
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1851,15 +1417,15 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: lake_internal_checkpoint
   
   Times for LAKE
-TOTAL                   :       0.295
-RUN1                    :       0.151
-RUN2                    :       0.118
+TOTAL                   :       0.037
+RUN1                    :       0.007
+RUN2                    :       0.006
 GenInitTot              :       0.015
 --GenInitMine           :       0.015
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.011
---GenFinalMine          :       0.011
+GenFinalTot             :       0.010
+--GenFinalMine          :       0.010
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1870,9 +1436,9 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: landice_internal_checkpoint
   
   Times for LANDICE
-TOTAL                   :       0.359
-RUN1                    :       0.118
-RUN2                    :       0.205
+TOTAL                   :       0.049
+RUN1                    :       0.005
+RUN2                    :       0.009
 GenInitTot              :       0.022
 --GenInitMine           :       0.022
 GenRunTot               :       0.000
@@ -1886,9 +1452,9 @@ GenRefreshTot           :       0.000
   
   
   Times for VEGDYN
-TOTAL                   :       0.156
-GenInitTot              :       0.017
---GenInitMine           :       0.017
+TOTAL                   :       0.230
+GenInitTot              :       0.082
+--GenInitMine           :       0.082
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -1903,18 +1469,18 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: catch_internal_checkpoint
   
   Times for CATCH
-TOTAL                   :      16.352
-RUN1                    :       7.253
--SURF                   :       6.879
-RUN2                    :       8.575
--CATCH                  :       5.062
--ALBEDO                 :       0.134
-GenInitTot              :       0.452
---GenInitMine           :       0.452
+TOTAL                   :       1.343
+RUN1                    :       0.303
+-SURF                   :       0.287
+RUN2                    :       0.530
+-CATCH                  :       0.212
+-ALBEDO                 :       0.005
+GenInitTot              :       0.441
+--GenInitMine           :       0.441
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.100
---GenFinalMine          :       0.100
+GenFinalTot             :       0.071
+--GenFinalMine          :       0.071
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1922,19 +1488,19 @@ GenRefreshTot           :       0.000
   
   
   Times for LAND
-TOTAL                   :      16.570
-INITIALIZE              :       0.510
-RUN1                    :       7.395
-RUN2                    :       8.592
-VEGDYN                  :       0.157
-CATCH                   :      16.370
-GenInitTot              :       0.510
---GenInitMine           :       0.042
+TOTAL                   :       1.615
+INITIALIZE              :       0.564
+RUN1                    :       0.450
+RUN2                    :       0.530
+VEGDYN                  :       0.230
+CATCH                   :       1.344
+GenInitTot              :       0.564
+--GenInitMine           :       0.041
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.101
+GenFinalTot             :       0.072
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.002
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -1944,32 +1510,32 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: surf_import_checkpoint
   
   Times for SURFACE
-TOTAL                   :      26.813
-INITIALIZE              :       0.816
-InitChild               :       0.761
+TOTAL                   :       2.384
+INITIALIZE              :       0.870
+InitChild               :       0.814
 LocStreamCreate         :       0.004
-LocStreamXForm          :       0.052
--RUN1                   :       9.918
---RUN1_SALTWATER        :       1.885
---RUN1_LAKE             :       0.294
---RUN1_LANDICE          :       0.255
---RUN1_LAND             :       7.609
--RUN2                   :      15.924
---RUN2_SALTWATER        :       5.046
---RUN2_LAKE             :       0.254
---RUN2_LANDICE          :       0.344
---RUN2_LAND             :       9.031
-SALTWATER               :       7.179
-LAKE                    :       0.574
-LANDICE                 :       0.635
-LAND                    :      17.225
-GenInitTot              :       0.761
+LocStreamXForm          :       0.054
+-RUN1                   :       0.559
+--RUN1_SALTWATER        :       0.079
+--RUN1_LAKE             :       0.014
+--RUN1_LANDICE          :       0.012
+--RUN1_LAND             :       0.459
+-RUN2                   :       0.839
+--RUN2_SALTWATER        :       0.213
+--RUN2_LAKE             :       0.011
+--RUN2_LANDICE          :       0.015
+--RUN2_LAND             :       0.548
+SALTWATER               :       0.536
+LAKE                    :       0.049
+LANDICE                 :       0.062
+LAND                    :       1.642
+GenInitTot              :       0.814
 --GenInitMine           :       0.040
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.207
---GenFinalMine          :       0.043
-GenRecordTot            :       0.005
+GenFinalTot             :       0.175
+--GenFinalMine          :       0.015
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -1982,22 +1548,22 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: turb_import_checkpoint
   
   Times for TURBULENCE
-TOTAL                   :       1.777
--RUN1                   :       1.376
---DIFFUSE               :       0.219
---REFRESHKS             :       0.932
----PRELIMS              :       0.084
----LOUIS                :       0.089
----LOCK                 :       0.075
+TOTAL                   :       0.098
+-RUN1                   :       0.058
+--DIFFUSE               :       0.009
+--REFRESHKS             :       0.040
+---PRELIMS              :       0.004
+---LOUIS                :       0.004
+---LOCK                 :       0.003
 ----LOCK_RUN            :       0.000
 ----LOCK_DATA           :       0.000
 ----LOCK_ALLOC          :       0.000
 ----LOCK_DEALLOC        :       0.000
----POSTLOCK             :       0.385
----BELJAARS             :       0.017
----DECOMP               :       0.015
--RUN2                   :       0.377
---UPDATE                :       0.199
+---POSTLOCK             :       0.016
+---BELJAARS             :       0.001
+---DECOMP               :       0.001
+-RUN2                   :       0.016
+--UPDATE                :       0.008
 GenInitTot              :       0.013
 --GenInitMine           :       0.013
 GenRunTot               :       0.000
@@ -2028,11 +1594,11 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: pchem_internal_checkpoint
   
   Times for PCHEM
-TOTAL                   :       1.050
-RUN                     :       0.996
+TOTAL                   :       0.165
+RUN                     :       0.043
 -Read Species           :       0.008
-INITIALIZE              :       0.036
--Read Header            :       0.020
+INITIALIZE              :       0.105
+-Read Header            :       0.089
 GenInitTot              :       0.016
 --GenInitMine           :       0.016
 GenRunTot               :       0.000
@@ -2049,16 +1615,16 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: gocartdata_internal_checkpoint
   
   Times for GOCART.data
-TOTAL                   :       0.353
-RUN                     :       0.156
-INITIALIZE              :       0.108
+TOTAL                   :       0.818
+RUN                     :       0.007
+INITIALIZE              :       0.734
 FINALIZE                :       0.000
-GenInitTot              :       0.014
---GenInitMine           :       0.014
+GenInitTot              :       0.026
+--GenInitMine           :       0.026
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.089
---GenFinalMine          :       0.089
+GenFinalTot             :       0.078
+--GenFinalMine          :       0.078
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2066,17 +1632,17 @@ GenRefreshTot           :       0.000
   
   
   Times for CHEMISTRY
-TOTAL                   :       1.519
-CHEMENV                 :       0.094
-PCHEM                   :       1.051
-GOCART.data             :       0.355
-GenInitTot              :       0.163
---GenInitMine           :       0.015
+TOTAL                   :       1.017
+CHEMENV                 :       0.009
+PCHEM                   :       0.166
+GOCART.data             :       0.818
+GenInitTot              :       0.869
+--GenInitMine           :       0.026
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.100
+GenFinalTot             :       0.088
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.003
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -2086,11 +1652,11 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: solar_internal_checkpoint
   
   Times for SOLAR
-TOTAL                   :       5.097
-PRELIMS                 :       0.067
-REFRESH                 :       4.570
--SORAD                  :       3.651
---SORAD_RUN             :       3.651
+TOTAL                   :       0.309
+PRELIMS                 :       0.003
+REFRESH                 :       0.193
+-SORAD                  :       0.155
+--SORAD_RUN             :       0.155
 --SORAD_DATA            :       0.000
 ---SORAD_DATA_DEVICE    :       0.000
 ---SORAD_DATA_CONST     :       0.000
@@ -2100,20 +1666,20 @@ REFRESH                 :       4.570
 --RRTMG_RUN             :       0.000
 --RRTMG_INIT            :       0.000
 --RRTMG_FLIP            :       0.000
--BALANCE                :       0.192
---CREATE                :       0.067
---DISTRIBUTE            :       0.014
---RETRIEVE              :       0.004
+-BALANCE                :       0.008
+--CREATE                :       0.003
+--DISTRIBUTE            :       0.001
+--RETRIEVE              :       0.002
 --DESTROY               :       0.000
--MISC                   :       0.050
-UPDATE                  :       0.365
--AEROSOLS               :       0.696
-GenInitTot              :       0.013
---GenInitMine           :       0.013
+-MISC                   :       0.002
+UPDATE                  :       0.015
+-AEROSOLS               :       0.029
+GenInitTot              :       0.024
+--GenInitMine           :       0.024
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.084
---GenFinalMine          :       0.084
+GenFinalTot             :       0.073
+--GenFinalMine          :       0.073
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2124,10 +1690,10 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: irrad_internal_checkpoint
   
   Times for IRRAD
-TOTAL                   :      10.175
--LW_DRIVER              :      10.057
---IRRAD                 :       9.152
----IRRAD_RUN            :       9.152
+TOTAL                   :       0.448
+-LW_DRIVER              :       0.416
+--IRRAD                 :       0.378
+---IRRAD_RUN            :       0.378
 ---IRRAD_DATA           :       0.000
 ----IRRAD_DATA_DEVICE   :       0.000
 ----IRRAD_DATA_CONST    :       0.000
@@ -2137,15 +1703,15 @@ TOTAL                   :      10.175
 ---RRTMG_RUN            :       0.000
 ---RRTMG_INIT           :       0.000
 ---RRTMG_FLIP           :       0.000
---MISC                  :       0.904
----AEROSOLS             :       0.861
--UPDATE_FLX             :       0.047
-GenInitTot              :       0.010
---GenInitMine           :       0.010
+--MISC                  :       0.038
+---AEROSOLS             :       0.036
+-UPDATE_FLX             :       0.002
+GenInitTot              :       0.011
+--GenInitMine           :       0.011
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.018
---GenFinalMine          :       0.018
+GenFinalTot             :       0.017
+--GenFinalMine          :       0.017
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2153,38 +1719,38 @@ GenRefreshTot           :       0.000
   
   
   Times for RADIATION
-TOTAL                   :      15.324
-SOLAR                   :       5.099
-IRRAD                   :      10.176
-GenInitTot              :       0.037
---GenInitMine           :       0.014
-GenRunTot               :      15.138
+TOTAL                   :       0.775
+SOLAR                   :       0.309
+IRRAD                   :       0.448
+GenInitTot              :       0.052
+--GenInitMine           :       0.017
+GenRunTot               :       0.630
 --GenRunMine            :       0.000
-GenFinalTot             :       0.102
+GenFinalTot             :       0.090
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.002
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for PHYSICS
-TOTAL                   :      54.064
-INITIALIZE              :       0.006
-RUN                     :      52.541
-GWD                     :       0.880
-MOIST                   :       4.767
-SURFACE                 :      26.871
-TURBULENCE              :       1.781
-CHEMISTRY               :       1.523
-RADIATION               :      15.326
-GenInitTot              :       1.130
---GenInitMine           :       0.022
+TOTAL                   :       4.767
+INITIALIZE              :       0.007
+RUN                     :       2.520
+GWD                     :       0.044
+MOIST                   :       0.304
+SURFACE                 :       2.441
+TURBULENCE              :       0.098
+CHEMISTRY               :       1.018
+RADIATION               :       0.775
+GenInitTot              :       1.908
+--GenInitMine           :       0.024
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.376
+GenFinalTot             :       0.331
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.012
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -2193,8 +1759,8 @@ GenRefreshTot           :       0.000
   Times for ORBIT
 TOTAL                   :       0.003
 Run                     :       0.000
-GenInitTot              :       0.002
---GenInitMine           :       0.002
+GenInitTot              :       0.003
+--GenInitMine           :       0.003
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2206,22 +1772,22 @@ GenRefreshTot           :       0.000
   
   
   Times for AGCM
-TOTAL                   :      68.481
-SUPERDYNAMICS           :      14.210
-PHYSICS                 :      54.067
-ORBIT                   :       0.005
-GenInitTot              :       1.233
---GenInitMine           :       0.023
+TOTAL                   :       5.543
+SUPERDYNAMICS           :       0.669
+PHYSICS                 :       4.767
+ORBIT                   :       0.003
+GenInitTot              :       2.014
+--GenInitMine           :       0.026
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.390
+GenFinalTot             :       0.345
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.015
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       1.240
-RUN                     :      66.837
+INITIALIZE              :       2.077
+RUN                     :       3.121
   
   
   Times for AIAU
@@ -2232,8 +1798,8 @@ DRIVER                  :       0.000
 -RUN                    :       0.000
 -REGRIDSPC              :       0.000
 --WINDFIX               :       0.000
-GenInitTot              :       0.006
---GenInitMine           :       0.006
+GenInitTot              :       0.007
+--GenInitMine           :       0.007
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2247,8 +1813,8 @@ GenRefreshTot           :       0.000
   Times for ADFI
 TOTAL                   :       0.005
 INITIALIZE              :       0.000
-GenInitTot              :       0.004
---GenInitMine           :       0.004
+GenInitTot              :       0.005
+--GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2277,8 +1843,8 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: orad_import_checkpoint
   
   Times for ORAD
-TOTAL                   :       0.170
-RUN                     :       0.159
+TOTAL                   :       0.019
+RUN                     :       0.007
 GenInitTot              :       0.004
 --GenInitMine           :       0.004
 GenRunTot               :       0.000
@@ -2292,9 +1858,9 @@ GenRefreshTot           :       0.000
   
   
   Times for MIT
-TOTAL                   :       9.415
+TOTAL                   :       0.732
 INITIALIZE              :       0.000
-RUN                     :       9.407
+RUN                     :       0.723
 FINALIZE                :       0.000
 GenInitTot              :       0.008
 --GenInitMine           :       0.008
@@ -2309,66 +1875,66 @@ GenRefreshTot           :       0.000
   
   
   Times for OCEAN
-TOTAL                   :      10.109
-MIT                     :       9.851
-GenInitTot              :       0.449
---GenInitMine           :       0.012
-GenRunTot               :       9.414
+TOTAL                   :       1.461
+MIT                     :       1.438
+GenInitTot              :       0.727
+--GenInitMine           :       0.013
+GenRunTot               :       0.724
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.001
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       0.450
-RUN                     :       9.659
---ModRun                :       9.414
+INITIALIZE              :       0.727
+RUN                     :       0.734
+--ModRun                :       0.724
   
   
   Times for OGCM
-TOTAL                   :      10.672
-INITIALIZE              :       0.462
-RUN                     :      10.200
-InitChild               :       0.461
-OBIO                    :       0.004
-ORAD                    :       0.171
-OCEAN                   :      10.112
-GenInitTot              :       0.461
---GenInitMine           :       0.006
-GenRunTot               :       9.819
+TOTAL                   :       1.505
+INITIALIZE              :       0.740
+RUN                     :       0.757
+InitChild               :       0.740
+OBIO                    :       0.003
+ORAD                    :       0.019
+OCEAN                   :       1.461
+GenInitTot              :       0.740
+--GenInitMine           :       0.007
+GenRunTot               :       0.741
 --GenRunMine            :       0.000
-GenFinalTot             :       0.009
+GenFinalTot             :       0.008
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.003
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for GCM
-TOTAL                   :      79.642
-AGCM                    :      68.482
+TOTAL                   :       7.200
+AGCM                    :       5.543
 AIAU                    :       0.007
 ADFI                    :       0.005
-OGCM                    :      10.675
-GenInitTot              :       1.728
---GenInitMine           :       0.017
+OGCM                    :       1.505
+GenInitTot              :       2.846
+--GenInitMine           :       0.018
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.398
+GenFinalTot             :       0.354
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.020
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       1.786
-RUN                     :      77.439
---OCEAN                 :      10.202
---ATMOSPHERE            :      66.838
+INITIALIZE              :       2.950
+RUN                     :       3.896
+--OCEAN                 :       0.757
+--ATMOSPHERE            :       3.121
 --REPLAY                :       0.000
---A2O                   :       0.210
---O2A                   :       0.229
+--A2O                   :       0.009
+--O2A                   :       0.012
   
   
   Times for ANA
@@ -2386,33 +1952,33 @@ GenRefreshTot           :       0.000
   
   
   Times for GCS
-TOTAL                   :      79.660
-GCM                     :      79.643
-ANA                     :       0.004
-GenInitTot              :       1.799
---GenInitMine           :       0.003
-GenRunTot               :      77.442
+TOTAL                   :       7.215
+GCM                     :       7.200
+ANA                     :       0.003
+GenInitTot              :       2.965
+--GenInitMine           :       0.004
+GenRunTot               :       3.896
 --GenRunMine            :       0.000
-GenFinalTot             :       0.399
+GenFinalTot             :       0.354
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.021
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for HIST
-TOTAL                   :       4.792
-Initialize              :       0.310
+TOTAL                   :       0.417
+Initialize              :       0.320
 Finalize                :       0.000
-Run                     :       4.481
---Couplers              :       0.411
---I/O                   :       4.073
-----IO Create           :       2.022
-----IO Write            :       4.046
------IO Post            :       2.561
------IO Wait            :       0.046
------IO Write           :       1.522
+Run                     :       0.096
+--Couplers              :       0.016
+--I/O                   :       0.081
+----IO Create           :       0.046
+----IO Write            :       0.080
+-----IO Post            :       0.060
+-----IO Wait            :       0.001
+-----IO Write           :       0.022
 -ParserRun              :       0.000
 GenInitTot              :       0.000
 --GenInitMine           :       0.000
@@ -2427,15 +1993,15 @@ GenRefreshTot           :       0.000
   
   
   Times for EXTDATA
-TOTAL                   :      37.334
-Initialize              :      12.651
-Run                     :      24.786
--Read_Loop              :      24.433
---CheckUpd              :       0.004
---Read                  :       1.865
---Swap                  :       0.001
---Bracket               :      22.702
--Interpolate            :       0.353
+TOTAL                   :      38.796
+Initialize              :      13.298
+Run                     :      25.543
+-Read_Loop              :      25.528
+--CheckUpd              :       0.000
+--Read                  :       3.032
+--Swap                  :       0.000
+--Bracket               :      22.733
+-Interpolate            :       0.015
 GenInitTot              :       0.003
 --GenInitMine           :       0.003
 GenRunTot               :       0.000
@@ -2448,5 +2014,5 @@ GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
  NOT using buffer I/O for file: cap_restart
-Model Throughput:      685.714 days per day
+Model Throughput:       72.000 days per day
 GEOSgcm Run Status: 0
