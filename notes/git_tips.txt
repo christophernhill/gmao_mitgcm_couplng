@@ -28,15 +28,15 @@
 
 # How to add a tag (do in both gmao_mitgcm_couplng and GEOSodas):
  git pull
- git tag checkpoint_0_X
+ git tag checkpoint_0_Y
  git push origin --tags
 
-# How to retrieve a tag, e.g., checkpoint_0_M:
+# How to retrieve a tag, e.g., checkpoint_0_X:
 # Note that you will get an exact copy of what was tagged
 # but the git sandbox will become a "detached head" state.
 # This is perfectly fine as long as you are not planning to make any commits.
  git pull
- git checkout tags/checkpoint_0_M
+ git checkout tags/checkpoint_0_X
 
 # How to obtain a specific branch and tag from remote repository:
  git clone eofe4.mit.edu:/pool001/cnh/geos5mit_write/GEOSodas.git

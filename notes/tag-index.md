@@ -1,3 +1,6 @@
+- checkpoint_0_Y (2018/12/07, compatible with MITgcm checkpoint67f)
+  * Added instructions CheckpointTest.txt in experiments/c12_cs32_01
+    and c12_cs32_03 for running the "1+1=2" restart test
   * Added sea ice to c90_llc90_01 & reduced integration period to 1hr
   * Updated c90_llc90_01 & c90_llc90_03 to MITgcm to checkpoint67f
 
