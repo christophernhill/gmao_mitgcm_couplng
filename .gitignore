@@ -6,6 +6,13 @@ experiments/c48_llc90_02/build
 experiments/c48_llc90_03/build
 experiments/c48_llc90_04/build
 experiments/c48_llc90_05/build
+experiments/c90_llc90_01/build
+experiments/c90_llc90_02/build
+experiments/c90_llc90_02a/build
+experiments/c90_llc90_03/build
+experiments/c90_llc90_04/build
+experiments/c720_llc1080_01/build
+experiments/c1440_llc2160_01/build
 experiments/c2880_llc4320_01/build
 mitgcm_setup/build/Makefile
 mitgcm_setup/code
