@@ -1,0 +1,10 @@
+# Packages
+ &PACKAGES
+ useCAL         = .TRUE.,
+ useEXF         = .FALSE.,
+ useSEAICE      = .TRUE.,
+ useKPP         = .TRUE.,
+# useGMRedi      = .TRUE.,
+ useFRAZIL      = .FALSE.,
+ useDiagnostics     = .TRUE.,
+ &
