@@ -74,8 +74,7 @@
  
 # Get GEOS-5 boundary conditions for experiments/c90_llc90_05
  cd $WorkingDir/TEST
- cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/mkexp.sh ./
- ln -sf /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* 
+ ln -sf /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* . 
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
