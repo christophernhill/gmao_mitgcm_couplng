@@ -60,6 +60,10 @@ c90_llc90_03 : c90/llc90 test experiment for c1440_llc2160
 c90_llc90_04 : c90/llc90 test experiment for c1440_llc2160
                set-up with ASYNCIO and GEOS IO server
 
+
+c90_llc90_05 : Similar to c90_llc90_02a but with MITgcm HiRes
+               configuration.
+
 c720_llc1080_Restart : after 5 days passive ocean
 
 c720_llc1080_Debug : runs for 5 time steps
