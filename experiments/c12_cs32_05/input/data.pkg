@@ -1,6 +1,10 @@
 # Packages
  &PACKAGES
- useGMRedi=.TRUE.,
- useSEAICE=.TRUE.,
- useDiagnostics=.TRUE.,
+ useCAL         = .TRUE.,
+ useEXF         = .FALSE.,
+ useSEAICE      = .TRUE.,
+ useKPP         = .TRUE.,
+# useGMRedi      = .TRUE.,
+ useFRAZIL      = .FALSE.,
+ useDiagnostics     = .TRUE.,
  &
