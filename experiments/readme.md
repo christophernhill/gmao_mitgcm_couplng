@@ -32,6 +32,10 @@ c12_cs32_03 : c12/cs32, 1-day, hourly output
 c12_cs32_04 : c12/cs32, 1-day, hourly output
  - uses GEOSodas b_geos5mit (Heracles 5.4)
  - example of increased vertical resolution for Santha
+ 
+ c12_cs32_05 : c12/cs32, 2-hours, 15 minutes output
+ - HiRes configuration (similar to c720_llc1080_Restart and c90-llc90_05)
+ - Suggested MITgcm code changed to pass 1+1=2
 
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
  - uses GEOSodas b_geos5mit (Heracles 5.4)
