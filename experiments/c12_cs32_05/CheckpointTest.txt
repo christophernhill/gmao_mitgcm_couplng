@@ -3,8 +3,9 @@ Instructions for carrying out 1+1=2 checkpoint test on Lubuntu:
 1. Follow instructions in Heracles-5_4onLubuntu.txt up to
    but excluding: ./gcm_run.j |&  tee gcm_run.out
 
-2. Modify JOB_SGMT in CAP.rc to 2 hours
+2. Modify JOB_SGMT and NUM_SGMT in CAP.rc
    JOB_SGMT:     00000000 020000
+   NUM_SGMT:     1
 
 3. Run the 2-hour job:
    ./gcm_run.j |&  tee gcm_run.out
@@ -17,8 +18,9 @@ Instructions for carrying out 1+1=2 checkpoint test on Lubuntu:
 5. Comment out lines containing "qsub" and "gcm_run.j"
    and line containing "exit" after third RUN_CMD in gcm_run.j
 
-6. Modify JOB_SGMT in CAP.rc to 1 hours
+6. Modify JOB_SGMT and NUM_SGMT in CAP.rc
    JOB_SGMT:     00000000 010000
+   NUM_SGMT:     2
 
 7. Run the first hour:
    ./gcm_run.j |&  tee gcm_run.out
