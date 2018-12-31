@@ -335,51 +335,52 @@
 (PID.TID 0000.0001) >
 (PID.TID 0000.0001) > &DIAGNOSTICS_LIST
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(1)  = 3600.,
+(PID.TID 0000.0001) > frequency(1)  = -900.,
 (PID.TID 0000.0001) >   fields(1:7,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ',
 (PID.TID 0000.0001) >   filename(1)  = 'state_2d_set1',
 (PID.TID 0000.0001) >   timePhase(1) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(2)  = 3600.,
+(PID.TID 0000.0001) > frequency(2)  = -900.,
 (PID.TID 0000.0001) >    fields(1:7,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS','WVELMASS',
 (PID.TID 0000.0001) >    filename(2)  = 'state_3d_set1',
 (PID.TID 0000.0001) >    timePhase(2) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(3)  = -3600.,
+(PID.TID 0000.0001) > frequency(3)  = -900.,
 (PID.TID 0000.0001) >    fields(1:2,3)  = 'SALT    ','THETA   ',
-(PID.TID 0000.0001) >    filename(3)  = 'snap_3d_set1',
+(PID.TID 0000.0001) >#   filename(3)  = 'snap_3d_set1',
 (PID.TID 0000.0001) >    timePhase(3) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(4)  = -3600.,
+(PID.TID 0000.0001) > frequency(4)  = -900.,
 (PID.TID 0000.0001) >    fields(1,4)  = 'ETAN   ',
-(PID.TID 0000.0001) >    filename(4)  = 'snap_2d_set2',
+(PID.TID 0000.0001) >#    filename(4)  = 'snap_2d_set2',
 (PID.TID 0000.0001) >    timePhase(4) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(5) = 3600.0,
+(PID.TID 0000.0001) > frequency(5) = -900.0,
 (PID.TID 0000.0001) >    fields(1:8,5) = 'DFxE_TH ','DFyE_TH ','ADVx_TH ','ADVy_TH ',
 (PID.TID 0000.0001) >                    'DFxE_SLT','DFyE_SLT','ADVx_SLT','ADVy_SLT',
 (PID.TID 0000.0001) >    filename(5) = 'state_3d_set2',
 (PID.TID 0000.0001) >    timePhase(5) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(6) = 3600.0,
+(PID.TID 0000.0001) > frequency(6) = -900.0,
 (PID.TID 0000.0001) >    fields(1:7,6) = 'ADVr_TH ','DFrE_TH ','DFrI_TH ',
 (PID.TID 0000.0001) >                    'ADVr_SLT','DFrE_SLT','DFrI_SLT',
 (PID.TID 0000.0001) >    filename(6) = 'state_3d_set4',
 (PID.TID 0000.0001) >    timePhase(6) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(7) =  3600.,
-(PID.TID 0000.0001) >    fields(1:14,7)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
+(PID.TID 0000.0001) > frequency(7) =  -900.,
+(PID.TID 0000.0001) >    fields(1:15,7)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
 (PID.TID 0000.0001) >                   'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
 (PID.TID 0000.0001) >                   'ADVxHEFF','ADVyHEFF',
 (PID.TID 0000.0001) >                   'ADVxAREA','ADVyAREA',
 (PID.TID 0000.0001) >                   'ADVxSNOW','ADVySNOW',
+(PID.TID 0000.0001) >                   'CPLoWGHT',
 (PID.TID 0000.0001) >    fileName(7) = 'iceDiag',
 (PID.TID 0000.0001) >    missing_value(7) = -999.,
 (PID.TID 0000.0001) >    timePhase(7) =  0.,
 (PID.TID 0000.0001) >
 (PID.TID 0000.0001) >
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(8) = -3600.,
+(PID.TID 0000.0001) > frequency(8) = -900.,
 (PID.TID 0000.0001) >    fields(1:9,8)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
 (PID.TID 0000.0001) >                   'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
 (PID.TID 0000.0001) >                   'CPLoWGHT',
@@ -387,29 +388,26 @@
 (PID.TID 0000.0001) >#   fileName(8) = 'iceInst',
 (PID.TID 0000.0001) >    timePhase(8) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(9) = 3600.,
-(PID.TID 0000.0001) >    fields(1:11,9) = 'SIareaN ','SIheffN ','SIhsnowN','SIqSnow ',
-(PID.TID 0000.0001) >                   'SImeltPd','SItIces ','SIiceAge',
-(PID.TID 0000.0001) >                   'SI_dArea','SI_dHeff','SI_dHsnw','SI_dQSnw',
-(PID.TID 0000.0001) >#                  'SI_dMPnd',
-(PID.TID 0000.0001) >#                  'SI_dTIce','SI_dIcAg',
+(PID.TID 0000.0001) > frequency(9) = -900.,
+(PID.TID 0000.0001) >    fields(1:6,9) = 'SIareaN ','SIheffN ','SIhsnowN',
+(PID.TID 0000.0001) >                   'SI_dArea','SI_dHeff','SI_dHsnw',
 (PID.TID 0000.0001) >    timePhase(9) = 0.,
 (PID.TID 0000.0001) >    fileFlags(9) = 'D       ',
-(PID.TID 0000.0001) >#   fileName(9) = 'iceNcat',
+(PID.TID 0000.0001) >    fileName(9) = 'iceNcat',
 (PID.TID 0000.0001) >    timePhase(9) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(10) = 3600.,
+(PID.TID 0000.0001) > frequency(10) = -900.,
 (PID.TID 0000.0001) >    fields(1:2,10)  = 'SIqIce  ',
 (PID.TID 0000.0001) >                      'SI_dQIce',
 (PID.TID 0000.0001) >    timePhase(10) =  0.,
-(PID.TID 0000.0001) >#   fileName(10) = 'iceEnerg',
+(PID.TID 0000.0001) >    fileName(10) = 'iceEnerg',
 (PID.TID 0000.0001) >    timePhase(10) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > frequency(11) = 3600.,
+(PID.TID 0000.0001) > frequency(11) = -900.,
 (PID.TID 0000.0001) >    fields(1:2,11)  = 'SIqSnow ',
 (PID.TID 0000.0001) >                      'SI_dQSnw',
 (PID.TID 0000.0001) >    timePhase(11) =  0.,
-(PID.TID 0000.0001) >#   fileName(11) = 'snowEnerg',
+(PID.TID 0000.0001) >   fileName(11) = 'snowEnerg',
 (PID.TID 0000.0001) >   timePhase(11) =  0.,
 (PID.TID 0000.0001) >
 (PID.TID 0000.0001) > &
@@ -417,19 +415,17 @@
 (PID.TID 0000.0001) > &DIAG_STATIS_PARMS
 (PID.TID 0000.0001) > stat_fields(1:6,1)  = 'ETAN    ', 'THETA   ','SALT    ','oceQnet ','oceFWflx','oceSflux',
 (PID.TID 0000.0001) > stat_fName(1) = 'dynStDiag',
-(PID.TID 0000.0001) > stat_freq(1)=  3600.0,
+(PID.TID 0000.0001) > stat_freq(1)=  -900.0,
 (PID.TID 0000.0001) > stat_phase(2) =  0.,
 (PID.TID 0000.0001) >
-(PID.TID 0000.0001) > stat_fields(1:21,2)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
+(PID.TID 0000.0001) > stat_fields(1:18,2)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
 (PID.TID 0000.0001) >                        'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
 (PID.TID 0000.0001) >                        'SIareaN ','SIheffN ','SIhsnowN',
-(PID.TID 0000.0001) >                        'SIqSnow ','SIqIce  ','SImeltPd',
-(PID.TID 0000.0001) >                        'SItIces ','SIiceAge',
+(PID.TID 0000.0001) >                        'SIqSnow ','SIqIce  ',
 (PID.TID 0000.0001) >                        'SI_dArea','SI_dHeff','SI_dHsnw',
 (PID.TID 0000.0001) >                        'SI_dQSnw','SI_dQIce',
-(PID.TID 0000.0001) >#                       'SI_dMPnd','SI_dTIce','SI_dIcAg',
 (PID.TID 0000.0001) > stat_fName(2) = 'iceStDiag',
-(PID.TID 0000.0001) > stat_freq(2) = 3600.,
+(PID.TID 0000.0001) > stat_freq(2) = -900.,
 (PID.TID 0000.0001) > stat_phase(2) =  0.,
 (PID.TID 0000.0001) > &
 (PID.TID 0000.0001) 
@@ -460,60 +456,65 @@
 (PID.TID 0000.0001)  DIAGNOSTICS_READPARMS: active diagnostics summary:
 (PID.TID 0000.0001) -----------------------------------------------------
 (PID.TID 0000.0001) Creating Output Stream: state_2d_set1
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:       3600.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
 (PID.TID 0000.0001)  Fields:    oceTAUX  oceTAUY  oceFWflx oceSflux oceQnet  oceQsw   ETAN
 (PID.TID 0000.0001) Creating Output Stream: state_3d_set1
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:       3600.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
 (PID.TID 0000.0001)  Fields:    SALT     THETA    UVELMASS VVELMASS WVELMASS
-(PID.TID 0000.0001) Creating Output Stream: snap_3d_set1
-(PID.TID 0000.0001) Output Frequency:      -3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
-(PID.TID 0000.0001)  missing value: -9.990000000000E+02
-(PID.TID 0000.0001)  Levels:    will be set later
-(PID.TID 0000.0001)  Fields:    SALT     THETA
-(PID.TID 0000.0001) Creating Output Stream: snap_2d_set2
-(PID.TID 0000.0001) Output Frequency:      -3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
-(PID.TID 0000.0001)  missing value: -9.990000000000E+02
-(PID.TID 0000.0001)  Levels:    will be set later
-(PID.TID 0000.0001)  Fields:    ETAN
 (PID.TID 0000.0001) Creating Output Stream: state_3d_set2
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:       3600.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
 (PID.TID 0000.0001)  Fields:    DFxE_TH  DFyE_TH  ADVx_TH  ADVy_TH  DFxE_SLT DFyE_SLT ADVx_SLT ADVy_SLT
 (PID.TID 0000.0001) Creating Output Stream: state_3d_set4
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:       3600.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
 (PID.TID 0000.0001)  Fields:    ADVr_TH  DFrE_TH  DFrI_TH  ADVr_SLT DFrE_SLT DFrI_SLT
 (PID.TID 0000.0001) Creating Output Stream: iceDiag
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
-(PID.TID 0000.0001)  Averaging Freq.:       3600.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
 (PID.TID 0000.0001)  Fields:    SIarea   SIheff   SIhsnow  sIceLoad SIuice   SIvice   SItaux   SItauy   ADVxHEFF ADVyHEFF
-(PID.TID 0000.0001)  Fields:    ADVxAREA ADVyAREA ADVxSNOW ADVySNOW
+(PID.TID 0000.0001)  Fields:    ADVxAREA ADVyAREA ADVxSNOW ADVySNOW CPLoWGHT
+(PID.TID 0000.0001) Creating Output Stream: iceNcat
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001)  missing value: -9.990000000000E+02 ; F-Flags="D       "
+(PID.TID 0000.0001)  Levels:    will be set later
+(PID.TID 0000.0001)  Fields:    SIareaN  SIheffN  SIhsnowN SI_dArea SI_dHeff SI_dHsnw
+(PID.TID 0000.0001) Creating Output Stream: iceEnerg
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001)  missing value: -9.990000000000E+02
+(PID.TID 0000.0001)  Levels:    will be set later
+(PID.TID 0000.0001)  Fields:    SIqIce   SI_dQIce
+(PID.TID 0000.0001) Creating Output Stream: snowEnerg
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
+(PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
+(PID.TID 0000.0001)  missing value: -9.990000000000E+02
+(PID.TID 0000.0001)  Levels:    will be set later
+(PID.TID 0000.0001)  Fields:    SIqSnow  SI_dQSnw
 (PID.TID 0000.0001) -----------------------------------------------------
 (PID.TID 0000.0001)  DIAGNOSTICS_READPARMS: statistics diags. summary:
 (PID.TID 0000.0001) Creating Stats. Output Stream: dynStDiag
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:         450.000000
 (PID.TID 0000.0001)  Regions:   0
 (PID.TID 0000.0001)  Fields:    ETAN     THETA    SALT     oceQnet  oceFWflx oceSflux
 (PID.TID 0000.0001) Creating Stats. Output Stream: iceStDiag
-(PID.TID 0000.0001) Output Frequency:       3600.000000 ; Phase:           0.000000
+(PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
 (PID.TID 0000.0001)  Regions:   0
 (PID.TID 0000.0001)  Fields:    SIarea   SIheff   SIhsnow  sIceLoad SIuice   SIvice   SItaux   SItauy   SIareaN  SIheffN
-(PID.TID 0000.0001)  Fields:    SIhsnowN SIqSnow  SIqIce   SImeltPd SItIces  SIiceAge SI_dArea SI_dHeff SI_dHsnw SI_dQSnw
-(PID.TID 0000.0001)  Fields:    SI_dQIce
+(PID.TID 0000.0001)  Fields:    SIhsnowN SIqSnow  SIqIce   SI_dArea SI_dHeff SI_dHsnw SI_dQSnw SI_dQIce
 (PID.TID 0000.0001) -----------------------------------------------------
 (PID.TID 0000.0001) 
 (PID.TID 0000.0001) SET_PARMS: done
@@ -1006,9 +1007,6 @@
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    45 UVELMASS
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    46 VVELMASS
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    47 WVELMASS
-(PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    27 SALT
-(PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    26 THETA
-(PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    23 ETAN
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #   114 DFxE_TH
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #   115 DFyE_TH
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #   111 ADVx_TH
@@ -1037,7 +1035,18 @@
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #   253 ADVyAREA
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #   256 ADVxSNOW
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #   257 ADVySNOW
-(PID.TID 0000.0001)   space allocated for all diagnostics:     337 levels
+(PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #   277 CPLoWGHT
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   275 SIareaN
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   274 SIheffN
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   276 SIhsnowN
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   283 SI_dArea
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   284 SI_dHeff
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   285 SI_dHsnw
+(PID.TID 0000.0001) SETDIAG: Allocate 20 x  1 Levels for Diagnostic #   279 SIqIce
+(PID.TID 0000.0001) SETDIAG: Allocate 20 x  1 Levels for Diagnostic #   287 SI_dQIce
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   280 SIqSnow
+(PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   288 SI_dQSnw
+(PID.TID 0000.0001)   space allocated for all diagnostics:     387 levels
 (PID.TID 0000.0001)   set mate pointer for diag #    80  oceTAUX  , Parms: UU      U1 , mate:    81
 (PID.TID 0000.0001)   set mate pointer for diag #    81  oceTAUY  , Parms: VV      U1 , mate:    80
 (PID.TID 0000.0001)   set mate pointer for diag #    45  UVELMASS , Parms: UUr     MR , mate:    46
@@ -1064,16 +1073,18 @@
 (PID.TID 0000.0001)  Levels:       1.
 (PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: state_3d_set1
 (PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.   6.   7.   8.   9.  10.  11.  12.  13.  14.  15.
-(PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: snap_3d_set1
-(PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.   6.   7.   8.   9.  10.  11.  12.  13.  14.  15.
-(PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: snap_2d_set2
-(PID.TID 0000.0001)  Levels:       1.
 (PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: state_3d_set2
 (PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.   6.   7.   8.   9.  10.  11.  12.  13.  14.  15.
 (PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: state_3d_set4
 (PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.   6.   7.   8.   9.  10.  11.  12.  13.  14.  15.
 (PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: iceDiag
 (PID.TID 0000.0001)  Levels:       1.
+(PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: iceNcat
+(PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.
+(PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: iceEnerg
+(PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.   6.   7.   8.   9.  10.  11.  12.  13.  14.  15.  16.  17.  18.  19.  20.
+(PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: Set levels for Outp.Stream: snowEnerg
+(PID.TID 0000.0001)  Levels:       1.   2.   3.   4.   5.
 (PID.TID 0000.0001) DIAGNOSTICS_SET_POINTERS: done
 (PID.TID 0000.0001) ------------------------------------------------------------
 (PID.TID 0000.0001) DIAGSTATS_SET_REGIONS: define   0 regions:
@@ -1097,15 +1108,12 @@
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   276 SIhsnowN
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   280 SIqSnow
 (PID.TID 0000.0001) SETDIAG: Allocate 20 Levels for Stats-Diag #   279 SIqIce
-(PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   281 SImeltPd
-(PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   278 SItIces
-(PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   282 SIiceAge
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   283 SI_dArea
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   284 SI_dHeff
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   285 SI_dHsnw
 (PID.TID 0000.0001) SETDIAG: Allocate  5 Levels for Stats-Diag #   288 SI_dQSnw
 (PID.TID 0000.0001) SETDIAG: Allocate 20 Levels for Stats-Diag #   287 SI_dQIce
-(PID.TID 0000.0001)   space allocated for all stats-diags:     137 levels
+(PID.TID 0000.0001)   space allocated for all stats-diags:     122 levels
 (PID.TID 0000.0001) DIAGSTATS_SET_POINTERS: done
 (PID.TID 0000.0001) ------------------------------------------------------------
 (PID.TID 0000.0001) DIAGSTATS_INI_IO: open file: dynStDiag.0000000000.txt , unit=    37
