@@ -336,7 +336,7 @@
 (PID.TID 0000.0001) > &DIAGNOSTICS_LIST
 (PID.TID 0000.0001) >
 (PID.TID 0000.0001) > frequency(1)  = -900.,
-(PID.TID 0000.0001) >   fields(1:7,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ',
+(PID.TID 0000.0001) >   fields(1:8,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ','atmPload',
 (PID.TID 0000.0001) >   filename(1)  = 'state_2d_set1',
 (PID.TID 0000.0001) >   timePhase(1) =  0.,
 (PID.TID 0000.0001) >
@@ -460,7 +460,7 @@
 (PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
 (PID.TID 0000.0001)  missing value: -9.990000000000E+02
 (PID.TID 0000.0001)  Levels:    will be set later
-(PID.TID 0000.0001)  Fields:    oceTAUX  oceTAUY  oceFWflx oceSflux oceQnet  oceQsw   ETAN
+(PID.TID 0000.0001)  Fields:    oceTAUX  oceTAUY  oceFWflx oceSflux oceQnet  oceQsw   ETAN     atmPload
 (PID.TID 0000.0001) Creating Output Stream: state_3d_set1
 (PID.TID 0000.0001) Output Frequency:       -900.000000 ; Phase:           0.000000
 (PID.TID 0000.0001)  Averaging Freq.:          0.000000 , Phase:           0.000000 , Cycle:   1
@@ -1002,6 +1002,7 @@
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    86 oceQnet
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    87 oceQsw
 (PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    23 ETAN
+(PID.TID 0000.0001) SETDIAG: Allocate  1 x  1 Levels for Diagnostic #    82 atmPload
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    27 SALT
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    26 THETA
 (PID.TID 0000.0001) SETDIAG: Allocate 15 x  1 Levels for Diagnostic #    45 UVELMASS
@@ -1046,7 +1047,7 @@
 (PID.TID 0000.0001) SETDIAG: Allocate 20 x  1 Levels for Diagnostic #   287 SI_dQIce
 (PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   280 SIqSnow
 (PID.TID 0000.0001) SETDIAG: Allocate  5 x  1 Levels for Diagnostic #   288 SI_dQSnw
-(PID.TID 0000.0001)   space allocated for all diagnostics:     387 levels
+(PID.TID 0000.0001)   space allocated for all diagnostics:     388 levels
 (PID.TID 0000.0001)   set mate pointer for diag #    80  oceTAUX  , Parms: UU      U1 , mate:    81
 (PID.TID 0000.0001)   set mate pointer for diag #    81  oceTAUY  , Parms: VV      U1 , mate:    80
 (PID.TID 0000.0001)   set mate pointer for diag #    45  UVELMASS , Parms: UUr     MR , mate:    46
