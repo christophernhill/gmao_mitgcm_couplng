@@ -56,7 +56,6 @@ C !LOCAL VARIABLES: ====================================================
 C     === Local variables ===
 C     i,j,bi,bj :: Loop counters
 C     it        :: Loop counter for ice thickness categories
-C     ks        :: surface level index
 C     uTrans    :: volume transport, x direction
 C     vTrans    :: volume transport, y direction
 C     afx       :: horizontal advective flux, x direction
@@ -70,7 +69,6 @@ C     xA,yA     :: "areas" of X and Y face of tracer cells
 #ifdef HACK_FOR_GMAO_CPL
       INTEGER l, n
 #endif /* HACK_FOR_GMAO_CPL */
-      INTEGER ks
 #ifdef ALLOW_AUTODIFF_TAMC
       INTEGER itmpkey
 #endif /* ALLOW_AUTODIFF_TAMC */
@@ -112,8 +110,6 @@ c     SEAICEadvSchMltPd = SEAICEadvSchSnow
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
-      ks = 1
-
 C--   make a local copy of the velocities for compatibility with B-grid
 C--   alternatively interpolate to C-points if necessary
       DO bj=myByLo(myThid),myByHi(myThid)
@@ -131,8 +127,8 @@ C     average B-grid seaice velocity to C-grid
 C-    compute cell areas used by all tracers
         DO j=1-OLy,sNy+OLy
          DO i=1-OLx,sNx+OLx
-          xA(i,j,bi,bj) = _dyG(i,j,bi,bj)*_maskW(i,j,ks,bi,bj)
-          yA(i,j,bi,bj) = _dxG(i,j,bi,bj)*_maskS(i,j,ks,bi,bj)
+          xA(i,j,bi,bj) = _dyG(i,j,bi,bj)*SIMaskU(i,j,bi,bj)
+          yA(i,j,bi,bj) = _dxG(i,j,bi,bj)*SIMaskV(i,j,bi,bj)
          ENDDO
         ENDDO
        ENDDO
@@ -148,9 +144,6 @@ CADJ STORE uc   = comlev1, key = ikey_dynamics, kind=isbyte
 CADJ STORE vc   = comlev1, key = ikey_dynamics, kind=isbyte
 #endif /* ALLOW_AUTODIFF_TAMC */
 
-#ifdef ALLOW_AUTODIFF_TAMC
-CADJ STORE heffm  = comlev1, key = ikey_dynamics, kind=isbyte
-#endif /* ALLOW_AUTODIFF_TAMC */
       IF ( SEAICEmultiDimAdvection ) THEN
 #ifdef ALLOW_GENERIC_ADVDIFF
 
@@ -176,18 +169,11 @@ C
         itmpkey = (act1 + 1) + act2*max1
      &                       + act3*max1*max2
      &                       + act4*max1*max2*max3
-C
-CADJ STORE area(:,:,bi,bj)  = comlev1_bibj,
-CADJ &     key = itmpkey, kind=isbyte
-CADJ STORE heff(:,:,bi,bj)  = comlev1_bibj,
-CADJ &     key = itmpkey, kind=isbyte
-CADJ STORE heffm(:,:,bi,bj)  = comlev1_bibj,
-CADJ &     key = itmpkey, kind=isbyte
-CADJ STORE hsnow(:,:,bi,bj) = comlev1_bibj,
-CADJ &     key = itmpkey, kind=isbyte
+CADJ STORE area(:,:,bi,bj)  = comlev1_bibj, key=itmpkey, kind=isbyte
+CADJ STORE heff(:,:,bi,bj)  = comlev1_bibj, key=itmpkey, kind=isbyte
+CADJ STORE hsnow(:,:,bi,bj) = comlev1_bibj, key=itmpkey, kind=isbyte
 # ifdef SEAICE_VARIABLE_SALINITY
-CADJ STORE hsalt(:,:,bi,bj)  = comlev1_bibj,
-CADJ &     key = itmpkey, kind=isbyte
+CADJ STORE hsalt(:,:,bi,bj) = comlev1_bibj, key=itmpkey, kind=isbyte
 # endif
 #endif /* ALLOW_AUTODIFF_TAMC */
 
