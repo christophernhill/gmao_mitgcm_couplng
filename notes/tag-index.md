@@ -1,3 +1,5 @@
+  * update exp. c12_cs32_01 code with latest MITgcm changes (post c67g)
+    including PR #193 (to fix missing update of sIceLoad)
   * Experiment c90_llc90_05 for HiRes was added
 
 - checkpoint_0_Y (2018/12/07, compatible with MITgcm checkpoint67f)
