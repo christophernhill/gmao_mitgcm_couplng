@@ -51,7 +51,7 @@
 
 # Time stepping parameters
  &PARM03
- nIter0=0,
+ nIter0=72000,
  nTimeSteps=28800,
  deltaT = 900.,
  abEps = 0.1,
@@ -62,6 +62,7 @@
  dumpfreq = 3600.,
  monitorFreq = 900.,
  dumpInitAndLast=.TRUE.,
+ pickupStrictlyMatch=.FALSE.,
  &
 
 # Gridding parameters
