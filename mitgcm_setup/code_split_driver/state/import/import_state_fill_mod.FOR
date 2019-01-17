@@ -187,6 +187,9 @@
        ENDDO
       ENDDO
 
+      CALL EXCH_XY_RS( EmPmR, myThid )
+      CALL EXCH_XY_RS( pLoad, myThid )
+
 #ifdef ALLOW_SEAICE
 !     Transfer fields from importPtr to MITgcm seaice variables.
       DO bj=1,nSy
