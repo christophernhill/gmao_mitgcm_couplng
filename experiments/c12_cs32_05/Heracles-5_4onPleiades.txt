@@ -66,7 +66,14 @@
 # Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Get GEOS-5 boundary conditions for experiments/c12_cs32_05
+# Get GEOS-5 boundary conditions for experiments/c12_cs32_01
+# geos5-tiny.tgz is available in
+# engaging:/nobackup1/dmenemen/geos5/tarballs_100816
+# discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
+ cd $WorkingDir
+ tar -xf geos5-tiny.tgz
+ find TinyFromMatt -type d | xargs chmod g+rxs
+ find TinyFromMatt -type f | xargs chmod g+r
  cd $WorkingDir/TEST
  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_05/makeoneday.bash TINY
  cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_05/*.rc .
