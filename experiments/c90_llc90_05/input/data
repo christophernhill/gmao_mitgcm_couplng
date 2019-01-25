@@ -79,5 +79,4 @@
 # Input datasets
  &PARM05
  bathyFile      ='bathy.bin',
- pLoadFile      ='pLoad.data'
  &

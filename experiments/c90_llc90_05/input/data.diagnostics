@@ -31,7 +31,7 @@
  &DIAGNOSTICS_LIST
 
  frequency(1)  = 3600.,
-   fields(1:7,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ',
+   fields(1:8,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ','atmPload',
    filename(1)  = 'state_2d_set1',
    timePhase(1) =  0.,
 
