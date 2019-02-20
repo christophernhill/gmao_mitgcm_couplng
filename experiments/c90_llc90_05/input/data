@@ -62,6 +62,7 @@
  dumpfreq = 3600.,
  monitorFreq = 60.,
  dumpInitAndLast=.TRUE.,
+ pickupStrictlyMatch=.FALSE.,
  &
 
 # Gridding parameters
