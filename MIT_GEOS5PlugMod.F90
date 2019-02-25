@@ -1103,6 +1103,38 @@ contains
     JM = size(DISCHARGE,2)
     allocate(FRESHW(IM,JM), STAT=status)
     VERIFY_(STATUS)
+
+!ALT protect agaist "orphan" points
+    DO J=1,JM
+       DO I=1,IM
+          if (WGHT(I,J) == 0.0) then
+             ! WGHT is 0, either because this truely is not a ocean point
+             ! or GEOS does not think this is ocean point. In the latter,
+             ! the values passed from OGCM are set to MAPL_Undef, 
+             ! and we need to protect them. If MITgcm does not think this is
+             ! ocean point, the protection is not needed but does not hurt
+             ! we are going to be sloppy and overwrite the imports
+
+             ! A related, but somewhat separate question is should be
+             ! scale any of these variables by WGHT. If yes, we need to 
+             ! un-scale them on the way back
+
+             DISCHARGE(I,J) = 0.0
+             TI(I,J,:) = MAPL_TICE
+             HI(I,J) = 0.0
+             SI(I,J) = 30.0
+             FRACICE(I,J,:) = 0.0
+             VOLICE(I,J,:) = 0.0
+             VOLSNO(I,J,:) = 0.0
+             ERGICE(I,J,:) = 0.0
+             ERGSNO(I,J,:) = 0.0
+             TAUAGE(I,J,:) = 0.0
+             MPOND(I,J,:) = 0.0
+          end if
+       END DO
+    END DO
+
+
     ! ALT: As suggested by JMC, 
     ! adding river routing (DISCHARGE) to QFLX
     FRESHW = QFLX + DISCHARGE
