@@ -1249,12 +1249,12 @@ contains
     DO J = 1, JM
        DO I = 1, IM
           if (MASK(I,J,1) /= 0.0) then
-             FRACICE = FRACICE + DEL_FRACICE
+             FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
              if (sum(FRACICE(I,J,:)) > 1) then
                 FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
              end if
              !ALT: workaround to deal with a possible bug in DEL_TI
-             where(FRACICE(I,J,:)==0.0)  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
+             where(FRACICE(I,J,:) /= 0.0 )  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
              SI(I,J) = SI(I,J) + DEL_SI(I,J)
              !ALT we do not update skin, and the line below is commented out
              !HI(I,J) = HI(I,J) + DEL_HI(I,J)
