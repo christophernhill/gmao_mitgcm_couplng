@@ -926,9 +926,6 @@ contains
     REAL_, pointer                         ::   LONS(:,:  )
     REAL_, pointer                         ::   WGHT(:,:  )
 
-! Sea ice vars
-    REAL_, pointer                         :: FRI(:,:,:)
-
 !   Pointers for mirroring import state values to exports
     REAL_, pointer                         ::   TAUXe(:,:  )
     REAL_, pointer                         ::   TAUYe(:,:  )
@@ -1054,7 +1051,7 @@ contains
     call MAPL_GetPointer(IMPORT, TAUAGE, 'TAUAGE', RC=STATUS); VERIFY_(STATUS)
     call MAPL_GetPointer(IMPORT,  MPOND,  'MPOND', RC=STATUS); VERIFY_(STATUS)
 
-    call MAPL_GetPointer(IMPORT, FRI,'FRACICE', RC=STATUS); VERIFY_(STATUS)
+    call MAPL_GetPointer(IMPORT, FRACICE,'FRACICE', RC=STATUS); VERIFY_(STATUS)
 
 ! Get EXPORT pointers to mirror imports
 !--------------------------------------
@@ -1105,9 +1102,11 @@ contains
     VERIFY_(STATUS)
 
 !ALT protect agaist "orphan" points
+    CALL MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
+    VERIFY_(STATUS)
     DO J=1,JM
        DO I=1,IM
-          if (WGHT(I,J) == 0.0) then
+          if (WGHT(I,J) == 0.0 .and. MASK(I,J,1) /= 0.0) then
              ! WGHT is 0, either because this truely is not a ocean point
              ! or GEOS does not think this is ocean point. In the latter,
              ! the values passed from OGCM are set to MAPL_Undef, 
@@ -1134,16 +1133,12 @@ contains
        END DO
     END DO
 
-
     ! ALT: As suggested by JMC, 
     ! adding river routing (DISCHARGE) to QFLX
     FRESHW = QFLX + DISCHARGE
 
     call MAPL_GetResource( MAPL, ocean_dir, label='OCEAN_DIR:', rc=status ) ; VERIFY_(STATUS)
     call str4c( iarr, TRIM(ocean_dir) )
-
-! We may need this in the future (Udi)
-!    where (WGHT<=0.0) PS = 0.0 
 
 ! Put import data into internal state
 !------------------------------------
@@ -1161,7 +1156,7 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'LONS',   LONS )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'WGHT',   WGHT )
 
-    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRI )
+    CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'FRACICE', FRACICE )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLICE',  VOLICE )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'VOLSNO',  VOLSNO )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'ERGICE',  ERGICE )
@@ -1171,6 +1166,17 @@ contains
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'TI',  TI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'SI',  SI )
     CALL DRIVER_SET_IMPORT_STATE( PrivateState%ptr,   'HI',  HI )
+
+    DEL_FRACICE = 0.0
+    DEL_TI = 0.0
+    DEL_SI = 0.0
+    DEL_VOLICE = 0.0
+    DEL_VOLSNO = 0.0
+    DEL_ERGICE = 0.0
+    DEL_ERGSNO = 0.0
+    DEL_MPOND = 0.0
+    DEL_TAUAGE = 0.0
+    DEL_HI = 0.0
 
     call MAPL_GetResource( MAPL, passive_ocean, label='STEADY_STATE_OCEAN:', &
          default=1, rc=status ) ; VERIFY_(STATUS)
@@ -1184,8 +1190,7 @@ contains
     CALL MAPL_GetPointer(EXPORT,   VS,   'VS', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   TS,   'TS', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   SS,   'SS', RC=STATUS); VERIFY_(STATUS)
-    CALL MAPL_GetPointer(EXPORT, MASK, trim(COMP_NAME)//'_3D_MASK', RC=STATUS)
-
+    
 ! Sea ice exports
     call MAPL_GetPointer(EXPORT, FRACICEe,'FRACICE', RC=STATUS); VERIFY_(STATUS)
     CALL MAPL_GetPointer(EXPORT,   UI,   'UI', RC=STATUS); VERIFY_(STATUS)
@@ -1233,57 +1238,37 @@ contains
     ! ALT: for now, we need to implement ridging
     ! and/or make sure it stays between 0 and 1
 
-    ! ALT: for now we leave FRI alone and pass the increment to SALT
+    ! ALT: for now we leave FRACICE alone and pass the increment to SALT
 
     if (associated(FRACICEe)) then
-       FRACICEe = FRI
+       FRACICEe = FRACICE
     end if
 
-    ! zero out tendencies for non-ocean-points
-    DO J = 1, JM
-       DO I = 1, IM
-          if (MASK(I,J,1) == 0.0) then
-             DEL_FRACICE(I,J,:) = 0.0
-             DEL_TI(I,J,:) = 0.0
-             DEL_SI(I,J) = 0.0
-             DEL_VOLICE(I,J,:) = 0.0
-             DEL_VOLSNO(I,J,:) = 0.0
-             DEL_ERGICE(I,J,:) = 0.0
-             DEL_ERGSNO(I,J,:) = 0.0
-             DEL_MPOND(I,J,:) = 0.0
-             DEL_TAUAGE(I,J,:) = 0.0
-             DEL_HI(I,J) = 0.0
-          end if
-       end DO
-    end DO
-
     ! Update the sea-ice fields
-    FRI = FRI + DEL_FRACICE
  
     DO J = 1, JM
        DO I = 1, IM
-          if (sum(FRI(I,J,:)) > 1) then
-             FRI(I,J,:) = FRI(I,J,:)/sum(FRI(I,J,:))
-          end if
+          if (MASK(I,J,1) /= 0.0) then
+             FRACICE = FRACICE + DEL_FRACICE
+             if (sum(FRACICE(I,J,:)) > 1) then
+                FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
+             end if
+             !ALT: workaround to deal with a possible bug in DEL_TI
+             where(FRACICE(I,J,:)==0.0)  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
+             SI(I,J) = SI(I,J) + DEL_SI(I,J)
+             !ALT we do not update skin, and the line below is commented out
+             !HI(I,J) = HI(I,J) + DEL_HI(I,J)
+             VOLICE(I,J,:) = VOLICE(I,J,:) + DEL_VOLICE(I,J,:)
+             VOLSNO(I,J,:) = VOLSNO(I,J,:) + DEL_VOLSNO(I,J,:)
+             ERGICE(I,J,:) = ERGICE(I,J,:) + DEL_ERGICE(I,J,:)
+             ERGSNO(I,J,:) = ERGSNO(I,J,:) + DEL_ERGSNO(I,J,:)
+             MPOND(I,J,:)  = MPOND(I,J,:)  + DEL_MPOND(I,J,:)
+             TAUAGE(I,J,:) = TAUAGE(I,J,:) + DEL_TAUAGE(I,J,:)
+           end if
        end DO
     end DO
   
-    !ALT: workaround to deal with a possible bug in DEL_TI
-    where(FRI == 0.0) DEL_TI = 0.0
-
     ! continue with the fields update
-    TI = TI + DEL_TI
-    SI = SI + DEL_SI
-    VOLICE = VOLICE + DEL_VOLICE
-    VOLSNO = VOLSNO + DEL_VOLSNO
-    ERGICE = ERGICE + DEL_ERGICE
-    ERGSNO = ERGSNO + DEL_ERGSNO
-
-    MPOND = MPOND + DEL_MPOND
-    TAUAGE = TAUAGE + DEL_TAUAGE
-
-    !ALT we do not update skin, and the line below is commented out
-!!!    HI = HI + DEL_HI
     
     CALL MAPL_TimerOff(MAPL,"RUN"   )
     CALL MAPL_TimerOff(MAPL,"TOTAL" )
