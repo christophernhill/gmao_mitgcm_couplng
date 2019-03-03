@@ -33,7 +33,7 @@ c12_cs32_04 : c12/cs32, 1-day, hourly output
  - uses GEOSodas b_geos5mit (Heracles 5.4)
  - example of increased vertical resolution for Santha
  
- c12_cs32_05 : c12/cs32, 2-hours, 15 minutes output
+c12_cs32_05 : c12/cs32, 2-hours, 15 minutes output
  - HiRes configuration (similar to c720_llc1080_Restart and c90-llc90_05)
  - Suggested MITgcm code changed to pass 1+1=2
 
@@ -63,7 +63,6 @@ c90_llc90_03 : c90/llc90 test experiment for c1440_llc2160
 
 c90_llc90_04 : c90/llc90 test experiment for c1440_llc2160
                set-up with ASYNCIO and GEOS IO server
-
 
 c90_llc90_05 : Similar to c90_llc90_02a but with MITgcm HiRes
                configuration.
