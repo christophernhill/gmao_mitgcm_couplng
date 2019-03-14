@@ -26,6 +26,7 @@
        _RL , POINTER :: PS(       :,:  ) => NULL()
        _RL , POINTER :: SWHEAT(   :,:,:) => NULL()
        _RL , POINTER :: QFLX(     :,:  ) => NULL()
+       _RL , POINTER :: DISCHARGE(:,:  ) => NULL()
        _RL , POINTER :: HFLX(     :,:  ) => NULL()
        _RL , POINTER :: SFLX(     :,:  ) => NULL()
        _RL , POINTER :: LAT(      :,:  ) => NULL()

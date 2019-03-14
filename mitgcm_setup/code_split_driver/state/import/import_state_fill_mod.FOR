@@ -28,6 +28,10 @@
 # include "SEAICE.h"
 # include "SEAICE_LAYERS.h"
 #endif
+#ifdef ALLOW_MYPACKAGE
+# include "MYPACKAGE.h"
+# include "PARAMS.h"
+#endif
 
 !     -- Routine arguments    --
 !     -- Import state pointer --
@@ -44,6 +48,7 @@
       _RL tmpU (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL tmpV (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL tmpW (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
+      _RL tmpD (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL exclVal
       Real*4 exclSng
 
@@ -59,6 +64,7 @@
           tmpU(i,j,bi,bj) = 0.
           tmpV(i,j,bi,bj) = 0.
           tmpW(i,j,bi,bj) = 0.
+          tmpD(i,j,bi,bj) = 0.
          ENDDO
         ENDDO
        ENDDO
@@ -111,6 +117,7 @@
 !              Southwest C-grid tracer point (i.e., A-grid)
 ! Note: runoff (=DISCHARGE) has been added to QFLX later on.
           EmPmR(i,j,bi,bj) = - p%QFLX(iSLo+i,jSLo+j)
+          tmpD(i,j,bi,bj)  = - p%DISCHARGE(iSLo+i,jSLo+j)
 
 !     Transfer of SFLX to saltFlux
 !     SFLX   : Salt flux from skin to ocean in kg/m^2/s
@@ -187,6 +194,52 @@
        ENDDO
       ENDDO
 
+#ifdef ALLOW_MYPACKAGE
+      IF ( useMYPACKAGE ) THEN
+       IF ( myPa_index1.GT.0 ) THEN
+        DO n=1,myPa_index1
+C--
+         CALL EXCH_XY_RL( tmpD, myThid )
+         DO bj=1,nSy
+          DO bi=1,nSx
+
+           DO j=1-OLy,sNy+OLy
+            DO i=1-OLx,sNx+OLx
+             tmpU(i,j,bi,bj) = tmpD(i,j,bi,bj)*rA(i,j,bi,bj)
+            ENDDO
+           ENDDO
+           DO j=1,sNy
+            DO i=1,sNx
+             tmpD(i,j,bi,bj) = tmpD(i,j,bi,bj) - myPa_param1
+     &        * ( ( tmpU(i,j,bi,bj) - tmpU(i-1,j,bi,bj) )
+     &            *maskW(i,j,1,bi,bj)
+     &           +( tmpU(i,j,bi,bj) - tmpU(i+1,j,bi,bj) )
+     &            *maskW(i+1,j,1,bi,bj)
+     &           +( tmpU(i,j,bi,bj) - tmpU(i,j-1,bi,bj) )
+     &            *maskS(i,j,1,bi,bj)
+     &           +( tmpU(i,j,bi,bj) - tmpU(i,j+1,bi,bj) )
+     &            *maskS(i,j+1,1,bi,bj)
+     &          )*recip_rA(i,j,bi,bj)
+            ENDDO
+           ENDDO
+
+          ENDDO
+         ENDDO
+C--
+        ENDDO
+
+       ENDIF
+      ENDIF
+#endif
+      DO bj=1,nSy
+       DO bi=1,nSx
+         DO j=1-OLy,sNy+OLy
+          DO i=1-OLx,sNx+OLx
+           EmPmR(i,j,bi,bj) = EmPmR(i,j,bi,bj)+tmpD(i,j,bi,bj)
+          ENDDO
+         ENDDO
+       ENDDO
+      ENDDO
       CALL EXCH_XY_RS( EmPmR, myThid )
       CALL EXCH_XY_RS( pLoad, myThid )
 

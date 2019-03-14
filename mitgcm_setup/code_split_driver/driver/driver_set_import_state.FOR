@@ -58,6 +58,9 @@ C     == Local variables ==
       ELSEIF ( code .EQ. 'QFLX' ) THEN
 !      Copy fld to QFLX
          mitgcmIState%import%QFLX = fld
+      ELSEIF ( code .EQ. 'DISCHARGE' ) THEN
+!      Copy fld to DISCHARGE
+         mitgcmIState%import%DISCHARGE = fld
       ELSEIF ( code .EQ. 'HFLX' ) THEN
 !      Copy fld to HFLX
          mitgcmIState%import%HFLX = fld
