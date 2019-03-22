@@ -7,4 +7,5 @@
 # useGMRedi      = .TRUE.,
  useFRAZIL      = .FALSE.,
  useDiagnostics     = .TRUE.,
+ useMYPACKAGE = .TRUE.,
  &

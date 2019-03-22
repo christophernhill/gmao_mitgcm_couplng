@@ -60,7 +60,7 @@
  vectorInvariantMomentum=.TRUE.,
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
- debuglevel=-1,
+ debuglevel=1,
  convertFW2Salt=-1
  useRealFreshWaterFlux=.TRUE.,
  useSingleCPUio=.TRUE.,
@@ -80,14 +80,14 @@
  &PARM03
  nIter0=0,
  nTimeSteps=28800,
- deltaT = 180.,
+ deltaT = 30.,
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
  pChkptFreq  = 3600.0,
  chkptFreq   = 259200.0,
  dumpfreq = 3600.,
- monitorFreq = 60.,
+ monitorFreq = 30.,
  dumpInitAndLast=.TRUE.,
  &
 
@@ -122,4 +122,5 @@
  uVelInitFile   ='U.0000006240.data',
  vVelInitFile   ='V.0000006240.data',
  pSurfInitFile  ='Eta.0000006240.data',
+# pLoadFile      ='pLoad.data',
  &
