@@ -110,6 +110,11 @@
 #   fileName(11) = 'snowEnerg',
    timePhase(11) =  0.,
 
+ frequency(12)  = 86400.,
+    fields(1,12)  = 'KPPhbl  '
+    filename(12)  = 'kpp_2d',  
+    timePhase(12) =  0.,
+
  &
 
  &DIAG_STATIS_PARMS
