@@ -58,7 +58,8 @@
 # Enter the Ocean Model Vertical Resolution: 90
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
-# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Do you wish to run GOCART with Actual or Climatological Aerosols? A
+# Enter the GOCART Emission Files to use: MERRA2 (Default), PIESA, CMIP, NR, MERRA2-DD or OPS: MERRA2
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
