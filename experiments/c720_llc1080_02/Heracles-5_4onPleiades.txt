@@ -70,13 +70,12 @@
  cd $WorkingDir/TEST
  mkdir mit_input
  cd mit_input
- ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_02_data/mit/* .
+ cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_02_data/mit/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_02/input/* .
  
 # Get GEOS-5 boundary conditions for experiments/c720_llc1080_02
  cd $WorkingDir/TEST
- cp $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_02/mkexp.sh ./
- ln -sf /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_02_data/geos/* 
+ cp /nobackupp2/estrobac/geos5/ICDIR/c720_llc1080_02_data/geos/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
