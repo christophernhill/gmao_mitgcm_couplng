@@ -10,7 +10,7 @@
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q devel -l select=144:ncpus=20:model=has,walltime=2:00:00
+ qsub -I -q devel -l select=18:ncpus=20:model=has,walltime=2:00:00
  tcsh
  setenv WorkingDir /nobackup/$USER/geos5
 
@@ -47,18 +47,19 @@
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
  cd $ESMADIR/src/Applications/GEOSgcm_App
- ./gcm_setup
-# Enter the Experiment ID: TEST
+c# Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c720
+# Is this verification/debug experiment? NO
+# Enter the Atmospheric Horizontal Resolution code: c90
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: llc1080
-# Enter the Ocean Model Vertical Resolution: 90
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc90
+# Enter the Ocean Model Vertical Resolution: 50
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
-# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Do you wish to run GOCART with Actual or Climatological Aerosols? A
+# Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
