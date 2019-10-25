@@ -47,7 +47,8 @@
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own
  cd $ESMADIR/src/Applications/GEOSgcm_App
-c# Enter the Experiment ID: TEST
+ ./gcm_setup	c# Enter the Experiment ID: TEST
+# Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
 # Is this verification/debug experiment? NO
