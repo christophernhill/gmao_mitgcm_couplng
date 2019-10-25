@@ -43,7 +43,7 @@ c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
 c48_llc90_03 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit (Heracles 5.4)
 
-C48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
+c48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
 
 c48_llc90_05 : c48/llc90, 1-day set-up using llc4320 parameters
