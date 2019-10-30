@@ -82,6 +82,3 @@
  cd $WorkingDir/TEST
  ./gcm_run.j |&  tee gcm_run.out
 
-# Verify output
- diff scratch/mitocean_run/STDOUT.0000 \
-  $GMAO_MITGCM_COUPLNG/experiments/c720_llc1080_02/results/STDOUT.0000
