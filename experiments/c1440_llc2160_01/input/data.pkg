@@ -4,7 +4,7 @@
  useSEAICE      = .TRUE.,
  useCAL         = .TRUE.,
  useEXF         = .FALSE.,
- useSEAICE      = .TRUE.,
  useKPP         = .TRUE.,
  useFRAZIL      = .TRUE.,
+ useMYPACKAGE   = .TRUE.,
  &

@@ -54,10 +54,8 @@ C     myThid :: my Thread Id number
 
 C !LOCAL VARIABLES: ====================================================
 C     i,j,bi,bj :: Loop counters
-#ifdef ALLOW_AUTODIFF_TAMC
       INTEGER i, j
       INTEGER bi, bj
-#endif
 #ifdef ALLOW_SITRACER
       INTEGER iTr
 #endif
@@ -106,7 +104,6 @@ C--   Map thSice-variables to HEFF and AREA
 CADJ STORE uwind = comlev1, key=ikey_dynamics, kind=isbyte
 CADJ STORE vwind = comlev1, key=ikey_dynamics, kind=isbyte
 CADJ STORE heff  = comlev1, key=ikey_dynamics, kind=isbyte
-CADJ STORE heffm = comlev1, key=ikey_dynamics, kind=isbyte
 CADJ STORE area  = comlev1, key=ikey_dynamics, kind=isbyte
 # ifdef SEAICE_ALLOW_DYNAMICS
 #  ifdef SEAICE_CGRID
@@ -171,7 +168,7 @@ C--   Apply ice velocity open boundary conditions
         CALL THSICE_DO_ADVECT( 0, 0, myTime, myIter, myThid )
 #endif /* OLD_THSICE_CALL_SEQUENCE */
       ELSE
-#endif
+#endif /* ALLOW_THSICE */
 C--   Only call advection of heff, area, snow, and salt and
 C--   growth for the generic 0-layer thermodynamics of seaice
 C--   if useThSice=.false., otherwise the 3-layer Winton thermodynamics
@@ -189,17 +186,18 @@ C NOW DO ADVECTION and DIFFUSION
        CALL SEAICE_ADVDIFF( uLoc, vLoc, myTime, myIter, myThid )
 #endif /* SEAICE_CGRID */
       ENDIF
-#ifdef ALLOW_AUTODIFF_TAMC
-CADJ STORE heffm  = comlev1, key=ikey_dynamics, kind=isbyte
-#endif /* ALLOW_AUTODIFF_TAMC */
 
 C     After advection, the sea ice variables may have unphysical values
 C     e.g., < 0, that are regularized here. Concentration as a special case
 C     may be > 1 in convergent motion and a ridging algorithm redistributes
 C     the ice to limit the concentration to 1.
-C      CALL SEAICE_REG_RIDGE( myTime, myIter, myThid )
+#ifndef HACK_FOR_GMAO_CPL
+      CALL SEAICE_REG_RIDGE( myTime, myIter, myThid )
+#endif /* ndef HACK_FOR_GMAO_CPL */
 
-#ifndef DISABLE_SEAICE_GROWTH
+#ifdef DISABLE_SEAICE_GROWTH
+       IF ( .TRUE. ) THEN
+#else /* DISABLE_SEAICE_GROWTH */
 C     thermodynamics growth
 C     must call growth after calling advection
 C     because of ugly time level business
@@ -208,9 +206,28 @@ C     because of ugly time level business
         IF (debugMode) CALL DEBUG_CALL( 'SEAICE_GROWTH', myThid )
 #endif
         CALL SEAICE_GROWTH( myTime, myIter, myThid )
-C
-       ENDIF
+       ELSE
 #endif /* DISABLE_SEAICE_GROWTH */
+        DO bj=myByLo(myThid),myByHi(myThid)
+         DO bi=myBxLo(myThid),myBxHi(myThid)
+          DO j=1,sNy
+           DO i=1,sNx
+            sIceLoad(i,j,bi,bj) = HEFF(i,j,bi,bj)*SEAICE_rhoIce
+     &                         + HSNOW(i,j,bi,bj)*SEAICE_rhoSnow
+           ENDDO
+          ENDDO
+c#ifdef SEAICE_CAP_ICELOAD
+c         sIceTooHeavy = rhoConst*drF(1) / 5. _d 0
+c         DO j=1,sNy
+c          DO i=1,sNx
+c           sIceLoad(i,j,bi,bj) = MIN( sIceLoad(i,j,bi,bj),
+c    &                                 sIceTooHeavy )
+c          ENDDO
+c         ENDDO
+c#endif
+         ENDDO
+        ENDDO
+       ENDIF
 
 #ifdef ALLOW_SITRACER
 # ifdef ALLOW_AUTODIFF_TAMC
@@ -302,7 +319,7 @@ CML   CALL EXCH_UV_XY_RS(fu,fv,.TRUE.,myThid)
 C-    Save advective increments:
         CALL SEAICE_SAVE4GMAO( myTime, 2, myIter, myThid )
 C-    for now, reset increments to zero
-C-        CALL SEAICE_SAVE4GMAO( myTime, 0, myIter, myThid )
+c       CALL SEAICE_SAVE4GMAO( myTime, 0, myIter, myThid )
 #endif /* HACK_FOR_GMAO_CPL */
 
 #ifdef ALLOW_EXF

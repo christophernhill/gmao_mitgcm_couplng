@@ -30,44 +30,44 @@
 
  &DIAGNOSTICS_LIST
 
- frequency(1)  = 10800.,
+ frequency(1)  = 7200.,
    fields(1:7,1)  = 'oceTAUX ','oceTAUY ','oceFWflx','oceSflux','oceQnet ','oceQsw  ','ETAN   ',
-   filename(1)  = 'state_2d_set1',  
+#   filename(1)  = 'state_2d_set1',  
 
- frequency(2)  = 10800.,
+ frequency(2)  = 7200.,
     fields(1:5,2)  = 'SALT    ','THETA   ','UVELMASS','VVELMASS','WVELMASS',
-    filename(2)  = 'state_3d_set1',
+#    filename(2)  = 'state_3d_set1',
 
  frequency(3)  = -10800.,
     fields(1:2,3)  = 'SALT    ','THETA   ',
-    filename(3)  = 'snap_3d_set1',
+#    filename(3)  = 'snap_3d_set1',
 
  frequency(4)  = -10800.,
     fields(1,4)  = 'ETAN   ',
-    filename(4)  = 'snap_2d_set2',
+#    filename(4)  = 'snap_2d_set2',
 
  frequency(5) = 10800.0,
     fields(1:8,5) = 'DFxE_TH ','DFyE_TH ','ADVx_TH ','ADVy_TH ',
                     'DFxE_SLT','DFyE_SLT','ADVx_SLT','ADVy_SLT',
-    filename(5) = 'state_3d_set2',
+#    filename(5) = 'state_3d_set2',
 
  frequency(6) = 10800.0,
     fields(1:7,6) = 'ADVr_TH ','DFrE_TH ','DFrI_TH ',
                     'ADVr_SLT','DFrE_SLT','DFrI_SLT',
-    filename(6) = 'state_3d_set4',
+#    filename(6) = 'state_3d_set4',
 
- frequency(7) =  10800.,
+ frequency(7) =  7200.,
     fields(1:8,7)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
     fileName(7) = 'iceDiag',
-    missing_value(7) = -999.,
+#    missing_value(7) = -999.,
 
- frequency(8) = -10800.,
+ frequency(8) = -60.,
     fields(1:9,8)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad',
                    'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
                    'CPLoWGHT',
     missing_value(8) = -999.,
-#   fileName(8) = 'iceInst',
+   fileName(8) = 'iceInst',
 
  frequency(9) = 10800.,
     fields(1:11,9) = 'SIareaN ','SIheffN ','SIhsnowN','SIqSnow ',
@@ -95,17 +95,17 @@
 
  &DIAG_STATIS_PARMS
  stat_fields(1:6,1)  = 'ETAN    ', 'THETA   ','SALT    ','oceQnet ','oceFWflx','oceSflux',
- stat_fName(1) = 'dynStDiag',
- stat_freq(1)=  10800.0,
+# stat_fName(1) = 'dynStDiag',
+ stat_freq(1)=  -7200.0,
  stat_fields(1:21,2)  = 'SIarea  ','SIheff  ','SIhsnow ','sIceLoad', 
                         'SIuice  ','SIvice  ','SItaux  ','SItauy  ',
                         'SIareaN ','SIheffN ','SIhsnowN',
-                        'SIqSnow ','SIqIce  ','SImeltPd',
-                        'SItIces ','SIiceAge',
+                        'SIqSnow ','SIqIce  ',
+#                        'SImeltPd','SItIces ','SIiceAge',
                         'SI_dArea','SI_dHeff','SI_dHsnw',
                         'SI_dQSnw','SI_dQIce',
-#                       'SI_dMPnd','SI_dTIce','SI_dIcAg',
-  stat_fName(2) = 'iceStDiag',
+#                        'SI_dMPnd','SI_dTIce','SI_dIcAg',
+#  stat_fName(2) = 'iceStDiag',
    stat_freq(2) = 10800.,
 # stat_phase(2) = 1800.,
  &
