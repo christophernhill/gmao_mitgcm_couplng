@@ -8,7 +8,7 @@
 
 # Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
- cd MITgcm
+ cd $WorkingDir/MITgcm
  git checkout checkpoint67i
  cd $WorkingDir/GEOSodas
  git checkout checkpoint_0_Z
