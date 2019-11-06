@@ -1,70 +1,71 @@
-g5_modules: Setting BASEDIR and modules for discover33
-[1] 18364
-[2] 18365
-[1]    Done                          if ( -e  ...
-[3] 18366
-[2]    Done                          if ( -e  ...
-[4] 18367
-[5] 18369
-[6] 18371
-[7] 18372
-[8] 18375
-[7]    Done                          if ( -e  ...
-[9] 18376
-[1] 18378
-[9]    Done                          if ( -e  ...
-[9] 18379
-[1]    Done                          if ( -e  ...
-[1] 18380
-[9]    Done                          if ( -e  ...
-[9] 18381
-[2] 18382
-[1]    Done                          if ( -e  ...
-[9]    Done                          if ( -e  ...
-[9] 18383
-[2]    Done                          if ( -e  ...
-[1] 18384
-[2] 18385
-[7] 18387
-[1]    Done                          if ( -e  ...
-[1] 18388
-[2]    Done                          if ( -e  ...
-[2] 18389
-[7]    Done                          if ( -e  ...
-[7] 18390
-[1]    Done                          if ( -e  ...
-[1] 18391
-[2]    Done                          if ( -e  ...
-[2] 18392
-[7]    Done                          if ( -e  ...
-[7] 18393
-[1]    Done                          if ( -e  ...
-[1] 18394
-[2]    Done                          if ( -e  ...
-[2] 18395
-[7]    Done                          if ( -e  ...
-[7] 18396
-[1]    Done                          if ( -e  ...
-[1] 18397
-[2]    Done                          if ( -e  ...
-[2] 18398
-[7]    Done                          if ( -e  ...
-[7] 18410
-[10] 18411
-[2]    Done                          if ( -e  ...
-[2] 18412
-[7]    Done                          if ( -e  ...
-[7] 18413
-[10]   Done                          if ( -e  ...
-[7]  + Done                          if ( -e  ...
-[2]  + Done                          if ( -e  ...
-[1]  + Done                          if ( -e  ...
-[9]  + Done                          if ( -e  ...
-[8]  + Done                          if ( -e  ...
-[6]  + Done                          if ( -e  ...
-[5]  + Done                          if ( -e  ...
-[4]  + Done                          if ( -e  ...
-[3]  + Done                          if ( -e  ...
+g5_modules: Setting BASEDIR and modules for r483i1n12
+/bin/rm: No match.
+[1] 68750
+[2] 68751
+[3] 68752
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/agcm_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/agcm_import_rst .
+[4] 68753
+[2]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/agcm_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/agcm_internal_rst .
+[5] 68755
+[6] 68757
+[7] 68759
+[8] 68760
+[9] 68762
+[7]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/catchcn_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/catchcn_internal_rst .
+[1] 68764
+[2] 68765
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/moist_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/moist_import_rst .
+[9] 68766
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/surf_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/surf_import_rst .
+[2]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/solar_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/solar_internal_rst .
+[1] 68767
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/irrad_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/irrad_internal_rst .
+[9] 68768
+[2] 68769
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/turb_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/turb_internal_rst .
+[1] 68770
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/turb_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/turb_import_rst .
+[9] 68772
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/h2o_internal_rst .
+[1] 68773
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/gocart_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gocart_internal_rst .
+[9] 68774
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/gocartdata_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gocartdata_internal_rst .
+[1] 68775
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/carma_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/carma_internal_rst .
+[9] 68776
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/stratchem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/stratchem_internal_rst .
+[1] 68777
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/stratchem_import_rst .
+[9] 68778
+[7] 68779
+[10] 68780
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/gmichem_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gmichem_import_rst .
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gmichem_internal_rst .
+[5]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/landice_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/landice_internal_rst .
+[7]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/mam_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/mam_internal_rst .
+[1] 68781
+[10]   Done                          if ( -e /nobackup/estrobac/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/geosachem_internal_rst .
+[9] 68782
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/tr_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/tr_internal_rst .
+[1] 68783
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/tr_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/tr_import_rst .
+[9] 68784
+[4]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/lake_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/lake_internal_rst .
+[4] 68786
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/saltwater_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/saltwater_import_rst .
+[9] 68787
+[5] 68788
+[4]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/seaice_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/seaice_import_rst .
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/seaice_internal_rst .
+[9] 68789
+[5]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/orad_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/orad_import_rst .
+[9]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/vegdyn.data ) /bin/cp /nobackup/estrobac/geos5/TEST/vegdyn.data .
+[1]  - Done                          if ( -e /nobackup/estrobac/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/saltwater_internal_rst .
+[2]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/pchem_internal_rst .
+[8]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/moist_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/moist_internal_rst .
+[6]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/catch_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/catch_internal_rst .
+[3]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/fvcore_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/fvcore_internal_rst .
 /bin/cp: No match.
 /bin/ls: No match.
 /bin/ln: No match.
@@ -127,14 +128,14 @@ whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   Y-AXIS =   12
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
-  X-AXIS =   12
-  Y-AXIS =   12
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12
   Y-AXIS =   12
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
+  X-AXIS =   12
+  Y-AXIS =   12
   X-AXIS =   12
   Y-AXIS =   12
  Cubic: cubed-sphere domain decomposition
@@ -1269,57 +1270,39 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
  Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000414_2200z.nc4
  Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000414_2200z.nc4
  
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:15:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:30:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 22:45:00
-  Starting plug run method 
-  Finished plug run method 
- AGCM Date: 2000/04/14  Time: 23:00:00
- 
- Writing:     45 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ocn.20000414_2300z.nc4
- Writing:     60 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice.20000414_2300z.nc4
- Writing:     40 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_ice_all.20000414_2300z.nc4
- Writing:     10 Slices (  1 Nodes,  1 PartitionRoot) to File:  TEST.mit_snow_all.20000414_2300z.nc4
- 
  
    -----------------------------------------------------
       Block          Max time    Min Time   Load Imbalance
    -----------------------------------------------------
-   TOTAL                       52.1051      52.0754       0.0296
-   COMM_TOTAL                   0.0472       0.0443       0.0029
-   C_SW                         0.0197       0.0178       0.0019
-   D_SW                         0.0722       0.0654       0.0068
-   FV_TP_2D                     0.3901       0.3646       0.0255
-   TRACER_2D                    0.4221       0.4211       0.0011
-   COMM_TRAC                    0.0309       0.0296       0.0013
-   REMAPPING                    0.1578       0.1454       0.0124
+   TOTAL                       47.0439      47.0427       0.0012
+   COMM_TOTAL                   0.0274       0.0251       0.0023
+   C_SW                         0.0118       0.0108       0.0010
+   D_SW                         0.0413       0.0401       0.0013
+   FV_TP_2D                     0.2169       0.2131       0.0038
+   TRACER_2D                    0.2215       0.2212       0.0003
+   COMM_TRAC                    0.0171       0.0151       0.0020
+   REMAPPING                    0.0942       0.0899       0.0042
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: fvcore_internal_checkpoint
   
   Times for DYN
-TOTAL                   :       1.263
-INITIALIZE              :       0.011
-RUN                     :       1.050
-RUN2                    :       0.078
--DYN_INIT               :       0.002
---FMS_INIT              :       0.066
---FV_INIT               :       0.033
--DYN_CORE               :       0.818
-FINALIZE                :       0.031
-GenInitTot              :       0.051
---GenInitMine           :       0.051
+TOTAL                   :       0.655
+INITIALIZE              :       0.007
+RUN                     :       0.536
+RUN2                    :       0.048
+-DYN_INIT               :       0.003
+--FMS_INIT              :       0.016
+--FV_INIT               :       0.030
+-DYN_CORE               :       0.454
+FINALIZE                :       0.002
+GenInitTot              :       0.052
+--GenInitMine           :       0.052
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.048
---GenFinalMine          :       0.048
+GenFinalTot             :       0.013
+--GenFinalMine          :       0.013
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1327,13 +1310,13 @@ GenRefreshTot           :       0.000
   
   
   Times for SUPERDYNAMICS
-TOTAL                   :       1.275
-DYN                     :       0.135
-GenInitTot              :       0.069
---GenInitMine           :       0.010
+TOTAL                   :       0.669
+DYN                     :       0.072
+GenInitTot              :       0.070
+--GenInitMine           :       0.012
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.077
+GenFinalTot             :       0.014
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
@@ -1342,16 +1325,16 @@ GenRefreshTot           :       0.000
   
   
   Times for GWD
-TOTAL                   :       0.066
-DRIVER                  :       0.058
+TOTAL                   :       0.042
+DRIVER                  :       0.035
 -DRIVER_RUN             :       0.000
--INTR                   :       0.045
+-INTR                   :       0.028
 -DRIVER_DATA            :       0.000
 --DRIVER_DATA_DEVICE    :       0.000
 --DRIVER_DATA_CONST     :       0.000
 -DRIVER_ALLOC           :       0.000
 -DRIVER_DEALLOC         :       0.000
-GenInitTot              :       0.005
+GenInitTot              :       0.006
 --GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
@@ -1370,14 +1353,14 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: moist_import_checkpoint
   
   Times for MOIST
-TOTAL                   :       0.441
-DRIVER                  :       0.343
--PRE_RAS                :       0.009
--RAS                    :       0.038
---RAS_RUN               :       0.038
--POST_RAS               :       0.007
--CLOUD                  :       0.167
---CLOUD_RUN             :       0.148
+TOTAL                   :       0.302
+DRIVER                  :       0.200
+-PRE_RAS                :       0.005
+-RAS                    :       0.024
+--RAS_RUN               :       0.024
+-POST_RAS               :       0.004
+-CLOUD                  :       0.092
+--CLOUD_RUN             :       0.081
 ---ACTIV                :       0.000
 ---CLDMACRO             :       0.000
 ---MGMICRO              :       0.000
@@ -1386,14 +1369,14 @@ DRIVER                  :       0.343
 ---CLOUD_DATA_CONST     :       0.000
 --CLOUD_ALLOC           :       0.000
 --CLOUD_DEALLOC         :       0.000
--MISC                   :       0.128
---FLASH                 :       0.013
-GenInitTot              :       0.067
---GenInitMine           :       0.067
+-MISC                   :       0.077
+--FLASH                 :       0.008
+GenInitTot              :       0.074
+--GenInitMine           :       0.074
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.032
---GenFinalMine          :       0.032
+GenFinalTot             :       0.028
+--GenFinalMine          :       0.028
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1408,22 +1391,22 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: saltwater_import_checkpoint
   
   Times for SALTWATER
-TOTAL                   :       0.822
-INITIALIZE              :       0.153
-RUN1                    :       0.124
-RUN2                    :       0.319
--BeforeSaltWaterCore    :       0.097
--OpenWater              :       0.003
--Thermo1                :       0.152
--Thermo2                :       0.070
--Albedo                 :       0.009
+TOTAL                   :       0.686
+INITIALIZE              :       0.176
+RUN1                    :       0.073
+RUN2                    :       0.204
+-BeforeSaltWaterCore    :       0.055
+-OpenWater              :       0.002
+-Thermo1                :       0.101
+-Thermo2                :       0.049
+-Albedo                 :       0.005
 FINALIZE                :       0.000
-GenInitTot              :       0.152
---GenInitMine           :       0.152
+GenInitTot              :       0.175
+--GenInitMine           :       0.175
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.077
---GenFinalMine          :       0.077
+GenFinalTot             :       0.060
+--GenFinalMine          :       0.060
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1434,15 +1417,15 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: lake_internal_checkpoint
   
   Times for LAKE
-TOTAL                   :       0.059
-RUN1                    :       0.010
-RUN2                    :       0.008
-GenInitTot              :       0.012
---GenInitMine           :       0.012
+TOTAL                   :       0.036
+RUN1                    :       0.007
+RUN2                    :       0.006
+GenInitTot              :       0.015
+--GenInitMine           :       0.015
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.030
---GenFinalMine          :       0.030
+GenFinalTot             :       0.009
+--GenFinalMine          :       0.009
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1453,15 +1436,15 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: landice_internal_checkpoint
   
   Times for LANDICE
-TOTAL                   :       0.051
-RUN1                    :       0.008
-RUN2                    :       0.015
-GenInitTot              :       0.016
---GenInitMine           :       0.016
+TOTAL                   :       0.050
+RUN1                    :       0.005
+RUN2                    :       0.009
+GenInitTot              :       0.022
+--GenInitMine           :       0.022
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.012
---GenFinalMine          :       0.012
+GenFinalTot             :       0.013
+--GenFinalMine          :       0.013
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1469,9 +1452,9 @@ GenRefreshTot           :       0.000
   
   
   Times for VEGDYN
-TOTAL                   :       0.108
-GenInitTot              :       0.015
---GenInitMine           :       0.015
+TOTAL                   :       0.097
+GenInitTot              :       0.017
+--GenInitMine           :       0.017
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -1486,18 +1469,18 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: catch_internal_checkpoint
   
   Times for CATCH
-TOTAL                   :       2.221
-RUN1                    :       0.523
--SURF                   :       0.497
-RUN2                    :       1.237
--CATCH                  :       0.369
--ALBEDO                 :       0.010
-GenInitTot              :       0.371
---GenInitMine           :       0.371
+TOTAL                   :       1.241
+RUN1                    :       0.303
+-SURF                   :       0.287
+RUN2                    :       0.424
+-CATCH                  :       0.213
+-ALBEDO                 :       0.006
+GenInitTot              :       0.445
+--GenInitMine           :       0.445
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.092
---GenFinalMine          :       0.092
+GenFinalTot             :       0.079
+--GenFinalMine          :       0.079
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1505,17 +1488,17 @@ GenRefreshTot           :       0.000
   
   
   Times for LAND
-TOTAL                   :       2.364
-INITIALIZE              :       0.419
-RUN1                    :       0.616
-RUN2                    :       1.238
-VEGDYN                  :       0.108
-CATCH                   :       2.222
-GenInitTot              :       0.419
---GenInitMine           :       0.034
+TOTAL                   :       1.381
+INITIALIZE              :       0.503
+RUN1                    :       0.383
+RUN2                    :       0.425
+VEGDYN                  :       0.097
+CATCH                   :       1.242
+GenInitTot              :       0.503
+--GenInitMine           :       0.041
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.092
+GenFinalTot             :       0.079
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
@@ -1527,31 +1510,31 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: surf_import_checkpoint
   
   Times for SURFACE
-TOTAL                   :       3.369
-INITIALIZE              :       0.718
-InitChild               :       0.630
-LocStreamCreate         :       0.008
-LocStreamXForm          :       0.082
--RUN1                   :       0.795
---RUN1_SALTWATER        :       0.136
---RUN1_LAKE             :       0.020
---RUN1_LANDICE          :       0.019
---RUN1_LAND             :       0.631
--RUN2                   :       1.734
---RUN2_SALTWATER        :       0.338
---RUN2_LAKE             :       0.018
---RUN2_LANDICE          :       0.025
---RUN2_LAND             :       1.268
-SALTWATER               :       0.703
-LAKE                    :       0.079
-LANDICE                 :       0.071
-LAND                    :       2.410
-GenInitTot              :       0.630
---GenInitMine           :       0.036
+TOTAL                   :       2.152
+INITIALIZE              :       0.805
+InitChild               :       0.751
+LocStreamCreate         :       0.003
+LocStreamXForm          :       0.052
+-RUN1                   :       0.492
+--RUN1_SALTWATER        :       0.080
+--RUN1_LAKE             :       0.014
+--RUN1_LANDICE          :       0.012
+--RUN1_LAND             :       0.391
+-RUN2                   :       0.736
+--RUN2_SALTWATER        :       0.216
+--RUN2_LAKE             :       0.011
+--RUN2_LANDICE          :       0.015
+--RUN2_LAND             :       0.443
+SALTWATER               :       0.531
+LAKE                    :       0.049
+LANDICE                 :       0.062
+LAND                    :       1.408
+GenInitTot              :       0.751
+--GenInitMine           :       0.040
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.213
---GenFinalMine          :       0.010
+GenFinalTot             :       0.175
+--GenFinalMine          :       0.022
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1565,28 +1548,28 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: turb_import_checkpoint
   
   Times for TURBULENCE
-TOTAL                   :       0.147
--RUN1                   :       0.101
---DIFFUSE               :       0.016
---REFRESHKS             :       0.071
----PRELIMS              :       0.006
----LOUIS                :       0.006
----LOCK                 :       0.006
+TOTAL                   :       0.100
+-RUN1                   :       0.059
+--DIFFUSE               :       0.009
+--REFRESHKS             :       0.040
+---PRELIMS              :       0.003
+---LOUIS                :       0.004
+---LOCK                 :       0.003
 ----LOCK_RUN            :       0.000
 ----LOCK_DATA           :       0.000
 ----LOCK_ALLOC          :       0.000
 ----LOCK_DEALLOC        :       0.000
----POSTLOCK             :       0.030
+---POSTLOCK             :       0.016
 ---BELJAARS             :       0.001
----DECOMP               :       0.002
--RUN2                   :       0.026
---UPDATE                :       0.014
-GenInitTot              :       0.011
---GenInitMine           :       0.011
+---DECOMP               :       0.001
+-RUN2                   :       0.016
+--UPDATE                :       0.009
+GenInitTot              :       0.013
+--GenInitMine           :       0.013
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.010
---GenFinalMine          :       0.010
+GenFinalTot             :       0.012
+--GenFinalMine          :       0.012
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1594,9 +1577,9 @@ GenRefreshTot           :       0.000
   
   
   Times for CHEMENV
-TOTAL                   :       0.004
-GenInitTot              :       0.004
---GenInitMine           :       0.004
+TOTAL                   :       0.005
+GenInitTot              :       0.005
+--GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -1611,17 +1594,17 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: pchem_internal_checkpoint
   
   Times for PCHEM
-TOTAL                   :       1.188
-RUN                     :       0.079
--Read Species           :       0.057
-INITIALIZE              :       0.967
--Read Header            :       0.956
-GenInitTot              :       0.011
---GenInitMine           :       0.011
+TOTAL                   :       0.093
+RUN                     :       0.043
+-Read Species           :       0.007
+INITIALIZE              :       0.033
+-Read Header            :       0.017
+GenInitTot              :       0.015
+--GenInitMine           :       0.015
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.085
---GenFinalMine          :       0.085
+GenFinalTot             :       0.010
+--GenFinalMine          :       0.010
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1632,16 +1615,16 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: gocartdata_internal_checkpoint
   
   Times for GOCART.data
-TOTAL                   :       2.552
-RUN                     :       0.013
-INITIALIZE              :       2.537
+TOTAL                   :       0.131
+RUN                     :       0.007
+INITIALIZE              :       0.105
 FINALIZE                :       0.000
-GenInitTot              :       0.248
---GenInitMine           :       0.248
+GenInitTot              :       0.014
+--GenInitMine           :       0.014
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.024
---GenFinalMine          :       0.024
+GenFinalTot             :       0.019
+--GenFinalMine          :       0.019
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1649,15 +1632,15 @@ GenRefreshTot           :       0.000
   
   
   Times for CHEMISTRY
-TOTAL                   :       3.561
-CHEMENV                 :       0.010
-PCHEM                   :       1.189
-GOCART.data             :       2.552
-GenInitTot              :       3.296
---GenInitMine           :       0.018
+TOTAL                   :       0.248
+CHEMENV                 :       0.009
+PCHEM                   :       0.093
+GOCART.data             :       0.131
+GenInitTot              :       0.158
+--GenInitMine           :       0.015
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.110
+GenFinalTot             :       0.029
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
@@ -1669,11 +1652,11 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: solar_internal_checkpoint
   
   Times for SOLAR
-TOTAL                   :       0.411
-PRELIMS                 :       0.005
-REFRESH                 :       0.332
--SORAD                  :       0.267
---SORAD_RUN             :       0.267
+TOTAL                   :       0.237
+PRELIMS                 :       0.004
+REFRESH                 :       0.192
+-SORAD                  :       0.154
+--SORAD_RUN             :       0.154
 --SORAD_DATA            :       0.000
 ---SORAD_DATA_DEVICE    :       0.000
 ---SORAD_DATA_CONST     :       0.000
@@ -1683,20 +1666,20 @@ REFRESH                 :       0.332
 --RRTMG_RUN             :       0.000
 --RRTMG_INIT            :       0.000
 --RRTMG_FLIP            :       0.000
--BALANCE                :       0.014
---CREATE                :       0.005
---DISTRIBUTE            :       0.002
---RETRIEVE              :       0.004
+-BALANCE                :       0.008
+--CREATE                :       0.002
+--DISTRIBUTE            :       0.001
+--RETRIEVE              :       0.000
 --DESTROY               :       0.000
--MISC                   :       0.004
-UPDATE                  :       0.027
--AEROSOLS               :       0.050
-GenInitTot              :       0.015
---GenInitMine           :       0.015
+-MISC                   :       0.002
+UPDATE                  :       0.015
+-AEROSOLS               :       0.029
+GenInitTot              :       0.013
+--GenInitMine           :       0.013
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.036
---GenFinalMine          :       0.036
+GenFinalTot             :       0.015
+--GenFinalMine          :       0.015
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1707,10 +1690,10 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: irrad_internal_checkpoint
   
   Times for IRRAD
-TOTAL                   :       0.755
--LW_DRIVER              :       0.711
---IRRAD                 :       0.648
----IRRAD_RUN            :       0.648
+TOTAL                   :       0.455
+-LW_DRIVER              :       0.423
+--IRRAD                 :       0.385
+---IRRAD_RUN            :       0.385
 ---IRRAD_DATA           :       0.000
 ----IRRAD_DATA_DEVICE   :       0.000
 ----IRRAD_DATA_CONST    :       0.000
@@ -1720,15 +1703,15 @@ TOTAL                   :       0.755
 ---RRTMG_RUN            :       0.000
 ---RRTMG_INIT           :       0.000
 ---RRTMG_FLIP           :       0.000
---MISC                  :       0.064
----AEROSOLS             :       0.061
--UPDATE_FLX             :       0.003
-GenInitTot              :       0.011
---GenInitMine           :       0.011
+--MISC                  :       0.038
+---AEROSOLS             :       0.036
+-UPDATE_FLX             :       0.002
+GenInitTot              :       0.010
+--GenInitMine           :       0.010
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.046
---GenFinalMine          :       0.046
+GenFinalTot             :       0.018
+--GenFinalMine          :       0.018
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1736,14 +1719,14 @@ GenRefreshTot           :       0.000
   
   
   Times for RADIATION
-TOTAL                   :       1.188
-SOLAR                   :       0.412
-IRRAD                   :       0.756
-GenInitTot              :       0.045
---GenInitMine           :       0.020
-GenRunTot               :       1.079
+TOTAL                   :       0.706
+SOLAR                   :       0.237
+IRRAD                   :       0.455
+GenInitTot              :       0.036
+--GenInitMine           :       0.013
+GenRunTot               :       0.637
 --GenRunMine            :       0.000
-GenFinalTot             :       0.085
+GenFinalTot             :       0.031
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
@@ -1752,20 +1735,20 @@ GenRefreshTot           :       0.000
   
   
   Times for PHYSICS
-TOTAL                   :       9.057
+TOTAL                   :       3.756
 INITIALIZE              :       0.006
-RUN                     :       4.484
-GWD                     :       0.066
-MOIST                   :       0.442
-SURFACE                 :       3.460
-TURBULENCE              :       0.148
-CHEMISTRY               :       3.562
-RADIATION               :       1.188
-GenInitTot              :       4.155
---GenInitMine           :       0.024
+RUN                     :       2.361
+GWD                     :       0.043
+MOIST                   :       0.302
+SURFACE                 :       2.207
+TURBULENCE              :       0.100
+CHEMISTRY               :       0.248
+RADIATION               :       0.707
+GenInitTot              :       1.114
+--GenInitMine           :       0.022
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.428
+GenFinalTot             :       0.275
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
@@ -1774,8 +1757,62 @@ GenRefreshTot           :       0.000
   
   
   Times for ORBIT
-TOTAL                   :       0.004
+TOTAL                   :       0.003
 Run                     :       0.000
+GenInitTot              :       0.003
+--GenInitMine           :       0.003
+GenRunTot               :       0.000
+--GenRunMine            :       0.000
+GenFinalTot             :       0.000
+--GenFinalMine          :       0.000
+GenRecordTot            :       0.000
+--GenRecordMine         :       0.000
+GenRefreshTot           :       0.000
+--GenRefreshMine        :       0.000
+  
+  
+  Times for AGCM
+TOTAL                   :       4.472
+SUPERDYNAMICS           :       0.669
+PHYSICS                 :       3.756
+ORBIT                   :       0.003
+GenInitTot              :       1.216
+--GenInitMine           :       0.023
+GenRunTot               :       0.000
+--GenRunMine            :       0.000
+GenFinalTot             :       0.289
+--GenFinalMine          :       0.000
+GenRecordTot            :       0.001
+--GenRecordMine         :       0.000
+GenRefreshTot           :       0.000
+--GenRefreshMine        :       0.000
+INITIALIZE              :       1.222
+RUN                     :       2.961
+  
+  
+  Times for AIAU
+TOTAL                   :       0.006
+INITIALIZE              :       0.000
+DRIVER                  :       0.000
+-INTR                   :       0.000
+-RUN                    :       0.000
+-REGRIDSPC              :       0.000
+--WINDFIX               :       0.000
+GenInitTot              :       0.006
+--GenInitMine           :       0.006
+GenRunTot               :       0.000
+--GenRunMine            :       0.000
+GenFinalTot             :       0.000
+--GenFinalMine          :       0.000
+GenRecordTot            :       0.000
+--GenRecordMine         :       0.000
+GenRefreshTot           :       0.000
+--GenRefreshMine        :       0.000
+  
+  
+  Times for ADFI
+TOTAL                   :       0.004
+INITIALIZE              :       0.000
 GenInitTot              :       0.004
 --GenInitMine           :       0.004
 GenRunTot               :       0.000
@@ -1788,64 +1825,10 @@ GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
-  Times for AGCM
-TOTAL                   :      10.353
-SUPERDYNAMICS           :       1.275
-PHYSICS                 :       9.057
-ORBIT                   :       0.005
-GenInitTot              :       4.256
---GenInitMine           :       0.024
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.479
---GenFinalMine          :       0.000
-GenRecordTot            :       0.001
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-INITIALIZE              :       4.309
-RUN                     :       5.645
-  
-  
-  Times for AIAU
-TOTAL                   :       0.013
-INITIALIZE              :       0.000
-DRIVER                  :       0.000
--INTR                   :       0.000
--RUN                    :       0.000
--REGRIDSPC              :       0.000
---WINDFIX               :       0.000
-GenInitTot              :       0.013
---GenInitMine           :       0.013
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
-  Times for ADFI
-TOTAL                   :       0.011
-INITIALIZE              :       0.000
-GenInitTot              :       0.011
---GenInitMine           :       0.011
-GenRunTot               :       0.000
---GenRunMine            :       0.000
-GenFinalTot             :       0.000
---GenFinalMine          :       0.000
-GenRecordTot            :       0.000
---GenRecordMine         :       0.000
-GenRefreshTot           :       0.000
---GenRefreshMine        :       0.000
-  
-  
   Times for OBIO
 TOTAL                   :       0.003
-GenInitTot              :       0.003
---GenInitMine           :       0.003
+GenInitTot              :       0.002
+--GenInitMine           :       0.002
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -1860,14 +1843,14 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: orad_import_checkpoint
   
   Times for ORAD
-TOTAL                   :       0.023
-RUN                     :       0.012
+TOTAL                   :       0.019
+RUN                     :       0.007
 GenInitTot              :       0.004
 --GenInitMine           :       0.004
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.007
---GenFinalMine          :       0.007
+GenFinalTot             :       0.008
+--GenFinalMine          :       0.008
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1875,12 +1858,12 @@ GenRefreshTot           :       0.000
   
   
   Times for MIT
-TOTAL                   :       1.345
+TOTAL                   :       1.235
 INITIALIZE              :       0.000
-RUN                     :       1.337
+RUN                     :       1.228
 FINALIZE                :       0.000
 GenInitTot              :       0.008
---GenInitMine           :       0.007
+--GenInitMine           :       0.008
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -1892,34 +1875,34 @@ GenRefreshTot           :       0.000
   
   
   Times for OCEAN
-TOTAL                   :       3.123
-MIT                     :       3.093
-GenInitTot              :       1.767
---GenInitMine           :       0.013
-GenRunTot               :       1.338
+TOTAL                   :       1.778
+MIT                     :       1.755
+GenInitTot              :       0.539
+--GenInitMine           :       0.012
+GenRunTot               :       1.228
 --GenRunMine            :       0.000
-GenFinalTot             :       0.001
+GenFinalTot             :       0.000
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       1.768
-RUN                     :       1.355
---ModRun                :       1.338
+INITIALIZE              :       0.539
+RUN                     :       1.238
+--ModRun                :       1.228
   
   
   Times for OGCM
-TOTAL                   :       3.184
-INITIALIZE              :       1.781
-RUN                     :       1.394
-InitChild               :       1.780
+TOTAL                   :       1.821
+INITIALIZE              :       0.551
+RUN                     :       1.261
+InitChild               :       0.551
 OBIO                    :       0.003
-ORAD                    :       0.023
-OCEAN                   :       3.123
-GenInitTot              :       1.780
+ORAD                    :       0.019
+OCEAN                   :       1.778
+GenInitTot              :       0.551
 --GenInitMine           :       0.006
-GenRunTot               :       1.367
+GenRunTot               :       1.245
 --GenRunMine            :       0.000
 GenFinalTot             :       0.009
 --GenFinalMine          :       0.000
@@ -1930,28 +1913,28 @@ GenRefreshTot           :       0.000
   
   
   Times for GCM
-TOTAL                   :      14.026
-AGCM                    :      10.353
-AIAU                    :       0.013
-ADFI                    :       0.011
-OGCM                    :       3.184
-GenInitTot              :       6.124
+TOTAL                   :       6.400
+AGCM                    :       4.472
+AIAU                    :       0.007
+ADFI                    :       0.005
+OGCM                    :       1.821
+GenInitTot              :       1.801
 --GenInitMine           :       0.017
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.489
+GenFinalTot             :       0.298
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.002
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       6.648
-RUN                     :       7.077
---OCEAN                 :       1.395
---ATMOSPHERE            :       5.645
+INITIALIZE              :       1.861
+RUN                     :       4.241
+--OCEAN                 :       1.261
+--ATMOSPHERE            :       2.961
 --REPLAY                :       0.000
---A2O                   :       0.018
---O2A                   :       0.022
+--A2O                   :       0.009
+--O2A                   :       0.034
   
   
   Times for ANA
@@ -1969,33 +1952,33 @@ GenRefreshTot           :       0.000
   
   
   Times for GCS
-TOTAL                   :      14.037
-GCM                     :      14.026
+TOTAL                   :       6.415
+GCM                     :       6.401
 ANA                     :       0.002
-GenInitTot              :       6.659
---GenInitMine           :       0.003
-GenRunTot               :       7.077
+GenInitTot              :       1.875
+--GenInitMine           :       0.004
+GenRunTot               :       4.241
 --GenRunMine            :       0.000
-GenFinalTot             :       0.489
+GenFinalTot             :       0.298
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.002
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for HIST
-TOTAL                   :       0.854
-Initialize              :       0.286
+TOTAL                   :       0.436
+Initialize              :       0.341
 Finalize                :       0.000
-Run                     :       0.571
---Couplers              :       0.031
---I/O                   :       0.540
-----IO Create           :       0.270
-----IO Write            :       0.441
------IO Post            :       0.439
------IO Wait            :       0.004
------IO Write           :       0.228
+Run                     :       0.096
+--Couplers              :       0.016
+--I/O                   :       0.080
+----IO Create           :       0.046
+----IO Write            :       0.079
+-----IO Post            :       0.060
+-----IO Wait            :       0.001
+-----IO Write           :       0.021
 -ParserRun              :       0.000
 GenInitTot              :       0.000
 --GenInitMine           :       0.000
@@ -2010,17 +1993,17 @@ GenRefreshTot           :       0.000
   
   
   Times for EXTDATA
-TOTAL                   :      35.027
-Initialize              :      11.694
-Run                     :      23.472
--Read_Loop              :      23.443
---CheckUpd              :       0.000
---Read                  :       9.434
+TOTAL                   :      36.971
+Initialize              :      12.714
+Run                     :      24.322
+-Read_Loop              :      24.307
+--CheckUpd              :       0.001
+--Read                  :       1.803
 --Swap                  :       0.000
---Bracket               :      17.545
--Interpolate            :       0.032
-GenInitTot              :       0.002
---GenInitMine           :       0.002
+--Bracket               :      22.611
+-Interpolate            :       0.015
+GenInitTot              :       0.003
+--GenInitMine           :       0.003
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.001
@@ -2031,5 +2014,5 @@ GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
  NOT using buffer I/O for file: cap_restart
-Model Throughput:      133.333 days per day
+Model Throughput:       76.596 days per day
 GEOSgcm Run Status: 0
