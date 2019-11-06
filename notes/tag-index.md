@@ -1,3 +1,4 @@
+- checkpoint_0_Z (2019/11/0 6, compatible with MITgcm checkpoint67i)
   * update tags for the verification experiments
   * Add new c1440_llc2160_01 experiment
   * Add new c720_llc1080_02 experiment
