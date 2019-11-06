@@ -9,6 +9,13 @@
 
 # Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
+ cd $WorkingDir/MITgcm
+ git checkout checkpoint67i
+ cd $WorkingDir/GEOSodas
+ git checkout checkpoint_0_Z
+ cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
+ cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ git checkout checkpoint_0_Z
 
 # Request interactive job and set WorkingDir to same location as above
 # xsub -I -l select=1,walltime=8:00:00
