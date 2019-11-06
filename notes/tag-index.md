@@ -1,3 +1,6 @@
+  * update tags for the verification experiments
+  * Add new c1440_llc2160_01 experiment
+  * Add new c720_llc1080_02 experiment
   * update exp. c12_cs32_01 code with latest MITgcm changes (post c67g)
     including PR #193 (to fix missing update of sIceLoad)
   * Experiment c90_llc90_05 for HiRes was added
