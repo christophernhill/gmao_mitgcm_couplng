@@ -26,7 +26,7 @@
  cd GEOSocean_GridComp/GuestOcean_GridComp
  git clone git@github.com:christophernhill/gmao_mitgcm_couplng
 
-# Get GEOS-5 boundary conditions
+# Get GEOS-5 boundary conditions (for c12-cs32 experiment)
 # geos5-tiny.tgz is available in
 # engaging:/nobackup1/dmenemen/geos5/tarballs_100816
 # discover:/discover/nobackup/dmenemen/geos5/tarballs_100816
