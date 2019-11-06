@@ -1,85 +1,85 @@
-g5_modules: Setting BASEDIR and modules for r481i4n13
+g5_modules: Setting BASEDIR and modules for r449i1n2
 /bin/rm: No match.
-[1] 16497
-[2] 16498
-[3] 16499
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/agcm_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/agcm_internal_rst .
-[1]  - Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/agcm_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/agcm_import_rst .
-[4] 16501
-[5] 16502
-[6] 16503
-[4]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst .
-[7] 16506
-[8] 16507
-[9] 16508
-[7]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/catchcn_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/catchcn_internal_rst .
-[1] 16510
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/moist_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/moist_import_rst .
-[9] 16511
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/surf_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/surf_import_rst .
-[1] 16512
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/solar_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/solar_internal_rst .
-[9] 16513
-[2] 16514
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/irrad_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/irrad_internal_rst .
-[9]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/turb_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/turb_internal_rst .
-[9] 16515
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/turb_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/turb_import_rst .
-[1] 16516
-[2] 16518
-[4] 16519
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst .
-[1] 16520
-[4]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gocartdata_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gocartdata_internal_rst .
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gocart_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gocart_internal_rst .
-[2] 16521
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst .
-[1] 16522
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/stratchem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/stratchem_internal_rst .
-[2] 16523
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst .
-[1] 16524
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst .
-[2] 16525
-[4] 16526
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/gmichem_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/gmichem_import_rst .
-[5]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst .
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst .
-[1] 16527
-[4]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst .
-[2] 16528
-[1]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/tr_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/tr_internal_rst .
-[1] 16529
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/tr_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/tr_import_rst .
-[2] 16531
-[4] 16532
-[5] 16533
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/saltwater_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/saltwater_import_rst .
-[4]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst .
-[2] 16534
-[5]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst .
-[4] 16535
-[2]    Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/orad_import_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/orad_import_rst .
-[4]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/vegdyn.data ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/vegdyn.data .
-[1]  - Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst .
-[9]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst .
-[8]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/moist_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/moist_internal_rst .
-[6]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/catch_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/catch_internal_rst .
-[3]  + Done                          if ( -e /nobackupp8/dmenemen/geos5/TEST/fvcore_internal_rst ) /bin/cp /nobackupp8/dmenemen/geos5/TEST/fvcore_internal_rst .
+[1] 56180
+[2] 56181
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/agcm_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/agcm_import_rst .
+[3] 56182
+[4] 56183
+[2]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/agcm_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/agcm_internal_rst .
+[5] 56185
+[4]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/lake_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/lake_internal_rst .
+[6] 56186
+[7] 56188
+[8] 56190
+[9] 56191
+[7]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/catchcn_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/catchcn_internal_rst .
+[1] 56193
+[2] 56194
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/moist_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/moist_import_rst .
+[9] 56195
+[4] 56196
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/surf_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/surf_import_rst .
+[1] 56197
+[7] 56198
+[10] 56199
+[2]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/solar_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/solar_internal_rst .
+[2] 56201
+[11] 56202
+[9]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/irrad_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/irrad_internal_rst .
+[9] 56203
+[12] 56204
+[4]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/turb_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/turb_internal_rst .
+[4] 56205
+[1]    Done                          if ( -e /nobackup/estrobac/geos5/TEST/turb_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/turb_import_rst .
+[1] 56206
+[13] 56207
+[14] 56208
+[15] 56209
+[16] 56210
+[17] 56211
+[18] 56212
+[19] 56213
+[20] 56215
+[10]   Done                          if ( -e /nobackup/estrobac/geos5/TEST/h2o_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/h2o_internal_rst .
+[10] 56216
+[21] 56217
+[22] 56218
+[22] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/vegdyn.data ) /bin/cp /nobackup/estrobac/geos5/TEST/vegdyn.data .
+[21] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/orad_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/orad_import_rst .
+[10] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/seaice_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/seaice_internal_rst .
+[20] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/seaice_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/seaice_import_rst .
+[19] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/saltwater_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/saltwater_import_rst .
+[18] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/saltwater_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/saltwater_internal_rst .
+[17] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/tr_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/tr_import_rst .
+[16] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/tr_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/tr_internal_rst .
+[15] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/geosachem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/geosachem_internal_rst .
+[14] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/mam_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/mam_internal_rst .
+[13] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/gmichem_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gmichem_import_rst .
+[1]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/gmichem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gmichem_internal_rst .
+[4]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/stratchem_import_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/stratchem_import_rst .
+[12] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/stratchem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/stratchem_internal_rst .
+[9]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/carma_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/carma_internal_rst .
+[11] + Done                          if ( -e /nobackup/estrobac/geos5/TEST/gocartdata_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gocartdata_internal_rst .
+[2]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/gocart_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/gocart_internal_rst .
+[7]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/pchem_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/pchem_internal_rst .
+[8]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/moist_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/moist_internal_rst .
+[6]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/catch_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/catch_internal_rst .
+[5]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/landice_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/landice_internal_rst .
+[3]  + Done                          if ( -e /nobackup/estrobac/geos5/TEST/fvcore_internal_rst ) /bin/cp /nobackup/estrobac/geos5/TEST/fvcore_internal_rst .
 /bin/cp: No match.
 /bin/ls: No match.
-[1] 16543
-[2] 16544
-[3] 16545
-[4] 16546
-[5] 16547
-[2]    Done                          /bin/cp landice_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
-[6] 16548
-[6]    Done                          /bin/cp saltwater_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
-[5]  + Done                          /bin/cp pchem_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
-[4]  + Done                          /bin/cp moist_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
-[3]  + Done                          /bin/cp catch_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
-[1]  + Done                          /bin/cp fvcore_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[1] 56226
+[2] 56227
+[3] 56228
+[4] 56229
+[2]    Done                          /bin/cp landice_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.landice_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[5] 56230
+[3]    Done                          /bin/cp catch_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.catch_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[6] 56231
+[6]  + Done                          /bin/cp saltwater_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[5]  + Done                          /bin/cp pchem_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[4]  + Done                          /bin/cp moist_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.moist_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
+[1]  + Done                          /bin/cp fvcore_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000414_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180
 /bin/ln: No match.
  
  In MAPL_Shmem:
@@ -153,11 +153,11 @@ whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
- create_grid: Looking for cubed-grid mosaic: Inline
  Cubic: cubed-sphere domain decomposition
 whalo =    3, ehalo =    3, shalo =    3, nhalo =    3
   X-AXIS =   12  12  12  12
   Y-AXIS =   12  12  12  12
+ create_grid: Looking for cubed-grid mosaic: Inline
  create_grid: Creating Global cubed-grid 
  
   Cubed-Sphere Grid Stats :           49 x          49 x           6
@@ -257,6 +257,7 @@ Number of true pressure levels =    1
  MAPL: adding export S
  MAPL: adding export DISCHARGEe
  MAPL: adding export PBO
+ MAPL: adding export WGHTe
       Real*4 Resource Parameter DT:    900.000    
    Integer*4 Resource Parameter REFERENCE_DATE:    20000414
    Integer*4 Resource Parameter REFERENCE_TIME:           0
@@ -371,7 +372,10 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
    Character Resource Parameter MOIST_INTERNAL_RESTART_FILE: moist_internal_rst
    Integer*4 Resource Parameter INTERNAL_HEADER:           0
  Using parallel NetCDF for file: moist_internal_rst
-   Character Resource Parameter CLDMICRO: 1MOMENT
+   Character Resource Parameter CLDMICRO: 2MOMENT
+      Real*4 Resource Parameter DCS:   0.350000E-03
+      Real*4 Resource Parameter QCVAR:    2.00000    
+ INITIALIZED MG in non-generic GC INIT
       Real*4 Resource Parameter CICE_DT:    0.00000    
       Real*4 Resource Parameter ALBICEV:   0.730000    
       Real*4 Resource Parameter ALBICEI:   0.330000    
@@ -1037,7 +1041,6 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
       Real*4 Resource Parameter ORG_INFAC:    1.00000    
       Real*4 Resource Parameter USE_NAT_WSUB:    1.00000    
       Real*4 Resource Parameter BKG_TAU:   0.150000E-01
-      Real*4 Resource Parameter DCS:   0.350000E-03
       Real*4 Resource Parameter QC_CRIT_CN:   0.800000E-03
       Real*4 Resource Parameter RASAL1:    1800.00    
       Real*4 Resource Parameter RASAL2:   -43200.0    
@@ -1116,12 +1119,12 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
       Real*4 Resource Parameter MINRHCRIT:   0.800000    
       Real*4 Resource Parameter MAXRHCRIT:    1.00000    
       Real*4 Resource Parameter MAXRHCRITLAND:   0.810000    
-      Real*4 Resource Parameter PRECIPRAD:    0.00000    
-      Real*4 Resource Parameter SNOW_REVAP_FAC:    1.00000    
-      Real*4 Resource Parameter CNV_ENVF:   0.800000    
+      Real*4 Resource Parameter PRECIPRAD:    1.00000    
+      Real*4 Resource Parameter SNOW_REVAP_FAC:   0.500000    
+      Real*4 Resource Parameter CNV_ENVF:    1.00000    
       Real*4 Resource Parameter SCLMFDFR:    1.00000    
-      Real*4 Resource Parameter TURNRHCRIT:    750.000    
-      Real*4 Resource Parameter MOVE2RAS:    1.00000    
+      Real*4 Resource Parameter TURNRHCRIT:    884.000    
+      Real*4 Resource Parameter MOVE2RAS:    0.00000    
       Real*4 Resource Parameter FR_LS_WAT:    1.00000    
       Real*4 Resource Parameter FR_AN_WAT:    0.00000    
       Real*4 Resource Parameter FR_LS_ICE:    0.00000    
@@ -1747,49 +1750,49 @@ INITIALIZED ALARM: DYN_TIME_TO_RUN EVERY     900.0 secs.
    -----------------------------------------------------
       Block          Max time    Min Time   Load Imbalance
    -----------------------------------------------------
-   TOTAL                      222.8762     222.8719       0.0043
-   COMM_TOTAL                   1.9053       1.1338       0.7715
-   C_SW                         0.5056       0.3854       0.1201
-   D_SW                         1.9169       1.6972       0.2197
-   FV_TP_2D                     6.7181       6.3104       0.4078
-   TRACER_2D                    7.3773       7.3016       0.0757
-   COMM_TRAC                    0.9982       0.5934       0.4048
-   REMAPPING                    2.6968       2.4881       0.2087
+   TOTAL                      249.2209     249.2161       0.0048
+   COMM_TOTAL                   2.0099       1.1427       0.8672
+   C_SW                         0.5149       0.3974       0.1175
+   D_SW                         1.8991       1.7007       0.1983
+   FV_TP_2D                     6.8351       6.3559       0.4792
+   TRACER_2D                    7.7618       7.6862       0.0756
+   COMM_TRAC                    1.1492       0.6344       0.5147
+   REMAPPING                    2.7306       2.5274       0.2032
  
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_FILE: fvcore_internal_checkpoint
    Character Resource Parameter DYN_INTERNAL_CHECKPOINT_TYPE: pnc4
  Using parallel NetCDF for file: fvcore_internal_checkpoint
   
   Times for DYN
-TOTAL                   :      24.291
-INITIALIZE              :       0.044
-RUN                     :      20.256
-RUN2                    :       2.984
--DYN_INIT               :       0.019
---FMS_INIT              :       0.122
---FV_INIT               :       0.080
--DYN_CORE               :      15.712
-FINALIZE                :       0.006
-GenInitTot              :       0.602
---GenInitMine           :       0.602
+TOTAL                   :      23.746
+INITIALIZE              :       0.165
+RUN                     :      19.804
+RUN2                    :       3.159
+-DYN_INIT               :       0.017
+--FMS_INIT              :       0.324
+--FV_INIT               :       0.154
+-DYN_CORE               :      16.076
+FINALIZE                :       0.027
+GenInitTot              :       0.405
+--GenInitMine           :       0.405
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.656
---GenFinalMine          :       0.656
-GenRecordTot            :       0.000
+GenFinalTot             :       0.673
+--GenFinalMine          :       0.673
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for SUPERDYNAMICS
-TOTAL                   :      24.349
-DYN                     :       1.305
-GenInitTot              :       0.658
---GenInitMine           :       0.013
+TOTAL                   :      23.806
+DYN                     :       1.223
+GenInitTot              :       0.564
+--GenInitMine           :       0.016
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.663
+GenFinalTot             :       0.679
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.002
 --GenRecordMine         :       0.000
@@ -1798,10 +1801,10 @@ GenRefreshTot           :       0.000
   
   
   Times for GWD
-TOTAL                   :       0.888
-DRIVER                  :       0.838
+TOTAL                   :       0.947
+DRIVER                  :       0.885
 -DRIVER_RUN             :       0.000
--INTR                   :       0.662
+-INTR                   :       0.691
 -DRIVER_DATA            :       0.000
 --DRIVER_DATA_DEVICE    :       0.000
 --DRIVER_DATA_CONST     :       0.000
@@ -1826,30 +1829,30 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: moist_import_checkpoint
   
   Times for MOIST
-TOTAL                   :       7.176
-DRIVER                  :       5.358
--PRE_RAS                :       0.164
--RAS                    :       1.012
---RAS_RUN               :       1.006
+TOTAL                   :      26.052
+DRIVER                  :      24.497
+-PRE_RAS                :       0.173
+-RAS                    :       3.009
+--RAS_RUN               :       3.000
 -POST_RAS               :       0.133
--CLOUD                  :       2.283
---CLOUD_RUN             :       2.031
----ACTIV                :       0.000
----CLDMACRO             :       0.000
----MGMICRO              :       0.000
+-CLOUD                  :      16.510
+--CLOUD_RUN             :      15.975
+---ACTIV                :       9.801
+---CLDMACRO             :       1.068
+---MGMICRO              :       6.207
 --CLOUD_DATA            :       0.000
 ---CLOUD_DATA_DEVICE    :       0.000
 ---CLOUD_DATA_CONST     :       0.000
 --CLOUD_ALLOC           :       0.000
 --CLOUD_DEALLOC         :       0.000
--MISC                   :       1.807
---FLASH                 :       0.192
-GenInitTot              :       0.169
---GenInitMine           :       0.169
+-MISC                   :       7.220
+--FLASH                 :       0.190
+GenInitTot              :       0.178
+--GenInitMine           :       0.178
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       1.651
---GenFinalMine          :       1.651
+GenFinalTot             :       1.643
+--GenFinalMine          :       1.643
 GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1864,23 +1867,23 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: saltwater_import_checkpoint
   
   Times for SALTWATER
-TOTAL                   :      38.536
-INITIALIZE              :       1.585
-RUN1                    :       4.306
-RUN2                    :      29.162
--BeforeSaltWaterCore    :       5.039
+TOTAL                   :      40.235
+INITIALIZE              :       1.578
+RUN1                    :       4.364
+RUN2                    :      29.439
+-BeforeSaltWaterCore    :       5.068
 -OpenWater              :       0.095
--Thermo1                :      18.297
--Thermo2                :       4.602
--Albedo                 :       0.825
+-Thermo1                :      18.545
+-Thermo2                :       4.624
+-Albedo                 :       0.803
 FINALIZE                :       0.000
-GenInitTot              :       1.579
---GenInitMine           :       1.579
+GenInitTot              :       1.569
+--GenInitMine           :       1.569
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       2.269
---GenFinalMine          :       2.269
-GenRecordTot            :       0.001
+GenFinalTot             :       3.412
+--GenFinalMine          :       3.412
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -1890,15 +1893,15 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: lake_internal_checkpoint
   
   Times for LAKE
-TOTAL                   :       0.366
-RUN1                    :       0.147
-RUN2                    :       0.121
-GenInitTot              :       0.015
---GenInitMine           :       0.015
+TOTAL                   :       0.417
+RUN1                    :       0.158
+RUN2                    :       0.122
+GenInitTot              :       0.016
+--GenInitMine           :       0.016
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.094
---GenFinalMine          :       0.094
+GenFinalTot             :       0.122
+--GenFinalMine          :       0.122
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1909,15 +1912,15 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: landice_internal_checkpoint
   
   Times for LANDICE
-TOTAL                   :       0.994
+TOTAL                   :       0.908
 RUN1                    :       0.143
-RUN2                    :       0.276
-GenInitTot              :       0.044
---GenInitMine           :       0.044
+RUN2                    :       0.280
+GenInitTot              :       0.179
+--GenInitMine           :       0.179
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.532
---GenFinalMine          :       0.532
+GenFinalTot             :       0.308
+--GenFinalMine          :       0.308
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -1925,14 +1928,14 @@ GenRefreshTot           :       0.000
   
   
   Times for VEGDYN
-TOTAL                   :       0.333
-GenInitTot              :       0.134
---GenInitMine           :       0.134
+TOTAL                   :       0.208
+GenInitTot              :       0.044
+--GenInitMine           :       0.044
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.001
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -1942,36 +1945,36 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: catch_internal_checkpoint
   
   Times for CATCH
-TOTAL                   :       5.814
-RUN1                    :       2.323
--SURF                   :       2.127
-RUN2                    :       2.775
--CATCH                  :       1.187
+TOTAL                   :       6.164
+RUN1                    :       2.334
+-SURF                   :       2.136
+RUN2                    :       2.721
+-CATCH                  :       1.207
 -ALBEDO                 :       0.044
-GenInitTot              :       0.436
---GenInitMine           :       0.436
+GenInitTot              :       0.438
+--GenInitMine           :       0.438
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.284
---GenFinalMine          :       0.284
-GenRecordTot            :       0.001
+GenFinalTot             :       0.674
+--GenFinalMine          :       0.674
+GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for LAND
-TOTAL                   :       6.206
-INITIALIZE              :       0.608
-RUN1                    :       2.524
-RUN2                    :       2.791
-VEGDYN                  :       0.335
-CATCH                   :       5.832
-GenInitTot              :       0.608
---GenInitMine           :       0.040
+TOTAL                   :       6.431
+INITIALIZE              :       0.520
+RUN1                    :       2.502
+RUN2                    :       2.736
+VEGDYN                  :       0.210
+CATCH                   :       6.181
+GenInitTot              :       0.520
+--GenInitMine           :       0.039
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.284
+GenFinalTot             :       0.674
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.002
 --GenRecordMine         :       0.000
@@ -1983,32 +1986,32 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: surf_import_checkpoint
   
   Times for SURFACE
-TOTAL                   :      43.156
-INITIALIZE              :       2.949
-InitChild               :       2.281
-LocStreamCreate         :       0.013
-LocStreamXForm          :       0.034
--RUN1                   :       5.856
---RUN1_SALTWATER        :       4.473
---RUN1_LAKE             :       0.290
---RUN1_LANDICE          :       0.283
---RUN1_LAND             :       2.699
--RUN2                   :      31.780
---RUN2_SALTWATER        :      29.455
---RUN2_LAKE             :       0.267
---RUN2_LANDICE          :       0.427
---RUN2_LAND             :       3.179
-SALTWATER               :      37.424
-LAKE                    :       0.656
-LANDICE                 :       1.285
-LAND                    :       6.769
-GenInitTot              :       2.281
---GenInitMine           :       0.058
+TOTAL                   :      49.861
+INITIALIZE              :       3.033
+InitChild               :       2.322
+LocStreamCreate         :       0.004
+LocStreamXForm          :       0.036
+-RUN1                   :      11.083
+--RUN1_SALTWATER        :       4.529
+--RUN1_LAKE             :       0.302
+--RUN1_LANDICE          :       0.282
+--RUN1_LAND             :       2.678
+-RUN2                   :      31.984
+--RUN2_SALTWATER        :      29.731
+--RUN2_LAKE             :       0.260
+--RUN2_LANDICE          :       0.422
+--RUN2_LAND             :       3.118
+SALTWATER               :      39.133
+LAKE                    :       0.699
+LANDICE                 :       1.190
+LAND                    :       6.991
+GenInitTot              :       2.322
+--GenInitMine           :       0.041
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       3.256
---GenFinalMine          :       0.097
-GenRecordTot            :       0.006
+GenFinalTot             :       4.602
+--GenFinalMine          :       0.112
+GenRecordTot            :       0.005
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
@@ -2021,28 +2024,28 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: turb_import_checkpoint
   
   Times for TURBULENCE
-TOTAL                   :       2.197
--RUN1                   :       1.434
---DIFFUSE               :       0.264
---REFRESHKS             :       0.942
+TOTAL                   :       2.128
+-RUN1                   :       1.436
+--DIFFUSE               :       0.267
+--REFRESHKS             :       0.944
 ---PRELIMS              :       0.084
----LOUIS                :       0.090
----LOCK                 :       0.079
+---LOUIS                :       0.091
+---LOCK                 :       0.078
 ----LOCK_RUN            :       0.000
 ----LOCK_DATA           :       0.000
 ----LOCK_ALLOC          :       0.000
 ----LOCK_DEALLOC        :       0.000
----POSTLOCK             :       0.385
+---POSTLOCK             :       0.386
 ---BELJAARS             :       0.018
----DECOMP               :       0.016
--RUN2                   :       0.402
---UPDATE                :       0.219
-GenInitTot              :       0.122
---GenInitMine           :       0.122
+---DECOMP               :       0.015
+-RUN2                   :       0.407
+--UPDATE                :       0.226
+GenInitTot              :       0.121
+--GenInitMine           :       0.121
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.285
---GenFinalMine          :       0.285
+GenFinalTot             :       0.207
+--GenFinalMine          :       0.207
 GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2067,17 +2070,17 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: pchem_internal_checkpoint
   
   Times for PCHEM
-TOTAL                   :       2.517
-RUN                     :       1.056
--Read Species           :       0.340
-INITIALIZE              :       0.222
--Read Header            :       0.082
-GenInitTot              :       0.151
---GenInitMine           :       0.151
+TOTAL                   :       2.975
+RUN                     :       1.028
+-Read Species           :       0.563
+INITIALIZE              :       0.226
+-Read Header            :       0.152
+GenInitTot              :       0.078
+--GenInitMine           :       0.078
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.937
---GenFinalMine          :       0.937
+GenFinalTot             :       1.168
+--GenFinalMine          :       1.168
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2088,16 +2091,16 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: gocartdata_internal_checkpoint
   
   Times for GOCART.data
-TOTAL                   :       3.330
-RUN                     :       0.167
-INITIALIZE              :       1.713
-FINALIZE                :       0.003
-GenInitTot              :       0.016
---GenInitMine           :       0.016
+TOTAL                   :       2.550
+RUN                     :       0.164
+INITIALIZE              :       1.358
+FINALIZE                :       0.066
+GenInitTot              :       0.018
+--GenInitMine           :       0.018
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       1.454
---GenFinalMine          :       1.454
+GenFinalTot             :       1.037
+--GenFinalMine          :       1.037
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2111,30 +2114,30 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: tr_import_checkpoint
   
   Times for TR
-TOTAL                   :       1.289
-GenInitTot              :       0.028
---GenInitMine           :       0.028
+TOTAL                   :       4.231
+GenInitTot              :       0.013
+--GenInitMine           :       0.013
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       1.270
---GenFinalMine          :       1.270
-GenRecordTot            :       0.000
+GenFinalTot             :       4.218
+--GenFinalMine          :       4.218
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for CHEMISTRY
-TOTAL                   :       7.777
-CHEMENV                 :       0.110
-PCHEM                   :       2.528
-GOCART.data             :       3.333
-TR                      :       1.835
-GenInitTot              :       2.022
---GenInitMine           :       0.034
+TOTAL                   :      10.345
+CHEMENV                 :       0.111
+PCHEM                   :       2.978
+GOCART.data             :       2.557
+TR                      :       4.913
+GenInitTot              :       1.791
+--GenInitMine           :       0.022
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       3.603
+GenFinalTot             :       6.197
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.004
 --GenRecordMine         :       0.000
@@ -2146,11 +2149,11 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: solar_internal_checkpoint
   
   Times for SOLAR
-TOTAL                   :       6.146
+TOTAL                   :       6.574
 PRELIMS                 :       0.072
-REFRESH                 :       4.758
--SORAD                  :       3.708
---SORAD_RUN             :       3.708
+REFRESH                 :       4.802
+-SORAD                  :       3.735
+--SORAD_RUN             :       3.735
 --SORAD_DATA            :       0.000
 ---SORAD_DATA_DEVICE    :       0.000
 ---SORAD_DATA_CONST     :       0.000
@@ -2160,20 +2163,20 @@ REFRESH                 :       4.758
 --RRTMG_RUN             :       0.000
 --RRTMG_INIT            :       0.000
 --RRTMG_FLIP            :       0.000
--BALANCE                :       0.362
---CREATE                :       0.108
---DISTRIBUTE            :       0.090
---RETRIEVE              :       0.096
+-BALANCE                :       0.375
+--CREATE                :       0.101
+--DISTRIBUTE            :       0.096
+--RETRIEVE              :       0.089
 --DESTROY               :       0.000
--MISC                   :       0.051
-UPDATE                  :       0.372
--AEROSOLS               :       0.712
-GenInitTot              :       0.020
---GenInitMine           :       0.020
+-MISC                   :       0.052
+UPDATE                  :       0.376
+-AEROSOLS               :       0.733
+GenInitTot              :       0.016
+--GenInitMine           :       0.016
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.938
---GenFinalMine          :       0.938
+GenFinalTot             :       1.331
+--GenFinalMine          :       1.331
 GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2184,10 +2187,10 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: irrad_internal_checkpoint
   
   Times for IRRAD
-TOTAL                   :      12.792
--LW_DRIVER              :      10.950
---IRRAD                 :      10.038
----IRRAD_RUN            :      10.038
+TOTAL                   :      12.434
+-LW_DRIVER              :      11.100
+--IRRAD                 :      10.185
+---IRRAD_RUN            :      10.185
 ---IRRAD_DATA           :       0.000
 ----IRRAD_DATA_DEVICE   :       0.000
 ----IRRAD_DATA_CONST    :       0.000
@@ -2197,15 +2200,15 @@ TOTAL                   :      12.792
 ---RRTMG_RUN            :       0.000
 ---RRTMG_INIT           :       0.000
 ---RRTMG_FLIP           :       0.000
---MISC                  :       0.921
----AEROSOLS             :       0.875
--UPDATE_FLX             :       0.048
+--MISC                  :       0.916
+---AEROSOLS             :       0.871
+-UPDATE_FLX             :       0.114
 GenInitTot              :       0.012
 --GenInitMine           :       0.012
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       1.740
---GenFinalMine          :       1.740
+GenFinalTot             :       1.377
+--GenFinalMine          :       1.377
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2213,14 +2216,14 @@ GenRefreshTot           :       0.000
   
   
   Times for RADIATION
-TOTAL                   :      19.006
-SOLAR                   :       6.148
-IRRAD                   :      12.794
-GenInitTot              :       0.061
---GenInitMine           :       0.029
-GenRunTot               :      16.230
+TOTAL                   :      19.105
+SOLAR                   :       6.576
+IRRAD                   :      12.483
+GenInitTot              :       0.045
+--GenInitMine           :       0.018
+GenRunTot               :      16.512
 --GenRunMine            :       0.000
-GenFinalTot             :       2.678
+GenFinalTot             :       2.708
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.002
 --GenRecordMine         :       0.000
@@ -2229,29 +2232,29 @@ GenRefreshTot           :       0.000
   
   
   Times for PHYSICS
-TOTAL                   :      82.751
-INITIALIZE              :       0.008
-RUN                     :      67.001
-GWD                     :       0.889
-MOIST                   :       7.179
-SURFACE                 :      43.793
-TURBULENCE              :       2.229
-CHEMISTRY               :       7.781
-RADIATION               :      19.008
+TOTAL                   :     106.526
+INITIALIZE              :       0.009
+RUN                     :      86.325
+GWD                     :       0.971
+MOIST                   :      26.061
+SURFACE                 :      50.469
+TURBULENCE              :       2.162
+CHEMISTRY               :      10.350
+RADIATION               :      19.107
 GenInitTot              :       5.231
---GenInitMine           :       0.034
+--GenInitMine           :       0.161
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :      10.501
+GenFinalTot             :      15.114
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.014
+GenRecordTot            :       0.013
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for ORBIT
-TOTAL                   :       0.004
+TOTAL                   :       0.005
 Run                     :       0.000
 GenInitTot              :       0.004
 --GenInitMine           :       0.004
@@ -2266,22 +2269,22 @@ GenRefreshTot           :       0.000
   
   
   Times for AGCM
-TOTAL                   :     105.959
-SUPERDYNAMICS           :      24.353
-PHYSICS                 :      82.753
-ORBIT                   :       0.007
-GenInitTot              :       5.922
+TOTAL                   :     129.289
+SUPERDYNAMICS           :      23.810
+PHYSICS                 :     106.528
+ORBIT                   :       0.009
+GenInitTot              :       5.702
 --GenInitMine           :       0.030
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :      11.111
+GenFinalTot             :      15.650
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.016
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       6.022
-RUN                     :      88.992
+INITIALIZE              :       5.814
+RUN                     :     107.936
   
   
   Times for AIAU
@@ -2298,14 +2301,14 @@ GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.000
+GenRecordTot            :       0.001
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for ADFI
-TOTAL                   :       0.006
+TOTAL                   :       0.007
 INITIALIZE              :       0.000
 GenInitTot              :       0.006
 --GenInitMine           :       0.006
@@ -2321,8 +2324,8 @@ GenRefreshTot           :       0.000
   
   Times for OBIO
 TOTAL                   :       0.004
-GenInitTot              :       0.003
---GenInitMine           :       0.003
+GenInitTot              :       0.004
+--GenInitMine           :       0.004
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2337,14 +2340,14 @@ GenRefreshTot           :       0.000
  Using parallel NetCDF for file: orad_import_checkpoint
   
   Times for ORAD
-TOTAL                   :       0.859
-RUN                     :       0.467
+TOTAL                   :       1.305
+RUN                     :       0.466
 GenInitTot              :       0.005
 --GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.387
---GenFinalMine          :       0.387
+GenFinalTot             :       0.833
+--GenFinalMine          :       0.833
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2352,12 +2355,12 @@ GenRefreshTot           :       0.000
   
   
   Times for MIT
-TOTAL                   :      50.569
-INITIALIZE              :       0.000
-RUN                     :      50.559
+TOTAL                   :      50.298
+INITIALIZE              :       0.001
+RUN                     :      50.288
 FINALIZE                :       0.000
-GenInitTot              :       0.009
---GenInitMine           :       0.009
+GenInitTot              :       0.010
+--GenInitMine           :       0.010
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2369,36 +2372,36 @@ GenRefreshTot           :       0.000
   
   
   Times for OCEAN
-TOTAL                   :      59.770
-MIT                     :      59.503
-GenInitTot              :       8.957
---GenInitMine           :       0.013
-GenRunTot               :      50.562
+TOTAL                   :      62.391
+MIT                     :      62.118
+GenInitTot              :      11.846
+--GenInitMine           :       0.018
+GenRunTot               :      50.290
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.001
+GenRecordTot            :       0.002
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :       8.957
-RUN                     :      50.815
---ModRun                :      50.562
+INITIALIZE              :      11.847
+RUN                     :      50.548
+--ModRun                :      50.290
   
   
   Times for OGCM
-TOTAL                   :      60.987
-INITIALIZE              :       8.973
-RUN                     :      51.649
-InitChild               :       8.972
-OBIO                    :       0.005
-ORAD                    :       0.860
-OCEAN                   :      59.772
-GenInitTot              :       8.972
---GenInitMine           :       0.007
-GenRunTot               :      51.283
+TOTAL                   :      64.115
+INITIALIZE              :      11.865
+RUN                     :      51.421
+InitChild               :      11.864
+OBIO                    :       0.006
+ORAD                    :       1.305
+OCEAN                   :      62.394
+GenInitTot              :      11.864
+--GenInitMine           :       0.008
+GenRunTot               :      51.016
 --GenRunMine            :       0.000
-GenFinalTot             :       0.387
+GenFinalTot             :       0.834
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.004
 --GenRecordMine         :       0.000
@@ -2407,34 +2410,34 @@ GenRefreshTot           :       0.000
   
   
   Times for GCM
-TOTAL                   :     169.002
-AGCM                    :     105.960
+TOTAL                   :     195.146
+AGCM                    :     129.291
 AIAU                    :       0.009
-ADFI                    :       0.007
-OGCM                    :      60.989
-GenInitTot              :      15.028
---GenInitMine           :       0.022
+ADFI                    :       0.008
+OGCM                    :      64.119
+GenInitTot              :      17.715
+--GenInitMine           :       0.021
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :      11.162
+GenFinalTot             :      15.705
 --GenFinalMine          :       0.000
 GenRecordTot            :       0.021
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
-INITIALIZE              :      15.373
-RUN                     :     142.480
---OCEAN                 :      51.651
---ATMOSPHERE            :      88.993
+INITIALIZE              :      18.197
+RUN                     :     161.361
+--OCEAN                 :      51.423
+--ATMOSPHERE            :     107.937
 --REPLAY                :       0.000
---A2O                   :       1.056
---O2A                   :       1.316
+--A2O                   :       1.141
+--O2A                   :       1.454
   
   
   Times for ANA
-TOTAL                   :       0.003
-GenInitTot              :       0.002
---GenInitMine           :       0.002
+TOTAL                   :       0.006
+GenInitTot              :       0.005
+--GenInitMine           :       0.005
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
 GenFinalTot             :       0.000
@@ -2446,40 +2449,40 @@ GenRefreshTot           :       0.000
   
   
   Times for GCS
-TOTAL                   :     169.025
-GCM                     :     169.003
-ANA                     :       0.005
-GenInitTot              :      15.389
---GenInitMine           :       0.007
-GenRunTot               :     142.484
+TOTAL                   :     195.176
+GCM                     :     195.147
+ANA                     :       0.008
+GenInitTot              :      18.223
+--GenInitMine           :       0.010
+GenRunTot               :     161.364
 --GenRunMine            :       0.000
-GenFinalTot             :      11.163
+GenFinalTot             :      15.705
 --GenFinalMine          :       0.000
-GenRecordTot            :       0.023
+GenRecordTot            :       0.022
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
   
   Times for HIST
-TOTAL                   :       8.195
-Initialize              :       0.933
+TOTAL                   :       8.794
+Initialize              :       1.332
 Finalize                :       0.000
-Run                     :       7.267
---Couplers              :       0.418
---I/O                   :       6.856
-----IO Create           :       0.878
-----IO Write            :       6.793
------IO Post            :       5.029
------IO Wait            :       0.105
------IO Write           :       1.866
+Run                     :       7.460
+--Couplers              :       0.424
+--I/O                   :       7.042
+----IO Create           :       1.980
+----IO Write            :       7.005
+-----IO Post            :       6.139
+-----IO Wait            :       0.106
+-----IO Write           :       1.034
 -ParserRun              :       0.000
 GenInitTot              :       0.000
 --GenInitMine           :       0.000
 GenRunTot               :       0.000
 --GenRunMine            :       0.000
-GenFinalTot             :       0.001
---GenFinalMine          :       0.001
+GenFinalTot             :       0.002
+--GenFinalMine          :       0.002
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
@@ -2487,217 +2490,169 @@ GenRefreshTot           :       0.000
   
   
   Times for EXTDATA
-TOTAL                   :      54.874
-Initialize              :      11.434
-Run                     :      43.709
--Read_Loop              :      43.331
+TOTAL                   :      57.602
+Initialize              :      11.311
+Run                     :      46.423
+-Read_Loop              :      46.046
 --CheckUpd              :       0.005
---Read                  :      22.990
---Swap                  :       0.002
---Bracket               :      20.744
--Interpolate            :       0.378
-GenInitTot              :       0.003
---GenInitMine           :       0.003
-GenRunTot               :       0.000
+--Read                  :      25.780
+--Swap                  :       0.001
+--Bracket               :      20.673
+-Interpolate            :       0.382
+GenInitTot              :       0.004
+--GenInitMine           :       0.004
+GenRunTot               :       0.001
 --GenRunMine            :       0.000
-GenFinalTot             :       0.001
---GenFinalMine          :       0.001
+GenFinalTot             :       0.002
+--GenFinalMine          :       0.002
 GenRecordTot            :       0.000
 --GenRecordMine         :       0.000
 GenRefreshTot           :       0.000
 --GenRefreshMine        :       0.000
   
  NOT using buffer I/O for file: cap_restart
-Model Throughput:      369.231 days per day
+Model Throughput:      324.812 days per day
 GEOSgcm Run Status: 0
-sed: can't read /nobackupp8/dmenemen/geos5/TEST/restarts/MITgcm_restart_dates.txt: No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup.0000000001.data': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup.0000000001.meta': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup.0000000096.data': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup.0000000096.meta': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_ggl90.0000000001.data': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_ggl90.0000000001.meta': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_ggl90.0000000096.data': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_ggl90.0000000096.meta': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_seaice.0000000001.data': No such file or directory
-/bin/mv: cannot stat 'mitocean_run/mitocean_run/pickup_seaice.0000000001.meta': No such file or directory
-/bin/mv: No match.
-/bin/mv: No match.
-/bin/mv: No match.
-/bin/mv: No match.
-/bin/mv: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-/bin/cp: No match.
-[1] 16930
-[1]    Done                          /bin/cp fvcore_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16935
-[1]    Done                          /bin/cp lake_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.lake_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16940
-[1]    Done                          /bin/cp landice_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.landice_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16945
-[1]    Done                          /bin/cp catch_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.catch_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16950
-[1]    Done                          /bin/cp moist_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.moist_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16955
-[1]    Done                          /bin/cp moist_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.moist_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16960
-[1]    Done                          /bin/cp surf_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.surf_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16965
-[1]    Done                          /bin/cp solar_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.solar_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16970
-[1]    Done                          /bin/cp irrad_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.irrad_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16975
-[1]    Done                          /bin/cp turb_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.turb_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16980
-[1]    Done                          /bin/cp turb_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.turb_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16986
-[1]    Done                          /bin/cp pchem_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16991
-[1]    Done                          /bin/cp gocartdata_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.gocartdata_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 16996
-[1]    Done                          /bin/cp tr_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.tr_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 17001
-[1]    Done                          /bin/cp tr_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.tr_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 17006
-[1]    Done                          /bin/cp saltwater_internal_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 17011
-[1]    Done                          /bin/cp saltwater_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.saltwater_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-[1] 17016
-[1]    Done                          /bin/cp orad_import_rst /nobackupp8/dmenemen/geos5/TEST/restarts/TEST.orad_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
-/bin/cp: No match.
-/bin/mv: No match.
+sed: can't read /nobackup/estrobac/geos5/TEST/restarts/MITgcm_restart_dates.txt: No such file or directory
+pickup.ckptA.data pickup.ckptA.meta pickup_ggl90.ckptA.data pickup_ggl90.ckptA.meta
+/nobackup/estrobac/geos5/TEST/restarts/pickup.0000000097.data
+/nobackup/estrobac/geos5/TEST/restarts/pickup.0000000097.meta
+/nobackup/estrobac/geos5/TEST/restarts/pickup_ggl90.0000000097.data
+/nobackup/estrobac/geos5/TEST/restarts/pickup_ggl90.0000000097.meta
+pickup.0000000001.data pickup.0000000001.meta pickup.0000000096.data pickup.0000000096.meta pickup_ggl90.0000000001.data pickup_ggl90.0000000001.meta pickup_ggl90.0000000096.data pickup_ggl90.0000000096.meta pickup_seaice.0000000001.data pickup_seaice.0000000001.meta
+/bin/mv: cannot stat 'AREA.*': No such file or directory
+/bin/mv: cannot stat 'HEFF.*': No such file or directory
+/bin/mv: cannot stat 'HSNOW.*': No such file or directory
+/bin/mv: cannot stat 'UICE.*': No such file or directory
+/bin/mv: cannot stat 'VICE.*': No such file or directory
+/bin/mv: cannot stat 'state_2d_set1*': No such file or directory
+/bin/mv: cannot stat 'state_3d_set1*': No such file or directory
+/bin/mv: cannot stat 'trsp_3d_set1*': No such file or directory
+/bin/mv: cannot stat 'trsp_3d_set2*': No such file or directory
+[1] 56576
+[1]    Done                          /bin/cp fvcore_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.fvcore_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56582
+[1]    Done                          /bin/cp lake_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.lake_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56597
+[1]    Done                          /bin/cp landice_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.landice_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56602
+[1]    Done                          /bin/cp catch_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.catch_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56607
+[1]    Done                          /bin/cp moist_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.moist_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56612
+[1]    Done                          /bin/cp moist_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.moist_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56617
+[1]    Done                          /bin/cp surf_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.surf_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56622
+[1]    Done                          /bin/cp solar_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.solar_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56627
+[1]    Done                          /bin/cp irrad_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.irrad_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56632
+[1]    Done                          /bin/cp turb_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.turb_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56637
+[1]    Done                          /bin/cp turb_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.turb_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56642
+[1]    Done                          /bin/cp pchem_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.pchem_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56647
+[1]    Done                          /bin/cp gocartdata_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.gocartdata_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56652
+[1]    Done                          /bin/cp tr_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.tr_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56657
+[1]    Done                          /bin/cp tr_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.tr_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56662
+[1]    Done                          /bin/cp saltwater_internal_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.saltwater_internal_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56667
+[1]    Done                          /bin/cp saltwater_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.saltwater_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+[1] 56672
+[1]    Done                          /bin/cp orad_import_rst /nobackup/estrobac/geos5/TEST/restarts/TEST.orad_import_rst.e20000415_21z.Heracles-5_3.SSTDIR_CF0048x6C_DE0360xPE0180.nc4
+/bin/cp: cannot stat 'RESTART/*': No such file or directory
+/bin/mv: cannot stat '*_checkpoint*': No such file or directory
 ls: No match.
-/bin/ls: No match.
+/bin/ls: cannot access '/nobackup/estrobac/geos5/TEST/holding/*/*nc4': No such file or directory
 /bin/ls: cannot access 'ocean_month.nc': No such file or directory
-4919991.pbspl1.nas.nasa.gov
-4919992.pbspl1.nas.nasa.gov
-4919994.pbspl1.nas.nasa.gov
-4919995.pbspl1.nas.nasa.gov
-4919997.pbspl1.nas.nasa.gov
-4920012.pbspl1.nas.nasa.gov
-[1] 17167
-[2] 17168
-[3] 17169
-[4] 17170
-[5] 17171
-[6] 17172
-[7] 17173
-[8] 17174
-[9] 17175
-[10] 17176
-[11] 17177
-[12] 17178
-[13] 17179
+7544969.pbspl1.nas.nasa.gov
+qsub: would exceed complex's per-user limit
+qsub: would exceed complex's per-user limit
+qsub: would exceed complex's per-user limit
+qsub: would exceed complex's per-user limit
+7544974.pbspl1.nas.nasa.gov
+[1] 56828
+[2] 56829
+[3] 56830
+[4] 56831
+[5] 56832
+[6] 56833
+[7] 56834
+[8] 56835
+[9] 56836
+[10] 56837
+[11] 56838
+[12] 56839
+[13] 56840
+[14] 56841
+[15] 56842
 /bin/cp: cannot stat 'agcm_import_rst': No such file or directory
+[16] 56843
+[1]    Exit 1                        /bin/cp agcm_import_rst /nobackup/estrobac/geos5/TEST/agcm_import_rst
+[1] 56844
+[17] 56845
+[18] 56846
+[19] 56847
+[20] 56848
+[21] 56849
+[22] 56850
 /bin/cp: cannot stat 'agcm_internal_rst': No such file or directory
-[14] 17180
-[1]    Exit 1                        /bin/cp agcm_import_rst /nobackupp8/dmenemen/geos5/TEST/agcm_import_rst
-[1] 17181
-[2]    Exit 1                        /bin/cp agcm_internal_rst /nobackupp8/dmenemen/geos5/TEST/agcm_internal_rst
-[2] 17183
-[15] 17184
-[16] 17185
-[17] 17186
-[18] 17187
-[19] 17189
+[23] 56851
+[2]    Exit 1                        /bin/cp agcm_internal_rst /nobackup/estrobac/geos5/TEST/agcm_internal_rst
+[2] 56852
+[24] 56853
+[25] 56854
+[26] 56855
+[27] 56856
+[28] 56857
+[29] 56858
+[30] 56859
+[31] 56860
 /bin/cp: cannot stat 'catchcn_internal_rst': No such file or directory
-[20] 17190
-[7]    Exit 1                        /bin/cp catchcn_internal_rst /nobackupp8/dmenemen/geos5/TEST/catchcn_internal_rst
-[7] 17192
-[21] 17193
-[22] 17194
-[4]    Done                          /bin/cp lake_internal_rst /nobackupp8/dmenemen/geos5/TEST/lake_internal_rst
-[5]    Done                          /bin/cp landice_internal_rst /nobackupp8/dmenemen/geos5/TEST/landice_internal_rst
-[4] 17195
-[5] 17196
-[23] 17197
-[24] 17198
-[25] 17199
-/bin/cp: cannot stat 'gocart_internal_rst': No such file or directory
-[26] 17200
-[15]   Exit 1                        /bin/cp gocart_internal_rst /nobackupp8/dmenemen/geos5/TEST/gocart_internal_rst
-[15] 17201
-[27] 17202
-/bin/cp: cannot stat 'carma_internal_rst': No such file or directory
 /bin/cp: cannot stat 'h2o_internal_rst': No such file or directory
-/bin/cp: cannot stat 'stratchem_import_rst': No such file or directory
+/bin/cp: cannot stat 'gocart_internal_rst': No such file or directory
+/bin/cp: cannot stat 'carma_internal_rst': No such file or directory
 /bin/cp: cannot stat 'stratchem_internal_rst': No such file or directory
+/bin/cp: cannot stat 'stratchem_import_rst': No such file or directory
 /bin/cp: cannot stat 'gmichem_internal_rst': No such file or directory
 /bin/cp: cannot stat 'gmichem_import_rst': No such file or directory
-/bin/cp: cannot stat 'mam_internal_rst': No such file or directory
 /bin/cp: cannot stat 'geosachem_internal_rst': No such file or directory
-/bin/cp: cannot stat 'seaice_internal_rst': No such file or directory
+/bin/cp: cannot stat 'mam_internal_rst': No such file or directory
 /bin/cp: cannot stat 'seaice_import_rst': No such file or directory
-[27] + Done                          /bin/cp vegdyn.data /nobackupp8/dmenemen/geos5/TEST/vegdyn.data
-[15] - Done                          /bin/cp orad_import_rst /nobackupp8/dmenemen/geos5/TEST/orad_import_rst
-[26] + Exit 1                        /bin/cp seaice_internal_rst /nobackupp8/dmenemen/geos5/TEST/seaice_internal_rst
-[25] + Exit 1                        /bin/cp seaice_import_rst /nobackupp8/dmenemen/geos5/TEST/seaice_import_rst
-[24] + Done                          /bin/cp saltwater_import_rst /nobackupp8/dmenemen/geos5/TEST/saltwater_import_rst
-[23] + Done                          /bin/cp saltwater_internal_rst /nobackupp8/dmenemen/geos5/TEST/saltwater_internal_rst
-[5]  + Done                          /bin/cp tr_import_rst /nobackupp8/dmenemen/geos5/TEST/tr_import_rst
-[4]  + Done                          /bin/cp tr_internal_rst /nobackupp8/dmenemen/geos5/TEST/tr_internal_rst
-[22] + Exit 1                        /bin/cp geosachem_internal_rst /nobackupp8/dmenemen/geos5/TEST/geosachem_internal_rst
-[21] + Exit 1                        /bin/cp mam_internal_rst /nobackupp8/dmenemen/geos5/TEST/mam_internal_rst
-[7]  + Exit 1                        /bin/cp gmichem_import_rst /nobackupp8/dmenemen/geos5/TEST/gmichem_import_rst
-[20] + Exit 1                        /bin/cp gmichem_internal_rst /nobackupp8/dmenemen/geos5/TEST/gmichem_internal_rst
-[19] + Exit 1                        /bin/cp stratchem_import_rst /nobackupp8/dmenemen/geos5/TEST/stratchem_import_rst
-[18] + Exit 1                        /bin/cp stratchem_internal_rst /nobackupp8/dmenemen/geos5/TEST/stratchem_internal_rst
-[17] + Exit 1                        /bin/cp carma_internal_rst /nobackupp8/dmenemen/geos5/TEST/carma_internal_rst
-[16] + Done                          /bin/cp gocartdata_internal_rst /nobackupp8/dmenemen/geos5/TEST/gocartdata_internal_rst
-[2]  + Exit 1                        /bin/cp h2o_internal_rst /nobackupp8/dmenemen/geos5/TEST/h2o_internal_rst
-[1]  + Done                          /bin/cp pchem_internal_rst /nobackupp8/dmenemen/geos5/TEST/pchem_internal_rst
-[14] + Done                          /bin/cp turb_import_rst /nobackupp8/dmenemen/geos5/TEST/turb_import_rst
-[13] + Done                          /bin/cp turb_internal_rst /nobackupp8/dmenemen/geos5/TEST/turb_internal_rst
-[12] + Done                          /bin/cp irrad_internal_rst /nobackupp8/dmenemen/geos5/TEST/irrad_internal_rst
-[11] + Done                          /bin/cp solar_internal_rst /nobackupp8/dmenemen/geos5/TEST/solar_internal_rst
-[10] + Done                          /bin/cp surf_import_rst /nobackupp8/dmenemen/geos5/TEST/surf_import_rst
-[9]  + Done                          /bin/cp moist_import_rst /nobackupp8/dmenemen/geos5/TEST/moist_import_rst
-[8]  + Done                          /bin/cp moist_internal_rst /nobackupp8/dmenemen/geos5/TEST/moist_internal_rst
-[6]  + Done                          /bin/cp catch_internal_rst /nobackupp8/dmenemen/geos5/TEST/catch_internal_rst
-[3]  + Done                          /bin/cp fvcore_internal_rst /nobackupp8/dmenemen/geos5/TEST/fvcore_internal_rst
+/bin/cp: cannot stat 'seaice_internal_rst': No such file or directory
+[31] - Done                          /bin/cp vegdyn.data /nobackup/estrobac/geos5/TEST/vegdyn.data
+[30] - Done                          /bin/cp orad_import_rst /nobackup/estrobac/geos5/TEST/orad_import_rst
+[29] + Exit 1                        /bin/cp seaice_internal_rst /nobackup/estrobac/geos5/TEST/seaice_internal_rst
+[28] + Exit 1                        /bin/cp seaice_import_rst /nobackup/estrobac/geos5/TEST/seaice_import_rst
+[27] + Done                          /bin/cp saltwater_import_rst /nobackup/estrobac/geos5/TEST/saltwater_import_rst
+[26] + Done                          /bin/cp saltwater_internal_rst /nobackup/estrobac/geos5/TEST/saltwater_internal_rst
+[25] + Done                          /bin/cp tr_import_rst /nobackup/estrobac/geos5/TEST/tr_import_rst
+[24] + Done                          /bin/cp tr_internal_rst /nobackup/estrobac/geos5/TEST/tr_internal_rst
+[2]  + Exit 1                        /bin/cp geosachem_internal_rst /nobackup/estrobac/geos5/TEST/geosachem_internal_rst
+[23] + Exit 1                        /bin/cp mam_internal_rst /nobackup/estrobac/geos5/TEST/mam_internal_rst
+[22] + Exit 1                        /bin/cp gmichem_import_rst /nobackup/estrobac/geos5/TEST/gmichem_import_rst
+[21] + Exit 1                        /bin/cp gmichem_internal_rst /nobackup/estrobac/geos5/TEST/gmichem_internal_rst
+[20] + Exit 1                        /bin/cp stratchem_import_rst /nobackup/estrobac/geos5/TEST/stratchem_import_rst
+[19] + Exit 1                        /bin/cp stratchem_internal_rst /nobackup/estrobac/geos5/TEST/stratchem_internal_rst
+[18] + Exit 1                        /bin/cp carma_internal_rst /nobackup/estrobac/geos5/TEST/carma_internal_rst
+[17] + Done                          /bin/cp gocartdata_internal_rst /nobackup/estrobac/geos5/TEST/gocartdata_internal_rst
+[1]  + Exit 1                        /bin/cp gocart_internal_rst /nobackup/estrobac/geos5/TEST/gocart_internal_rst
+[16] + Exit 1                        /bin/cp h2o_internal_rst /nobackup/estrobac/geos5/TEST/h2o_internal_rst
+[15] + Done                          /bin/cp pchem_internal_rst /nobackup/estrobac/geos5/TEST/pchem_internal_rst
+[14] + Done                          /bin/cp turb_import_rst /nobackup/estrobac/geos5/TEST/turb_import_rst
+[13] + Done                          /bin/cp turb_internal_rst /nobackup/estrobac/geos5/TEST/turb_internal_rst
+[12] + Done                          /bin/cp irrad_internal_rst /nobackup/estrobac/geos5/TEST/irrad_internal_rst
+[11] + Done                          /bin/cp solar_internal_rst /nobackup/estrobac/geos5/TEST/solar_internal_rst
+[10] + Done                          /bin/cp surf_import_rst /nobackup/estrobac/geos5/TEST/surf_import_rst
+[9]  + Done                          /bin/cp moist_import_rst /nobackup/estrobac/geos5/TEST/moist_import_rst
+[8]  + Done                          /bin/cp moist_internal_rst /nobackup/estrobac/geos5/TEST/moist_internal_rst
+[7]  + Exit 1                        /bin/cp catchcn_internal_rst /nobackup/estrobac/geos5/TEST/catchcn_internal_rst
+[6]  + Done                          /bin/cp catch_internal_rst /nobackup/estrobac/geos5/TEST/catch_internal_rst
+[5]  + Done                          /bin/cp landice_internal_rst /nobackup/estrobac/geos5/TEST/landice_internal_rst
+[4]  + Done                          /bin/cp lake_internal_rst /nobackup/estrobac/geos5/TEST/lake_internal_rst
+[3]  + Done                          /bin/cp fvcore_internal_rst /nobackup/estrobac/geos5/TEST/fvcore_internal_rst
