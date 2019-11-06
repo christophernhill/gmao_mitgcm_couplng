@@ -8,6 +8,13 @@
 
 # Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
+ cd $WorkingDir/MITgcm
+ git checkout checkpoint67i
+ cd $WorkingDir/GEOSodas
+ git checkout checkpoint_0_Z
+ cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
+ cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ git checkout checkpoint_0_Z
 
 # Request interactive job and set WorkingDir to same location as above
  qsub -I -q devel -l select=1:ncpus=20:model=ivy,walltime=2:00:00
@@ -47,7 +54,8 @@
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own.
  cd $ESMADIR/src/Applications/GEOSgcm_App
- ./gcm_setup
+
+
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
@@ -78,6 +86,7 @@
  ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/bathy_Hmin50.bin .
  ln -sf $MITGCM_ROOTDIR/verification/tutorial_held_suarez_cs/input/g* .
  ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input/pic* .
+ ln -sf $MITGCM_ROOTDIR/verification/global_ocean.cs32x15/input.icedyn/pickup_seaice.* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/input/* .
 
 # Run coupled code as an interactive job
@@ -87,4 +96,4 @@
 
 # Verify output
  diff scratch/mitocean_run/STDOUT.0000 \
-  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000_ifort
+  $GMAO_MITGCM_COUPLNG/experiments/c12_cs32_01/results/STDOUT.0000
