@@ -84,5 +84,4 @@
  ./gcm_run.j |&  tee gcm_run.out
 
 # Verify output
- diff scratch/mitocean_run/STDOUT.0000 \
-  $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/results/STDOUT.0000_ifort
+diff mit_output/STDOUT.0000000001 $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/results/STDOUT.0000
