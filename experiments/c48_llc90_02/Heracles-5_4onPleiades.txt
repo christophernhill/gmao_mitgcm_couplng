@@ -8,6 +8,13 @@
 
 # Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
+ cd $WorkingDir/MITgcm
+ git checkout checkpoint67i
+ cd $WorkingDir/GEOSodas
+ git checkout checkpoint_0_Z
+ cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
+ cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ git checkout checkpoint_0_Z
 
 # Request interactive job and set WorkingDir to same location as above
  qsub -I -q devel -l select=5:ncpus=20:model=ivy,walltime=2:00:00
@@ -51,6 +58,7 @@
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
+# Is this verification/debug experiment? NO
 # Enter the Atmospheric Horizontal Resolution code: c48
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
@@ -84,4 +92,4 @@
 
 # Verify output
  diff scratch/mitocean_run/STDOUT.0000 \
-  $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/results/STDOUT.0000_ifort
+  $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_02/results/STDOUT.0000
