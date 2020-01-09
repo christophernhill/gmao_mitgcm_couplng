@@ -23,12 +23,13 @@
 #       Drag'n'Drop: Bidirectional
 #     System > Processor
 #       Processor: 4 CPUs
-#       Extended Features: ✓ Enable PAE/NX
 #     Storage
 #       Controller: IDE
 #       Click on circle with green plus
-#       Choose disk: Downloads/lubuntu-16.04.4-desktop-amd64.iso
+#       Add
+#       Choose disk: Downloads/lubuntu-18.04.3-desktop-amd64.iso
 #       Open
+#       Choose
 #     Shared Folders
 #       Click on folder with green plus
 #       Folder Path: Other
@@ -62,13 +63,12 @@
 # Install Now
 # Restart Now...
 
-# Install guest additions
- sudo apt install virtualbox-guest-dkms
- sudo adduser heracles vboxsf
 # Click on "Devices" then "Insert Guest Additions CD image..."
 # Right-click on VBox_GAs_*
 # Open in Terminal
+ sudo apt install virtualbox-guest-dkms
  sudo ./VBoxLinuxAdditions.run
+ sudo adduser heracles vboxsf
  sudo reboot
 
 # Extra packages needed to get and run MITgcm
