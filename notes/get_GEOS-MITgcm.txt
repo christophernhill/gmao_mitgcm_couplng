@@ -32,6 +32,4 @@
 # discover: /home/estrobac/data/geos5/ICDIR/c12_cs32_01_data/geos5/geos5-tiny.tgz
 # pleiades: /nobackupp2/estrobac/geos5/ICDIR/c12_cs32_01_data/geos5/geos5-tiny.tgz
  cd $WorkingDir
- tar -xf geos5-tiny.tgz
- find TinyFromMatt -type d | xargs chmod g+rxs
- find TinyFromMatt -type f | xargs chmod g+r
+ tar xf geos5-tiny.tgz

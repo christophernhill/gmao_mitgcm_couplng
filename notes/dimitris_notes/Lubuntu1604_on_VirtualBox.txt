@@ -1,13 +1,16 @@
 # Instructions for setting up Lubuntu 16.04 on VirtualBox
 
 # Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
-# Get lubuntu-16.04.4-desktop-amd64.iso from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
+# Install VirtualBox
 
-# Start VirtualBox and set-up virtual machine
+# Get 64-bit PC (AMD64) desktop image lubuntu-16.04.6-desktop-amd64.iso
+# from http://cdimage.ubuntu.com/lubuntu/releases/16.04/release/
+
+# Start VirtualBox
 #   New
 #     Name: lubuntu-16.04
 #     Continue
-#     Memory size: 2048 MB
+#     Memory size: 4096 MB
 #     Continue
 #     • Create a virtual hard disk now
 #     Create
@@ -15,7 +18,7 @@
 #     Continue
 #     • Dynamically allocated
 #     Continue
-#     File location and size: 32 GB
+#     File location and size: 32.00 GB
 #     Create
 #   Settings
 #     General > Advanced
@@ -23,16 +26,18 @@
 #       Drag'n'Drop: Bidirectional
 #     System > Processor
 #       Processor: 4 CPUs
-#       Extended Features: ✓ Enable PAE/NX
+#     Display > Screen
+#       Video Memory: 128 MB
 #     Storage
 #       Controller: IDE
 #       Click on circle with green plus
-#       Choose disk: Downloads/lubuntu-16.04.4-desktop-amd64.iso
+#       Add
+#       Choose disk: Downloads/lubuntu-16.04.6-desktop-amd64.iso
 #       Open
+#       Choose
 #     Shared Folders
 #       Click on folder with green plus
 #       Folder Path: Other
-#       Point to home directory
 #       Open
 #       ✓ Auto-mount
 #       OK, OK
@@ -61,31 +66,35 @@
 # Install Now
 # Restart Now...
 
-# Install guest additions
- sudo apt install virtualbox-guest-dkms
 # Click on "Devices" then "Insert Guest Additions CD image..."
 # Right-click on VBox_GAs_*
 # Open in Terminal
+ sudo apt install virtualbox-guest-dkms
  sudo ./VBoxLinuxAdditions.run
+ yes
  sudo adduser heracles vboxsf
  sudo reboot
+
+# To get a terminal: Menu, System Tools, LXTerminal
 
 # Extra packages needed to get and run MITgcm
  sudo apt install git
  sudo apt install gfortran
- sudo apt install libopenmpi-dev   # needed for parallel run of MITgcm
+
+# Extra package needed for parallel run of MITgcm and GEOS
+ sudo apt install libopenmpi-dev
 
 # Extra packages needed to build GEOS-5 baselibs
  sudo apt install g++
- sudo apt-get install bison
- sudo apt-get install flex
- sudo apt-get install libexpat1-dev
+ sudo apt install bison
+ sudo apt install flex
+ sudo apt install libexpat1-dev
 
 # Extra packages needed to get and run GEOS-5
  sudo apt install tcsh
  sudo apt install colordiff
- sudo apt-get install libblas-dev
- sudo apt-get install liblapack-dev
- sudo apt-get install python-dev
- sudo apt-get install python-numpy
+ sudo apt install libblas-dev
+ sudo apt install liblapack-dev
+ sudo apt install python-dev
+ sudo apt install python-numpy
  sudo ln -s /usr/bin/make /usr/bin/gmake

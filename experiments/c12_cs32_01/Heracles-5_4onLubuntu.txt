@@ -1,5 +1,10 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
+# NOTE that these instructions are broken at the moment (January 11, 2020)
+# Both checkpoint67i/checkpoint_0_Z and latest code are broken:
+# - stops with segmentation fault on VirtualBox Lubuntu 16.04
+# - hangs in plug on VirtualBox Lubuntu 18.04
+
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
  setenv WorkingDir ~/geos5
@@ -23,6 +28,7 @@
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
+ set SITE = GenericLinux
  source g5_modules
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
