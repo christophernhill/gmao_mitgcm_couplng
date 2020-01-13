@@ -8,6 +8,8 @@
 
 # Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
+
+# Specify which tags to extract
  cd $WorkingDir/MITgcm
  git checkout checkpoint67i
  cd $WorkingDir/GEOSodas
@@ -54,8 +56,7 @@
 # Be sure to replace "Desired Location" and "Build"
 # directories below with your own.
  cd $ESMADIR/src/Applications/GEOSgcm_App
-
-
+ ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
