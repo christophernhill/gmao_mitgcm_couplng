@@ -19,12 +19,12 @@
 
 # Specify which tags to extract
  cd $WorkingDir/MITgcm
- git checkout checkpoint67i
+ git checkout checkpoint67p
  cd $WorkingDir/GEOSodas
- git checkout checkpoint_0_Z
+ git checkout checkpoint_1_A
  cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
  cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
- git checkout checkpoint_0_Z
+ git checkout checkpoint_1_A
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
