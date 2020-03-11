@@ -1,3 +1,10 @@
+- checkpoint_1_A (2020/03/1, compatible with MITgcm checkpoint67p)
+  * update tags for the verification experiments
+  * Add seaice masking code
+  * Fix seaice stress problem
+  * update verification exp. c12_cs32_01 
+  * update and activate seaice in verification exp. c48_llc90_02
+  
 - checkpoint_0_Z (2019/11/06, compatible with MITgcm checkpoint67i)
   * update tags for the verification experiments
   * Add new c1440_llc2160_01 experiment
