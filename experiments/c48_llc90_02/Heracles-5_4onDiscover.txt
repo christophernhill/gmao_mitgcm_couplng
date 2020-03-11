@@ -6,6 +6,16 @@
  mkdir $WorkingDir
  cd $WorkingDir
  module load other/git
+ 
+ # Get GEOS-MITgcm code in $WorkingDir
+ # See instructions in notes/get_GEOS-MITgcm.txt
+ cd $WorkingDir/MITgcm
+ git checkout checkpoint67p
+ cd $WorkingDir/GEOSodas
+ git checkout checkpoint_1_A
+ cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
+ cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ git checkout checkpoint_1_A
 
 # Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
