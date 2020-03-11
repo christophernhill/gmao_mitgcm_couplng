@@ -256,7 +256,7 @@ C--
             tmpU(i,j,bi,bj) =
      &         angleCosC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
      &       + angleSinC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
-            tmpV(i,j,bi,bj) = -
+            tmpV(i,j,bi,bj) =
      &       - angleSinC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
      &       + angleCosC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
           ENDDO
@@ -317,7 +317,7 @@ C--
          DO j=1,sNy
           DO i=1,sNx
 c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
-           IF ( tmpW(i,j,bi,bj).EQ.0.D0 ) THEN
+           IF ( tmpW(i,j,bi,bj).LT.0.99D0 ) THEN
             AREAITD (i,j,n,bi,bj) = 0.D0
             HEFFITD (i,j,n,bi,bj) = 0.D0
             HSNOWITD(i,j,n,bi,bj) = 0.D0
@@ -356,15 +356,49 @@ c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
       CALL EXCH_XY_RL( SIskinS, myThid )
       CALL EXCH_XY_RL( SIskinH, myThid )
 
+!     Initialize seaice mask
+      DO bj=1,nSy
+       DO bi=1,nSx
+        DO j=1,sNy
+         DO i=1,sNx
+          ! US some landocean mask points are not exactly 1
+          ! Therefore I chose a arbitrary number
+          ! smaller than one
+          IF ( tmpW(i,j,bi,bj).LT. 0.99D0 ) THEN 
+           HEFFM(i,j,bi,bj) = 0.D0
+          ELSE
+           HEFFM(i,j,bi,bj) = 1.D0
+          ENDIF
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDDO
+      CALL EXCH_XY_RL( HEFFM, myThid )
+
+      DO bj=1,nSy
+       DO bi=1,nSx
+        DO j=1,sNy
+         DO i=1,sNx
+          SIMaskU(i,j,bi,bj)=min(HEFFM(i-1,j,bi,bj),HEFFM(i,j,bi,bj))
+          SIMaskV(i,j,bi,bj)=min(HEFFM(i,j-1,bi,bj),HEFFM(i,j,bi,bj))
+          seaiceMaskU(i,j,bi,bj)=SIMaskU(i,j,bi,bj)
+          seaiceMaskV(i,j,bi,bj)=SIMaskV(i,j,bi,bj)
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDDO
+      CALL EXCH_UV_XY_RL( SIMaskU, SIMaskV, .FALSE., myThid )
+
+
       DO bj=1,nSy
        DO bi=1,nSx
 !     Interpolate stress from A-grid to C-grid locations.
         DO j = jMin,jMax
          DO i = iMin,iMax
           SIwindTauX(i,j,bi,bj) = (tmpU(i,j,bi,bj)+tmpU(i-1,j,bi,bj))
-     &                  * 0.5D0 * maskW(i,j,1,bi,bj)
+     &                  * 0.5D0 * SIMaskU(i,j,bi,bj)
           SIwindTauY(i,j,bi,bj) = (tmpV(i,j,bi,bj)+tmpV(i,j-1,bi,bj))
-     &                  * 0.5D0 * maskS(i,j,1,bi,bj)
+     &                  * 0.5D0 * SIMaskV(i,j,bi,bj)
          ENDDO
         ENDDO
 !     Fill-in grid-cell mean from all seaice categories
