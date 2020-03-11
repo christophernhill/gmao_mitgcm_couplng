@@ -1,7 +1,7 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Lubuntu
 
 # NOTE that these instructions are broken at the moment (January 11, 2020)
-# Both checkpoint67i/checkpoint_0_Z and latest code are broken:
+# Both checkpoint67p/checkpoint_1_A and latest code are broken:
 # - stops with segmentation fault on VirtualBox Lubuntu 16.04
 # - hangs in plug on VirtualBox Lubuntu 18.04
 
