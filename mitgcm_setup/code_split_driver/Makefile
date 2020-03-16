@@ -73,6 +73,7 @@ C_SRCS=setdir.c
 
 F90_FIXED_SRCS =driver/driver_init_mod.FOR         \
                 driver/driver_run_mod.FOR          \
+                driver/driver_run_si_mod.FOR          \
                 driver/driver_get_export_state.FOR \
                 driver/driver_set_import_state.FOR
 F90_FREE_SRCS  =driver/mitgcm_driver_mod.F90
@@ -176,10 +177,12 @@ main.o: mitgcm_state_mod.o
 
 mitgcm_driver_mod.o: driver_init_mod.o
 mitgcm_driver_mod.o: driver_run_mod.o
+mitgcm_driver_mod.o: driver_run_si_mod.o
 
 driver_init_mod.o:   mitgcm_state_mod.o
 
 driver_run_mod.o:    mitgcm_state_mod.o
+driver_run_si_mod.o:    mitgcm_state_mod.o
 
 mitgcm_state_mod.o:  mitgcm_state_create_destroy_mod.o
 mitgcm_state_mod.o:  mitgcm_state_save_restore_mod.o

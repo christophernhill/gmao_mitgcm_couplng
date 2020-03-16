@@ -29,7 +29,8 @@ module MIT_GEOS5PlugMod
 
   USE MITGCM_DRIVER_MOD , ONLY :  &
        DRIVER_INIT,                   &
-       DRIVER_RUN
+       DRIVER_RUN,                   &
+       DRIVER_RUN_SI
 
   USE STR4C_MOD
   USE DRIVER_SET_IMPORT_STATE_MOD
@@ -1183,6 +1184,9 @@ contains
          default=1, rc=status ) ; VERIFY_(STATUS)
 
     call setdir(iarr)
+    call WRITE_PARALLEL( ' Starting MITgcm seaice ' )
+    if (passive_ocean /= 0) CALL DRIVER_RUN_SI( PrivateState%ptr, 1 )
+    call WRITE_PARALLEL( ' Starting MITgcm ocean ' )
     if (passive_ocean /= 0) CALL DRIVER_RUN( PrivateState%ptr, 1 )
     deallocate(iarr)
     call popdir
