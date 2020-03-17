@@ -418,9 +418,9 @@ CADJ STORE Qice1, Qice2      = comlev1, key=ikey_dynamics, kind=isbyte
 # ifdef ALLOW_DEBUG
         IF (debugMode) CALL DEBUG_CALL('SEAICE_MODEL',myThid)
 # endif
-c        CALL TIMER_START('SEAICE_MODEL    [DO_OCEANIC_PHYS]', myThid)
-c        CALL SEAICE_MODEL( myTime, myIter, myThid )
-c        CALL TIMER_STOP ('SEAICE_MODEL    [DO_OCEANIC_PHYS]', myThid)
+        CALL TIMER_START('SEAICE_MODEL    [DO_OCEANIC_PHYS]', myThid)
+        CALL SEAICE_MODEL( myTime, myIter, myThid )
+        CALL TIMER_STOP ('SEAICE_MODEL    [DO_OCEANIC_PHYS]', myThid)
 # ifdef ALLOW_COST
         CALL SEAICE_COST_SENSI ( myTime, myIter, myThid )
 # endif

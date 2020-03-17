@@ -56,6 +56,7 @@ C     == Local variables ==
       INTEGER myCurrentIter
       _RL     myCurrentTime
       INTEGER iLoop
+      LOGICAL useDcp
 CEOP
 
       myThid = 1
@@ -68,21 +69,14 @@ CEOP
 C     Fill the import fields
       CALL FILL( mitgcmIState%import )
 
+      useDcp = useDiagnostics
+      useDiagnostics = .FALSE.
       DO iStep = 1, nTimeS
-C--   Switch on/off diagnostics for snap-shot output:
-       IF ( useDiagnostics ) THEN
-        CALL DIAGNOSTICS_SWITCH_ONOFF( myCurrentTime, 
-     &                                 myCurrentIter, myThid )
-C--   State-variables diagnostics
-        CALL TIMER_START('DO_STATEVARS_DIAGS  [FORWARD_STEP]',myThid)
-        CALL DO_STATEVARS_DIAGS( myCurrentTime, 0,
-     &                           myCurrentIter, myThid )
-        CALL TIMER_STOP ('DO_STATEVARS_DIAGS  [FORWARD_STEP]',myThid)
-       ENDIF
        CALL SEAICE_MODEL( myCurrentTime, 
      &                    myCurrentIter, myThid )
        iLoop = iLoop+1
       ENDDO
+      useDiagnostics = useDcp
 
       sv%myTime = myCurrentTime
       sv%myIter = myCurrentIter
