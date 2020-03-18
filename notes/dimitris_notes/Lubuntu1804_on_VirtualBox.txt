@@ -99,3 +99,4 @@
 
 # Some additional, optional but useful packages
  sudo apt install emacs
+# add "export NO_AT_BRIDGE=1" to ~/.bashrc
