@@ -1,4 +1,5 @@
 # Instructions for getting the GEOS-MITgcm code
+ cd $WorkingDir
 
 # Get MITgcm from GitHub
 #- method 1, using https:

@@ -3,7 +3,7 @@
 # Get VirtualBox from https://www.virtualbox.org/wiki/Downloads
 # Install VirtualBox
 
-# Get lubuntu-18.04-desktop-amd64.iso
+# Get lubuntu-18.04.4-desktop-amd64.iso
 # from https://help.ubuntu.com/community/Lubuntu/GetLubuntu
 
 # Start VirtualBox
@@ -61,11 +61,12 @@
 # • Log in automatically
 # Continue
 # Restart Now
-# Return
+# lubuntu-18.04, Close, Power Off, Power Off
 
+# lubuntu-18.04, Start
 # Software Updater
-# Install Now
-# Restart Now...
+# Install Now, heracles, OK
+# Restart Now
 
 # Click on "Devices" then "Insert Guest Additions CD image..."
 # Right-click on VBox_GAs_*
@@ -95,3 +96,6 @@
  sudo apt install python-dev
  sudo apt install python-numpy
  sudo ln -s /usr/bin/make /usr/bin/gmake
+
+# Some additional, optional but useful packages
+ sudo apt install emacs

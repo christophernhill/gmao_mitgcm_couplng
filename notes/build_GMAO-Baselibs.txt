@@ -12,7 +12,7 @@
 # it was built.  This is because netCDF libraries and LD paths are
 # set by "nf_config --flibs" based on netCDF installation directory. 
 
+ cd $WorkingDir
  tar xf GMAO-Baselibs-4_0_7.withNewCDO.tgz
  cd GMAO-Baselibs-4_0_7/src
  make -j 8 install ESMF_COMM=openmpi |& tee makeinstall.log
- cd ../..

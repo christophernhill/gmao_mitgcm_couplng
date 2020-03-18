@@ -12,10 +12,10 @@
  cd $WorkingDir
 
 # Link or build GEOS-5 baselibs in $WorkingDir
-# See instructions in notes/build_GMAO-Baselibs.txt
+# See instructions in ../../notes/build_GMAO-Baselibs.txt
 
 # Get GEOS-MITgcm code and GEOS-5 boundary conditions in $WorkingDir
-# See instructions in notes/get_GEOS-MITgcm.txt
+# See instructions in ../../notes/get_GEOS-MITgcm.txt
 
 # Specify which tags to extract
  cd $WorkingDir/MITgcm
