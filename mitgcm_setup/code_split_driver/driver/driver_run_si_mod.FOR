@@ -74,20 +74,22 @@ C     Fill the import fields
       DO iStep = 1, nTimeS
        CALL SEAICE_MODEL( myCurrentTime, 
      &                    myCurrentIter, myThid )
-       iLoop = iLoop+1
+C US do not update loop
+C       iLoop = iLoop+1
       ENDDO
       useDiagnostics = useDcp
 
-      sv%myTime = myCurrentTime
-      sv%myIter = myCurrentIter
-      sv%iLoop  = iLoop
-      CALL SAVE_STATE( mitgcmIState, sv )
+C US do not update state
+C      sv%myTime = myCurrentTime
+C      sv%myIter = myCurrentIter
+C      sv%iLoop  = iLoop
+C      CALL SAVE_STATE( mitgcmIState, sv )
 
 C     Fill the export fields
       CALL FILL( mitgcmIState%export )
 
 C     CALL COMP_OCN_POP_CONTEXT(1)
-      CALL POPDIR
+C      CALL POPDIR
 
       RETURN
       END SUBROUTINE
