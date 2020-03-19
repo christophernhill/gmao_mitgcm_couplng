@@ -50,11 +50,17 @@
       _RL tmpW (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL tmpD (1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL exclVal
-      Real*4 exclSng
+      Real*4 exclSng, advlim
 
       myThid  = 1
       exclSng = 1.E+15
       exclVal = exclSng
+!US   limit for seaice advection in terms of land-ocean fraction
+!     below this ocean fraction no seaice advection.
+!     some land-ocean mask points are not exactly 1.
+!     Therefore I chose a arbitrary number
+!     smaller than one
+      advlim = 0.99
 
 !     Initialize local arrays:
       DO bj=1,nSy
@@ -317,7 +323,7 @@ C--
          DO j=1,sNy
           DO i=1,sNx
 c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
-           IF ( tmpW(i,j,bi,bj).LT.0.99D0 ) THEN
+           IF ( tmpW(i,j,bi,bj).LT.advlim ) THEN
             AREAITD (i,j,n,bi,bj) = 0.D0
             HEFFITD (i,j,n,bi,bj) = 0.D0
             HSNOWITD(i,j,n,bi,bj) = 0.D0
@@ -364,7 +370,7 @@ c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
           ! US some landocean mask points are not exactly 1
           ! Therefore I chose a arbitrary number
           ! smaller than one
-          IF ( tmpW(i,j,bi,bj).LT. 0.99D0 ) THEN 
+          IF ( tmpW(i,j,bi,bj).LT.advlim ) THEN 
            HEFFM(i,j,bi,bj) = 0.D0
           ELSE
            HEFFM(i,j,bi,bj) = 1.D0

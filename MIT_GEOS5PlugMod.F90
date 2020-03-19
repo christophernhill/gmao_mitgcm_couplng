@@ -1249,7 +1249,14 @@ contains
  
     DO J = 1, JM
        DO I = 1, IM
-          if (MASK(I,J,1) /= 0.0) then
+          ! US : We decided not to advect seaice in regions which are not 100 ocean
+          ! both in GEOS and MITgcm. 0.99 was chosen arbitrarily because ==1 was found 
+          ! problematic - many points in the Arctic were ~1e-3 smaller than one
+          ! in the c90-llc90_02a experiment and this created many holes of seaice 
+          ! advection in there.
+          ! In case we would like to revisit this number, advlim in 
+          ! import_state_fill_mod.FOR need to mach this number.
+          if (WGHT(I,J) > 0.99) then
              FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
              if (sum(FRACICE(I,J,:)) > 1) then
                 FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
