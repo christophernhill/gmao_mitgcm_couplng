@@ -97,7 +97,9 @@
  sudo apt install python-numpy
  sudo ln -s /usr/bin/make /usr/bin/gmake
 
-# Some additional, optional but useful packages
+# Some additional, optional but useful, packages
  sudo apt install emacs
 # add "setenv NO_AT_BRIDGE 1" to ~/.cshrc
-# add "export NO_AT_BRIDGE=1" to ~/.bashrc
+# and "export NO_AT_BRIDGE=1" to ~/.bashrc
+ sudo apt install keychain
+# add "eval `keychain --eval id_rsa`" to ~/.bashrc
