@@ -4,6 +4,8 @@
 # Both checkpoint67p/checkpoint_1_A and latest code are broken:
 # - stops with segmentation fault on VirtualBox Lubuntu 16.04
 # - hangs in plug on VirtualBox Lubuntu 18.04
+# checkpoint_0_Y + MITgcm checkpoint67f (and earlier) work
+# checkpoint_0_Z + MITgcm checkpoint67i hangs @ "Starting plug run method"
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
