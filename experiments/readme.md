@@ -1,3 +1,25 @@
+DYAMOND January 2020 experiment
+Udi is starting from c1440_llc2160_01, which is tagged to checkpoint67h and checkpoint_0_Z
+Will make new tagless (for time being) copy in c1440_llc2160_02
+(We will tag when we have the production running)
+The experiments are running under /nobackupp11/dmenemen/DYAMOND/DYAMOND_01
+
+Dimitris will reproduce c1440_llc2160_02 at coarser resolution
+in c90_llc90_05 for I/O and tidal experiments.
+(take it without the tag)
+
+Timing tests for ocean-only will come from
+MITgcm_contrib/llc_hires/llc_2160
+but needs to be modified fro more up-to-date MITgcm code
+and then to include Bron's latest I/O code from
+MITgcm_contrib/llc_hires/llc_90
+and it also needs to include online tidal computations
+
+Dimitris to provide conversion from heff to energy for sea ice and hsnow
+Joules / m^2
+
+=============================================================
+
 The following two experiments are "verification experiments".
 Please be sure to check that output in "verification" subdirectory
 remains unchanged or that it is updated with explanation.
@@ -11,7 +33,6 @@ c48_llc90_02 : c48/llc90, 1-day ECCO_v4_r2 set-up
    #undef ALLOW_ADAMSBASHFORTH_3 in CPP_OPTIONS.h
    useCTRL=.FALSE. in data.pkg
    ab2 instead of ab3 options in data
-
 
 =============================================================
 
