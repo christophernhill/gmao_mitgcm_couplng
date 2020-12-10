@@ -1,0 +1,42 @@
+# SEAICE parameters
+ &SEAICE_PARM01
+ usePW79thermodynamics= .FALSE.,
+# SEAICEuseDYNAMICS = .FALSE.,
+# SEAICEupdateOceanStress=.FALSE.,
+# SEAICEadvHeff  = .FALSE.,
+# SEAICEadvArea  = .FALSE.,
+# SEAICEadvSnow  = .FALSE.,
+# SEAICEadvSalt  = .FALSE.,
+#--
+ SEAICE_strength    = 2.6780e+04,
+ OCEAN_drag         = 8.1541e-04,
+# SEAICE_waterDrag   = 5.3508,
+#- waterDrag no longer includes rhoConst factor:
+# SEAICE_waterDrag   = 5.16985507246376811E-3,
+  SEAICE_waterDrag   = 5.169855072463768E-3,
+#- old defaults
+  SEAICEscaleSurfStress = .FALSE.,
+  SEAICEaddSnowMass     = .FALSE.,
+  SEAICE_useMultDimSnow = .FALSE.,
+  SEAICE_Olx = 0,
+  SEAICE_Oly = 0,
+  SEAICEetaZmethod = 0,
+  SEAICE_drag = 2.E-3,
+#--
+ SEAICE_no_Slip     = .FALSE.,
+ LSR_ERROR          = 1.E-4,
+ SEAICElinearIterMax=  500,
+#LSR_mixIniGuess    = 1,
+ SEAICEadvScheme    = 77,
+ SEAICEwriteState   = .TRUE.,
+#SEAICE_monFreq = 1800.,
+ AreaFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIarea.data',
+ HsnowFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsnow.data',
+ HsaltFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsalt.data',
+ HeffFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIheff.data',
+ UiceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIuice.data',
+ ViceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIvice.data',
+ &
+
+ &SEAICE_PARM03
+ &
