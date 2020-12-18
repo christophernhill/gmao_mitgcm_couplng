@@ -2,21 +2,27 @@ DYAMOND January 2020 experiment
 Udi is starting from c1440_llc2160_01, which is tagged to checkpoint67h and checkpoint_0_Z
 Will make new tagless (for time being) copy in c1440_llc2160_02
 (We will tag when we have the production running)
-The experiments are running under /nobackupp11/dmenemen/DYAMOND/DYAMOND_01
+Udi's experiments ran under /nobackupp11/dmenemen/DYAMOND/DYAMOND_01 and DYAMOND_02
 
-Dimitris will reproduce c1440_llc2160_02 at coarser resolution
-in c90_llc90_05 for I/O and tidal experiments.
-(take it without the tag)
+Timing tests for ocean-only are in MITgcm_contrib/llc_hires/llc_2160
 
-Timing tests for ocean-only will come from
-MITgcm_contrib/llc_hires/llc_2160
-but needs to be modified fro more up-to-date MITgcm code
-and then to include Bron's latest I/O code from
-MITgcm_contrib/llc_hires/llc_90
-and it also needs to include online tidal computations
+Reproduce c1440_llc2160_02 at coarser resolution in c90_llc90_05
+for I/O and tidal experiments.
 
-Dimitris to provide conversion from heff to energy for sea ice and hsnow
-Joules / m^2
+GEOS-5 boundary conditions for experiments/c1440_llc2160_01 are in
+/nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/*
+There may also be a copy inside  DYAMOND_01 folder (irestart folder?)
+
+Will need to replace some of the "ln -s" with "cp" because GEOS overwrites on
+its initial conditions.
+
+Udi started a new experiment in /nobackupp11/dmenemen/DYAMOND/DYAMOND_02
+File make_exp.sh has sed commands to change gcm_run.j, CAP.rc and AGCM.rc.
+Udi was in the middle of preparing this experiment so maybe not complete.
+In particular, we may need to copy the mit_input folder and the GEOS initial conditions.
+
+Later we will need to change HISTORY.rc to match the DYAMOND request and
+also do something similar in MITgcm.
 
 =============================================================
 
@@ -95,6 +101,8 @@ c720_llc1080_Debug : runs for 5 time steps
 c720_llc1080_01 : setup for relaxation with passive ocean
 
 c1440_llc2160_01 : c1440/llc2160 set-up for ~10K cores
+
+c1440_llc2160_02 : c1440/llc2160 set-up for DYAMOND experiment
 
 c2880_llc4320_01 : c2880/llc4320 set-up
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
