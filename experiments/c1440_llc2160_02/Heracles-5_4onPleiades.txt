@@ -57,17 +57,18 @@
 
 # Set up coupled code for experiments/c1440_llc2160_01
 # Be sure to replace "Desired Location" and "Build"
-# directories below with your own
+# directories below with your own.
+# "<<<<<" indicates non-default values.
  cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
 # Is this verification/debug experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c1440
+# Enter the Atmospheric Horizontal Resolution code: c1440 <<<<<
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: llc2160
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc2160 <<<<<
 # Enter the Ocean Model Vertical Resolution: 90
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
@@ -79,18 +80,23 @@
 # Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
+# Apply Udi's DYAMOND_02 mods to gcm_run.j
+ cd $WorkingDir/TEST
+ source $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/make_exp.sh
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/cap_restart .
+
 # Populate the mit_input directory
  cd $WorkingDir/TEST
- mkdir mit_input
- cd mit_input
- ln -sf /nobackupp2/estrobac/geos5/ICDIR/c1440_llc2160_01_data/mit/* .
- cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
+# mkdir mit_input
+# cd mit_input
+# ln -sf /nobackupp2/estrobac/geos5/ICDIR/c1440_llc2160_01_data/mit/* .
+# cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
  
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
 # NOTE: GEOS overwrites initial conditions so some of the files
 # below will need to be copied instead of linked.
- ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
+# ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
