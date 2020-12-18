@@ -51,20 +51,3 @@ sed -i '/VICE/a \ \ \/bin\/mv FV.* $EXPDIR\/mit_output/' gcm_run.j
 
 cp -r /nobackupp11/dmenemen/DYAMOND/mit_input/ .
 cp -r /nobackupp11/dmenemen/DYAMOND/irestart/* .
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
