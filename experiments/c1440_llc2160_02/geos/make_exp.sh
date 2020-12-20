@@ -54,3 +54,4 @@ sed -i 's/$rst ) \/bin\/cp/$rst ) \/bin\/cp -L/g' gcm_run.j
 sed -i 's/cp $rst/cp -L $rst/g' gcm_run.j
 
 sed -i 's/qsub/source/g' gcm_run.j
+sed -i 's/EMISSIONS MERRA2/EMISSIONS g5chem/g' gcm_run.j
