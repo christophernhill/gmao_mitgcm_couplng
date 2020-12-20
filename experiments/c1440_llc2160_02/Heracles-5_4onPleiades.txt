@@ -20,7 +20,7 @@
 # git checkout checkpoint_0_Z
  
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q R10236203 -l select=196:ncpus=40:model=cas_ait,walltime=120:00:00 -m abe
+ qsub -I -q R10236203 -l select=1:ncpus=1:model=cas_ait+196:ncpus=40:model=cas_ait
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
 
@@ -75,15 +75,24 @@
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
 # Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
+# Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
+# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Apply Udi's DYAMOND_02 mods to gcm_run.j
+# Adjust AGCM.rc, CAP.rc, and gcm_run.j
  cd $WorkingDir/TEST
- source $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/make_exp.sh
- cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/cap_restart .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
+ source make_exp.sh
+
+# Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
+ cd $WorkingDir/TEST
+ ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/*_rst .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/runoff_new.bin .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/*c1440.dat* .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/topo*data .
 
 # Populate the mit_input directory
  cd $WorkingDir/TEST
@@ -91,12 +100,7 @@
 # cd mit_input
 # ln -sf /nobackupp2/estrobac/geos5/ICDIR/c1440_llc2160_01_data/mit/* .
 # cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
- 
-# Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
- cd $WorkingDir/TEST
-# NOTE: GEOS overwrites initial conditions so some of the files
-# below will need to be copied instead of linked.
-# ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
+ cp -r /nobackupp11/dmenemen/DYAMOND/mit_input/ .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"

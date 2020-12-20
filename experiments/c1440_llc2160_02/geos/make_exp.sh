@@ -9,11 +9,14 @@ sed -i 's/ROUTE_INT:.*/ROUTE_INT: 600/g' AGCM.rc
 sed -i 's/MIT_DT:.*/MIT_DT: 45/g' AGCM.rc
 sed -i 's/MIT_TAU_MAX:.*/MIT_TAU_MAX: 3600.0/g' AGCM.rc
 sed -i '$ a MIT_limit_SSS: 1' AGCM.rc
+sed -i 's/NUM_READERS: 32/NUM_READERS: 36/g' AGCM.rc
+sed -i 's/NUM_WRITERS: 32/NUM_WRITERS: 36/g' AGCM.rc
 
 ##Changes to CAP.rc
 
 sed -i 's/BEG_DATE:.*/BEG_DATE: 20200119 210000/g' CAP.rc
 sed -i 's/END_DATE:.*/END_DATE: 21200119 210000/g' CAP.rc
+sed -i '$ a MIT_limit_SSS: 1' AGCM.rc
 sed -i 's/JOB_SGMT:.*/JOB_SGMT: 00000005 000000/g' CAP.rc
 sed -i 's/HEARTBEAT_DT:.*/HEARTBEAT_DT: 45/g' CAP.rc
 sed -i '$ a USE_IOSERVER: 0' CAP.rc
@@ -37,10 +40,9 @@ sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_TRB_var_${AGCM_IM}x${AGCM_JM}.dat
 sed -i 's/set MERRA2_Transition_Date.*/set MERRA2_Transition_Date = 22020401/g' gcm_run.j
 sed -i '/MPI_COLL_REPRODUCIBLE/i \ \ \ setenv MPI_IB_TIMEOUT 23' gcm_run.j
 
-
-sed -i '/.\/GEOSgcm.x/i set USE_SHMEM = 1' gcm_run.j
-sed -i '/.\/GEOSgcm.x/i if( $USE_SHMEM == 1 ) \/home1\/estrobac\/bin\/RmShmKeys_sshmpi.csh' gcm_run.j
-sed -i '/.\/GEOSgcm.x/a if( $USE_SHMEM == 1 ) \/home1\/estrobac\/bin\/RmShmKeys_sshmpi.csh' gcm_run.j
+sed -i '/S .\/GEOSgcm.x/i set USE_SHMEM = 1' gcm_run.j
+sed -i '/S .\/GEOSgcm.x/i if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh' gcm_run.j
+sed -i '/S .\/GEOSgcm.x/a if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh' gcm_run.j
 
 sed -i '/VICE/a \ \ \/bin\/mv Qnet.* $EXPDIR\/mit_output/' gcm_run.j
 sed -i '/VICE/a \ \ \/bin\/mv Qsw.* $EXPDIR\/mit_output/' gcm_run.j
@@ -48,6 +50,7 @@ sed -i '/VICE/a \ \ \/bin\/mv EmPmR.* $EXPDIR\/mit_output/' gcm_run.j
 sed -i '/VICE/a \ \ \/bin\/mv FU.* $EXPDIR\/mit_output/' gcm_run.j
 sed -i '/VICE/a \ \ \/bin\/mv FV.* $EXPDIR\/mit_output/' gcm_run.j
 
+sed -i 's/$rst ) \/bin\/cp/$rst ) \/bin\/cp -L/g' gcm_run.j
+sed -i 's/cp $rst/cp -L $rst/g' gcm_run.j
 
-cp -r /nobackupp11/dmenemen/DYAMOND/mit_input/ .
-cp -r /nobackupp11/dmenemen/DYAMOND/irestart/* .
+sed -i 's/qsub/source/g' gcm_run.j
