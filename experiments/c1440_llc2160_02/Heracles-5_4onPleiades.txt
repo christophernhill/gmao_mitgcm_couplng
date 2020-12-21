@@ -33,9 +33,9 @@
  mkdir build; cd build; rm *
 
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
-# $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas
+# $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
