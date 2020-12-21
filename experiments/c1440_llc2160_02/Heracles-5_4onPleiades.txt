@@ -73,14 +73,14 @@
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
-# Enter the GOCART Emission Files to use: MERRA2
+# Enter the GOCART Emission Files to use: OPS <<<<<
 # Enter the tag or directory: Current
 # Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
 # Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
 # Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Adjust AGCM.rc, CAP.rc, and gcm_run.j
+# Adjust AGCM.rc, CAP.rc, HISTORY.rc, and gcm_run.j
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  source make_exp.sh
