@@ -96,11 +96,10 @@
 
 # Populate the mit_input directory
  cd $WorkingDir/TEST
-# mkdir mit_input
-# cd mit_input
-# ln -sf /nobackupp2/estrobac/geos5/ICDIR/c1440_llc2160_01_data/mit/* .
-# cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
- cp -r /nobackupp11/dmenemen/DYAMOND/mit_input/ .
+ mkdir mit_input
+ cd mit_input
+ ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"

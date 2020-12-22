@@ -30,12 +30,12 @@
  SEAICEadvScheme    = 77,
  SEAICEwriteState   = .TRUE.,
 #SEAICE_monFreq = 1800.,
- AreaFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIarea.data',
- HsnowFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsnow.data',
- HsaltFile          = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIhsalt.data',
- HeffFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIheff.data',
- UiceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIuice.data',
- ViceFile           = '/nobackupp8/dmenemen/tarballs/llc_2160/run_template/0000815760_SIvice.data',
+ AreaFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIarea.0000706320.data',
+ HeffFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIheff.0000706320.data',
+ HsaltFile          = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIhsalt.0000706320.data',
+ HsnowFile          = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIhsnow.0000706320.data',
+ UiceFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIuice.0000706320.data',
+ ViceFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIvice.0000706320.data',
  &
 
  &SEAICE_PARM03
