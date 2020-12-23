@@ -81,10 +81,10 @@
  
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
- ln -s ../ICDIR/c1440_llc2160_01_data/geos/* ./
+#ln -s ../ICDIR/c1440_llc2160_01_data/geos/* ./
+ ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
  ./gcm_run.j |&  tee gcm_run.out
-
