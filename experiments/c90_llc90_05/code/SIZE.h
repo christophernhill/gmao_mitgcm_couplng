@@ -52,14 +52,10 @@ C     Nr  :: No. points in Z for full process domain.
      &           Ny  = sNy*nSy*nPy,
      &           Nr  =  50 )
 
-C     MAX_OLX  - Set to the maximum overlap region size of any array
+C     MAX_OLX :: Set to the maximum overlap region size of any array
 C     MAX_OLY    that will be exchanged. Controls the sizing of exch
-C                routine buufers.
+C                routine buffers.
       INTEGER MAX_OLX
       INTEGER MAX_OLY
       PARAMETER ( MAX_OLX = OLx,
      &            MAX_OLY = OLy )
-
-      integer     nobcs
-      parameter ( nobcs = 4 )
-
