@@ -83,6 +83,7 @@
  cd $WorkingDir/TEST
 #ln -s ../ICDIR/c1440_llc2160_01_data/geos/* ./
  ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"

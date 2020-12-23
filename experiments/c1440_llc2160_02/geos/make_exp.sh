@@ -37,7 +37,7 @@ sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_DYN_ave_${AGCM_IM}x${AGCM_JM}.dat
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_GWD_var_${AGCM_IM}x${AGCM_JM}.data topo_gwdvar.data/\/bin\/ln -sf ..\/topo_GWD_var_${AGCM_IM}x${AGCM_JM}.data topo_gwdvar.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_TRB_var_${AGCM_IM}x${AGCM_JM}.data topo_trbvar.data/\/bin\/ln -sf ..\/topo_TRB_var_${AGCM_IM}x${AGCM_JM}.data topo_trbvar.data/g' gcm_run.j
 
-sed -i 's/set MERRA2_Transition_Date.*/set MERRA2_Transition_Date = 22020401/g' gcm_run.j
+#sed -i 's/set MERRA2_Transition_Date.*/set MERRA2_Transition_Date = 22020401/g' gcm_run.j
 sed -i '/MPI_COLL_REPRODUCIBLE/i \ \ \ setenv MPI_IB_TIMEOUT 23' gcm_run.j
 
 sed -i '/S .\/GEOSgcm.x/i set USE_SHMEM = 1' gcm_run.j
@@ -54,4 +54,4 @@ sed -i 's/$rst ) \/bin\/cp/$rst ) \/bin\/cp -L/g' gcm_run.j
 sed -i 's/cp $rst/cp -L $rst/g' gcm_run.j
 
 sed -i 's/qsub/source/g' gcm_run.j
-sed -i 's/EMISSIONS MERRA2/EMISSIONS g5chem/g' gcm_run.j
+#sed -i 's/EMISSIONS MERRA2/EMISSIONS g5chem/g' gcm_run.j
