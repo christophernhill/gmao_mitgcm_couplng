@@ -1,8 +1,11 @@
 DYAMOND January 2020 experiment
-Udi is starting from c1440_llc2160_01, which is tagged to checkpoint67h and checkpoint_0_Z
-Will make new tagless (for time being) copy in c1440_llc2160_02
-(We will tag when we have the production running)
-Udi's experiments ran under /nobackupp11/dmenemen/DYAMOND/DYAMOND_01 and DYAMOND_02
+
+Udi is starting from c1440_llc2160_01,
+which is tagged to checkpoint67h and checkpoint_0_Z
+New tagless (for time being) copy in c1440_llc2160_02
+(we will tag when we have the production running)
+Udi's experiments ran under
+/nobackupp11/dmenemen/DYAMOND/DYAMOND_01 and DYAMOND_02
 
 Timing tests for ocean-only are in MITgcm_contrib/llc_hires/llc_2160
 
@@ -13,16 +16,8 @@ GEOS-5 boundary conditions for experiments/c1440_llc2160_01 are in
 /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/*
 There may also be a copy inside  DYAMOND_01 folder (irestart folder?)
 
-Will need to replace some of the "ln -s" with "cp" because GEOS overwrites on
-its initial conditions.
-
-Udi started a new experiment in /nobackupp11/dmenemen/DYAMOND/DYAMOND_02
-File make_exp.sh has sed commands to change gcm_run.j, CAP.rc and AGCM.rc.
-Udi was in the middle of preparing this experiment so maybe not complete.
-In particular, we may need to copy the mit_input folder and the GEOS initial conditions.
-
-Later we will need to change HISTORY.rc to match the DYAMOND request and
-also do something similar in MITgcm.
+Later we will need to change HISTORY.rc to match the DYAMOND
+request and also do something similar in MITgcm.
 
 =============================================================
 
@@ -91,8 +86,8 @@ c90_llc90_03 : c90/llc90 test experiment for c1440_llc2160
 c90_llc90_04 : c90/llc90 test experiment for c1440_llc2160
                set-up with ASYNCIO and GEOS IO server
 
-c90_llc90_05 : Similar to c90_llc90_02a but with MITgcm HiRes
-               configuration.
+c90_llc90_05 : Similar to c90_llc90_02a but with c1440_llc2160_02
+               configuration for DYAMOND tests and tune-up
 
 c720_llc1080_Restart : after 5 days passive ocean
 
