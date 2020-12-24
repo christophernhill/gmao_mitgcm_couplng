@@ -80,7 +80,9 @@ chenze
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'B.',mysuff,AREA,iCounter,myThid)
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'C.',mysuff,HEFF,iCounter,myThid)
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'D.',mysuff,HSNOW,iCounter,myThid)
+#ifdef SEAICE_VARIABLE_SALINITY
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'G.',mysuff,HSALT,iCounter,myThid)
+#endif
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'E.',mysuff,UICE,iCounter,myThid)
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'F.',mysuff,VICE,iCounter,myThid)
 
