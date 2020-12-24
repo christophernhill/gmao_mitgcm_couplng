@@ -1,4 +1,6 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
+# This corresponds to /nobackupp11/dmenemen/DYAMOND/geos5/TEST_19
+# Similar to Udi's set-up except that EMISSIONS=MERRA2
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
@@ -8,16 +10,18 @@
 
 # Get GEOS-MITgcm code in $WorkingDir
 # See instructions in notes/get_GEOS-MITgcm.txt
- cd $WorkingDir/MITgcm
- git checkout checkpoint67h
- cd $WorkingDir/GEOSodas
- git checkout checkpoint_0_Z
- cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
- cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
- git checkout checkpoint_0_Z
+
+# The following tags are supposed to correspond to Udi's run
+# cd $WorkingDir/MITgcm
+# git checkout checkpoint67h
+# cd $WorkingDir/GEOSodas
+# git checkout checkpoint_0_Z
+# cd src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp
+# cd GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+# git checkout checkpoint_0_Z
  
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q devel -l select=144:ncpus=20:model=has,walltime=2:00:00
+ qsub -I -q devel -l select=1:ncpus=1:model=cas_ait+196:ncpus=40:model=cas_ait,walltime=2:00:00
  tcsh
  setenv WorkingDir /nobackup/$USER/geos5
 
@@ -26,11 +30,13 @@
  source g5_modules
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
-#       but for real application, "-ieee" should be dropped to speed up ocean run.
- cd $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_01
+ cd $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02
  mkdir build; cd build; rm *
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_01/code/linux_amd64_ifort+mpi_ice_nas -ieee
+
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
+#       but for real application, "-ieee" should be dropped to speed up ocean run.
+# $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
@@ -52,38 +58,50 @@
 
 # Set up coupled code for experiments/c1440_llc2160_01
 # Be sure to replace "Desired Location" and "Build"
-# directories below with your own
+# directories below with your own.
+# "<<<<<" indicates non-default values.
  cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
 # Enter a 1-line Experiment Description: TEST
 # Do you wish to CLONE an old experiment? NO
-# Enter the Atmospheric Horizontal Resolution code: c1440
+# Is this verification/debug experiment? NO
+# Enter the Atmospheric Horizontal Resolution code: c1440 <<<<<
 # Enter the Atmospheric Model Vertical Resolution: 72
 # Do you wish to run the COUPLED Ocean/Sea-Ice Model? YES
-# Enter the Ocean Lat/Lon Horizontal Resolution: llc2160
+# Enter the Ocean Lat/Lon Horizontal Resolution: llc2160 <<<<<
 # Enter the Ocean Model Vertical Resolution: 90
 # Enter the choice of  Land Surface Model: 1
 # Do you wish to run  the Runoff Routing Model? TRUE
-# Do you wish to run GOCART with Actual or Climatological Aerosols? C
+# Do you wish to run GOCART with Actual or Climatological Aerosols? A
+# Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
+# Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
+# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
+
+# Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
+ cd $WorkingDir/TEST
+ ln -sf /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/*_rst .
+ cp /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/cap_restart .
+ cp /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/CAP.rc .
+ cp /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/AGCM.rc .
+ cp /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/HISTORY.rc .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/runoff_new.bin .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/*c1440.dat* .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/topo*data .
 
 # Populate the mit_input directory
  cd $WorkingDir/TEST
  mkdir mit_input
  cd mit_input
- ln -sf /nobackupp2/estrobac/geos5/ICDIR/c1440_llc2160_01_data/mit/* .
+ ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_01/input/* .
- 
-# Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
- cd $WorkingDir/TEST
-#ln -s ../ICDIR/c1440_llc2160_01_data/geos/* ./
- ln -sf /nobackup/estrobac/geos5/ICDIR/c1440_llc2160_01_data/geos/* .
- ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
+ cp /nobackupp2/estrobac/geos5/c1440_llc2160_04/scratch/mitocean_run/data* .
+ ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/restarts/pickup*264960* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"

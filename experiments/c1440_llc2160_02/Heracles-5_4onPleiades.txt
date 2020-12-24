@@ -88,6 +88,7 @@
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
  ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/*_rst .
+ ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/runoff_new.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .

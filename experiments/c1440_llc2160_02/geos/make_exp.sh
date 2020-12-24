@@ -30,7 +30,7 @@ sed -i 's/\/bin\/ln -sf $GRIDDIR\/mit-llc2160-72x72.bin.*/\/bin\/ln -sf ..\/mit-
 
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/visdf_${AGCM_IM}x${AGCM_JM}.dat visdf.dat/\/bin\/ln -sf ..\/visdf_c1440.dat visdf.dat/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/nirdf_${AGCM_IM}x${AGCM_JM}.dat nirdf.dat/\/bin\/ln -sf ..\/nirdf_c1440.dat nirdf.dat/g' gcm_run.j
-sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/vegdyn_${AGCM_IM}x${AGCM_JM}.dat vegdyn.data/\/bin\/ln -sf ..\/vegdyn_c1440.dat vegdyn.data/g' gcm_run.j
+sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/vegdyn_${AGCM_IM}x${AGCM_JM}.dat vegdyn.data/\/bin\/ln -sf ..\/vegdyn.dat vegdyn.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/lai_clim_${AGCM_IM}x${AGCM_JM}.data lai.data/\/bin\/ln -sf ..\/lai_clim_c1440.data lai.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/green_clim_${AGCM_IM}x${AGCM_JM}.data green.data/\/bin\/ln -sf ..\/green_clim_c1440.data green.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_DYN_ave_${AGCM_IM}x${AGCM_JM}.data topo_dynave.data/\/bin\/ln -sf ..\/topo_DYN_ave_${AGCM_IM}x${AGCM_JM}.data topo_dynave.data/g' gcm_run.j
