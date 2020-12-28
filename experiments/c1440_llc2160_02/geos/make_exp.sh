@@ -30,14 +30,13 @@ sed -i 's/\/bin\/ln -sf $GRIDDIR\/mit-llc2160-72x72.bin.*/\/bin\/ln -sf ..\/mit-
 
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/visdf_${AGCM_IM}x${AGCM_JM}.dat visdf.dat/\/bin\/ln -sf ..\/visdf_c1440.dat visdf.dat/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/nirdf_${AGCM_IM}x${AGCM_JM}.dat nirdf.dat/\/bin\/ln -sf ..\/nirdf_c1440.dat nirdf.dat/g' gcm_run.j
-sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/vegdyn_${AGCM_IM}x${AGCM_JM}.dat vegdyn.data/\/bin\/ln -sf ..\/vegdyn.dat vegdyn.data/g' gcm_run.j
+sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/vegdyn_${AGCM_IM}x${AGCM_JM}.dat vegdyn.data/\/bin\/ln -sf ..\/vegdyn.data ./g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/lai_clim_${AGCM_IM}x${AGCM_JM}.data lai.data/\/bin\/ln -sf ..\/lai_clim_c1440.data lai.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/green_clim_${AGCM_IM}x${AGCM_JM}.data green.data/\/bin\/ln -sf ..\/green_clim_c1440.data green.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_DYN_ave_${AGCM_IM}x${AGCM_JM}.data topo_dynave.data/\/bin\/ln -sf ..\/topo_DYN_ave_${AGCM_IM}x${AGCM_JM}.data topo_dynave.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_GWD_var_${AGCM_IM}x${AGCM_JM}.data topo_gwdvar.data/\/bin\/ln -sf ..\/topo_GWD_var_${AGCM_IM}x${AGCM_JM}.data topo_gwdvar.data/g' gcm_run.j
 sed -i 's/\/bin\/ln -sf $BCSDIR\/$BCRSLV\/topo_TRB_var_${AGCM_IM}x${AGCM_JM}.data topo_trbvar.data/\/bin\/ln -sf ..\/topo_TRB_var_${AGCM_IM}x${AGCM_JM}.data topo_trbvar.data/g' gcm_run.j
 
-#sed -i 's/set MERRA2_Transition_Date.*/set MERRA2_Transition_Date = 22020401/g' gcm_run.j
 sed -i '/MPI_COLL_REPRODUCIBLE/i \ \ \ setenv MPI_IB_TIMEOUT 23' gcm_run.j
 
 sed -i '/S .\/GEOSgcm.x/i set USE_SHMEM = 1' gcm_run.j
@@ -50,8 +49,4 @@ sed -i '/VICE/a \ \ \/bin\/mv EmPmR.* $EXPDIR\/mit_output/' gcm_run.j
 sed -i '/VICE/a \ \ \/bin\/mv FU.* $EXPDIR\/mit_output/' gcm_run.j
 sed -i '/VICE/a \ \ \/bin\/mv FV.* $EXPDIR\/mit_output/' gcm_run.j
 
-sed -i 's/$rst ) \/bin\/cp/$rst ) \/bin\/cp -L/g' gcm_run.j
-sed -i 's/cp $rst/cp -L $rst/g' gcm_run.j
-
 sed -i 's/qsub/source/g' gcm_run.j
-#sed -i 's/EMISSIONS MERRA2/EMISSIONS g5chem/g' gcm_run.j
