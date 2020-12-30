@@ -1,0 +1,24 @@
+hydrostatic: .false.
+do_sat_adj: .true.
+   fv_sg_adj: 600
+   z_tracer: .true.
+    n_sponge: 9
+        nord: 2
+       d2_bg: 0.0
+       d4_bg: 0.12
+       dddmp: 0.2
+       d_ext: 0.0
+do_vort_damp: .true.
+vtdm4: 0.04
+     hord_mt:  6
+     hord_tm: 6
+     hord_vt: 6
+     hord_dp: -6
+     hord_tr: 8
+    consv_te: 0.0
+     kord_tm:  9
+     kord_mt:  9
+     kord_wz:  9
+     kord_tr:  9
+     remap_t: .true.
+      k_split:  4
