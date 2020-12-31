@@ -87,8 +87,15 @@
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/*_rst .
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data .
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/catch_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/lake_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/landice_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/saltwater_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/fvcore_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/moist_internal_rst . &
+# cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/pchem_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/gocart_internal_rst .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/runoff_new.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
