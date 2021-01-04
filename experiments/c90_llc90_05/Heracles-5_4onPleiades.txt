@@ -3,7 +3,7 @@
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
- setenv WorkingDir /nobackup/$USER/geos5
+ setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/c90_llc90_05
  mkdir $WorkingDir
  cd $WorkingDir
 
@@ -11,10 +11,9 @@
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
-# qsub -I -q devel -l select=18:ncpus=20:model=has,walltime=2:00:00
- qsub -I -q long -l select=9:ncpus=40:model=sky_ele,walltime=120:00:00 -m abe
+ qsub -I -q long -l select=11:ncpus=40:model=sky_ele,walltime=120:00:00 -m abe
  tcsh
- setenv WorkingDir /nobackup/$USER/geos5
+ setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/c90_llc90_05
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
@@ -79,6 +78,7 @@
 # Get GEOS-5 boundary conditions for experiments/c90_llc90_05
  cd $WorkingDir/TEST
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* . 
+ cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/geos/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
