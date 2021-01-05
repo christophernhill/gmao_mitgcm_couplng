@@ -80,10 +80,16 @@
 # Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
-# Adjust AGCM.rc, CAP.rc, HISTORY.rc, and gcm_run.j
+# Populate the mit_input directory
+ cd $WorkingDir/TEST
+ mkdir mit_input
+ cd mit_input
+ ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
+
+# Adjust GEOS configuration files
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
- source make_exp.sh
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
@@ -101,17 +107,12 @@
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/saltwater_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/fvcore_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/moist_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/gocart_internal_rst .
-
-# Populate the mit_input directory
- cd $WorkingDir/TEST
- mkdir mit_input
- cd mit_input
- ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
- cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/gocart_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/pchem_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/tr_internal_rst . &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
- chmod u+w *
+ chmod u+w *_rst vegdyn.data
  ./gcm_run.j |&  tee gcm_run.out
