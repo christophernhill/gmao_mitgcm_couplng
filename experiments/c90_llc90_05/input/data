@@ -34,12 +34,14 @@
  implicitFreeSurface=.TRUE.,
  exactConserv=.TRUE.,
  debuglevel=-1,
- convertFW2Salt=-1
+ convertFW2Salt=-1.,
  useRealFreshWaterFlux=.TRUE.,
  useSingleCPUio=.FALSE.,
  readBinaryPrec=32,
  writeBinaryPrec=32,
  temp_EvPrRn=0.,
+ implicSurfPress = 0.6,
+ implicDiv2DFlow = 0.6,
  &
 
 # Elliptic solver parameters
@@ -56,12 +58,11 @@
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
- pChkptFreq  = 3600.0,
- chkptFreq   = 259200.0,
+ chkptFreq   = 86400.0,
+ pchkptFreq   = 86400.0,
  dumpfreq = 3600.,
- monitorFreq = 60.,
- dumpInitAndLast=.TRUE.,
- pickupStrictlyMatch=.FALSE.,
+ monitorFreq = 1.,
+ dumpInitAndLast=.FALSE.,
  &
 
 # Gridding parameters

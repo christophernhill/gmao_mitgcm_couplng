@@ -28,7 +28,7 @@
  SEAICElinearIterMax=  500,
 #LSR_mixIniGuess    = 1,
  SEAICEadvScheme    = 77,
- SEAICEwriteState   = .TRUE.,
+# SEAICEwriteState   = .TRUE.,
 #SEAICE_monFreq = 1800.,
  &
 
