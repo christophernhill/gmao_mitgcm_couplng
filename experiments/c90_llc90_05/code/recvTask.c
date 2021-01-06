@@ -89,7 +89,7 @@ int numRanksPerNode = 0;
 #define NUM_X   ((long int) sFacet)
 #define NUM_Y   (((long int) sFacet) * 13)
 #define NUM_Z   ((long int) Nr)
-#define MULTDIM ((long int) 7)
+#define MULTDIM ((long int) 5)
 
 // Some values derived from the above constants
 #define twoDFieldSizeInBytes  (NUM_X * NUM_Y * 1 * datumSize)
@@ -123,14 +123,14 @@ typedef struct dataFieldDepth {
 } dataFieldDepth_t;
 
 dataFieldDepth_t fieldDepths[] = {
-   { 'A', MULTDIM },    // seaice, 7 == MULTDIM in SEAICE_SIZE.h
+   { 'A', MULTDIM },    // seaice, 5 == nITD in SEAICE_SIZE.h
+   { 'B', MULTDIM },
+   { 'C', MULTDIM },
+   { 'D', MULTDIM },
 
-   { 'B', 1 },
-   { 'C', 1 },
-   { 'D', 1 },
    { 'E', 1 },
    { 'F', 1 },
-   { 'G', 1 },
+// { 'G', 1 },
    { 'H', 1 },
    { 'I', 1 },
    { 'J', 1 },
@@ -184,7 +184,7 @@ fieldInfoThisEpoch_t fieldsForEpochStyle_0[] = {
   { 'D', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIhsnow.%010d.%s", 0,0 },
   { 'E', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIuice.%010d.%s", 0,0 },
   { 'F', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIvice.%010d.%s", 0,0 },
-  { 'G', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIhsalt.%010d.%s", 0,0 },
+//{ 'G', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIhsalt.%010d.%s", 0,0 },
 
 //{ 'H', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "EtaHnm1.%010d.%s", 0,0 },
   { 'I', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "oceTAUX.%010d.%s", 0,0 },
@@ -223,11 +223,11 @@ fieldInfoThisEpoch_t fieldsForEpochStyle_1[] = {
 fieldInfoThisEpoch_t fieldsForEpochStyle_2[] = {
   { 'A', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 0 + twoDFieldSizeInBytes * 0, 2},
   { 'B', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 0, 2},
-  { 'C', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 1, 2},
-  { 'D', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 2, 2},
-  { 'G', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 3, 2},
-  { 'E', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 4, 2},
-  { 'F', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 5, 2},
+  { 'C', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 2 + twoDFieldSizeInBytes * 0, 2},
+  { 'D', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 3 + twoDFieldSizeInBytes * 0, 2},
+//{ 'G', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 1 + twoDFieldSizeInBytes * 3, 2},
+  { 'E', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 4 + twoDFieldSizeInBytes * 0, 2},
+  { 'F', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "pickup_seaice_%010d.%s", multDFieldSizeInBytes * 4 + twoDFieldSizeInBytes * 1, 2},
   {'\0', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "", 0 },
 };
 
@@ -411,7 +411,7 @@ void write_pickup_meta(FILE *fp, int gcmIter, int pickup)
   int nrecords,nfields;
   char**f;
   char*fld1[] = {"Uvel","Vvel","Theta","Salt","GuNm1","GvNm1","EtaN","dEtaHdt","EtaH"};
-  char*fld2[] = {"siTICES","siAREA","siHEFF","siHSNOW","siHSALT","siUICE","siVICE"};
+  char*fld2[] = {"siTICES","siAREAn","siHEFFn","siHSNOWn","siUICE","siVICE"};
   // for now, just list the fields here. When the whole field specification apparatus
   // is cleaned up, pull the names out of the epochstyle definition or whatever
 
@@ -423,7 +423,7 @@ void write_pickup_meta(FILE *fp, int gcmIter, int pickup)
     f = fld1;
   }
   else if (2==pickup){
-    nrecords = MULTDIM+6;
+    nrecords = MULTDIM*4+2;
     nfields = sizeof(fld2)/sizeof(char*);
     f = fld2;
   }

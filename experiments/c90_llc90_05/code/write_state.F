@@ -175,7 +175,7 @@ C         easier to transfer analyse a particular snap-shots
         CALL ASYNCIO_WRITE_FLD_XY_RL('D',suff,HSNOW,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('E',suff,UICE,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('F',suff,VICE,iCounter,myThid)
-        CALL ASYNCIO_WRITE_FLD_XY_RL('G',suff,HSALT,iCounter,myThid)
+      !!CALL ASYNCIO_WRITE_FLD_XY_RL('G',suff,HSALT,iCounter,myThid)
 
       !!CALL ASYNCIO_WRITE_FLD_XY_RL('H',suff,etaHnm1,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('I',suff,fu,iCounter,myThid)

@@ -501,7 +501,7 @@ cd ..
 
 # Run GEOSgcm.x
 # -------------
-       @  NPES = $NX * $NY + 40
+       @  NPES = $NX * $NY + 80
 $RUN_CMD $NPES ./GEOSgcm.x
 
 exit
