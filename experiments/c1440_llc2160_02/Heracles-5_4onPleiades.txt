@@ -108,8 +108,8 @@
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/fvcore_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/moist_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/gocart_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/pchem_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/tr_internal_rst . &
+# cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/pchem_internal_rst . &
+# cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/tr_internal_rst . &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
