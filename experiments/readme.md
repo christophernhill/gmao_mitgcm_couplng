@@ -62,6 +62,8 @@ c12_cs32_05 : c12/cs32, 2-hours, 15 minutes output
 c48_llc90_01 : c48/llc90, 1-day with simplified llc90 set-up
  - uses GEOSodas b_geos5mit (Heracles 5.4)
 
+c48_llc90_02 : verification experiment, see description above
+
 c48_llc90_03 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit (Heracles 5.4)
 
@@ -71,7 +73,16 @@ c48_llc90_04 : c48/llc90, 1-day set-up using llc4320 parameters
 c48_llc90_05 : c48/llc90, 1-day set-up using llc4320 parameters
  - uses GEOSodas b_geos5mit-i30 (Icarus 3.0)
  - uses GEOS USE_IOSERVER and MITgcm asyncio
- 
+
+c48_llc90_06 : New experiment with sea-ice advected
+               committed by Udi on July 5, 2018
+
+c48_llc90_07 : new experiment with sea-ice energy advecation
+               committed by Udi on August 30, 2018
+
+c48_llc90_08 : Similar to c48_llc90_02 but with c1440_llc2160_02
+               configuration for DYAMOND tests and tune-up
+
 c90_llc90_01 : Experiment without sea-ice advection
 
 c90_llc90_02 : New experiment with sea-ice advection
