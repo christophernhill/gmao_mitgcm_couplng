@@ -4,6 +4,7 @@
  useEXF         = .FALSE.,
  useSEAICE      = .TRUE.,
  useKPP         = .TRUE.,
- useFRAZIL      = .FALSE.,
- useMYPACKAGE = .TRUE.,
+ useFRAZIL      = .TRUE.,
+ useTIDES       = .TRUE.,
+ useMYPACKAGE   = .TRUE.,
  &

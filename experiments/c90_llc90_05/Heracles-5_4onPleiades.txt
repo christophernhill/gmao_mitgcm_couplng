@@ -19,6 +19,9 @@
  cd $WorkingDir/GEOSodas/src
  source g5_modules
 
+# Add pkg/tides to MITgcm
+ ln -sf $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/pkg_tides $MITGCM_ROOTDIR/pkg/tides
+
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
@@ -74,6 +77,7 @@
  cd mit_input
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/mit/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/input/* .
+ ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
 
 # Get GEOS-5 boundary conditions for experiments/c90_llc90_05
  cd $WorkingDir/TEST
