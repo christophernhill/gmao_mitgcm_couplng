@@ -74,7 +74,7 @@
  cd mit_input
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/mit/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/input/* .
- 
+
 # Get GEOS-5 boundary conditions for experiments/c90_llc90_05
  cd $WorkingDir/TEST
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* . 

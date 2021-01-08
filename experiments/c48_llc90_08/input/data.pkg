@@ -1,9 +1,9 @@
 # Packages
  &PACKAGES
- useGMRedi          = .TRUE.,
- useGGL90           = .TRUE.,
- useSALT_PLUME      = .TRUE.,
- useDiagnostics     = .TRUE.,
- useCTRL            = .TRUE.,
- useSEAICE          = .TRUE.,
+ useCAL         = .TRUE.,
+ useEXF         = .FALSE.,
+ useSEAICE      = .TRUE.,
+ useKPP         = .TRUE.,
+ useFRAZIL      = .FALSE.,
+ useMYPACKAGE = .TRUE.,
  &
