@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEOPTIONS.h,v 1.43 2017/09/14 19:47:35 jmc Exp $
-C $Name:  $
-
 CBOP
 C     !ROUTINE: CPP_EEOPTIONS.h
 C     !INTERFACE:
@@ -86,12 +83,6 @@ C--   Alternative formulation of BYTESWAP, faster than
 C     compiler flag -byteswapio on the Altix.
 #undef FAST_BYTESWAP
 
-C--   Flag to turn on old default of opening scratch files with the
-C     STATUS='SCRATCH' option. This method, while perfectly FORTRAN-standard,
-C     caused filename conflicts on some multi-node/multi-processor platforms
-C     in the past and has been replace by something (hopefully) more robust.
-#undef USE_FORTRAN_SCRATCH_FILES
-
 C--   Flag defined for eeboot_minimal.F, eeset_parms.F and open_copy_data_file.F
 C     to write STDOUT, STDERR and scratch files from process 0 only.
 C WARNING: to use only when absolutely confident that the setup is working
@@ -135,7 +126,7 @@ C     assuming locally periodic subdomain)
 
 C--   Always cumulate tile local-sum in the same order by applying MPI allreduce
 C     to array of tiles ; can get slower with large number of tiles (big set-up)
-#define GLOBAL_SUM_ORDER_TILES
+#undef GLOBAL_SUM_ORDER_TILES
 
 C--   Alternative way of doing global sum without MPI allreduce call
 C     but instead, explicit MPI send & recv calls. Expected to be slower.
@@ -154,10 +145,9 @@ C--   Control use of communication with other component:
 C     allow to import and export from/to Coupler interface.
 #undef COMPONENT_MODULE
 
-C--   Activate some pieces of code for coupling to GEOS AGCM
-#define HACK_FOR_GMAO_CPL
-
 #endif /* _CPP_EEOPTIONS_H_ */
 
 #include "CPP_EEMACROS.h"
 
+C--   Activate some pieces of code for coupling to GEOS AGCM
+#define HACK_FOR_GMAO_CPL
