@@ -60,3 +60,13 @@
  git add <file name>
  git commit
  git push
+
+# pruning large no-longer-needed files from git repository
+# https://rtyley.github.io/bfg-repo-cleaner/
+# https://www.phase2technology.com/blog/removing-large-files-git-bfg
+ brew install bfg
+ git clone --mirror git@github.com:christophernhill/gmao_mitgcm_couplng.git
+ cp -r gmao_mitgcm_couplng.git gmao_mitgcm_couplng-backup.git
+ bfg --strip-blobs-bigger-than 10M gmao_mitgcm_couplng.git
+ git reflog expire --expire=now --all && git gc --prune=now --aggressive
+ git push
