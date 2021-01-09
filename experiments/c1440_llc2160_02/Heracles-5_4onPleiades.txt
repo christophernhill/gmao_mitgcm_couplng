@@ -90,6 +90,7 @@
 # Adjust GEOS configuration files
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
+ mv Chem_*.rc GAAS_AerRegistry.rc RC
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
@@ -100,7 +101,7 @@
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/*_clim_c1440.data .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
+ ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/catch_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/lake_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/landice_internal_rst . &
@@ -108,11 +109,9 @@
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/fvcore_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/moist_internal_rst . &
  cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/gocart_internal_rst . &
-# cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/pchem_internal_rst . &
-# cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/tr_internal_rst . &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
- chmod u+w *_rst vegdyn.data
+ chmod u+w *_rst
  ./gcm_run.j |&  tee gcm_run.out
