@@ -83,9 +83,10 @@ C--   grease ice uses SItracer:
 # define ALLOW_SITRACER_ADVCAP
 #endif
 
-C--   By default the seaice model is discretized on a B-Grid (for
-C     historical reasons). Define the following flag to use a new
-C     (not thoroughly) test version on a C-grid
+C--   Historically, the seaice model was discretized on a B-Grid. This
+C     discretization should still work but it is not longer actively tested
+C     and supported. The following flag should always be set in order to use
+C     the operational C-grid discretization.
 #define SEAICE_CGRID
 
 C--   Only for the C-grid version it is possible to
@@ -99,7 +100,7 @@ C     enable Krylov code by defining the following flag
 C     enable LSR to use global (multi-tile) tri-diagonal solver
 # undef SEAICE_GLOBAL_3DIAG_SOLVER
 C     enable EVP code by defining the following flag
-# define SEAICE_ALLOW_EVP
+# undef SEAICE_ALLOW_EVP
 # ifdef SEAICE_ALLOW_EVP
 C--   When set use SEAICE_zetaMin and SEAICE_evpDampC to limit viscosities
 C     from below and above in seaice_evp: not necessary, and not recommended
@@ -156,6 +157,10 @@ C     like all of the others -- residuals heat and fw stocks are passed to
 C     the ocean at the end of seaice_growth in a conservative manner.
 C     SEAICE_CAP_SUBLIM is not needed as of now, but kept just in case.
 #undef SEAICE_CAP_SUBLIM
+
+C--   Use the adjointable sea-ice thermodynamic model
+C     in seaice_growth_adx.F instead of seaice_growth.F
+#undef SEAICE_USE_GROWTH_ADX
 
 C--   Enable free drift code
 #undef SEAICE_ALLOW_FREEDRIFT

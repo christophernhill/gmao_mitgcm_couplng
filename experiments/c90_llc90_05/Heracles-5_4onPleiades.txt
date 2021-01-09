@@ -19,8 +19,9 @@
  cd $WorkingDir/GEOSodas/src
  source g5_modules
 
-# Add pkg/tides to MITgcm
+# Add pkg/tides to MITgcm and spice library to GEOS
  ln -sf $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/pkg_tides $MITGCM_ROOTDIR/pkg/tides
+ cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/lib/libspice.a $ESMADIR/Linux/lib
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization

@@ -72,6 +72,7 @@
  implicSurfPress = 0.6,
  implicDiv2DFlow = 0.6,
  &
+
 # Elliptic solver parameters
  &PARM02
  cg2dMaxIters = 100,
@@ -90,7 +91,7 @@
  chkptFreq   =31536000.0,
  dumpfreq = 3600.,
  monitorFreq = 1.,
- dumpInitAndLast=.TRUE.,
+ dumpInitAndLast=.FALSE.,
  &
 
 # Gridding parameters

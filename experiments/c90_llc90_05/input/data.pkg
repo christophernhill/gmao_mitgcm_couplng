@@ -1,7 +1,6 @@
 # Packages
  &PACKAGES
  useCAL         = .TRUE.,
- useEXF         = .FALSE.,
  useSEAICE      = .TRUE.,
  useKPP         = .TRUE.,
  useFRAZIL      = .TRUE.,
