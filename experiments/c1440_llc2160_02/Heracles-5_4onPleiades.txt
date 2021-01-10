@@ -28,14 +28,16 @@
  cd $WorkingDir/GEOSodas/src
  source g5_modules
 
+# Add pkg/tides to MITgcm and spice library to GEOS
+ ln -sf $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/pkg_tides $MITGCM_ROOTDIR/pkg/tides
+ cp /nobackup/dmenemen/forcing/SPICE/lib/libspice.a $ESMADIR/Linux/lib
+
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
+#       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02
  mkdir build; cd build; rm *
-
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
-#       but for real application, "-ieee" should be dropped to speed up ocean run.
-# $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
@@ -86,6 +88,7 @@
  cd mit_input
  ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
+ ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
 
 # Adjust GEOS configuration files
  cd $WorkingDir/TEST

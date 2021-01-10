@@ -4,6 +4,6 @@
  useSEAICE      = .TRUE.,
  useKPP         = .TRUE.,
  useFRAZIL      = .TRUE.,
-# useTIDES       = .TRUE.,
+ useTIDES       = .TRUE.,
  useMYPACKAGE   = .TRUE.,
  &

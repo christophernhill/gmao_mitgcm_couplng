@@ -50,7 +50,8 @@
 
 # Set up coupled code for experiments/c90_llc90_05
 # Be sure to replace "Desired Location" and "Build"
-# directories below with your own
+# directories below with your own.
+# "<<<<<" indicates non-default values.
  cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
@@ -67,9 +68,9 @@
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
 # Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
+# Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
+# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
+# Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
 # Enter your GROUP ID for Current EXP: g26209
 
 # Populate the mit_input directory

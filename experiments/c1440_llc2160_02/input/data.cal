@@ -4,8 +4,6 @@
 # *******************
  &CAL_NML
  TheCalendar='gregorian',
-# startDate_1=20110117,
-# startDate_2=000000,
  startDate_1=20200119,
  startDate_2=210000,
-&
+ &

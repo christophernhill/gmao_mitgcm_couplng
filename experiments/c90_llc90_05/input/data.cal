@@ -6,5 +6,4 @@
  TheCalendar='gregorian',
  startDate_1=20120206,
  startDate_2=210000,
- calendarDumps = .TRUE.,
  &

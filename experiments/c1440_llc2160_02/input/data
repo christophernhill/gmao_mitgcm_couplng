@@ -63,9 +63,6 @@
  debuglevel=-1,
  convertFW2Salt=-1.,
  useRealFreshWaterFlux=.TRUE.,
- useSingleCPUio=.TRUE.,
- useSingleCpuInput=.TRUE.,
- globalFiles=.TRUE.,
  readBinaryPrec=32,
  writeBinaryPrec=32,
  temp_EvPrRn=0.,
@@ -117,6 +114,7 @@
         334.64,  365.93,  400.38,  438.23, 479.74,
  &
 
+# Input datasets
  &PARM05
  bathyFile      ='/nobackup/dmenemen/tarballs/llc_2160/run_template/bathy2160_g5_filled_r4',
  hydrogSaltFile ='/nobackupp11/dmenemen/DYAMOND/llc2160_IC/Salt.0000706320.data',
