@@ -90,7 +90,7 @@
 # Adjust GEOS configuration files
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
- mv Chem_*.rc GAAS_AerRegistry.rc RC
+ mv *Registry.rc RC
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
  cd $WorkingDir/TEST
