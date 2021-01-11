@@ -1,0 +1,16 @@
+#!/bin/csh -f
+
+if( $?PBS_NODEFILE ) then
+set   dotexe = $1
+if( .$dotexe == . ) set dotexe = GEOSgcm.x
+
+set nodes = `cat $PBS_NODEFILE`
+set dummy = ' '
+foreach node ($nodes)
+   if( .$node != .$dummy ) then
+   echo sshmpi $node killall $dotexe
+        ssh $node killall -9 $dotexe
+   endif
+set dummy = $node
+end
+endif

@@ -89,4 +89,5 @@
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
+ $GMAO_MITGCM_COUPLNG/utils/Killall
  ./gcm_run.j |&  tee gcm_run.out

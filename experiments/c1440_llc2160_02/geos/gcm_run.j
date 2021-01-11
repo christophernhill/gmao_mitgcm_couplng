@@ -504,9 +504,7 @@ cd ..
 # -------------
        @  NPES = $NX * $NY
 set USE_SHMEM = 1
-if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh
 $RUN_CMD $NPES ./GEOSgcm.x
-if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh
 
 
 if( -e EGRESS ) then
