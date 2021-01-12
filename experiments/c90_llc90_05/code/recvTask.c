@@ -179,6 +179,7 @@ fieldInfoThisEpoch_t fieldsForEpochStyle_0[] = {
   { 'T', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "Theta.%010d.%s", 0,0 },
   { 'N', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "Eta.%010d.%s", 0,0 },
 
+  { 'A', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SItice.%010d.%s", 0,0 },
   { 'B', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIarea.%010d.%s", 0,0 },
   { 'C', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIheff.%010d.%s", 0,0 },
   { 'D', MPI_COMM_NULL, MPI_COMM_NULL, MPI_COMM_NULL, 0, -1, NULL, 0, "SIhsnow.%010d.%s", 0,0 },

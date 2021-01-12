@@ -76,10 +76,11 @@ chenze
 
       ICOUNTER = ICOUNTER+1
       CALL beginNewEpoch(icounter,myIter,2)
-      CALL ASYNCIO_WRITE_FLD_XYM_RL( 'A.',mysuff,TICES,iCounter,myThid)
-      CALL ASYNCIO_WRITE_FLD_XY_RL( 'B.',mysuff,AREA,iCounter,myThid)
-      CALL ASYNCIO_WRITE_FLD_XY_RL( 'C.',mysuff,HEFF,iCounter,myThid)
-      CALL ASYNCIO_WRITE_FLD_XY_RL( 'D.',mysuff,HSNOW,iCounter,myThid)
+      CALL ASYNCIO_WRITE_FLD_XYM_RL('A.',mysuff,TICES,iCounter,myThid)
+      CALL ASYNCIO_WRITE_FLD_XYM_RL('B.',mysuff,AREAITD,iCounter,myThid)
+      CALL ASYNCIO_WRITE_FLD_XYM_RL('C.',mysuff,HEFFITD,iCounter,myThid)
+      CALL ASYNCIO_WRITE_FLD_XYM_RL('D.',mysuff,HSNOWITD,iCounter,
+     &                                                           myThid)
 #ifdef SEAICE_VARIABLE_SALINITY
       CALL ASYNCIO_WRITE_FLD_XY_RL( 'G.',mysuff,HSALT,iCounter,myThid)
 #endif
