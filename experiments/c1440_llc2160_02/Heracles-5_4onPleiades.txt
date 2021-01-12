@@ -20,7 +20,7 @@
 # git checkout checkpoint_0_Z
  
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q R10236203 -l select=1:ncpus=1:model=cas_ait+196:ncpus=40:model=cas_ait
+ qsub -I -q R10236203 -l select=204:ncpus=40:model=cas_ait
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
 
@@ -92,6 +92,7 @@
 
 # Adjust GEOS configuration files
  cd $WorkingDir/TEST
+ cp $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  mv *Registry.rc RC
 
@@ -118,5 +119,4 @@
  cd $WorkingDir/TEST
  chmod u+w *_rst
  $GMAO_MITGCM_COUPLNG/utils/Killall
- $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh
  ./gcm_run.j |&  tee gcm_run.out

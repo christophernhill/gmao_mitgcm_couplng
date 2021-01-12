@@ -1,25 +1,31 @@
-    make_nh: .true.
-hydrostatic: .false.
-   z_tracer: .true.
-    n_sponge: 9
-        nord: 2
-       d2_bg: 0.0
-       d4_bg: 0.12
+Make_NH: .true.
+ hydrostatic: .false.
+        nord: 0
+       d2_bg: 0.0075
+       d4_bg: 0.0
        dddmp: 0.2
-       d_ext: 0.0
-       do_vort_damp: .true.
-       d_con: 1.0
-       vtdm4: 0.04
-     hord_mt:  6
-     hord_tm: 6
-     hord_vt: 6
-     hord_dp: -6
-     hord_tr: 8
-    consv_te: 1.
-     kord_tm:  9
+         kd3: 0.0
+     fill_dp: .true.
+
+    n_sponge: 0
+    d2_bg_k1: 0.2
+    d2_bg_k2: 0.09
+
+      ksplit: 1
+      nsplit: 9
+      msplit: 4
+
+     hord_mt: 10
+     hord_vt: 10
+     hord_tm: 10
+     hord_dp: 13
+     hord_tr: 13
+
+     kord_tm: -9
      kord_mt:  9
      kord_wz:  9
      kord_tr:  9
-     remap_t: .true.
-  gmao_cubic: .false.
-      ksplit:  4
+
+    fv_debug: .false.
+    inline_q: .false.
+    z_tracer: .true.
