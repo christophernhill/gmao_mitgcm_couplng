@@ -66,58 +66,12 @@ COLLECTIONS:
              'tavg_15mn_2d_flx_Nx'
              ::
 
-##################################################
-# The GRID_LABELS section must be after the main #
-#  list of COLLECTIONS for scripting purposes.   #
-##################################################
-
-GRID_LABELS: PC720x361-DC
-             PC1440x721-DC
-             PC2880x1441-DC
-             PC5760x2881-DC
-             PC11520x5761-DC
-::
-
-PC720x361-DC.GRID_TYPE: LatLon
-PC720x361-DC.IM_WORLD: 720
-PC720x361-DC.JM_WORLD: 361
-PC720x361-DC.POLE: PC
-PC720x361-DC.DATELINE: DC
-PC720x361-DC.LM: 181
-
-PC1440x721-DC.GRID_TYPE: LatLon
-PC1440x721-DC.IM_WORLD: 1440
-PC1440x721-DC.JM_WORLD: 721
-PC1440x721-DC.POLE: PC
-PC1440x721-DC.DATELINE: DC
-PC1440x721-DC.LM: 181
-
-PC2880x1441-DC.GRID_TYPE: LatLon
-PC2880x1441-DC.IM_WORLD: 2880
-PC2880x1441-DC.JM_WORLD: 1441
-PC2880x1441-DC.POLE: PC
-PC2880x1441-DC.DATELINE: DC
-PC2880x1441-DC.LM: 181
-
-PC5760x2881-DC.GRID_TYPE: LatLon
-PC5760x2881-DC.IM_WORLD: 5760
-PC5760x2881-DC.JM_WORLD: 2881
-PC5760x2881-DC.POLE: PC
-PC5760x2881-DC.DATELINE: DC
-PC5760x2881-DC.LM: 181
-
-PC11520x5761-DC.GRID_TYPE: LatLon
-PC11520x5761-DC.IM_WORLD: 11520
-PC11520x5761-DC.JM_WORLD: 5761
-PC11520x5761-DC.POLE: PC
-PC11520x5761-DC.DATELINE: DC
-PC11520x5761-DC.LM: 181
 
   geosgcm_dyn.template:  '%y4%m2%d2_%h2%n2z.nc4',
   geosgcm_dyn.archive:   '%c/Y%y4',
   geosgcm_dyn.format:    'CFIO',
   geosgcm_dyn.frequency:  003000,
-  geosgcm_dyn.grid_label: PC1440x721-DC
+  geosgcm_dyn.resolution: 2880 1441,
   geosgcm_dyn.fields:    'DYNTIMER'  , 'DYN'      ,
 #                        'DBZ_MAX'   , 'MOIST'    ,
 #                        'QRAIN'     , 'MOIST'    ,
@@ -130,7 +84,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_fcst.format:    'CFIO',
   geosgcm_fcst.frequency:  060000,
   geosgcm_fcst.duration:   000000,
-  geosgcm_fcst.grid_label: PC720x361-DC,
+  geosgcm_fcst.resolution: 2880 1441,
   geosgcm_fcst.vscale:     100.0,
   geosgcm_fcst.vunit:     'hPa',
   geosgcm_fcst.vvars:     'log(PLE)' , 'DYN'          ,
@@ -150,7 +104,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_baro.archive:   '%c/Y%y4',
   geosgcm_baro.format:    'CFIO',
   geosgcm_baro.frequency:  060000,
-  geosgcm_baro.grid_label: PC720x361-DC
+  geosgcm_baro.resolution: 2880 1441,
   geosgcm_baro.vscale:     100.0,
   geosgcm_baro.vunit:     'hPa',
   geosgcm_baro.vvars:     'log(PLE)' , 'DYN'          ,
@@ -168,7 +122,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_prog.archive:   '%c/Y%y4',
   geosgcm_prog.format:    'CFIO',
   geosgcm_prog.frequency:  060000,
-  geosgcm_prog.grid_label: PC720x361-DC
+  geosgcm_prog.resolution: 2880 1441,
   geosgcm_prog.vscale:     100.0,
   geosgcm_prog.vunit:     'hPa',
   geosgcm_prog.vvars:     'log(PLE)' , 'DYN'          ,
@@ -192,8 +146,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_surf.format:    'CFIO',
   geosgcm_surf.mode:      'time-averaged',
   geosgcm_surf.frequency:  010000,
-  geosgcm_surf.ref_time:   210000,
-  geosgcm_surf.grid_label: PC720x361-DC
+  geosgcm_surf.resolution: 2880 1441,
   geosgcm_surf.fields:    'PHIS'          , 'AGCM'     ,
                           'SGH'           , 'AGCM'     ,
                           'VARFLT'        , 'AGCM'     ,
@@ -349,10 +302,9 @@ PC11520x5761-DC.LM: 181
   geosgcm_meltwtr.format:    'CFIO',
   geosgcm_meltwtr.mode:      'time-averaged',
   geosgcm_meltwtr.frequency:  240000,
-  geosgcm_meltwtr.ref_time:   210000,
   geosgcm_meltwtr.regrid_name: 'PE2880x17280-CF'
   geosgcm_meltwtr.regrid_exch: 'tile.bin',
-  geosgcm_meltwtr.grid_label: PC720x361-DC
+  geosgcm_meltwtr.resolution: 2880 1441,
   geosgcm_meltwtr.fields:    'MELTWTR'      , 'LANDICE'     ,
                              ::
 
@@ -364,7 +316,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_landice.ref_time:   210000,
   geosgcm_landice.regrid_name: 'PE2880x17280-CF' 
   geosgcm_landice.regrid_exch: 'tile.bin',
-  geosgcm_landice.grid_label: PC720x361-DC
+  geosgcm_landice.resolution: 720 361
   geosgcm_landice.fields:    'SNOMAS_GL'     , 'LANDICE'     ,
                              'SNOWDP_GL'     , 'LANDICE'     ,
                              'TST'           , 'LANDICE'     ,
@@ -396,7 +348,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_snowlayer.ref_time:   210000,
   geosgcm_snowlayer.regrid_name: 'PE2880x17280-CF'
   geosgcm_snowlayer.regrid_exch: 'tile.bin',
-  geosgcm_snowlayer.grid_label: PC720x361-DC
+  geosgcm_snowlayer.resolution: 2880 1441,
   geosgcm_snowlayer.fields:    'RHOSNOW'       , 'LANDICE'     ,
                                'TSNOW'         , 'LANDICE'     ,
                                'WSNOW'         , 'LANDICE'     ,
@@ -415,7 +367,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_moist.mode:      'time-averaged',
   geosgcm_moist.frequency:  240000,
   geosgcm_moist.ref_time:   210000,
-  geosgcm_moist.grid_label: PC720x361-DC
+  geosgcm_moist.resolution: 2880 1441,
   geosgcm_moist.vscale:     100.0,
   geosgcm_moist.vunit:     'hPa',
   geosgcm_moist.vvars:     'log(PLE)' , 'DYN'          ,
@@ -484,7 +436,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_turb.mode:      'time-averaged',
   geosgcm_turb.frequency:  240000,
   geosgcm_turb.ref_time:   210000,
-  geosgcm_turb.grid_label: PC720x361-DC
+  geosgcm_turb.resolution: 2880 1441,
   geosgcm_turb.vscale:     100.0,
   geosgcm_turb.vunit:     'hPa',
   geosgcm_turb.vvars:     'log(PLE)' , 'DYN'          ,
@@ -512,7 +464,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_gwd.mode:      'time-averaged',
   geosgcm_gwd.frequency:  240000,
   geosgcm_gwd.ref_time:   210000,
-  geosgcm_gwd.grid_label: PC720x361-DC
+  geosgcm_gwd.resolution: 2880 1441,
   geosgcm_gwd.vscale:     100.0,
   geosgcm_gwd.vunit:     'hPa',
   geosgcm_gwd.vvars:     'log(PLE)' , 'DYN'          ,
@@ -533,7 +485,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_tend.mode:      'time-averaged',
   geosgcm_tend.frequency:  240000,
   geosgcm_tend.ref_time:   210000,
-  geosgcm_tend.grid_label: PC720x361-DC
+  geosgcm_tend.resolution: 2880 1441,
   geosgcm_tend.vscale:     100.0,
   geosgcm_tend.vunit:     'hPa',
   geosgcm_tend.vvars:     'log(PLE)' , 'DYN'          ,
@@ -566,7 +518,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_budi.format:      'CFIO',
   geosgcm_budi.conservative: 1,
   geosgcm_budi.frequency:    010000,
-  geosgcm_budi.grid_label:   PC720x361-DC
+  geosgcm_budi.resolution:   720 361
   geosgcm_budi.fields:      'TQV'   , 'AGCM'  ,
                             'TQI'   , 'AGCM'  ,
                             'TQL'   , 'AGCM'  ,
@@ -580,7 +532,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_buda.mode:        'time-averaged',
   geosgcm_buda.conservative: 1,
   geosgcm_buda.frequency:    010000,
-  geosgcm_buda.grid_label:   PC720x361-DC
+  geosgcm_buda.resolution:   2880 1441,
   geosgcm_buda.fields:      'DMDTDYN'       , 'DYN'         , 'DMDTDYN'     ,
                             'DMDTANA'       , 'DYN'         , 'DMDTANA'     ,
                             'DMDT'          , 'PHYSICS'     , 'DMDTPHY'     ,
@@ -611,7 +563,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_iau.frequency:  240000,
   geosgcm_iau.ref_time:   210000,
   geosgcm_iau.duration:   000000,
-  geosgcm_iau.grid_label: PC720x361-DC
+  geosgcm_iau.resolution: 720 361
   geosgcm_iau.vscale:     100.0,
   geosgcm_iau.vunit:     'hPa',
   geosgcm_iau.vvars:     'log(PLE)' , 'DYN'          ,
@@ -690,9 +642,8 @@ PC11520x5761-DC.LM: 181
   geosgcm_all.format:    'CFIO',
   geosgcm_all.mode:      'time-averaged',
   geosgcm_all.frequency:  240000,
-  geosgcm_all.ref_time:   210000,
   geosgcm_all.duration:   000000,
-  geosgcm_all.grid_label: PC720x361-DC
+  geosgcm_all.resolution: 2880 1441,
   geosgcm_all.vscale:     100.0,
   geosgcm_all.vunit:     'hPa',
   geosgcm_all.vvars:     'log(PLE)' , 'DYN'          ,
@@ -822,7 +773,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_conv.archive:   '%c/Y%y4',
   geosgcm_conv.format:    'CFIO',
   geosgcm_conv.frequency:  010000,
-  geosgcm_conv.grid_label: PC720x361-DC
+  geosgcm_conv.resolution: 2880 1441,
   geosgcm_conv.fields:     'TQV'        , 'AGCM'     ,
                            'TQI'        , 'AGCM'     ,
                            'TQL'        , 'AGCM'     ,
@@ -847,7 +798,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_bud.mode:      'time-averaged',
   geosgcm_bud.frequency:  240000,
   geosgcm_bud.ref_time:   210000,
-  geosgcm_bud.grid_label: PC720x361-DC
+  geosgcm_bud.resolution: 2880 1441,
   geosgcm_bud.fields:    'PHIS'        , 'AGCM'          ,
                          'PS'          , 'DYN'           ,
                          'KEDYN'       , 'DYN'           ,
@@ -898,7 +849,7 @@ PC11520x5761-DC.LM: 181
   goswim_catch.ref_time:   210000,
   goswim_catch.regrid_name: 'PE2880x17280-CF'
   goswim_catch.regrid_exch: 'tile.bin',
-  goswim_catch.grid_label: PC720x361-DC,
+  goswim_catch.resolution: 2880 1441,
   goswim_catch.fields:    'SNDZN1'    , 'CATCH'      ,
 			  'SNDZN2'    , 'CATCH'      ,
 			  'SNDZN3'    , 'CATCH'      ,
@@ -928,7 +879,7 @@ PC11520x5761-DC.LM: 181
   goswim_land.mode:      'time-averaged',
   goswim_land.frequency:  240000,
   goswim_land.ref_time:   210000,
-  goswim_land.grid_label: PC720x361-DC,
+  goswim_land.resolution: 2880 1441,
   goswim_land.fields:	  'RDU001'  , 'SURFACE'       ,
  			  'RDU002'  , 'SURFACE'       ,
  			  'RDU003'  , 'SURFACE'       ,
@@ -957,7 +908,7 @@ PC11520x5761-DC.LM: 181
   goswim_landice.ref_time:   210000,
   goswim_landice.regrid_name: 'PE2880x17280-CF'
   goswim_landice.regrid_exch: 'tile.bin',
-  goswim_landice.grid_label: PC720x361-DC,
+  goswim_landice.resolution: 2880 1441,
   goswim_landice.fields:     'IRDU001' , 'LANDICE'       ,
 	                  'IRDU002' , 'LANDICE'       ,
 	                  'IRDU003' , 'LANDICE'       ,
@@ -981,7 +932,7 @@ PC11520x5761-DC.LM: 181
   tavg2d_aer_x.mode:       'time-averaged',
   tavg2d_aer_x.frequency:  240000,
   tavg2d_aer_x.ref_time:   210000,
-  tavg2d_aer_x.grid_label: PC720x361-DC
+  tavg2d_aer_x.resolution: 2880 1441,
   tavg2d_aer_x.fields:         'LWI'         , 'SURFACE'     ,
                                'TOTEXTTAU'   , 'GOCART'      ,
                                'TOTSCATAU'   , 'GOCART'      ,
@@ -1152,7 +1103,7 @@ PC11520x5761-DC.LM: 181
  tavg3d_aer_p.archive:    '%c/Y%y4',
  tavg3d_aer_p.frequency:  240000,
  tavg3d_aer_p.ref_time:   210000,
- tavg3d_aer_p.grid_label: PC720x361-DC
+ tavg3d_aer_p.resolution: 2880 1441,
  tavg3d_aer_p.mode:       'time-averaged',
  tavg3d_aer_p.vscale:     100.0,    
  tavg3d_aer_p.vunit:      'hPa',    
@@ -1175,7 +1126,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_tracer.mode:      'time-averaged',
   geosgcm_tracer.frequency:  010000,
   geosgcm_tracer.ref_time:   010000,
-  geosgcm_tracer.grid_label: PC720x361-DC
+  geosgcm_tracer.resolution: 2880 1441,
   geosgcm_tracer.vscale:     100.0,
   geosgcm_tracer.vunit:     'hPa',
   geosgcm_tracer.vvars:     'log(PLE)' , 'DYN'	  ,
@@ -1202,7 +1153,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_lidar.mode:      'time-averaged',
   geosgcm_lidar.frequency:  010000,
   geosgcm_lidar.ref_time:   210000,
-  geosgcm_lidar.grid_label: PC720x361-DC
+  geosgcm_lidar.resolution: 2880 1441,
   geosgcm_lidar.vunit:     'm',
   geosgcm_lidar.vvars:     'ZL' , 'DYN'          ,
   geosgcm_lidar.levels:    240 720 1200 1680 2160 2640 3120 3600 4080 4560 5040 5520 6000 6480 6960 7440 7920 8400 8880 9360 9840 10320 10800 11280 11760 12240 12720 13200 13680 14160 14640 15120 15600 16080 16560 17040 17520 18000 18480 18960,
@@ -1242,7 +1193,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_parasol.format:    'CFIO', 
   geosgcm_parasol.mode:      'time-averaged',
   geosgcm_parasol.frequency:  010000,
-  geosgcm_parasol.grid_label: PC720x361-DC
+  geosgcm_parasol.resolution: 2880 1441,
   geosgcm_parasol.ref_time:   210000,
   geosgcm_parasol.fields: 'PARASOLREFL1'      , 'SATSIM'    ,
                           'PARASOLREFL2'      , 'SATSIM'    ,
@@ -1257,7 +1208,7 @@ PC11520x5761-DC.LM: 181
   geosgcm_radar.mode:      'time-averaged',
   geosgcm_radar.frequency:  010000,
   geosgcm_radar.ref_time:   210000,
-  geosgcm_radar.grid_label: PC720x361-DC
+  geosgcm_radar.resolution: 2880 1441,
   geosgcm_radar.vunit:     'm',
   geosgcm_radar.vvars:     'ZL' , 'DYN'          ,
   geosgcm_radar.levels:    240 720 1200 1680 2160 2640 3120 3600 4080 4560 5040 5520 6000 6480 6960 7440 7920 8400 8880 9360 9840 10320 10800 11280 11760 12240 12720 13200 13680 14160 14640 15120 15600 16080 16560 17040 17520 18000 18480 18960
@@ -1297,7 +1248,7 @@ PC11520x5761-DC.LM: 181
  geosgcm_isccp.format:    'CFIO',
  geosgcm_isccp.mode:      'time-averaged',
  geosgcm_isccp.frequency:  010000,
- geosgcm_isccp.grid_label: PC720x361-DC
+ geosgcm_isccp.resolution: 2880 1441,
  geosgcm_isccp.ref_time:   210000,
  geosgcm_isccp.fields:    'SGFCLD'            , 'SATSIM'    ,
                           'TCLISCCP'          , 'SATSIM'    ,
@@ -1366,7 +1317,7 @@ PC11520x5761-DC.LM: 181
  geosgcm_modis.mode:      'time-averaged',
  geosgcm_modis.frequency:  010000,
  geosgcm_modis.ref_time:   210000,
- geosgcm_modis.grid_label: PC720x361-DC
+ geosgcm_modis.resolution: 2880 1441,
  geosgcm_modis.fields:    'TCLISCCP'          , 'SATSIM'    ,
                           'MDSCLDFRCTTL'      , 'SATSIM'    ,
                           'MDSCLDFRCWTR'      , 'SATSIM'    ,
@@ -1446,7 +1397,7 @@ PC11520x5761-DC.LM: 181
  geosgcm_misr.mode:      'time-averaged',
  geosgcm_misr.frequency:  010000,
  geosgcm_misr.ref_time:   210000,
- geosgcm_misr.grid_label: PC720x361-DC
+ geosgcm_misr.grid_label: 2880 1441,
  geosgcm_misr.fields:     'TCLISCCP'          , 'SATSIM'    ,
                           'MISRMNCLDTP'       , 'SATSIM'    ,
                           'MISRCLDAREA'       , 'SATSIM'    ,
@@ -1580,7 +1531,7 @@ PC11520x5761-DC.LM: 181
 
   const_2d_asm_Nx.format:      'CFIO' ,
   const_2d_asm_Nx.descr:       '2d,Constant,Time-invariant,Hi-Res Lat-Lon on Single-Level,Assimilation,Constant Model Parameters' ,
-  const_2d_asm_Nx.grid_label:  PC11520x5761-DC
+  const_2d_asm_Nx.resolution:   ,
   const_2d_asm_Nx.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
   const_2d_asm_Nx.mode:        'instantaneous' ,
   const_2d_asm_Nx.deflate:     0 ,
@@ -1597,7 +1548,7 @@ PC11520x5761-DC.LM: 181
 
   tavg_15mn_2d_flx_Nx.format:       'CFIO' ,
   tavg_15mn_2d_flx_Nx.descr:        '2d,1-Hourly,Time-Averaged,Hi-Res Lat-Lon on Single-Level,Assimilation,Surface Flux Diagnostics' ,
-  tavg_15mn_2d_flx_Nx.grid_label:  PC11520x5761-DC
+  tavg_15mn_2d_flx_Nx.grid_label:  11520 5761,
   tavg_15mn_2d_flx_Nx.timestampEnd: '.true.',
   tavg_15mn_2d_flx_Nx.nbits:        12 ,
   tavg_15mn_2d_flx_Nx.deflate:      0,
@@ -1647,7 +1598,7 @@ PC11520x5761-DC.LM: 181
 
   inst_15mn_2d_prs_Nx.format:      'CFIO' ,
   inst_15mn_2d_prs_Nx.descr:       '2d,1-Hourly,Instantaneous,Hi-Res Lat-Lon on Select-Pressure-Levels,Assimilation,Select-Pressure-Level Diagnostics' ,
-  inst_15mn_2d_prs_Nx.grid_label:  PC11520x5761-DC
+  inst_15mn_2d_prs_Nx.resolution:  11520 5761,
   inst_15mn_2d_prs_Nx.nbits:       12 ,
   inst_15mn_2d_prs_Nx.deflate:     0,
   inst_15mn_2d_prs_Nx.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
@@ -1665,7 +1616,7 @@ PC11520x5761-DC.LM: 181
 
   inst_15mn_2d_asm_Nx.format:      'CFIO' ,
   inst_15mn_2d_asm_Nx.descr:       '2d,1-Hourly,Instantaneous,Hi-Res Lat-Lon on Single-Level,Assimilation,Single-Level Diagnostics' ,
-  inst_15mn_2d_asm_Nx.grid_label:  PC11520x5761-DC
+  inst_15mn_2d_asm_Nx.resolution:  11520 5761,
   inst_15mn_2d_asm_Nx.nbits:       12,
   inst_15mn_2d_asm_Nx.deflate:     0,
   inst_15mn_2d_asm_Nx.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
