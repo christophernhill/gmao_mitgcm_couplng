@@ -1,9 +1,9 @@
-VERSION: 1
-EXPID:  DYAMONDv2_c2880_L181
-EXPDSC: GEOS_DYAMOND_Phase_II_Atm_c2880_L181
-EXPSRC: GEOSgcm-v10.14.1
-ServerSizeSplit: 81
-CollectionWriteSplit: 7
+VERSION:
+EXPID:  DYAMOND_c1440_llc2160
+EXPDSC: DYAMOND_c1440_llc2160
+EXPSRC: Heracles-5_3
+ServerSizeSplit:
+CollectionWriteSplit:
 
 COLLECTIONS:
 ##           'geosgcm_fcst'
@@ -1654,6 +1654,7 @@ PC11520x5761-DC.LM: 181
   inst_15mn_2d_prs_Nx.mode:        'instantaneous' ,
   inst_15mn_2d_prs_Nx.frequency:   001500 ,
   inst_15mn_2d_prs_Nx.duration:    001500 ,
+  inst_15mn_2d_prs_Nx.vscale:      100.0,
   inst_15mn_2d_prs_Nx.vunit:       'hPa',
   inst_15mn_2d_prs_Nx.vvars:       'log(PLE)'  , 'DYN'      ,
   inst_15mn_2d_prs_Nx.levels:      850 700 500 200,
@@ -2215,6 +2216,7 @@ PC11520x5761-DC.LM: 181
   inst_15mn_2d_prs_Mx.mode:        'instantaneous' ,
   inst_15mn_2d_prs_Mx.frequency:   001500 ,
   inst_15mn_2d_prs_Mx.duration:    001500 ,
+  inst_15mn_2d_prs_Mx.vscale:      100.0,
   inst_15mn_2d_prs_Mx.vunit:       'hPa',
   inst_15mn_2d_prs_Mx.vvars:       'log(PLE)'  , 'DYN'      ,
   inst_15mn_2d_prs_Mx.levels:      850 700 500 200 ,
