@@ -55,7 +55,7 @@ doing_GMI: no   # &YesNo GMI chemistry (GEOS-5)
 doing_XX:  no   # &YesNo generic tracer
 doing_PC:  yes  # parameterized chemistry (GEOS-5)
 doing_OCS: no   # ACHEM chemistry (OCS)
-doing_TR:  yes  # &YesNo run passive tracers?
+doing_TR:  no   # &YesNo run passive tracers?
 
 # You can select the number of bins (e.g., particle size)
 # for each of the constituents. Note nbins>1 may not be
@@ -63,7 +63,7 @@ doing_TR:  yes  # &YesNo run passive tracers?
 # ----------------------------------------------------
 nbins_H2O:  1   # water vapor
 nbins_O3:   1   # ozone
-nbins_CO:  10   # carbon monoxide
+nbins_CO:   1   # carbon monoxide
 nbins_CO2:  1   # carbon dioxide
 nbins_DU:   5   # mineral dust
 nbins_SS:   5   # sea salt
@@ -119,15 +119,6 @@ variable_table_CO::
 # Name     Units        Long Name
 # -----    ------       --------------------------------
 CO         'mol mol-1'  Carbon Monoxide (All Sources)
-COBBAE     'mol mol-1'  CO Asia and Europe Biomass Burning
-COBBNA     'mol mol-1'  CO North America Biomass Burning
-COBBLA     'mol mol-1'  CO Central and South America Biomass Burning
-COBBAF     'mol mol-1'  CO Africa Biomass Burning
-COBBGL     'mol mol-1'  CO Global Biomass Burning
-CONBAS     'mol mol-1'  CO Asia Non-Biomass Burning
-CONBNA     'mol mol-1'  CO North American Non-Biomass Burning
-CONBEU     'mol mol-1'  CO European Non-Biomass Burning
-CONBGL     'mol mol-1'  CO Global Non-Biomass Burning
 ::
 
 variable_table_CO2::

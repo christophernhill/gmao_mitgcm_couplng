@@ -108,7 +108,7 @@ C     from below and above in seaice_evp: not necessary, and not recommended
 # endif /* SEAICE_ALLOW_EVP */
 C     smooth regularization (without max-function) of delta for
 C     better differentiability
-# undef SEAICE_DELTA_SMOOTHREG
+# define SEAICE_DELTA_SMOOTHREG
 C     regularize zeta to zmax with a smooth tanh-function instead
 C     of a min(zeta,zmax). This improves convergence of iterative
 C     solvers (Lemieux and Tremblay 2009, JGR). No effect on EVP
@@ -121,12 +121,12 @@ C     more than made up by the much faster code on vector machines. For
 C     the only regularly test vector machine these flags a specified
 C     in the build options file SUPER-UX_SX-8_sxf90_awi, so that we comment
 C     them out here.
-# undef SEAICE_VECTORIZE_LSR
+# define SEAICE_VECTORIZE_LSR
 C     Use zebra-method (alternate lines) for line-successive-relaxation
 C     This modification improves the convergence of the vector code
 C     dramatically, so that is may actually be useful in general, but
 C     that needs to be tested. Can be used without vectorization options.
-# undef SEAICE_LSR_ZEBRA
+# define SEAICE_LSR_ZEBRA
 C     Use parameterisation of grounding ice for a better representation
 C     of fastice in shallow seas
 # undef SEAICE_ALLOW_BOTTOMDRAG

@@ -1,32 +1,18 @@
 # SEAICE parameters
  &SEAICE_PARM01
   usePW79thermodynamics= .FALSE.,
-# SEAICEuseDYNAMICS = .FALSE.,
-# SEAICEupdateOceanStress=.FALSE.,
-# SEAICEadvHeff  = .FALSE.,
-# SEAICEadvArea  = .FALSE.,
-# SEAICEadvSnow  = .FALSE.,
-# SEAICEadvSalt  = .FALSE.,
-#--
+#
   SEAICE_strength    = 2.6780e+04,
   OCEAN_drag         = 8.1541e-04,
   SEAICE_waterDrag   = 5.169855072463768E-3,
-#- old defaults
-  SEAICEscaleSurfStress = .FALSE.,
-  SEAICEaddSnowMass     = .FALSE.,
-  SEAICE_useMultDimSnow = .FALSE.,
-  SEAICE_Olx = 0,
-  SEAICE_Oly = 0,
-  SEAICEetaZmethod = 0,
   SEAICE_drag = 2.E-3,
-#--
-  SEAICE_no_Slip     = .FALSE.,
-  LSR_ERROR          = 1.E-4,
-  SEAICElinearIterMax=  500,
-# LSR_mixIniGuess    = 1,
+#
+  LSR_ERROR          = 1.E-5,
+  SEAICElinearIterMax=  200,
+  SEAICEnonLinIterMax = 10,
+  SEAICEuseStrImpCpl=.TRUE.,
   SEAICEadvScheme    = 7,
   SEAICEwriteState   = .FALSE.,
-# SEAICE_monFreq = 1800.,
  &
 
  &SEAICE_PARM03
