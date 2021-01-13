@@ -130,7 +130,7 @@ dataFieldDepth_t fieldDepths[] = {
 
    { 'E', 1 },
    { 'F', 1 },
-// { 'G', 1 },
+   { 'G', 1 },
    { 'H', 1 },
    { 'I', 1 },
    { 'J', 1 },
