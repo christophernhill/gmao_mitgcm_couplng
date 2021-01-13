@@ -1,5 +1,6 @@
 #include "PACKAGES_CONFIG.h"
 #include "CPP_OPTIONS.h"
+#include "SEAICE_OPTIONS.h"
 
 #undef  MULTIPLE_RECORD_STATE_FILES
 
@@ -170,9 +171,10 @@ C         easier to transfer analyse a particular snap-shots
 
         CALL ASYNCIO_WRITE_FLD_XY_RL('N',suff,etaN,iCounter,myThid)
 
-        CALL ASYNCIO_WRITE_FLD_XY_RL('B',suff,AREA,iCounter,myThid)
-        CALL ASYNCIO_WRITE_FLD_XY_RL('C',suff,HEFF,iCounter,myThid)
-        CALL ASYNCIO_WRITE_FLD_XY_RL('D',suff,HSNOW,iCounter,myThid)
+        CALL ASYNCIO_WRITE_FLD_XYM_RL('A',suff,TICES,iCounter,myThid)
+        CALL ASYNCIO_WRITE_FLD_XYM_RL('B',suff,AREAITD,iCounter,myThid)
+        CALL ASYNCIO_WRITE_FLD_XYM_RL('C',suff,HEFFITD,iCounter,myThid)
+        CALL ASYNCIO_WRITE_FLD_XYM_RL('D',suff,HSNOWITD,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('E',suff,UICE,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('F',suff,VICE,iCounter,myThid)
       !!CALL ASYNCIO_WRITE_FLD_XY_RL('G',suff,HSALT,iCounter,myThid)
