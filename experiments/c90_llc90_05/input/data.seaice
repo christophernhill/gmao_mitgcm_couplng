@@ -24,7 +24,7 @@
   LSR_ERROR          = 1.E-4,
   SEAICElinearIterMax=  500,
 # LSR_mixIniGuess    = 1,
-  SEAICEadvScheme    = 77,
+  SEAICEadvScheme    = 7,
   SEAICEwriteState   = .FALSE.,
 # SEAICE_monFreq = 1800.,
  &
