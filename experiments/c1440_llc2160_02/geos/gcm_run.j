@@ -509,8 +509,6 @@ if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh
 $RUN_CMD $NPES ./GEOSgcm.x
 if( $USE_SHMEM == 1 ) ../RmShmKeys_sshmpi.csh
 
-exit
-
 if( -e EGRESS ) then
    set rc = 0
 else
