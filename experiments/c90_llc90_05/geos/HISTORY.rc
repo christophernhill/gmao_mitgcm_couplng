@@ -637,7 +637,6 @@ COLLECTIONS:
 
   tavg_15mn_2d_flx_Nx.format:       'CFIO' ,
   tavg_15mn_2d_flx_Nx.descr:        '2d,1-Hourly,Time-Averaged,Hi-Res Lat-Lon on Single-Level,Assimilation,Surface Flux Diagnostics' ,
-  tavg_15mn_2d_flx_Nx.grid_label:  11520 5761,
   tavg_15mn_2d_flx_Nx.timestampEnd: '.true.',
   tavg_15mn_2d_flx_Nx.nbits:        12 ,
   tavg_15mn_2d_flx_Nx.deflate:      0,
