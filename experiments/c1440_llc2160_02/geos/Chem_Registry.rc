@@ -55,7 +55,7 @@ doing_GMI: no   # &YesNo GMI chemistry (GEOS-5)
 doing_XX:  no   # &YesNo generic tracer
 doing_PC:  yes  # parameterized chemistry (GEOS-5)
 doing_OCS: no   # ACHEM chemistry (OCS)
-doing_TR:  no   # &YesNo run passive tracers?
+doing_TR:  yes   # &YesNo run passive tracers?
 
 # You can select the number of bins (e.g., particle size)
 # for each of the constituents. Note nbins>1 may not be
@@ -79,7 +79,7 @@ nbins_XX:  51   # generic tracer
 nbins_PC:   1   # parameterized chemistry (GEOS-5)
 nbins_GMI: 72   # GMI chemistry (GEOS-5)
 nbins_OCS:  1   # ACHEM chemistry (OCS)
-nbins_TR:   4   # passive tracers
+nbins_TR:   1   # passive tracers
 
 # Units for each constituent
 # --------------------------
@@ -407,15 +407,6 @@ variable_table_TR::
 # Name     Units        Long Name
 # -----    ------       --------------------------------
 aoa          days       Age of air (uniform source) tracer
-e90       'mol mol-1'   Constant emission 90 day tracer
-Rn222     'mol mol-1'   Radon-222
-CH3I      'mol mol-1'   Methyl iodide
-Pb210     'mol mol-1'   Lead-210
-st80_25   'mol mol-1'   Stratosphere source 25 day tracer
-CO_50_na  'mol mol-1'   Anthro CO North America 50 day tracer
-SF6       'mol mol-1'   Sulfur Hexafluoride tracer
-Be7       'mol mol-1'   Beryllium radionuclide 7(Be)
-Be10      'mol mol-1'   Beryllium radionuclide 10(Be)
 ::
 
 

@@ -1,9 +1,0 @@
-# Packages
- &PACKAGES
- useCAL         = .TRUE.,
- useSEAICE      = .TRUE.,
- useKPP         = .TRUE.,
- useFRAZIL      = .TRUE.,
- useTIDES       = .TRUE.,
- useMYPACKAGE   = .TRUE.,
- &
