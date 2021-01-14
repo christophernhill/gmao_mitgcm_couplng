@@ -123,7 +123,7 @@ COLLECTIONS:
 #Duplicate                          'FRLANDICE', 'SURFACE'       ,
 #Duplicate                          'FRLAKE'   , 'SURFACE'       ,
                           'FRACI'    , 'SURFACE'       , 'FRSEAICE' ,
-FROCEAN                          'FROCEAN'  , 'SURFACE'       ,
+#Duplicate                          'FROCEAN'  , 'SURFACE'       ,
                           'USTAR'    , 'SURFACE'       ,
                           'Z0'       , 'SURFACE'       ,
                           'Z0H'      , 'SURFACE'       ,
