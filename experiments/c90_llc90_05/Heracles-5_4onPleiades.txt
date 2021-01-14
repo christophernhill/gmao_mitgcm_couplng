@@ -32,7 +32,9 @@
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05
  mkdir build; cd build; rm *
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
+ cp ../code/SIZE.h .
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../../c1440_llc2160_02/code -mpi \
+   -of ../../c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
