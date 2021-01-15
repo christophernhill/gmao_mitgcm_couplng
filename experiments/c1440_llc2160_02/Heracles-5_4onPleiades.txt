@@ -106,7 +106,7 @@
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
  ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49/* . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_58/*_rst . &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
