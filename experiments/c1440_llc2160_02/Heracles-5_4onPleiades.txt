@@ -111,6 +111,6 @@
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
- chmod u+w *_rst
  $GMAO_MITGCM_COUPLNG/utils/Killall
+ chmod u+w *_rst
  ./gcm_run.j |&  tee gcm_run.out
