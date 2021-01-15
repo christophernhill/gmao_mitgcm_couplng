@@ -44,10 +44,10 @@
  ./mk_local ../../experiments/c90_llc90_05/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
  rm code
- ln -s ../experiments/c1440_llc2160_02/code .
  cd build
  rm *.a *.c *.f *.h *.o *.F
- cp ../experiments/c90_llc90_05/code/SIZE.h .
+ cp ../../experiments/c1440_llc2160_02/code/* .
+ cp ../../experiments/c90_llc90_05/code/SIZE.h .
 
 # Build coupled GEOS-5 + MITgcm.
  cd $ESMADIR/src
