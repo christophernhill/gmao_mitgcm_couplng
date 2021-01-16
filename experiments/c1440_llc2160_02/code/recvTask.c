@@ -63,6 +63,7 @@ char (*allHostnames)[HOST_NAME_MAX+1]  = NULL;
 // a node, and use that.  (N.B.: we assume *all* nodes being used in
 // the run have the *same* number of MPI processes on each.)
 int numRanksPerNode = 0;
+int NumCoresRootNode = 0; // Number of cores on the root node; if 0; assume fully loaded
 
 // Just an error check; can be zero (if you're confident it's all correct).
 #define  numCheckBits  2
@@ -1564,6 +1565,13 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
     // Figure out if this rank is on a node that will do i/o.
     // Note that the i/o nodes are distributed throughout the
     // task, not clustered together.
+
+    // the next if-block accounts for possibility for "ragged" root compute node
+    if (NumCoresRootNode > 0) {
+      if (commRank >= (numRanksPerNode+NumCoresRootNode)) {
+ 	commRank += numRanksPerNode - NumCoresRootNode;
+      }
+    }
     int thisRankNode = commRank / numRanksPerNode;
 
     int ioNodeStride = totalNumNodes / numIONodes;
