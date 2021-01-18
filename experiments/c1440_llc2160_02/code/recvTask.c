@@ -1568,12 +1568,14 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
 
     // the next if-block accounts for possibility for "ragged" root compute node
     if (NumCoresRootNode > 0) {
-      if (commRank >= (numRanksPerNode+NumCoresRootNode)) {
- 	commRank += numRanksPerNode - NumCoresRootNode;
+      if (commRank >= (numIONodes*numRanksPerNode+NumCoresRootNode)) {
+ 	commRank += numIONodes*numRanksPerNode - NumCoresRootNode;
       }
     }
     int thisRankNode = commRank / numRanksPerNode;
 
+    return (thisRankNode < numIONodes);
+    /*
     int ioNodeStride = totalNumNodes / numIONodes;
     int extra = totalNumNodes % numIONodes;
 
@@ -1583,6 +1585,7 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
     } else {
         return ((thisRankNode - inflectionPoint) % ioNodeStride) == 0;
     }
+    */
 
 }
 
@@ -2010,7 +2013,10 @@ f1(
                     // compute node
                     for (j = 0; j < numRanksPerNode; ++j) {
                         if ((i*numRanksPerNode + j) >= (numComputeRanks + numIORanks)) break;
-                        ASSERT(-1 == rankAssignments[i*numRanksPerNode + j]);
+                        if(-1 != rankAssignments[i*numRanksPerNode + j]) {
+			  printf("ERROR at i=%d j=%d\n",i,j);
+			}
+//                        ASSERT(-1 == rankAssignments[i*numRanksPerNode + j]);
                     }
                     printf(" #");
                     for (; j < numRanksPerNode; ++j) {  // "excess" ranks (if any)
