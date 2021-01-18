@@ -1734,9 +1734,14 @@ f1(
     // a node to have either all compute ranks, or all i/o ranks.
     // If numComputeRanks does not evenly divide numRanksPerNode, we have
     // to round up in favor of the compute side.
-
-    totalNumNodes = divCeil(parentSize, numRanksPerNode);
-    numComputeNodes = divCeil(numComputeRanks, numRanksPerNode);
+    int idleCPUsOnRootNode;
+    idleCPUsOnRootNode = 0;
+    if (NumCoresRootNode != 0) {
+      idleCPUsOnRootNode=numRanksPerNode-numRanksPerNode;
+    }
+    
+    totalNumNodes = divCeil(parentSize+idleCPUsOnRootNode, numRanksPerNode);
+    numComputeNodes = divCeil(numComputeRanks+idleCPUsOnRootNode, numRanksPerNode);
     numIONodes = (parentSize - numComputeRanks) / numRanksPerNode;
     ASSERT(numIONodes > 0);
     ASSERT(numIONodes <= (totalNumNodes - numComputeNodes));
@@ -2013,10 +2018,7 @@ f1(
                     // compute node
                     for (j = 0; j < numRanksPerNode; ++j) {
                         if ((i*numRanksPerNode + j) >= (numComputeRanks + numIORanks)) break;
-                        if(-1 != rankAssignments[i*numRanksPerNode + j]) {
-			  printf("ERROR at i=%d j=%d\n",i,j);
-			}
-//                        ASSERT(-1 == rankAssignments[i*numRanksPerNode + j]);
+                        ASSERT(-1 == rankAssignments[i*numRanksPerNode + j]);
                     }
                     printf(" #");
                     for (; j < numRanksPerNode; ++j) {  // "excess" ranks (if any)
