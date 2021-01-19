@@ -1569,7 +1569,7 @@ isIORank(int commRank, int totalNumNodes, int numIONodes)
     // the next if-block accounts for possibility for "ragged" root compute node
     if (NumCoresRootNode > 0) {
       if (commRank >= (numIONodes*numRanksPerNode+NumCoresRootNode)) {
- 	commRank += numIONodes*numRanksPerNode - NumCoresRootNode;
+ 	commRank += numRanksPerNode - NumCoresRootNode;
       }
     }
     int thisRankNode = commRank / numRanksPerNode;
@@ -1737,7 +1737,7 @@ f1(
     int idleCPUsOnRootNode;
     idleCPUsOnRootNode = 0;
     if (NumCoresRootNode != 0) {
-      idleCPUsOnRootNode=numRanksPerNode-numRanksPerNode;
+      idleCPUsOnRootNode=numRanksPerNode-NumCoresRootNode;
     }
     
     totalNumNodes = divCeil(parentSize+idleCPUsOnRootNode, numRanksPerNode);
@@ -1753,11 +1753,20 @@ f1(
     if (0 == parentRank) {
         printf ("\n%d total nodes,  %d i/o,  %d compute\n",
                 totalNumNodes, numIONodes, numComputeNodes);
-        for (i = 0;  i < parentSize;  i += numRanksPerNode) {
+	int first = 1;
+        for (i = 0;  i < parentSize; ) {
             if (isIORank (i, totalNumNodes, numIONodes)) {
                 printf ("\n(%s)", &(allHostnames[i][0]));
+		i += numRanksPerNode;
             } else {
                 printf (" %s", &(allHostnames[i][0]));
+		if (first == 0) {
+		  i += numRanksPerNode;
+		}
+		else {
+		  first = 0;
+		  i += NumCoresRootNode;
+		}
             }
         }
         printf ("\n\n");
@@ -1984,6 +1993,7 @@ f1(
             int whichIONode = -1;
             for (i = 0; i < numComputeNodes + numIONodes ; ++i) {
 
+	      if (i*numRanksPerNode >= numComputeRanks + numIORanks) break;
                 if (rankAssignments[i*numRanksPerNode] >= 0) {
 
                     // i/o node
