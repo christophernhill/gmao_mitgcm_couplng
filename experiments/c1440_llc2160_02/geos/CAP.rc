@@ -27,4 +27,5 @@ PRINTSPEC: 0  # (0: OFF, 1: IMPORT & EXPORT, 2: IMPORT, 3: EXPORT)
 
 USE_IOSERVER: 1
 USE_SHMEM: 1
-NASYNC: 2 # (nodes to use for MITgcm asyncio)
+NASYNC: 3 # (nodes to use for MITgcm asyncio)
+NUM_CORES_ON_ROOT_NODE: 16

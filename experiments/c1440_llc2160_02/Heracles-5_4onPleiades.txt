@@ -33,7 +33,7 @@
  cp /nobackup/dmenemen/forcing/SPICE/lib/libspice.a $ESMADIR/Linux/lib
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
+# Note: for testing purpose, genmake2 is used with "-ieee" option to disable compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02
  mkdir build; cd build; rm *
@@ -77,9 +77,9 @@
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
 # Enter the GOCART Emission Files to use: OPS <<<<<
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
+# Enter Desired Location for HOME: /nobackupp11/dmenemen/DYAMOND/geos5/TEST
+# Enter Desired Location for EXPERIMENT: /nobackupp11/dmenemen/DYAMOND/geos5/TEST
+# Enter Location for Build directory: /nobackupp11/dmenemen/DYAMOND/geos5/GEOSodas
 # Enter your GROUP ID for Current EXP: g26209
 
 # Populate the mit_input directory
@@ -94,6 +94,7 @@
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
+ cp HISTORY.rc_udi HISTORY.rc
  mv *Registry.rc RC
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01

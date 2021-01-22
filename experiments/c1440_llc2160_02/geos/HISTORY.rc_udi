@@ -23,7 +23,7 @@ COLLECTIONS:
              'inst_01hr_3d_V_Mv'
              'inst_01hr_3d_W_Mv'
 #             'inst_01hr_3d_H_Mv'
-             'inst_01hr_3d_DELP_Mv'
+#             'inst_01hr_3d_DELP_Mv'
              'inst_01hr_3d_P_Mv'
              'inst_01hr_3d_T_Mv'
              'inst_01hr_3d_OMEGA_Mv'
