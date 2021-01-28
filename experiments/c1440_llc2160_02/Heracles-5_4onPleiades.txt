@@ -20,7 +20,8 @@
 # git checkout checkpoint_0_Z
  
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q R10236203 -l select=204:ncpus=40:model=cas_ait
+# qsub -I -q R10236203 -l select=204:ncpus=40:model=cas_ait
+ qsub -I -q R10462302 -l select=340:ncpus=24:model=has
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
 
@@ -83,7 +84,9 @@
 # Enter your GROUP ID for Current EXP: g26209
 
 # Populate the mit_input directory
- cd $WorkingDir/TEST
+ cd $WorkingDir
+ lfs setstripe -c 36 TEST
+ cd TEST
  mkdir mit_input
  cd mit_input
  ln -sf /nobackup/dmenemen/tarballs/llc_2160/run_template/tile00?.mitgrid .
@@ -94,7 +97,6 @@
  cd $WorkingDir/TEST
  cp $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
- cp HISTORY.rc_udi HISTORY.rc
  mv *Registry.rc RC
 
 # Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
@@ -107,11 +109,28 @@
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
  ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_58/*_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/catch_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/gocart_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/irrad_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/lake_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/landice_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/moist_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/moist_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/orad_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/pchem_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/saltwater_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/saltwater_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/solar_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/surf_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/tr_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/tr_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/turb_import_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/turb_internal_rst . &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_llc2160/TEST_65_GlobalCooling/restarts/RESTART.e20200124_21z/fvcore_internal_rst . &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
- $GMAO_MITGCM_COUPLNG/utils/Killall
+ $GMAO_MITGCM_COUPLNG/utils/Killall |& tee Killall.out
  chmod u+w *_rst
  ./gcm_run.j |&  tee gcm_run.out
