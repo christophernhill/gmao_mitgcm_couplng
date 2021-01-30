@@ -947,6 +947,8 @@ COLLECTIONS:
                                 'TQV'       , 'AGCM'     ,
                                 'TQI'       , 'AGCM'     ,
                                 'TQL'       , 'AGCM'     ,
+                                'TQR'       , 'MOIST'     ,
+                                'TQS'       , 'MOIST'     ,
                                 'CWP'       , 'MOIST'    ,
                                 'LWP'       , 'MOIST'    ,
                                 'IWP'       , 'MOIST'    ,
