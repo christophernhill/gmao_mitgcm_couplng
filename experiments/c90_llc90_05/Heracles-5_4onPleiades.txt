@@ -15,7 +15,7 @@
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q long -l select=11:ncpus=40:model=sky_ele,walltime=120:00:00 -m abe
+ qsub -I -q long -l select=16:ncpus=28:model=bro,walltime=120:00:00 -m abe
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/c90_llc90_05
 
@@ -75,9 +75,9 @@
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
 # Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST       (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR            (spell out $ESMADIR)
+# Enter Desired Location for HOME: /nobackupp11/dmenemen/DYAMOND/c90_llc90_05/TEST
+# Enter Desired Location for EXPERIMENT: /nobackupp11/dmenemen/DYAMOND/c90_llc90_05/TEST
+# Enter Location for Build directory: /nobackupp11/dmenemen/DYAMOND/c90_llc90_05/GEOSodas
 # Enter your GROUP ID for Current EXP: g26209
 
 # Populate the mit_input directory
@@ -93,7 +93,7 @@
  cd $WorkingDir/TEST
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* . 
  mv RC RC_c90
- cp -r /nobackupp11/dmenemen/DYAMOND/geos5/TEST/RC .
+ cp -r /nobackupp11/dmenemen/DYAMOND/geos5/TEST_58/RC .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/geos/* .
 
