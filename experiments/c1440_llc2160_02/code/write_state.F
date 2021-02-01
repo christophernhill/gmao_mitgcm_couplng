@@ -179,6 +179,7 @@ C         easier to transfer analyse a particular snap-shots
         CALL ASYNCIO_WRITE_FLD_XY_RL('F',suff,VICE,iCounter,myThid)
       !!CALL ASYNCIO_WRITE_FLD_XY_RL('G',suff,HSALT,iCounter,myThid)
 
+        IF ( myIter.NE.nIter0 ) THEN
       !!CALL ASYNCIO_WRITE_FLD_XY_RL('H',suff,etaHnm1,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('I',suff,fu,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('J',suff,fv,iCounter,myThid)
@@ -189,6 +190,8 @@ C         easier to transfer analyse a particular snap-shots
         CALL ASYNCIO_WRITE_FLD_XY_RL('P',suff,phiHydLow,iCounter,myThid)
         CALL ASYNCIO_WRITE_FLD_XY_RL('Q',suff,Qsw,iCounter,myThid)
       !!CALL ASYNCIO_WRITE_FLD_XY_RL('R',suff,dEtaHdt,iCounter,myThid)
+        ENDIF
+
         call timer_stop('asyncio   ',myThid)
 
 ch        call timer_start('as usual i/o',myThid)

@@ -85,7 +85,7 @@
 
 # Populate the mit_input directory
  cd $WorkingDir
- lfs setstripe -c 36 TEST
+ lfs setsripe -S 32M -c 16 TEST
  cd TEST
  mkdir mit_input
  cd mit_input
@@ -99,7 +99,7 @@
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  mv *Registry.rc RC
 
-# Get GEOS-5 boundary conditions for experiments/c1440_llc2160_01
+# Get initial GEOS-5 boundary conditions for experiments/c1440_llc2160_02
  cd $WorkingDir/TEST
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/topo*data .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/runoff_new.bin .
@@ -108,25 +108,14 @@
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/*_clim_c1440.data .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/mit-llc2160-72x72.bin .
  ln -sf /nobackup/estrobac/geos5/c1440_llc2160_04/CF1440x6C_LL559872xLL0072-Pfafstetter.til .
- ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/vegdyn.data . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/catch_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/gocart_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/irrad_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/lake_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/landice_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/moist_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/moist_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/orad_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/pchem_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/saltwater_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/saltwater_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/solar_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/surf_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/tr_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/tr_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/turb_import_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/TEST_49_end/turb_internal_rst . &
- cp /nobackupp11/dmenemen/DYAMOND/c1440_llc2160/TEST_65_GlobalCooling/restarts/RESTART.e20200124_21z/fvcore_internal_rst . &
+ ln -sf /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_merra2/vegdyn.data .
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_merra2/catch_internal_rst.20200119_21z.bin catch_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_merra2/lake_internal_rst.20200119_21z.bin lake_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_merra2/landice_internal_rst.20200119_21z.bin landice_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_S2S/fvcore_internal_rst_c1440_072L fvcore_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_S2S/gocart_internal_rst_c1440_072L gocart_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/IC_from_S2S/moist_internal_rst_c1440_072L moist_internal_rst &
+ cp /nobackupp11/dmenemen/DYAMOND/c1440_IC/SaltWater/saltwater_internal_rst-mit_inserted-llc2160 saltwater_internal_rst &
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"

@@ -29,12 +29,9 @@ COLLECTIONS:
              'inst_01hr_3d_T_Mv'
 #DM Only needed @ 4 levels, part of inst_15mn_2d_prs_Mx
 #DM             'inst_01hr_3d_OMEGA_Mv'
-#DM These should be vertically-integrated
-#DM             'inst_15mn_3d_QV_Mv'
-#DM             'inst_15mn_3d_QI_Mv'
-#DM             'inst_15mn_3d_QL_Mv'
-#DM             'inst_15mn_3d_QR_Mv'
-#DM             'inst_15mn_3d_QS_Mv'
+             'inst_01hr_3d_QV_Mv'
+             'inst_01hr_3d_QL_Mv'
+             'inst_01hr_3d_QI_Mv'
              'inst_01hr_3d_RI_Mv'
              'inst_01hr_3d_RL_Mv'
              'inst_01hr_3d_FCLD_Mv'
@@ -633,69 +630,43 @@ COLLECTIONS:
   inst_01hr_3d_T_Mv.fields:      'T'    , 'DYN'        ,
                              ::
 
-  inst_15mn_3d_QV_Mv.format:      'CFIOasync' ,
-  inst_15mn_3d_QV_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QV Meteorological Field' ,
-  inst_15mn_3d_QV_Mv.nbits:       12 ,
-  inst_15mn_3d_QV_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
-  inst_15mn_3d_QV_Mv.mode:        'instantaneous' ,
-  inst_15mn_3d_QV_Mv.levels:      'levels.center',
-  inst_15mn_3d_QV_Mv.deflate:     0,
-  inst_15mn_3d_QV_Mv.cubeFormat:  0,
-  inst_15mn_3d_QV_Mv.frequency:   001500 ,
-  inst_15mn_3d_QV_Mv.duration:    001500 ,
-  inst_15mn_3d_QV_Mv.fields:      'Q'    , 'MOIST'  , 'QV' , 
+  inst_01hr_3d_QV_Mv.format:      'CFIOasync' ,
+  inst_01hr_3d_QV_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QV Meteorological Field' ,
+  inst_01hr_3d_QV_Mv.nbits:       12 ,
+  inst_01hr_3d_QV_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
+  inst_01hr_3d_QV_Mv.mode:        'instantaneous' ,
+  inst_01hr_3d_QV_Mv.levels:      'levels.center',
+  inst_01hr_3d_QV_Mv.deflate:     0,
+  inst_01hr_3d_QV_Mv.cubeFormat:  0,
+  inst_01hr_3d_QV_Mv.frequency:   010000 ,
+  inst_01hr_3d_QV_Mv.duration:    010000 ,
+  inst_01hr_3d_QV_Mv.fields:      'Q'    , 'MOIST'  , 'QV' , 
                              ::
 
-  inst_15mn_3d_QL_Mv.format:      'CFIOasync' ,
-  inst_15mn_3d_QL_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QL Meteorological Field' ,
-  inst_15mn_3d_QL_Mv.nbits:       12 ,
-  inst_15mn_3d_QL_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
-  inst_15mn_3d_QL_Mv.mode:        'instantaneous' ,
-  inst_15mn_3d_QL_Mv.levels:      'levels.center',
-  inst_15mn_3d_QL_Mv.deflate:     0,
-  inst_15mn_3d_QL_Mv.cubeFormat:  0,
-  inst_15mn_3d_QL_Mv.frequency:   001500 ,
-  inst_15mn_3d_QL_Mv.duration:    001500 ,
-  inst_15mn_3d_QL_Mv.fields:      'QLTOT', 'AGCM'  , 'QL' ,
+  inst_01hr_3d_QL_Mv.format:      'CFIOasync' ,
+  inst_01hr_3d_QL_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QL Meteorological Field' ,
+  inst_01hr_3d_QL_Mv.nbits:       12 ,
+  inst_01hr_3d_QL_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
+  inst_01hr_3d_QL_Mv.mode:        'instantaneous' ,
+  inst_01hr_3d_QL_Mv.levels:      'levels.center',
+  inst_01hr_3d_QL_Mv.deflate:     0,
+  inst_01hr_3d_QL_Mv.cubeFormat:  0,
+  inst_01hr_3d_QL_Mv.frequency:   010000 ,
+  inst_01hr_3d_QL_Mv.duration:    010000 ,
+  inst_01hr_3d_QL_Mv.fields:      'QLTOT', 'AGCM'  , 'QL' ,
                              ::
 
-  inst_15mn_3d_QI_Mv.format:      'CFIOasync' ,
-  inst_15mn_3d_QI_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QI Meteorological Field' ,
-  inst_15mn_3d_QI_Mv.nbits:       12 ,
-  inst_15mn_3d_QI_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
-  inst_15mn_3d_QI_Mv.mode:        'instantaneous' ,
-  inst_15mn_3d_QI_Mv.levels:      'levels.center',
-  inst_15mn_3d_QI_Mv.deflate:     0,
-  inst_15mn_3d_QI_Mv.cubeFormat:  0,
-  inst_15mn_3d_QI_Mv.frequency:   001500 ,
-  inst_15mn_3d_QI_Mv.duration:    001500 ,
-  inst_15mn_3d_QI_Mv.fields:      'QITOT', 'AGCM'  , 'QI' ,
-                             ::
-
-  inst_15mn_3d_QR_Mv.format:      'CFIOasync' ,
-  inst_15mn_3d_QR_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QR Meteorological Field' ,
-  inst_15mn_3d_QR_Mv.nbits:       12 ,
-  inst_15mn_3d_QR_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
-  inst_15mn_3d_QR_Mv.mode:        'instantaneous' ,
-  inst_15mn_3d_QR_Mv.levels:      'levels.center',
-  inst_15mn_3d_QR_Mv.deflate:     0,
-  inst_15mn_3d_QR_Mv.cubeFormat:  0,
-  inst_15mn_3d_QR_Mv.frequency:   010000 ,
-  inst_15mn_3d_QR_Mv.duration:    010000 ,
-  inst_15mn_3d_QR_Mv.fields:      'QRTOT', 'MOIST'  ,
-                             ::
-
-  inst_15mn_3d_QS_Mv.format:      'CFIOasync' ,
-  inst_15mn_3d_QS_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QS Meteorological Field' ,
-  inst_15mn_3d_QS_Mv.nbits:       12 ,
-  inst_15mn_3d_QS_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
-  inst_15mn_3d_QS_Mv.mode:        'instantaneous' ,
-  inst_15mn_3d_QS_Mv.levels:      'levels.center',
-  inst_15mn_3d_QS_Mv.deflate:     0,
-  inst_15mn_3d_QS_Mv.cubeFormat:  0,
-  inst_15mn_3d_QS_Mv.frequency:   001500 ,
-  inst_15mn_3d_QS_Mv.duration:    001500 ,
-  inst_15mn_3d_QS_Mv.fields:      'QSTOT', 'MOIST'  ,
+  inst_01hr_3d_QI_Mv.format:      'CFIOasync' ,
+  inst_01hr_3d_QI_Mv.descr:       '3d,1-Hourrly,Instantaneous,Cubed-Sphere on Model-Level,Model,QI Meteorological Field' ,
+  inst_01hr_3d_QI_Mv.nbits:       12 ,
+  inst_01hr_3d_QI_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
+  inst_01hr_3d_QI_Mv.mode:        'instantaneous' ,
+  inst_01hr_3d_QI_Mv.levels:      'levels.center',
+  inst_01hr_3d_QI_Mv.deflate:     0,
+  inst_01hr_3d_QI_Mv.cubeFormat:  0,
+  inst_01hr_3d_QI_Mv.frequency:   010000 ,
+  inst_01hr_3d_QI_Mv.duration:    010000 ,
+  inst_01hr_3d_QI_Mv.fields:      'QITOT', 'AGCM'  , 'QI' ,
                              ::
 
   inst_01hr_3d_RL_Mv.format:      'CFIOasync' ,
