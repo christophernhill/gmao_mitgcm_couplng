@@ -10,20 +10,19 @@ COLLECTIONS:
 #             'geosgcm_pressure'
              'geosgcm_turb'
              'geosgcm_tend'
-#             'tavg2d_aer_x'
+             'tavg2d_aer_x'
 #             'tavg3d_aer_p'
 #             'geosgcm_modis'
 # DYAMOND
 # Comment the next line after the first run
-             'const_2d_asm_Mx'
+#             'const_2d_asm_Mx'
              'inst_15mn_2d_prs_Mx'
              'inst_15mn_2d_asm_Mx'
              'tavg_15mn_2d_flx_Mx'
-#DM Removing because hourly tavg fields are available
-#DM             'inst_01hr_3d_U_Mv'
-#DM             'inst_01hr_3d_V_Mv'
-#DM             'inst_01hr_3d_W_Mv'
-#DM             'inst_01hr_3d_H_Mv'
+             'inst_01hr_3d_U_Mv'
+             'inst_01hr_3d_V_Mv'
+             'inst_01hr_3d_W_Mv'
+             'inst_01hr_3d_H_Mv'
              'inst_01hr_3d_DELP_Mv'
              'inst_01hr_3d_P_Mv'
              'inst_01hr_3d_T_Mv'
@@ -44,10 +43,12 @@ COLLECTIONS:
 #DM             'inst_01hr_3d_CNVMFC_Mv'
              'tavg_01hr_3d_WU_Mv'
              'tavg_01hr_3d_WV_Mv'
-             'tavg_01hr_3d_W_Mv'
-             'tavg_01hr_3d_U_Mv'
-             'tavg_01hr_3d_V_Mv'
-             'tavg_01hr_3d_H_Mv'
+             'tavg_01hr_3d_P_Mv'
+#DM Removing because hourly inst fields are available
+#DM             'tavg_01hr_3d_W_Mv'
+#DM             'tavg_01hr_3d_U_Mv'
+#DM             'tavg_01hr_3d_V_Mv'
+#DM             'tavg_01hr_3d_H_Mv'
              'tavg_01hr_3d_CNVMFD_Mv'
              'tavg_01hr_3d_CNVMFC_Mv'
              ::
@@ -105,7 +106,7 @@ COLLECTIONS:
                           'CT'       , 'SURFACE'       ,
                           'CQ'       , 'SURFACE'       ,
                           'CM'       , 'SURFACE'       ,
-#DM Hourly instantaneous and 24-hourly time average is available
+#DM Hourly instantaneous and 24-hourly-time-averaged are available
 #DM                          'RI'       , 'SURFACE'       , 'RISFC' ,
                           'LAI'      , 'SURFACE'       ,
                           'GRN'      , 'SURFACE'       ,
@@ -243,7 +244,7 @@ COLLECTIONS:
   tavg2d_aer_x.template:   '%y4%m2%d2_%h2%n2z.nc4',
   tavg2d_aer_x.archive:    '%c/Y%y4',
   tavg2d_aer_x.mode:       'time-averaged',
-  tavg2d_aer_x.frequency:  240000,
+  tavg2d_aer_x.frequency:  030000,
   tavg2d_aer_x.ref_time:   210000,
   tavg2d_aer_x.fields:         'LWI'         , 'SURFACE'     ,
                                'TOTEXTTAU'   , 'GOCART'      ,
@@ -477,6 +478,17 @@ COLLECTIONS:
   tavg_01hr_3d_WV_Mv.frequency:   010000 ,
   tavg_01hr_3d_WV_Mv.duration:    010000 ,
   tavg_01hr_3d_WV_Mv.fields:      'W*V'    , 'DYN'   , 'WV' ,
+                             ::
+  tavg_01hr_3d_P_Mv.format:      'CFIOasync' ,
+  tavg_01hr_3d_P_Mv.descr:       '3d,1-Hourly,time-averaged,Cubed-Sphere on Model-Level,Model,Pressure Meteorological Field' ,
+  tavg_01hr_3d_P_Mv.nbits:       12 ,
+  tavg_01hr_3d_P_Mv.template:    '%y4%m2%d2_%h2%n2z.nc4' ,
+  tavg_01hr_3d_P_Mv.mode:        'time-averaged' ,
+  tavg_01hr_3d_P_Mv.levels:      'levels.center',
+  tavg_01hr_3d_P_Mv.deflate:     0,
+  tavg_01hr_3d_P_Mv.frequency:   010000 ,
+  tavg_01hr_3d_P_Mv.duration:    010000 ,
+  tavg_01hr_3d_P_Mv.fields:      'PL'    , 'DYN'   , 'P' ,
                              ::
 
   tavg_01hr_3d_U_Mv.format:      'CFIOasync' ,
