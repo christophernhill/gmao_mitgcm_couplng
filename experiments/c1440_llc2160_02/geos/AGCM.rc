@@ -83,9 +83,9 @@ ANA_LM: 72
 # Restart Record Parameters
 # -------------------------
 #RECORD_FINAL:  >>>RECFINL<<<
-#RECORD_FREQUENCY: 000000       000000
-#RECORD_REF_DATE: >>>REFDATE<<< >>>FCSDATE<<<
-#RECORD_REF_TIME: >>>REFTIME<<< >>>FCSTIME<<<
+RECORD_FREQUENCY: 480000                                         
+RECORD_REF_DATE: 20200119
+RECORD_REF_TIME: 210000
 
  
 ##############################################################################################

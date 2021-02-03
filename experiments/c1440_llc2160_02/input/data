@@ -79,13 +79,13 @@
 # Time stepping parameters
  &PARM03
  nIter0=0,
- nTimeSteps=175295,
+ nTimeSteps=7680,
  deltaT = 45.,
  abEps = 0.1,
  forcing_In_AB=.FALSE.,
  momDissip_In_AB=.FALSE.,
- pChkptFreq  =31536000.0,
- chkptFreq   =31536000.0,
+ pChkptFreq  =172800.0,
+ chkptFreq   =172800.0,
  dumpfreq = 3600.,
  monitorFreq = 1.,
  dumpInitAndLast=.FALSE.,
