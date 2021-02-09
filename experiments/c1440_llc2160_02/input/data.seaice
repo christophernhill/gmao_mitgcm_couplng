@@ -8,7 +8,7 @@
   SEAICE_drag           = 2.E-3,
 #
   LSR_ERROR             = 1.E-5,
-  SEAICElinearIterMax   = 200,
+  SEAICElinearIterMax   = 300,
   SEAICEnonLinIterMax   = 10,
   SEAICEuseStrImpCpl    = .TRUE.,
 #

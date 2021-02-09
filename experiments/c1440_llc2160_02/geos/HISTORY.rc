@@ -7,7 +7,7 @@ CollectionWriteSplit:
 
 COLLECTIONS:
              'geosgcm_surf'
-#             'geosgcm_pressure'
+             'geosgcm_pressure'
              'geosgcm_turb'
              'geosgcm_tend'
              'tavg2d_aer_x'

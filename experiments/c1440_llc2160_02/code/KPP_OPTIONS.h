@@ -31,7 +31,7 @@ C o When set, smooth vertical viscosity horizontally
 #undef KPP_SMOOTH_VISC
 
 C o When set, smooth vertical diffusivity horizontally
-#undef KPP_SMOOTH_DIFF
+#define KPP_SMOOTH_DIFF
 
 C o Get rid of vertical resolution dependence of dVsq term by
 C   estimating a surface velocity that is independent of first
