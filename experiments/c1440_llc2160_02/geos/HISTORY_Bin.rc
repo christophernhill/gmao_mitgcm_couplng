@@ -10,6 +10,7 @@ COLLECTIONS:
              'geosgcm_pressure'
              'geosgcm_turb'
              'geosgcm_tend'
+             'geosgcm_saltwatercube'
              'geosgcm_saltwater'
              'geosgcm_guest'
              'tavg2d_aer_x'
@@ -234,6 +235,22 @@ COLLECTIONS:
                           'H2O_TEND' , 'CHEMISTRY'     ,  'DQVDTCHM'   ,
                           'DPDTPHY'  , 'PHYSICS'       ,
                           ::
+
+  geosgcm_saltwatercube.template:  '%y4%m2%d2_%h2%n2z.nc4',
+  geosgcm_saltwatercube.archive:   '%c/Y%y4',
+  geosgcm_saltwatercube.format:    'CFIOasync',
+#  we want instantaneous
+#  geosgcm_saltwatercube.mode:      'time-averaged',
+  geosgcm_saltwatercube.frequency:  010000,
+# atanas, please fill in regrid options for geos cubed sphere grid here
+  geosgcm_saltwatercube.regrid_exch:'tile.bin',
+  geosgcm_saltwatercube.regrid_name:'PE1440x8640-CF',
+  geosgcm_saltwatercube.fields:     'FHOCN'          , 'SALTWATER',
+                                'FWFLUX'         , 'SALTWATER',
+                                'FRESH'          , 'SALTWATER',
+                                'FSALT'          , 'SALTWATER',
+                          ::
+
 
   geosgcm_saltwater.template:  '%y4%m2%d2_%h2%n2z.nc4',
   geosgcm_saltwater.archive:   '%c/Y%y4',
