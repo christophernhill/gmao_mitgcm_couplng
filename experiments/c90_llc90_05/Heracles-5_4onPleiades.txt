@@ -15,7 +15,8 @@
 # See instructions in notes/get_GEOS-MITgcm.txt
 
 # Request interactive job and set WorkingDir to same location as above
- qsub -I -q long -l select=16:ncpus=28:model=bro,walltime=120:00:00 -m abe
+# qsub -I -q long -l select=16:ncpus=28:model=bro,walltime=120:00:00 -m abe
+ qsub -I -q R10462302 -l select=20:ncpus=24:model=has
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/c90_llc90_05
 
