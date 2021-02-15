@@ -1256,7 +1256,8 @@ contains
           ! advection in there.
           ! In case we would like to revisit this number, advlim in 
           ! import_state_fill_mod.FOR need to mach this number.
-          if (WGHT(I,J) > 0.99) then
+          ! AT: changed 0.99 to 0.0 to allow all valid ocean points
+          if (WGHT(I,J) > 0.0) then
              FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
              if (sum(FRACICE(I,J,:)) > 1) then
                 FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))

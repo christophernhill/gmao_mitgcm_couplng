@@ -60,7 +60,8 @@
 !     some land-ocean mask points are not exactly 1.
 !     Therefore I chose a arbitrary number
 !     smaller than one
-      advlim = 0.99
+!AT   made it 0.0 to allow all valid ocean points
+      advlim = 0.0
 
 !     Initialize local arrays:
       DO bj=1,nSy
@@ -323,7 +324,7 @@ C--
          DO j=1,sNy
           DO i=1,sNx
 c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
-           IF ( tmpW(i,j,bi,bj).LT.advlim ) THEN
+           IF ( tmpW(i,j,bi,bj).LE.advlim ) THEN
             AREAITD (i,j,n,bi,bj) = 0.D0
             HEFFITD (i,j,n,bi,bj) = 0.D0
             HSNOWITD(i,j,n,bi,bj) = 0.D0
@@ -370,7 +371,7 @@ c          IF ( AREAITD(i,j,n,bi,bj).EQ.exclVal ) THEN
           ! US some landocean mask points are not exactly 1
           ! Therefore I chose a arbitrary number
           ! smaller than one
-          IF ( tmpW(i,j,bi,bj).LT.advlim ) THEN 
+          IF ( tmpW(i,j,bi,bj).LE.advlim ) THEN 
            HEFFM(i,j,bi,bj) = 0.D0
           ELSE
            HEFFM(i,j,bi,bj) = 1.D0
