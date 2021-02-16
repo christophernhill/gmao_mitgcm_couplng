@@ -96,7 +96,7 @@
  cd $WorkingDir/TEST
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/geos/* . 
  mv RC RC_c90
- cp -r /nobackupp11/dmenemen/DYAMOND/geos5/TEST_58/RC .
+ cp -r /nobackupp11/dmenemen/DYAMOND/geos5/TEST/RC .
  cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/geos/* .
 
