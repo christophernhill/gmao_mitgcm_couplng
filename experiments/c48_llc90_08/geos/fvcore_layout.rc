@@ -1,0 +1,21 @@
+ hydrostatic: .TRUE.
+   z_tracer: .true.
+    n_sponge: 9
+        nord: 0
+       d2_bg: 0.0075
+       d4_bg: 0.0
+       dddmp: 0.2
+       d_ext: 0.02
+     hord_mt:  6
+     hord_tm: -6
+     hord_vt: -6
+     hord_dp: -7
+    consv_te: 0.0
+     kord_tm:  9
+     kord_mt:  9
+     kord_wz:  9
+     kord_tr:  9
+     remap_t: .false.
+  gmao_cubic: .true.
+      ksplit:  2
+

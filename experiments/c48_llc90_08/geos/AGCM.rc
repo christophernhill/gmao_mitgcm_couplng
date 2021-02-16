@@ -1,12 +1,12 @@
 
 # Atmospheric Model Configuration Parameters
 # ------------------------------------------
-           NX: 10
-           NY: 36
-      AGCM_IM: 90
-      AGCM_JM: 540
+           NX: 4
+           NY: 24
+      AGCM_IM: 48
+      AGCM_JM: 288
       AGCM_LM: 72
-AGCM_GRIDNAME: PE90x540-CF
+AGCM_GRIDNAME: PE48x288-CF
 
 DYCORE: FV3
 
@@ -19,13 +19,13 @@ IRRADAvrg: 0
 
 # Ocean Model Configuration Parameters
 # ------------------------------------
-      OGCM_NX: 360
+      OGCM_NX: 96
       OGCM_NY: 1
-      OGCM_IM: 5400
-      OGCM_JM: 15
+      OGCM_IM: 2880
+      OGCM_JM: 30
       OGCM_LM: 50
-OGCM_GRIDNAME: LL5400x15-LL
-OGCM_GRIDSPEC: mit-llc90_15x15.ascii
+OGCM_GRIDNAME: LL2880x30-LL
+OGCM_GRIDSPEC: mit-llc90.ascii
 
 OGCM_RUN_DT: 450
 
@@ -77,7 +77,7 @@ BKG_FREQUENCY: 0
 
 # Resolution of state passed to atmos analysis
 # --------------------------------------------
-ANA_GRIDNAME: PC90x540-DC
+ANA_GRIDNAME: PC48x288-DC
 ANA_LM: 72
 
 # Restart Record Parameters
@@ -563,7 +563,7 @@ USE_SATSIM_MISR:  0
 
 # Section for MOM4
 # ----------------
-MOM_DT: 450
+MOM_DT: 900
 MOM_SKINH: 2.0
 MOM_TAU_MIN: 60.0
 MOM_TAU_MAX: 86400.0
@@ -588,8 +588,8 @@ CICE_AH_MAX: 0.3
 
 # Section for CICE Dynamics
 # -------------------------
-#CICE_NPROCS: 360
-#CICE_DT: 450
+#CICE_NPROCS: 96
+#CICE_DT: 900
 #CICE_GRID: grid_cice.bin
 #CICE_KMT: kmt_cice.bin
 #CICE_MU_RDG: 3.0

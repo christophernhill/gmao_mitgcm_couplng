@@ -1,5 +1,9 @@
 # Instructions for running GEOS-5 (Heracles-5_4) coupled to MITgcm on Pleiades
-# Reproduce c1440_llc2160_02 at c48_llc90 resolution for I/O and tidal experiments
+# Reproduce c1440_llc2160_02 at c48_llc90 resolution
+# This experiment assumes that c1440_llc2160_02 is already configured
+# under /nobackupp11/dmenemen/DYAMOND/geos5/TEST
+# as it will duplicate its RC directory to be as similar as
+# possible to the c1440_llc2160_02 experiment
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
@@ -19,12 +23,20 @@
  cd $WorkingDir/GEOSodas/src
  source g5_modules
 
+# Add pkg/tides to MITgcm and spice library to GEOS
+ ln -sf $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_05/pkg_tides $MITGCM_ROOTDIR/pkg/tides
+ mkdir $ESMADIR/Linux
+ mkdir $ESMADIR/Linux/lib
+ cp /nobackup/dmenemen/forcing/SPICE/lib/libspice.a $ESMADIR/Linux/lib
+
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_08
  mkdir build; cd build; rm *
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
+ cp ../code/SIZE.h .
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../../c1440_llc2160_02/code -mpi \
+   -of ../../c1440_llc2160_02/code/linux_amd64_ifort+mpi_ice_nas -ieee
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
@@ -34,9 +46,10 @@
  ./mk_local ../../experiments/c48_llc90_08/build
  cd $GMAO_MITGCM_COUPLNG/mitgcm_setup
  rm code
- ln -s ../experiments/c48_llc90_08/code .
  cd build
  rm *.a *.c *.f *.h *.o *.F
+ cp ../../experiments/c1440_llc2160_02/code/* .
+ cp ../../experiments/c48_llc90_08/code/SIZE.h .
 
 # Build coupled GEOS-5 + MITgcm.
  cd $ESMADIR/src
@@ -46,7 +59,7 @@
 
 # Set up coupled code for experiments/c48_llc90_08
 # Be sure to replace "Desired Location" and "Build"
-# directories below with your own
+# directories below with your own.
  cd $ESMADIR/src/Applications/GEOSgcm_App
  ./gcm_setup
 # Enter the Experiment ID: TEST
@@ -63,9 +76,9 @@
 # Do you wish to run GOCART with Actual or Climatological Aerosols? A
 # Enter the GOCART Emission Files to use: MERRA2
 # Enter the tag or directory: Current
-# Enter Desired Location for HOME: $WorkingDir/TEST        (spell out $WorkingDir)
-# Enter Desired Location for EXPERIMENT: $WorkingDir/TEST  (spell out $WorkingDir)
-# Enter Location for Build directory: $ESMADIR             (spell out $ESMADIR)
+# Enter Desired Location for HOME: /nobackupp11/dmenemen/DYAMOND/c48_llc90_08/TEST
+# Enter Desired Location for EXPERIMENT: /nobackupp11/dmenemen/DYAMOND/c48_llc90_08/TEST
+# Enter Location for Build directory: /nobackupp11/dmenemen/DYAMOND/c48_llc90_08/GEOSodas
 # Enter your GROUP ID for Current EXP: g26209
 
 # Populate the mit_input directory
@@ -73,14 +86,20 @@
  mkdir mit_input
  cd mit_input
  cp /nobackupp2/estrobac/geos5/ICDIR/c90_llc90_05_data/mit/* .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/input/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_08/input/* .
+ ln -sf /nobackup/dmenemen/forcing/SPICE/kernels .
 
 # Get GEOS-5 boundary conditions for experiments/c48_llc90_08
  cd $WorkingDir/TEST
  cp /nobackupp2/estrobac/geos5/ICDIR/c48_llc90_01_data/geos/* .
+# mv RC RC_c90
+# cp -r /nobackupp11/dmenemen/DYAMOND/geos5/TEST_58/RC .
+ cp $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02/geos/* .
  cp $GMAO_MITGCM_COUPLNG/experiments/c48_llc90_08/geos/* .
 
 # Run coupled code as an interactive job
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
+ $GMAO_MITGCM_COUPLNG/utils/Killall
  ./gcm_run.j |&  tee gcm_run.out

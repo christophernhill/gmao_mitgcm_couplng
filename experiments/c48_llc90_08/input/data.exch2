@@ -18,11 +18,11 @@
 #                :: =1 : no duplicated print ; =2 : all processes do print
 #--------------------
  &W2_EXCH2_PARM01
-# W2_printMsg= 0,
+  W2_printMsg= 0,
   W2_mapIO   = 1,
 #
-  preDefTopol=0,
-#-- 5 facets llc_120 topology (drop facet 6 and its connection):
+#-- 5 facets llc_90 topology (drop facet 6 and its connection):
+  preDefTopol = 0,
   dimsFacets(1:10) = 90, 270, 90, 270, 90, 90, 270, 90, 270, 90,
   facetEdgeLink(1:4,1)= 3.4, 0. , 2.4, 5.1,
   facetEdgeLink(1:4,2)= 3.2, 0. , 4.2, 1.3,

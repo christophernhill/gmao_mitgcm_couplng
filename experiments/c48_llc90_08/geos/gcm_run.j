@@ -109,6 +109,7 @@ cd $SCRDIR
                              /bin/cp     $EXPDIR/cap_restart .
                              /bin/cp -f  $HOMDIR/*.rc .
                              /bin/cp -f  $HOMDIR/*.nml .
+                             /bin/cp -f  $HOMDIR/levels.center .
 
 #######################################################################
 #         Create Strip Utility to Remove Multiple Blank Spaces
@@ -501,7 +502,7 @@ cd ..
 
 # Run GEOSgcm.x
 # -------------
-       @  NPES = $NX * $NY + 80
+       @  NPES = $NX * $NY + 48
 $RUN_CMD $NPES ./GEOSgcm.x
 
 exit
