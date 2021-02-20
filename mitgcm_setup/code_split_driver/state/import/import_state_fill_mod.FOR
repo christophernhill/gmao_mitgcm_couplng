@@ -61,7 +61,7 @@
 !     Therefore I chose a arbitrary number
 !     smaller than one
 !AT   made it 0.0 to allow all valid ocean points
-      advlim = 0.0
+      advlim = 0.99
 
 !     Initialize local arrays:
       DO bj=1,nSy
