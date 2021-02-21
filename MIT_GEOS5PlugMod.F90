@@ -64,6 +64,12 @@ module MIT_GEOS5PlugMod
 
   type(T_PrivateState), pointer :: privateState
 
+  integer            :: NUM_ICE_CATEGORIES
+  integer            :: NUM_ICE_LAYERS
+  integer, parameter :: NUM_SNOW_LAYERS=1
+  integer            :: NUM_ICE_LAYERS_ALL
+  integer            :: NUM_SNOW_LAYERS_ALL
+
 contains
 
 
@@ -114,12 +120,6 @@ contains
 ! Locals
     type (MAPL_MetaComp),  pointer     :: MAPL  
     type  (ESMF_Config)                :: CF
-
-    integer            :: NUM_ICE_CATEGORIES
-    integer            :: NUM_ICE_LAYERS
-    integer, parameter :: NUM_SNOW_LAYERS=1
-    integer            :: NUM_ICE_LAYERS_ALL
-    integer            :: NUM_SNOW_LAYERS_ALL
 
 !=============================================================================
 
@@ -233,7 +233,7 @@ contains
     NUM_ICE_LAYERS_ALL  = NUM_ICE_LAYERS  * NUM_ICE_CATEGORIES
     NUM_SNOW_LAYERS_ALL = NUM_SNOW_LAYERS * NUM_ICE_CATEGORIES
 
-!ALT: These were brought from  the originalCICEdyna
+!ALT: These were brought from  the original CICEdyna
 ! CICE orininal imports/exports/internal
 !================= begin section for sea ice needed imports/exports ==========
 
@@ -992,6 +992,8 @@ contains
     character(len=ESMF_MAXSTR)            :: ocean_dir
     integer*1, pointer                    :: iarr(:)
     integer                               :: passive_ocean
+    integer :: C, L, LCI, LCS
+    real, parameter :: cutoff = 1.0e-5
 
 ! Begin
 !------
@@ -1258,13 +1260,39 @@ contains
           ! import_state_fill_mod.FOR need to mach this number.
           ! AT: changed 0.99 to 0.0 to allow all valid ocean points
           if (WGHT(I,J) > 0.99) then
+             DO C = 1, NUM_ICE_CATEGORIES
+                ! At: we are applying a cutoff to avoid issues
+                ! with accumulations where ice/snow is small
+                if (VOLICE(I,J,C) < cutoff .and. abs(DEL_VOLICE(I,J,C)) < cutoff) then
+                   ! zero ice increments
+                   DEL_FRACICE(I,J,C) = 0.0
+                   !DEL_SI(I,J) = 0.0 !DM, check this!!!
+                   DEL_VOLICE(I,J,C) = 0.0
+                   DEL_MPOND(I,J,C) = 0.0
+                   DEL_TAUAGE(I,J,C) = 0.0
+                   DO L = 1, NUM_ICE_LAYERS
+                      LCI = L + (C-1)*NUM_ICE_LAYERS
+                      DEL_ERGICE(I,J,LCI) = 0.0
+                   END DO
+                END IF
+                if (VOLSNO(I,J,C) < cutoff .and. abs(DEL_VOLSNO(I,J,C)) < cutoff) then
+                   DEL_VOLSNO(I,J,C) = 0.0
+                   DO L = 1, NUM_SNOW_LAYERS
+                      LCS = L + (C-1)*NUM_SNOW_LAYERS
+                      DEL_ERGSNO(I,J,LCS) = 0.0
+                   END DO
+                END IF
+             END DO
+
              FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
              if (sum(FRACICE(I,J,:)) > 1) then
                 FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
              end if
              !ALT: workaround to deal with a possible bug in DEL_TI
              where(FRACICE(I,J,:) /= 0.0 )  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
-             SI(I,J) = SI(I,J) + DEL_SI(I,J)
+             if (any(DEL_VOLICE(I,J,:)) /= 0.0) then ! we advected at least one
+                SI(I,J) = SI(I,J) + DEL_SI(I,J)
+             end if
              !ALT we do not update skin, and the line below is commented out
              !HI(I,J) = HI(I,J) + DEL_HI(I,J)
              VOLICE(I,J,:) = VOLICE(I,J,:) + DEL_VOLICE(I,J,:)
