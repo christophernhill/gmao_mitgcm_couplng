@@ -1290,7 +1290,7 @@ contains
              end if
              !ALT: workaround to deal with a possible bug in DEL_TI
              where(FRACICE(I,J,:) /= 0.0 )  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
-             if (any(DEL_VOLICE(I,J,:)) /= 0.0) then ! we advected at least one
+             if (any(DEL_VOLICE(I,J,:) /= 0.0)) then ! we advected at least one
                 SI(I,J) = SI(I,J) + DEL_SI(I,J)
              end if
              !ALT we do not update skin, and the line below is commented out
