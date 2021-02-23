@@ -497,6 +497,9 @@ C     neglected for preconditioning step
         DO J=jMin,jMax
          DO I=iMin,iMax
           areaW(I,J) = 0.5 _d 0*(AREA(I,J,bi,bj)+AREA(I-1,J,bi,bj))
+          IF ( areaW(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+             areaW(i,j,bi,bj) = 0. _d 0
+          ENDIF
          ENDDO
         ENDDO
        ELSE
@@ -602,6 +605,9 @@ C     neglected for preconditioning step
         DO J=jMin,jMax
          DO I=iMin,iMax
           areaS(I,J) = 0.5 _d 0*(AREA(I,J,bi,bj)+AREA(I,J-1,bi,bj))
+          IF ( areaS(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+             areaS(i,j,bi,bj) = 0. _d 0
+          ENDIF
          ENDDO
         ENDDO
        ELSE

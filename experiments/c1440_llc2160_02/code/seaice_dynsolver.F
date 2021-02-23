@@ -275,6 +275,14 @@ C--   basic forcing by wind stress
      &          * 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
            FORCEY0(i,j,bi,bj)=TAUY(i,j,bi,bj)
      &          * 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
+           IF ( 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
+     &          .LT. 1. _d -5 ) THEN
+              FORCEX0(i,j,bi,bj) = 0. _d 0
+           ENDIF
+           IF ( 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
+     &          .LT. 1. _d -5 ) THEN
+              FORCEY0(i,j,bi,bj) = 0. _d 0
+           ENDIF
           ENDDO
          ENDDO
         ELSE

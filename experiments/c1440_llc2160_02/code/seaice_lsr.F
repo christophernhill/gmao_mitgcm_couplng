@@ -213,6 +213,12 @@ CML         areaMinLoc = SEAICE_EPS
      &          0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
            areaS(i,j,bi,bj) =
      &          0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
+           IF ( areaW(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+              areaW(i,j,bi,bj) = 0. _d 0
+           ENDIF
+           IF ( areaS(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+              areaS(i,j,bi,bj) = 0. _d 0
+           ENDIF
           ENDDO
          ENDDO
         ENDIF
@@ -1248,6 +1254,12 @@ C
           DO i=iMin,iMax
            areaW(i,j) = 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
            areaS(i,j) = 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
+           IF ( areaW(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+              areaW(i,j,bi,bj) = 0. _d 0
+           ENDIF
+           IF ( areaS(i,j,bi,bj) .LT. 1. _d -5 ) THEN
+              areaS(i,j,bi,bj) = 0. _d 0
+           ENDIF
           ENDDO
          ENDDO
         ELSE
