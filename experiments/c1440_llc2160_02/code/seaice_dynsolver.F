@@ -87,6 +87,28 @@ C     bi,bj  :: tile counters
       LOGICAL diag_SIpRfric_isOn, diag_SIpSfric_isOn
 #endif /* ALLOW_DIAGNOSTICS */
 
+#ifdef SEAICE_ITD
+C     Adding ITD regularization "if Heff < 1.e-5: area = 0, heff = 0, hsnow = 0"
+C     since seaice_reg_ridge is not called in the coupled GEOS-MITgcm code.
+C     HEFF/AREA/HSNOW can be modified directly because they are note used
+C     anywhere else if SEAICE_ITD is defined. Instead they need to be recomputed
+C     from the sum of HEFFITD/AREAITD/SNOWITD. So modifying them here will not
+C     affect seaice and snow advection or thermodynamics.
+      DO bj=myByLo(myThid),myByHi(myThid)
+       DO bi=myBxLo(myThid),myBxHi(myThid)
+        DO j=1-OLy,sNy+OLy
+         DO i=1-OLx,sNx+OLx
+          IF (HEFF(I,J,bi,bj).LE.siEps) THEN
+           AREA(i,j,bi,bj) = 0. _d 0
+           HEFF(i,j,bi,bj) = 0. _d 0
+           HSNOW(i,j,bi,bj) = 0. _d 0
+          ENDIF
+         ENDDO
+        ENDDO
+       ENDDO
+      ENDDO
+#endif /* SEAICE_ITD */
+
 C Initialise local variables in common block
       IF ( myIter.EQ.nIter0 ) THEN
        DO bj=myByLo(myThid),myByHi(myThid)
@@ -275,14 +297,6 @@ C--   basic forcing by wind stress
      &          * 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
            FORCEY0(i,j,bi,bj)=TAUY(i,j,bi,bj)
      &          * 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
-           IF ( 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i-1,j,bi,bj))
-     &          .LT. 1. _d -5 ) THEN
-              FORCEX0(i,j,bi,bj) = 0. _d 0
-           ENDIF
-           IF ( 0.5 _d 0*(AREA(i,j,bi,bj)+AREA(i,j-1,bi,bj))
-     &          .LT. 1. _d -5 ) THEN
-              FORCEY0(i,j,bi,bj) = 0. _d 0
-           ENDIF
           ENDDO
          ENDDO
         ELSE
