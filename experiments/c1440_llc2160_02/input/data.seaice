@@ -8,9 +8,10 @@
   SEAICE_drag           = 2.E-3,
 #
   LSR_ERROR             = 1.E-5,
-  SEAICElinearIterMax   = 400,
+  SEAICElinearIterMax   = 200,
   SEAICEnonLinIterMax   = 10,
   SEAICEuseStrImpCpl    = .TRUE.,
+  SEAICE_maskRHS        = .TRUE.,
 #
   AreaFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIarea.0000706320.data',
   HeffFile           = '/nobackupp11/dmenemen/DYAMOND/llc2160_IC/SIheff.0000706320.data',

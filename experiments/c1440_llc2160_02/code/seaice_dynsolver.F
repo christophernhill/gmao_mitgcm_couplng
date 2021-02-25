@@ -98,7 +98,8 @@ C     affect seaice and snow advection or thermodynamics.
        DO bi=myBxLo(myThid),myBxHi(myThid)
         DO j=1-OLy,sNy+OLy
          DO i=1-OLx,sNx+OLx
-          IF (HEFF(I,J,bi,bj).LE.siEps) THEN
+          IF ( HEFF(I,J,bi,bj) .LE. siEps .OR.
+     &         AREA(I,J,bi,bj) .LE. siEps ) THEN
            AREA(i,j,bi,bj) = 0. _d 0
            HEFF(i,j,bi,bj) = 0. _d 0
            HSNOW(i,j,bi,bj) = 0. _d 0
