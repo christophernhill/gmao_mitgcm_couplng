@@ -420,9 +420,9 @@ C Update ocean surface stress
      I              TAUX, TAUY, myTime, myIter, myThid )
       ENDIF
 
-CDM#ifdef SEAICE_ALLOW_DYNAMICS
-CDM#ifdef SEAICE_ALLOW_CLIPVELS
-CDM      IF ( SEAICEuseDYNAMICS .AND. SEAICE_clipVelocities) THEN
+#ifdef SEAICE_ALLOW_DYNAMICS
+#ifdef SEAICE_ALLOW_CLIPVELS
+      IF ( SEAICEuseDYNAMICS .AND. SEAICE_clipVelocities) THEN
 #ifdef ALLOW_AUTODIFF_TAMC
 CADJ STORE uice = comlev1, key=ikey_dynamics, kind=isbyte
 CADJ STORE vice = comlev1, key=ikey_dynamics, kind=isbyte
@@ -435,16 +435,16 @@ c in open water areas (drift of zero thickness ice)
          DO j=1-OLy,sNy+OLy
           DO i=1-OLx,sNx+OLx
            uIce(i,j,bi,bj)=
-     &          MAX(MIN(uIce(i,j,bi,bj),10.0 _d +00),-10.0 _d +00)
+     &          MAX(MIN(uIce(i,j,bi,bj),0.40 _d +00),-0.40 _d +00)
            vIce(i,j,bi,bj)=
-     &          MAX(MIN(vIce(i,j,bi,bj),10.0 _d +00),-10.0 _d +00)
+     &          MAX(MIN(vIce(i,j,bi,bj),0.40 _d +00),-0.40 _d +00)
           ENDDO
          ENDDO
         ENDDO
        ENDDO
-CMD      ENDIF
-CDM#endif /* SEAICE_ALLOW_CLIPVELS */
-CDM#endif /* SEAICE_ALLOW_DYNAMICS */
+      ENDIF
+#endif /* SEAICE_ALLOW_CLIPVELS */
+#endif /* SEAICE_ALLOW_DYNAMICS */
 
 #ifdef ALLOW_DIAGNOSTICS
 C     diagnostics related to mechanics/dynamics/momentum equations
