@@ -1259,49 +1259,53 @@ contains
           ! In case we would like to revisit this number, advlim in 
           ! import_state_fill_mod.FOR need to mach this number.
           if (WGHT(I,J) > 0.99) then
+
+             ! Apply increments
+             FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
+             VOLICE(I,J,:) = VOLICE(I,J,:) + DEL_VOLICE(I,J,:)
+             VOLSNO(I,J,:) = VOLSNO(I,J,:) + DEL_VOLSNO(I,J,:)
+             ERGICE(I,J,:) = ERGICE(I,J,:) + DEL_ERGICE(I,J,:)
+             ERGSNO(I,J,:) = ERGSNO(I,J,:) + DEL_ERGSNO(I,J,:)
+             TAUAGE(I,J,:) = TAUAGE(I,J,:) + DEL_TAUAGE(I,J,:)
+             MPOND(I,J,:) = MPOND(I,J,:) + DEL_MPOND(I,J,:)
+             !ALT we do not update skin, and the line below is commented out
+             !HI(I,J) = HI(I,J) + DEL_HI(I,J)
+
+             ! Apply a cutoff as additional check to MITgcm regularization
              DO C = 1, NUM_ICE_CATEGORIES
-                ! ALT: we are applying a cutoff to avoid issues
-                ! with accumulations where ice/snow is small
-                if (VOLICE(I,J,C) < cutoff .and. abs(DEL_VOLICE(I,J,C)) < cutoff) then
-                   ! zero ice increments
-                   DEL_FRACICE(I,J,C) = 0.0
-                   DEL_VOLICE(I,J,C) = 0.0
-                   DEL_MPOND(I,J,C) = 0.0
-                   DEL_TAUAGE(I,J,C) = 0.0
+                IF (VOLICE(I,J,C) < cutoff .OR. FRACICE(I,J,C) < cutoff) THEN
+                   FRACICE(I,J,C) = 0.0
+                   VOLICE(I,J,C) = 0.0
+                   TAUAGE(I,J,C) = 0.0
+                   MPOND(I,J,C) = 0.0
                    DO L = 1, NUM_ICE_LAYERS
                       LCI = L + (C-1)*NUM_ICE_LAYERS
-                      DEL_ERGICE(I,J,LCI) = 0.0
+                      ERGICE(I,J,LCI) = 0.0
                    END DO
                 END IF
-                if (VOLSNO(I,J,C) < cutoff .and. abs(DEL_VOLSNO(I,J,C)) < cutoff) then
-                   DEL_VOLSNO(I,J,C) = 0.0
+                IF (VOLSNO(I,J,C) < cutoff .OR. FRACICE(I,J,C) < cutoff) THEN
+                   VOLSNO(I,J,C) = 0.0
                    DO L = 1, NUM_SNOW_LAYERS
                       LCS = L + (C-1)*NUM_SNOW_LAYERS
-                      DEL_ERGSNO(I,J,LCS) = 0.0
+                      ERGSNO(I,J,LCS) = 0.0
                    END DO
                 END IF
              END DO
-
-             FRACICE(I,J,:) = FRACICE(I,J,:) + DEL_FRACICE(I,J,:)
-             if (sum(FRACICE(I,J,:)) > 1) then
-                FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
-             end if
+             
              !ALT: workaround to deal with a possible bug in DEL_TI
              where(FRACICE(I,J,:) /= 0.0 )  TI(I,J,:) = TI(I,J,:) + DEL_TI(I,J,:)
              if (any(DEL_VOLICE(I,J,:) /= 0.0)) then ! we advected at least one
                 SI(I,J) = SI(I,J) + DEL_SI(I,J)
              end if
-             !ALT we do not update skin, and the line below is commented out
-             !HI(I,J) = HI(I,J) + DEL_HI(I,J)
-             VOLICE(I,J,:) = VOLICE(I,J,:) + DEL_VOLICE(I,J,:)
-             VOLSNO(I,J,:) = VOLSNO(I,J,:) + DEL_VOLSNO(I,J,:)
-             ERGICE(I,J,:) = ERGICE(I,J,:) + DEL_ERGICE(I,J,:)
-             ERGSNO(I,J,:) = ERGSNO(I,J,:) + DEL_ERGSNO(I,J,:)
-             MPOND(I,J,:)  = MPOND(I,J,:)  + DEL_MPOND(I,J,:)
-             TAUAGE(I,J,:) = TAUAGE(I,J,:) + DEL_TAUAGE(I,J,:)
+
+             ! Apply ridging algorithm
+             if (sum(FRACICE(I,J,:)) > 1) then
+                FRACICE(I,J,:) = FRACICE(I,J,:)/sum(FRACICE(I,J,:))
+             end if
+             
            end if
-       end DO
-    end DO
+       END DO
+    END DO
   
     ! continue with the fields update
     
