@@ -88,9 +88,9 @@ C     bi,bj  :: tile counters
 #endif /* ALLOW_DIAGNOSTICS */
 
 #ifdef SEAICE_ITD
-C     Adding ITD regularization "if Heff < 1.e-5: area = 0, heff = 0, hsnow = 0"
-C     since seaice_reg_ridge is not called in the coupled GEOS-MITgcm code.
-C     HEFF/AREA/HSNOW can be modified directly because they are note used
+C     Adding ITD regularization "area/heff < 1.e-5 -> area/heff/hsnow = 0"
+C     since HEFF/AREA/HSNOW returned by GEOS have not been regularized.
+C     HEFF/AREA/HSNOW can be modified directly because they are not used
 C     anywhere else if SEAICE_ITD is defined. Instead they need to be recomputed
 C     from the sum of HEFFITD/AREAITD/SNOWITD. So modifying them here will not
 C     affect seaice and snow advection or thermodynamics.
