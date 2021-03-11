@@ -1258,15 +1258,13 @@ contains
           ! advection in there.
           ! In case we would like to revisit this number, advlim in 
           ! import_state_fill_mod.FOR need to mach this number.
-          ! AT: changed 0.99 to 0.0 to allow all valid ocean points
           if (WGHT(I,J) > 0.99) then
              DO C = 1, NUM_ICE_CATEGORIES
-                ! At: we are applying a cutoff to avoid issues
+                ! ALT: we are applying a cutoff to avoid issues
                 ! with accumulations where ice/snow is small
                 if (VOLICE(I,J,C) < cutoff .and. abs(DEL_VOLICE(I,J,C)) < cutoff) then
                    ! zero ice increments
                    DEL_FRACICE(I,J,C) = 0.0
-                   !DEL_SI(I,J) = 0.0 !DM, check this!!!
                    DEL_VOLICE(I,J,C) = 0.0
                    DEL_MPOND(I,J,C) = 0.0
                    DEL_TAUAGE(I,J,C) = 0.0

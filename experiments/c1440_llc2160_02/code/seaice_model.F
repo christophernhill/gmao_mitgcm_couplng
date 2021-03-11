@@ -227,9 +227,7 @@ C     After advection, the sea ice variables may have unphysical values
 C     e.g., < 0, that are regularized here. Concentration as a special case
 C     may be > 1 in convergent motion and a ridging algorithm redistributes
 C     the ice to limit the concentration to 1.
-#ifndef HACK_FOR_GMAO_CPL
        CALL SEAICE_REG_RIDGE( myTime, myIter, myThid )
-#endif /* ndef HACK_FOR_GMAO_CPL */
 
 #ifdef ALLOW_EXF
        IF ( useEXF .AND. useDiagnostics ) THEN

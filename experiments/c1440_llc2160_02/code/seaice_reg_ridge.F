@@ -305,6 +305,7 @@ CADJ STORE heff(:,:,bi,bj)  = comlev1_bibj, key = iicekey,byte=isbyte
         ENDDO
 #endif /* SEAICE_VARIABLE_SALINITY */
 
+#ifndef HACK_FOR_GMAO_CPL
 C =====================================================================
 C ========== PART 2: ridging algorithm  ===============================
 C =====================================================================
@@ -390,6 +391,7 @@ C        end SEAICEadjMODE.EQ.0 statement:
          CALL DIAGNOSTICS_FILL(DIAGarrayA,'SIareaPR',0,1,3,bi,bj,myThid)
         ENDIF
 #endif /* ALLOW_DIAGNOSTICS */
+#endif /* ndef HACK_FOR_GMAO_CPL */
 
 C close bi,bj loops
        ENDDO
