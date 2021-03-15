@@ -10,6 +10,9 @@ COLLECTIONS:
              'geosgcm_pressure'
              'geosgcm_turb'
              'geosgcm_tend'
+#             'geosgcm_saltwatercube'
+#             'geosgcm_saltwater'
+#             'geosgcm_guest'
              'tavg2d_aer_x'
 #             'tavg3d_aer_p'
 #             'geosgcm_modis'
@@ -41,8 +44,9 @@ COLLECTIONS:
 #DM Removing because hourly tavg fields are available
 #DM             'inst_01hr_3d_CNVMFD_Mv'
 #DM             'inst_01hr_3d_CNVMFC_Mv'
-             'tavg_01hr_3d_WU_Mv'
-             'tavg_01hr_3d_WV_Mv'
+#DM Not needed after DYAMOND period
+#DM             'tavg_01hr_3d_WU_Mv'
+#DM             'tavg_01hr_3d_WV_Mv'
              'tavg_01hr_3d_P_Mv'
 #DM Removing because hourly inst fields are available
 #DM             'tavg_01hr_3d_W_Mv'
@@ -233,6 +237,50 @@ COLLECTIONS:
                           'DPDTPHY'  , 'PHYSICS'       ,
                           ::
 
+  geosgcm_saltwatercube.template:  '%y4%m2%d2_%h2%n2z.nc4',
+  geosgcm_saltwatercube.archive:   '%c/Y%y4',
+  geosgcm_saltwatercube.format:    'CFIOasync',
+#  we want instantaneous
+#  geosgcm_saltwatercube.mode:      'time-averaged',
+  geosgcm_saltwatercube.frequency:  010000,
+# atanas, please fill in regrid options for geos cubed sphere grid here
+  geosgcm_saltwatercube.regrid_exch:'tile.bin',
+  geosgcm_saltwatercube.regrid_name:'PE1440x8640-CF',
+  geosgcm_saltwatercube.fields:     'FHOCN'          , 'SALTWATER',
+                                'FWFLUX'         , 'SALTWATER',
+                                'FRESH'          , 'SALTWATER',
+                                'FSALT'          , 'SALTWATER',
+                          ::
+
+
+  geosgcm_saltwater.template:  '%y4%m2%d2_%h2%n2z.nc4',
+  geosgcm_saltwater.archive:   '%c/Y%y4',
+  geosgcm_saltwater.format:    'CFIOasync',
+#  we want instantaneous
+#  geosgcm_saltwater.mode:      'time-averaged',
+  geosgcm_saltwater.frequency:  010000,
+# atanas, please fill in regrid options here
+  geosgcm_salwater.regrid_exch:'tile.bin',
+  geosgcm_saltwater.regrid_name:'LL559872x72-LL',
+  geosgcm_saltwater.fields:     'FHOCN'          , 'SALTWATER',
+                                'FWFLUX'         , 'SALTWATER',
+                                'FRESH'          , 'SALTWATER',
+                                'FSALT'          , 'SALTWATER',
+                          ::
+
+  geosgcm_guest.template:  '%y4%m2%d2_%h2%n2z.nc4',
+  geosgcm_guest.archive:   '%c/Y%y4',
+  geosgcm_guest.format:    'CFIOasync',
+#  we want instantaneous
+#  geosgcm_guest.mode:      'time-averaged',
+  geosgcm_guest.frequency:  010000,
+  geosgcm_guest.fields:     'HW0'   , 'OCEAN',
+                            'SW0'   , 'OCEAN',
+                            'HW1'   , 'OCEAN',
+                            'SW1'   , 'OCEAN',
+                            'QFLUX' , 'OCEAN',
+                            'SFLUX' , 'OCEAN',
+                          ::
 
 #                     ---------------------
 #                     Aerosols/Constituents
