@@ -36,11 +36,9 @@
  cp /nobackup/dmenemen/forcing/SPICE/lib/libspice.a $ESMADIR/Linux/lib
 
 # Generate original MITgcm Makefile and provide set of MITgcm src code for this set-up
-# Note: for testing purpose, genmake2 is used with "-ieee" option to disable compiler optimization
-#       but for real application, "-ieee" should be dropped to speed up ocean run.
  cd $GMAO_MITGCM_COUPLNG/experiments/c1440_llc2160_02
  mkdir build; cd build; rm *
- $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas -ieee
+ $MITGCM_ROOTDIR/tools/genmake2 -mods ../code -mpi -of ../code/linux_amd64_ifort+mpi_ice_nas
  make depend
 
 #- Generate modified src code and Makefile for MITgcm
