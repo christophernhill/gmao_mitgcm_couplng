@@ -3,6 +3,9 @@
 # Used to run the testreport on pleiades with:
 # module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
 # works on all types of nodes
+#
+# On Rome nodes use:
+# module load comp-intel/2015.3.187 mpi-hpe/mpt.2.23 hdf4/4.2.12 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
 
 FC=ifort
 CC=icc
@@ -27,6 +30,7 @@ FFLAGS="$FFLAGS -fPIC"
 #- For really big executable (> 2 GB), uncomment following 2 lines
 FFLAGS="$FFLAGS -mcmodel=medium -shared-intel"
 CFLAGS="$CFLAGS -mcmodel=medium -shared-intel"
+#CFLAGS="$CFLAGS -mcmodel=medium -shared-libgcc"
 #- might want to use '-r8' for fizhi pkg:
 #FFLAGS="$FFLAGS -r8"
 
@@ -58,10 +62,13 @@ fi
 F90FLAGS=$FFLAGS
 F90OPTIM=$FOPTIM
 
-LIBS='-L/nasa/sgi/mpt/2.14r19/lib -lmpi -L/nasa/netcdf/4.4.1.1_mpt/lib -lnetcdf -L/nobackup/dmenemen/forcing/SPICE/lib -lspice'
-INCLUDES='-I/nasa/sgi/mpt/2.14r19/include -I/nasa/netcdf/4.4.1.1_mpt/include'
+#LIBS='-L/nasa/sgi/mpt/2.14r19/lib -lmpi -L/nasa/netcdf/4.4.1.1_mpt/lib -lnetcdf -L/nobackup/dmenemen/forcing/SPICE/lib -lspice'
+LIBS='-L/nasa/hpe/mpt/2.23/lib -lmpi -L/nasa/netcdf/4.4.1.1_mpt/lib -lnetcdf -L/nobackup/dmenemen/forcing/SPICE/lib -lspice'
+#INCLUDES='-I/nasa/sgi/mpt/2.14r19/include -I/nasa/netcdf/4.4.1.1_mpt/include'
+INCLUDES='-I/nasa/hpe/mpt/2.23/include -I/nasa/netcdf/4.4.1.1_mpt/include'
 #INCLUDEDIRS='/nasa/sgi/mpt/2.14r19/include'
 
 #- used for parallel (MPI) DIVA
- MPIINCLUDEDIR='/nasa/sgi/mpt/2.14r19/include'
+# MPIINCLUDEDIR='/nasa/sgi/mpt/2.14r19/include'
+ MPIINCLUDEDIR='/nasa/hpe/mpt/2.23/include'
 #MPI_HEADER_FILES='mpif.h mpiof.h'
