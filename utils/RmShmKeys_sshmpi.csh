@@ -36,7 +36,8 @@ if( $?PBS_NODEFILE ) then
    else if ( $SITE == NAS ) then
 
       echo "Found site ${SITE}: using pdsh"
-      pdsh -f 128 -aF $PBS_NODEFILE $pathname/rmshmkeyhere.sh
+#      pdsh -f 128 -aF $PBS_NODEFILE $pathname/rmshmkeyhere.sh
+      pdsh -f 128 -w `/u/scicon/tools/bin/pbs_nodes $PBS_JOBID` $pathname/rmshmkeyhere.sh
 
    else
 
