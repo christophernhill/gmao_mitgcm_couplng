@@ -108,4 +108,5 @@
 # Alternatively try "qsub gcm_run.j"
  cd $WorkingDir/TEST
  $GMAO_MITGCM_COUPLNG/utils/Killall
+ $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh
  ./gcm_run.j |&  tee gcm_run.out
