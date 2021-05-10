@@ -23,15 +23,16 @@
 # qsub -I -q R10236203 -l select=204:ncpus=40:model=cas_ait
 # qsub -I -q R10462302 -l select=340:ncpus=24:model=has
 # qsub -I -q R10734631 -l select=66:ncpus=128:model=rom_ait:aoe=sles15
- qsub -I -q R10734631 -l select=68:ncpus=128:model=rom_ait:aoe=sles15
 # qsub -I -q R10734631 -l select=74:ncpus=108:model=rom_ait:aoe=sles15
+# qsub -I -q R10734631 -l select=68:ncpus=128:model=rom_ait:aoe=sles15
+# qsub -I -q R10734631 -l select=70:ncpus=128:model=rom_ait:aoe=sles15
+ qsub -I -q R10734631 -l select=65:ncpus=128:model=rom_ait:aoe=sles15+3:ncpus=24:model=rom_ait:aoe=sles15,walltime=300:00:00
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
-# source g5_modules
- source g5_modules.intel1503.mpt223.SLES15.ROME
+ source g5_modules
  setenv ESMA_NOCVS
  setenv ESMADIR $WorkingDir/GEOSodas
  setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
@@ -59,6 +60,7 @@
  ln -s ../experiments/c1440_llc2160_02/code .
  cd build
  rm *.a *.c *.f *.h *.o *.F
+
 # Build coupled GEOS-5 + MITgcm.
  cd $ESMADIR/src
  gmake pinstall -j 8 |& tee makeinstall.log

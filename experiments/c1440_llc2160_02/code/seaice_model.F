@@ -74,6 +74,7 @@ CEOP
       _RL hTmp(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
       _RL recip_deltaTtherm
 #endif
+      _RL sIceTooHeavy
 #ifdef ALLOW_DEBUG
       IF (debugMode) CALL DEBUG_ENTER( 'SEAICE_MODEL', myThid )
 #endif
@@ -268,13 +269,13 @@ C     because of ugly time level business
            ENDDO
           ENDDO
 c#ifdef SEAICE_CAP_ICELOAD
-c         sIceTooHeavy = rhoConst*drF(1) / 5. _d 0
-c         DO j=1,sNy
-c          DO i=1,sNx
-c           sIceLoad(i,j,bi,bj) = MIN( sIceLoad(i,j,bi,bj),
-c    &                                 sIceTooHeavy )
-c          ENDDO
-c         ENDDO
+          sIceTooHeavy = rhoConst * 10. _d 0
+          DO j=1,sNy
+           DO i=1,sNx
+            sIceLoad(i,j,bi,bj) = MIN( sIceLoad(i,j,bi,bj),
+     &                                 sIceTooHeavy )
+           ENDDO
+          ENDDO
 c#endif
          ENDDO
         ENDDO
