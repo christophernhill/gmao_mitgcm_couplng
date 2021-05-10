@@ -1000,7 +1000,7 @@ contains
 
 ! Get the component's name and set-up traceback handle.
 ! -----------------------------------------------------
-    call WRITE_PARALLEL( ' Starting plug run method ' )
+!    call WRITE_PARALLEL( ' Starting plug run method ' )
     Iam = "Run"
     call ESMF_GridCompGet( gc, NAME=comp_name, RC=status )
     VERIFY_(status)
@@ -1314,7 +1314,7 @@ contains
 
 ! All Done
 !---------
-    call WRITE_PARALLEL( ' Finished plug run method ' )
+!    call WRITE_PARALLEL( ' Finished plug run method ' )
     RETURN_(ESMF_SUCCESS)
   end subroutine Run
 
