@@ -208,7 +208,11 @@ C NOW DO ADVECTION and DIFFUSION
         IF (debugMode) CALL DEBUG_CALL( 'SEAICE_ADVDIFF', myThid )
 #endif
 #ifdef SEAICE_CGRID
+# ifdef HACK_FOR_GMAO_CPL
+        CALL SEAICE_ADV_ALT( uIce, vIce, myTime, myIter, myThid )
+# else /* HACK_FOR_GMAO_CPL */
         CALL SEAICE_ADVDIFF( uIce, vIce, myTime, myIter, myThid )
+# endif /* HACK_FOR_GMAO_CPL */
 #else /* SEAICE_CGRID */
         CALL SEAICE_ADVDIFF( uLoc, vLoc, myTime, myIter, myThid )
 #endif /* SEAICE_CGRID */
