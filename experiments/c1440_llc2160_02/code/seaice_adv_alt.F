@@ -82,14 +82,15 @@ CEOP
 #ifdef HACK_FOR_GMAO_CPL
       INTEGER SEAICEadvSchQice, SEAICEadvSchQsnow
       INTEGER SEAICEadvSchMltPd
-      _RL SIq0
+      _RL SIq0sn, SIq0ic
       SEAICEadvSchQice  = 0
       SEAICEadvSchQsnow = 0
       SEAICEadvSchMltPd = 0
       SEAICEadvSchQice  = SEAICEadvSchHeff
       SEAICEadvSchQsnow = SEAICEadvSchSnow
 c     SEAICEadvSchMltPd = SEAICEadvSchSnow
-      SIq0 = -SEAICE_lhFusion
+      SIq0sn = -111. _d 6
+      SIq0ic = -290. _d 6
 #endif /* HACK_FOR_GMAO_CPL */
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
@@ -257,7 +258,7 @@ C--   Advect snow enthaly with snow-volume fluxes (for each snow category)
               IF ( iceSav(i,j).GE.vol_Epsil ) THEN
                 iceFld(i,j) = SIqSnow(i,j,l,n,bi,bj)/iceSav(i,j)
               ELSE
-                iceFld(i,j) = SIq0
+                iceFld(i,j) = SIq0sn
               ENDIF
              ENDDO
             ENDDO
@@ -327,7 +328,7 @@ C--   Advect ice enthaly with ice-volume fluxes (for each ice category)
               IF ( iceSav(i,j).GE.vol_Epsil ) THEN
                 iceFld(i,j) = SIqIce(i,j,l,n,bi,bj)/iceSav(i,j)
               ELSE
-                iceFld(i,j) = SIq0
+                iceFld(i,j) = SIq0ic
               ENDIF
              ENDDO
             ENDDO
