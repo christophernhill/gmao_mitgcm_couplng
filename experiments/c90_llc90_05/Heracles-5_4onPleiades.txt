@@ -23,8 +23,7 @@
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
-# source g5_modules
- source g5_modules.intel1503.mpt223.SLES15.ROME
+ source g5_modules
  setenv ESMA_NOCVS
  setenv ESMADIR $WorkingDir/GEOSodas
  setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
