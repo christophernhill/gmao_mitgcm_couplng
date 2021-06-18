@@ -1,0 +1,29 @@
+#!/bin/tcsh -x
+#PBS -S /bin/tcsh
+#PBS -l select=65:ncpus=128:model=rom_ait:aoe=sles15+3:ncpus=24:model=rom_ait:aoe=sles15
+#PBS -q R11151691
+#PBS -l walltime=72:00:00
+#PBS -j oe
+#PBS -m abe
+
+limit stacksize unlimited
+
+ setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
+ setenv ARCH `uname`
+ setenv SITE             NAS
+ setenv GEOSDIR          /nobackupp11/dmenemen/DYAMOND/geos5/GEOSodas 
+ setenv GEOSBIN          /nobackupp11/dmenemen/DYAMOND/geos5/GEOSodas/Linux/bin 
+ setenv GCMVER           Heracles-5_3
+ cd $WorkingDir/GEOSodas/src
+ source $GEOSBIN/g5_modules
+ setenv ESMA_NOCVS
+ setenv ESMADIR $WorkingDir/GEOSodas
+ setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
+ setenv GMAO_MITGCM_COUPLNG $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
+ setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${BASEDIR}/${ARCH}/lib
+ set  NCPUS = `cat $PBS_NODEFILE | wc -l`
+
+ cd /nobackupnfs2/dmenemen/TEST/scratch
+ $GMAO_MITGCM_COUPLNG/utils/Killall |& tee Killall.out
+ $GMAO_MITGCM_COUPLNG/utils/RmShmKeys_sshmpi.csh
+ mpiexec_mpt -np $NCPUS ./GEOSgcm.x |&  tee GEOSgcm.out

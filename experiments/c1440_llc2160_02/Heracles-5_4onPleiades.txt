@@ -22,11 +22,7 @@
 # Request interactive job and set WorkingDir to same location as above
 # qsub -I -q R10236203 -l select=204:ncpus=40:model=cas_ait
 # qsub -I -q R10462302 -l select=340:ncpus=24:model=has
-# qsub -I -q R10734631 -l select=66:ncpus=128:model=rom_ait:aoe=sles15
-# qsub -I -q R10734631 -l select=74:ncpus=108:model=rom_ait:aoe=sles15
-# qsub -I -q R10734631 -l select=68:ncpus=128:model=rom_ait:aoe=sles15
-# qsub -I -q R10734631 -l select=70:ncpus=128:model=rom_ait:aoe=sles15
- qsub -I -q R10734631 -l select=65:ncpus=128:model=rom_ait:aoe=sles15+3:ncpus=24:model=rom_ait:aoe=sles15,walltime=300:00:00
+ qsub -I -q R11151691 -l select=65:ncpus=128:model=rom_ait:aoe=sles15+3:ncpus=24:model=rom_ait:aoe=sles15
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/geos5
 
