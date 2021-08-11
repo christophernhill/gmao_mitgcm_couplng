@@ -1,0 +1,16 @@
+goals:
+- examine Udi's GEOS_MIT_51, generate plots
+- repeat the first week or month, and check in instructions in
+  gmao_mitgcm_couplng/experiments/c90_llc90_clim/clim01
+- then carry out a 30-year 1992 perpetual year run
+- then carry out a 30-year 2020 perpetual year run
+- then carry out a 1992-2020 run
+
+
+/nobackup/estrobac/geos5/GEOS_MIT_51
+Udi's long integration with Green's functions paper parameters
+perpetual year 2000, 60+ years of simulation
+
+/nobackup/estrobac/geos5/GEOS_MIT_52
+Udi's long integration with alternate set of parameters
+(time-mean constraints as opposed to seasonal mean, or vice versa)

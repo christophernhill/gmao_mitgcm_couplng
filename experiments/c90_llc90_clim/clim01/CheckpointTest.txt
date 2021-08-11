@@ -1,0 +1,36 @@
+Instructions for carrying out 1+1=2 checkpoint test
+
+1. Follow instructions in Heracles-5_4on*.txt up to
+   but excluding: ./gcm_run.j |&  tee gcm_run.out
+
+2. Modify JOB_SGMT in CAP.rc to 2 hours
+   JOB_SGMT:     00000000 020000
+
+3. Comment out lines containing qsub and gcm_run.j
+   and add exit after third RUN_CMD in gcm_run.j
+
+4. Run the 2-hour job:
+   ./gcm_run.j |&  tee gcm_run.out
+
+5. Save GEOS and MITgcm pickup files for later comparison:
+   cp scratch/fvcore_internal_checkpoint fvcore_internal_checkpoint_2hr
+   cp scratch/mitocean_run/pickup.ckptA.data pickup.ckptA.data_2hr
+   cp scratch/mitocean_run/pickup_seaice.ckptA.data pickup_seaice.ckptA.data_2hr
+
+6. Modify JOB_SGMT in CAP.rc to 1 hour
+   JOB_SGMT:     00000000 010000
+
+7. Remove exit after third RUN_CMD in gcm_run.j
+
+8. Run first 1-hour job:
+   ./gcm_run.j |&  tee gcm_run.out
+
+9. Reintroduce exit after third RUN_CMD in gcm_run.j
+
+10. Run second 1-hour job
+   ./gcm_run.j |&  tee gcm_run.out
+
+11. Compare the new pickup files with the old ones:
+   cmp scratch/fvcore_internal_checkpoint fvcore_internal_checkpoint_2hr
+   cmp scratch/mitocean_run/pickup.ckptA.data pickup.ckptA.data_2hr
+   cmp scratch/mitocean_run/pickup_seaice.ckptA.data pickup_seaice.ckptA.data_2hr
