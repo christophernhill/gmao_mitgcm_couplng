@@ -14,3 +14,9 @@ perpetual year 2000, 60+ years of simulation
 /nobackup/estrobac/geos5/GEOS_MIT_52
 Udi's long integration with alternate set of parameters
 (time-mean constraints as opposed to seasonal mean, or vice versa)
+
+Aug12,2021
+
+- Udi's GEOS_MIT_51(optimized) has sea-ice bug (double minus sign in import_state_fill_mod.FOR). Next step is: copy the same sandbox (Heracles-5_4_c90_llc90_02a_48_NOFIX_OPT_10y), fix the sea-ice bug, recompile, clone GEOS_MIT_51 experiment as Udi's with new executable, and run for 30 years. 
+
+- Compare New run with Udi's GEOS_MIT_51 experiment to see how the sea-ice bug affects the experiment.  
