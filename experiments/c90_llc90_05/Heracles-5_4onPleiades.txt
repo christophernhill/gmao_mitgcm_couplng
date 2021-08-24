@@ -17,15 +17,20 @@
 # Request interactive job and set WorkingDir to same location as above
 # qsub -I -q long -l select=16:ncpus=28:model=bro,walltime=120:00:00 -m abe
 # qsub -I -q R10462302 -l select=20:ncpus=24:model=has
- qsub -I -q R10734631 -l select=5:ncpus=128:model=rom_ait:aoe=sles15
+ qsub -I -q R11151691 -l select=5:ncpus=128:model=rom_ait:aoe=sles15
  tcsh
  setenv WorkingDir /nobackupp11/dmenemen/DYAMOND/c90_llc90_05
 
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
+ setenv ARCH `uname`
+ setenv SITE NAS
+ setenv GCMVER Heracles-5_3
  setenv ESMA_NOCVS
  setenv ESMADIR $WorkingDir/GEOSodas
+ setenv GEOSDIR $ESMADIR
+ setenv GEOSBIN $ESMADIR/Linux/bin 
  setenv MITGCM_ROOTDIR $WorkingDir/MITgcm
  setenv GMAO_MITGCM_COUPLNG $ESMADIR/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng
 
