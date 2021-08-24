@@ -251,7 +251,7 @@ C--   Effective Snow Thickness (Volume)
      I           bi, bj, myTime, myIter, myThid )
           IF ( SEAICEadvSchQsnow.NE.0 ) THEN
 C--   Advect snow enthaly with snow-volume fluxes (for each snow category)
-           DO l=1,nIceLayers
+           DO l=1,nSnowLayers
             DO j=1-OLy,sNy+OLy
              DO i=1-OLx,sNx+OLx
               iceVol(i,j) = iceSav(i,j)*rA(i,j,bi,bj)
