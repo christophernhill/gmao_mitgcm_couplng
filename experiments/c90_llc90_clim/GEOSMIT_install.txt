@@ -13,7 +13,7 @@
  qsub -I -q devel -l select=18:ncpus=20:model=ivy,walltime=2:00:00
  tcsh
  setenv WorkingDir /nobackupp12/afahad/models/geos5/
- setenv MITGCM_ROOTDIR /nobackupp12/afahad/models/geos5/MITgcm/
+ setenv MITGCM_ROOTDIR /nobackupp18/afahad/models/geos5/MITgcm/
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
  source g5_modules
@@ -22,7 +22,7 @@
 # Note: for testing purpose, genmake2 is used with "-ieee" option to disable any compiler optimization
 #       but for real application, "-ieee" should be dropped to speed up ocean run.
 
-setenv GMAO_MITGCM_COUPLNG /nobackupp12/afahad/models/geos5/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng/
+setenv GMAO_MITGCM_COUPLNG /nobackupp18/afahad/models/geos5/GEOSodas/src/GEOSgcs_GridComp/GEOSgcm_GridComp/GEOSogcm_GridComp/GEOSocean_GridComp/GuestOcean_GridComp/gmao_mitgcm_couplng/
 
  cd $GMAO_MITGCM_COUPLNG/experiments/c90_llc90_02a
  mkdir build; cd build; rm *
