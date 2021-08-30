@@ -2,7 +2,7 @@
 
 # Start tcsh and set $WorkingDir, e.g.,
  tcsh
- setenv WorkingDir /nobackupp12/afahad/models/geos5/
+ setenv WorkingDir /nobackupp18/afahad/models/geos5/
  #mkdir $WorkingDir
  cd $WorkingDir
 
@@ -12,7 +12,7 @@
 # Request interactive job and set WorkingDir to same location as above
  qsub -I -q devel -l select=18:ncpus=20:model=ivy,walltime=2:00:00
  tcsh
- setenv WorkingDir /nobackupp12/afahad/models/geos5/
+ setenv WorkingDir /nobackupp18/afahad/models/geos5/
  setenv MITGCM_ROOTDIR /nobackupp18/afahad/models/geos5/MITgcm/
 # Set GEOS-5 and MITgcm environment variables
  cd $WorkingDir/GEOSodas/src
