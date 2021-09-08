@@ -54,10 +54,10 @@ C     myThid :: my Thread Id number
 
 C !LOCAL VARIABLES: ====================================================
 C     i,j,bi,bj :: Loop counters
-#ifdef ALLOW_AUTODIFF_TAMC
+C#ifdef ALLOW_AUTODIFF_TAMC
       INTEGER i, j
       INTEGER bi, bj
-#endif
+C#endif
 #ifdef ALLOW_SITRACER
       INTEGER iTr
 #endif
@@ -66,7 +66,7 @@ C     i,j,bi,bj :: Loop counters
       _RL vLoc(1-OLx:sNx+OLx,1-OLy:sNy+OLy,nSx,nSy)
 #endif
 CEOP
-
+      _RL     sIceTooHeavy
 #ifdef ALLOW_DEBUG
       IF (debugMode) CALL DEBUG_ENTER( 'SEAICE_MODEL', myThid )
 #endif
@@ -209,8 +209,28 @@ C     because of ugly time level business
 #endif
         CALL SEAICE_GROWTH( myTime, myIter, myThid )
 C
-       ENDIF
+       ELSE
 #endif /* DISABLE_SEAICE_GROWTH */
+        DO bj=myByLo(myThid),myByHi(myThid)
+         DO bi=myBxLo(myThid),myBxHi(myThid)
+c          DO j=1,sNy
+c           DO i=1,sNx
+c            sIceLoad(i,j,bi,bj) = HEFF(i,j,bi,bj)*SEAICE_rhoIce
+c     &                         + HSNOW(i,j,bi,bj)*SEAICE_rhoSnow
+c           ENDDO
+c          ENDDO
+c#ifdef SEAICE_CAP_ICELOAD
+         sIceTooHeavy = rhoConst * 8. _d 0
+         DO j=1,sNy
+          DO i=1,sNx
+           sIceLoad(i,j,bi,bj) = MIN( sIceLoad(i,j,bi,bj),
+     &                                 sIceTooHeavy )
+          ENDDO
+         ENDDO
+c#endif
+         ENDDO
+        ENDDO
+       ENDIF
 
 #ifdef ALLOW_SITRACER
 # ifdef ALLOW_AUTODIFF_TAMC
