@@ -262,7 +262,7 @@ C--
             tmpU(i,j,bi,bj) =
      &         angleCosC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
      &       + angleSinC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
-            tmpV(i,j,bi,bj) = -
+            tmpV(i,j,bi,bj) = 
      &       - angleSinC(i,j,bi,bj) * p%TAUXI(iSLo+i,jSLo+j)
      &       + angleCosC(i,j,bi,bj) * p%TAUYI(iSLo+i,jSLo+j)
           ENDDO
