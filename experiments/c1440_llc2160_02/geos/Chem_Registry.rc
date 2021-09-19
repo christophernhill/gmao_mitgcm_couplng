@@ -44,7 +44,7 @@ doing_CO2: yes  # &YesNo Include carbon dioxide?
 doing_DU:  yes  # &YesNo Include mineral dust?
 doing_SS:  yes  # &YesNo Include sea salt?
 doing_SU:  yes  # &YesNo Include sulfates?
-doing_CFC: yes  # &YesNo Include CFCs?
+doing_CFC: no   # &YesNo Include CFCs?
 doing_BC:  yes  # &YesNo Include black carbon?
 doing_OC:  yes  # &YesNo Include organic carbon?
 doing_NI:  no   # &YesNo Include nitrate?
