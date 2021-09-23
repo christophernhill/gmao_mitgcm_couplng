@@ -62,7 +62,7 @@
  useJamartWetPoints=.TRUE.,
  readBinaryPrec=32,
  writeBinaryPrec=32,
- debugLevel=1,
+ debugLevel=-1,
  &
 
 # Elliptic solver parameters
@@ -99,7 +99,7 @@
 # taveFreq    =31536000.0,
 # dumpFreq    =31536000.0,
  monitorFreq=10800,
- dumpInitAndLast = .TRUE.,
+# dumpInitAndLast = .TRUE.,
  pickupStrictlyMatch=.FALSE.,
  &
 
