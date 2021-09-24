@@ -1,6 +1,3 @@
-C $Header: /u/gcmpack/MITgcm/eesupp/inc/CPP_EEOPTIONS.h,v 1.43 2017/09/14 19:47:35 jmc Exp $
-C $Name:  $
-
 CBOP
 C     !ROUTINE: CPP_EEOPTIONS.h
 C     !INTERFACE:
@@ -96,7 +93,7 @@ C--   Flag defined for eeboot_minimal.F, eeset_parms.F and open_copy_data_file.F
 C     to write STDOUT, STDERR and scratch files from process 0 only.
 C WARNING: to use only when absolutely confident that the setup is working
 C     since any message (error/warning/print) from any proc <> 0 will be lost.
-#undef SINGLE_DISK_IO
+#define SINGLE_DISK_IO
 
 C=== MPI, EXCH and GLOBAL_SUM related options ===
 C--   Flag turns off MPI_SEND ready_to_receive polling in the
@@ -135,7 +132,7 @@ C     assuming locally periodic subdomain)
 
 C--   Always cumulate tile local-sum in the same order by applying MPI allreduce
 C     to array of tiles ; can get slower with large number of tiles (big set-up)
-#define GLOBAL_SUM_ORDER_TILES
+#undef GLOBAL_SUM_ORDER_TILES
 
 C--   Alternative way of doing global sum without MPI allreduce call
 C     but instead, explicit MPI send & recv calls. Expected to be slower.
