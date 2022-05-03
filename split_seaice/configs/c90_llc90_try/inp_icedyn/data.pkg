@@ -1,0 +1,6 @@
+# Packages
+ &PACKAGES
+ useCAL         = .TRUE.,
+ useSEAICE      = .TRUE.,
+#useDiagnostics = .TRUE.,
+ &
