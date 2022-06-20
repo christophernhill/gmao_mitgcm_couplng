@@ -340,3 +340,28 @@ make -j 12 install
 >  end
 #########################################################
 
+#########################################################
+# ALSO ALSO ALSO ALSO ALSO....
+# gcm_run.j
+% diff -b  gcm_run.j /nobackupp17/cnhill1/geos5/ref-files/
+31,36c31,34
+< # /nobackup/cnhill1/geos-20220622/GEOSgcm
+< setenv CNH_GEOS_ROOT    /nobackup/cnhill1/geos-20220622/GEOSgcm
+< setenv GEOSDIR          ${CNH_GEOS_ROOT}/install 
+< setenv GEOSBIN          ${CNH_GEOS_ROOT}/install/bin 
+< setenv GEOSETC          ${CNH_GEOS_ROOT}/install/etc 
+< setenv GEOSUTIL         ${CNH_GEOS_ROOT}/install
+---
+> setenv GEOSDIR          /nobackupp17/dmenemen/Jason/GEOSgcm/install 
+> setenv GEOSBIN          /nobackupp17/dmenemen/Jason/GEOSgcm/install/bin 
+> setenv GEOSETC          /nobackupp17/dmenemen/Jason/GEOSgcm/install/etc 
+> setenv GEOSUTIL         /nobackupp17/dmenemen/Jason/GEOSgcm/install
+52,53c50,51
+< setenv  EXPDIR  /nobackupp17/cnhill1/geos5/TESTMIT5-NL
+< setenv  HOMDIR  /nobackupp17/cnhill1/geos5/TESTMIT5-NL
+---
+> setenv  EXPDIR  /nobackup/dmenemen/Jason/TESTMIT5-NL
+> setenv  HOMDIR  /nobackup/dmenemen/Jason/TESTMIT5-NL
+#########################################################
+
+
