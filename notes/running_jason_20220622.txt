@@ -285,4 +285,58 @@ make -j 12 install
 #########################################################
 
 
+#########################################################
+# gcm_run.j
+% diff -b /nobackup/dmenemen/Jason/TESTMIT5-NL_debug/gcm_run.j gcm_run.j
+27d26
+< setenv FOR_IGNORE_EXCEPTIONS false
+31,34c30,33
+< setenv GEOSDIR          /nobackupp17/dmenemen/Jason/GEOSgcm/install 
+< setenv GEOSBIN          /nobackupp17/dmenemen/Jason/GEOSgcm/install/bin 
+< setenv GEOSETC          /nobackupp17/dmenemen/Jason/GEOSgcm/install/etc 
+< setenv GEOSUTIL         /nobackupp17/dmenemen/Jason/GEOSgcm/install
+---
+> setenv GEOSDIR          /nobackupp17/cnhill1/geos-20220622/GEOSgcm/install 
+> setenv GEOSBIN          /nobackupp17/cnhill1/geos-20220622/GEOSgcm/install/bin 
+> setenv GEOSETC          /nobackupp17/cnhill1/geos-20220622/GEOSgcm/install/etc 
+> setenv GEOSUTIL         /nobackupp17/cnhill1/geos-20220622/GEOSgcm/install
+50,51c49,50
+< setenv  EXPDIR  /nobackup/dmenemen/Jason/TESTMIT5-NL
+< setenv  HOMDIR  /nobackup/dmenemen/Jason/TESTMIT5-NL
+---
+> setenv  EXPDIR  /nobackup/cnhill1/geos5/TESTMIT5-NL
+> setenv  HOMDIR  /nobackup/cnhill1/geos5/TESTMIT5-NL
+330c329
+< ##setenv GRIDDIR  /nobackupp2/estrobac/geos5/GRIDDIR/a${AGCM_IM}x${AGCM_JM}_o${OGCM_IM}x${OGCM_JM}
+---
+> setenv GRIDDIR  /nobackupp2/estrobac/geos5/GRIDDIR/a${AGCM_IM}x${AGCM_JM}_o${OGCM_IM}x${OGCM_JM}
+332d330
+< setenv GRIDDIR  /nobackupp17/amolod/GRIDDIR/a${AGCM_IM}x${AGCM_JM}_o${OGCM_IM}x${OGCM_JM}
+345,346c343
+< ##/bin/ln -sf $GRIDDIR/CF0090x6C_LL5400xLL00015-Pfafstetter.til   tile.data
+< /bin/ln -sf /nobackup/atrayano/TESTMIT2-NL/CF0090x6C_LL5400xLL0015-Pfafstetter.til   tile.data
+---
+> /bin/ln -sf $GRIDDIR/CF0090x6C_LL5400xLL00015-Pfafstetter.til   tile.data
+794,795c791
+< ##mkdir $EXPDIR/mit_output
+< if (! -e mitocean_output) mkdir $EXPDIR/mit_output
+---
+> mkdir $EXPDIR/mit_output
+1030,1036c1026,1032
+< ## foreach dset ( $dsets )
+< ## set num = `/bin/ls -1 $dset.nc | wc -l`
+< ## if($num != 0) then
+< ##    if(! -e $EXPDIR/MOM_Output) mkdir -p $EXPDIR/MOM_Output
+< ##    /bin/mv $SCRDIR/$dset.nc $EXPDIR/MOM_Output/$dset.${edate}.nc
+< ## endif
+< ## end
+---
+>  foreach dset ( $dsets )
+>  set num = `/bin/ls -1 $dset.nc | wc -l`
+>  if($num != 0) then
+>     if(! -e $EXPDIR/MOM_Output) mkdir -p $EXPDIR/MOM_Output
+>     /bin/mv $SCRDIR/$dset.nc $EXPDIR/MOM_Output/$dset.${edate}.nc
+>  endif
+>  end
+#########################################################
 
