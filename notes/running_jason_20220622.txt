@@ -1,0 +1,119 @@
+1. checkout and build the model
+   module use -a /nobackup/gmao_SIteam/modulefiles
+   module load GEOSenv
+   mepo clone -b feature/atrayano/MITgcm-DYAMOND https://github.com/GEOS-ESM/GEOSgcm.git
+   cd GEOSgcm
+   tcsh
+   mkdir build
+   source @env/g5_modules
+   cd build
+   cmake .. -DBASEDIR=$BASEDIR/Linux -DCMAKE_INSTALL_PREFIX=../install -DBUILD_MIT_OCEAN=ON -DMIT_CONFIG_ID=c90_llc90_05 -DCMAKE_Fortran_COMPILER=ifort
+   # -DCMAKE_BUILD_TYPE=Debug
+   make -j 12 install
+
+2. run setup script
+   cd ../install/bin
+   ./gcm_setup
+
+Sample answers:
+
+TESTMIT5-NL
+New version of GEOSMIT with better tuned atmosphere
+NO (default)
+c90
+72 (default)
+MG1
+TRUE (default)
+NO (default)
+sky (default)
+YES
+MIT
+llc90 (default)
+50 (default)
+2  (default)
+1 (default)
+A (default)
+MERRA2 (Default)
+ENTER to use Default Location: (Current) for HISTORY, HOME, EXPERIMENT, Build
+s1353 (my default, if not enter valid gid) 
+
+3. prepare experiment
+   cd ../../../TESTMIT5-NL
+   cp -r /nobackupp17/amolod/TESTMIT5-NL/mit_input .
+   cp -r /nobackupp17/amolod/TESTMIT5-NL/restarts-orig .
+   cp restarts-orig/* .
+   emacs AGCM.rc HISTORY.rc CAP.rc gcm_run.j /nobackupp17/amolod/TESTMIT5-NL/AGCM.rc /nobackupp17/amolod/TESTMIT5-NL/HISTORY.rc /nobackupp17/amolod/TESTMIT5-NL/CAP.rc /nobackupp17/amolod/TESTMIT5-NL/gcm_run.j
+
+4. go
+   qsub gcm_run.j
+
+
+###############
+###############
+
+	prototype experiment in /nobackupp17/amolod/TESTMIT5-NL, need to copy some things from there
+	copy mit_input directory and contents - this run starts from Niter0 = 0 so no pickups needed
+	copy restarts-orig directory and contents
+	copy everything from restarts-orig into main exp directory	
+	amend AGCM.rc - compare with what is in TESTMIT5-NL, see that steady_ocean needs to be flipped, and 
+		sea ice internal and iau restarts need to be commented out. also routing file needs to be commented out for now
+	amend HISTORY.rc - essentially grab the one from TESTMIT4-NL, just retain the exp name and description from new exp
+				critical bit of this is the removal of the 21z reference time for collections. this exp is 0z start
+	CAP.rc - set to 30 day segments, ie.,  JOB_SGMT:     00000030 000000, set to 1 segment, ie., NUM_SGMT:     1
+			perhaps start new exp with 1 day then switch to more or to more segments
+	gcm_run.j - substitute the tile file we are using, ie., replace (comment out) the existing line with:
+			/bin/ln -sf /nobackup/atrayano/TESTMIT2-NL/CF0090x6C_LL5400xLL0015-Pfafstetter.til   tile.data
+	gcm_run.j - comment out the section to move mitgcm output with variable dsets (not set here i think?), ie.,
+			# foreach dset ( $dsets )
+			# set num = `/bin/ls -1 $dset.nc | wc -l`
+			# if($num != 0) then
+			#    if(! -e $EXPDIR/MOM_Output) mkdir -p $EXPDIR/MOM_Output
+			#    /bin/mv $SCRDIR/$dset.nc $EXPDIR/MOM_Output/$dset.${edate}.nc
+			# endif
+			# end
+	gcm_run.j - add two lines: in pbs sequence add: #PBS -W umask=0022, and just before setting arch add:  setenv FOR_IGNORE_EXCEPTIONS false
+	gcm_run.j -- for first test segment of new run, comment out resubmit at end of file (three lines up from bottom)
+
+###############
+###############
+
+/nobackupp17/amolod/GEOSMIT-Jason   has a Readme to check out and build, and a Setupinstructions to set up a new experiment.
+ 
+i have a month from before the disk went, and am trying to continue from there. my current exp dir is /nobackupp17/amolod/TESTMIT4-NL
+ 
+dimitris can you have a look at the setup to generate output from mitgcm? it seems like we are generating a LOT of files and output.....
+
+
+module use -a /nobackup/gmao_SIteam/modulefiles
+module load GEOSenv
+
+
+two options for the next steps:
+has to do with whether sandbox is on a branch or not since mepo puts it on the head:
+------------
+
+1.
+mepo clone -b feature/atrayano/MITgcm-DYAMOND https://github.com/GEOS-ESM/GEOSgcm.git
+cd GEOSgcm
+
+2.
+git clone https://github.com/GEOS-ESM/GEOSgcm.git (or better yet the ssh syntax)
+cd GEOSgcm
+git checkout feature/atrayano/MITgcm-DYAMOND
+mepo clone
+
+and now continue:
+------------
+
+tcsh
+mkdir build
+source @env/g5_modules
+cd build
+cmake .. -DBASEDIR=$BASEDIR/Linux -DCMAKE_INSTALL_PREFIX=../install -DBUILD_MIT_OCEAN=ON -DMIT_CONFIG_ID=c90_llc90_05 -DCMAKE_Fortran_COMPILER=ifort -DCMAKE_BUILD_TYPE=Debug
+
+make -j 12 install
+
+###############
+###############
+
+# GEOSgcm/src/Components/@GEOSgcm_GridComp/GEOSogcm_GridComp/GEOS_OceanGridComp/MIT_GEOS5PlugMod/configs/c90_llc90_05
