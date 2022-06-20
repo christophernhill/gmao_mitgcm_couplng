@@ -154,6 +154,121 @@ make -j 12 install
 
 
 
-
+#########################################################
+# HISTORY.rc
+% diff -b /nobackup/dmenemen/Jason/TESTMIT5-NL_debug/HISTORY.rc HISTORY.rc
+10,20c10,20
+< ##           'geosgcm_turb'
+< ##           'geosgcm_gwd'
+< ##           'geosgcm_tend'
+< ##           'geosgcm_budi'
+< ##           'geosgcm_buda'
+< ##           'geosgcm_landice'
+< ##           'geosgcm_meltwtr'
+< ##           'geosgcm_snowlayer'
+< ##           'geosgcm_tracer'
+< ##           'tavg2d_aer_x'
+< ##           'tavg3d_aer_p'
+---
+>              'geosgcm_turb'
+>              'geosgcm_gwd'
+>              'geosgcm_tend'
+>              'geosgcm_budi'
+>              'geosgcm_buda'
+>              'geosgcm_landice'
+>              'geosgcm_meltwtr'
+>              'geosgcm_snowlayer'
+>              'geosgcm_tracer'
+>              'tavg2d_aer_x'
+>              'tavg3d_aer_p'
+77c77
+< #  geosgcm_surf.ref_time:   210000,
+---
+>   geosgcm_surf.ref_time:   210000,
+234c234
+< #  geosgcm_meltwtr.ref_time:   210000,
+---
+>   geosgcm_meltwtr.ref_time:   210000,
+246c246
+< #  geosgcm_landice.ref_time:   210000,
+---
+>   geosgcm_landice.ref_time:   210000,
+278c278
+< #  geosgcm_snowlayer.ref_time:   210000,
+---
+>   geosgcm_snowlayer.ref_time:   210000,
+299c299
+< #  geosgcm_moist.ref_time:   210000,
+---
+>   geosgcm_moist.ref_time:   210000,
+338c338
+< #  geosgcm_turb.ref_time:   210000,
+---
+>   geosgcm_turb.ref_time:   210000,
+366c366
+< #  geosgcm_gwd.ref_time:   210000,
+---
+>   geosgcm_gwd.ref_time:   210000,
+387c387
+< #  geosgcm_tend.ref_time:   210000,
+---
+>   geosgcm_tend.ref_time:   210000,
+464c464
+< #  geosgcm_iau.ref_time:   030000,
+---
+>   geosgcm_iau.ref_time:   030000,
+508c508
+< #  geosgcm_bud.ref_time:   210000,
+---
+>   geosgcm_bud.ref_time:   210000,
+557c557
+< #  goswim_catch.ref_time:   210000,
+---
+>   goswim_catch.ref_time:   210000,
+589c589
+< #  goswim_land.ref_time:   210000,
+---
+>   goswim_land.ref_time:   210000,
+616c616
+< #  goswim_landice.ref_time:   210000,
+---
+>   goswim_landice.ref_time:   210000,
+642c642
+< #  tavg2d_aer_x.ref_time:   210000,
+---
+>   tavg2d_aer_x.ref_time:   210000,
+857c857
+< # tavg3d_aer_p.ref_time:   210000,
+---
+>  tavg3d_aer_p.ref_time:   210000,
+885c885
+< #  geosgcm_tracer.ref_time:   210000,
+---
+>   geosgcm_tracer.ref_time:   210000,
+912c912
+< #  geosgcm_lidar.ref_time:   210000,
+---
+>   geosgcm_lidar.ref_time:   210000,
+954c954
+< #  geosgcm_parasol.ref_time:   210000,
+---
+>   geosgcm_parasol.ref_time:   210000,
+967c967
+< #  geosgcm_radar.ref_time:   210000,
+---
+>   geosgcm_radar.ref_time:   210000,
+1009c1009
+< # geosgcm_isccp.ref_time:   210000,
+---
+>  geosgcm_isccp.ref_time:   210000,
+1076c1076
+< # geosgcm_modis.ref_time:   210000,
+---
+>  geosgcm_modis.ref_time:   210000,
+1156c1156
+< # geosgcm_misr.ref_time:   210000,
+---
+>  geosgcm_misr.ref_time:   210000,
+#########################################################
 
 
