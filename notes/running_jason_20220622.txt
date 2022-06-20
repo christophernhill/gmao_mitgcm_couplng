@@ -120,3 +120,40 @@ make -j 12 install
 
 
 
+
+##### SOME ACTUAL DETAILS ON file changes
+#########################################################
+# AGCM.rc
+% diff -b /nobackup/dmenemen/Jason/TESTMIT5-NL_debug/AGCM.rc AGCM.rc 
+516,518c516,518
+< ##AIAU_IMPORT_RESTART_FILE:               aiau_import_rst
+< ##AIAU_IMPORT_CHECKPOINT_FILE:            aiau_import_checkpoint
+< ##AIAU_IMPORT_CHECKPOINT_TYPE:            default
+---
+> AIAU_IMPORT_RESTART_FILE:               aiau_import_rst
+> AIAU_IMPORT_CHECKPOINT_FILE:            aiau_import_checkpoint
+> AIAU_IMPORT_CHECKPOINT_TYPE:            default
+640,642c640,642
+< ##SEAICE_INTERNAL_RESTART_FILE:           seaice_internal_rst
+< ##SEAICE_INTERNAL_CHECKPOINT_FILE:        seaice_internal_checkpoint
+< ##SEAICE_INTERNAL_CHECKPOINT_TYPE:        default
+---
+> SEAICE_INTERNAL_RESTART_FILE:           seaice_internal_rst
+> SEAICE_INTERNAL_CHECKPOINT_FILE:        seaice_internal_checkpoint
+> SEAICE_INTERNAL_CHECKPOINT_TYPE:        default
+660c660
+< ##ROUTING_FILE:             runoff.bin
+---
+> ROUTING_FILE:             runoff.bin
+774,775c774
+< ##steady_state_ocean: 0
+< steady_state_ocean: 1
+---
+> steady_state_ocean: 0
+#########################################################
+
+
+
+
+
+
