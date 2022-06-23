@@ -1,3 +1,10 @@
+Atanas' GEOS features branch that includes the configuration files:
+https://github.com/GEOS-ESM/GEOSgcm_GridComp/tree/feature/atrayano/MITgcm-DYAMOND-dso/GEOSogcm_GridComp/GEOS_OceanGridComp/MIT_GEOS5PlugMod/configs
+
+>>>>>>>>>>>>>>
+
+instructions for building/running Jason code:
+
 1. checkout and build the model
    module use -a /nobackup/gmao_SIteam/modulefiles
    module load GEOSenv
