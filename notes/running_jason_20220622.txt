@@ -11,10 +11,18 @@ instructions for building/running Jason code:
    mepo clone -b feature/atrayano/MITgcm-DYAMOND https://github.com/GEOS-ESM/GEOSgcm.git
    cd GEOSgcm
    cd src/Components/@GEOSgcm_GridComp
-   git checkout feature/atrayano/MITgcm-DYAMOND-dso
-   git remote add mit-setup-devel https://github.com/geos-mitgcm-ecco/GEOSgcm_GridComp
-   git fetch mit-setup-devel
-   git merge mit-setup-devel/cnh/prints-and-returns
+   git remote add devel_repo git@github.com:geos-mitgcm-ecco/GEOSgcm_GridComp.git
+   git fetch devel_repo cnh/prints-and-returns:cnh/prints-and-returns
+   git checkout cnh/prints-and-returns
+  (note: to leave this branch & to go back to main branch:
+    git checkout develop
+  (note: to use instead Atanas' reference branch:
+    git checkout feature/atrayano/MITgcm-DYAMOND-dso
+  )
+  ( when coming back after first time:
+    git checkout cnh/prints-and-returns
+    git pull
+  )
    cd -
    tcsh
    mkdir build
