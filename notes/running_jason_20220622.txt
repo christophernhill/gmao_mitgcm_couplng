@@ -10,6 +10,9 @@ instructions for building/running Jason code:
    module load GEOSenv
    mepo clone -b feature/atrayano/MITgcm-DYAMOND https://github.com/GEOS-ESM/GEOSgcm.git
    cd GEOSgcm
+   cd src/Components/@GEOSgcm_GridComp
+   git checkout feature/atrayano/MITgcm-DYAMOND-dso
+   cd -
    tcsh
    mkdir build
    source @env/g5_modules
