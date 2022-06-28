@@ -12,6 +12,8 @@ instructions for building/running Jason code:
    cd GEOSgcm
    cd src/Components/@GEOSgcm_GridComp
    git checkout feature/atrayano/MITgcm-DYAMOND-dso
+   git remote add mit-setup-devel https://github.com/geos-mitgcm-ecco/GEOSgcm_GridComp
+   git fetch mit-setup-devel
    cd -
    tcsh
    mkdir build
