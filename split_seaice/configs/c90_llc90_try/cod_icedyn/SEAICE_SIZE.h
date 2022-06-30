@@ -24,6 +24,13 @@ C Bitz et al. (2001, JGR) suggest a minimum of nITD = 5
       PARAMETER (nITD = 1)
 #endif
 
+#ifdef HACK_FOR_GMAO_CPL
+C   nIceLayers  :: number of Ice  layers (in each category)
+C   nSnowLayers :: number of snow layers (in each category)
+      INTEGER nIceLayers, nSnowLayers
+      PARAMETER( nIceLayers = 4 , nSnowLayers = 1 )
+#endif /* HACK_FOR_GMAO_CPL */
+
 C-    Maximum Number of tracers
       INTEGER SItrMaxNum
       PARAMETER(SItrMaxNum = 3 )
