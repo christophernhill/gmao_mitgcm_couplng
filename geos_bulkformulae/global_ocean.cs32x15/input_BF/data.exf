@@ -47,6 +47,7 @@
  vwindperiod       = -12.,
  swdownperiod      = -12.,
  lwdownperiod      = -12.,
+ apressureperiod   = -12.,
 # runoffperiod      = -12,
 # apco2period       = -12.,
  /
@@ -112,6 +113,13 @@
  lwdown_lat_inc  = 59*3.0,
  lwdown_nlon     = 120,
  lwdown_nlat     = 60,
+#
+ apressure_lon0      = -178.5,
+ apressure_lon_inc   = 3.0,
+ apressure_lat0      = -88.5,
+ apressure_lat_inc   = 59*3.0,
+ apressure_nlon      = 120,
+ apressure_nlat      = 60,
 ##
 # runoff_lon0     = -178.5,
 # runoff_lon_inc  = 3.0,
