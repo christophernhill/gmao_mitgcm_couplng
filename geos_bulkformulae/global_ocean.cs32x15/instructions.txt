@@ -18,11 +18,15 @@ cp ../build/genmake_local .
 
 \cp /nobackupp17/jcampin/mitgcm/gcm_jmc/verification/offline_exf_seaice/linux_amd64_ifort+mpi_ice_nas ../../../tools/build_options/
 
-../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -of=../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas > genmake.tr_log
+#../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -of=../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas > genmake.tr_log
+
+../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -mpi -of=../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas > genmake.tr_log
 
 
 make depend
 make -j 4
 
+
+### running the experiment
 
 
