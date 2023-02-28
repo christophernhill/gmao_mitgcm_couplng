@@ -177,7 +177,7 @@ C use Large and Yeager (2004) modification to Large and Pond bulk formulae
 C use drag formulation of Large and Yeager (2009), Climate Dyn., 33, pp 341-364
 # define ALLOW_DRAG_LARGEYEAGER09
 C use GEOS bulk-formulae (instead of L+P 81 or L+Y 04)
-# undef  USE_GEOS_BULKF
+# define  USE_GEOS_BULKF
 
 # undef  EXF_READ_EVAP
 # ifndef ALLOW_BULKFORMULAE
