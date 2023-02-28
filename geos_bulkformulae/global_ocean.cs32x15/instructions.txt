@@ -29,4 +29,21 @@ make -j 4
 
 ### running the experiment
 
+cd ..
+
+\cp -r ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/input_BF/ .
+
+\cp ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/job_cs32_nc12 .
+
+mkdir input_forcingEIG_monthly
+cd input_forcingEIG_monthly
+
+svn checkout https://github.com/MITgcm-contrib/ecco_darwin/trunk/v04/3deg/data .
+
+cd ..
+
+#running job script
+
+./job_cs32_nc12
+
 
