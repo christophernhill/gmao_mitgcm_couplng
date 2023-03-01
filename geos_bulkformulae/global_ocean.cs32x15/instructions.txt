@@ -10,17 +10,13 @@ cd verification/global_ocean.cs32x15/
 cp -r ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/* .
 
 
-mkdir build_BF
-cd build_BF
+mkdir build_tst
+cd build_tst
 cp ../build/genmake_local .
 
 ## needs to update the opt file
 
-\cp /nobackupp17/jcampin/mitgcm/gcm_jmc/verification/offline_exf_seaice/linux_amd64_ifort+mpi_ice_nas ../../../tools/build_options/
-
-#../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -of=../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas > genmake.tr_log
-
-../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -mpi -of=../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas > genmake.tr_log
+../../../tools/genmake2 -mods '../geos_blkf ../cod_tst' -mpi -of ../../../tools/build_options/linux_amd64_ifort+mpi_ice_nas
 
 
 make depend
@@ -31,9 +27,9 @@ make -j 4
 
 cd ..
 
-\cp -r ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/input_BF/ .
+#\cp -r ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/input_BF/ .
+#\cp ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/job_cs32_nc12 .
 
-\cp ../../gmao_mitgcm_couplng/geos_bulkformulae/global_ocean.cs32x15/job_cs32_nc12 .
 
 mkdir input_forcingEIG_monthly
 cd input_forcingEIG_monthly
@@ -42,8 +38,12 @@ svn checkout https://github.com/MITgcm-contrib/ecco_darwin/trunk/v04/3deg/data .
 
 cd ..
 
+# modify the job script: job_cs32_nc1 , change the dirbase to yours, similar to following
+
+#set dirbase=/nobackupp11/afahad/MITgcm/verification/global_ocean.cs32x15
+
 #running job script
 
-./job_cs32_nc12
-
+./job_cs32_nc1 
+or,  qsub job_cs32_nc1
 

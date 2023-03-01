@@ -1,0 +1,97 @@
+# Diagnostic Package Choices
+#--------------------
+#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+#--for each output-stream:
+#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+#               > 0 : write time-average output every frequency seconds
+#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+#    averagingFreq  : frequency (in s) for periodic averaging interval
+#    averagingPhase : phase     (in s) for periodic averaging interval
+#    repeatCycle    : number of averaging intervals in 1 cycle
+#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+#                when this entry is missing, select all common levels of this list
+#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#  missing_value(n) : missing value for real-type fields in output file "n"
+#  fileFlags(n)     : specific code (8c string) for output file "n"
+#--------------------
+ &DIAGNOSTICS_LIST
+  dumpatlast = .TRUE.,
+# diagMdsDir = 'diags',
+#---
+  fields(1:20,1) = 'ETAN    ','DETADT2 ','PHIBOT  ','MXLDEPTH',
+                   'atmPload','oceFWflx','oceQnet ','oceQsw  ',
+                   'oceTAUX ','oceTAUY ','SRELAX  ','oceSflux',
+                   'sIceLoad','SIarea  ','SIheff  ','SIhsnow ',
+                   'SIatmFW ','SIatmQnt','THETA   ','SALT    ',
+  frequency(1) = 21600.0,
+   filename(1) = 'surfDiag',
+#---
+  fields(1:8,2)  = 'THETA   ','SALT    ','DRHODR  ',
+                   'UVELMASS','VVELMASS','WVELMASS',
+                   'GM_PsiX ','GM_PsiY ',
+#                'GGL90TKE','GGL90Lmx','GGL90Prl',
+#                'GGL90ArU','GGL90ArV','GGL90Kr ',
+  frequency(2) = 2635200.0,
+   filename(2) = 'dynDiag',
+#---
+  fields(1:11,3) = 'EXFhs   ','EXFhl   ','EXFqnet ',
+                   'EXFlwnet','EXFswnet','EXFevap ',
+                   'EXFtaux ','EXFtauy ',
+                   'EXFatemp','EXFaqh  ','EXFpreci',
+  frequency(3) = 21600.0,
+   filename(3) = 'exfDiag',
+#---
+  fields(1:15,5) = 'SRELAX  ','TRELAX  ',
+                   'oceFWflx','SIatmFW ','TFLUX   ','SItflux ',
+                   'oceSflux','oceQnet ','SIatmQnt',
+                   'SIaaflux','SIsnPrcp','SIacSubl',
+                   'SFLUX   ','oceQsw  ','oceSPflx',
+  frequency(7) = 2635200.0,
+#  filename(7) = 'budg2d_zflux_set1',
+#---
+ &
+
+#--------------------
+# Parameter for Diagnostics of per level statistics:
+#--------------------
+#  diagSt_mnc (logical): write stat-diags to NetCDF files (default=diag_mnc)
+#  diagSt_regMaskFile : file containing the region-mask to read-in
+#  nSetRegMskFile   : number of region-mask sets within the region-mask file
+#  set_regMask(i)   : region-mask set-index that identifies the region "i"
+#  val_regMask(i)   : region "i" identifier value in the region mask
+#--for each output-stream:
+#  stat_fName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  stat_freq(n):< 0 : write snap-shot output every |stat_freq| seconds
+#               > 0 : write time-average output every stat_freq seconds
+#  stat_phase(n)    : write at time = stat_phase + multiple of |stat_freq|
+#  stat_region(:,n) : list of "regions" (default: 1 region only=global)
+#  stat_fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#--------------------
+ &DIAG_STATIS_PARMS
+# diagSt_regMaskFile='basin_masks_eccollc_90x50.bin',
+#---
+ stat_fields(1:8,1)  = 'ETAN    ','ETANSQ  ','DETADT2 ',
+                       'UVEL    ','VVEL    ','WVEL    ',
+                       'THETA   ','SALT    ',
+    stat_fname(1)= 'dynStDiag',
+     stat_freq(1)= 14400.,
+#---
+ stat_fields(1:18,2) = 'ETAN    ','MXLDEPTH',
+                       'atmPload','oceFWflx','oceQnet ','oceQsw  ',
+                       'oceTAUX ','oceTAUY ','SRELAX  ','oceSflux',
+                       'sIceLoad','SIarea  ','SIheff  ','SIhsnow ',
+                       'SIatmFW ','SIatmQnt','THETA   ','SALT    ',
+    stat_fname(2)= 'surfStDiag',
+     stat_freq(2)= 14400.,
+#---
+ stat_fields(1:14,3) = 'EXFtaux ','EXFtauy ','EXFqnet ','EXFempmr',
+                       'EXFhs   ','EXFhl   ','EXFlwnet','EXFswnet',
+                       'EXFevap ','EXFpreci','EXFroff ',
+                       'EXFpress','EXFatemp','EXFaqh  ',
+    stat_fname(3)= 'exfStDiag',
+     stat_freq(3)= 14400.,
+ &

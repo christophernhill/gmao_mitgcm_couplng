@@ -1,0 +1,46 @@
+#!/bin/csh
+#PBS -l select=1:ncpus=1:model=ivy
+#below 2 lines for test:
+#PBS -l walltime=2:00:00
+#PBS -q devel
+#below 2 lines for production:
+##PBS -l walltime=24:00:00
+##PBS -q long
+#PBS -j oe
+#PBS -m abe
+
+module purge
+module load comp-intel mpi-hpe hdf4 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
+module list
+
+#fileList="grid_cs32.face001.bin grid_cs32.face002.bin grid_cs32.face003.bin grid_cs32.face004.bin grid_cs32.face005.bin grid_cs32.face006.bin"
+
+set ncpu=1
+#set ncpu=12
+set dirbase=/nobackupp11/afahad/MITgcm/verification/global_ocean.cs32x15
+set exp=_tst
+set dircode0=$dirbase/geos_blkf
+set dircode=$dirbase/cod$exp
+set dirinput=$dirbase/inp${exp}_af
+set dirbuild=$dirbase/build$exp
+set dirrun=$dirbase/run${exp}_af
+set dirforcing=$dirbase/
+set dirgrid=$dirbase/../tutorial_held_suarez_cs/input
+set job_script=$dirbase/job_cs32_nc1
+
+rm -rf $dirrun
+mkdir $dirrun
+ln -s $dirgrid/grid_cs32* $dirrun/
+ln -s $dirforcing/input_forcingEIG_monthly/EIG* $dirrun/
+cp $dirinput/* $dirrun/
+#mitgcmuv_ncpux1
+cp $dirbuild/mitgcmuv $dirrun/mitgcmuv
+cp $dirbuild/Makefile $dirrun/
+cp -r $dircode0 $dirrun
+cp -r $dircode $dirrun
+cp -r $job_script $dirrun
+
+#cd $PBS_O_dirrun
+cd $dirrun
+limit stacksize unlimited
+mpiexec -np $ncpu ./mitgcmuv
