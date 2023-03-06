@@ -68,6 +68,7 @@ C---------------
 C---------------
       _RL recip_rhoConstFresh
       INTEGER ks, kl
+      INTEGER tkey
 
 C---+----1----+----2----+----3----+----4----+----5----+----6----+----7-|--+----|
 
@@ -90,9 +91,17 @@ c     dP_lev = 6.
       dH_lev = hu
       dP_lev = hu*0.1 _d 0
 
+CADJ STORE vct,vp,vpe,vsh1,vt1,vus,vvs = comlev1, key=ikey_dynamics, kind=isbyte
+
 C     Loop over tiles.
       DO bj = myByLo(myThid),myByHi(myThid)
        DO bi = myBxLo(myThid),myBxHi(myThid)
+
+#ifdef ALLOW_AUTODIFF_TAMC
+        tkey = bi + (bj-1)*nSx + (ikey_dynamics-1)*nSx*nSy
+CADJ STORE vct,vp,vpe,vsh1,vt1,vus,vvs
+CADJ &     = comlev1_bibj, key=tkey, byte=isbyte
+#endif
 
 C-    Initialise with constant value:
          DO ij = 1,sNx*sNy
@@ -151,7 +160,10 @@ c           VHS(ij) = dH_lev
          IRUN = ij
          CHOOSEZ0 = 3  ! choice between 0,1,2,3
 
-         CALL helfsurface( VUS, VVS, VT1, VT2, VSH1, VSH2, VP, VPE,
+CADJ STORE vct = comlev1_bibj, key=tkey, byte=isbyte
+
+         CALL helfsurface(
+     &                     VUS, VVS, VT1, VT2, VSH1, VSH2, VP, VPE,
      &                     VZ0, LAI, IVWATER, VHS, Niter, IRUN,
      &                     VRHO, VKH, VKM, VUSTAR, VXX, VYY, VCU, VCT,
      &                     VRIB, VZETA, VWS, t2m, q2m, u2m, v2m,

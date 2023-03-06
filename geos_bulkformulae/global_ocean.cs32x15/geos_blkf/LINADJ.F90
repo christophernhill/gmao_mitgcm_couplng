@@ -1,3 +1,5 @@
+#include "PACKAGES_CONFIG.h"
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! !IROUTINE: linadj
 ! !INTERFACE:
@@ -49,26 +51,30 @@
 !
 !**********************************************************************
       implicit none
+#include "SIZE_f90.h"
+#ifdef ALLOW_AUTODIFF
+#include "tamc_f90.h"
+#endif
 
 ! Argument List Declarations
       integer irun,itype,CHOOSEZ0
-      REAL*8 VRIB1(*),VRIB2(*)
-      REAL*8 VWS1(*),VWS2(*),VZ1(*),VUSTAR(*)
-      integer IWATER(*)
-      REAL*8 VAPSIM(*),VAPSIHG(*)
-      REAL*8 VPSIH(*),VPSIG(*),VX(*)
-      REAL*8 VX0(*),VY(*),VY0(*)
+      REAL*8 VRIB1(sNx*sNy),VRIB2(sNx*sNy)
+      REAL*8 VWS1(sNx*sNy),VWS2(sNx*sNy),VZ1(sNx*sNy),VUSTAR(sNx*sNy)
+      integer IWATER(sNx*sNy)
+      REAL*8 VAPSIM(sNx*sNy),VAPSIHG(sNx*sNy)
+      REAL*8 VPSIH(sNx*sNy),VPSIG(sNx*sNy),VX(sNx*sNy)
+      REAL*8 VX0(sNx*sNy),VY(sNx*sNy),VY0(sNx*sNy)
       LOGICAL LWATER
-      REAL*8 VDZETA(*),VDZ0(*),VDPSIM(*)
-      REAL*8 VDPSIH(*)
-      integer INTRIB(*)
-      REAL*8 VX0PSIM(*),VG(*),VG0(*),VR1MG0(*)
-      REAL*8 VZ2(*),VDZSEA(*),VAZ0(*),VXNUM1(*)
-      REAL*8 VPSIGB2(*),VDX(*),VDXPSIM(*),VDY(*)
-      REAL*8 VXNUM2(*),VDEN(*),VAWS1(*),VXNUM3(*)
-      REAL*8 VXNUM(*),VDZETA1(*),VDZETA2(*)
-      REAL*8 VZCOEF2(*),VZCOEF1(*),VTEMPLIN(*)
-      REAL*8 VDPSIMC(*),VDPSIHC(*),bmdl(*)
+      REAL*8 VDZETA(sNx*sNy),VDZ0(sNx*sNy),VDPSIM(sNx*sNy)
+      REAL*8 VDPSIH(sNx*sNy)
+      integer INTRIB(sNx*sNy)
+      REAL*8 VX0PSIM(sNx*sNy),VG(sNx*sNy),VG0(sNx*sNy),VR1MG0(sNx*sNy)
+      REAL*8 VZ2(sNx*sNy),VDZSEA(sNx*sNy),VAZ0(sNx*sNy),VXNUM1(sNx*sNy)
+      REAL*8 VPSIGB2(sNx*sNy),VDX(sNx*sNy),VDXPSIM(sNx*sNy),VDY(sNx*sNy)
+      REAL*8 VXNUM2(sNx*sNy),VDEN(sNx*sNy),VAWS1(sNx*sNy),VXNUM3(sNx*sNy)
+      REAL*8 VXNUM(sNx*sNy),VDZETA1(sNx*sNy),VDZETA2(sNx*sNy)
+      REAL*8 VZCOEF2(sNx*sNy),VZCOEF1(sNx*sNy),VTEMPLIN(sNx*sNy)
+      REAL*8 VDPSIMC(sNx*sNy),VDPSIHC(sNx*sNy),bmdl(sNx*sNy)
 
 ! Local Variables
       REAL*8 xx0max,prfac,xpfac,difsqt,ustz0s,h0byz0,usth0s
@@ -80,8 +86,8 @@
       PARAMETER ( H0BYZ0 =    30.0    )
       PARAMETER ( USTH0S =  H0BYZ0*USTZ0S )
 
-      integer VINT1(irun),VINT2(irun)
-      REAL*8 vk,b2uhs(irun)
+      integer VINT1(sNx*sNy),VINT2(sNx*sNy)
+      REAL*8 vk,b2uhs(sNx*sNy)
       integer i
 !
       do i = 1,irun
@@ -182,6 +188,9 @@
       ENDIF
 !
 !   COMPUTE D LOG ZETA
+!
+!ADJ STORE vden,vg0,vxnum3 &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
 !
       IF (ITYPE.GE.3) THEN
        DO 9014 I = 1,IRUN

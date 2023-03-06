@@ -1,7 +1,10 @@
+#include "PACKAGES_CONFIG.h"
+
 ! !IROUTINE: helfsurface
 ! !INTERFACE:
-       SUBROUTINE helfsurface(VUS,VVS,VT1,VT2,VSH1,VSH2,VP,VPE, &
-        VZ0,LAI,IVWATER,VHS,N,IRUN, &
+       SUBROUTINE helfsurface( &
+        VUS,VVS,VT1,VT2,VSH1,VSH2,VP,VPE, &
+        VZ0,LAI,IVWATER,VHS,N,IRUN_LOC, &
         VRHO,VKH,VKM,VUSTAR,VXX,VYY,VCU,VCT,VRIB,VZETA,VWS, &
         t2m,q2m,u2m,v2m,t10m,q10m,u10m,v10m,u50m,v50m,CHOOSEZ0)
 !**********************************************************************
@@ -42,38 +45,45 @@
 !
 !**********************************************************************
       implicit none
+#include "SIZE_f90.h"
+#ifdef ALLOW_AUTODIFF
+#include "tamc_f90.h"
+#endif
 
 ! Argument List Declarations
-      integer n,irun,CHOOSEZ0
-      REAL*8 VUS(*),VVS(*),VT1(*),VT2(*),VSH1(*),VSH2(*)
-      REAL*8 VPE(*),VP(*),VZ0(*),LAI(*),VHS(*)
-      integer IVWATER(*)
-      REAL*8 VRHO(*)
-      REAL*8 VKM(*),VKH(*),VUSTAR(*),VXX(*)
-      REAL*8 VYY(*),VCU(*),VCT(*),VRIB(*)
-      REAL*8 VZETA(*),VWS(*)
-      REAL*8, intent(OUT) :: t2m(*),q2m(*),u2m(*),v2m(*)
-      REAL*8, intent(OUT) :: t10m(*),q10m(*),u10m(*),v10m(*)
-      REAL*8, intent(OUT) :: u50m(*),v50m(*)
+      integer lNx, lNy
+      integer IRUN, IRUN_LOC
+      integer n,CHOOSEZ0
+      REAL*8 VUS(sNx*sNy),VVS(sNx*sNy),VT1(sNx*sNy),VT2(sNx*sNy),VSH1(sNx*sNy),VSH2(sNx*sNy)
+      REAL*8 VPE(sNx*sNy),VP(sNx*sNy),VZ0(sNx*sNy),LAI(sNx*sNy),VHS(sNx*sNy)
+      integer IVWATER(sNx*sNy)
+      REAL*8 VRHO(sNx*sNy)
+      REAL*8 VKM(sNx*sNy),VKH(sNx*sNy),VUSTAR(sNx*sNy),VXX(sNx*sNy)
+      REAL*8 VYY(sNx*sNy),VCU(sNx*sNy),VCT(sNx*sNy),VRIB(sNx*sNy)
+      REAL*8 VZETA(sNx*sNy),VWS(sNx*sNy)
+      REAL*8, intent(OUT) :: t2m(sNx*sNy),q2m(sNx*sNy),u2m(sNx*sNy),v2m(sNx*sNy)
+      REAL*8, intent(OUT) :: t10m(sNx*sNy),q10m(sNx*sNy),u10m(sNx*sNy),v10m(sNx*sNy)
+      REAL*8, intent(OUT) :: u50m(sNx*sNy),v50m(sNx*sNy)
       LOGICAL LWATER
-      integer IVBITRIB(irun)
+      integer IVBITRIB(sNx*sNy)
 
 ! Local Variables
-      REAL*8 VHZ(irun),VPSIM(irun),VAPSIM(irun),VPSIG(irun),VPSIHG(irun)
-      REAL*8 VTEMP(irun),VDZETA(irun),VDZ0(irun),VDPSIM(irun)
-      REAL*8 VDPSIH(irun),VZH(irun),VXX0(irun),VYY0(irun)
-      REAL*8 VAPSIHG(irun),VRIB1(irun)
-      REAL*8 VPSIH(irun),VPSIH2(irun),VH0(irun)
-      REAL*8 VX0PSIM(irun),VG(irun),VG0(irun),VR1MG0(irun)
-      REAL*8 VZ2(irun),VDZSEA(irun),VAZ0(irun),VXNUM1(irun)
-      REAL*8 VPSIGB2(irun),VDX(irun),VDXPSIM(irun),VDY(irun)
-      REAL*8 VXNUM2(irun),VDEN(irun),VAWS1(irun),VXNUM3(irun)
-      REAL*8 VXNUM(irun),VDZETA1(irun),VDZETA2(irun)
-      REAL*8 VZCOEF2(irun),VZCOEF1(irun),VTEMPLIN(irun)
-      REAL*8 VDPSIMC(irun),VDPSIHC(irun),VAHS(irun)
-      REAL*8 VTHV1(IRUN),VTHV2(IRUN),VTH1(IRUN),VTH2(IRUN),VPKE(IRUN),VPK(IRUN)
+      REAL*8 VHZ(sNx*sNy),VPSIM(sNx*sNy),VAPSIM(sNx*sNy),VPSIG(sNx*sNy),VPSIHG(sNx*sNy)
+      REAL*8 VTEMP(sNx*sNy),VDZETA(sNx*sNy),VDZ0(sNx*sNy),VDPSIM(sNx*sNy)
+      REAL*8 VDPSIH(sNx*sNy),VZH(sNx*sNy),VXX0(sNx*sNy),VYY0(sNx*sNy)
+      REAL*8 VAPSIHG(sNx*sNy),VRIB1(sNx*sNy)
+      REAL*8 VPSIH(sNx*sNy),VPSIH2(sNx*sNy),VH0(sNx*sNy)
+      REAL*8 VX0PSIM(sNx*sNy),VG(sNx*sNy),VG0(sNx*sNy),VR1MG0(sNx*sNy)
+      REAL*8 VZ2(sNx*sNy),VDZSEA(sNx*sNy),VAZ0(sNx*sNy),VXNUM1(sNx*sNy)
+      REAL*8 VPSIGB2(sNx*sNy),VDX(sNx*sNy),VDXPSIM(sNx*sNy),VDY(sNx*sNy)
+      REAL*8 VXNUM2(sNx*sNy),VDEN(sNx*sNy),VAWS1(sNx*sNy),VXNUM3(sNx*sNy)
+      REAL*8 VXNUM(sNx*sNy),VDZETA1(sNx*sNy),VDZETA2(sNx*sNy)
+      REAL*8 VZCOEF2(sNx*sNy),VZCOEF1(sNx*sNy),VTEMPLIN(sNx*sNy)
+      REAL*8 VDPSIMC(sNx*sNy),VDPSIHC(sNx*sNy),VAHS(sNx*sNy)
+      REAL*8 VTHV1(sNx*sNy),VTHV2(sNx*sNy),VTH1(sNx*sNy),VTH2(sNx*sNy),VPKE(sNx*sNy),VPK(sNx*sNy)
 
-      REAL*8 vz0h(irun),vh0h(irun),dummy1(irun),dummy2(irun),dummy3(irun),dummy4(irun),dummy5(irun)
+      REAL*8 vz0h(sNx*sNy),vh0h(sNx*sNy)
+      REAL*8 dummy1(sNx*sNy),dummy2(sNx*sNy),dummy3(sNx*sNy),dummy4(sNx*sNy),dummy5(sNx*sNy),dummy6(sNx*sNy),dummy7(sNx*sNy)
 
 ! Local Variables
       REAL*8 USTMX3,USTZ0S,Z0MIN,H0BYZ0,USTH0S,H0VEG,Z0VEGM,PRFAC,Z0MAX
@@ -90,8 +100,8 @@
       PARAMETER ( XPFAC  = .55        )
       PARAMETER ( DIFSQT  = 3.872983E-3)
 
-      REAL*8 psihdiag(irun),psimdiag(irun)
-      REAL*8 rvk,vk2,bmdl(irun)
+      REAL*8 psihdiag(sNx*sNy),psimdiag(sNx*sNy)
+      REAL*8 rvk,vk2,bmdl(sNx*sNy)
       integer iwater,itype
       integer i,iter
 !
@@ -112,6 +122,15 @@
 
 !     INITIALIZATION
 
+      DO I = 1, sNx*sNy
+       dummy1(I) = 0.
+       dummy2(I) = 0.
+       dummy3(I) = 0.
+       dummy4(I) = 0.
+       dummy5(I) = 0.
+       dummy6(I) = 0.
+       dummy7(I) = 0.
+      ENDDO
       DO I = 1,IRUN
        VAHS(I) = 1. / VHS(I)
        VPKE(I) = VPE(I) ** MAPL_KAPPA
@@ -144,6 +163,7 @@
         IF (IVWATER(I).EQ.1) VZ0(I) = 0.0003
  9004  CONTINUE
       ENDIF
+!ADJ STORE vz0 = comlev1, key=ikey_dynamics, kind=isbyte
       do i = 1,irun
        vh0(i) = h0byz0 * vz0(i)
        if(vz0(i).ge.z0vegm)vh0(i) = h0veg
@@ -168,16 +188,30 @@
 !
 !     LINEAR CORRECTION FOR ERROR IN ROUGHNESS LENGTH Z0
 !
-      IF(LWATER)THEN
+!ADJ STORE vaz0,vden,vdpsih,vdpsim,vdx,vdxpsim, &
+!ADJ       vdy,vdzeta,vtemp,vtemplin,vx0psim,vxnum1,vxnum2,vz0 &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE vz0 = comlev1, key=ikey_dynamics, kind=isbyte
+
        DO 9008 I = 1,IRUN
         VTEMP(I) = 0.
  9008  CONTINUE
+
+      IF (LWATER) THEN
+
+!ADJ STORE vapsim,vaz0,vdpsih,vdpsim,vdx,vdxpsim,vdy, &
+!ADJ       vdzeta,vdzsea,vtemplin,vustar,vx0psim,vxnum1,vxnum2,vz0 &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE vcu = comlev1, key=ikey_dynamics, kind=isbyte
+
        CALL LINADJ(VRIB,VRIB,VWS,VWS,VZ0,VUSTAR,IVWATER,VAPSIM, &
-        VTEMP,VTEMP,VTEMP,VTEMP,VTEMP,VTEMP,VTEMP,1,.TRUE.,IRUN,VDZETA, &
+        dummy1,dummy2,dummy3,dummy4,dummy5,dummy6,dummy7,1,.TRUE.,IRUN,VDZETA, &
         VDZ0,VDPSIM,VDPSIH,IVBITRIB, &
         VX0PSIM,VG,VG0,VR1MG0,VZ2,VDZSEA,VAZ0,VXNUM1,VPSIGB2,VDX, &
         VDXPSIM,VDY,VXNUM2,VDEN,VAWS1,VXNUM3,VXNUM,VDZETA1,VDZETA2, &
         VZCOEF2,VZCOEF1,VTEMPLIN,VDPSIMC,VDPSIHC,MAPL_KARMAN,bmdl,CHOOSEZ0)
+
+!ADJ STORE vcu = comlev1, key=ikey_dynamics, kind=isbyte
        DO 9010 I = 1,IRUN
         IF ( IVWATER(I).EQ.1 ) THEN
          VCU(I) = VCU(I) * (1. - VDPSIM(I)*VAPSIM(I))
@@ -208,7 +242,9 @@
 !      VZH(I) = VZ0(I) * VAHS(I)
        VZH(I) = VZ0(I) / (VHS(I) + VZ0(I))
  9014 CONTINUE
+
       CALL PSI (VZETA,VZH,VPSIM,VTEMP,IRUN,VXX,VXX0,VYY,VYY0,2)
+
       DO 9016 I = 1,IRUN
        VCU(I) = MAPL_KARMAN / VPSIM(I)
        VPSIG(I) = VH0(I) * VCU(I) * VWS(I) - USTH0S
@@ -236,21 +272,39 @@
  9020  CONTINUE
       ENDIF
 !
+! ------------------------------------
 !  ITERATIVE LOOP - N ITERATIONS
 !     COMPUTE CU AND CT
+! ------------------------------------
 !
+!ADJ STORE vaz0,vden,vdpsih,vdpsim,vdx,vdxpsim,vdy, &
+!ADJ       vdzeta,vtemplin,vx0psim,vxnum1,vxnum2,vz0 &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
+
       DO 200 ITER = 1,N
+!
+!ADJ STORE vaz0,vden,vdpsih,vdpsim,vdx,vdxpsim,vdy, &
+!ADJ       vdzeta,vtemplin,vx0psim,vxnum1,vxnum2,vz0 &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE vz0h,vzeta = comlev1, key=ikey_dynamics, kind=isbyte
 
        DO 9026 I = 1,IRUN
 !       VZH(I) = VZ0(I) * VAHS(I)
         VZH(I) = VZ0(I) / (VHS(I) + VZ0(I))
  9026  CONTINUE
+
        CALL PSI (VZETA,VZH,VPSIM,VPSIH,IRUN,VXX,VXX0,VYY,VYY0,1)
+
        DO I = 1,IRUN
 !       VZH(I) = VZ0H(I) * VAHS(I)
         VZH(I) = VZ0H(I) / (VHS(I) + VZ0H(I))
        ENDDO
-       if( choosez0.eq.3 .AND. Lwater ) CALL PSI (VZETA,VZH,dummy1,VPSIH,IRUN,dummy2,dummy3,dummy4,dummy5,3)
+
+       if( choosez0.eq.3 .AND. Lwater ) &
+        CALL PSI (VZETA,VZH,dummy1,VPSIH,IRUN,dummy2,dummy3,dummy4,dummy5,3)
+
+!ADJ STORE vh0,vz0,vz0h = comlev1, key=ikey_dynamics, kind=isbyte
+
        DO 9028 I = 1,IRUN
         VCU(I) = MAPL_KARMAN / VPSIM(I)
         VUSTAR(I) = VCU(I) * VWS(I)
@@ -271,6 +325,9 @@
        ITYPE = 3
        IF(ITER.EQ.N) ITYPE = 5
 !
+!ADJ STORE vaz0,vdpsih,vdpsim,vdx,vdxpsim,vdy,vdzeta,vdzsea,vh0,vtemplin,vx0psim,vxnum1,vxnum2,vz0,vz0h &
+!ADJ       = comlev1, key=ikey_dynamics, kind=isbyte
+
        CALL LINADJ(VRIB1,VRIB,VWS, &
         VWS,VZ0,VUSTAR,IVWATER, &
         VAPSIM,VAPSIHG,VPSIH, &
@@ -284,22 +341,37 @@
 !
 !  UPDATES OF ZETA, Z0, CU AND CT
 !
-       DO 9032 I = 1,IRUN
+!ADJ STORE vz0 = comlev1, key=ikey_dynamics, kind=isbyte
+       DO I = 1,IRUN
         VZETA(I) = VZETA(I) * ( 1. + VDZETA(I) )
+       ENDDO
+!ADJ STORE vz0 = comlev1, key=ikey_dynamics, kind=isbyte
+       DO I = 1,IRUN
         IF (IVBITRIB(I).EQ.1 ) VZETA(I) = VPSIM(I) * VPSIM(I) * VRIB(I) * VAPSIHG(I)
- 9032  CONTINUE
+       ENDDO 
 !
        IF ( LWATER ) THEN
-        DO 9034 I = 1,IRUN
+!ADJ STORE vz0,vz0h = comlev1, key=ikey_dynamics, kind=isbyte
+        DO I = 1,IRUN
          IF (IVWATER(I).EQ.1 ) then
           VZ0(I) = VZ0(I) * ( 1. + VDZ0(I) )
           VZ0H(I) = VZ0H(I) * ( 1. + VDZ0(I) )
+         ENDIF
+        ENDDO
+!ADJ STORE vz0,vz0h = comlev1, key=ikey_dynamics, kind=isbyte
+        DO I = 1,IRUN
+         IF (IVWATER(I).EQ.1 ) then
           IF (VZ0(I) .LE. Z0MIN ) VZ0(I) = Z0MIN
           IF (VZ0H(I) .LE. Z0MIN ) VZ0H(I) = Z0MIN
+         ENDIF
+        ENDDO
+!ADJ STORE vz0,vz0h = comlev1, key=ikey_dynamics, kind=isbyte
+        DO I = 1,IRUN
+         IF (IVWATER(I).EQ.1 ) then
           vh0(i) = h0byz0 * vz0(i)
           vh0h(i) = h0byz0 * vz0h(i)
-         endif
- 9034   CONTINUE
+         ENDIF
+        ENDDO
        ENDIF
 !
        IF ( ITER .EQ. N ) THEN
@@ -326,14 +398,21 @@
 !
  200  CONTINUE
 !
+! ------------------------------------
+! ------ END 200 ITERATION LOOP ------
+! ------------------------------------
+!
 !  CALCULATE RHO-SURFACE ( KG / M**3 )
 !
+!ADJ STORE vzh = comlev1, key=ikey_dynamics, kind=isbyte
        DO I = 1,IRUN
         VTEMP(I) =  10. * VAHS(I) * VZETA(I)
 !       VZH(I) = VZ0(I) * 0.1
         VZH(I) = VZ0(I) / (10. + VZ0(I))
        ENDDO
-       CALL PSI (VTEMP,VZH,VHZ,VPSIH2,IRUN,VHZ,VHZ,VHZ,VHZ,3)
+!ADJ STORE vtemp = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE vzh, vz0h = comlev1, key=ikey_dynamics, kind=isbyte
+       CALL PSI (VTEMP,VZH,dummy1,VPSIH2,IRUN,dummy2,dummy3,dummy4,dummy5,3)
        DO I = 1,IRUN
         VTEMP(I) = min(( VPSIH2(I) + VPSIG(I) ) / VPSIHG(I),1.)
         VRHO(I) = VPKE(I)*( VTH2(I) + VTEMP(I) * (VTH1(I)-VTH2(I)) )
@@ -345,12 +424,17 @@
 !                 to specified level
 ! and multiply theta by surface p**kappa to get temperatures
 !
+!ADJ STORE vzh = comlev1, key=ikey_dynamics, kind=isbyte
         do i = 1,irun
          vtemp(i) = 2. * vahs(i) * vzeta(i)
 !        vzh(i) = min(vz0(i),2.) * 0.5
          VZH(I) = min(VZ0(I),2.) / (2. + min(VZ0(I),2.))
         enddo
-        call psi(vtemp,vzh,psimdiag,psihdiag,irun,vhz,vhz,vhz,vhz,1)
+!ADJ STORE vtemp,vzh = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE psihdiag = comlev1, key=ikey_dynamics, kind=isbyte
+        CALL PSI(vtemp,vzh,psimdiag,psihdiag,irun,dummy2,dummy3,dummy4,dummy5,1)
+!ADJ STORE vtemp = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE psihdiag = comlev1, key=ikey_dynamics, kind=isbyte
         do i = 1,irun
          vtemp(i) = min(( psihdiag(i) + vpsig(i) ) / vpsihg(i),1.)
          t2m(i) = ( (vth2(i) + vtemp(i)* (vth1(i)-vth2(i))) ) * vpke(i)
@@ -364,7 +448,8 @@
 !        vzh(i) = vz0(i) * 0.1
          VZH(I) = VZ0(I) / (10. + VZ0(I))
         enddo
-        call psi(vtemp,vzh,psimdiag,psihdiag,irun,vhz,vhz,vhz,vhz,1)
+!ADJ STORE vtemp, vzh = comlev1, key=ikey_dynamics, kind=isbyte
+        CALL PSI(vtemp,vzh,psimdiag,psihdiag,irun,dummy2,dummy3,dummy4,dummy5,1)
         do i = 1,irun
          vtemp(i) = min(( psihdiag(i) + vpsig(i) ) / vpsihg(i),1.)
          t10m(i) = ( (vth2(i) + vtemp(i)* (vth1(i)-vth2(i))) ) * vpke(i)
@@ -373,12 +458,14 @@
          v10m(i) = (psimdiag(i)/vpsim(i) * vvs(i))
         enddo
 
+!ADJ STORE vz0, vz0h = comlev1, key=ikey_dynamics, kind=isbyte
         do i = 1,irun
          vtemp(i) = 50. * vahs(i) * vzeta(i)
 !        vzh(i) = vz0(i) * 0.02
          VZH(I) = VZ0(I) / (50. + VZ0(I))
         enddo
-        call psi(vtemp,vzh,psimdiag,psihdiag,irun,vhz,vhz,vhz,vhz,1)
+!ADJ STORE vtemp, vzh = comlev1, key=ikey_dynamics, kind=isbyte
+        CALL PSI(vtemp,vzh,psimdiag,psihdiag,irun,dummy2,dummy3,dummy4,dummy5,1)
         do i = 1,irun
          u50m(i) = (psimdiag(i)/vpsim(i) * vus(i))
          v50m(i) = (psimdiag(i)/vpsim(i) * vvs(i))
@@ -394,6 +481,8 @@
        VKM(I) = VUSTAR(I) * VCU(I) * VRHO(I)
  9044 CONTINUE
 
+!ADJ STORE vz0 = comlev1, key=ikey_dynamics, kind=isbyte
+!ADJ STORE vz0h = comlev1, key=ikey_dynamics, kind=isbyte
       DO I = 1,IRUN
        VRIB(I) = MAPL_CP*(VPKE(I)-VPK(I))*(VTHV1(I)-VTHV2(I)) /    &
                 max(VUS(I)*VUS(I) + VVS(I)*VVS(I),1.e-1)

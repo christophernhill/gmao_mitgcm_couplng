@@ -1,3 +1,5 @@
+#include "PACKAGES_CONFIG.h"
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! !IROUTINE: zcsub
 ! !INTERFACE:
@@ -28,11 +30,15 @@
 !          AND OF KONDO --- DESIGNED FOR K = .4
 ! *********************************************************************
       implicit none
+#include "SIZE_f90.h"
+#ifdef ALLOW_AUTODIFF
+#include "tamc_f90.h"
+#endif
 
 ! Argument List Delcarations
       integer irun, CHOOSEZ0
-      REAL*8 VZSEA(*),VUSTAR(*),VDZSEA(*)
-      integer IWATER(*)
+      REAL*8 VZSEA(sNx*sNy),VUSTAR(sNx*sNy),VDZSEA(sNx*sNy)
+      integer IWATER(sNx*sNy)
       LOGICAL LDZSEA
 
 ! Local Variables

@@ -85,7 +85,8 @@
 ! *****    UNSTABLE SURFACE LAYER    *****
 ! ****************************************
 !
-      IF(IBIT.LE.0)  GO TO 100
+!PH      IF(IBIT.LE.0)  GO TO 100
+      IF (IBIT.GT.0) THEN
 !
       indx = 0
       DO 9002 I = 1,IRUN
@@ -108,7 +109,8 @@
 ! *****    COMPUTE PSIM  *****
 ! ****************************
 !
-      IF(IFLAG.GE.3) GO TO 75
+!PH      IF(IFLAG.GE.3) GO TO 75
+      IF (IFLAG.LT.3) THEN
 !
       DO 9006 I = 1,IBIT
        ARG1(I) = 1. - X1(I)
@@ -137,14 +139,19 @@
         VXS(I) = X0(indx)
        ENDIF
  9008 CONTINUE
+
+! ENDIF GO TO 75
+      ENDIF
 !
 ! ****************************
 ! *****    COMPUTE PSIH  *****
 ! ****************************
 !
-      IF(IFLAG.EQ.2) GO TO 100
+!PH  75  CONTINUE
+
+!PH      IF(IFLAG.EQ.2) GO TO 100
+      IF (IFLAG.NE.2) THEN
 !
-  75  CONTINUE
       DO 9010 I = 1,IBIT
        ARG1(I) = 1. - Y1(I)
        IF( Z(I) .LT. 0.0065 ) ARG1(I) = Z(I) * ( 0.5 -  0.625 * Z(I) )
@@ -168,12 +175,16 @@
        VYS(I) = Y0(indx)
        ENDIF
  9012 CONTINUE
+
+! ENDIF 100
+      ENDIF
+      ENDIF
 !
 ! **************************************
 ! *****    STABLE SURFACE LAYER    *****
 ! **************************************
 !
-  100 CONTINUE
+!  100 CONTINUE
       IBIT = 0
       DO 9114 I = 1,IRUN
        IF(VZZ(I).GT.-1.e-7)THEN
