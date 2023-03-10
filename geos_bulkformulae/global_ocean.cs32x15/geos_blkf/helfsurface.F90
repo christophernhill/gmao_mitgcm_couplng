@@ -109,6 +109,7 @@
 #include "MAPL_CONST.h"
 ! -- end of jmc addition
 
+      IRUN = IRUN_LOC
       rvk = 1./MAPL_KARMAN
       vk2 = MAPL_KARMAN*MAPL_KARMAN
       DO I = 1,IRUN
