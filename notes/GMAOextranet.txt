@@ -1,0 +1,17 @@
+The GMAO extranet is accessible here: https://gmao.gsfc.nasa.gov/extranet/
+    Username: g5user
+    Password: ask Andrea.Molod@nasa.gov or menemenlis@jpl.nasa.gov
+
+Fahad's experiments are under "GEOS-5 Shared Experiments",
+e.g., "GEOSMIT_GF25Pro".
+
+For example, click on "Surface/2-D" under "AGCM Diagnostics", then
+"CLIM", "June-July-August", "MERRA-2 Reanalysis", "GEOSMIT_GF1", and
+"(z) Skin Temperature (Ocean)   vs   MERRA-2" to compare time-mean
+SST difference with MERRA-2 for optimised (top panel), baseline
+(middle panel), and closeness (bottom panel).  Colorbar units are
+1/100K. Yellow-red shades in top two panels means warmer than MERRA-2
+while green-blue shades means colder than MERRA-2.  In bottom
+panel, green-blue shades means that optimized simulation is closer
+MERRA-2 than baseline simulation while yellow-red shades means
+that it is further away.
