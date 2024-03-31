@@ -1,0 +1,15 @@
+Can the three sea-ice albedo parameters in CICE be adjusted
+separately in Northern and Southern hemispheres?
+
+data
+ viscAr      = 0.5E-4,
+ viscAhGrid  = 2.E-2,
+ diffKhT     = 1.E1,
+ diffKhS     = 1.E1,
+ diffKrFile  = 'eccov4_r4_diffkr.data',
+ viscA4Dfile = 'fenty_biharmonic_visc_v11.bin',
+ viscA4Zfile = 'fenty_biharmonic_visc_v11.bin',
+
+data.gmredi
+ GM_K3dGMFile    = 'eccov4_r4_kapgm.data',
+ GM_K3dRediFile  = 'eccov4_r4_kapredi.data',
