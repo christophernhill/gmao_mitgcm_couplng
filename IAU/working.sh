@@ -17,7 +17,7 @@ mkdir -p output_noRBCS
 
 cp -pr ../$rbcs .
 sed -i "s|setenv  EXPDIR.*|setenv  EXPDIR `pwd`/${rbcs}|" ${rbcs}/gcm_run.j
-sed -i "s|setenv  HOMDIR.*|setenv  EXPDIR `pwd`/${rbcs}|" ${rbcs}/gcm_run.j
+sed -i "s|setenv  HOMDIR.*|setenv  HOMDIR `pwd`/${rbcs}|" ${rbcs}/gcm_run.j
 
 aa=$PWD
 #for seg in {1..73}; do
