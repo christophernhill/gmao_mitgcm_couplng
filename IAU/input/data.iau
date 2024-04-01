@@ -1,0 +1,8 @@
+# IAU parameters 
+# T/S/U/V/Eta/SIarea/SIheff/SIhsnow/SIuice/SIvice
+ &IAU_PARMS
+ analysisFile(1) = 'output_noRBCS/T.0000000000.data',
+ analysisFile(2) = 'output_noRBCS/S.0000000000.data',
+ eccoFile(1)     = 'eccov4r4/T.0000000000.data',
+ eccoFile(2)     = 'eccov4r4/S.0000000000.data',
+ /
