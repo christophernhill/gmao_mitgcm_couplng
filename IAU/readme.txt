@@ -43,7 +43,7 @@ sed -i '596i \ \ \ \ \ \ \ set DEFAULT_HISTORY_TEMPLATE="HISTORY.AOGCM.rc.tmpl"'
 
 # example inputs
 
-Enter the Experiment ID:
+Enter the Experiment ID: #expID will be used for line 110 below and line 11 @working.sh
 GEOSMIT6
 Enter a 1-line Experiment Description:
 test exp

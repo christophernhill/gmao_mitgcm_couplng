@@ -8,8 +8,8 @@
 #PBS -j oe -k oed
 #@BATCH_NAME -o gcm_run.o@RSTDATE
 
-rbcs=GEOSMIT7
-norb=GEOSMIT77
+rbcs=GEOSMIT6	#expID as line 46 @readme.txt
+norb=GEOSMIT66	#diff from above
 
 ln -sf /nobackup/hzhang1/for_Fahad/IAU/ecco_iau
 ln -sf /nobackup/hzhang1/for_Fahad/IAU/eccov4r4
