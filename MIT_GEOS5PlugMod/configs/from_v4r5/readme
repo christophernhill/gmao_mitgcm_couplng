@@ -1,0 +1,7 @@
+adapted from
+https://github.com/MITgcm-contrib/llc_hires/tree/master/llc_90/ecco_v4r5/code
+https://github.com/MITgcm-contrib/llc_hires/tree/master/llc_90/ecco_v4r5/input
+with 15x15 tiles on 363(=468-105) cpus.
+
+All binary files specified in input/data* can be linked from
+pfe:/nobackup/hzhang1/pub/Release5/input_bin/
