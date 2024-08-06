@@ -1,1 +1,7 @@
 exf_geos_bulkf.f
+helfsurface.f90
+LINADJ.f90
+PHI.f90
+PSI.f90
+ZCSUB.f90
+
