@@ -33,7 +33,3 @@
       PARAMETER ( MAX_OLX = OLx, &
                  MAX_OLY = OLy )
 
-!     for pkg/ctrl:
-      INTEGER nobcs
-      PARAMETER ( nobcs = 4 )
-

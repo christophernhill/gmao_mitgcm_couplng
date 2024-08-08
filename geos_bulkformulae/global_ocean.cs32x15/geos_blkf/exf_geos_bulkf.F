@@ -92,7 +92,8 @@ c     dP_lev = 6.
       dH_lev = hu
       dP_lev = hu*0.1 _d 0
 
-CADJ STORE vct,vp,vpe,vsh1,vt1,vus,vvs = comlev1, key=ikey_dynamics, kind=isbyte
+CADJ STORE vct,vp,vpe,vsh1,vt1,vus,vvs 
+CADJ &     = comlev1, key=ikey_dynamics, kind=isbyte
 
 C     Loop over tiles.
       DO bj = myByLo(myThid),myByHi(myThid)
